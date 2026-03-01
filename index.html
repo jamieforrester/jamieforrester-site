@@ -8,347 +8,470 @@
   <link rel="icon" href="/favicon.png">
 
   <style>
-    :root{
-      --bg:#0b0b0c;
-      --panel:#0f0f11;
-      --text-main:#f0f0f0;
-      --text-dim:#b6b6b6;
-      --text-faint:#7a7a7a;
-      --border:#232327;
-      --accent:#2f2f35;
-      --chip:#141417;
-      --focus:#ffffff;
-      --focus-ring:rgba(255,255,255,0.95);
-      --focus-bg:rgba(255,255,255,0.08);
+    :root {
+      --bg: #0b0b0c;
+      --panel: #0f0f11;
+      --text-main: #f0f0f0;
+      --text-dim: #b6b6b6;
+      --text-faint: #8a8a8a;
+      --border: #232327;
+      --accent: #2f2f35;
+      --chip: #141417;
+      --focus: #ffffff;
+      --focus-ring: rgba(255,255,255,0.95);
+      --focus-bg: rgba(255,255,255,0.08);
     }
 
-    *{box-sizing:border-box;}
-    html{color-scheme:dark;}
+    * { box-sizing: border-box; }
 
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text-main);
-      line-height:1.65;
-      font-size:15px;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+    html { color-scheme: dark; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
+      /* Accessibility: body text is NOT monospace for readability */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    .mono{
-      font-family:ui-monospace,"Cascadia Mono","Segoe UI Mono","Roboto Mono",Menlo,Monaco,Consolas,monospace;
+    /* Keep the “manual/spec” feel in UI chrome */
+    .mono,
+    .sub,
+    .label,
+    .label-note,
+    .chip,
+    .m-order,
+    .k,
+    .status,
+    footer,
+    .foot-links a {
+      font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
     }
 
-    .wrap{max-width:1100px;margin:0 auto;padding:56px 24px 56px;}
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px 56px;
+    }
 
     /* Skip link */
-    .skip-link{
-      position:absolute;
-      left:12px;top:10px;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid var(--accent);
-      background:var(--panel);
-      color:#fff;
-      transform:translateY(-200%);
-      transition:transform 120ms ease;
-      z-index:9999;
-      text-decoration:none;
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: var(--panel);
+      color: #fff;
+      transform: translateY(-200%);
+      transition: transform 120ms ease;
+      z-index: 9999;
+      text-decoration: none;
     }
-    .skip-link:focus-visible{
-      transform:translateY(0);
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-    }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
     /* Header */
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-      border-bottom:1px solid var(--border);
-      padding-bottom:26px;
-      margin-bottom:26px;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
     }
 
-    .h-left{display:flex;align-items:center;gap:18px;min-width:0;}
-    .avatar{
-      width:62px;height:62px;border-radius:999px;
-      border:1px solid var(--accent);
-      object-fit:cover;
-      filter:grayscale(100%);
-      flex:0 0 auto;
+    .h-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
     }
 
-    h1{
-      margin:0;
-      font-size:20px;
-      font-weight:650;
-      letter-spacing:-0.5px;
-      line-height:1.15;
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid var(--accent);
+      filter: grayscale(100%);
+      flex: 0 0 auto;
     }
 
-    .sub{
-      margin-top:6px;
-      font-size:11px;
-      color:var(--text-dim);
-      text-transform:uppercase;
-      letter-spacing:1.8px;
-      white-space:nowrap;
+    .h-title { min-width: 0; }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: -0.4px;
+      line-height: 1.2;
     }
 
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border:1px solid var(--accent);
-      border-radius:10px; /* middle-ground: not pill, not sharp */
-      background:var(--chip);
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.6px;
-      gap:10px;
-      white-space:nowrap;
+    .sub {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1.8px; /* reduced from 2.2 for readability */
+      white-space: nowrap;
+    }
+
+    .chips {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--text-dim);
+      font-size: 11px;
+      white-space: nowrap;
     }
 
     /* Layout */
-    .grid{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:28px;
-      align-items:start;
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: start;
     }
 
-    /* Cards */
-    .card{
-      background:var(--panel);
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:22px;
-    }
-    .card + .card{margin-top:18px;}
-
-    /* Labels */
-    .label-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap:14px;
-      border-bottom:1px solid var(--border);
-      padding-bottom:10px;
-      margin-bottom:14px;
-    }
-    .label{
-      font-size:11px;
-      font-weight:800;
-      color:#fff;
-      text-transform:uppercase;
-      letter-spacing:2.6px;
-    }
-    .label-note{
-      font-size:10px;
-      color:var(--text-faint);
-      letter-spacing:1px;
-      white-space:nowrap;
-      text-transform:lowercase;
+    /* Cards / sections */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
     }
 
-    /* Content */
-    .hero{
-      font-size:19px;
-      font-weight:750;
-      color:#fff;
-      line-height:1.28;
-      margin:0 0 10px;
-      letter-spacing:-0.35px;
-    }
-    .lead{
-      margin:0 0 12px;
-      color:#d3d3d3;
-      font-size:14px;
-      max-width:72ch;
-    }
-    .small{
-      margin:0;
-      font-size:12.5px;
-      color:var(--text-dim);
-      line-height:1.55;
+    .card + .card { margin-top: 18px; }
+
+    .label-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
     }
 
-    /* Quick scan: tighter + simpler than my previous, but still scannable */
-    .quick{
-      display:grid;
-      gap:10px;
-      margin-top:12px;
-      padding-top:12px;
-      border-top:1px solid var(--border);
-    }
-    .quick-item{
-      display:grid;
-      grid-template-columns:110px 1fr;
-      gap:12px;
-      align-items:start;
-    }
-    .qk{
-      font-size:11px;
-      color:var(--text-faint);
-      text-transform:uppercase;
-      letter-spacing:1.6px;
-      padding-top:2px;
-      white-space:nowrap;
-    }
-    .qv{
-      font-size:13px;
-      color:#dedede;
-      line-height:1.55;
-    }
-    .qv strong{color:#fff;font-weight:700;}
-
-    /* Method: keep Gemini’s “machine” feel, but less decorative */
-    .method{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:10px;
-    }
-    .m-item{
-      padding:12px 14px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      background:rgba(255,255,255,0.01);
-    }
-    .m-top{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:6px;
-    }
-    .m-name{
-      font-weight:800;
-      color:#fff;
-      font-size:13px;
-      letter-spacing:-0.15px;
-    }
-    .m-order{
-      font-size:10px;
-      color:var(--text-faint);
-      text-transform:uppercase;
-      letter-spacing:1.6px;
-      white-space:nowrap;
-    }
-    .m-desc{
-      margin:0;
-      font-size:13px;
-      color:var(--text-dim);
-      line-height:1.55;
+    .label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 2.4px; /* reduced for readability */
+      font-weight: 750;
     }
 
-    /* Papers: clean, simple, optionally thumbnail-ready */
-    .paper{
-      padding:14px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      background:rgba(0,0,0,0.10);
-    }
-    .paper + .paper{margin-top:12px;}
-
-    .paper-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:8px;
-    }
-    .paper-title{
-      margin:0;
-      font-size:14px;
-      font-weight:800;
-      color:#fff;
-      line-height:1.25;
-      letter-spacing:-0.15px;
-    }
-    .status{
-      font-size:9px;
-      text-transform:uppercase;
-      letter-spacing:1.2px;
-      padding:3px 7px;
-      border-radius:8px;
-      border:1px solid var(--accent);
-      color:var(--text-dim);
-      background:rgba(255,255,255,0.02);
-      white-space:nowrap;
-      flex:0 0 auto;
-    }
-    .paper-desc{
-      margin:0 0 10px;
-      font-size:12.5px;
-      color:var(--text-dim);
-      line-height:1.55;
+    .label-note {
+      font-size: 11px;
+      color: var(--text-faint);
+      white-space: nowrap;
+      letter-spacing: 1.2px;
     }
 
-    /* Optional thumbnails (meet-in-the-middle): small, non-dominant */
-    .paper-row{
-      display:grid;
-      grid-template-columns:52px 1fr;
-      gap:12px;
-      align-items:start;
-    }
-    .thumb{
-      width:52px;height:70px;
-      border-radius:8px;
-      border:1px solid var(--accent);
-      background:rgba(255,255,255,0.03);
-      object-fit:cover;
-      filter:grayscale(100%);
-      display:block;
+    .hero {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin: 2px 0 10px;
+      color: var(--focus);
     }
 
-    /* Links */
-    a{
-      color:#fff;
-      text-decoration:none;
-      border-bottom:1px solid #3f3f45;
-      padding-bottom:1px;
-      font-size:13px;
+    .lead {
+      margin: 0 0 14px;
+      color: #d6d6d6;
+      max-width: 72ch;
+      font-size: 14px;
     }
-    a:hover{border-bottom-color:#fff;background:rgba(255,255,255,0.06);}
-    a:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      border-bottom-color:transparent;
-      background:var(--focus-bg);
-      border-radius:6px;
-    }
-    .muted-link{color:var(--text-dim);border-bottom-color:#2c2c31;}
 
-    .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+    .small {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Quick Scan */
+    .quickscan {
+      display: grid;
+      gap: 10px;
+    }
+
+    .qs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .qs-item {
+      padding: 12px 12px 11px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0,0,0,0.14);
+    }
+
+    .qs-k {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin: 0 0 6px;
+      font-weight: 750;
+    }
+
+    .qs-v {
+      margin: 0;
+      color: #dedede;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .qs-v strong { color: #fff; font-weight: 700; }
+
+    /* Deliverable block */
+    .deliverable {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 12px 16px;
+      padding: 14px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      margin-top: 14px;
+    }
+
+    .k {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    .v {
+      font-size: 13px;
+      color: #dedede;
+      line-height: 1.6;
+    }
+
+    .v strong { color: #fff; font-weight: 700; }
+
+    /* Method list */
+    .method {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .m-item {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .m-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .m-name {
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+
+    .m-order {
+      font-size: 11px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      white-space: nowrap;
+    }
+
+    .m-desc {
+      margin: 0;
+      color: #d0d0d0;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* Lists */
+    ul.clean {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    ul.clean li {
+      padding-left: 16px;
+      position: relative;
+      color: #d6d6d6;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    ul.clean li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+
+    /* Research items with thumbnails */
+    .paper {
+      padding: 14px 14px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .paper + .paper { margin-top: 12px; }
+
+    .paper-row {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .thumb {
+      width: 64px;
+      height: 86px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.03);
+      display: block;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .paper-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .paper-title {
+      font-weight: 850;
+      letter-spacing: -0.2px;
+      color: #fff;
+      line-height: 1.25;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .status {
+      font-size: 10px;
+      padding: 3px 8px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: #d0d0d0;
+      background: rgba(255,255,255,0.02);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    .paper-desc {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: var(--text-dim);
+      max-width: 68ch;
+    }
+
+    .paper-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* Links: clearer affordance + focus visible */
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #3a3a3f;
+      padding-bottom: 1px;
+      font-size: 13px;
+    }
+
+    a:hover {
+      border-bottom-color: #fff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+      background: var(--focus-bg);
+      border-radius: 6px;
+    }
+
+    .muted-link {
+      color: var(--text-dim);
+      border-bottom-color: #2c2c31;
+    }
 
     /* Footer */
-    footer{
-      margin-top:30px;
-      padding-top:18px;
-      border-top:1px solid var(--border);
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--text-faint);
-      font-size:11px;
+    footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--text-faint);
+      font-size: 11px;
     }
+
+    .foot-links a { margin-right: 14px; }
 
     /* Responsive */
-    @media (max-width: 900px){
-      header{flex-direction:column;align-items:flex-start;gap:18px;}
-      .grid{grid-template-columns:1fr;}
+    @media (max-width: 920px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .chips { justify-content: flex-start; }
+      .grid { grid-template-columns: 1fr; }
+      .deliverable { grid-template-columns: 1fr; }
+      .k { padding-top: 0; }
+      .qs-grid { grid-template-columns: 1fr; }
     }
 
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important;transition:none !important;}
+    /* Reduced motion safety */
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
 </head>
@@ -360,113 +483,169 @@
     <header>
       <div class="h-left">
         <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
-        <div>
+        <div class="h-title">
           <h1>Jamie Forrester</h1>
-          <div class="sub mono">Independent Systems Architect</div>
+          <div class="sub">Independent Systems Architect</div>
         </div>
       </div>
 
-      <div class="chip mono" aria-label="Positioning summary">
-        Institutional Topology // Written Diagnostic Artifacts
+      <div class="chips" aria-label="Key tags">
+        <span class="chip">Primitive → Invariants → Enforcement → Build Map</span>
+        <span class="chip">Written Diagnostic Artifacts</span>
+        <span class="chip">Institutional Topology</span>
       </div>
     </header>
 
     <main id="main" class="grid" role="main">
 
-      <!-- LEFT -->
-      <section>
-        <div class="card">
-          <div class="label-row mono">
-            <span class="label">01 // Overview</span>
-            <span class="label-note">structural diagnosis</span>
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <section class="card" aria-labelledby="qs">
+          <div class="label-row">
+            <div class="label" id="qs">00 // Quick Scan</div>
+            <div class="label-note">first-pass clarity</div>
           </div>
 
-          <p class="hero">Upstream diagnosis for systems that fail under scale.</p>
+          <div class="quickscan">
+            <div class="qs-grid">
+              <div class="qs-item">
+                <p class="qs-k">What I do</p>
+                <p class="qs-v">I write a <strong>Diagnostic Artifact</strong> that makes the real system structure visible.</p>
+              </div>
+
+              <div class="qs-item">
+                <p class="qs-k">What you get</p>
+                <p class="qs-v"><strong>Primitives</strong>, <strong>invariants</strong>, <strong>enforcement points</strong>, <strong>failure modes</strong>, and a <strong>build map</strong>.</p>
+              </div>
+
+              <div class="qs-item">
+                <p class="qs-k">When to use</p>
+                <p class="qs-v">Repeated incidents, process sprawl, exception handling, “alignment loops”, brittle scaling.</p>
+              </div>
+
+              <div class="qs-item">
+                <p class="qs-k">When not to</p>
+                <p class="qs-v">If you want delivery ownership, org-change programs, coaching, or implementation execution.</p>
+              </div>
+            </div>
+
+            <p class="small">
+              Typical symptoms: committees that queue decisions, metrics theatre, “ownership” without authority, and failures that keep returning under new names.
+            </p>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="ov">
+          <div class="label-row">
+            <div class="label" id="ov">01 // Overview</div>
+            <div class="label-note">what I do</div>
+          </div>
+
+          <div class="hero">Upstream diagnosis for systems that fail under scale.</div>
 
           <p class="lead">
-            I produce written <strong>Diagnostic Artifacts</strong> that make a system’s real structure visible:
-            what it does, what must not break, and where failure concentrates.
+            I produce written Diagnostic Artifacts that make a system’s real structure visible:
+            <strong>what it does</strong>, <strong>what must not break</strong>, and <strong>where failure concentrates</strong>.
           </p>
 
           <p class="small">
-            Most chronic complexity is not a “people problem.” It is topology: misnamed primitives, unclear invariants, and enforcement living in the wrong place.
+            Most chronic complexity is not “people problems.” It is topology: misnamed primitives, unclear invariants, and enforcement living in the wrong place.
           </p>
 
-          <div class="quick" aria-label="Quick scan">
-            <div class="quick-item">
-              <div class="qk mono">Output</div>
-              <div class="qv">A written Artifact: <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement points</strong>, <strong>failure modes</strong>, and a <strong>build map</strong>.</div>
-            </div>
-            <div class="quick-item">
-              <div class="qk mono">Use when</div>
-              <div class="qv">Incidents repeat, process sprawl grows, exceptions metastasize, “alignment” loops substitute for authority.</div>
-            </div>
-            <div class="quick-item">
-              <div class="qk mono">Not included</div>
-              <div class="qv">Implementation execution, delivery management, org-change programs, coaching.</div>
-            </div>
+          <div class="deliverable" role="group" aria-label="Engagement summary">
+            <div class="k">Deliverable</div>
+            <div class="v"><strong>Diagnostic Artifact (written)</strong> — primitives, invariants, enforcement points, failure modes, build map.</div>
+
+            <div class="k">Duration</div>
+            <div class="v">Typically <strong>7–14 days</strong>, depending on access and scope.</div>
+
+            <div class="k">Inputs</div>
+            <div class="v">A small set of artifacts: interfaces, policies, incident patterns, and one or two operator interviews.</div>
+
+            <div class="k">After</div>
+            <div class="v">A deterministic basis for <strong>specification</strong>, <strong>architecture</strong>, <strong>policy refactor</strong>, or <strong>roadmap sequencing</strong>.</div>
+
+            <div class="k">Not included</div>
+            <div class="v">Implementation execution, delivery management, org-change programs, coaching.</div>
+
+            <div class="k">Best fit</div>
+            <div class="v">Founders, CTOs, operators, and policy leads facing recurring failure under scale.</div>
           </div>
-        </div>
+        </section>
 
-        <div class="card">
-          <div class="label-row mono">
-            <span class="label">02 // Method</span>
-            <span class="label-note">mapping sequence</span>
+        <section class="card" aria-labelledby="method">
+          <div class="label-row">
+            <div class="label" id="method">02 // Method</div>
+            <div class="label-note">what I map, in order</div>
           </div>
 
-          <ul class="method">
+          <ol class="method">
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Primitive</div>
-                <div class="m-order mono">01</div>
+                <div class="m-name">Primitive</div>
+                <div class="m-order">01</div>
               </div>
-              <p class="m-desc">Name the irreducible action the system repeats.</p>
+              <p class="m-desc"><strong>What action repeats?</strong> Name the irreducible operation the system performs.</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Invariants</div>
-                <div class="m-order mono">02</div>
+                <div class="m-name">Invariants</div>
+                <div class="m-order">02</div>
               </div>
-              <p class="m-desc">Define rules as fail-closed, auditable constraints.</p>
+              <p class="m-desc"><strong>What must never break?</strong> Define rules as fail-closed, auditable constraints.</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Enforcement</div>
-                <div class="m-order mono">03</div>
+                <div class="m-name">Enforcement</div>
+                <div class="m-order">03</div>
               </div>
-              <p class="m-desc">Locate where rules actually live and how violations resolve.</p>
+              <p class="m-desc"><strong>Where do rules actually live?</strong> Locate enforcement points and violation handling.</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Mismatch</div>
-                <div class="m-order mono">04</div>
+                <div class="m-name">Mismatch</div>
+                <div class="m-order">04</div>
               </div>
-              <p class="m-desc">Identify interface promise vs operating reality.</p>
+              <p class="m-desc"><strong>Where does promise ≠ execution?</strong> Identify interface claims vs operating reality.</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Build Map</div>
-                <div class="m-order mono">05</div>
+                <div class="m-name">Build Map</div>
+                <div class="m-order">05</div>
               </div>
-              <p class="m-desc">Sequence boundaries and transitions so implementation is deterministic.</p>
+              <p class="m-desc"><strong>What order makes it deterministic?</strong> Sequence boundaries and transitions for implementation.</p>
             </li>
+          </ol>
+        </section>
+
+        <section class="card" aria-labelledby="infra">
+          <div class="label-row">
+            <div class="label" id="infra">03 // Active Infrastructure</div>
+            <div class="label-note">applied research</div>
+          </div>
+
+          <ul class="clean">
+            <li><strong>Spectrum Registry</strong> — a law-first symbolic registry built for durable truth and constrained ownership flows.</li>
+            <li><strong>PromptFactory</strong> — a deterministic build pipeline that pushes intelligence upstream into specification and verification.</li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- RIGHT -->
-      <section>
-        <div class="card">
-          <div class="label-row mono">
-            <span class="label">03 // Research Canon</span>
-            <span class="label-note">papers + drafts</span>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <section class="card" aria-labelledby="canon">
+          <div class="label-row">
+            <div class="label" id="canon">04 // Research Canon</div>
+            <div class="label-note">papers + drafts</div>
           </div>
 
-          <!-- Thumbnails are optional. If you don’t have them yet, keep the <img> but point to a placeholder. -->
           <div class="paper">
             <div class="paper-row">
               <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
@@ -476,12 +655,12 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-                  <span class="status mono">Published</span>
+                  <span class="status">Published</span>
                 </div>
                 <p class="paper-desc">
                   Recruitment grammar vs operating grammar: why markets can recruit “expertise” while running as reliability pipelines.
                 </p>
-                <div class="actions">
+                <div class="paper-actions">
                   <a href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
               </div>
@@ -497,12 +676,12 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                  <span class="status mono">In prep</span>
+                  <span class="status">In preparation</span>
                 </div>
                 <p class="paper-desc">
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
                 </p>
-                <div class="actions">
+                <div class="paper-actions">
                   <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
                   <a href="./status-notes.html" class="muted-link">Status notes</a>
                 </div>
@@ -519,12 +698,12 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</p>
-                  <span class="status mono">In dev</span>
+                  <span class="status">In development</span>
                 </div>
                 <p class="paper-desc">
                   Why execution-optimised systems lack an interface for upstream reframing—and therefore cannot self-correct.
                 </p>
-                <div class="actions">
+                <div class="paper-actions">
                   <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
                   <a href="./status-notes.html#missing-redesign" class="muted-link">Status notes</a>
                 </div>
@@ -535,40 +714,76 @@
           <p class="small" style="margin-top:12px;">
             Additional work in progress: Kernel Architecture, Emergence Grammar, and the OFMR emergence monograph.
           </p>
-        </div>
+        </section>
 
-        <div class="card">
-          <div class="label-row mono">
-            <span class="label">04 // Engagement</span>
-            <span class="label-note">working together</span>
+        <section class="card" aria-labelledby="books">
+          <div class="label-row">
+            <div class="label" id="books">05 // Books</div>
+            <div class="label-note">practitioner guides</div>
           </div>
 
-          <p class="small" style="margin-bottom:12px;">
-            I specialise in environments where process grows while movement stalls. I do not sell management consulting; I sell <strong>structural truth</strong>.
+          <div class="paper">
+            <div class="paper-head">
+              <p class="paper-title">Seeing Systems</p>
+              <span class="status">Drafted</span>
+            </div>
+            <p class="paper-desc">
+              A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.
+            </p>
+          </div>
+
+          <div class="paper">
+            <div class="paper-head">
+              <p class="paper-title">The System Founder Framework</p>
+              <span class="status">In design</span>
+            </div>
+            <p class="paper-desc">
+              A construction doctrine for the AI era: formula, ladder, toolchain, and playbooks for OS-level building.
+            </p>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="engage">
+          <div class="label-row">
+            <div class="label" id="engage">06 // Engagement</div>
+            <div class="label-note">how to work together</div>
+          </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            If you are trapped in <strong>chronic complexity</strong>—process grows while movement stalls—I can produce a Diagnostic Artifact that makes hidden structure legible.
           </p>
 
-          <div class="actions mono" style="font-size:12px;">
-            <a href="mailto:hello@jamieforrester.com">EMAIL</a>
-            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+          <ul class="clean">
+            <li><strong>Output</strong>: written diagnosis (primitives, invariants, enforcement, failure modes, build map).</li>
+            <li><strong>Purpose</strong>: structural truth, not recommendations theatre.</li>
+            <li><strong>Use</strong>: turn ambiguity into enforceable rules and deterministic implementation sequencing.</li>
+          </ul>
+
+          <div class="paper-actions" style="margin-top:14px;">
+            <a href="mailto:hello@jamieforrester.com">Email</a>
+            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
           </div>
 
           <p class="small" style="margin-top:12px;">
             If you email, include: a 3–5 line description of the failure pattern, what is at stake, and the key interfaces/policies involved.
           </p>
-        </div>
-      </section>
+        </section>
 
+      </div>
     </main>
 
-    <footer class="mono">
+    <footer>
       <div>
         Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
         <span style="color: var(--text-faint);"> / Edinburgh, UK</span>
       </div>
-      <div>
-        <span style="color: var(--text-faint);">Last updated: 2026-03-01</span>
+      <div class="foot-links">
+        <a href="mailto:hello@jamieforrester.com">EMAIL</a>
+        <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+        <span style="color: var(--text-faint); margin-left: 10px;">Last updated: 2026-03-01</span>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
