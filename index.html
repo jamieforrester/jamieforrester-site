@@ -66,7 +66,7 @@
       outline-offset:3px;
     }
 
-    /* Links */
+    /* Base links */
     a{
       color:#fff;
       text-decoration:none;
@@ -85,7 +85,25 @@
       background:var(--focus-bg);
       border-radius:6px;
     }
-    .muted-link{color:var(--text-dim);border-bottom-color:#2c2c31;}
+    .muted-link{color:var(--text-dim);border-bottom-color:transparent;}
+    .muted-link:hover{border-bottom-color:rgba(255,255,255,0.55);}
+
+    /* Blue links: no underline until hover (as requested) */
+    .link-blue{
+      color:var(--cta-blue);
+      border-bottom-color:transparent;
+    }
+    .link-blue:hover{
+      border-bottom-color:rgba(74,163,255,0.85);
+      background:rgba(74,163,255,0.10);
+    }
+    .link-blue:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      background:rgba(74,163,255,0.12);
+      border-bottom-color:transparent;
+      border-radius:6px;
+    }
 
     /* Header */
     header{
@@ -133,11 +151,15 @@
       flex-wrap:wrap;
       justify-content:flex-end;
     }
+
+    /* Fixed-width positioning tag (engineer UI feel) */
     .pill{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:10px;
       padding:8px 12px;
+      width:340px;
       border-radius:10px;
       border:1px solid var(--accent);
       background:var(--chip);
@@ -145,6 +167,8 @@
       font-size:11px;
       letter-spacing:0.6px;
       white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
     .btn{
@@ -160,6 +184,8 @@
       font-size:12px;
       text-decoration:none;
       line-height:1;
+      text-transform:uppercase; /* only affects buttons */
+      letter-spacing:0.8px;
     }
     .btn:hover{background:rgba(255,255,255,0.06);}
     .btn:focus-visible{
@@ -223,28 +249,35 @@
       max-width:72ch;
     }
 
-    /* Quick scan */
+    /* Quick scan (fix overlap) */
     .quick{
       border-left:2px solid var(--accent);
       padding:10px 12px;
       background:rgba(0,0,0,0.12);
       border-radius:10px;
     }
-    .quick dl{margin:0;display:grid;gap:10px;}
-    .quick div{display:grid;grid-template-columns:124px 1fr;gap:10px;align-items:start;}
+    .quick dl{margin:0;display:grid;gap:12px;}
+    .quick div{
+      display:grid;
+      grid-template-columns:160px 1fr;
+      gap:14px;
+      align-items:start;
+    }
     .qk{
       font-size:11px;
       color:var(--text-faint);
       text-transform:uppercase;
       letter-spacing:1.6px;
       padding-top:2px;
-      white-space:nowrap;
+      white-space:normal;       /* allow wrap */
+      line-height:1.25;
     }
     .qv{
       margin:0;
       font-size:13px;
       color:#dedede;
       line-height:1.55;
+      min-width:0;              /* prevents grid overflow */
     }
     .qv strong{color:#fff;font-weight:750;}
 
@@ -429,34 +462,6 @@
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
-    .btn-link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:9px 12px;
-      border-radius:10px;
-      border:1px solid rgba(74,163,255,0.45);
-      background:rgba(74,163,255,0.12);
-      color:var(--cta-blue);
-      text-decoration:none;
-      font-size:12px;
-      line-height:1;
-    }
-    .btn-link:hover{
-      background:rgba(74,163,255,0.18);
-      border-color:rgba(74,163,255,0.65);
-    }
-    .btn-link:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      background:rgba(74,163,255,0.20);
-    }
-
-    .cta-link{
-      color:var(--cta-blue);
-      border-bottom-color:rgba(74,163,255,0.45);
-    }
-
     footer{
       margin-top:30px;
       padding-top:18px;
@@ -476,6 +481,7 @@
       .grid{grid-template-columns:1fr;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
+      .pill{width:100%;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -508,7 +514,7 @@
               <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          Email
+          EMAIL
         </a>
 
         <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">
@@ -520,7 +526,7 @@
               <path d="M10.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
           </span>
-          LinkedIn
+          LINKEDIN
         </a>
       </div>
     </header>
@@ -535,7 +541,7 @@
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
           Want one? Email <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a class="cta-link" href="mailto:hello@jamieforrester.com">Get in touch</a>.
+          <a class="link-blue" href="mailto:hello@jamieforrester.com">EMAIL</a>.
         </p>
       </div>
 
@@ -659,8 +665,11 @@
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a class="cta-link" href="mailto:hello@jamieforrester.com">EMAIL</a>
-            <a class="cta-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+            <a
+              class="link-blue"
+              href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+            >EMAIL</a>
+            <a class="link-blue" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
           </div>
         </div>
       </section>
@@ -684,7 +693,7 @@
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
-                  <a href="./paper.pdf" class="btn-link" target="_blank" rel="noopener">Read paper (PDF)</a>
+                  <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
               </div>
             </div>
