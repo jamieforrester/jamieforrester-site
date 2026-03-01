@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jamie Forrester — Independent Systems Architect</title>
-  <meta name="description" content="Independent Systems Architect — written Diagnostic Artifacts for systems that fail under scale." />
+  <meta name="description" content="Independent Systems Architect — diagnostic and redesign artifacts for systems that fail under scale." />
   <link rel="icon" href="/favicon.png" />
 
   <style>
@@ -85,10 +85,11 @@
       background:var(--focus-bg);
       border-radius:6px;
     }
+
     .muted-link{color:var(--text-dim);border-bottom-color:transparent;}
     .muted-link:hover{border-bottom-color:rgba(255,255,255,0.55);}
 
-    /* Blue links: no underline until hover (as requested) */
+    /* Blue links: no underline until hover */
     .link-blue{
       color:var(--cta-blue);
       border-bottom-color:transparent;
@@ -159,7 +160,7 @@
       justify-content:center;
       gap:10px;
       padding:8px 12px;
-      width:340px;
+      width:380px;
       border-radius:10px;
       border:1px solid var(--accent);
       background:var(--chip);
@@ -184,8 +185,9 @@
       font-size:12px;
       text-decoration:none;
       line-height:1;
-      text-transform:uppercase; /* only affects buttons */
+      text-transform:uppercase;
       letter-spacing:0.8px;
+      white-space:nowrap;
     }
     .btn:hover{background:rgba(255,255,255,0.06);}
     .btn:focus-visible{
@@ -249,7 +251,7 @@
       max-width:72ch;
     }
 
-    /* Quick scan (fix overlap) */
+    /* Quick scan (no overlap) */
     .quick{
       border-left:2px solid var(--accent);
       padding:10px 12px;
@@ -259,7 +261,7 @@
     .quick dl{margin:0;display:grid;gap:12px;}
     .quick div{
       display:grid;
-      grid-template-columns:160px 1fr;
+      grid-template-columns:170px 1fr;
       gap:14px;
       align-items:start;
     }
@@ -269,7 +271,7 @@
       text-transform:uppercase;
       letter-spacing:1.6px;
       padding-top:2px;
-      white-space:normal;       /* allow wrap */
+      white-space:normal;
       line-height:1.25;
     }
     .qv{
@@ -277,9 +279,30 @@
       font-size:13px;
       color:#dedede;
       line-height:1.55;
-      min-width:0;              /* prevents grid overflow */
+      min-width:0;
     }
     .qv strong{color:#fff;font-weight:750;}
+
+    /* Small inline “offer” chips inside quick scan */
+    .offer-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .offer-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.03);
+      color:#e2e2e2;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .offer-chip strong{color:#fff;font-weight:900;}
 
     /* Main grid */
     .grid{
@@ -501,7 +524,7 @@
           <h1>Jamie Forrester</h1>
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row">
-            <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
+            <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic + Redesign Artifacts</span>
           </div>
         </div>
       </div>
@@ -535,13 +558,20 @@
       <div>
         <div class="eyebrow">What I do</div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
+
         <p class="hero-sub">
           I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
           <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
         </p>
-        <p class="hero-sub" style="margin-bottom:0;">
+
+        <p class="hero-sub" style="margin-bottom:12px;">
+          If the diagnosis is sound, I can also write the <strong>Redesign Artifact</strong> that specifies the boundary and transition sequence
+          that makes change deterministic.
+        </p>
+
+        <p class="hero-sub" style="margin-bottom:0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
           Want one? Email <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a class="link-blue" href="mailto:hello@jamieforrester.com">EMAIL</a>.
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL ME</a>
         </p>
       </div>
 
@@ -551,10 +581,22 @@
             <dt class="qk">What you get</dt>
             <dd class="qv">One written Artifact you can hand to builders and decision owners.</dd>
           </div>
+
           <div>
             <dt class="qk">What it contains</dt>
             <dd class="qv"><strong>Rules that must not break</strong> + where they are enforced + how failure resolves.</dd>
           </div>
+
+          <div>
+            <dt class="qk">What’s available</dt>
+            <dd class="qv">
+              <div class="offer-row" aria-label="Offer options">
+                <span class="offer-chip"><strong>£10k</strong> / 14 days — Diagnostic Artifact</span>
+                <span class="offer-chip"><strong>£15k–£25k</strong> — Redesign Artifact</span>
+              </div>
+            </dd>
+          </div>
+
           <div>
             <dt class="qk">What’s not included</dt>
             <dd class="qv">Delivery ownership, org-change programs, coaching, implementation execution.</dd>
@@ -665,11 +707,8 @@
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a
-              class="link-blue"
-              href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
-            >EMAIL</a>
-            <a class="link-blue" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
           </div>
         </div>
       </section>
