@@ -4,186 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jamie Forrester — Independent Systems Architect</title>
-  <meta name="description" content="Independent Systems Architect: Primitives, invariants, and institutional topology." />
   <link rel="icon" href="/favicon.png">
-
   <style>
     :root {
       --bg: #0b0b0c;
       --text-main: #eaeaea;
-      --text-dim: #888;
-      --border: #1a1a1c;
-      --accent: #2a2a2d;
+      --text-dim: #999;
+      --border: #222;
+      --accent: #333;
     }
 
     body {
       margin: 0;
-      font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, "Cascadia Mono", monospace;
       background: var(--bg);
       color: var(--text-main);
-      line-height: 1.5;
-      font-size: 12px; /* Set base body font size */
+      line-height: 1.4;
+      font-size: 13px;
       -webkit-font-smoothing: antialiased;
     }
 
     .wrap {
-      max-width: 680px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 100px 24px;
+      padding: 40px 20px;
     }
 
     header {
-      margin-bottom: 80px;
-      text-align: left;
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 30px;
     }
 
     .avatar {
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 24px;
+      margin-bottom: 15px;
       border: 1px solid var(--accent);
       filter: grayscale(100%);
     }
 
-    h1 {
-      margin: 0 0 4px;
-      font-size: 16px; /* Sharper, smaller header */
-      font-weight: 500;
-      letter-spacing: -0.2px;
-    }
-
-    h2 {
-      margin: 0 0 16px;
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
+    h1 { margin: 0; font-size: 18px; font-weight: 500; }
+    h2 { margin: 5px 0 15px; font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+    
     .tag {
       display: inline-block;
-      padding: 4px 8px;
+      padding: 4px 10px;
       border: 1px solid var(--accent);
       border-radius: 4px;
-      color: var(--text-dim);
-      font-size: 10px;
+      color: #ccc;
+      font-size: 11px;
     }
 
-    .section {
-      margin-bottom: 64px;
+    /* Grid Layout for Single-Screen View */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .section-label {
+    .section { margin-bottom: 25px; }
+
+    .label {
       font-size: 10px;
-      color: #444;
+      color: #eee; /* Lightened and bolded as requested */
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 24px;
+      letter-spacing: 2px;
       display: block;
-    }
-
-    .content-block {
-      margin-bottom: 20px;
-    }
-
-    .thesis {
-      font-size: 13px;
-      color: #fff;
-      margin-bottom: 24px;
-    }
-
-    ul {
-      margin: 16px 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    li {
       margin-bottom: 10px;
-      padding-left: 18px;
-      position: relative;
-      color: #bdbdbd;
-    }
-
-    li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #333;
-    }
-
-    li strong {
-      color: #fff;
-      font-weight: 500;
-    }
-
-    /* Paper Separation Logic */
-    .paper-entry {
-      padding: 20px 0;
       border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
     }
 
-    .paper-entry:first-child { border-top: 1px solid var(--border); }
-
-    .paper-title {
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .paper-item {
+      padding: 8px 0;
+      border-bottom: 1px dotted #222;
     }
 
-    .status-tag {
-      font-size: 9px;
-      padding: 1px 5px;
-      border: 1px solid #333;
-      border-radius: 3px;
-      color: #555;
-      text-transform: uppercase;
-    }
+    .status { font-size: 9px; color: #555; border: 1px solid #333; padding: 1px 4px; border-radius: 3px; margin-left: 5px; }
 
-    .paper-desc {
-      font-size: 11px;
-      color: var(--text-dim);
-      margin-bottom: 12px;
-      max-width: 500px;
-    }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid #444; }
+    a:hover { border-bottom-color: #fff; background: #111; }
 
-    a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid #333;
-      font-size: 11px;
-    }
+    ul { margin: 10px 0; padding: 0; list-style: none; }
+    li { margin-bottom: 6px; padding-left: 15px; position: relative; color: #bbb; font-size: 12px; }
+    li::before { content: "•"; position: absolute; left: 0; color: #444; }
 
-    a:hover {
-      border-bottom-color: #fff;
-      background: #151517;
-    }
+    .small { font-size: 11px; color: var(--text-dim); line-height: 1.3; }
 
-    blockquote {
-      margin: 32px 0;
-      padding: 0 0 0 20px;
-      border-left: 1px solid var(--accent);
-      color: var(--text-dim);
-      font-size: 11px;
-      font-style: italic;
-    }
-
-    .footer {
-      margin-top: 100px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-      font-size: 11px;
-      color: #444;
-    }
-    
-    .contact-link { margin-right: 20px; }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -197,83 +110,63 @@
       <div class="tag">Primitive → Invariants → Enforcement → Build Map</div>
     </header>
 
-    <div class="section">
-      <span class="section-label">01 // Logic</span>
-      <p class="thesis">
-        I work upstream of product and engineering to make systems legible under scale. 
-      </p>
-      <p>
-        Most institutional failure is not a failure of people, but of <strong>Topology</strong>. I diagnose and reframe hidden structures so that execution remains deterministic.
-      </p>
-      <blockquote>
-        "Standing upstream, looking down the river. I diagnose. Others build".
-      </blockquote>
-    </div>
-
-    <div class="section">
-      <span class="section-label">02 // Methodology</span>
-      <ul>
-        <li><strong>Primitives</strong> — Extracting the irreducible action a system performs.</li>
-        <li><strong>Invariants</strong> — Defining the rules that must not break (fail-closed, auditable).</li>
-        <li><strong>Enforcement</strong> — Locating where rules live and how they are applied.</li>
-        <li><strong>Structural Mismatch</strong> — Identifying where the interface promise diverges from reality.</li>
-        <li><strong>Build Maps</strong> — Sequencing boundaries and transitions for deterministic implementation.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <span class="section-label">03 // Research Canon</span>
+    <div class="grid">
       
-      <div class="paper-entry">
-        <div class="paper-title">
-          The Expertise Illusion in AI Task Marketplaces
-          <span class="status-tag">Published</span>
+      <div class="col">
+        <div class="section">
+          <span class="label">01 // Logic</span>
+          <p style="color:#fff; font-weight: 500;">Upstream Diagnosis.</p>
+          <p class="small">I make systems legible under scale. Most failure is not a failure of people, but of <strong>Topology</strong>. I reframe hidden structures so execution remains deterministic.</p>
         </div>
-        <p class="paper-desc">A structural diagnosis of recruitment/execution mismatch in decentralized markets.</p>
-        <a href="./paper.pdf" target="_blank">Access Manuscript (PDF)</a>
+
+        <div class="section">
+          <span class="label">02 // Methodology</span>
+          <ul>
+            <li><strong>Primitives</strong> — Irreducible system actions.</li>
+            <li><strong>Invariants</strong> — Non-negotiable fail-closed rules.</li>
+            <li><strong>Enforcement</strong> — Logic location & application.</li>
+            <li><strong>Structural Mismatch</strong> — Promise vs. Reality gaps.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <span class="label">03 // Books (In Process)</span>
+          <p class="small"><strong>Seeing Systems</strong> — A primer on systemic literacy and the 60-second scan.</p>
+          <p class="small"><strong>The System Founder Framework</strong> — Architectural doctrine for the AI-industrial era.</p>
+        </div>
       </div>
 
-      <div class="paper-entry">
-        <div class="paper-title">
-          The Four-Function Law of Scalable Institutions
-          <span class="status-tag">Preparation</span>
+      <div class="col">
+        <div class="section">
+          <span class="label">04 // Research Canon</span>
+          <div class="paper-item">
+            <a href="./paper.pdf" target="_blank">The Expertise Illusion</a> <span class="status">Published</span>
+          </div>
+          <div class="paper-item">
+            The Four-Function Law <span class="status">Preparation</span>
+          </div>
+          <div class="paper-item">
+            The Missing Redesign Layer <span class="status">Development</span>
+          </div>
+          <p class="small" style="margin-top:10px;">Ongoing research: Institutional Substitution, Kernel Typology, and Emergence Physics (OFMR).</p>
         </div>
-        <p class="paper-desc">A general model of collapse: why institutions fail when Sensing, Interpretation, Authority, and Memory fuse.</p>
+
+        <div class="section">
+          <span class="label">05 // Infrastructure</span>
+          <p class="small"><strong>Spectrum Registry</strong> — Law-first symbolic truth engine.</p>
+          <p class="small"><strong>PromptFactory</strong> — Deterministic AI-build pipeline.</p>
+        </div>
+
+        <div class="section">
+          <span class="label">06 // Engagement</span>
+          <p class="small">For organizations in <strong>Chronic Complexity</strong>. Output is a formal <strong>Diagnostic Artifact</strong>—not management consulting.</p>
+          <p style="margin-top:15px; font-size:11px;">
+            <a href="mailto:hello@jamieforrester.com">EMAIL</a> &nbsp; // &nbsp; 
+            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank">LINKEDIN</a>
+          </p>
+        </div>
       </div>
 
-      <div class="paper-entry">
-        <div class="paper-title">
-          The Missing Redesign Layer
-          <span class="status-tag">Development</span>
-        </div>
-        <p class="paper-desc">Why systems cannot self-correct without a market interface for generative reframing.</p>
-      </div>
-    </div>
-
-    <div class="section">
-      <span class="section-label">04 // Infrastructure</span>
-      <p>Active construction of applied research:</p>
-      <ul>
-        <li><strong>Spectrum Registry</strong> — Law-first symbolic registry for durable truth and constrained ownership.</li>
-        <li><strong>PromptFactory</strong> — Deterministic pipeline pushing intelligence upstream into specification.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <span class="section-label">05 // Engagement</span>
-      <p>
-        For organisations trapped in <strong>Chronic Complexity</strong>—where process grows but output stagnates.
-      </p>
-      <p style="font-size: 11px; color: var(--text-dim);">
-        Engagement results in a formal written <strong>Diagnostic Artifact</strong> covering primitives, invariants, and failure modes. I do not provide implementation, general management consulting, or roadmaps.
-      </p>
-    </div>
-
-    <div class="footer">
-      <a href="mailto:hello@jamieforrester.com" class="contact-link">EMAIL</a>
-      <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" class="contact-link">LINKEDIN</a>
-    </div>
-
-  </div>
+    </div> </div>
 </body>
 </html>
