@@ -8,84 +8,92 @@
   <link rel="icon" href="/favicon.png">
 
   <style>
+    :root {
+      --bg: #0b0b0c;
+      --text-main: #eaeaea;
+      --text-dim: #888;
+      --border: #1a1a1c;
+      --accent: #2a2a2d;
+    }
+
     body {
       margin: 0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #0b0b0c;
-      color: #eaeaea;
-      line-height: 1.6;
+      font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+      font-size: 12px; /* Set base body font size */
+      -webkit-font-smoothing: antialiased;
     }
 
     .wrap {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 100px 24px;
     }
 
     header {
-      text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 80px;
+      text-align: left;
     }
 
     .avatar {
-      width: 120px;
-      height: 120px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      margin: 0 auto 24px auto;
-      border: 1px solid #2a2a2d;
+      margin-bottom: 24px;
+      border: 1px solid var(--accent);
       filter: grayscale(100%);
     }
 
     h1 {
       margin: 0 0 4px;
-      font-size: 12px;
-      letter-spacing: -0.5px;
-      font-family: system-ui, sans-serif;
+      font-size: 16px; /* Sharper, smaller header */
+      font-weight: 500;
+      letter-spacing: -0.2px;
     }
 
     h2 {
       margin: 0 0 16px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
-      color: #888;
+      color: var(--text-dim);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
     .tag {
       display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid #2a2a2d;
-      border-radius: 6px;
-      color: #888;
+      padding: 4px 8px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--text-dim);
       font-size: 10px;
+    }
+
+    .section {
+      margin-bottom: 64px;
     }
 
     .section-label {
       font-size: 10px;
-      color: #555;
+      color: #444;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
+      letter-spacing: 2.5px;
+      margin-bottom: 24px;
       display: block;
-      border-bottom: 1px solid #1a1a1c;
-      padding-bottom: 8px;
     }
 
-    .card {
-      margin-bottom: 48px;
-    }
-
-    .card p {
-      margin: 0 0 16px;
+    .content-block {
+      margin-bottom: 20px;
     }
 
     .thesis {
-      font-size: 12px;
+      font-size: 13px;
       color: #fff;
-      line-height: 1.4;
+      margin-bottom: 24px;
     }
 
     ul {
@@ -95,16 +103,17 @@
     }
 
     li {
-      margin-bottom: 12px;
-      padding-left: 20px;
+      margin-bottom: 10px;
+      padding-left: 18px;
       position: relative;
+      color: #bdbdbd;
     }
 
     li::before {
-      content: "→";
+      content: "•";
       position: absolute;
       left: 0;
-      color: #444;
+      color: #333;
     }
 
     li strong {
@@ -112,48 +121,69 @@
       font-weight: 500;
     }
 
+    /* Paper Separation Logic */
     .paper-entry {
-      margin-bottom: 32px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .paper-status {
-      font-size: 10px;
-      padding: 2px 6px;
+    .paper-entry:first-child { border-top: 1px solid var(--border); }
+
+    .paper-title {
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status-tag {
+      font-size: 9px;
+      padding: 1px 5px;
       border: 1px solid #333;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-      color: #666;
+      border-radius: 3px;
+      color: #555;
+      text-transform: uppercase;
+    }
+
+    .paper-desc {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      max-width: 500px;
     }
 
     a {
       color: #fff;
       text-decoration: none;
       border-bottom: 1px solid #333;
-      transition: all 0.2s;
+      font-size: 11px;
     }
 
     a:hover {
       border-bottom-color: #fff;
-      background: #1a1a1c;
-    }
-
-    .footer {
-      margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid #1a1a1c;
-      font-size: 10px;
-      color: #666;
+      background: #151517;
     }
 
     blockquote {
-      margin: 24px 0;
-      padding: 16px 24px;
-      border-left: 2px solid #2a2a2d;
-      background: #0f0f11;
+      margin: 32px 0;
+      padding: 0 0 0 20px;
+      border-left: 1px solid var(--accent);
+      color: var(--text-dim);
+      font-size: 11px;
       font-style: italic;
-      color: #bdbdbd;
     }
+
+    .footer {
+      margin-top: 100px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: #444;
+    }
+    
+    .contact-link { margin-right: 20px; }
   </style>
 </head>
 
@@ -167,8 +197,8 @@
       <div class="tag">Primitive → Invariants → Enforcement → Build Map</div>
     </header>
 
-    <div class="card">
-      <span class="section-label">Thesis</span>
+    <div class="section">
+      <span class="section-label">01 // Logic</span>
       <p class="thesis">
         I work upstream of product and engineering to make systems legible under scale. 
       </p>
@@ -176,12 +206,12 @@
         Most institutional failure is not a failure of people, but of <strong>Topology</strong>. I diagnose and reframe hidden structures so that execution remains deterministic.
       </p>
       <blockquote>
-        "Standing upstream, looking down the river. I diagnose. Others build."
+        "Standing upstream, looking down the river. I diagnose. Others build".
       </blockquote>
     </div>
 
-    <div class="card">
-      <span class="section-label">Focus</span>
+    <div class="section">
+      <span class="section-label">02 // Methodology</span>
       <ul>
         <li><strong>Primitives</strong> — Extracting the irreducible action a system performs.</li>
         <li><strong>Invariants</strong> — Defining the rules that must not break (fail-closed, auditable).</li>
@@ -191,52 +221,57 @@
       </ul>
     </div>
 
-    <div class="card">
-      <span class="section-label">Research Canon</span>
+    <div class="section">
+      <span class="section-label">03 // Research Canon</span>
       
       <div class="paper-entry">
-        <p><strong>The Expertise Illusion in AI Task Marketplaces</strong> <span class="paper-status">Published</span></p>
-        <p class="small">A structural diagnosis of recruitment/execution mismatch in decentralized markets.</p>
-        <a href="./paper.pdf" target="_blank">Read the paper (PDF)</a>
+        <div class="paper-title">
+          The Expertise Illusion in AI Task Marketplaces
+          <span class="status-tag">Published</span>
+        </div>
+        <p class="paper-desc">A structural diagnosis of recruitment/execution mismatch in decentralized markets.</p>
+        <a href="./paper.pdf" target="_blank">Access Manuscript (PDF)</a>
       </div>
 
       <div class="paper-entry">
-        <p><strong>The Four-Function Law of Scalable Institutions</strong> <span class="paper-status">In Preparation</span></p>
-        <p class="small">A general model of collapse: why institutions fail when Sensing, Interpretation, Authority, and Memory fuse.</p>
+        <div class="paper-title">
+          The Four-Function Law of Scalable Institutions
+          <span class="status-tag">Preparation</span>
+        </div>
+        <p class="paper-desc">A general model of collapse: why institutions fail when Sensing, Interpretation, Authority, and Memory fuse.</p>
       </div>
 
       <div class="paper-entry">
-        <p><strong>The Missing Redesign Layer</strong> <span class="paper-status">In Development</span></p>
-        <p class="small">Why systems cannot self-correct without a market interface for generative reframing.</p>
+        <div class="paper-title">
+          The Missing Redesign Layer
+          <span class="status-tag">Development</span>
+        </div>
+        <p class="paper-desc">Why systems cannot self-correct without a market interface for generative reframing.</p>
       </div>
-
-      <p style="color: #555; font-size: 12px;">
-        Additional research is in development across Institutional Substitution, Kernel Typology, and Emergence Grammar.
-      </p>
     </div>
 
-    <div class="card">
-      <span class="section-label">Infrastructure</span>
-      <p>Applied research through active construction:</p>
+    <div class="section">
+      <span class="section-label">04 // Infrastructure</span>
+      <p>Active construction of applied research:</p>
       <ul>
-        <li><strong>Spectrum Registry</strong> — A law-first symbolic registry for durable truth and constrained ownership.</li>
-        <li><strong>PromptFactory</strong> — A deterministic pipeline pushing intelligence upstream into specification and verification.</li>
+        <li><strong>Spectrum Registry</strong> — Law-first symbolic registry for durable truth and constrained ownership.</li>
+        <li><strong>PromptFactory</strong> — Deterministic pipeline pushing intelligence upstream into specification.</li>
       </ul>
     </div>
 
-    <div class="card">
-      <span class="section-label">Engagement</span>
+    <div class="section">
+      <span class="section-label">05 // Engagement</span>
       <p>
-        If your organization is trapped in <strong>Chronic Complexity</strong>—where process grows but nothing moves—I produce a Diagnostic Artifact to make the structure visible.
+        For organisations trapped in <strong>Chronic Complexity</strong>—where process grows but output stagnates.
       </p>
-      <p>
-        Engagement results in a formal written diagnosis of primitives, invariants, and failure modes. I do not provide implementation, management consulting, or motivational frameworks.
+      <p style="font-size: 11px; color: var(--text-dim);">
+        Engagement results in a formal written <strong>Diagnostic Artifact</strong> covering primitives, invariants, and failure modes. I do not provide implementation, general management consulting, or roadmaps.
       </p>
     </div>
 
     <div class="footer">
-      <p>Email: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank">Profile</a></p>
+      <a href="mailto:hello@jamieforrester.com" class="contact-link">EMAIL</a>
+      <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" class="contact-link">LINKEDIN</a>
     </div>
 
   </div>
