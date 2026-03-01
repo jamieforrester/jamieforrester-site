@@ -14,8 +14,10 @@
       --text-main:#f0f0f0;
       --text-dim:#b6b6b6;
       --text-faint:#7a7a7a;
-      --border:#232327;
-      --accent:#2f2f35;
+
+      /* Borders: slightly brighter than before (~8–10%) */
+      --border:#2c2c32;
+      --accent:#34343c; /* secondary border / separators */
       --chip:#141417;
 
       --label-blue:#4aa3ff;
@@ -23,6 +25,11 @@
 
       --focus-ring:rgba(255,255,255,0.95);
       --focus-bg:rgba(255,255,255,0.08);
+
+      /* Hover “interface” glow */
+      --hover-blue:rgba(74,163,255,0.70);
+      --hover-blue-soft:rgba(74,163,255,0.18);
+      --hover-shadow:0 0 0 1px rgba(74,163,255,0.20), 0 8px 26px rgba(0,0,0,0.55);
     }
 
     *{box-sizing:border-box;}
@@ -118,7 +125,7 @@
 
     .top-cta{
       display:flex;
-      gap:14px;
+      gap:10px;
       align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
@@ -135,7 +142,6 @@
       font-size:11px;
       letter-spacing:0.6px;
       white-space:nowrap;
-      margin-right:6px;
     }
 
     .btn{
@@ -157,6 +163,7 @@
       background:var(--focus-bg);
     }
 
+    /* Email + LinkedIn buttons blue */
     .btn-primary{
       color:var(--cta-blue);
       border-color:rgba(74,163,255,0.40);
@@ -177,7 +184,14 @@
       border-radius:14px;
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
       margin-bottom:22px;
+      transition:border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
     }
+    .hero-strip:hover{
+      border-color:rgba(74,163,255,0.45);
+      box-shadow:var(--hover-shadow);
+      background:linear-gradient(180deg, rgba(74,163,255,0.06), rgba(255,255,255,0.00));
+    }
+
     .hero-title{
       margin:0 0 10px;
       font-size:22px;
@@ -190,7 +204,7 @@
       margin:0 0 12px;
       color:#d6d6d6;
       font-size:14px;
-      max-width:62ch;
+      max-width:72ch;
     }
 
     /* Quick scan */
@@ -231,6 +245,12 @@
       border:1px solid var(--border);
       border-radius:12px;
       padding:20px;
+      transition:border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+    .card:hover{
+      border-color:rgba(74,163,255,0.42);
+      box-shadow:var(--hover-shadow);
+      background:linear-gradient(180deg, rgba(74,163,255,0.045), rgba(255,255,255,0.00));
     }
     .card + .card{margin-top:18px;}
 
@@ -239,7 +259,7 @@
       align-items:baseline;
       justify-content:space-between;
       gap:12px;
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid rgba(255,255,255,0.06);
       padding-bottom:10px;
       margin-bottom:14px;
     }
@@ -262,14 +282,13 @@
       margin:0 0 12px;
       color:#d3d3d3;
       font-size:14px;
-      max-width:62ch;
+      max-width:72ch;
     }
     .small{
       margin:0;
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
-      max-width:62ch;
     }
 
     /* Lists */
@@ -286,7 +305,6 @@
       color:#d6d6d6;
       font-size:13px;
       line-height:1.55;
-      max-width:64ch;
     }
     ul.clean li::before{
       content:"→";
@@ -295,34 +313,7 @@
       color:var(--text-faint);
     }
 
-    /* Overview callouts */
-    .overview-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-    .callout{
-      padding:12px 14px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      background:rgba(255,255,255,0.01);
-    }
-    .callout-title{
-      margin:0 0 6px;
-      font-size:12px;
-      font-weight:900;
-      color:#fff;
-      letter-spacing:-0.2px;
-    }
-    .callout-text{
-      margin:0;
-      font-size:12.5px;
-      color:var(--text-dim);
-      line-height:1.55;
-      max-width:66ch;
-    }
-
-    /* Method (compressed) */
+    /* Method */
     .method{
       list-style:none;
       margin:0;
@@ -331,53 +322,45 @@
       gap:10px;
     }
     .m-item{
-      padding:10px 12px;
-      border:1px solid var(--border);
+      padding:12px 14px;
+      border:1px solid rgba(255,255,255,0.06);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
+      transition:border-color 140ms ease, background 140ms ease;
+    }
+    .m-item:hover{
+      border-color:rgba(74,163,255,0.28);
+      background:rgba(74,163,255,0.04);
     }
     .m-top{
       display:flex;
       align-items:baseline;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:0;
+      margin-bottom:6px;
     }
-    .m-name{
-      font-weight:850;
-      color:#fff;
-      font-size:13px;
-      letter-spacing:-0.2px;
-    }
-
-    /* DISTINCT METHOD NUMBER ANCHOR */
+    .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
     .m-order{
       font-size:10px;
-      color:rgba(240,240,240,0.65); /* dimmer anchor */
+      color:rgba(255,255,255,0.45);
       text-transform:uppercase;
       letter-spacing:1.6px;
       white-space:nowrap;
-      font-weight:700;
-      padding:3px 7px;
-      border-radius:999px;
-      border:1px solid rgba(47,47,53,0.9);
-      background:rgba(255,255,255,0.02);
     }
-
-    .m-desc{
-      margin:6px 0 0;
-      font-size:12.5px;
-      color:var(--text-dim);
-      line-height:1.45;
-      max-width:66ch;
-    }
+    .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
 
     /* Papers / Books */
     .paper{
       padding:14px;
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,0.07);
       border-radius:10px;
       background:rgba(0,0,0,0.10);
+      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
+    }
+    .paper:hover{
+      border-color:rgba(74,163,255,0.28);
+      box-shadow:0 0 0 1px rgba(74,163,255,0.10);
+      background:rgba(74,163,255,0.03);
     }
     .paper + .paper{margin-top:12px;}
 
@@ -395,6 +378,12 @@
       object-fit:cover;
       filter:grayscale(100%);
       display:block;
+      transition:filter 140ms ease, transform 140ms ease, border-color 140ms ease;
+    }
+    .paper:hover .thumb{
+      filter:grayscale(70%);
+      border-color:rgba(74,163,255,0.35);
+      transform:translateY(-1px);
     }
 
     .paper-head{
@@ -418,7 +407,7 @@
       letter-spacing:1.2px;
       padding:3px 7px;
       border-radius:8px;
-      border:1px solid var(--accent);
+      border:1px solid rgba(255,255,255,0.12);
       color:var(--text-dim);
       background:rgba(255,255,255,0.02);
       white-space:nowrap;
@@ -429,7 +418,6 @@
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
-      max-width:66ch;
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
@@ -450,11 +438,6 @@
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
       .grid{grid-template-columns:1fr;}
-
-      /* ensure engagement comes last on mobile */
-      .left-col{display:flex;flex-direction:column;}
-      .engagement{order:10;}
-
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
     }
@@ -485,6 +468,7 @@
       </div>
     </header>
 
+    <!-- HERO: keep “Get in touch”; avoid repeating “Email me” -->
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
@@ -494,8 +478,7 @@
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
           Want one? Email <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A"
-             style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Get In Touch</a>.
+          <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Get in touch</a>.
         </p>
       </div>
 
@@ -519,40 +502,37 @@
 
     <main id="main" class="grid" role="main">
 
-      <section class="left-col">
+      <!-- LEFT -->
+      <section>
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Overview</span>
             <span class="label-note">what this is</span>
           </div>
 
-          <div class="overview-grid">
-            <p class="lead" style="margin-bottom:0;">
-              Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
-              The Artifact makes structure explicit so builders can change the system without drift.
+          <p class="lead">
+            This is a written diagnostic artifact: the system’s real primitive, rules, and enforcement made explicit so builders can change it without drift.
+          </p>
+
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that don’t change failure.
             </p>
+          </div>
 
-            <div class="callout">
-              <p class="callout-title">What this replaces</p>
-              <p class="callout-text">
-                Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that don’t change failure.
-              </p>
-            </div>
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Hand it to builders. Use it to set boundaries, enforcement points, and sequence. Reduce debate by making the operating grammar visible.
+            </p>
+          </div>
 
-            <div class="callout">
-              <p class="callout-title">What you can do with it</p>
-              <p class="callout-text">
-                Hand it to builders. Use it to decide boundaries, enforcement points, and sequence.
-                Reduce debate by making the operating grammar visible.
-              </p>
-            </div>
-
-            <div class="callout">
-              <p class="callout-title">What improves</p>
-              <p class="callout-text">
-                Faster decisions, fewer “interpretation gaps”, fewer recurring incidents with new names, and safer change under growth.
-              </p>
-            </div>
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">What improves</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Faster decisions, fewer interpretation gaps, fewer recurring incidents with new names, safer change under growth.
+            </p>
           </div>
         </div>
 
@@ -568,7 +548,7 @@
                 <div class="m-name">Primitive</div>
                 <div class="m-order">01</div>
               </div>
-              <p class="m-desc">The irreducible action the system repeats.</p>
+              <p class="m-desc">What action the system repeats (the real unit of work).</p>
             </li>
 
             <li class="m-item">
@@ -576,7 +556,7 @@
                 <div class="m-name">Invariants</div>
                 <div class="m-order">02</div>
               </div>
-              <p class="m-desc">What must never break (fail-closed constraints).</p>
+              <p class="m-desc">What must never be violated (fail-closed constraints).</p>
             </li>
 
             <li class="m-item">
@@ -584,7 +564,7 @@
                 <div class="m-name">Enforcement</div>
                 <div class="m-order">03</div>
               </div>
-              <p class="m-desc">Where rules actually live and how violations resolve.</p>
+              <p class="m-desc">Where rules live in reality (not where policy says they live).</p>
             </li>
 
             <li class="m-item">
@@ -592,7 +572,7 @@
                 <div class="m-name">Mismatch</div>
                 <div class="m-order">04</div>
               </div>
-              <p class="m-desc">Where interface promise ≠ operating reality.</p>
+              <p class="m-desc">Where the interface promise diverges from the operating grammar.</p>
             </li>
 
             <li class="m-item">
@@ -600,36 +580,35 @@
                 <div class="m-name">Build Map</div>
                 <div class="m-order">05</div>
               </div>
-              <p class="m-desc">Boundary + sequencing plan for deterministic implementation.</p>
+              <p class="m-desc">The boundary and transition sequence that makes implementation deterministic.</p>
             </li>
           </ul>
         </div>
 
-        <div class="card engagement">
+        <div class="card">
           <div class="label-row">
             <span class="label">03 // Engagement</span>
             <span class="label-note">how to start</span>
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Email five lines. I reply with whether this is a fit and what I need next.
+            If your system keeps failing in the same way under growth, I can write the Artifact that exposes the real structure and the failure concentration.
           </p>
 
           <ul class="clean">
-            <li><strong>What keeps breaking</strong> (one sentence).</li>
-            <li><strong>What’s at stake</strong> (one sentence).</li>
-            <li><strong>Interfaces involved</strong> (teams / services / policies / contracts).</li>
-            <li><strong>Links</strong> (optional): docs, dashboards, incident reports.</li>
+            <li><strong>Step 1</strong>: email five lines on the recurring failure pattern.</li>
+            <li><strong>Step 2</strong>: include the key interfaces (teams, services, policies, contracts).</li>
+            <li><strong>Step 3</strong>: I reply with next steps and whether this is a fit.</li>
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a class="btn btn-primary"
-               href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A">Email</a>
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">EMAIL</a>
+            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">LINKEDIN</a>
           </div>
         </div>
       </section>
 
+      <!-- RIGHT -->
       <section>
         <div class="card">
           <div class="label-row">
