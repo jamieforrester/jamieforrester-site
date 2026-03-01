@@ -295,7 +295,7 @@
       color:var(--text-faint);
     }
 
-    /* Overview: distinct "what it replaces" + "what changes" */
+    /* Overview callouts */
     .overview-grid{
       display:grid;
       grid-template-columns:1fr;
@@ -343,8 +343,27 @@
       gap:12px;
       margin-bottom:0;
     }
-    .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
-    .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.6px;white-space:nowrap;}
+    .m-name{
+      font-weight:850;
+      color:#fff;
+      font-size:13px;
+      letter-spacing:-0.2px;
+    }
+
+    /* DISTINCT METHOD NUMBER ANCHOR */
+    .m-order{
+      font-size:10px;
+      color:rgba(240,240,240,0.65); /* dimmer anchor */
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+      white-space:nowrap;
+      font-weight:700;
+      padding:3px 7px;
+      border-radius:999px;
+      border:1px solid rgba(47,47,53,0.9);
+      background:rgba(255,255,255,0.02);
+    }
+
     .m-desc{
       margin:6px 0 0;
       font-size:12.5px;
@@ -474,8 +493,9 @@
           <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
-          Want one? Email me <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Email me</a>.
+          Want one? Email <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
+          <a href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A"
+             style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Open email</a>.
         </p>
       </div>
 
@@ -503,7 +523,7 @@
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Overview</span>
-            <span class="label-note">what changes</span>
+            <span class="label-note">what this is</span>
           </div>
 
           <div class="overview-grid">
@@ -592,7 +612,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Email me five lines. I reply with whether this is a fit and what I need next.
+            Email five lines. I reply with whether this is a fit and what I need next.
           </p>
 
           <ul class="clean">
@@ -603,7 +623,8 @@
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A">Email</a>
+            <a class="btn btn-primary"
+               href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A">Email</a>
             <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
