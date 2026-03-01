@@ -118,7 +118,7 @@
 
     .top-cta{
       display:flex;
-      gap:14px; /* more breathing room */
+      gap:14px;
       align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
@@ -135,7 +135,7 @@
       font-size:11px;
       letter-spacing:0.6px;
       white-space:nowrap;
-      margin-right:6px; /* separates pill from buttons */
+      margin-right:6px;
     }
 
     .btn{
@@ -157,7 +157,6 @@
       background:var(--focus-bg);
     }
 
-    /* Email + LinkedIn buttons blue */
     .btn-primary{
       color:var(--cta-blue);
       border-color:rgba(74,163,255,0.40);
@@ -191,7 +190,7 @@
       margin:0 0 12px;
       color:#d6d6d6;
       font-size:14px;
-      max-width:62ch; /* tighter line length */
+      max-width:62ch;
     }
 
     /* Quick scan */
@@ -263,14 +262,14 @@
       margin:0 0 12px;
       color:#d3d3d3;
       font-size:14px;
-      max-width:62ch; /* tighter line length */
+      max-width:62ch;
     }
     .small{
       margin:0;
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
-      max-width:62ch; /* tighter line length */
+      max-width:62ch;
     }
 
     /* Lists */
@@ -296,6 +295,33 @@
       color:var(--text-faint);
     }
 
+    /* Overview: distinct "what it replaces" + "what changes" */
+    .overview-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .callout{
+      padding:12px 14px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:rgba(255,255,255,0.01);
+    }
+    .callout-title{
+      margin:0 0 6px;
+      font-size:12px;
+      font-weight:900;
+      color:#fff;
+      letter-spacing:-0.2px;
+    }
+    .callout-text{
+      margin:0;
+      font-size:12.5px;
+      color:var(--text-dim);
+      line-height:1.55;
+      max-width:66ch;
+    }
+
     /* Method (compressed) */
     .method{
       list-style:none;
@@ -305,7 +331,7 @@
       gap:10px;
     }
     .m-item{
-      padding:10px 12px; /* slightly tighter */
+      padding:10px 12px;
       border:1px solid var(--border);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
@@ -449,7 +475,7 @@
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
           Want one? Email me <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Email me</a>.
+          <a href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Email me</a>.
         </p>
       </div>
 
@@ -477,22 +503,37 @@
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Overview</span>
-            <span class="label-note">what this is</span>
+            <span class="label-note">what changes</span>
           </div>
 
-          <p class="lead">
-            A written diagnosis that makes the system legible enough to rebuild safely.
-          </p>
+          <div class="overview-grid">
+            <p class="lead" style="margin-bottom:0;">
+              Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
+              The Artifact makes structure explicit so builders can change the system without drift.
+            </p>
 
-          <ul class="clean">
-            <li><strong>You receive</strong>: one Diagnostic Artifact (PDF): primitives, invariants, enforcement, failure modes, build map.</li>
-            <li><strong>Best for</strong>: repeated breakdown under growth, where debates and process do not change outcomes.</li>
-            <li><strong>Enables</strong>: deterministic rebuild without policy drift or “interpretation gaps”.</li>
-          </ul>
+            <div class="callout">
+              <p class="callout-title">What this replaces</p>
+              <p class="callout-text">
+                Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that don’t change failure.
+              </p>
+            </div>
 
-          <p class="small" style="margin-top:12px;">
-            Not consulting. Not implementation. One artifact you can hand to builders and decision owners.
-          </p>
+            <div class="callout">
+              <p class="callout-title">What you can do with it</p>
+              <p class="callout-text">
+                Hand it to builders. Use it to decide boundaries, enforcement points, and sequence.
+                Reduce debate by making the operating grammar visible.
+              </p>
+            </div>
+
+            <div class="callout">
+              <p class="callout-title">What improves</p>
+              <p class="callout-text">
+                Faster decisions, fewer “interpretation gaps”, fewer recurring incidents with new names, and safer change under growth.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div class="card">
@@ -551,16 +592,18 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Email a short description of the recurring failure pattern and the interfaces involved. I’ll reply with fit and next step.
+            Email me five lines. I reply with whether this is a fit and what I need next.
           </p>
 
           <ul class="clean">
-            <li><strong>Include</strong>: what keeps breaking + what’s at stake + interfaces (teams/services/policies/contracts).</li>
-            <li><strong>Reply</strong>: whether this is a fit, and what I need next.</li>
+            <li><strong>What keeps breaking</strong> (one sentence).</li>
+            <li><strong>What’s at stake</strong> (one sentence).</li>
+            <li><strong>Interfaces involved</strong> (teams / services / policies / contracts).</li>
+            <li><strong>Links</strong> (optional): docs, dashboards, incident reports.</li>
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">Email</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Artifact%20Request%3A%20%5BSystem%20Name%5D&body=What%20keeps%20breaking%3A%0A%0AWhat%E2%80%99s%20at%20stake%3A%0A%0AInterfaces%20involved%20(teams%2Fservices%2Fpolicies%2Fcontracts)%3A%0A%0ALinks%20(optional)%3A%0A">Email</a>
             <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
