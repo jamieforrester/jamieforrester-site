@@ -15,7 +15,7 @@
       --text-dim:#b6b6b6;
       --text-faint:#7a7a7a;
 
-      /* Slightly brighter borders than earlier */
+      /* Slightly brighter borders */
       --border:#2c2c32;
       --accent:#34343c;
       --chip:#141417;
@@ -97,14 +97,19 @@
       border-bottom:1px solid var(--border);
       margin-bottom:26px;
     }
-    .h-left{display:flex;align-items:center;gap:16px;min-width:0;}
+    .h-left{display:flex;align-items:center;gap:18px;min-width:0;}
+    .h-ident{min-width:0;}
+    .meta-row{margin-top:10px;}
+
+    /* Profile image: slightly bigger */
     .avatar{
-      width:60px;height:60px;border-radius:999px;
+      width:72px;height:72px;border-radius:999px;
       border:1px solid var(--accent);
       object-fit:cover;
       filter:grayscale(100%);
       flex:0 0 auto;
     }
+
     h1{
       margin:0;
       font-size:20px;
@@ -146,6 +151,7 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      gap:10px;
       padding:10px 12px;
       border-radius:10px;
       border:1px solid var(--accent);
@@ -153,6 +159,7 @@
       color:#fff;
       font-size:12px;
       text-decoration:none;
+      line-height:1;
     }
     .btn:hover{background:rgba(255,255,255,0.06);}
     .btn:focus-visible{
@@ -160,6 +167,9 @@
       outline-offset:3px;
       background:var(--focus-bg);
     }
+
+    .ico{display:inline-flex;align-items:center;justify-content:center;}
+    .ico svg{display:block;}
 
     /* Email + LinkedIn buttons blue */
     .btn-primary{
@@ -190,6 +200,14 @@
       background:linear-gradient(180deg, rgba(74,163,255,0.06), rgba(255,255,255,0.00));
     }
 
+    .eyebrow{
+      font-size:10px;
+      letter-spacing:2.4px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.55);
+      margin:0 0 10px;
+    }
+
     .hero-title{
       margin:0 0 10px;
       font-size:22px;
@@ -213,7 +231,7 @@
       border-radius:10px;
     }
     .quick dl{margin:0;display:grid;gap:10px;}
-    .quick div{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:start;}
+    .quick div{display:grid;grid-template-columns:124px 1fr;gap:10px;align-items:start;}
     .qk{
       font-size:11px;
       color:var(--text-faint);
@@ -352,15 +370,16 @@
     }
     .paper + .paper{margin-top:12px;}
 
+    /* Thumbs: slightly bigger */
     .paper-row{
       display:grid;
-      grid-template-columns:52px 1fr;
+      grid-template-columns:64px 1fr;
       gap:12px;
       align-items:start;
     }
     .thumb{
-      width:52px;height:70px;
-      border-radius:8px;
+      width:64px;height:86px;
+      border-radius:10px;
       border:1px solid var(--accent);
       background:rgba(255,255,255,0.03);
       object-fit:cover;
@@ -395,6 +414,13 @@
       white-space:nowrap;
       flex:0 0 auto;
     }
+    .status-published{
+      color:#0b0b0c;
+      background:rgba(74,163,255,0.95);
+      border-color:rgba(74,163,255,0.95);
+      font-weight:900;
+    }
+
     .paper-desc{
       margin:0 0 10px;
       font-size:12.5px;
@@ -402,6 +428,34 @@
       line-height:1.55;
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+
+    .btn-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 12px;
+      border-radius:10px;
+      border:1px solid rgba(74,163,255,0.45);
+      background:rgba(74,163,255,0.12);
+      color:var(--cta-blue);
+      text-decoration:none;
+      font-size:12px;
+      line-height:1;
+    }
+    .btn-link:hover{
+      background:rgba(74,163,255,0.18);
+      border-color:rgba(74,163,255,0.65);
+    }
+    .btn-link:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      background:rgba(74,163,255,0.20);
+    }
+
+    .cta-link{
+      color:var(--cta-blue);
+      border-bottom-color:rgba(74,163,255,0.45);
+    }
 
     footer{
       margin-top:30px;
@@ -437,22 +491,43 @@
     <header>
       <div class="h-left">
         <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
-        <div>
+        <div class="h-ident">
           <h1>Jamie Forrester</h1>
           <div class="sub">Independent Systems Architect</div>
+          <div class="meta-row">
+            <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
+          </div>
         </div>
       </div>
 
-      <div class="top-cta">
-        <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">Email</a>
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="top-cta" aria-label="Primary links">
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Email
+        </a>
+
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M6.5 6.7h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M10.5 18v-5.2c0-1.6.9-2.6 2.3-2.6 1.5 0 2.2 1 2.2 2.6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+          LinkedIn
+        </a>
       </div>
     </header>
 
-    <!-- HERO: restore your stronger line + keep Get in touch -->
     <section class="hero-strip" aria-label="Primary summary">
       <div>
+        <div class="eyebrow">What I do</div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
         <p class="hero-sub">
           I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
@@ -460,22 +535,22 @@
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
           Want one? Email <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Get in touch</a>.
+          <a class="cta-link" href="mailto:hello@jamieforrester.com">Get in touch</a>.
         </p>
       </div>
 
       <div class="quick">
         <dl>
           <div>
-            <dt class="qk">You get</dt>
+            <dt class="qk">What you get</dt>
             <dd class="qv">One written Artifact you can hand to builders and decision owners.</dd>
           </div>
           <div>
-            <dt class="qk">It contains</dt>
+            <dt class="qk">What it contains</dt>
             <dd class="qv"><strong>Rules that must not break</strong> + where they are enforced + how failure resolves.</dd>
           </div>
           <div>
-            <dt class="qk">Not included</dt>
+            <dt class="qk">What’s not included</dt>
             <dd class="qv">Delivery ownership, org-change programs, coaching, implementation execution.</dd>
           </div>
         </dl>
@@ -484,7 +559,6 @@
 
     <main id="main" class="grid" role="main">
 
-      <!-- LEFT -->
       <section>
         <div class="card">
           <div class="label-row">
@@ -585,13 +659,12 @@
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">EMAIL</a>
-            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">LINKEDIN</a>
+            <a class="cta-link" href="mailto:hello@jamieforrester.com">EMAIL</a>
+            <a class="cta-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
           </div>
         </div>
       </section>
 
-      <!-- RIGHT -->
       <section>
         <div class="card">
           <div class="label-row">
@@ -607,11 +680,11 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-                  <span class="status">Published</span>
+                  <span class="status status-published">Published</span>
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
-                  <a href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
+                  <a href="./paper.pdf" class="btn-link" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
               </div>
             </div>
