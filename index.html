@@ -118,7 +118,7 @@
 
     .top-cta{
       display:flex;
-      gap:10px;
+      gap:14px; /* more breathing room */
       align-items:center;
       flex-wrap:wrap;
       justify-content:flex-end;
@@ -135,6 +135,7 @@
       font-size:11px;
       letter-spacing:0.6px;
       white-space:nowrap;
+      margin-right:6px; /* separates pill from buttons */
     }
 
     .btn{
@@ -190,7 +191,7 @@
       margin:0 0 12px;
       color:#d6d6d6;
       font-size:14px;
-      max-width:72ch;
+      max-width:62ch; /* tighter line length */
     }
 
     /* Quick scan */
@@ -262,13 +263,14 @@
       margin:0 0 12px;
       color:#d3d3d3;
       font-size:14px;
-      max-width:72ch;
+      max-width:62ch; /* tighter line length */
     }
     .small{
       margin:0;
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
+      max-width:62ch; /* tighter line length */
     }
 
     /* Lists */
@@ -285,6 +287,7 @@
       color:#d6d6d6;
       font-size:13px;
       line-height:1.55;
+      max-width:64ch;
     }
     ul.clean li::before{
       content:"→";
@@ -293,7 +296,7 @@
       color:var(--text-faint);
     }
 
-    /* Method */
+    /* Method (compressed) */
     .method{
       list-style:none;
       margin:0;
@@ -302,7 +305,7 @@
       gap:10px;
     }
     .m-item{
-      padding:12px 14px;
+      padding:10px 12px; /* slightly tighter */
       border:1px solid var(--border);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
@@ -312,11 +315,17 @@
       align-items:baseline;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:6px;
+      margin-bottom:0;
     }
     .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
     .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.6px;white-space:nowrap;}
-    .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
+    .m-desc{
+      margin:6px 0 0;
+      font-size:12.5px;
+      color:var(--text-dim);
+      line-height:1.45;
+      max-width:66ch;
+    }
 
     /* Papers / Books */
     .paper{
@@ -375,6 +384,7 @@
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
+      max-width:66ch;
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
@@ -395,6 +405,11 @@
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
       .grid{grid-template-columns:1fr;}
+
+      /* ensure engagement comes last on mobile */
+      .left-col{display:flex;flex-direction:column;}
+      .engagement{order:10;}
+
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
     }
@@ -425,7 +440,6 @@
       </div>
     </header>
 
-    <!-- HERO: tightened + CTA; removed "Typical symptoms" paragraph -->
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
@@ -434,7 +448,7 @@
           <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
         </p>
         <p class="hero-sub" style="margin-bottom:0;">
-          If you want one, send a short description of the failure pattern and the interfaces involved.
+          Want one? Email me <strong>five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
           <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Email me</a>.
         </p>
       </div>
@@ -459,8 +473,7 @@
 
     <main id="main" class="grid" role="main">
 
-      <!-- LEFT: 01 Overview → 02 Method → 03 Engagement (tightened copy) -->
-      <section>
+      <section class="left-col">
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Overview</span>
@@ -468,17 +481,17 @@
           </div>
 
           <p class="lead">
-            This is not consulting. It is a written diagnosis that makes the system legible enough to rebuild safely.
+            A written diagnosis that makes the system legible enough to rebuild safely.
           </p>
 
           <ul class="clean">
-            <li><strong>Problem</strong>: recurring failure persists because the real primitive and rules are implicit or disputed.</li>
-            <li><strong>Fix</strong>: make primitives, invariants, and enforcement explicit—then sequence changes deterministically.</li>
-            <li><strong>Result</strong>: fewer debates, fewer “interpretation gaps”, faster implementation with less drift.</li>
+            <li><strong>You receive</strong>: one Diagnostic Artifact (PDF): primitives, invariants, enforcement, failure modes, build map.</li>
+            <li><strong>Best for</strong>: repeated breakdown under growth, where debates and process do not change outcomes.</li>
+            <li><strong>Enables</strong>: deterministic rebuild without policy drift or “interpretation gaps”.</li>
           </ul>
 
           <p class="small" style="margin-top:12px;">
-            Best fit: founders, CTOs, operators, and policy owners dealing with repeated breakdown under growth.
+            Not consulting. Not implementation. One artifact you can hand to builders and decision owners.
           </p>
         </div>
 
@@ -494,7 +507,7 @@
                 <div class="m-name">Primitive</div>
                 <div class="m-order">01</div>
               </div>
-              <p class="m-desc">What action the system repeats (the real unit of work).</p>
+              <p class="m-desc">The irreducible action the system repeats.</p>
             </li>
 
             <li class="m-item">
@@ -502,7 +515,7 @@
                 <div class="m-name">Invariants</div>
                 <div class="m-order">02</div>
               </div>
-              <p class="m-desc">What must never be violated (fail-closed constraints).</p>
+              <p class="m-desc">What must never break (fail-closed constraints).</p>
             </li>
 
             <li class="m-item">
@@ -510,7 +523,7 @@
                 <div class="m-name">Enforcement</div>
                 <div class="m-order">03</div>
               </div>
-              <p class="m-desc">Where rules live in reality (not where policy says they live).</p>
+              <p class="m-desc">Where rules actually live and how violations resolve.</p>
             </li>
 
             <li class="m-item">
@@ -518,7 +531,7 @@
                 <div class="m-name">Mismatch</div>
                 <div class="m-order">04</div>
               </div>
-              <p class="m-desc">Where the interface promise diverges from the operating grammar.</p>
+              <p class="m-desc">Where interface promise ≠ operating reality.</p>
             </li>
 
             <li class="m-item">
@@ -526,35 +539,33 @@
                 <div class="m-name">Build Map</div>
                 <div class="m-order">05</div>
               </div>
-              <p class="m-desc">The boundary and transition sequence that makes implementation deterministic.</p>
+              <p class="m-desc">Boundary + sequencing plan for deterministic implementation.</p>
             </li>
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card engagement">
           <div class="label-row">
             <span class="label">03 // Engagement</span>
             <span class="label-note">how to start</span>
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            If your system keeps failing in the same way under growth, I can write the Artifact that exposes the real structure and the failure concentration.
+            Email a short description of the recurring failure pattern and the interfaces involved. I’ll reply with fit and next step.
           </p>
 
           <ul class="clean">
-            <li><strong>Step 1</strong>: email a short description of the recurring failure pattern.</li>
-            <li><strong>Step 2</strong>: include the key interfaces (teams, services, policies, contracts) involved.</li>
-            <li><strong>Step 3</strong>: I respond with next steps and whether this is a fit.</li>
+            <li><strong>Include</strong>: what keeps breaking + what’s at stake + interfaces (teams/services/policies/contracts).</li>
+            <li><strong>Reply</strong>: whether this is a fit, and what I need next.</li>
           </ul>
 
           <div class="actions" style="margin-top:12px;">
-            <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">EMAIL</a>
-            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">Email</a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
           </div>
         </div>
       </section>
 
-      <!-- RIGHT: 04 Research Canon → 05 Books → 06 Active Infrastructure (unchanged) -->
       <section>
         <div class="card">
           <div class="label-row">
