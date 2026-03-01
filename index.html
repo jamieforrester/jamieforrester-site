@@ -330,6 +330,13 @@
       font-weight:600;
     }
 
+    .hero-divider{
+      width:72px;
+      height:1px;
+      background:linear-gradient(90deg, rgba(90,176,255,0.35), rgba(255,255,255,0));
+      margin:14px 0 14px;
+    }
+
     .quick{
       border-left:2px solid rgba(90,176,255,0.24);
       padding:10px 0 10px 14px;
@@ -652,8 +659,10 @@
 
         <p class="hero-sub">
           I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
-          <strong>primitives</strong>, <strong>invariants</strong>, and <strong>enforcement</strong>.
+          <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
         </p>
+
+        <div class="hero-divider" aria-hidden="true"></div>
 
         <p class="hero-sub">
           I write <strong>Redesign Artifacts</strong> that specify the boundary and transition sequence that makes change deterministic.
@@ -674,6 +683,10 @@
           <div>
             <dt class="qk">What it contains</dt>
             <dd class="qv"><strong>Rules that must not break</strong> + where they are enforced + how failure resolves.</dd>
+          </div>
+          <div>
+            <dt class="qk">What to send</dt>
+            <dd class="qv">The recurring failure pattern, the interfaces involved, and any <strong>current artifacts</strong> you already have.</dd>
           </div>
           <div>
             <dt class="qk">What’s not included</dt>
@@ -779,7 +792,7 @@
 
           <ul class="clean">
             <li><strong>Step 1</strong>: email five lines on the recurring failure pattern.</li>
-            <li><strong>Step 2</strong>: include the key interfaces (teams, services, policies, contracts).</li>
+            <li><strong>Step 2</strong>: include the key interfaces, any current artifacts, and the most relevant teams, services, policies, or contracts.</li>
             <li><strong>Step 3</strong>: I reply with next steps and whether this is a fit.</li>
           </ul>
 
