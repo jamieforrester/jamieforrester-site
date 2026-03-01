@@ -19,7 +19,7 @@
       --chip:#141417;
 
       --label-blue:#4aa3ff;
-      --email-blue:#4aa3ff;
+      --cta-blue:#4aa3ff;
 
       --focus-ring:rgba(255,255,255,0.95);
       --focus-bg:rgba(255,255,255,0.08);
@@ -28,23 +28,15 @@
     *{box-sizing:border-box;}
     html{color-scheme:dark;}
 
-    /* Engineer fontset (primary) */
     body{
       margin:0;
       background:var(--bg);
       color:var(--text-main);
-      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size:15px;
-      line-height:1.65;
+      font-family:ui-monospace,"Cascadia Mono","Segoe UI Mono","Roboto Mono",Menlo,Monaco,Consolas,monospace;
+      line-height:1.55;
+      font-size:14px;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
-    }
-
-    /* Architect accent (monospace) */
-    .mono{
-      font-family:ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, Monaco, Consolas, monospace;
-      letter-spacing:-0.02em;
-      -webkit-font-smoothing:antialiased;
     }
 
     .wrap{max-width:1100px;margin:0 auto;padding:56px 24px 56px;}
@@ -69,13 +61,13 @@
       outline-offset:3px;
     }
 
-    /* Global links */
+    /* Links */
     a{
       color:#fff;
       text-decoration:none;
       border-bottom:1px solid #3f3f45;
       padding-bottom:1px;
-      font-size:13px;
+      font-size:12px;
     }
     a:hover{
       border-bottom-color:#fff;
@@ -112,7 +104,7 @@
       margin:0;
       font-size:20px;
       font-weight:650;
-      letter-spacing:-0.5px;
+      letter-spacing:-0.4px;
       line-height:1.15;
     }
     .sub{
@@ -120,6 +112,7 @@
       font-size:11px;
       color:var(--text-dim);
       text-transform:uppercase;
+      letter-spacing:1.8px;
       white-space:nowrap;
     }
 
@@ -140,6 +133,7 @@
       background:var(--chip);
       color:var(--text-dim);
       font-size:11px;
+      letter-spacing:0.6px;
       white-space:nowrap;
     }
 
@@ -162,15 +156,15 @@
       background:var(--focus-bg);
     }
 
-    /* Email button blue */
-    .btn-email{
-      color:var(--email-blue);
-      border-color:rgba(74,163,255,0.35);
-      background:rgba(74,163,255,0.06);
+    /* Email + LinkedIn buttons blue */
+    .btn-primary{
+      color:var(--cta-blue);
+      border-color:rgba(74,163,255,0.40);
+      background:rgba(74,163,255,0.08);
     }
-    .btn-email:hover{
-      background:rgba(74,163,255,0.12);
-      border-color:rgba(74,163,255,0.55);
+    .btn-primary:hover{
+      background:rgba(74,163,255,0.14);
+      border-color:rgba(74,163,255,0.60);
     }
 
     /* Hero strip */
@@ -198,12 +192,6 @@
       font-size:14px;
       max-width:72ch;
     }
-    .hero-symptoms{
-      margin:0;
-      color:var(--text-dim);
-      font-size:12.5px;
-      line-height:1.55;
-    }
 
     /* Quick scan */
     .quick{
@@ -218,6 +206,7 @@
       font-size:11px;
       color:var(--text-faint);
       text-transform:uppercase;
+      letter-spacing:1.6px;
       padding-top:2px;
       white-space:nowrap;
     }
@@ -258,11 +247,13 @@
       font-size:11px;
       font-weight:900;
       text-transform:uppercase;
+      letter-spacing:2.6px;
       color:var(--label-blue);
     }
     .label-note{
       font-size:10px;
       color:var(--text-faint);
+      letter-spacing:1px;
       white-space:nowrap;
       text-transform:lowercase;
     }
@@ -278,6 +269,28 @@
       font-size:12.5px;
       color:var(--text-dim);
       line-height:1.55;
+    }
+
+    /* Lists */
+    ul.clean{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    ul.clean li{
+      padding-left:16px;
+      position:relative;
+      color:#d6d6d6;
+      font-size:13px;
+      line-height:1.55;
+    }
+    ul.clean li::before{
+      content:"→";
+      position:absolute;
+      left:0;
+      color:var(--text-faint);
     }
 
     /* Method */
@@ -302,7 +315,7 @@
       margin-bottom:6px;
     }
     .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
-    .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;white-space:nowrap;}
+    .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.6px;white-space:nowrap;}
     .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
 
     /* Papers / Books */
@@ -348,6 +361,7 @@
     .status{
       font-size:9px;
       text-transform:uppercase;
+      letter-spacing:1.2px;
       padding:3px 7px;
       border-radius:8px;
       border:1px solid var(--accent);
@@ -363,28 +377,6 @@
       line-height:1.55;
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
-
-    /* Mini list */
-    ul.clean{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    ul.clean li{
-      padding-left:16px;
-      position:relative;
-      color:#d6d6d6;
-      font-size:13px;
-      line-height:1.55;
-    }
-    ul.clean li::before{
-      content:"→";
-      position:absolute;
-      left:0;
-      color:var(--text-faint);
-    }
 
     footer{
       margin-top:30px;
@@ -414,7 +406,7 @@
 </head>
 
 <body>
-  <a class="skip-link mono" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="wrap">
     <header>
@@ -422,41 +414,43 @@
         <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
         <div>
           <h1>Jamie Forrester</h1>
-          <div class="sub mono">Independent Systems Architect</div>
+          <div class="sub">Independent Systems Architect</div>
         </div>
       </div>
 
       <div class="top-cta">
-        <span class="pill mono" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
-        <a class="btn mono btn-email" href="mailto:hello@jamieforrester.com">Email</a>
-        <a class="btn mono" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">Email</a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </header>
 
+    <!-- HERO: tightened + CTA; removed "Typical symptoms" paragraph -->
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
         <p class="hero-sub">
-          I produce written <strong>Diagnostic Artifacts</strong> that make a system’s real structure visible:
-          <strong>what it does</strong>, <strong>what must not break</strong>, and <strong>where failure concentrates</strong>.
+          I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
+          <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
         </p>
-        <p class="hero-symptoms">
-          Typical symptoms: recurring incidents with new names, exception sprawl, “alignment loops”, committees that queue decisions, metrics theatre.
+        <p class="hero-sub" style="margin-bottom:0;">
+          If you want one, send a short description of the failure pattern and the interfaces involved.
+          <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">Email me</a>.
         </p>
       </div>
 
       <div class="quick">
         <dl>
           <div>
-            <dt class="qk mono">Output</dt>
-            <dd class="qv">A written Artifact: <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, <strong>failure modes</strong>, <strong>build map</strong>.</dd>
+            <dt class="qk">You get</dt>
+            <dd class="qv">One written Artifact you can hand to builders and decision owners.</dd>
           </div>
           <div>
-            <dt class="qk mono">Use when</dt>
-            <dd class="qv">You cannot stabilise behaviour with more process, training, or dashboards.</dd>
+            <dt class="qk">It contains</dt>
+            <dd class="qv"><strong>Rules that must not break</strong> + where they are enforced + how failure resolves.</dd>
           </div>
           <div>
-            <dt class="qk mono">Not included</dt>
+            <dt class="qk">Not included</dt>
             <dd class="qv">Delivery ownership, org-change programs, coaching, implementation execution.</dd>
           </div>
         </dl>
@@ -465,104 +459,105 @@
 
     <main id="main" class="grid" role="main">
 
-      <!-- LEFT: Overview → Method → Engagement -->
+      <!-- LEFT: 01 Overview → 02 Method → 03 Engagement (tightened copy) -->
       <section>
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">01 // Overview</span>
-            <span class="label-note">what I do</span>
+            <span class="label-note">what this is</span>
           </div>
 
           <p class="lead">
-            Most chronic complexity is not a “people problem.” It is topology: misnamed primitives, unclear invariants, and enforcement living in the wrong place.
+            This is not consulting. It is a written diagnosis that makes the system legible enough to rebuild safely.
           </p>
 
           <ul class="clean">
-            <li><strong>Deliverable</strong>: one written Artifact you can hand to builders, leadership, or policy owners.</li>
-            <li><strong>Purpose</strong>: structural truth, not recommendations theatre.</li>
-            <li><strong>Use</strong>: convert ambiguity into enforceable constraints and deterministic sequencing.</li>
+            <li><strong>Problem</strong>: recurring failure persists because the real primitive and rules are implicit or disputed.</li>
+            <li><strong>Fix</strong>: make primitives, invariants, and enforcement explicit—then sequence changes deterministically.</li>
+            <li><strong>Result</strong>: fewer debates, fewer “interpretation gaps”, faster implementation with less drift.</li>
           </ul>
 
           <p class="small" style="margin-top:12px;">
-            If you email, include: a 3–5 line description of the failure pattern, what is at stake, and the key interfaces/policies involved.
+            Best fit: founders, CTOs, operators, and policy owners dealing with repeated breakdown under growth.
           </p>
         </div>
 
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">02 // Method</span>
-            <span class="label-note">mapping sequence</span>
+            <span class="label-note">what I map</span>
           </div>
 
           <ul class="method">
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Primitive</div>
-                <div class="m-order mono">01</div>
+                <div class="m-name">Primitive</div>
+                <div class="m-order">01</div>
               </div>
-              <p class="m-desc">Name the irreducible action the system repeats.</p>
+              <p class="m-desc">What action the system repeats (the real unit of work).</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Invariants</div>
-                <div class="m-order mono">02</div>
+                <div class="m-name">Invariants</div>
+                <div class="m-order">02</div>
               </div>
-              <p class="m-desc">Define what must not break as fail-closed, auditable constraints.</p>
+              <p class="m-desc">What must never be violated (fail-closed constraints).</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Enforcement</div>
-                <div class="m-order mono">03</div>
+                <div class="m-name">Enforcement</div>
+                <div class="m-order">03</div>
               </div>
-              <p class="m-desc">Locate where rules actually live and how violations resolve.</p>
+              <p class="m-desc">Where rules live in reality (not where policy says they live).</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Mismatch</div>
-                <div class="m-order mono">04</div>
+                <div class="m-name">Mismatch</div>
+                <div class="m-order">04</div>
               </div>
-              <p class="m-desc">Identify interface promise vs operating reality (what is recruited vs what is run).</p>
+              <p class="m-desc">Where the interface promise diverges from the operating grammar.</p>
             </li>
 
             <li class="m-item">
               <div class="m-top">
-                <div class="m-name mono">Build Map</div>
-                <div class="m-order mono">05</div>
+                <div class="m-name">Build Map</div>
+                <div class="m-order">05</div>
               </div>
-              <p class="m-desc">Sequence boundaries and transitions so implementation is deterministic.</p>
+              <p class="m-desc">The boundary and transition sequence that makes implementation deterministic.</p>
             </li>
           </ul>
         </div>
 
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">03 // Engagement</span>
-            <span class="label-note">how to work together</span>
+            <span class="label-note">how to start</span>
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            If you are trapped in <strong>chronic complexity</strong>—process grows while movement stalls—I can produce a Diagnostic Artifact that makes hidden structure legible.
+            If your system keeps failing in the same way under growth, I can write the Artifact that exposes the real structure and the failure concentration.
           </p>
 
           <ul class="clean">
-            <li><strong>Output</strong>: written diagnosis (primitives, invariants, enforcement, failure modes, build map).</li>
-            <li><strong>Purpose</strong>: structural truth, not recommendations theatre.</li>
+            <li><strong>Step 1</strong>: email a short description of the recurring failure pattern.</li>
+            <li><strong>Step 2</strong>: include the key interfaces (teams, services, policies, contracts) involved.</li>
+            <li><strong>Step 3</strong>: I respond with next steps and whether this is a fit.</li>
           </ul>
 
-          <div class="actions mono" style="font-size:12px;margin-top:12px;">
-            <a href="mailto:hello@jamieforrester.com">EMAIL</a>
+          <div class="actions" style="margin-top:12px;">
+            <a href="mailto:hello@jamieforrester.com" style="color:var(--cta-blue);border-bottom-color:rgba(74,163,255,0.45);">EMAIL</a>
             <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
           </div>
         </div>
       </section>
 
-      <!-- RIGHT: Research Canon → Books → Active Infrastructure -->
+      <!-- RIGHT: 04 Research Canon → 05 Books → 06 Active Infrastructure (unchanged) -->
       <section>
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">04 // Research Canon</span>
             <span class="label-note">papers + drafts</span>
           </div>
@@ -575,7 +570,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-                  <span class="status mono">Published</span>
+                  <span class="status">Published</span>
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
@@ -593,7 +588,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                  <span class="status mono">In prep</span>
+                  <span class="status">In prep</span>
                 </div>
                 <p class="paper-desc">
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
@@ -614,7 +609,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</p>
-                  <span class="status mono">In dev</span>
+                  <span class="status">In dev</span>
                 </div>
                 <p class="paper-desc">
                   Why execution-optimised systems lack an interface for upstream reframing—and therefore cannot self-correct.
@@ -633,7 +628,7 @@
         </div>
 
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">05 // Books</span>
             <span class="label-note">work in progress</span>
           </div>
@@ -646,7 +641,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">Seeing Systems</p>
-                  <span class="status mono">Drafted</span>
+                  <span class="status">Drafted</span>
                 </div>
                 <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
                 <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.</p>
@@ -662,7 +657,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The System Founder Framework</p>
-                  <span class="status mono">In design</span>
+                  <span class="status">In design</span>
                 </div>
                 <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
                 <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.</p>
@@ -672,7 +667,7 @@
         </div>
 
         <div class="card">
-          <div class="label-row mono">
+          <div class="label-row">
             <span class="label">06 // Active Infrastructure</span>
             <span class="label-note">applied builds</span>
           </div>
@@ -686,7 +681,7 @@
 
     </main>
 
-    <footer class="mono">
+    <footer>
       <div>
         Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
         <span style="color:var(--text-faint);"> / Edinburgh, UK</span>
