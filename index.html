@@ -4,104 +4,315 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jamie Forrester — Independent Systems Architect</title>
-  <link rel="icon" href="/favicon.png">
+  <meta name="description" content="Independent Systems Architect. I produce written Diagnostic Artifacts: primitives, invariants, enforcement, failure modes." />
+  <link rel="icon" href="/favicon.png" />
+
   <style>
-    :root {
-      --bg: #0b0b0c;
-      --text-main: #eaeaea;
-      --text-dim: #999;
-      --border: #222;
-      --accent: #333;
+    :root{
+      --bg:#0b0b0c;
+      --panel:#0f0f10;
+      --text:#eaeaea;
+      --dim:#a3a3a3;
+      --muted:#7a7a7a;
+      --border:#222;
+      --accent:#333;
+      --chip:#111;
+      --link:#ffffff;
+      --max:1040px;
     }
 
-    body {
-      margin: 0;
-      font-family: ui-monospace, "Cascadia Mono", monospace;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.5;
-      font-size: 14px;
-      -webkit-font-smoothing: antialiased;
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, Monaco, Consolas, monospace;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      font-size:14px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 60px 24px;
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:64px 24px 80px;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 40px;
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      padding-bottom:28px;
+      margin-bottom:28px;
+      border-bottom:1px solid var(--border);
     }
 
-    .avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 1px solid var(--accent);
-      filter: grayscale(100%);
+    .avatar{
+      width:84px;
+      height:84px;
+      border-radius:50%;
+      border:1px solid var(--accent);
+      filter:grayscale(100%);
+      object-fit:cover;
+      flex:0 0 auto;
+      background:var(--panel);
     }
 
-    h1 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -1px; }
-    h2 { margin: 8px 0 20px; font-size: 14px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
-    
-    .tag {
-      display: inline-block;
-      padding: 6px 14px;
-      border: 1px solid var(--accent);
-      border-radius: 4px;
-      color: #fff;
-      font-size: 13px;
-      background: #111;
+    .headcopy{ min-width:0; }
+
+    h1{
+      margin:0 0 4px;
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:-0.4px;
     }
 
-    /* Grid Layout */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 30px;
+    h2{
+      margin:0 0 10px;
+      font-size:12px;
+      font-weight:500;
+      color:var(--dim);
+      text-transform:uppercase;
+      letter-spacing:2px;
     }
 
-    .section { margin-bottom: 35px; }
-    .full-width { grid-column: 1 / -1; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-
-    .label {
-      font-size: 11px;
-      color: #fff;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      display: block;
-      margin-bottom: 15px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
+    .tagrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
     }
 
-    .paper-item {
-      padding: 12px 0;
-      border-bottom: 1px dotted #333;
+    .tag{
+      display:inline-block;
+      padding:6px 12px;
+      border:1px solid var(--accent);
+      border-radius:6px;
+      background:var(--chip);
+      color:#fff;
+      font-size:12px;
+      white-space:nowrap;
     }
 
-    .status { font-size: 10px; color: #666; border: 1px solid #333; padding: 2px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+    .chip{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      color:var(--dim);
+      font-size:11px;
+      background:transparent;
+    }
 
-    a { color: #fff; text-decoration: none; border-bottom: 1px solid #444; transition: 0.2s; }
-    a:hover { border-bottom-color: #fff; background: #1a1a1c; }
-    
-    .paper-link { font-size: 12px; display: inline-block; margin-top: 5px; color: var(--text-dim); }
+    /* Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:28px;
+    }
 
-    ul { margin: 15px 0; padding: 0; list-style: none; }
-    li { margin-bottom: 10px; padding-left: 20px; position: relative; color: #ccc; }
-    li::before { content: "→"; position: absolute; left: 0; color: #555; }
+    /* Left column */
+    .hero{
+      padding:18px 18px 14px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00));
+      margin-bottom:18px;
+    }
 
-    .small { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
-    .hero-text { font-size: 18px; color: #fff; line-height: 1.4; margin-bottom: 15px; }
+    .hero-title{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:-0.3px;
+      color:#fff;
+    }
 
-    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    .hero p{ margin:0 0 10px; color:var(--dim); }
+    .hero p strong{ color:#fff; font-weight:600; }
+
+    .deliverable{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid var(--border);
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap:10px 14px;
+      align-items:start;
+    }
+
+    .deliverable .k{ color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:2px; }
+    .deliverable .v{ color:var(--dim); font-size:13px; }
+    .deliverable .v strong{ color:#fff; }
+
+    .section{
+      padding:16px 18px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:var(--panel);
+      margin-bottom:18px;
+    }
+
+    .label{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+      margin-bottom:12px;
+      padding-bottom:10px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .label span{
+      font-size:11px;
+      color:#fff;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:2.6px;
+    }
+
+    .label em{
+      font-style:normal;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .bullets{ margin:0; padding:0; list-style:none; }
+    .bullets li{
+      margin:0 0 10px;
+      padding-left:18px;
+      position:relative;
+      color:#cfcfcf;
+    }
+    .bullets li:last-child{ margin-bottom:0; }
+    .bullets li::before{
+      content:"→";
+      position:absolute;
+      left:0;
+      color:#555;
+    }
+    .bullets strong{ color:#fff; font-weight:600; }
+
+    .small{ font-size:12px; color:var(--dim); }
+    .small strong{ color:#fff; font-weight:600; }
+
+    /* Right column list items */
+    .list{ display:flex; flex-direction:column; gap:10px; }
+
+    .item{
+      padding:14px 14px 12px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:var(--panel);
+    }
+
+    .item-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:6px;
+    }
+
+    .item-title{
+      margin:0;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:-0.2px;
+      color:#fff;
+      line-height:1.25;
+    }
+
+    .status{
+      flex:0 0 auto;
+      font-size:10px;
+      padding:3px 8px;
+      border:1px solid #333;
+      border-radius:999px;
+      color:#777;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      background:transparent;
+      margin-top:1px;
+      white-space:nowrap;
+    }
+
+    .desc{
+      margin:0 0 10px;
+      font-size:12px;
+      color:var(--dim);
+    }
+
+    .links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    a{
+      color:var(--link);
+      text-decoration:none;
+      border-bottom:1px solid #444;
+      transition:0.15s ease;
+      font-size:12px;
+    }
+
+    a:hover{
+      border-bottom-color:#fff;
+      background:#161617;
+    }
+
+    .meta{
+      font-size:11px;
+      color:var(--muted);
+      border-bottom:none;
+    }
+
+    .meta:hover{ background:transparent; border-bottom:none; }
+
+    /* Contact strip */
+    .contact{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      padding:14px 18px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:var(--panel);
+      margin-top:8px;
+    }
+
+    .contact-left{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      color:var(--dim);
+      font-size:12px;
+    }
+
+    .contact-right{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .sep{ color:#444; }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      header{ flex-direction:column; align-items:flex-start; }
+      .avatar{ width:76px; height:76px; }
+      .grid{ grid-template-columns:1fr; }
+      .deliverable{ grid-template-columns: 1fr; }
+      .deliverable .k{ margin-top:8px; }
+    }
   </style>
 </head>
 
@@ -110,98 +321,167 @@
 
     <header>
       <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
-      <h1>Jamie Forrester</h1>
-      <h2>Independent Systems Architect</h2>
-      <div class="tag">Primitive → Invariants → Enforcement → Build Map</div>
+      <div class="headcopy">
+        <h1>Jamie Forrester</h1>
+        <h2>Independent Systems Architect</h2>
+        <div class="tagrow">
+          <div class="tag">Primitive → Invariants → Enforcement → Build Map</div>
+          <div class="chip">Written Diagnostic Artifacts</div>
+          <div class="chip">Institutional Topology</div>
+        </div>
+      </div>
     </header>
 
     <div class="grid">
-      
-      <div class="col full-width">
-        <div class="section">
-          <span class="label">01 // The Logic</span>
-          <p class="hero-text">Upstream Diagnosis for Institutional Topology.</p>
-          <p>I make systems legible under scale. Most institutional failure is not a failure of people, but of structure. I reframe hidden architectures so that execution remains deterministic and outcomes become predictable.</p>
-          <p class="small">I diagnose and reframe. Others decide and build.</p>
-        </div>
-      </div>
 
-      <div class="col">
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <div class="hero">
+          <p class="hero-title">Upstream diagnosis for systems that fail under scale.</p>
+          <p>
+            I work upstream of product and engineering. I make the system’s real structure visible:
+            <strong>what it does</strong>, <strong>what must not break</strong>, and <strong>where failure concentrates</strong>.
+          </p>
+          <p class="small">
+            Most chronic complexity is not “people problems”. It is topology: mismatched primitives, unclear invariants, and enforcement living in the wrong place.
+          </p>
+
+          <div class="deliverable">
+            <div class="k">Deliverable</div>
+            <div class="v"><strong>Diagnostic Artifact</strong> (written) — primitives, invariants, enforcement points, failure modes.</div>
+
+            <div class="k">Not included</div>
+            <div class="v">Delivery management, org change programs, implementation execution.</div>
+
+            <div class="k">Best fit</div>
+            <div class="v">Founders, CTOs, operators, and policy leads facing recurring failure under scale.</div>
+          </div>
+        </div>
+
         <div class="section">
-          <span class="label">02 // Methodology</span>
-          <ul>
-            <li><strong>Primitives</strong> — Extracting the irreducible action a system performs.</li>
-            <li><strong>Invariants</strong> — Defining non-negotiable, fail-closed rules.</li>
-            <li><strong>Enforcement</strong> — Identifying exactly where rules live and how they apply.</li>
-            <li><strong>Structural Mismatch</strong> — Solving the gap between interface promise and reality.</li>
-            <li><strong>Build Maps</strong> — Sequencing transitions so implementation is deterministic.</li>
+          <div class="label"><span>01 // Method</span><em>what I map, in order</em></div>
+          <ul class="bullets">
+            <li><strong>Primitive</strong> — name the irreducible action the system repeats.</li>
+            <li><strong>Invariants</strong> — define the rules that must not break (fail-closed, auditable).</li>
+            <li><strong>Enforcement</strong> — locate where rules actually live and how violations resolve.</li>
+            <li><strong>Mismatch</strong> — identify interface promise vs execution reality (what is recruited vs what is run).</li>
+            <li><strong>Build Map</strong> — sequence boundaries and transitions so implementation is deterministic.</li>
           </ul>
         </div>
 
         <div class="section">
-          <span class="label">03 // Books (In Preparation)</span>
-          <div style="margin-bottom: 20px;">
-            <p style="margin-bottom: 5px;"><strong>Seeing Systems</strong></p>
-            <p class="small">A primer on systemic literacy. Teaching the "60-second scan" to identify the invisible structures governing the physical world.</p>
-          </div>
-          <div>
-            <p style="margin-bottom: 5px;"><strong>The System Founder Framework</strong></p>
-            <p class="small">Construction doctrine for the AI era. How to architect and deploy companies as high-leverage operating systems.</p>
-          </div>
+          <div class="label"><span>02 // Active Infrastructure</span><em>applied research</em></div>
+          <p class="small" style="margin:0 0 10px;">
+            Two build programs run alongside the research canon.
+          </p>
+          <ul class="bullets">
+            <li><strong>Spectrum Registry</strong> — a law-first symbolic registry: durable truth + constrained ownership flows.</li>
+            <li><strong>PromptFactory</strong> — a deterministic build pipeline that pushes intelligence upstream into specification and verification.</li>
+          </ul>
         </div>
+
       </div>
 
-      <div class="col">
-        <div class="section">
-          <span class="label">04 // Research Canon</span>
-          
-          <div class="paper-item">
-            <div style="margin-bottom: 4px;">
-                <a href="./paper.pdf" target="_blank">The Expertise Illusion</a> <span class="status">Published</span>
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <div class="section" style="margin-bottom:12px;">
+          <div class="label"><span>03 // Research Canon</span><em>papers + drafts</em></div>
+
+          <div class="list">
+
+            <div class="item">
+              <div class="item-top">
+                <p class="item-title">The Expertise Illusion in AI Task Marketplaces</p>
+                <span class="status">Published</span>
+              </div>
+              <p class="desc">Recruitment grammar vs operating grammar: why markets can recruit “expertise” while running as reliability pipelines.</p>
+              <div class="links">
+                <a href="./paper.pdf" target="_blank">Read paper (PDF)</a>
+              </div>
             </div>
-            <p class="small">Diagnosis of recruitment/execution mismatch in AI markets.</p>
-            <a href="./paper.pdf" class="paper-link">View Manuscript &rarr;</a>
+
+            <div class="item">
+              <div class="item-top">
+                <p class="item-title">The Four-Function Law of Scalable Institutions</p>
+                <span class="status">In preparation</span>
+              </div>
+              <p class="desc">Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.</p>
+              <div class="links">
+                <a href="./paper-2-abstract.pdf" target="_blank">Read abstract (PDF)</a>
+                <a class="meta" href="./paper-2-status.html">Status notes</a>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="item-top">
+                <p class="item-title">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</p>
+                <span class="status">In development</span>
+              </div>
+              <p class="desc">Why execution-optimised systems lack an interface for upstream reframing—and therefore cannot self-correct.</p>
+              <div class="links">
+                <a href="./paper-3-abstract.pdf" target="_blank">Read abstract (PDF)</a>
+                <a class="meta" href="./paper-3-status.html">Status notes</a>
+              </div>
+            </div>
+
           </div>
 
-          <div class="paper-item">
-            <div style="margin-bottom: 4px;">
-                The Four-Function Law <span class="status">Preparation</span>
-            </div>
-            <p class="small">How institutions collapse when Sensing, Interpretation, Authority, and Memory fuse.</p>
-            <span class="paper-link" style="border:none;">Abstract Forthcoming</span>
-          </div>
-
-          <div class="paper-item">
-            <div style="margin-bottom: 4px;">
-                The Missing Redesign Layer <span class="status">Development</span>
-            </div>
-            <p class="small">Why systems fail to self-correct without a dedicated market for reframing.</p>
-            <span class="paper-link" style="border:none;">Draft in Progress</span>
-          </div>
-          
-          <p class="small" style="margin-top:15px;">Field research includes: Institutional Substitution, Kernel Typology, and Emergence Physics (OFMR).</p>
-        </div>
-
-        <div class="section">
-          <span class="label">05 // Infrastructure</span>
-          <p style="margin-bottom: 10px;"><strong>Spectrum Registry</strong></p>
-          <p class="small" style="margin-bottom: 15px;">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
-          
-          <p style="margin-bottom: 10px;"><strong>PromptFactory</strong></p>
-          <p class="small">A deterministic AI-build pipeline that pushes intelligence upstream into specification and verification.</p>
-        </div>
-
-        <div class="section">
-          <span class="label">06 // Engagement</span>
-          <p class="small">I specialize in <strong>Chronic Complexity</strong>—environments where process grows but output stagnates. My engagement produces a formal <strong>Diagnostic Artifact</strong>: a written architectural map of your failure modes.</p>
-          <p style="margin-top:20px; font-size:12px; font-weight: bold;">
-            <a href="mailto:hello@jamieforrester.com">EMAIL</a> &nbsp; // &nbsp; 
-            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank">LINKEDIN</a>
+          <p class="small" style="margin:14px 0 0;">
+            Additional work in progress: Kernel Architecture, Emergence Grammar, and the OFMR emergence monograph.
           </p>
         </div>
+
+        <div class="section" style="margin-bottom:12px;">
+          <div class="label"><span>04 // Books</span><em>practitioner guides</em></div>
+
+          <div class="item" style="margin-bottom:10px;">
+            <div class="item-top">
+              <p class="item-title">Seeing Systems</p>
+              <span class="status">Drafted</span>
+            </div>
+            <p class="desc">A carrier-based method for systemic literacy: how to locate primitives, rules, and failure in ordinary structures.</p>
+          </div>
+
+          <div class="item">
+            <div class="item-top">
+              <p class="item-title">The System Founder Framework</p>
+              <span class="status">In design</span>
+            </div>
+            <p class="desc">A construction doctrine for the AI era: formula, ladder, toolchain, and playbooks for OS-level building.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="label"><span>05 // Engagement</span><em>how to work together</em></div>
+          <p class="small" style="margin:0 0 10px;">
+            If your organisation is trapped in <strong>chronic complexity</strong>—process grows while movement stalls—I produce a Diagnostic Artifact that makes the hidden structure visible.
+          </p>
+          <ul class="bullets">
+            <li><strong>Output</strong>: written diagnosis (primitives, invariants, enforcement, failure modes).</li>
+            <li><strong>Purpose</strong>: clarity and structural truth, not recommendations theatre.</li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
+
+    <div class="contact">
+      <div class="contact-left">
+        <span>Contact:</span>
+        <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        <span class="sep">/</span>
+        <span class="small">Edinburgh, UK</span>
+      </div>
+      <div class="contact-right">
+        <a href="mailto:hello@jamieforrester.com">EMAIL</a>
+        <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank">LINKEDIN</a>
+        <span class="small" style="color:#444;">Last updated: 2026-03-01</span>
+      </div>
+    </div>
+
   </div>
 </body>
 </html>
