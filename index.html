@@ -15,9 +15,9 @@
       --text-dim:#b6b6b6;
       --text-faint:#7a7a7a;
 
-      /* Borders: slightly brighter than before (~8–10%) */
+      /* Slightly brighter borders than earlier */
       --border:#2c2c32;
-      --accent:#34343c; /* secondary border / separators */
+      --accent:#34343c;
       --chip:#141417;
 
       --label-blue:#4aa3ff;
@@ -26,10 +26,8 @@
       --focus-ring:rgba(255,255,255,0.95);
       --focus-bg:rgba(255,255,255,0.08);
 
-      /* Hover “interface” glow */
-      --hover-blue:rgba(74,163,255,0.70);
-      --hover-blue-soft:rgba(74,163,255,0.18);
-      --hover-shadow:0 0 0 1px rgba(74,163,255,0.20), 0 8px 26px rgba(0,0,0,0.55);
+      /* Parent-card hover glow ONLY */
+      --hover-shadow:0 0 0 1px rgba(74,163,255,0.18), 0 8px 26px rgba(0,0,0,0.55);
     }
 
     *{box-sizing:border-box;}
@@ -174,7 +172,7 @@
       border-color:rgba(74,163,255,0.60);
     }
 
-    /* Hero strip */
+    /* Hero strip (parent hover glow only) */
     .hero-strip{
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
@@ -240,6 +238,7 @@
       align-items:start;
     }
 
+    /* Parent cards (ONLY these glow) */
     .card{
       background:var(--panel);
       border:1px solid var(--border);
@@ -313,7 +312,7 @@
       color:var(--text-faint);
     }
 
-    /* Method */
+    /* Method (no blue hover; neutral only) */
     .method{
       list-style:none;
       margin:0;
@@ -326,11 +325,6 @@
       border:1px solid rgba(255,255,255,0.06);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
-      transition:border-color 140ms ease, background 140ms ease;
-    }
-    .m-item:hover{
-      border-color:rgba(74,163,255,0.28);
-      background:rgba(74,163,255,0.04);
     }
     .m-top{
       display:flex;
@@ -349,18 +343,12 @@
     }
     .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
 
-    /* Papers / Books */
+    /* Paper/Book tiles (no blue hover; neutral only) */
     .paper{
       padding:14px;
       border:1px solid rgba(255,255,255,0.07);
       border-radius:10px;
       background:rgba(0,0,0,0.10);
-      transition:border-color 140ms ease, box-shadow 140ms ease, background 140ms ease;
-    }
-    .paper:hover{
-      border-color:rgba(74,163,255,0.28);
-      box-shadow:0 0 0 1px rgba(74,163,255,0.10);
-      background:rgba(74,163,255,0.03);
     }
     .paper + .paper{margin-top:12px;}
 
@@ -378,12 +366,6 @@
       object-fit:cover;
       filter:grayscale(100%);
       display:block;
-      transition:filter 140ms ease, transform 140ms ease, border-color 140ms ease;
-    }
-    .paper:hover .thumb{
-      filter:grayscale(70%);
-      border-color:rgba(74,163,255,0.35);
-      transform:translateY(-1px);
     }
 
     .paper-head{
@@ -468,7 +450,7 @@
       </div>
     </header>
 
-    <!-- HERO: keep “Get in touch”; avoid repeating “Email me” -->
+    <!-- HERO: restore your stronger line + keep Get in touch -->
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
@@ -511,7 +493,8 @@
           </div>
 
           <p class="lead">
-            This is a written diagnostic artifact: the system’s real primitive, rules, and enforcement made explicit so builders can change it without drift.
+            Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
+            The Artifact makes structure explicit so builders can change the system without drift.
           </p>
 
           <div class="paper" style="margin-top:12px;">
@@ -524,14 +507,14 @@
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Hand it to builders. Use it to set boundaries, enforcement points, and sequence. Reduce debate by making the operating grammar visible.
+              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making the operating grammar visible.
             </p>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What improves</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Faster decisions, fewer interpretation gaps, fewer recurring incidents with new names, safer change under growth.
+              Faster decisions, fewer “interpretation gaps”, fewer recurring incidents with new names, safer change under growth.
             </p>
           </div>
         </div>
