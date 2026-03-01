@@ -19,6 +19,7 @@
       --chip:#141417;
 
       --label-blue:#4aa3ff;
+      --email-blue:#4aa3ff;
 
       --focus-ring:rgba(255,255,255,0.95);
       --focus-bg:rgba(255,255,255,0.08);
@@ -64,7 +65,7 @@
       outline-offset:3px;
     }
 
-    /* Links */
+    /* Global links */
     a{
       color:#fff;
       text-decoration:none;
@@ -85,7 +86,7 @@
     }
     .muted-link{color:var(--text-dim);border-bottom-color:#2c2c31;}
 
-    /* Top bar */
+    /* Header */
     header{
       display:flex;
       align-items:center;
@@ -118,6 +119,7 @@
       letter-spacing:1.8px;
       white-space:nowrap;
     }
+
     .top-cta{
       display:flex;
       gap:10px;
@@ -138,6 +140,7 @@
       letter-spacing:0.6px;
       white-space:nowrap;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -149,12 +152,24 @@
       color:#fff;
       font-size:12px;
       letter-spacing:0.2px;
+      text-decoration:none;
     }
     .btn:hover{background:rgba(255,255,255,0.06);}
     .btn:focus-visible{
       outline:2px solid var(--focus-ring);
       outline-offset:3px;
       background:var(--focus-bg);
+    }
+
+    /* Make Email blue (as requested) */
+    .btn-email{
+      color:var(--email-blue);
+      border-color:rgba(74,163,255,0.35);
+      background:rgba(74,163,255,0.06);
+    }
+    .btn-email:hover{
+      background:rgba(74,163,255,0.12);
+      border-color:rgba(74,163,255,0.55);
     }
 
     /* Hero strip */
@@ -244,7 +259,7 @@
       font-weight:900;
       text-transform:uppercase;
       letter-spacing:2.6px;
-      color:var(--label-blue); /* requested: number + title in blue */
+      color:var(--label-blue);
     }
     .label-note{
       font-size:10px;
@@ -267,37 +282,32 @@
       line-height:1.55;
     }
 
-    /* Compact method (squeezed) */
-    .method-compact{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+    /* Method (compact but complete) */
+    .method{
+      list-style:none;
       margin:0;
       padding:0;
-      list-style:none;
-    }
-    .method-pill{
-      display:inline-flex;
-      align-items:center;
+      display:grid;
       gap:10px;
-      padding:9px 11px;
+    }
+    .m-item{
+      padding:12px 14px;
       border:1px solid var(--border);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
-      color:#dedede;
-      font-size:12.5px;
-      line-height:1.2;
-      white-space:nowrap;
     }
-    .method-pill strong{color:#fff;font-weight:850;}
-    .method-pill span{
-      color:var(--text-faint);
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:1.4px;
+    .m-top{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:6px;
     }
+    .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
+    .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.6px;white-space:nowrap;}
+    .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
 
-    /* Papers */
+    /* Papers / Books */
     .paper{
       padding:14px;
       border:1px solid var(--border);
@@ -321,6 +331,10 @@
       filter:grayscale(100%);
       display:block;
     }
+    .thumb.placeholder{
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    }
+
     .paper-head{
       display:flex;
       align-items:flex-start;
@@ -420,7 +434,7 @@
 
       <div class="top-cta">
         <span class="pill mono" aria-label="Positioning">Institutional Topology // Diagnostic Artifacts</span>
-        <a class="btn mono" href="mailto:hello@jamieforrester.com">Email</a>
+        <a class="btn mono btn-email" href="mailto:hello@jamieforrester.com">Email</a>
         <a class="btn mono" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </header>
@@ -457,7 +471,7 @@
 
     <main id="main" class="grid" role="main">
 
-      <!-- LEFT -->
+      <!-- LEFT COLUMN: Overview → Method → Engagement -->
       <section>
         <div class="card">
           <div class="label-row mono">
@@ -483,36 +497,75 @@
         <div class="card">
           <div class="label-row mono">
             <span class="label">02 // Method</span>
-            <span class="label-note">compressed</span>
+            <span class="label-note">mapping sequence</span>
           </div>
 
-          <ul class="method-compact">
-            <li class="method-pill"><span class="mono">01</span> <strong class="mono">Primitive</strong></li>
-            <li class="method-pill"><span class="mono">02</span> <strong class="mono">Invariants</strong></li>
-            <li class="method-pill"><span class="mono">03</span> <strong class="mono">Enforcement</strong></li>
-            <li class="method-pill"><span class="mono">04</span> <strong class="mono">Mismatch</strong></li>
-            <li class="method-pill"><span class="mono">05</span> <strong class="mono">Build Map</strong></li>
-          </ul>
+          <ul class="method">
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name mono">Primitive</div>
+                <div class="m-order mono">01</div>
+              </div>
+              <p class="m-desc">Name the irreducible action the system repeats.</p>
+            </li>
 
-          <p class="small" style="margin-top:12px;">
-            The Artifact is written from these five maps. If you want the expanded descriptions back, say so and I’ll reintroduce them in a tighter layout.
-          </p>
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name mono">Invariants</div>
+                <div class="m-order mono">02</div>
+              </div>
+              <p class="m-desc">Define what must not break as fail-closed, auditable constraints.</p>
+            </li>
+
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name mono">Enforcement</div>
+                <div class="m-order mono">03</div>
+              </div>
+              <p class="m-desc">Locate where rules actually live and how violations resolve.</p>
+            </li>
+
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name mono">Mismatch</div>
+                <div class="m-order mono">04</div>
+              </div>
+              <p class="m-desc">Identify interface promise vs operating reality (what is recruited vs what is run).</p>
+            </li>
+
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name mono">Build Map</div>
+                <div class="m-order mono">05</div>
+              </div>
+              <p class="m-desc">Sequence boundaries and transitions so implementation is deterministic.</p>
+            </li>
+          </ul>
         </div>
 
         <div class="card">
           <div class="label-row mono">
-            <span class="label">03 // Active Infrastructure</span>
-            <span class="label-note">applied research</span>
+            <span class="label">03 // Engagement</span>
+            <span class="label-note">how to work together</span>
           </div>
 
+          <p class="lead" style="margin-bottom:10px;">
+            If you are trapped in <strong>chronic complexity</strong>—process grows while movement stalls—I can produce a Diagnostic Artifact that makes hidden structure legible.
+          </p>
+
           <ul class="clean">
-            <li><strong>Spectrum Registry</strong> — a law-first symbolic registry built for durable truth and constrained ownership flows.</li>
-            <li><strong>PromptFactory</strong> — a deterministic build pipeline that pushes intelligence upstream into specification and verification.</li>
+            <li><strong>Output</strong>: written diagnosis (primitives, invariants, enforcement, failure modes, build map).</li>
+            <li><strong>Purpose</strong>: structural truth, not recommendations theatre.</li>
           </ul>
+
+          <div class="actions mono" style="font-size:12px;margin-top:12px;">
+            <a href="mailto:hello@jamieforrester.com">EMAIL</a>
+            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+          </div>
         </div>
       </section>
 
-      <!-- RIGHT -->
+      <!-- RIGHT COLUMN: Research Canon → Books → Active Infrastructure -->
       <section>
         <div class="card">
           <div class="label-row mono">
@@ -530,9 +583,7 @@
                   <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
                   <span class="status mono">Published</span>
                 </div>
-                <p class="paper-desc">
-                  How reliability pipelines borrow the language of expertise.
-                </p>
+                <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
                   <a href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
@@ -587,7 +638,6 @@
           </p>
         </div>
 
-        <!-- NEW: Books card under Research Canon -->
         <div class="card">
           <div class="label-row mono">
             <span class="label">05 // Books</span>
@@ -595,58 +645,48 @@
           </div>
 
           <div class="paper">
-            <div class="paper-head">
-              <p class="paper-title">Seeing Systems</p>
-              <span class="status mono">Drafted</span>
+            <div class="paper-row">
+              <a href="#" aria-label="Book cover placeholder: Seeing Systems">
+                <img class="thumb placeholder" src="./book-seeing-systems.png" alt="Cover placeholder: Seeing Systems" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">Seeing Systems</p>
+                  <span class="status mono">Drafted</span>
+                </div>
+                <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
+                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.</p>
+              </div>
             </div>
-            <p class="paper-desc">
-              <span class="mono" style="color:var(--text-faint);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;">
-                Subtitle
-              </span><br />
-              Why a 10-year-old can understand what organisations can’t.
-            </p>
-            <p class="small">
-              A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.
-            </p>
           </div>
 
-          <div class="paper" style="margin-top:12px;">
-            <div class="paper-head">
-              <p class="paper-title">The System Founder Framework</p>
-              <span class="status mono">In design</span>
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="Book cover placeholder: The System Founder Framework">
+                <img class="thumb placeholder" src="./book-system-founder-framework.png" alt="Cover placeholder: The System Founder Framework" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">The System Founder Framework</p>
+                  <span class="status mono">In design</span>
+                </div>
+                <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
+                <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.</p>
+              </div>
             </div>
-            <p class="paper-desc">
-              <span class="mono" style="color:var(--text-faint);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;">
-                Subtitle
-              </span><br />
-              A construction doctrine for OS-level building in the AI era.
-            </p>
-            <p class="small">
-              Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.
-            </p>
           </div>
         </div>
 
-        <!-- Renumbered Engagement -->
         <div class="card">
           <div class="label-row mono">
-            <span class="label">06 // Engagement</span>
-            <span class="label-note">how to work together</span>
+            <span class="label">06 // Active Infrastructure</span>
+            <span class="label-note">applied builds</span>
           </div>
-
-          <p class="lead" style="margin-bottom:10px;">
-            If you are trapped in <strong>chronic complexity</strong>—process grows while movement stalls—I can produce a Diagnostic Artifact that makes hidden structure legible.
-          </p>
 
           <ul class="clean">
-            <li><strong>Output</strong>: written diagnosis (primitives, invariants, enforcement, failure modes, build map).</li>
-            <li><strong>Purpose</strong>: structural truth, not recommendations theatre.</li>
+            <li><strong>Spectrum Registry</strong> — a law-first symbolic registry built for durable truth and constrained ownership flows.</li>
+            <li><strong>PromptFactory</strong> — a deterministic build pipeline that pushes intelligence upstream into specification and verification.</li>
           </ul>
-
-          <div class="actions mono" style="font-size:12px;margin-top:12px;">
-            <a href="mailto:hello@jamieforrester.com">EMAIL</a>
-            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
-          </div>
         </div>
       </section>
 
