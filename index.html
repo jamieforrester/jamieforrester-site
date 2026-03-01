@@ -11,13 +11,15 @@
     :root{
       --bg:#0b0b0c;
       --panel:#0f0f11;
-      --panel-2:#0c0c0e;
       --text-main:#f0f0f0;
       --text-dim:#b6b6b6;
       --text-faint:#7a7a7a;
       --border:#232327;
       --accent:#2f2f35;
       --chip:#141417;
+
+      --label-blue:#4aa3ff;
+
       --focus-ring:rgba(255,255,255,0.95);
       --focus-bg:rgba(255,255,255,0.08);
     }
@@ -155,7 +157,7 @@
       background:var(--focus-bg);
     }
 
-    /* Hero strip (clean site rhythm, still your tone) */
+    /* Hero strip */
     .hero-strip{
       display:grid;
       grid-template-columns:1.1fr 0.9fr;
@@ -166,7 +168,6 @@
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
       margin-bottom:22px;
     }
-
     .hero-title{
       margin:0 0 10px;
       font-size:22px;
@@ -188,7 +189,7 @@
       line-height:1.55;
     }
 
-    /* Quick scan (minimal, not a big module) */
+    /* Quick scan */
     .quick{
       border-left:2px solid var(--accent);
       padding:10px 12px;
@@ -240,10 +241,10 @@
     }
     .label{
       font-size:11px;
-      font-weight:800;
-      color:#fff;
+      font-weight:900;
       text-transform:uppercase;
       letter-spacing:2.6px;
+      color:var(--label-blue); /* requested: number + title in blue */
     }
     .label-note{
       font-size:10px;
@@ -266,32 +267,37 @@
       line-height:1.55;
     }
 
-    /* Method list (simple, scannable) */
-    .method{
-      list-style:none;
+    /* Compact method (squeezed) */
+    .method-compact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
       margin:0;
       padding:0;
-      display:grid;
-      gap:10px;
+      list-style:none;
     }
-    .m-item{
-      padding:12px 14px;
+    .method-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 11px;
       border:1px solid var(--border);
       border-radius:10px;
       background:rgba(255,255,255,0.01);
+      color:#dedede;
+      font-size:12.5px;
+      line-height:1.2;
+      white-space:nowrap;
     }
-    .m-top{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:6px;
+    .method-pill strong{color:#fff;font-weight:850;}
+    .method-pill span{
+      color:var(--text-faint);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:1.4px;
     }
-    .m-name{font-weight:850;color:#fff;font-size:13px;letter-spacing:-0.2px;}
-    .m-order{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.6px;white-space:nowrap;}
-    .m-desc{margin:0;font-size:13px;color:var(--text-dim);line-height:1.55;}
 
-    /* Papers (thumbnail optional but non-dominant) */
+    /* Papers */
     .paper{
       padding:14px;
       border:1px solid var(--border);
@@ -350,7 +356,7 @@
     }
     .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
 
-    /* Mini “facts” list */
+    /* Mini list */
     ul.clean{
       margin:0;
       padding:0;
@@ -477,46 +483,20 @@
         <div class="card">
           <div class="label-row mono">
             <span class="label">02 // Method</span>
-            <span class="label-note">mapping sequence</span>
+            <span class="label-note">compressed</span>
           </div>
 
-          <ul class="method">
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name mono">Primitive</div>
-                <div class="m-order mono">01</div>
-              </div>
-              <p class="m-desc">Name the irreducible action the system repeats.</p>
-            </li>
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name mono">Invariants</div>
-                <div class="m-order mono">02</div>
-              </div>
-              <p class="m-desc">Define rules as fail-closed, auditable constraints.</p>
-            </li>
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name mono">Enforcement</div>
-                <div class="m-order mono">03</div>
-              </div>
-              <p class="m-desc">Locate where rules actually live and how violations resolve.</p>
-            </li>
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name mono">Mismatch</div>
-                <div class="m-order mono">04</div>
-              </div>
-              <p class="m-desc">Identify interface promise vs operating reality.</p>
-            </li>
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name mono">Build Map</div>
-                <div class="m-order mono">05</div>
-              </div>
-              <p class="m-desc">Sequence boundaries and transitions so implementation is deterministic.</p>
-            </li>
+          <ul class="method-compact">
+            <li class="method-pill"><span class="mono">01</span> <strong class="mono">Primitive</strong></li>
+            <li class="method-pill"><span class="mono">02</span> <strong class="mono">Invariants</strong></li>
+            <li class="method-pill"><span class="mono">03</span> <strong class="mono">Enforcement</strong></li>
+            <li class="method-pill"><span class="mono">04</span> <strong class="mono">Mismatch</strong></li>
+            <li class="method-pill"><span class="mono">05</span> <strong class="mono">Build Map</strong></li>
           </ul>
+
+          <p class="small" style="margin-top:12px;">
+            The Artifact is written from these five maps. If you want the expanded descriptions back, say so and I’ll reintroduce them in a tighter layout.
+          </p>
         </div>
 
         <div class="card">
@@ -543,7 +523,7 @@
           <div class="paper">
             <div class="paper-row">
               <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
-                <img class="thumb" src="./thumb-expertise-illusion.png" alt="Cover thumbnail: The Expertise Illusion in AI Task Marketplaces" />
+                <img class="thumb" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
               </a>
               <div>
                 <div class="paper-head">
@@ -551,7 +531,7 @@
                   <span class="status mono">Published</span>
                 </div>
                 <p class="paper-desc">
-                  Recruitment grammar vs operating grammar: why markets can recruit “expertise” while running as reliability pipelines.
+                  How reliability pipelines borrow the language of expertise.
                 </p>
                 <div class="actions">
                   <a href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
@@ -563,7 +543,7 @@
           <div class="paper">
             <div class="paper-row">
               <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
-                <img class="thumb" src="./thumb-four-function-law.png" alt="Cover thumbnail: The Four-Function Law of Scalable Institutions" />
+                <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
               </a>
               <div>
                 <div class="paper-head">
@@ -584,7 +564,7 @@
           <div class="paper">
             <div class="paper-row">
               <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Why Systems Can’t Fix Themselves">
-                <img class="thumb" src="./thumb-missing-redesign.png" alt="Cover thumbnail: Why Systems Can’t Fix Themselves: The Missing Redesign Layer" />
+                <img class="thumb" src="./paper3-image.png" alt="Cover: Why Systems Can’t Fix Themselves: The Missing Redesign Layer" />
               </a>
               <div>
                 <div class="paper-head">
@@ -607,9 +587,50 @@
           </p>
         </div>
 
+        <!-- NEW: Books card under Research Canon -->
         <div class="card">
           <div class="label-row mono">
-            <span class="label">05 // Engagement</span>
+            <span class="label">05 // Books</span>
+            <span class="label-note">work in progress</span>
+          </div>
+
+          <div class="paper">
+            <div class="paper-head">
+              <p class="paper-title">Seeing Systems</p>
+              <span class="status mono">Drafted</span>
+            </div>
+            <p class="paper-desc">
+              <span class="mono" style="color:var(--text-faint);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;">
+                Subtitle
+              </span><br />
+              Why a 10-year-old can understand what organisations can’t.
+            </p>
+            <p class="small">
+              A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.
+            </p>
+          </div>
+
+          <div class="paper" style="margin-top:12px;">
+            <div class="paper-head">
+              <p class="paper-title">The System Founder Framework</p>
+              <span class="status mono">In design</span>
+            </div>
+            <p class="paper-desc">
+              <span class="mono" style="color:var(--text-faint);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;">
+                Subtitle
+              </span><br />
+              A construction doctrine for OS-level building in the AI era.
+            </p>
+            <p class="small">
+              Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.
+            </p>
+          </div>
+        </div>
+
+        <!-- Renumbered Engagement -->
+        <div class="card">
+          <div class="label-row mono">
+            <span class="label">06 // Engagement</span>
             <span class="label-note">how to work together</span>
           </div>
 
