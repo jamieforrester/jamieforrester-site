@@ -4,34 +4,37 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jamie Forrester — Independent Systems Architect</title>
+  <link rel="icon" href="/favicon.png">
   <style>
     :root {
       --bg: #0b0b0c;
-      --card-bg: #151517;
       --text-main: #eaeaea;
-      --text-dim: #a0a0a0;
-      --accent: #3a3a3d;
-      --highlight: #ffffff;
+      --text-dim: #999;
+      --border: #222;
+      --accent: #333;
     }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: ui-monospace, "Cascadia Mono", monospace;
       background: var(--bg);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.5;
       font-size: 14px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1000px;
+    .wrap {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 60px 24px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
     }
 
     .avatar {
@@ -43,176 +46,162 @@
       filter: grayscale(100%);
     }
 
-    h1 { margin: 0; font-size: 28px; font-weight: 600; }
-    h2 { margin: 5px 0 20px; font-size: 16px; font-weight: 400; color: var(--text-dim); }
-
-    .tagline {
+    h1 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -1px; }
+    h2 { margin: 8px 0 20px; font-size: 14px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+    
+    .tag {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 6px 14px;
       border: 1px solid var(--accent);
-      border-radius: 8px;
-      font-family: ui-monospace, monospace;
+      border-radius: 4px;
+      color: #fff;
       font-size: 13px;
-      background: #000;
+      background: #111;
     }
 
-    /* Grid System */
+    /* Grid Layout */
     .grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      margin-top: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
     }
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--accent);
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-    }
+    .section { margin-bottom: 35px; }
+    .full-width { grid-column: 1 / -1; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
 
-    .full-width { grid-column: span 2; }
-
-    .icon-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .label {
+      font-size: 11px;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      display: block;
       margin-bottom: 15px;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--highlight);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
     }
 
-    .label-num {
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      color: #666;
-      margin-right: 5px;
+    .paper-item {
+      padding: 12px 0;
+      border-bottom: 1px dotted #333;
     }
 
-    .card p { margin: 0 0 15px; }
+    .status { font-size: 10px; color: #666; border: 1px solid #333; padding: 2px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
 
-    ul { margin: 0; padding: 0; list-style: none; }
-    li { margin-bottom: 8px; padding-left: 20px; position: relative; }
-    li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid #444; transition: 0.2s; }
+    a:hover { border-bottom-color: #fff; background: #1a1a1c; }
+    
+    .paper-link { font-size: 12px; display: inline-block; margin-top: 5px; color: var(--text-dim); }
 
-    .paper-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px;
-      background: #0b0b0c;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      border: 1px solid transparent;
-      transition: 0.2s;
-      text-decoration: none;
-      color: inherit;
-    }
+    ul { margin: 15px 0; padding: 0; list-style: none; }
+    li { margin-bottom: 10px; padding-left: 20px; position: relative; color: #ccc; }
+    li::before { content: "→"; position: absolute; left: 0; color: #555; }
 
-    .paper-link:hover { border-color: var(--text-dim); }
-    .status-pill { font-size: 10px; text-transform: uppercase; background: #222; padding: 2px 8px; border-radius: 4px; color: #888; }
+    .small { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+    .hero-text { font-size: 18px; color: #fff; line-height: 1.4; margin-bottom: 15px; }
 
-    .cta-button {
-      display: inline-block;
-      margin-top: auto;
-      padding: 12px 20px;
-      background: #fff;
-      color: #000;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .small-text { font-size: 13px; color: var(--text-dim); }
-
-    @media (max-width: 850px) {
-      .grid { grid-template-columns: 1fr; }
-      .full-width { grid-column: span 1; }
-    }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="wrap">
 
     <header>
       <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
       <h1>Jamie Forrester</h1>
       <h2>Independent Systems Architect</h2>
-      <div class="tagline">Primitives → Invariants → Enforcement → Build Maps</div>
+      <div class="tag">Primitive → Invariants → Enforcement → Build Map</div>
     </header>
 
     <div class="grid">
       
-      <div class="card full-width">
-        <div class="icon-title">
-          <span class="label-num">01</span> ⧉ The Logic of Topology
+      <div class="col full-width">
+        <div class="section">
+          <span class="label">01 // The Logic</span>
+          <p class="hero-text">Upstream Diagnosis for Institutional Topology.</p>
+          <p>I make systems legible under scale. Most institutional failure is not a failure of people, but of structure. I reframe hidden architectures so that execution remains deterministic and outcomes become predictable.</p>
+          <p class="small">I diagnose and reframe. Others decide and build.</p>
         </div>
-        <p>I work upstream of product and engineering to make systems legible under scale. Most institutional failure is not a failure of people, but of <strong>Topology</strong>. When the functions of Sensing, Interpretation, Authority, and Memory fuse, the system collapses.</p>
-        <p>I diagnose these fusions and reframe the hidden structures so that execution remains deterministic. <strong>I diagnose. Others build.</strong></p>
       </div>
 
-      <div class="card">
-        <div class="icon-title">
-          <span class="label-num">02</span> 📄 Research Canon
-        </div>
-        <p class="small-text">A continuous extraction of the laws governing institutional design.</p>
-        
-        <a href="./paper.pdf" class="paper-link">
-          <span>The Expertise Illusion</span>
-          <span class="status-pill">Published</span>
-        </a>
-
-        <div class="paper-link" style="cursor: default;">
-          <span>The Four-Function Law</span>
-          <span class="status-pill">In Prep</span>
+      <div class="col">
+        <div class="section">
+          <span class="label">02 // Methodology</span>
+          <ul>
+            <li><strong>Primitives</strong> — Extracting the irreducible action a system performs.</li>
+            <li><strong>Invariants</strong> — Defining non-negotiable, fail-closed rules.</li>
+            <li><strong>Enforcement</strong> — Identifying exactly where rules live and how they apply.</li>
+            <li><strong>Structural Mismatch</strong> — Solving the gap between interface promise and reality.</li>
+            <li><strong>Build Maps</strong> — Sequencing transitions so implementation is deterministic.</li>
+          </ul>
         </div>
 
-        <div class="paper-link" style="cursor: default;">
-          <span>The Missing Redesign Layer</span>
-          <span class="status-pill">In Dev</span>
+        <div class="section">
+          <span class="label">03 // Books (In Preparation)</span>
+          <div style="margin-bottom: 20px;">
+            <p style="margin-bottom: 5px;"><strong>Seeing Systems</strong></p>
+            <p class="small">A primer on systemic literacy. Teaching the "60-second scan" to identify the invisible structures governing the physical world.</p>
+          </div>
+          <div>
+            <p style="margin-bottom: 5px;"><strong>The System Founder Framework</strong></p>
+            <p class="small">Construction doctrine for the AI era. How to architect and deploy companies as high-leverage operating systems.</p>
+          </div>
         </div>
-        <p class="small-text" style="margin-top: 10px;">Ongoing: Institutional Substitution, Kernel Typology, and Emergence Physics (OFMR).</p>
       </div>
 
-      <div class="card">
-        <div class="icon-title">
-          <span class="label-num">03</span> 📚 Forthcoming Books
-        </div>
-        <p><strong>Seeing Systems</strong><br><span class="small-text">A primer on systemic literacy and the "60-second scan" for everyday structures.</span></p>
-        <p><strong>The System Founder Framework</strong><br><span class="small-text">The construction doctrine for architecting companies in the AI-industrial era.</span></p>
-      </div>
+      <div class="col">
+        <div class="section">
+          <span class="label">04 // Research Canon</span>
+          
+          <div class="paper-item">
+            <div style="margin-bottom: 4px;">
+                <a href="./paper.pdf" target="_blank">The Expertise Illusion</a> <span class="status">Published</span>
+            </div>
+            <p class="small">Diagnosis of recruitment/execution mismatch in AI markets.</p>
+            <a href="./paper.pdf" class="paper-link">View Manuscript &rarr;</a>
+          </div>
 
-      <div class="card">
-        <div class="icon-title">
-          <span class="label-num">04</span> ⚙️ Infrastructure
-        </div>
-        <ul>
-          <li><strong>Spectrum Registry</strong>: A law-first symbolic registry for durable truth and ownership.</li>
-          <li><strong>PromptFactory</strong>: A deterministic pipeline pushing intelligence into verified specifications.</li>
-        </ul>
-      </div>
+          <div class="paper-item">
+            <div style="margin-bottom: 4px;">
+                The Four-Function Law <span class="status">Preparation</span>
+            </div>
+            <p class="small">How institutions collapse when Sensing, Interpretation, Authority, and Memory fuse.</p>
+            <span class="paper-link" style="border:none;">Abstract Forthcoming</span>
+          </div>
 
-      <div class="card">
-        <div class="icon-title">
-          <span class="label-num">05</span> ⚡ Engagement
+          <div class="paper-item">
+            <div style="margin-bottom: 4px;">
+                The Missing Redesign Layer <span class="status">Development</span>
+            </div>
+            <p class="small">Why systems fail to self-correct without a dedicated market for reframing.</p>
+            <span class="paper-link" style="border:none;">Draft in Progress</span>
+          </div>
+          
+          <p class="small" style="margin-top:15px;">Field research includes: Institutional Substitution, Kernel Typology, and Emergence Physics (OFMR).</p>
         </div>
-        <p>For organizations trapped in <strong>Chronic Complexity</strong>—where process grows but output stagnates.</p>
-        <p class="small-text">I produce written <strong>Diagnostic Artifacts</strong> that clarify what the system is and where it collapses. I do not sell management consulting.</p>
-        <a href="mailto:hello@jamieforrester.com" class="cta-button">Request a Diagnosis</a>
+
+        <div class="section">
+          <span class="label">05 // Infrastructure</span>
+          <p style="margin-bottom: 10px;"><strong>Spectrum Registry</strong></p>
+          <p class="small" style="margin-bottom: 15px;">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
+          
+          <p style="margin-bottom: 10px;"><strong>PromptFactory</strong></p>
+          <p class="small">A deterministic AI-build pipeline that pushes intelligence upstream into specification and verification.</p>
+        </div>
+
+        <div class="section">
+          <span class="label">06 // Engagement</span>
+          <p class="small">I specialize in <strong>Chronic Complexity</strong>—environments where process grows but output stagnates. My engagement produces a formal <strong>Diagnostic Artifact</strong>: a written architectural map of your failure modes.</p>
+          <p style="margin-top:20px; font-size:12px; font-weight: bold;">
+            <a href="mailto:hello@jamieforrester.com">EMAIL</a> &nbsp; // &nbsp; 
+            <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank">LINKEDIN</a>
+          </p>
+        </div>
       </div>
 
     </div>
-
-    <footer style="margin-top: 40px; text-align: center; font-size: 12px; color: #555;">
-      <a href="https://www.linkedin.com/in/jamie-forrester-773b7786" style="color: #888; text-decoration: none;">LinkedIn</a> &nbsp; | &nbsp; 
-      Jamie Forrester &copy; 2026
-    </footer>
-
   </div>
 </body>
 </html>
