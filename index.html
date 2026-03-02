@@ -525,6 +525,19 @@
       display:block;
     }
 
+    /* Square logo tiles for Section 6 */
+    .infra-thumb{
+      width:68px;
+      height:68px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.03);
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      padding:4px;
+    }
+
     .paper-head{
       display:flex;
       align-items:flex-start;
@@ -559,6 +572,11 @@
       background:rgba(90,176,255,0.96);
       border-color:rgba(90,176,255,0.96);
       font-weight:600;
+    }
+    .status-active{
+      color:#d8eefc;
+      background:rgba(90,176,255,0.10);
+      border-color:rgba(90,176,255,0.22);
     }
 
     .paper-desc{
@@ -914,42 +932,42 @@
           </div>
         </div>
 
-       <div class="card">
-  <div class="label-row">
-    <span class="label">06 // Active Infrastructure</span>
-    <span class="label-note">applied builds</span>
-  </div>
+        <div class="card">
+          <div class="label-row">
+            <span class="label">06 // Active Infrastructure</span>
+            <span class="label-note">applied builds</span>
+          </div>
 
-  <div class="paper">
-    <div class="paper-row">
-      <a href="#" aria-label="Spectrum Registry">
-        <img class="thumb" src="./SR.png" alt="Spectrum Registry mark" />
-      </a>
-      <div>
-        <div class="paper-head">
-          <p class="paper-title">Spectrum Registry</p>
-          <span class="status">Active</span>
-        </div>
-        <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
-      </div>
-    </div>
-  </div>
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="Spectrum Registry">
+                <img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">Spectrum Registry</p>
+                  <span class="status status-active">Active</span>
+                </div>
+                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
+              </div>
+            </div>
+          </div>
 
-  <div class="paper">
-    <div class="paper-row">
-      <a href="#" aria-label="PromptFactory">
-        <img class="thumb" src="./PF.png" alt="PromptFactory mark" />
-      </a>
-      <div>
-        <div class="paper-head">
-          <p class="paper-title">PromptFactory</p>
-          <span class="status">Active</span>
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="PromptFactory">
+                <img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">PromptFactory</p>
+                  <span class="status status-active">Active</span>
+                </div>
+                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
-      </div>
-    </div>
-  </div>
-</div>
       </section>
     </main>
 
