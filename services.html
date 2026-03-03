@@ -66,7 +66,8 @@
     .top-links a,
     .skip-link,
     .meta-chip,
-    .price-tag{
+    .price-tag,
+    .scope-note{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -242,6 +243,14 @@
       font-weight:600;
     }
 
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:18px;
+    }
+
     .grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -351,6 +360,19 @@
       margin:0 0 16px;
     }
 
+    .scope-note{
+      margin:0 0 14px;
+      padding:10px 12px;
+      border:1px solid var(--border-soft);
+      border-radius:10px;
+      background:rgba(255,255,255,0.012);
+      color:var(--text-dim);
+      font-size:11px;
+      letter-spacing:0.04em;
+      line-height:1.6;
+      text-transform:uppercase;
+    }
+
     ul.clean{
       margin:0;
       padding:0;
@@ -421,6 +443,13 @@
       font-size:12px;
     }
 
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
       header{
@@ -432,6 +461,13 @@
       .service-head{
         flex-direction:column;
         align-items:flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{
+        scroll-behavior:auto !important;
+        transition:none !important;
       }
     }
   </style>
@@ -447,8 +483,8 @@
       </div>
 
       <div class="top-links">
-        <a class="btn" href="./index.html">Home</a>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Email</a>
+        <a class="btn" href="./index.html">HOME</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
       </div>
     </header>
 
@@ -460,8 +496,13 @@
         The output is a <strong>written artifact</strong> that makes the system legible enough for builders and decision owners to act without drift.
       </p>
       <p>
-        There are two engagement types: a <strong>Diagnostic Artifact</strong>, which exposes the real operating structure and failure concentration, and a <strong>Redesign Artifact</strong>, which specifies the boundary and transition sequence required for deterministic change.
+        There are two engagement types: a <strong>Diagnostic Artifact</strong>, which exposes the real operating structure and failure concentration, and a <strong>Redesign Artifact</strong>, which specifies the boundary and transition sequence that makes change deterministic.
       </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+        <a class="btn" href="./index.html">BACK TO HOME</a>
+      </div>
     </section>
 
     <main id="main" class="grid" role="main">
@@ -534,11 +575,15 @@
           </div>
 
           <ul class="clean">
-            <li><strong>Step 1:</strong> You email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
-            <li><strong>Step 2:</strong> You include any current artifacts that reflect the existing system state.</li>
-            <li><strong>Step 3:</strong> I review the fit and confirm whether the system should begin with diagnosis or move directly to redesign.</li>
+            <li><strong>Step 1:</strong> Email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
+            <li><strong>Step 2:</strong> Include any relevant artifacts that reflect the current system state.</li>
+            <li><strong>Step 3:</strong> I assess fit and confirm whether the system should begin with diagnosis or move directly to redesign.</li>
             <li><strong>Step 4:</strong> If the fit is correct, I return the artifact in written form for internal use.</li>
           </ul>
+
+          <div class="cta-bar">
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          </div>
         </div>
       </section>
 
@@ -560,6 +605,10 @@
             <span class="meta-chip">scope-dependent</span>
           </div>
 
+          <p class="scope-note">
+            Range-based pricing depends on boundary width, interface count, and transition complexity.
+          </p>
+
           <p class="lead">
             This engagement follows when the diagnosis is already clear enough that the next requirement is not analysis, but redesign logic.
             The goal is to define what must change, where, and in what sequence.
@@ -578,7 +627,7 @@
 
             <div class="mini">
               <h3>When to use it</h3>
-              <p>After diagnosis, or when the system’s failure mode is already obvious and the real bottleneck is lack of upstream redesign structure.</p>
+              <p>After diagnosis, or when the failure mode is already obvious and the real bottleneck is lack of upstream redesign structure.</p>
             </div>
           </div>
 
@@ -619,19 +668,21 @@
           </ul>
 
           <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Request fit check</a>
-            <a class="btn" href="./index.html">Back to home</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+            <a class="btn" href="./index.html">BACK TO HOME</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div>
-        Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
+        <span>/</span>
+        <span>Jamie Forrester / Services</span>
       </div>
       <div>
-        <span>Jamie Forrester / Services</span>
+        <span>Last updated: 2026-03-03</span>
       </div>
     </footer>
   </div>
