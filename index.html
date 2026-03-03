@@ -4,7 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Jamie Forrester — Independent Systems Architect</title>
-  <meta name="description" content="Independent Systems Architect — diagnostic and redesign artifacts for systems that fail under scale." />
+  <meta
+    name="description"
+    content="Independent Systems Architect — diagnostic and redesign artifacts for systems that fail under scale."
+  />
   <link rel="icon" href="/favicon.png" />
 
   <!-- IBM Plex Sans + Mono -->
@@ -72,7 +75,6 @@
       padding:64px 24px 56px;
     }
 
-    /* Monospace labels only */
     .sub,
     .pill,
     .label,
@@ -81,7 +83,8 @@
     .qk,
     .m-order,
     .status,
-    .skip-link{
+    .skip-link,
+    .trust{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -166,8 +169,8 @@
     .meta-row{margin-top:12px;}
 
     .avatar{
-      width:76px;
-      height:76px;
+      width:78px;
+      height:78px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,0.10);
       object-fit:cover;
@@ -280,9 +283,9 @@
 
     .hero-strip{
       display:grid;
-      grid-template-columns:1.1fr 0.9fr;
+      grid-template-columns:1.12fr 0.88fr;
       gap:var(--space-4);
-      padding:24px;
+      padding:26px;
       border:1px solid var(--border);
       border-radius:var(--radius-lg);
       background:
@@ -310,19 +313,19 @@
 
     .hero-title{
       margin:0 0 12px;
-      font-size:clamp(1.65rem, 1.35rem + 1vw, 2.2rem);
-      line-height:1.14;
+      font-size:clamp(1.7rem, 1.38rem + 1vw, 2.35rem);
+      line-height:1.12;
       letter-spacing:-0.04em;
       font-weight:700;
       color:#fff;
-      max-width:16ch;
+      max-width:15ch;
     }
 
     .hero-sub{
-      margin:0 0 12px;
+      margin:0 0 14px;
       color:#d8dde4;
-      font-size:clamp(0.97rem, 0.94rem + 0.12vw, 1.03rem);
-      line-height:1.65;
+      font-size:clamp(0.98rem, 0.94rem + 0.12vw, 1.04rem);
+      line-height:1.68;
       max-width:68ch;
     }
     .hero-sub strong{
@@ -331,10 +334,31 @@
     }
 
     .hero-divider{
-      width:72px;
+      width:80px;
       height:1px;
       background:linear-gradient(90deg, rgba(90,176,255,0.35), rgba(255,255,255,0));
       margin:14px 0 14px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:18px;
+    }
+
+    .trust{
+      margin-top:16px;
+      padding:12px 14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+      color:var(--text-dim);
+      font-size:11px;
+      line-height:1.55;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
     }
 
     .quick{
@@ -525,7 +549,6 @@
       display:block;
     }
 
-    /* Square logo tiles for Section 6 */
     .infra-thumb{
       width:68px;
       height:68px;
@@ -605,6 +628,13 @@
       font-size:12px;
     }
 
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
       header{
@@ -646,30 +676,21 @@
       </div>
 
       <div class="top-cta" aria-label="Primary links">
-  <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./services.html">SERVICES</a>
 
-  <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">
-    <span class="ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
-        <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
-        <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    EMAIL
-  </a>
-
-  <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">
-    <span class="ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
-        <path d="M6.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M6.5 6.7h.01" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
-        <path d="M10.5 18v-5.2c0-1.6.9-2.6 2.3-2.6 1.5 0 2.2 1 2.2 2.6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M10.5 9.5V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </span>
-    LINKEDIN
-  </a>
-</div>
+        <a
+          class="btn btn-primary"
+          href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+        >
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          EMAIL FIVE LINES
+        </a>
+      </div>
     </header>
 
     <section class="hero-strip" aria-label="Primary summary">
@@ -685,14 +706,25 @@
         <div class="hero-divider" aria-hidden="true"></div>
 
         <p class="hero-sub">
-          I write <strong>Redesign Artifacts</strong> that specify the boundary and transition sequence that makes change deterministic.
+          I write <strong>Redesign Artifacts</strong> that specify the boundary and transition sequence required to make change deterministic.
         </p>
 
-        <div class="hero-divider" aria-hidden="true"></div>
+        <div class="trust">
+          WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // GROUNDED IN LIVE SYSTEM BUILDS, FORMAL RESEARCH, AND LAW-FIRST DESIGN
+        </div>
 
-        <p class="hero-sub" style="margin-bottom:0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-          Want one?<strong> Email five lines</strong>: what keeps breaking, what’s at stake, and the interfaces involved.
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL ME</a>
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+          >
+            EMAIL FIVE LINES
+          </a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+        </div>
+
+        <p class="hero-sub" style="margin:16px 0 0 0;">
+          If you want a fit check, send: what keeps breaking, what is at stake, and the interfaces involved.
         </p>
       </div>
 
@@ -708,7 +740,7 @@
           </div>
           <div>
             <dt class="qk">What it contains <strong>→</strong></dt>
-            <dd class="qv"><strong>Rules that must not break</strong> + where they are enforced + how failure resolves.</dd>
+            <dd class="qv"><strong>Rules that must not break</strong>, where they are enforced, and how failure resolves.</dd>
           </div>
           <div>
             <dt class="qk">What’s not included <strong>→</strong></dt>
@@ -728,27 +760,27 @@
 
           <p class="lead">
             Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
-            The Artifact makes structure explicit so builders can change the system without drift.
+            The Artifact makes the operating grammar explicit so builders can change the system without drift.
           </p>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that don’t change failure.
+              Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that do not change failure.
             </p>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making the operating grammar visible.
+              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making structure visible.
             </p>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What improves</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Faster decisions, fewer “interpretation gaps”, fewer recurring incidents with new names, safer change under growth.
+              Faster decisions, fewer interpretation gaps, fewer recurring incidents with new names, and safer change under growth.
             </p>
           </div>
         </div>
@@ -765,7 +797,7 @@
                 <div class="m-name">Primitive</div>
                 <div class="m-order">01</div>
               </div>
-              <p class="m-desc">What action the system repeats (the real unit of work).</p>
+              <p class="m-desc">What action the system actually repeats — the real unit of work.</p>
             </li>
 
             <li class="m-item">
@@ -773,7 +805,7 @@
                 <div class="m-name">Invariants</div>
                 <div class="m-order">02</div>
               </div>
-              <p class="m-desc">What must never be violated (fail-closed constraints).</p>
+              <p class="m-desc">What must never be violated — the fail-closed constraints.</p>
             </li>
 
             <li class="m-item">
@@ -781,7 +813,7 @@
                 <div class="m-name">Enforcement</div>
                 <div class="m-order">03</div>
               </div>
-              <p class="m-desc">Where rules live in reality (not where policy says they live).</p>
+              <p class="m-desc">Where rules live in reality, not where policy says they live.</p>
             </li>
 
             <li class="m-item">
@@ -804,23 +836,26 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">03 // Engagement</span>
-            <span class="label-note">how to start</span>
+            <span class="label">03 // How to start</span>
+            <span class="label-note">entry route</span>
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            If your system keeps failing in the same way under growth, I can write the Artifact that exposes the real structure and the failure concentration.
+            If your system keeps failing in the same way under growth, send the failure pattern first. I will assess whether this should begin with diagnosis or move directly to redesign.
           </p>
 
           <ul class="clean">
-            <li><strong>Step 1</strong>: email five lines on the recurring failure pattern.</li>
-            <li><strong>Step 2</strong>: include the key interfaces, any current artifacts, and the most relevant teams, services, policies, or contracts.</li>
-            <li><strong>Step 3</strong>: I reply with next steps and whether this is a fit.</li>
+            <li><strong>Step 1</strong>: email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
+            <li><strong>Step 2</strong>: include any relevant artifacts: diagrams, policies, workflows, notes, or internal documents.</li>
+            <li><strong>Step 3</strong>: I reply with fit, scope direction, and next steps.</li>
           </ul>
 
           <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LINKEDIN</a>
+            <a
+              class="btn btn-primary"
+              href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+            >EMAIL FIVE LINES</a>
+            <a class="btn" href="./services.html">VIEW SERVICES</a>
           </div>
         </div>
       </section>
@@ -882,7 +917,7 @@
                   <span class="status">In dev</span>
                 </div>
                 <p class="paper-desc">
-                  Why execution-optimised systems lack an interface for upstream reframing—and therefore cannot self-correct.
+                  Why execution-optimised systems lack an interface for upstream reframing — and therefore cannot self-correct.
                 </p>
                 <div class="actions">
                   <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
@@ -976,12 +1011,22 @@
     </main>
 
     <footer>
-      <div>
-        Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-        <span style="color:var(--text-faint);"> / Edinburgh, UK</span>
+      <div class="footer-links">
+        <span>
+          Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </span>
+        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
+        <span style="color:var(--text-faint);">/</span>
+        <a
+          class="muted-link"
+          href="https://www.linkedin.com/in/jamie-forrester-773b7786"
+          target="_blank"
+          rel="noopener"
+        >LinkedIn</a>
       </div>
+
       <div>
-        <span style="color:var(--text-faint);">Last updated: 2026-03-01</span>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-03</span>
       </div>
     </footer>
   </div>
