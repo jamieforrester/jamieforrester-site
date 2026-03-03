@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Services — Jamie Forrester</title>
+  <meta name="description" content="Diagnostic and redesign artifacts for systems that fail under scale." />
+  <link rel="icon" href="/favicon.png" />
+
+  <!-- IBM Plex Sans + Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#101114;
+      --text-main:#f1f3f5;
+      --text-dim:#c3c8d0;
+      --text-faint:#8b93a1;
+      --border:#232731;
+      --border-soft:rgba(255,255,255,0.05);
+      --accent:#343a46;
+      --label-blue:#4aa3ff;
+      --cta-blue:#5ab0ff;
+      --focus-ring:rgba(255,255,255,0.95);
+      --focus-bg:rgba(255,255,255,0.08);
+      --radius-md:14px;
+      --radius-lg:16px;
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
+      --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+    }
+
+    *{box-sizing:border-box;}
+    html{color-scheme:dark;}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(90,176,255,0.035), transparent 28%),
+        linear-gradient(180deg, #0b0b0c, #0b0b0c);
+      color:var(--text-main);
+      font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.65;
+      font-size:16px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      font-feature-settings:"ss01" 1, "cv05" 1;
+    }
+
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:64px 24px 56px;
+    }
+
+    .mono,
+    .label,
+    .label-note,
+    .eyebrow,
+    .btn,
+    .top-links a,
+    .skip-link,
+    .meta-chip,
+    .price-tag{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--accent);
+      background:var(--panel);
+      color:#fff;
+      transform:translateY(-200%);
+      transition:transform 120ms ease;
+      z-index:9999;
+      text-decoration:none;
+      font-size:12px;
+    }
+    .skip-link:focus-visible{
+      transform:translateY(0);
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+    }
+
+    a{
+      color:#fff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.18);
+      padding-bottom:1px;
+      transition:border-color 140ms ease, background-color 140ms ease;
+    }
+    a:hover{
+      border-bottom-color:#fff;
+      background:rgba(255,255,255,0.05);
+    }
+    a:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      border-bottom-color:transparent;
+      background:var(--focus-bg);
+      border-radius:6px;
+    }
+
+    .link-blue{
+      color:var(--cta-blue);
+      border-bottom-color:transparent;
+    }
+    .link-blue:hover{
+      border-bottom-color:rgba(90,176,255,0.85);
+      background:rgba(90,176,255,0.08);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--accent);
+      background:rgba(255,255,255,0.018);
+      color:#fff;
+      font-size:13px;
+      font-weight:500;
+      text-decoration:none;
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      white-space:nowrap;
+      transition:
+        transform 140ms ease,
+        background-color 140ms ease,
+        border-color 140ms ease,
+        box-shadow 140ms ease;
+    }
+    .btn:hover{
+      background:rgba(255,255,255,0.04);
+      transform:translateY(-1px);
+    }
+    .btn:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      background:var(--focus-bg);
+    }
+
+    .btn-primary{
+      color:var(--cta-blue);
+      border-color:rgba(90,176,255,0.30);
+      background:rgba(90,176,255,0.075);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .btn-primary:hover{
+      background:rgba(90,176,255,0.12);
+      border-color:rgba(90,176,255,0.45);
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border-soft);
+      margin-bottom:24px;
+    }
+
+    .brand{
+      min-width:0;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(1.2rem, 1rem + 0.9vw, 1.7rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1.15;
+    }
+
+    .sub{
+      margin-top:6px;
+      font-size:11px;
+      color:var(--text-dim);
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .top-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .hero{
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
+      padding:28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
+        linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
+      box-shadow:var(--shadow-soft);
+      margin-bottom:24px;
+    }
+
+    .eyebrow{
+      color:var(--label-blue);
+      font-size:10px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+
+    .hero h2{
+      margin:0 0 14px;
+      font-size:clamp(1.7rem, 1.35rem + 1.1vw, 2.35rem);
+      line-height:1.14;
+      letter-spacing:-0.04em;
+      font-weight:700;
+      max-width:15ch;
+    }
+
+    .hero p{
+      margin:0 0 12px;
+      color:#d8dde4;
+      font-size:clamp(0.98rem, 0.94rem + 0.15vw, 1.05rem);
+      max-width:70ch;
+    }
+
+    .hero strong{
+      color:#fff;
+      font-weight:600;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .card:hover{
+      border-color:rgba(90,176,255,0.18);
+      box-shadow:var(--shadow-hover);
+      transform:translateY(-1px);
+    }
+    .card + .card{margin-top:24px;}
+
+    .label-row{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid var(--border-soft);
+      padding-bottom:12px;
+      margin-bottom:16px;
+    }
+
+    .label{
+      font-size:11px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--label-blue);
+    }
+
+    .label-note{
+      font-size:10px;
+      letter-spacing:0.08em;
+      text-transform:lowercase;
+      color:var(--label-blue);
+      white-space:nowrap;
+    }
+
+    .service-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+
+    .service-title{
+      margin:0;
+      font-size:1.15rem;
+      font-weight:600;
+      line-height:1.25;
+      letter-spacing:-0.02em;
+    }
+
+    .price-tag{
+      flex:0 0 auto;
+      font-size:10px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid rgba(90,176,255,0.22);
+      color:#d8eefc;
+      background:rgba(90,176,255,0.10);
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--text-dim);
+    }
+
+    .lead{
+      color:#d7dce3;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .meta-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.015);
+      color:var(--text-dim);
+      font-size:11px;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+
+    .meta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:0 0 16px;
+    }
+
+    ul.clean{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    ul.clean li{
+      padding-left:16px;
+      position:relative;
+      color:#d7dce3;
+      font-size:14px;
+      line-height:1.62;
+    }
+    ul.clean li::before{
+      content:"→";
+      position:absolute;
+      left:0;
+      color:var(--text-faint);
+    }
+
+    .split-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini{
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      padding:14px;
+      background:rgba(255,255,255,0.01);
+    }
+
+    .mini h3{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      letter-spacing:-0.01em;
+    }
+
+    .mini p{
+      margin:0;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
+    .cta-bar{
+      margin-top:24px;
+      padding-top:18px;
+      border-top:1px solid var(--border-soft);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    footer{
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid var(--border-soft);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--text-faint);
+      font-size:12px;
+    }
+
+    @media (max-width: 920px){
+      .wrap{padding-top:48px;}
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .top-links{justify-content:flex-start;}
+      .grid{grid-template-columns:1fr;}
+      .service-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>Jamie Forrester</h1>
+        <div class="sub">Services</div>
+      </div>
+
+      <div class="top-links">
+        <a class="btn" href="./index.html">Home</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Email</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Service overview">
+      <div class="eyebrow">Service brief</div>
+      <h2>Two artifacts. One upstream operating surface.</h2>
+      <p>
+        I work upstream of delivery. The output is not implementation, coaching, or org-change ownership.
+        The output is a <strong>written artifact</strong> that makes the system legible enough for builders and decision owners to act without drift.
+      </p>
+      <p>
+        There are two engagement types: a <strong>Diagnostic Artifact</strong>, which exposes the real operating structure and failure concentration, and a <strong>Redesign Artifact</strong>, which specifies the boundary and transition sequence required for deterministic change.
+      </p>
+    </section>
+
+    <main id="main" class="grid" role="main">
+      <section>
+        <div class="card">
+          <div class="label-row">
+            <span class="label">01 // Diagnostic Artifact</span>
+            <span class="label-note">entry engagement</span>
+          </div>
+
+          <div class="service-head">
+            <h2 class="service-title">Expose the real structure behind recurring failure.</h2>
+            <span class="price-tag">£10k / 14 days</span>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-chip">upstream</span>
+            <span class="meta-chip">written artifact</span>
+            <span class="meta-chip">fixed-scope</span>
+          </div>
+
+          <p class="lead">
+            This engagement is for systems that keep failing in the same way under growth, complexity, or organizational scale.
+            The goal is to make the actual operating grammar explicit.
+          </p>
+
+          <div class="split-list">
+            <div class="mini">
+              <h3>What it defines</h3>
+              <p>Primitives, invariants, enforcement points, structural mismatches, and the build map implied by the current state.</p>
+            </div>
+
+            <div class="mini">
+              <h3>What you send</h3>
+              <p>The recurring failure pattern, the interfaces involved, and any current artifacts you already have: diagrams, policies, workflows, notes, or internal documents.</p>
+            </div>
+
+            <div class="mini">
+              <h3>What you receive</h3>
+              <p>One written diagnostic artifact you can hand to builders and decision owners. It is designed to clarify structure, not to decorate it.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Included</h3>
+            <ul class="clean">
+              <li>Category truth and system type clarity</li>
+              <li>Invariant definition (fail-closed rules)</li>
+              <li>Enforcement architecture (where rules live)</li>
+              <li>Boundary visibility across teams, services, policies, and contracts</li>
+              <li>A build map for sequence, interfaces, and transition logic</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Not included</h3>
+            <ul class="clean">
+              <li>Delivery ownership</li>
+              <li>Implementation execution</li>
+              <li>Org-change programs</li>
+              <li>Coaching or facilitation retainers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">02 // Engagement flow</span>
+            <span class="label-note">how it starts</span>
+          </div>
+
+          <ul class="clean">
+            <li><strong>Step 1:</strong> You email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
+            <li><strong>Step 2:</strong> You include any current artifacts that reflect the existing system state.</li>
+            <li><strong>Step 3:</strong> I review the fit and confirm whether the system should begin with diagnosis or move directly to redesign.</li>
+            <li><strong>Step 4:</strong> If the fit is correct, I return the artifact in written form for internal use.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="label-row">
+            <span class="label">03 // Redesign Artifact</span>
+            <span class="label-note">follow-on engagement</span>
+          </div>
+
+          <div class="service-head">
+            <h2 class="service-title">Specify the boundary and transition sequence for change.</h2>
+            <span class="price-tag">£15k–£25k</span>
+          </div>
+
+          <div class="meta-row">
+            <span class="meta-chip">post-diagnosis</span>
+            <span class="meta-chip">written artifact</span>
+            <span class="meta-chip">scope-dependent</span>
+          </div>
+
+          <p class="lead">
+            This engagement follows when the diagnosis is already clear enough that the next requirement is not analysis, but redesign logic.
+            The goal is to define what must change, where, and in what sequence.
+          </p>
+
+          <div class="split-list">
+            <div class="mini">
+              <h3>What it defines</h3>
+              <p>Target boundaries, transition sequence, interface changes, and the conditions that allow the system to change without collapsing into ambiguity or local drift.</p>
+            </div>
+
+            <div class="mini">
+              <h3>What you receive</h3>
+              <p>One written redesign artifact that specifies the new operating boundary and the order of change required to make implementation deterministic.</p>
+            </div>
+
+            <div class="mini">
+              <h3>When to use it</h3>
+              <p>After diagnosis, or when the system’s failure mode is already obvious and the real bottleneck is lack of upstream redesign structure.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Included</h3>
+            <ul class="clean">
+              <li>Boundary redesign</li>
+              <li>Transition sequence and dependency order</li>
+              <li>Interface and handoff clarification</li>
+              <li>Change logic that builders can execute against</li>
+              <li>Explicit refusal of steps that would create drift or hidden re-coupling</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:16px;">
+            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Not included</h3>
+            <ul class="clean">
+              <li>Program management</li>
+              <li>Team delivery leadership</li>
+              <li>Technical build execution</li>
+              <li>Stakeholder alignment workshops</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">04 // Fit</span>
+            <span class="label-note">who this is for</span>
+          </div>
+
+          <ul class="clean">
+            <li>Systems that keep failing in the same way under scale</li>
+            <li>Teams dealing with recurring boundary confusion</li>
+            <li>Decision owners who need structure, not more interpretation</li>
+            <li>Organizations where “policy says / reality does” has become normal</li>
+            <li>Contexts where implementation is blocked by upstream ambiguity</li>
+          </ul>
+
+          <div class="cta-bar">
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Request fit check</a>
+            <a class="btn" href="./index.html">Back to home</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+      </div>
+      <div>
+        <span>Jamie Forrester / Services</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
