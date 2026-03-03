@@ -77,9 +77,9 @@
     .meta-chip,
     .price-tag,
     .scope-note,
-    .method-visual-eyebrow,
-    .method-visual-sub,
-    .mf-num{
+    .path-eyebrow,
+    .path-sub,
+    .path-index{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -293,7 +293,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr 0.92fr;
+      grid-template-columns:1.06fr 0.94fr;
       gap:24px;
       align-items:stretch;
     }
@@ -335,7 +335,7 @@
       margin-top:18px;
     }
 
-    .method-visual{
+    .path-card{
       border:1px solid var(--border);
       border-radius:16px;
       padding:18px;
@@ -343,15 +343,17 @@
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
       box-shadow:var(--shadow-soft);
       min-height:100%;
+      display:flex;
+      flex-direction:column;
     }
 
-    .method-visual-head{
+    .path-card-head{
       padding-bottom:12px;
       margin-bottom:12px;
       border-bottom:1px solid var(--border-soft);
     }
 
-    .method-visual-eyebrow{
+    .path-eyebrow{
       font-size:10px;
       letter-spacing:0.16em;
       text-transform:uppercase;
@@ -359,47 +361,26 @@
       margin-bottom:6px;
     }
 
-    .method-visual-sub{
+    .path-sub{
       font-size:11px;
       color:var(--text-faint);
       letter-spacing:0.04em;
     }
 
-    .method-flow{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:0;
+    .path-section + .path-section{
+      margin-top:14px;
+      padding-top:14px;
+      border-top:1px solid var(--border-soft);
     }
 
-    .method-flow li{
-      position:relative;
-      padding:12px 0 12px 18px;
-    }
-
-    .method-flow li:not(:last-child)::after{
-      content:"";
-      position:absolute;
-      left:6px;
-      top:34px;
-      bottom:-4px;
-      width:1px;
-      background:linear-gradient(
-        180deg,
-        rgba(90,176,255,0.30),
-        rgba(255,255,255,0.06)
-      );
-    }
-
-    .mf-top{
+    .path-section-head{
       display:flex;
       align-items:baseline;
       gap:10px;
-      margin-bottom:4px;
+      margin-bottom:8px;
     }
 
-    .mf-num{
+    .path-index{
       font-size:10px;
       letter-spacing:0.12em;
       color:var(--label-blue);
@@ -407,18 +388,35 @@
       min-width:22px;
     }
 
-    .mf-title{
+    .path-title{
       font-size:14px;
       font-weight:600;
       color:#fff;
       letter-spacing:-0.01em;
     }
 
-    .method-flow p{
+    .path-list{
+      list-style:none;
       margin:0;
-      font-size:13px;
-      line-height:1.6;
+      padding:0;
+      display:grid;
+      gap:7px;
+    }
+
+    .path-list li{
+      position:relative;
+      padding-left:14px;
+      font-size:12px;
+      line-height:1.55;
       color:var(--text-dim);
+    }
+
+    .path-list li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--label-blue);
     }
 
     .grid{
@@ -689,53 +687,39 @@
           </div>
         </div>
 
-        <div class="method-visual" aria-label="Method diagram">
-          <div class="method-visual-head">
-            <div class="method-visual-eyebrow">Operating Surface</div>
-            <div class="method-visual-sub">Method view</div>
+        <div class="path-card" aria-label="Operating path">
+          <div class="path-card-head">
+            <div class="path-eyebrow">Operating Path</div>
+            <div class="path-sub">From diagnosis to redesign</div>
           </div>
 
-          <ol class="method-flow">
-            <li>
-              <div class="mf-top">
-                <span class="mf-num">01</span>
-                <span class="mf-title">Primitive</span>
-              </div>
-              <p>The repeated unit of work.</p>
-            </li>
+          <div class="path-section">
+            <div class="path-section-head">
+              <span class="path-index">01</span>
+              <span class="path-title">Diagnostic Artifact</span>
+            </div>
+            <ul class="path-list">
+              <li>Primitive</li>
+              <li>Invariants</li>
+              <li>Enforcement</li>
+              <li>Mismatch</li>
+              <li>Build Map</li>
+            </ul>
+          </div>
 
-            <li>
-              <div class="mf-top">
-                <span class="mf-num">02</span>
-                <span class="mf-title">Invariants</span>
-              </div>
-              <p>What must not break.</p>
-            </li>
-
-            <li>
-              <div class="mf-top">
-                <span class="mf-num">03</span>
-                <span class="mf-title">Enforcement</span>
-              </div>
-              <p>Where rules actually live.</p>
-            </li>
-
-            <li>
-              <div class="mf-top">
-                <span class="mf-num">04</span>
-                <span class="mf-title">Mismatch</span>
-              </div>
-              <p>Promise versus operating grammar.</p>
-            </li>
-
-            <li>
-              <div class="mf-top">
-                <span class="mf-num">05</span>
-                <span class="mf-title">Build Map</span>
-              </div>
-              <p>Boundary and transition sequence.</p>
-            </li>
-          </ol>
+          <div class="path-section">
+            <div class="path-section-head">
+              <span class="path-index">02</span>
+              <span class="path-title">Redesign Artifact</span>
+            </div>
+            <ul class="path-list">
+              <li>Target Boundary</li>
+              <li>Transition Sequence</li>
+              <li>Interface Changes</li>
+              <li>Dependency Order</li>
+              <li>Drift Refusal</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
