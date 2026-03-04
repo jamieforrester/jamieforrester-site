@@ -788,79 +788,55 @@
         </div>
 
         <div class="card">
-          <div class="label-row">
-            <span class="label">02 // Diagnostic Method</span>
-            <span class="label-note">what diagnosis maps</span>
-          </div>
+  <div class="label-row">
+    <span class="label">02 // Methods</span>
+    <span class="label-note">signal, not theory</span>
+  </div>
 
-          <ul class="method">
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name">Primitive</div>
-                <div class="m-order">01</div>
-              </div>
-              <p class="m-desc">What action the system actually repeats — the real unit of work.</p>
-            </li>
+  <div class="paper">
+    <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
+    <p class="paper-desc" style="margin-bottom:0;">
+      <strong>Primitive / Invariants / Enforcement / Mismatch / Build Map</strong>
+    </p>
+  </div>
 
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name">Invariants</div>
-                <div class="m-order">02</div>
-              </div>
-              <p class="m-desc">What must never be violated — the fail-closed constraints.</p>
-            </li>
+  <div class="paper" style="margin-top:12px;">
+    <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
+    <p class="paper-desc" style="margin-bottom:0;">
+      <strong>Target Boundary / Transition Sequence / Interface Changes / Dependency Order / Drift Refusal</strong>
+    </p>
+  </div>
 
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name">Enforcement</div>
-                <div class="m-order">03</div>
-              </div>
-              <p class="m-desc">Where rules live in reality, not where policy says they live.</p>
-            </li>
-
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name">Mismatch</div>
-                <div class="m-order">04</div>
-              </div>
-              <p class="m-desc">Where the interface promise diverges from the operating grammar.</p>
-            </li>
-
-            <li class="m-item">
-              <div class="m-top">
-                <div class="m-name">Build Map</div>
-                <div class="m-order">05</div>
-              </div>
-              <p class="m-desc">The boundary and transition sequence that makes implementation deterministic.</p>
-            </li>
-          </ul>
-        </div>
+  <p class="small" style="margin-top:14px;">
+    Full definitions, scope, and delivery terms live on the Services page.
+  </p>
+</div>
 
         <div class="card">
-          <div class="label-row">
-            <span class="label">03 // How to start</span>
-            <span class="label-note">entry route</span>
-          </div>
+  <div class="label-row">
+    <span class="label">03 // How to start</span>
+    <span class="label-note">entry route</span>
+  </div>
 
-          <p class="lead" style="margin-bottom:10px;">
-            If your system keeps failing in the same way under growth, send the failure pattern first. I assess whether this should begin with diagnosis or move directly to redesign.
-          </p>
+  <p class="lead" style="margin-bottom:10px;">
+    If your system keeps failing in the same way under growth, send the failure pattern first. I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
+  </p>
 
-          <ul class="clean">
-            <li><strong>Step 1</strong>: email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
-            <li><strong>Step 2</strong>: include any relevant artifacts: diagrams, policies, workflows, notes, or internal documents.</li>
-            <li><strong>Step 3</strong>: I reply with fit, scope direction, and next steps.</li>
-          </ul>
+  <ul class="clean">
+    <li><strong>Email five lines</strong>: what keeps breaking, what is at stake, the interfaces involved, where the issue is showing up, and any immediate constraint that matters.</li>
+    <li><strong>Attach relevant materials</strong>: workflows, policies, diagrams, notes, or internal documents.</li>
+    <li><strong>I reply</strong> with fit, scope direction, and next steps.</li>
+  </ul>
 
-          <div class="actions" style="margin-top:14px;">
-            <a
-              class="btn btn-primary"
-              href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
-            >EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-          </div>
-        </div>
+  <div class="actions" style="margin-top:14px;">
+    <a
+      class="btn btn-primary"
+      href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+    >EMAIL</a>
+    <a class="btn" href="./services.html">VIEW SERVICES</a>
+    <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+  </div>
+</div>
       </section>
 
       <section>
