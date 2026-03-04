@@ -6,7 +6,7 @@
   <title>Jamie Forrester — Independent Systems Architect</title>
   <meta
     name="description"
-    content="Independent Systems Architect — upstream diagnosis and redesign for systems that keep failing under scale."
+    content="Independent Systems Architect — diagnostic and redesign artifacts for systems that fail under scale."
   />
   <link rel="icon" href="/favicon.png" />
 
@@ -81,6 +81,7 @@
     .label-note,
     .eyebrow,
     .qk,
+    .m-order,
     .status,
     .skip-link,
     .trust{
@@ -482,6 +483,46 @@
       color:var(--text-faint);
     }
 
+    .method{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+    .m-item{
+      padding:14px 14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+    }
+    .m-top{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:6px;
+    }
+    .m-name{
+      font-weight:600;
+      color:#fff;
+      font-size:14px;
+      letter-spacing:-0.01em;
+    }
+    .m-order{
+      font-size:10px;
+      color:var(--text-faint);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      white-space:nowrap;
+    }
+    .m-desc{
+      margin:0;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
     .paper{
       padding:14px;
       border:1px solid var(--border-soft);
@@ -555,6 +596,25 @@
       border-color:rgba(90,176,255,0.96);
       font-weight:600;
     }
+    .status-dev{
+      color:#d8eefc;
+      background:rgba(90,176,255,0.10);
+      border-color:rgba(90,176,255,0.22);
+    }
+
+    .paper-desc{
+      margin:0 0 10px;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
 
     footer{
       margin-top:32px;
@@ -610,7 +670,7 @@
           <h1>Jamie Forrester</h1>
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row">
-            <span class="pill" aria-label="Positioning">Upstream diagnosis and redesign for systems that keep failing under scale.</span>
+            <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic + Redesign Artifacts</span>
           </div>
         </div>
       </div>
@@ -618,6 +678,7 @@
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+
         <a
           class="btn btn-primary"
           href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
@@ -639,12 +700,15 @@
         <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
 
         <p class="hero-sub">
-          I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure: the primitives, invariants, enforcement points, and build map that define how the system actually works.</p>
+          I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
+          <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong>.
+        </p>
 
         <div class="hero-divider" aria-hidden="true"></div>
 
         <p class="hero-sub">
-          I write <strong>Redesign Artifacts</strong> that define the target boundary and transition sequence required for deterministic change.</p>
+          I write <strong>Redesign Artifacts</strong> that specify the boundary and transition sequence that makes change deterministic.
+        </p>
 
         <div class="trust">
           WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND LAW-FIRST DESIGN
@@ -660,6 +724,10 @@
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
+
+        <p class="hero-sub" style="margin:16px 0 0 0;">
+          <strong>Email five lines:</strong> what keeps breaking, what is at stake, and the interfaces involved.
+        </p>
       </div>
 
       <div class="quick">
@@ -688,59 +756,84 @@
       <section>
         <div class="card">
           <div class="label-row">
-            <span class="label">01 // What I offer</span>
-            <span class="label-note">two written artifacts</span>
+            <span class="label">01 // Overview</span>
+            <span class="label-note">what this is</span>
           </div>
 
           <p class="lead">
-            Two fixed-scope written engagements. One to locate the real source of recurring failure. One to define the redesign logic required to change it.
+            Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
+            The Artifact makes the operating grammar explicit so builders can change the system without drift.
           </p>
 
           <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">Diagnostic Artifact</p>
-            <p class="small">
-              Used when the problem is being misread, misnamed, or addressed too late. It defines what the system is actually doing, where failure is concentrating, where rules are enforced in reality, and where stated process diverges from operating reality.
-            </p>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">Redesign Artifact</p>
-            <p class="small">
-              Used when the failure is already visible, but change is still blocked by ambiguity, dependency, or boundary confusion. It defines the target operating boundary, the required interface changes, the sequence of change, and the conditions that prevent drift.
-            </p>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">Overview</p>
+            <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <p class="paper-desc" style="margin-bottom:0;">
-              Recurring failure persists when the real structure stays hidden. The artifact makes that structure explicit so decisions and implementation can move against the real problem, not the surface symptoms.
+              Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that do not change failure.
+            </p>
+          </div>
+
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making structure visible.
+            </p>
+          </div>
+
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">What improves</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Faster decisions, fewer interpretation gaps, fewer recurring incidents with new names, and safer change under growth.
             </p>
           </div>
         </div>
 
         <div class="card">
           <div class="label-row">
-            <span class="label">02 // Structural truth for systems that fail under scale</span>
-            <span class="label-note">methods</span>
+            <span class="label">02 // Diagnostic Method</span>
+            <span class="label-note">what diagnosis maps</span>
           </div>
 
-          <div class="paper">
-            <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              <strong>Primitive / Invariants / Enforcement / Mismatch / Build Map</strong>
-            </p>
-          </div>
+          <ul class="method">
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name">Primitive</div>
+                <div class="m-order">01</div>
+              </div>
+              <p class="m-desc">What action the system actually repeats — the real unit of work.</p>
+            </li>
 
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              <strong>Target Boundary / Transition Sequence / Interface Changes / Dependency Order / Drift Refusal</strong>
-            </p>
-          </div>
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name">Invariants</div>
+                <div class="m-order">02</div>
+              </div>
+              <p class="m-desc">What must never be violated — the fail-closed constraints.</p>
+            </li>
 
-          <p class="small" style="margin-top:14px;">
-            Full definitions, scope, and delivery terms live on the Services page.
-          </p>
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name">Enforcement</div>
+                <div class="m-order">03</div>
+              </div>
+              <p class="m-desc">Where rules live in reality, not where policy says they live.</p>
+            </li>
+
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name">Mismatch</div>
+                <div class="m-order">04</div>
+              </div>
+              <p class="m-desc">Where the interface promise diverges from the operating grammar.</p>
+            </li>
+
+            <li class="m-item">
+              <div class="m-top">
+                <div class="m-name">Build Map</div>
+                <div class="m-order">05</div>
+              </div>
+              <p class="m-desc">The boundary and transition sequence that makes implementation deterministic.</p>
+            </li>
+          </ul>
         </div>
 
         <div class="card">
@@ -750,16 +843,16 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            If the same failure keeps returning under growth, start with the failure pattern. I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
+            If your system keeps failing in the same way under growth, send the failure pattern first. I assess whether this should begin with diagnosis or move directly to redesign.
           </p>
 
           <ul class="clean">
-            <li><strong>Email five lines</strong>: what keeps breaking, what is at stake, the interfaces involved, where the issue is showing up, and any immediate constraint that matters.</li>
-            <li><strong>Attach relevant materials</strong>: workflows, policies, diagrams, notes, or internal documents.</li>
-            <li><strong>I reply</strong> with fit, scope direction, and next steps.</li>
+            <li><strong>Step 1</strong>: email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
+            <li><strong>Step 2</strong>: include any relevant artifacts: diagrams, policies, workflows, notes, or internal documents.</li>
+            <li><strong>Step 3</strong>: I reply with fit, scope direction, and next steps.</li>
           </ul>
 
-          <div class="hero-actions" style="margin-top:14px;">
+          <div class="actions" style="margin-top:14px;">
             <a
               class="btn btn-primary"
               href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
@@ -774,7 +867,7 @@
         <div class="card">
           <div class="label-row">
             <span class="label">04 // Research</span>
-            <span class="label-note">published and in progress</span>
+            <span class="label-note">papers + drafts</span>
           </div>
 
           <div class="paper">
@@ -788,7 +881,9 @@
                   <span class="status status-published">Published</span>
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
-                <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+                <div class="actions">
+                  <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+                </div>
               </div>
             </div>
           </div>
@@ -801,7 +896,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                  <span class="status">In preparation</span>
+                  <span class="status">In prep</span>
                 </div>
                 <p class="paper-desc">
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
@@ -822,7 +917,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</p>
-                  <span class="status">In development</span>
+                  <span class="status">In dev</span>
                 </div>
                 <p class="paper-desc">
                   Why execution-optimised systems lack an interface for upstream reframing — and therefore cannot self-correct.
@@ -842,7 +937,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">05 // Books in progress</span>
+            <span class="label">05 // Books</span>
             <span class="label-note">work in progress</span>
           </div>
 
@@ -893,7 +988,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">Spectrum Registry</p>
-                  <span class="status">In development</span>
+                  <span class="status status-dev">In development</span>
                 </div>
                 <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
               </div>
@@ -908,7 +1003,7 @@
               <div>
                 <div class="paper-head">
                   <p class="paper-title">PromptFactory</p>
-                  <span class="status">In development</span>
+                  <span class="status status-dev">In development</span>
                 </div>
                 <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
               </div>
