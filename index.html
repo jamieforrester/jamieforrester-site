@@ -675,6 +675,8 @@
         </div>
       </div>
 
+      <p>I make hidden rules visible, then redesign the boundary so the system stops failing in the same way.</p>
+
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
@@ -697,19 +699,17 @@
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <div class="eyebrow">What I do</div>
-        <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
+        <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
 
         <p class="hero-sub">
-          I write <strong>Diagnostic Artifacts</strong> that turn recurring failure into explicit structure:
-  <strong>primitives</strong>, <strong>invariants</strong>, <strong>enforcement</strong>, and a <strong>build map</strong> — the elements that define how the system actually works.
-</p>
+          I write <strong>Diagnostic Artifacts</strong> of what your system is really doing, where it is failing, and why.</p>
 
         <div class="hero-divider" aria-hidden="true"></div>
 
         <p class="hero-sub">
-          I write <strong>Redesign Artifacts</strong> that define the target boundary and transition sequence required for deterministic change.
-        </p>
-
+          I write <strong>Redesign Artifacts</strong> that specifies what must change, in what order, so builders can execute without inventing the design midstream.</p>
+        <p></p>
+        <p>I identify the hidden rules causing repeat failure, then define the structure needed to stop it happening again.</p>
         <div class="trust">
           WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND LAW-FIRST DESIGN
         </div>
@@ -726,27 +726,35 @@
         </div>
 
         <p class="hero-sub" style="margin:16px 0 0 0;">
-          <strong>Email five lines:</strong> what keeps breaking, what is at stake, and the interfaces involved.
+          <strong>Email five lines:</strong> what keeps breaking, what is at stake, the interfaces involved, where the issue is showing up, and any immediate constraint that matters.
         </p>
       </div>
 
       <div class="quick">
         <dl>
+           <div>
+            <dt class="qk">How it works<strong>→</strong></dt>
+            <dd class="qv"><strong>Email five lines</strong> describing what keeps breaking, what is at stake, and the interfaces involved. I review for fit and reply with scope direction.</dd>
+          </div>
           <div>
             <dt class="qk">What this is <strong>→</strong></dt>
-            <dd class="qv"><strong>Two fixed-scope written engagements</strong>: one diagnostic, one redesign.</dd>
+            <dd class="qv"><strong>Two fixed-scope written engagements</strong>: Diagnostic first. Redesign second—if needed.</dd>
           </div>
           <div>
             <dt class="qk">What it solves <strong>→</strong></dt>
-            <dd class="qv">Recurring failure that survives because the real structure is still <strong>hidden</strong>.</dd>
+            <dd class="qv">Recurring failure that survives because the real structure is still hidden in interfaces, incentives, or enforcement.</strong>.</dd>
+          </div>
+          <div>
+            <dt class="qk">What it replaces <strong>→</strong></dt>
+            <dd class="qv">Months of alignment meetings. Conflicting interpretations of the same incident. Roadmaps that promise change but deliver the same failure with new names.</dd>
           </div>
           <div>
             <dt class="qk">Who it is for <strong>→</strong></dt>
-            <dd class="qv"><strong>Decision-makers and builders</strong> who need structure, not more interpretation.</dd>
+            <dd class="qv"><strong>Decision-makers and builders</strong> who need a single source of structural truth they can execute against.</dd>
           </div>
           <div>
             <dt class="qk">How to start <strong>→</strong></dt>
-            <dd class="qv">Email <strong>five lines</strong> plus any relevant materials you already have.</dd>
+            <dd class="qv">Email <strong>five lines.</strong> plus any relevant materials you already have.</dd>
           </div>
         </dl>
       </div>
@@ -761,15 +769,16 @@
           </div>
 
           <p class="lead">
-            Most “complexity” persists because the system’s real rules are implicit, contested, or enforced in the wrong place.
-            The Artifact makes the operating grammar explicit so builders can change the system without drift.
+            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The Artifact makes those rules explicit. Once visible, they can be changed without drift.
           </p>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              Alignment loops, committee interpretation, “policy says / reality does”, and roadmaps that do not change failure.
-            </p>
+            <ul class="clean">
+    <li><strong>Months of alignment meetings that end with "we all need to get on the same page"</li>
+    <li><strong>The gap between what the policy says and what actually happens</li>
+    <li><strong>Roadmaps that describe intent but cannot change failure</li>
+  </ul>
           </div>
 
           <div class="paper" style="margin-top:12px;">
@@ -781,37 +790,55 @@
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What improves</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              Faster decisions, fewer interpretation gaps, fewer recurring incidents with new names, and safer change under growth.
-            </p>
+            <ul class="clean">
+    <li><strong>Decisions go from weeks to hours because the structure is no longer debatable</li>
+    <li><strong>Incidents stop recurring under new names</li>
+    <li><strong>Builders stop inventing design midstream because the sequence is specified</li>
+    <li><strong>Change under growth becomes safer because invariants are explicit</li>
+  </ul>
           </div>
         </div>
 
-        <div class="card">
+       <div class="card">
   <div class="label-row">
     <span class="label">02 // Methods</span>
-    <span class="label-note">signal, not theory</span>
+    <span class="label-note">how the work is structured</span>
   </div>
-          
+
   <div class="paper">
     <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
-    <p class="paper-desc" style="margin-bottom:0;">
-      <strong>Primitive / Invariants / Enforcement / Mismatch / Build Map</strong>
+    <p class="paper-desc" style="margin-bottom:12px;">
+      I make the real structure behind recurring failure explicit:
     </p>
+
+    <ul class="clean">
+      <li><strong>Primitive</strong> — The repeated unit of work the system actually performs.</li>
+      <li><strong>Invariants</strong> — Rules that must not break.</li>
+      <li><strong>Enforcement</strong> — Where those rules live in reality.</li>
+      <li><strong>Mismatch</strong> — Where stated design and operating reality diverge.</li>
+      <li><strong>Build Map</strong> — The structural implications that follow from the diagnosis.</li>
+    </ul>
   </div>
 
   <div class="paper" style="margin-top:12px;">
     <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
-    <p class="paper-desc" style="margin-bottom:0;">
-      <strong>Target Boundary / Transition Sequence / Interface Changes / Dependency Order / Drift Refusal</strong>
+    <p class="paper-desc" style="margin-bottom:12px;">
+      I define the target state and the sequence required to reach it:
     </p>
+
+    <ul class="clean">
+      <li><strong>Target Boundary</strong> — What the system should become.</li>
+      <li><strong>Transition Sequence</strong> — The order in which change must occur.</li>
+      <li><strong>Interface Changes</strong> — What must be tightened, removed, or clarified.</li>
+      <li><strong>Dependency Order</strong> — What moves first, and what depends on what.</li>
+      <li><strong>Drift Refusal</strong> — Gates that prevent local workarounds from re-entering the system.</li>
+    </ul>
   </div>
 
   <p class="small" style="margin-top:14px;">
-    Full definitions, scope, and delivery terms live on the Services page.
+    Full scope, delivery terms, and service boundaries live on the Services page.
   </p>
 </div>
-
         <div class="card">
   <div class="label-row">
     <span class="label">03 // How to start</span>
@@ -966,7 +993,7 @@
                   <p class="paper-title">Spectrum Registry</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
+                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.(Side project)</p>
               </div>
             </div>
           </div>
@@ -981,7 +1008,7 @@
                   <p class="paper-title">PromptFactory</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
+                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. (Side project)</p>
               </div>
             </div>
           </div>
@@ -989,6 +1016,9 @@
       </section>
     </main>
 
+<p><strong>Ready to start?</strong>
+<strong>Email five lines:</strong> what keeps breaking, what is at stake, the interfaces involved, where the issue is showing up, and any immediate constraint that matters.</p>
+    
     <footer>
       <div class="footer-links">
         <span>
