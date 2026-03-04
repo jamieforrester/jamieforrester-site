@@ -4,7 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Services — Jamie Forrester</title>
-  <meta name="description" content="Diagnostic and redesign artifacts for systems that fail under scale." />
+  <meta
+    name="description"
+    content="Diagnostic and redesign artifacts for systems that keep failing under scale."
+  />
   <link rel="icon" href="/favicon.png" />
 
   <!-- IBM Plex Sans + Mono -->
@@ -589,6 +592,27 @@
       line-height:1.62;
     }
 
+    .mini + .mini{
+      margin-top:0;
+    }
+
+    .section-block{
+      margin-top:16px;
+    }
+
+    .section-head{
+      margin:0 0 10px;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      letter-spacing:-0.01em;
+    }
+
+    .fit-grid{
+      display:grid;
+      gap:14px;
+    }
+
     .cta-bar{
       margin-top:24px;
       padding-top:18px;
@@ -657,7 +681,7 @@
           <h1>Jamie Forrester</h1>
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row-top">
-            <span class="pill" aria-label="Positioning">Institutional Topology // Diagnostic + Redesign Artifacts</span>
+            <span class="pill" aria-label="Positioning">Diagnostic + Redesign Artifacts for systems that keep failing under scale</span>
           </div>
         </div>
       </div>
@@ -672,13 +696,18 @@
       <div class="hero-grid">
         <div>
           <div class="eyebrow">Service brief</div>
-          <h2>Two artifacts. One upstream operating surface.</h2>
+          <h2>Two written artifacts that make failing systems legible.</h2>
           <p>
-            I work upstream of delivery. The output is not implementation, coaching, or org-change ownership.
-            The output is a <strong>written artifact</strong> that makes the system legible enough for builders and decision owners to act without drift.
+            I work upstream of delivery teams. If your system keeps failing in the same way, I produce the
+            structured document that makes the failure pattern visible and the path to change explicit.
           </p>
           <p>
-            There are two engagement types: a <strong>Diagnostic Artifact</strong>, which exposes the real operating structure and failure concentration, and a <strong>Redesign Artifact</strong>, which specifies the boundary and transition sequence that makes change deterministic.
+            This is <strong>not</strong> implementation, facilitation, coaching, or program ownership.
+            It is a fixed-scope written intervention designed for internal decision-making and builder handoff.
+          </p>
+          <p>
+            <strong>Diagnosis</strong> exposes what is really breaking. <strong>Redesign</strong> defines what
+            must change, where responsibility moves, and in what order implementation can begin without drift.
           </p>
 
           <div class="hero-actions">
@@ -717,7 +746,7 @@
               <li>Transition Sequence</li>
               <li>Interface Changes</li>
               <li>Dependency Order</li>
-              <li>Drift Refusal</li>
+              <li>Drift Controls</li>
             </ul>
           </div>
         </div>
@@ -734,55 +763,65 @@
 
           <div class="service-head">
             <h2 class="service-title">Expose the real structure behind recurring failure.</h2>
-            <span class="price-tag">£10k / 14 days</span>
+            <span class="price-tag">£10k fixed fee / 14 days</span>
           </div>
 
           <div class="meta-row">
             <span class="meta-chip">upstream</span>
-            <span class="meta-chip">written artifact</span>
             <span class="meta-chip">fixed-scope</span>
+            <span class="meta-chip">decision-ready document</span>
           </div>
 
           <p class="lead">
-            This engagement is for systems that keep failing in the same way under growth, complexity, or organizational scale.
-            The goal is to make the actual operating grammar explicit.
+            For systems that keep breaking in the same place under growth, complexity, or organizational scale.
+            This is the point where “more meetings” have stopped helping and the real structure needs to be made explicit.
           </p>
 
           <div class="split-list">
             <div class="mini">
-              <h3>What it defines</h3>
-              <p>Primitives, invariants, enforcement points, structural mismatches, and the build map implied by the current state.</p>
+              <h3>What it answers</h3>
+              <p>
+                What is this system actually doing, not what it claims to do? Which rules are breaking that must not break?
+                Where do those rules really live? Where does stated design diverge from operating reality?
+                What does that imply builders now need to address?
+              </p>
             </div>
 
             <div class="mini">
               <h3>What you send</h3>
-              <p>The recurring failure pattern, the interfaces involved, and any current artifacts you already have: diagrams, policies, workflows, notes, or internal documents.</p>
+              <p>
+                The recurring failure pattern, the interfaces involved, and any materials that reflect the current state:
+                diagrams, policies, workflows, notes, contracts, screenshots, or internal documents.
+              </p>
             </div>
 
             <div class="mini">
               <h3>What you receive</h3>
-              <p>One written diagnostic artifact you can hand to builders and decision owners. It is designed to clarify structure, not to decorate it.</p>
+              <p>
+                One structured diagnostic document for internal decision-making and builder handoff.
+                In practice, it gives decision owners a single source of structural truth and gives builders a clearer basis for what must change first.
+              </p>
             </div>
           </div>
 
-          <div style="margin-top:16px;">
-            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Included</h3>
+          <div class="section-block">
+            <h3 class="section-head">Included</h3>
             <ul class="clean">
-              <li>Category truth and system type clarity</li>
-              <li>Invariant definition (fail-closed rules)</li>
-              <li>Enforcement architecture (where rules live)</li>
+              <li>Clarity on what kind of system you are actually running, and why that matters</li>
+              <li>Invariant definition: the rules that must not break</li>
+              <li>Enforcement visibility: where those rules live in reality, not only in policy</li>
               <li>Boundary visibility across teams, services, policies, and contracts</li>
-              <li>A build map for sequence, interfaces, and transition logic</li>
+              <li>A build map showing the structural implications for sequence, interfaces, and transition logic</li>
             </ul>
           </div>
 
-          <div style="margin-top:16px;">
-            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Not included</h3>
+          <div class="section-block">
+            <h3 class="section-head">Outside scope</h3>
             <ul class="clean">
               <li>Delivery ownership</li>
               <li>Implementation execution</li>
               <li>Org-change programs</li>
-              <li>Coaching or facilitation retainers</li>
+              <li>Ongoing coaching or facilitation retainers</li>
             </ul>
           </div>
         </div>
@@ -794,10 +833,9 @@
           </div>
 
           <ul class="clean">
-            <li><strong>Step 1:</strong> Email five lines on what keeps breaking, what is at stake, and the interfaces involved.</li>
-            <li><strong>Step 2:</strong> Include any relevant artifacts that reflect the current system state.</li>
-            <li><strong>Step 3:</strong> I assess fit and confirm whether the system should begin with diagnosis or move directly to redesign.</li>
-            <li><strong>Step 4:</strong> If the fit is correct, I return the artifact in written form for internal use.</li>
+            <li><strong>Step 1:</strong> Email five lines on what keeps breaking, what is at stake, the interfaces involved, and any materials you already have.</li>
+            <li><strong>Step 2:</strong> I assess fit and confirm whether the work should begin with Diagnostic or move directly to Redesign.</li>
+            <li><strong>Step 3:</strong> If the fit is correct, I return a structured written deliverable designed for internal circulation, decision-making, and builder handoff.</li>
           </ul>
 
           <div class="cta-bar">
@@ -814,55 +852,64 @@
           </div>
 
           <div class="service-head">
-            <h2 class="service-title">Specify the boundary and transition sequence for change.</h2>
+            <h2 class="service-title">Define the new boundary and the order of change.</h2>
             <span class="price-tag">£15k–£25k</span>
           </div>
 
           <div class="meta-row">
-            <span class="meta-chip">post-diagnosis</span>
-            <span class="meta-chip">written artifact</span>
+            <span class="meta-chip">post-diagnosis or direct-entry</span>
             <span class="meta-chip">scope-dependent</span>
+            <span class="meta-chip">builder handoff</span>
           </div>
 
           <p class="scope-note">
-            Range-based pricing depends on boundary width, interface count, and transition complexity.
+            Pricing depends on the breadth of the redesign, the number of interfaces involved, and the complexity of the transition path.
           </p>
 
           <p class="lead">
-            This engagement follows when the diagnosis is already clear enough that the next requirement is not analysis, but redesign logic.
-            The goal is to define what must change, where, and in what sequence.
+            This is the “what changes now” phase. When the failure is already visible, but the route to change is still unclear,
+            this engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.
           </p>
 
           <div class="split-list">
             <div class="mini">
               <h3>What it defines</h3>
-              <p>Target boundaries, transition sequence, interface changes, and the conditions that allow the system to change without collapsing into ambiguity or local drift.</p>
+              <p>
+                The target boundary, the transition sequence, the interface changes required, the dependency order,
+                and the explicit constraints that prevent local workarounds from quietly reintroducing the same failure pattern.
+              </p>
+            </div>
+
+            <div class="mini">
+              <h3>What you send</h3>
+              <p>
+                Either the completed Diagnostic document plus current materials, or a clear failure description with known constraints
+                if the need for redesign is already obvious and bounded.
+              </p>
             </div>
 
             <div class="mini">
               <h3>What you receive</h3>
-              <p>One written redesign artifact that specifies the new operating boundary and the order of change required to make implementation deterministic.</p>
-            </div>
-
-            <div class="mini">
-              <h3>When to use it</h3>
-              <p>After diagnosis, or when the failure mode is already obvious and the real bottleneck is lack of upstream redesign structure.</p>
+              <p>
+                One structured redesign document that defines the new operating boundary and the order of change.
+                In practice, it gives builders a stable sequence to execute against instead of forcing them to invent design midstream.
+              </p>
             </div>
           </div>
 
-          <div style="margin-top:16px;">
-            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Included</h3>
+          <div class="section-block">
+            <h3 class="section-head">Included</h3>
             <ul class="clean">
               <li>Boundary redesign</li>
               <li>Transition sequence and dependency order</li>
               <li>Interface and handoff clarification</li>
               <li>Change logic that builders can execute against</li>
-              <li>Explicit refusal of steps that would create drift or hidden re-coupling</li>
+              <li>Explicit constraints that prevent drift, workaround logic, or quiet re-coupling</li>
             </ul>
           </div>
 
-          <div style="margin-top:16px;">
-            <h3 class="service-title" style="font-size:14px; margin:0 0 10px;">Not included</h3>
+          <div class="section-block">
+            <h3 class="section-head">Outside scope</h3>
             <ul class="clean">
               <li>Program management</li>
               <li>Team delivery leadership</li>
@@ -878,13 +925,35 @@
             <span class="label-note">who this is for</span>
           </div>
 
-          <ul class="clean">
-            <li>Systems that keep failing in the same way under scale</li>
-            <li>Teams dealing with recurring boundary confusion</li>
-            <li>Decision owners who need structure, not more interpretation</li>
-            <li>Organizations where “policy says / reality does” has become normal</li>
-            <li>Contexts where implementation is blocked by upstream ambiguity</li>
-          </ul>
+          <div class="fit-grid">
+            <div class="mini">
+              <h3>This fits if</h3>
+              <ul class="clean">
+                <li>Your system keeps failing in the same way under growth or scale</li>
+                <li>Your teams are stuck in a policy-versus-reality gap</li>
+                <li>Decision owners need structure, not more interpretation</li>
+                <li>Implementation is blocked by upstream ambiguity</li>
+                <li>Builders are being forced to reinvent design during execution</li>
+              </ul>
+            </div>
+
+            <div class="mini">
+              <h3>This does not fit if</h3>
+              <ul class="clean">
+                <li>You need implementation support, delivery leadership, or program ownership</li>
+                <li>You are looking for coaching, facilitation, or workshops</li>
+                <li>The problem is too broad or undefined for a bounded written intervention</li>
+                <li>You want open-ended advisory access rather than a fixed-scope artifact</li>
+              </ul>
+            </div>
+
+            <div class="mini">
+              <h3>After delivery</h3>
+              <p>
+                One minor clarification pass is included. Scope expansion, new analysis, or widened boundaries require a new engagement.
+              </p>
+            </div>
+          </div>
 
           <div class="cta-bar">
             <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
@@ -901,7 +970,7 @@
         <span>Jamie Forrester / Services</span>
       </div>
       <div>
-        <span>Last updated: 2026-03-03</span>
+        <span>Last updated: 2026-03-04</span>
       </div>
     </footer>
   </div>
