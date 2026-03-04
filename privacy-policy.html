@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — Jamie Forrester</title>
+  <meta
+    name="description"
+    content="Privacy Policy for jamieforrester.com, including how personal data is collected, used, stored, and protected."
+  />
+  <link rel="icon" href="/favicon.png" />
+
+  <!-- IBM Plex Sans + Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#101114;
+      --panel-soft:#0d0e11;
+
+      --text-main:#f1f3f5;
+      --text-dim:#c3c8d0;
+      --text-faint:#8b93a1;
+
+      --border:#232731;
+      --border-soft:rgba(255,255,255,0.05);
+      --accent:#343a46;
+
+      --label-blue:#4aa3ff;
+      --cta-blue:#5ab0ff;
+
+      --focus-ring:rgba(255,255,255,0.95);
+      --focus-bg:rgba(255,255,255,0.08);
+
+      --radius-md:14px;
+      --radius-lg:16px;
+
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
+      --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+    }
+
+    *{box-sizing:border-box;}
+    html{color-scheme:dark;}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(90,176,255,0.035), transparent 28%),
+        linear-gradient(180deg, #0b0b0c, #0b0b0c);
+      color:var(--text-main);
+      font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.7;
+      font-size:16px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      font-feature-settings:"ss01" 1, "cv05" 1;
+    }
+
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:64px 24px 56px;
+    }
+
+    .mono,
+    .sub,
+    .pill,
+    .label,
+    .label-note,
+    .eyebrow,
+    .btn,
+    .skip-link{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--accent);
+      background:var(--panel);
+      color:#fff;
+      transform:translateY(-200%);
+      transition:transform 120ms ease;
+      z-index:9999;
+      text-decoration:none;
+      font-size:12px;
+    }
+    .skip-link:focus-visible{
+      transform:translateY(0);
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+    }
+
+    a{
+      color:#fff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.18);
+      padding-bottom:1px;
+      transition:border-color 140ms ease, background-color 140ms ease, color 140ms ease, transform 140ms ease;
+    }
+    a:hover{
+      border-bottom-color:#fff;
+      background:rgba(255,255,255,0.05);
+    }
+    a:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      border-bottom-color:transparent;
+      background:var(--focus-bg);
+      border-radius:6px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--accent);
+      background:rgba(255,255,255,0.018);
+      color:#fff;
+      font-size:13px;
+      font-weight:500;
+      text-decoration:none;
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      white-space:nowrap;
+      transition:
+        transform 140ms ease,
+        background-color 140ms ease,
+        border-color 140ms ease,
+        box-shadow 140ms ease;
+    }
+    .btn:hover{
+      background:rgba(255,255,255,0.04);
+      transform:translateY(-1px);
+    }
+    .btn:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      background:var(--focus-bg);
+    }
+
+    .btn-primary{
+      color:var(--cta-blue);
+      border-color:rgba(90,176,255,0.30);
+      background:rgba(90,176,255,0.075);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .btn-primary:hover{
+      background:rgba(90,176,255,0.12);
+      border-color:rgba(90,176,255,0.45);
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .btn-current{
+      border-color:rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.03);
+      color:var(--text-dim);
+      cursor:default;
+      pointer-events:none;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border-soft);
+      margin-bottom:24px;
+    }
+
+    .h-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+
+    .h-ident{
+      min-width:0;
+    }
+
+    .avatar-link{
+      display:inline-flex;
+      border-bottom:none;
+      border-radius:999px;
+      flex:0 0 auto;
+    }
+    .avatar-link:hover{
+      background:transparent;
+      transform:translateY(-1px);
+    }
+    .avatar-link:focus-visible{
+      background:transparent;
+      outline:2px solid var(--focus-ring);
+      outline-offset:4px;
+      border-radius:999px;
+    }
+
+    .avatar{
+      width:78px;
+      height:78px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      object-fit:cover;
+      filter:grayscale(100%);
+      flex:0 0 auto;
+      box-shadow:0 6px 20px rgba(0,0,0,0.18);
+      display:block;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(1.1rem, 1rem + 0.7vw, 1.45rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1.15;
+    }
+
+    .sub{
+      margin-top:6px;
+      font-size:11px;
+      color:var(--text-dim);
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      white-space:nowrap;
+    }
+
+    .meta-row-top{
+      margin-top:12px;
+    }
+
+    .pill{
+      display:-webkit-inline-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      width:392px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      color:var(--text-dim);
+      font-size:11px;
+      letter-spacing:0.05em;
+      line-height:1.35;
+      white-space:normal;
+    }
+
+    .top-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    .hero{
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
+      padding:28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
+        linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
+      box-shadow:var(--shadow-soft);
+      margin-bottom:24px;
+      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .hero:hover{
+      border-color:rgba(90,176,255,0.18);
+      box-shadow:var(--shadow-hover);
+      transform:translateY(-1px);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .eyebrow{
+      color:var(--label-blue);
+      font-size:10px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+
+    .hero h2{
+      margin:0 0 14px;
+      font-size:clamp(1.7rem, 1.35rem + 1.1vw, 2.35rem);
+      line-height:1.14;
+      letter-spacing:-0.04em;
+      font-weight:700;
+      max-width:15ch;
+    }
+
+    .hero p{
+      margin:0 0 12px;
+      color:#d8dde4;
+      font-size:clamp(0.98rem, 0.94rem + 0.15vw, 1.05rem);
+      max-width:70ch;
+    }
+
+    .hero strong{
+      color:#fff;
+      font-weight:600;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:18px;
+    }
+
+    .summary-card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+      box-shadow:var(--shadow-soft);
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .summary-card h3{
+      margin:0 0 12px;
+      font-size:15px;
+      font-weight:600;
+      color:#fff;
+      letter-spacing:-0.01em;
+    }
+
+    .summary-card p{
+      margin:0 0 10px;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .card:hover{
+      border-color:rgba(90,176,255,0.18);
+      box-shadow:var(--shadow-hover);
+      transform:translateY(-1px);
+    }
+    .card + .card{margin-top:24px;}
+
+    .label-row{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid var(--border-soft);
+      padding-bottom:12px;
+      margin-bottom:16px;
+    }
+
+    .label{
+      font-size:11px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--label-blue);
+    }
+
+    .label-note{
+      font-size:10px;
+      letter-spacing:0.08em;
+      text-transform:lowercase;
+      color:var(--label-blue);
+      white-space:nowrap;
+    }
+
+    .section-title{
+      margin:0 0 14px;
+      font-size:1.15rem;
+      font-weight:600;
+      line-height:1.25;
+      letter-spacing:-0.02em;
+    }
+
+    p{
+      margin:0 0 14px;
+      color:var(--text-dim);
+    }
+
+    .lead{
+      color:#d7dce3;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .section-block{
+      margin-top:16px;
+    }
+
+    .section-head{
+      margin:0 0 10px;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      letter-spacing:-0.01em;
+    }
+
+    ul.clean{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    ul.clean li{
+      padding-left:16px;
+      position:relative;
+      color:#d7dce3;
+      font-size:14px;
+      line-height:1.62;
+    }
+    ul.clean li::before{
+      content:"→";
+      position:absolute;
+      left:0;
+      color:var(--text-faint);
+    }
+
+    .mini{
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      padding:14px;
+      background:rgba(255,255,255,0.01);
+    }
+
+    .mini h3{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      letter-spacing:-0.01em;
+    }
+
+    .mini p{
+      margin:0;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
+    .split-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .cta-bar{
+      margin-top:24px;
+      padding-top:18px;
+      border-top:1px solid var(--border-soft);
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    footer{
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid var(--border-soft);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--text-faint);
+      font-size:12px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    @media (max-width: 920px){
+      .wrap{padding-top:48px;}
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+      }
+      .top-links{justify-content:flex-start;}
+      .hero-grid{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr;}
+      .pill{width:100%;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{
+        scroll-behavior:auto !important;
+        transition:none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <a class="avatar-link" href="./index.html" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+
+        <div class="h-ident">
+          <h1>Jamie Forrester</h1>
+          <div class="sub">Independent Systems Architect</div>
+          <div class="meta-row-top">
+            <span class="pill" aria-label="Positioning">Privacy, transparency, and responsible handling of personal data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-links" aria-label="Primary links">
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Privacy policy overview">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Privacy Policy</div>
+          <h2>Clear privacy terms for a written-first practice.</h2>
+          <p>
+            This Privacy Policy explains how I collect, use, store, and protect personal data when you visit this website,
+            email me, or send materials in connection with a potential or actual engagement.
+          </p>
+          <p>
+            The approach is simple: I collect only what is reasonably needed to assess, administer, and deliver professional work,
+            and I do not use personal data for unrelated purposes.
+          </p>
+          <p>
+            If you have questions about this policy or how your information is handled, contact
+            <strong><a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
+            <a class="btn" href="./index.html">BACK TO HOME</a>
+          </div>
+        </div>
+
+        <div class="summary-card" aria-label="Privacy summary">
+          <h3>At a glance</h3>
+          <p><strong>Who controls your data:</strong> Jamie Forrester</p>
+          <p><strong>Main uses:</strong> replying to enquiries, assessing fit, managing engagements, and delivering work</p>
+          <p><strong>Main lawful bases:</strong> legitimate interests, steps before contract, contract performance, and legal obligations where applicable</p>
+          <p><strong>Marketing:</strong> no mass marketing list by default</p>
+          <p><strong>Cookies:</strong> this policy assumes no non-essential cookies are set without consent</p>
+        </div>
+      </div>
+    </section>
+
+    <main id="main" class="grid" role="main">
+      <section>
+        <div class="card">
+          <div class="label-row">
+            <span class="label">01 // Who I am</span>
+            <span class="label-note">data controller</span>
+          </div>
+
+          <h2 class="section-title">Controller details</h2>
+
+          <p class="lead">
+            For the purposes of UK data protection law, the data controller for this website and related business communications is:
+          </p>
+
+          <div class="split-list">
+            <div class="mini">
+              <h3>Name</h3>
+              <p>Jamie Forrester</p>
+            </div>
+
+            <div class="mini">
+              <h3>Contact email</h3>
+              <p><a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></p>
+            </div>
+
+            <div class="mini">
+              <h3>Business address</h3>
+              <p>[INSERT YOUR BUSINESS ADDRESS OR REGISTERED ADDRESS]</p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-head">Scope of this policy</h3>
+            <p>
+              This policy applies to information collected through this website, direct email contact,
+              enquiry handling, pre-engagement discussions, and the administration and delivery of professional services.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">02 // What data I collect</span>
+            <span class="label-note">data categories</span>
+          </div>
+
+          <h2 class="section-title">Personal data I may collect</h2>
+
+          <ul class="clean">
+            <li>Name and contact details, such as your name, email address, phone number, and company details</li>
+            <li>Information you include in enquiry emails, briefs, attachments, or documents you choose to send</li>
+            <li>Operational information relevant to a potential or active engagement, including project context, constraints, and communications history</li>
+            <li>Technical website information that may be generated through standard server operation, such as basic logs, if hosted or processed by infrastructure providers</li>
+          </ul>
+
+          <div class="section-block">
+            <h3 class="section-head">Sensitive or special category data</h3>
+            <p>
+              You should avoid sending special category personal data or unnecessary personal data unless it is strictly relevant to the work.
+              If such information is included in materials you provide, it will be handled only to the extent necessary for the relevant purpose.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">03 // How I use data</span>
+            <span class="label-note">purposes</span>
+          </div>
+
+          <h2 class="section-title">Why personal data is used</h2>
+
+          <ul class="clean">
+            <li>To respond to enquiries and communicate with prospective clients</li>
+            <li>To assess whether a matter is a fit for the services offered</li>
+            <li>To scope, administer, and deliver professional engagements</li>
+            <li>To maintain records relating to enquiries, proposals, agreements, invoices, and delivery</li>
+            <li>To comply with legal, regulatory, accounting, or tax obligations</li>
+            <li>To protect the security and integrity of the website and business communications</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">04 // Lawful bases</span>
+            <span class="label-note">uk gdpr basis</span>
+          </div>
+
+          <h2 class="section-title">Legal basis for processing</h2>
+
+          <p class="lead">
+            Depending on the context, personal data is processed on one or more of the following lawful bases:
+          </p>
+
+          <div class="split-list">
+            <div class="mini">
+              <h3>Legitimate interests</h3>
+              <p>
+                To run the business responsibly, respond to enquiries, assess fit, manage communications, maintain records, and protect the integrity of the website and services.
+              </p>
+            </div>
+
+            <div class="mini">
+              <h3>Steps before contract / contract performance</h3>
+              <p>
+                Where processing is necessary to evaluate a proposed engagement, prepare documents, or deliver agreed services.
+              </p>
+            </div>
+
+            <div class="mini">
+              <h3>Legal obligation</h3>
+              <p>
+                Where processing is required to meet tax, accounting, regulatory, or other legal obligations.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-head">Consent</h3>
+            <p>
+              If consent is relied on for any specific purpose, that will be made clear at the point of collection.
+              Where consent is the lawful basis, it may be withdrawn at any time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="label-row">
+            <span class="label">05 // Sharing and processors</span>
+            <span class="label-note">who receives data</span>
+          </div>
+
+          <h2 class="section-title">Who personal data may be shared with</h2>
+
+          <p class="lead">
+            Personal data is not sold. It is shared only where reasonably necessary to run the website and business, or where legally required.
+          </p>
+
+          <ul class="clean">
+            <li>Email, hosting, storage, invoicing, or document providers used to operate the business</li>
+            <li>Professional advisers such as accountants, lawyers, or insurers where necessary</li>
+            <li>Authorities or regulators where disclosure is legally required</li>
+          </ul>
+
+          <div class="section-block">
+            <h3 class="section-head">Processors</h3>
+            <p>
+              Third-party providers used to support the website or business may process data on my behalf under their own terms and security controls.
+              Where such providers are used, they are selected on the basis that they are appropriate for professional business use.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">06 // Retention</span>
+            <span class="label-note">how long data is kept</span>
+          </div>
+
+          <h2 class="section-title">How long personal data is kept</h2>
+
+          <p class="lead">
+            Personal data is retained only for as long as reasonably necessary for the purpose it was collected, including record-keeping, legal, tax, and dispute-management needs.
+          </p>
+
+          <ul class="clean">
+            <li>General enquiry emails and correspondence: retained for as long as necessary to handle the enquiry and maintain reasonable business records</li>
+            <li>Client and pre-client records: retained for as long as necessary to manage the engagement, related follow-up, and legal/accounting obligations</li>
+            <li>Financial records: retained as required by applicable accounting and tax rules</li>
+          </ul>
+
+          <div class="section-block">
+            <h3 class="section-head">Retention approach</h3>
+            <p>
+              Where a fixed retention period is not appropriate, records are kept only while there is a legitimate business need, legal requirement, or reasonable need to maintain an accurate history of work and communications.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">07 // Security</span>
+            <span class="label-note">protection measures</span>
+          </div>
+
+          <h2 class="section-title">How personal data is protected</h2>
+
+          <ul class="clean">
+            <li>Use of reputable email, hosting, and storage providers</li>
+            <li>Access controls and account-level security where available</li>
+            <li>Reasonable administrative and technical measures appropriate to the scale of the business</li>
+            <li>Data minimisation wherever possible</li>
+          </ul>
+
+          <div class="section-block">
+            <h3 class="section-head">No guarantee</h3>
+            <p>
+              No online system can guarantee absolute security. However, reasonable steps are taken to protect personal data against unauthorised access, misuse, loss, or disclosure.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">08 // Your rights</span>
+            <span class="label-note">individual rights</span>
+          </div>
+
+          <h2 class="section-title">Your data protection rights</h2>
+
+          <p class="lead">
+            Depending on the circumstances, you may have the right to:
+          </p>
+
+          <ul class="clean">
+            <li>Request access to your personal data</li>
+            <li>Request correction of inaccurate or incomplete data</li>
+            <li>Request erasure of data in certain circumstances</li>
+            <li>Request restriction of processing in certain circumstances</li>
+            <li>Object to processing where legitimate interests are relied on</li>
+            <li>Request data portability where applicable</li>
+            <li>Withdraw consent where consent is the lawful basis</li>
+          </ul>
+
+          <div class="section-block">
+            <h3 class="section-head">How to exercise rights</h3>
+            <p>
+              To exercise any of these rights, email <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>.
+              Reasonable steps may be taken to verify identity before responding to a request.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">09 // Cookies</span>
+            <span class="label-note">website technologies</span>
+          </div>
+
+          <h2 class="section-title">Cookies and similar technologies</h2>
+
+          <p class="lead">
+            This page is written on the basis that the site does not intentionally set non-essential cookies without consent.
+          </p>
+
+          <div class="split-list">
+            <div class="mini">
+              <h3>Essential cookies</h3>
+              <p>
+                If any strictly necessary cookies are used for basic site function, they may be used without additional consent where legally permitted.
+              </p>
+            </div>
+
+            <div class="mini">
+              <h3>Non-essential cookies</h3>
+              <p>
+                If analytics, advertising, embedded tracking, or other non-essential cookies are added in future, this policy should be updated and an appropriate consent mechanism should be used before those cookies are set.
+              </p>
+            </div>
+
+            <div class="mini">
+              <h3>Third-party services</h3>
+              <p>
+                If third-party tools are introduced later, their data and cookie behaviour should be reviewed separately and reflected here where relevant.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">10 // Complaints and updates</span>
+            <span class="label-note">final matters</span>
+          </div>
+
+          <h2 class="section-title">Complaints, questions, and changes</h2>
+
+          <div class="section-block">
+            <h3 class="section-head">Questions or concerns</h3>
+            <p>
+              If you have questions about this Privacy Policy or how personal data is handled,
+              contact <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-head">Complaints</h3>
+            <p>
+              If you are unhappy with how personal data is handled, you may also complain to the Information Commissioner’s Office (ICO), the UK supervisory authority for data protection matters.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <h3 class="section-head">Policy updates</h3>
+            <p>
+              This Privacy Policy may be updated from time to time to reflect legal, operational, or website changes.
+              The most current version will always appear on this page.
+            </p>
+          </div>
+
+          <div class="cta-bar">
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
+            <a class="btn" href="./index.html">BACK TO HOME</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
+        <span>/</span>
+        <span>Jamie Forrester / Privacy Policy</span>
+      </div>
+      <div>
+        <span>Last updated: 2026-03-04</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
