@@ -81,7 +81,6 @@
     .label-note,
     .eyebrow,
     .qk,
-    .m-order,
     .status,
     .skip-link,
     .trust{
@@ -483,46 +482,6 @@
       color:var(--text-faint);
     }
 
-    .method{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:10px;
-    }
-    .m-item{
-      padding:14px 14px;
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      background:rgba(255,255,255,0.012);
-    }
-    .m-top{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:6px;
-    }
-    .m-name{
-      font-weight:600;
-      color:#fff;
-      font-size:14px;
-      letter-spacing:-0.01em;
-    }
-    .m-order{
-      font-size:10px;
-      color:var(--text-faint);
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      white-space:nowrap;
-    }
-    .m-desc{
-      margin:0;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
-    }
-
     .paper{
       padding:14px;
       border:1px solid var(--border-soft);
@@ -596,25 +555,6 @@
       border-color:rgba(90,176,255,0.96);
       font-weight:600;
     }
-    .status-active{
-      color:#d8eefc;
-      background:rgba(90,176,255,0.10);
-      border-color:rgba(90,176,255,0.22);
-    }
-
-    .paper-desc{
-      margin:0 0 10px;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
-    }
-
-    .actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
 
     footer{
       margin-top:32px;
@@ -677,7 +617,7 @@
 
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-
+        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         <a
           class="btn btn-primary"
           href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
@@ -696,20 +636,20 @@
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <div class="eyebrow">What I do</div>
-        <h2 class="hero-title">When the same failure keeps returning, the problem is usually structural.</h2>
+        <h2 class="hero-title">Structural truth for systems that fail under scale.</h2>
 
         <p class="hero-sub">
-          Teams keep compensating. Process grows. The issue survives.
+          I write <strong>Diagnostic Artifacts</strong> that expose the real source of recurring failure: what the system is actually doing, where failure is concentrating, where rules are enforced in reality, and where stated process diverges from operating reality.
         </p>
 
         <div class="hero-divider" aria-hidden="true"></div>
 
         <p class="hero-sub">
-          I produce <strong>written artifacts</strong> that expose the real source of recurring failure and define the redesign logic required to change it.
+          I write <strong>Redesign Artifacts</strong> that define what must change, where, and in what order: the target boundary, the required interface changes, the transition sequence, and the conditions that prevent drift.
         </p>
 
         <div class="trust">
-          BUILT FOR DECISION-MAKERS AND BUILDERS // NOT COACHING // NOT IMPLEMENTATION // NOT ORG-CHANGE THEATRE
+          WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND LAW-FIRST DESIGN
         </div>
 
         <div class="hero-actions">
@@ -720,30 +660,27 @@
             EMAIL
           </a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
-
-        <p class="hero-sub" style="margin:16px 0 0 0;">
-          <strong>One upstream surface:</strong> diagnosis to locate the failure, redesign to define the change.
-        </p>
       </div>
 
       <div class="quick">
         <dl>
           <div>
-            <dt class="qk">What I offer <strong>→</strong></dt>
-            <dd class="qv"><strong>Two written artifacts</strong>: one diagnostic, one redesign.</dd>
+            <dt class="qk">What this is <strong>→</strong></dt>
+            <dd class="qv"><strong>Two fixed-scope written engagements</strong>: one diagnostic, one redesign.</dd>
           </div>
           <div>
             <dt class="qk">What it solves <strong>→</strong></dt>
-            <dd class="qv">Recurring failure caused by <strong>hidden structure</strong>, not surface noise.</dd>
+            <dd class="qv">Recurring failure that survives because the real structure is still <strong>hidden</strong>.</dd>
+          </div>
+          <div>
+            <dt class="qk">Who it is for <strong>→</strong></dt>
+            <dd class="qv"><strong>Decision-makers and builders</strong> who need structure, not more interpretation.</dd>
           </div>
           <div>
             <dt class="qk">How to start <strong>→</strong></dt>
             <dd class="qv">Email <strong>five lines</strong> plus any relevant materials you already have.</dd>
-          </div>
-          <div>
-            <dt class="qk">What happens next <strong>→</strong></dt>
-            <dd class="qv">I assess fit and route the work to <strong>diagnosis</strong> or <strong>redesign</strong>.</dd>
           </div>
         </dl>
       </div>
@@ -763,21 +700,15 @@
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">Diagnostic Artifact</p>
-            <p class="paper-desc" style="margin-bottom:6px;">
-              Locate the real source of recurring failure.
-            </p>
             <p class="small">
-              Used when the problem is being misread, misnamed, or handled too late. It defines what the system is actually doing, where failure is concentrating, where rules are enforced in reality, and where stated process diverges from operating reality.
+              Used when the problem is being misread, misnamed, or addressed too late. It defines what the system is actually doing, where failure is concentrating, where rules are enforced in reality, and where stated process diverges from operating reality.
             </p>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">Redesign Artifact</p>
-            <p class="paper-desc" style="margin-bottom:6px;">
-              Define what must change, where, and in what order.
-            </p>
             <p class="small">
-              Used when the failure is already visible, but change is still blocked by ambiguity, dependency, or boundary confusion. It defines the target operating boundary, interface changes, sequence of change, and the conditions that prevent drift.
+              Used when the failure is already visible, but change is still blocked by ambiguity, dependency, or boundary confusion. It defines the target operating boundary, the required interface changes, the sequence of change, and the conditions that prevent drift.
             </p>
           </div>
 
@@ -791,8 +722,8 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">02 // Methods</span>
-            <span class="label-note">signal, not theory</span>
+            <span class="label">02 // Structural truth for systems that fail under scale</span>
+            <span class="label-note">methods</span>
           </div>
 
           <div class="paper">
@@ -810,7 +741,7 @@
           </div>
 
           <p class="small" style="margin-top:14px;">
-            Full definitions and scope live on the Services page.
+            Full definitions, scope, and delivery terms live on the Services page.
           </p>
         </div>
 
@@ -830,12 +761,13 @@
             <li><strong>I reply</strong> with fit, scope direction, and next steps.</li>
           </ul>
 
-          <div class="actions" style="margin-top:14px;">
+          <div class="hero-actions" style="margin-top:14px;">
             <a
               class="btn btn-primary"
               href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
             >EMAIL</a>
             <a class="btn" href="./services.html">VIEW SERVICES</a>
+            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
           </div>
         </div>
       </section>
@@ -858,9 +790,7 @@
                   <span class="status status-published">Published</span>
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
-                <div class="actions">
-                  <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
-                </div>
+                <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
               </div>
             </div>
           </div>
