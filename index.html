@@ -386,7 +386,6 @@
     }
     .qv strong{color:#fff;font-weight:600;}
 
-    /* Two-lane grid */
     .grid{
       display:grid;
       grid-template-columns:1.05fr 0.95fr;
@@ -600,7 +599,6 @@
       align-items:center;
     }
 
-    /* Applied snapshot (monospace) */
     .snap{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       margin-top:12px;
@@ -931,34 +929,44 @@
       <section aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
-          <p class="lane-sub">frameworks → papers → books → notes → builds</p>
+          <p class="lane-sub">framework → research → books → method → architecture → builds</p>
         </div>
 
-        <!-- Core framework elevated -->
         <div class="card">
           <div class="label-row">
-            <span class="label">04 // Core framework</span>
+            <span class="label">01 // Core framework</span>
             <span class="label-note">informs applied work</span>
           </div>
 
-          <p class="lead" style="margin-bottom:10px;">
-            <strong>The Four-Function Law of Scalable Institutions</strong>
-          </p>
-          <p class="small">
-            Why systems fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
-            This framework informs all diagnostic work.
-          </p>
-
-          <div class="actions" style="margin-top:12px;">
-            <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
-            <a href="./status-notes.html" class="muted-link">Status notes</a>
+          <div class="paper">
+            <div class="paper-row">
+              <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+                <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
+                  <span class="status">In preparation</span>
+                </div>
+                <p class="paper-desc">
+                  Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
+                </p>
+                <p class="small">
+                  This is the governing framework behind the diagnostic lens: locating where core institutional functions have collapsed into consequence-bearing roles that cannot absorb the load.
+                </p>
+                <div class="actions" style="margin-top:12px;">
+                  <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
+                  <a href="./status-notes.html" class="muted-link">Status notes</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card">
           <div class="label-row">
-            <span class="label">05 // Research</span>
-            <span class="label-note">Published and in progress</span>
+            <span class="label">02 // Research</span>
+            <span class="label-note">published and in progress</span>
           </div>
 
           <div class="paper">
@@ -974,27 +982,6 @@
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
                   <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
-                <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                  <span class="status">In preparation</span>
-                </div>
-                <p class="paper-desc">
-                  Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
-                </p>
-                <div class="actions">
-                  <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
-                  <a href="./status-notes.html" class="muted-link">Status notes</a>
                 </div>
               </div>
             </div>
@@ -1022,39 +1009,10 @@
           </div>
         </div>
 
-        <!-- Carrier Index (10 items) -->
         <div class="card">
           <div class="label-row">
-            <span class="label">06 // Carrier Index</span>
-            <span class="label-note">worked example spine</span>
-          </div>
-
-          <p class="lead" style="margin-bottom:10px;">
-            Carrier-led method to prevent abstraction drift. Each carrier is a pointable object for purpose, rules, enforcement, and failure posture.
-          </p>
-
-          <ul class="clean">
-            <li><strong>Door (push/pull)</strong> — threshold constraint; fail-closed vs fail-open</li>
-            <li><strong>Queue</strong> — fairness as rule; cutting and congestion</li>
-            <li><strong>Elevator</strong> — capacity, sequencing, gating under load</li>
-            <li><strong>Traffic light</strong> — turn-taking enforcement; failure cost placement</li>
-            <li><strong>Form + approval gate</strong> — submit → accept/reject; exception paths</li>
-            <li><strong>Conveyor belt</strong> — throughput tracing; bottlenecks; rework loops</li>
-            <li><strong>Passport / wristband</strong> — identity as access control; bypass signatures</li>
-            <li><strong>Support escalation ladder</strong> — handoff chain; distance mismatch; cost diffusion</li>
-            <li><strong>Procurement threshold</strong> — permissioned spend; boundary enforcement</li>
-            <li><strong>Kitchen at peak service</strong> — operator/coordinator/outcome mismatch under load</li>
-          </ul>
-
-          <p class="small" style="margin-top:12px;">
-            If the structure cannot be pointed to using a carrier, it is not yet legible enough to redesign.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">07 // Books</span>
-            <span class="label-note">Work in progress</span>
+            <span class="label">03 // Books</span>
+            <span class="label-note">work in progress</span>
           </div>
 
           <div class="paper">
@@ -1068,7 +1026,7 @@
                   <span class="status">Drafted</span>
                 </div>
                 <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
-                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.</p>
+                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, enforcement, and failure in ordinary structures.</p>
                 <div class="actions" style="margin-top:10px;">
                   <a
                     class="link-blue"
@@ -1096,21 +1054,56 @@
           </div>
 
           <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">For publishers & agents</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              Proposal + sample chapters available on request.
-              <a
-                class="muted-link"
-                href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
-              >Request materials</a>
+            <p class="paper-title" style="margin-bottom:6px;">For publishers &amp; agents</p>
+            <p class="paper-desc" style="margin-bottom:10px;">
+              Proposal and sample chapters for <strong>Seeing Systems</strong> are available on request.
             </p>
+            <div class="actions">
+              <a
+                class="link-blue"
+                href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
+              >Request proposal + sample chapters</a>
+            </div>
           </div>
         </div>
 
-        <!-- Universal Formula v2.0 -->
         <div class="card">
           <div class="label-row">
-            <span class="label">08 // Universal Formula</span>
+            <span class="label">04 // Seeing Systems method</span>
+            <span class="label-note">carrier bridge</span>
+          </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            <strong>Seeing Systems</strong> teaches structural literacy through pointable carriers rather than abstract theory alone.
+          </p>
+
+          <p class="small" style="margin-bottom:12px;">
+            Doors, queues, elevators, approval gates, and bottlenecks are not random examples. They are teaching objects. Each one makes a system visible at human scale: purpose, rules, enforcement, load, and failure posture can all be pointed to directly.
+          </p>
+
+          <ul class="clean">
+            <li><strong>Door</strong> — threshold, permission, fail-open vs fail-closed</li>
+            <li><strong>Queue</strong> — fairness, ordering, congestion, bypass pressure</li>
+            <li><strong>Elevator</strong> — capacity, sequencing, load under constraint</li>
+            <li><strong>Approval gate</strong> — submission, acceptance, rejection, exception paths</li>
+            <li><strong>Bottleneck</strong> — where visible flow hides structural concentration</li>
+          </ul>
+
+          <p class="small" style="margin-top:12px;">
+            The aim is simple: if a system cannot be explained through a carrier, it is usually still too abstract to redesign well.
+          </p>
+
+          <div class="actions" style="margin-top:12px;">
+            <a
+              class="muted-link"
+              href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
+            >See the method in the book</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">05 // Universal Formula</span>
             <span class="label-note">canonical architecture</span>
           </div>
 
@@ -1118,48 +1111,23 @@
             Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta
           </p>
 
+          <p class="small" style="margin-bottom:12px;">
+            The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a foundational unit becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
+          </p>
+
+          <p class="small" style="margin-bottom:12px;">
+            It is not a slogan. It is a diagnostic and construction sequence: what the thing is for, what it repeats, what carries it, how it operates, where exchange forms around it, what category it creates, what larger world it reorders, and what meta-layer it unlocks above itself.
+          </p>
+
           <p class="small">
-            Used to locate which layer is actually failing, and what must move first.
-            Referenced in <strong>The System Founder Framework</strong> (in design).
+            Referenced in <strong>The System Founder Framework</strong>, it is used to identify which layer is actually under-designed, wrongly named, or being mistaken for another.
           </p>
         </div>
 
-        <!-- Method rule micro-card -->
         <div class="card">
           <div class="label-row">
-            <span class="label">09 // Method rule</span>
-            <span class="label-note">non-negotiables</span>
-          </div>
-
-          <ul class="clean">
-            <li><strong>Carrier-led</strong>: no abstraction without a pointable object</li>
-            <li><strong>Law-first</strong>: rules must be explicit and enforced in reality</li>
-            <li><strong>Execution-last</strong>: execution is the least intelligent layer</li>
-          </ul>
-        </div>
-
-        <!-- Works in progress -->
-        <div class="card">
-          <div class="label-row">
-            <span class="label">10 // Works in progress</span>
-            <span class="label-note">notes</span>
-          </div>
-
-          <p class="small" style="margin-bottom:10px;">
-            Additional frameworks in development. Listed here as working titles.
-          </p>
-
-          <ul class="clean">
-            <li><strong>Kernel Architecture</strong> — structural primitives for durable system design</li>
-            <li><strong>Emergence Grammar</strong> — describing how rules generate behaviour across scales</li>
-            <li><strong>OFMR emergence monograph</strong> — emergence patterns and failure posture</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">11 // Systems in development</span>
-            <span class="label-note">Applied builds</span>
+            <span class="label">06 // Systems in development</span>
+            <span class="label-note">applied builds</span>
           </div>
 
           <div class="paper">
