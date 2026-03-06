@@ -273,12 +273,6 @@
       box-shadow:0 8px 24px rgba(0,0,0,0.18);
     }
 
-    .btn-small{
-      padding:8px 11px;
-      font-size:11px;
-      letter-spacing:0.08em;
-    }
-
     .ico{display:inline-flex;align-items:center;justify-content:center;}
     .ico svg{display:block;}
 
@@ -299,7 +293,7 @@
       background:
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
         linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      margin-bottom:18px;
+      margin-bottom:var(--space-5);
       box-shadow:var(--shadow-soft);
       transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
@@ -395,41 +389,6 @@
       min-width:0;
     }
     .qv strong{color:#fff;font-weight:600;}
-
-    .services-strip{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin:0 0 var(--space-5);
-    }
-
-    .service-snap{
-      padding:16px;
-      border:1px solid var(--border);
-      border-radius:var(--radius-md);
-      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
-      box-shadow:var(--shadow-soft);
-      min-width:0;
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-    }
-    .service-snap:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
-    }
-    .service-snap .paper-title{
-      margin-bottom:6px;
-    }
-    .service-snap .paper-desc{
-      margin-bottom:10px;
-    }
-    .service-snap-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:10px;
-    }
 
     .grid{
       display:grid;
@@ -747,10 +706,6 @@
       margin-bottom:8px;
     }
 
-    .signal-box .small + .small{
-      margin-top:8px;
-    }
-
     footer{
       margin-top:32px;
       padding-top:18px;
@@ -779,7 +734,6 @@
       }
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
-      .services-strip{grid-template-columns:1fr;}
       .grid{grid-template-columns:1fr;}
       .grid::before{display:none;}
       .lane-sub{text-align:left; max-width:none;}
@@ -890,38 +844,6 @@
       </div>
     </section>
 
-    <section class="services-strip" aria-label="Services at a glance">
-      <div class="service-snap">
-        <span class="mini-kicker">What you can buy</span>
-        <p class="paper-title">Diagnostic Artifact</p>
-        <p class="paper-desc">
-          Structural diagnosis of recurring system failure.
-        </p>
-        <p class="small">
-          <strong>Best for:</strong> when something keeps breaking but the cause is still unclear.
-        </p>
-        <div class="service-snap-actions">
-          <a class="btn btn-small" href="#deliverables">SEE DETAILS</a>
-          <a class="btn btn-small btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">START BRIEF</a>
-        </div>
-      </div>
-
-      <div class="service-snap">
-        <span class="mini-kicker">What you can buy</span>
-        <p class="paper-title">Redesign Artifact</p>
-        <p class="paper-desc">
-          Blueprint for structural change and implementation sequence.
-        </p>
-        <p class="small">
-          <strong>Best for:</strong> when the failure is visible but the fix path is not.
-        </p>
-        <div class="service-snap-actions">
-          <a class="btn btn-small" href="#deliverables">SEE DETAILS</a>
-          <a class="btn btn-small btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">START BRIEF</a>
-        </div>
-      </div>
-    </section>
-
     <main id="main" class="grid" role="main">
       <!-- PRACTICE (LEFT) -->
       <section aria-label="Practice lane">
@@ -949,33 +871,15 @@
               <li>The same failure keeps reappearing under different names</li>
               <li>Your operators are absorbing failures the system should absorb</li>
               <li>Your platform signals one thing and optimises another</li>
-              <li>You have redesigned the process more than once, but the error pattern remains</li>
             </ul>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <ul class="clean">
-              <li>Months of alignment meetings that end with "we all need to get on the same page"</li>
+              <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
               <li>The gap between what the policy says and what actually happens</li>
               <li>Roadmaps that describe intent but cannot change failure</li>
-            </ul>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making structure visible.
-            </p>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">What improves</p>
-            <ul class="clean">
-              <li>Decisions compress because the structure is no longer debatable</li>
-              <li>Failure recurrence reduces once invariants and enforcement are explicit</li>
-              <li>Builders stop inventing design midstream because the sequence is specified</li>
-              <li>Change under growth becomes safer because invariants are explicit</li>
             </ul>
           </div>
         </div>
@@ -1020,7 +924,7 @@
           </p>
         </div>
 
-        <div class="card" id="deliverables">
+        <div class="card">
           <div class="label-row">
             <span class="label">03 // What you receive</span>
             <span class="label-note">Deliverable composition</span>
@@ -1109,10 +1013,9 @@
             I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
           </p>
 
-          <div class="signal-box" style="margin-top:0; margin-bottom:12px;">
-            <span class="mini-kicker">Why now</span>
-            <p class="small"><strong>If the same failure has happened twice, the structure is probably the problem.</strong> Send the brief first.</p>
-          </div>
+          <p class="small" style="margin-bottom:12px;">
+            <strong>If the same failure has happened twice, the structure is probably the problem.</strong> Send the brief first.
+          </p>
 
           <p class="lead" style="margin-bottom:10px;"><strong>Submit a Five-Line Brief:</strong></p>
           <ul class="clean">
