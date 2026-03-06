@@ -88,7 +88,8 @@
     .trust,
     .lane-head,
     .formula-line,
-    .snap{
+    .snap,
+    .mini-kicker{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -277,7 +278,8 @@
 
     .eyebrow,
     .qk,
-    .label-note{
+    .label-note,
+    .mini-kicker{
       color:var(--label-blue);
     }
 
@@ -646,6 +648,68 @@
     .snap .snap-line:last-child{margin-bottom:0;}
     .snap .k{color:var(--text-faint);}
 
+    .mini-kicker{
+      display:block;
+      margin:0 0 8px;
+      font-size:10px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .summary-card{
+      padding:14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+      min-width:0;
+    }
+
+    .summary-card .paper-title{
+      margin-bottom:8px;
+    }
+
+    .summary-list{
+      display:grid;
+      gap:8px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .summary-list li{
+      color:#d7dce3;
+      font-size:13px;
+      line-height:1.58;
+    }
+
+    .summary-list strong{
+      color:#fff;
+      font-weight:600;
+    }
+
+    .signal-box{
+      padding:14px;
+      border:1px solid rgba(90,176,255,0.14);
+      border-radius:12px;
+      background:rgba(90,176,255,0.035);
+      margin-top:12px;
+    }
+
+    .signal-box .paper-title{
+      margin-bottom:8px;
+    }
+
+    .signal-box .small + .small{
+      margin-top:8px;
+    }
+
     footer{
       margin-top:32px;
       padding-top:18px;
@@ -680,6 +744,7 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
+      .summary-grid{grid-template-columns:1fr;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -803,6 +868,17 @@
             Diagnosis makes the structure visible; Redesign specifies what must change, in what order.
           </p>
 
+          <div class="signal-box">
+            <span class="mini-kicker">Typical triggers</span>
+            <p class="paper-title">When this work becomes urgent</p>
+            <ul class="clean">
+              <li>The same failure keeps reappearing under different names</li>
+              <li>Your operators are absorbing failures the system should absorb</li>
+              <li>Your platform signals one thing and optimises another</li>
+              <li>You have redesigned the process more than once, but the error pattern remains</li>
+            </ul>
+          </div>
+
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <ul class="clean">
@@ -834,6 +910,11 @@
           <div class="label-row">
             <span class="label">02 // Methods</span>
             <span class="label-note">How the work is structured</span>
+          </div>
+
+          <div class="signal-box" style="margin-top:0; margin-bottom:12px;">
+            <span class="mini-kicker">What makes this different</span>
+            <p class="small"><strong>Written artifacts, not endless meetings.</strong> Structural diagnosis, not surface advice.</p>
           </div>
 
           <div class="paper">
@@ -874,6 +955,28 @@
           <p class="lead" style="margin-bottom:10px;">
             Each engagement ends with one written artifact for internal circulation, decision-making, and builder handoff.
           </p>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <span class="mini-kicker">At a glance</span>
+              <p class="paper-title">Diagnostic Artifact</p>
+              <ul class="summary-list">
+                <li><strong>What it is</strong> — structural diagnosis of recurring failure</li>
+                <li><strong>When to buy it</strong> — something keeps breaking but you cannot yet see why</li>
+                <li><strong>What comes out</strong> — topology, primitive, invariants, enforcement, mismatch, build map</li>
+              </ul>
+            </div>
+
+            <div class="summary-card">
+              <span class="mini-kicker">At a glance</span>
+              <p class="paper-title">Redesign Artifact</p>
+              <ul class="summary-list">
+                <li><strong>What it is</strong> — structural redesign blueprint</li>
+                <li><strong>When to buy it</strong> — the failure is visible but the change sequence is not</li>
+                <li><strong>What comes out</strong> — target boundary, transition sequence, interface changes, dependency order, drift refusal</li>
+              </ul>
+            </div>
+          </div>
 
           <div class="paper">
             <p class="paper-title" style="margin-bottom:8px;">Diagnostic Artifact includes</p>
@@ -931,6 +1034,11 @@
             If your system keeps failing in the same way under growth, send the failure pattern first.
             I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
           </p>
+
+          <div class="signal-box" style="margin-top:0; margin-bottom:12px;">
+            <span class="mini-kicker">Why now</span>
+            <p class="small"><strong>If the same failure has happened twice, the structure is probably the problem.</strong> Send the brief first.</p>
+          </div>
 
           <p class="lead" style="margin-bottom:10px;"><strong>Submit a Five-Line Brief:</strong></p>
           <ul class="clean">
