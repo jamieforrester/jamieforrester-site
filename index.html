@@ -1191,60 +1191,90 @@
       </div>
     </section>
 
-    <section class="bridge-card" aria-label="Overview and process">
-      <div class="bridge-head">
-        <div>
-          <div class="eyebrow">Overview / how it works</div>
-          <h2 class="bridge-title">Why failure repeats, and how this work interrupts it.</h2>
-          <p class="bridge-sub">
-            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. Diagnosis makes the structure visible. Redesign defines what must change, in what order, so builders can execute without drift.
-          </p>
-        </div>
-        <p class="bridge-tag">
-          repeated failure → structural read<br />
-          structural read → executable change
-        </p>
+    <section class="bridge-card" aria-label="Overview">
+  <div class="bridge-head">
+    <div>
+      <div class="eyebrow">Overview</div>
+      <h2 class="bridge-title">Why failure repeats.</h2>
+      <p class="bridge-sub">
+        Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.
+      </p>
+    </div>
+    <p class="bridge-tag">
+      repeated failure → hidden structure<br />
+      hidden structure → recurring cost
+    </p>
+  </div>
+
+  <div class="bridge-grid">
+    <div class="bridge-panel">
+      <span class="mini-kicker">What this replaces</span>
+      <ul class="bridge-list">
+        <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
+        <li>The gap between what policy says and what operating reality actually does</li>
+        <li>Roadmaps that describe intent but do not change the underlying failure</li>
+      </ul>
+    </div>
+
+    <div class="bridge-panel">
+      <span class="mini-kicker">Typical triggers</span>
+      <p class="paper-title">When this work becomes urgent</p>
+      <ul class="bridge-list">
+        <li>The same failure keeps reappearing under different names</li>
+        <li>Your operators are absorbing failures the system should absorb</li>
+        <li>Your platform signals one thing and optimises another</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bridge-card" aria-label="How it works">
+  <div class="bridge-head">
+    <div>
+      <div class="eyebrow">How it works</div>
+      <h2 class="bridge-title">A structured path from recurring failure to executable change.</h2>
+      <p class="bridge-sub">
+        The work follows a fixed sequence: make the structure legible, define the target boundary, and deliver a written artifact builders can execute against.
+      </p>
+    </div>
+    <p class="bridge-tag">
+      structural read → boundary definition<br />
+      boundary definition → builder handoff
+    </p>
+  </div>
+
+  <div class="process-shell">
+    <div class="process-lead-card">
+      <span class="mini-kicker">How it works</span>
+      <p class="paper-title">Three steps. One artifact. No drift into vague advice.</p>
+      <p class="small">
+        This is not an open-ended consulting process. It is a fixed sequence that turns repeated failure into a usable structural read and an executable handoff.
+      </p>
+    </div>
+
+    <div class="process-grid process-grid-4">
+      <div class="process-card">
+        <span class="process-step">Step 01</span>
+        <p><strong>Read the failure structurally.</strong> Identify the real rules, pressure points, and mismatch between stated design and operating reality.</p>
       </div>
 
-      <div class="bridge-grid">
-        <div class="bridge-panel">
-          <span class="mini-kicker">What this replaces</span>
-          <ul class="bridge-list">
-            <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
-            <li>The gap between what policy says and what operating reality actually does</li>
-            <li>Roadmaps that describe intent but do not change the underlying failure</li>
-          </ul>
-
-          <div class="signal-box">
-            <span class="mini-kicker">Typical triggers</span>
-            <p class="paper-title">When this work becomes urgent</p>
-            <ul class="clean">
-              <li>The same failure keeps reappearing under different names</li>
-              <li>Your operators are absorbing failures the system should absorb</li>
-              <li>Your platform signals one thing and optimises another</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bridge-panel">
-          <span class="mini-kicker">How it works</span>
-          <div class="process-grid" style="margin-top:0;">
-            <div class="process-card">
-              <span class="process-step">Step 01</span>
-              <p><strong>Diagnose the structure.</strong> Make the real rules, pressure points, and mismatches visible.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-step">Step 02</span>
-              <p><strong>Define the target boundary.</strong> Specify what changes, what stays fixed, and what must happen first.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-step">Step 03</span>
-              <p><strong>Deliver the artifact.</strong> One written document for internal circulation, decision-making, and builder execution.</p>
-            </div>
-          </div>
-        </div>
+      <div class="process-card">
+        <span class="process-step">Step 02</span>
+        <p><strong>Locate the target boundary.</strong> Define what the system should become, what must stay fixed, and where the real line of change sits.</p>
       </div>
-    </section>
+
+      <div class="process-card">
+        <span class="process-step">Step 03</span>
+        <p><strong>Sequence the transition.</strong> Specify what moves first, what depends on what, and what must be blocked to prevent regression.</p>
+      </div>
+
+      <div class="process-card">
+        <span class="process-step">Step 04</span>
+        <p><strong>Deliver the artifact.</strong> One written document for internal circulation, decision-making, and builder execution with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="offer-hero" aria-label="Core offerings">
       <div class="offer-hero-head">
