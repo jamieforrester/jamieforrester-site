@@ -97,7 +97,6 @@
     .snap,
     .mini-kicker,
     .price,
-    .fee-note,
     .process-step,
     .offer-chip,
     .bridge-tag{
@@ -439,7 +438,7 @@
       letter-spacing:-0.03em;
       font-weight:700;
       color:#fff;
-      max-width:18ch;
+      max-width:20ch;
     }
 
     .bridge-sub{
@@ -462,7 +461,7 @@
 
     .bridge-grid{
       display:grid;
-      grid-template-columns:1.1fr 0.9fr;
+      grid-template-columns:1fr 1fr;
       gap:16px;
       align-items:start;
     }
@@ -497,18 +496,19 @@
       color:var(--text-faint);
     }
 
-    .process-grid{
+    .process-strip{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:1.12fr 1fr 1fr 1fr;
       gap:12px;
-      margin-top:14px;
+      align-items:stretch;
     }
 
     .process-card{
-      padding:14px;
+      padding:14px 14px 15px;
       border:1px solid rgba(90,176,255,0.14);
       border-radius:12px;
       background:rgba(90,176,255,0.03);
+      min-width:0;
     }
 
     .process-step{
@@ -522,8 +522,13 @@
     .process-card p{
       margin:0;
       color:var(--text-dim);
-      font-size:14px;
-      line-height:1.62;
+      font-size:13px;
+      line-height:1.58;
+    }
+
+    .process-card strong{
+      color:#fff;
+      font-weight:600;
     }
 
     .offer-hero{
@@ -553,7 +558,7 @@
       letter-spacing:-0.03em;
       font-weight:700;
       color:#fff;
-      max-width:18ch;
+      max-width:20ch;
     }
 
     .offer-hero-sub{
@@ -1062,28 +1067,6 @@
       align-items:center;
     }
 
-    .process-shell{
-  display:grid;
-  gap:16px;
-}
-
-.process-lead-card{
-  padding:16px;
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:14px;
-  background:rgba(255,255,255,0.012);
-}
-
-.process-grid-4{
-  grid-template-columns:repeat(4, 1fr);
-}
-
-@media (max-width: 920px){
-  .process-grid-4{
-    grid-template-columns:1fr;
-  }
-}
-
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
       header{
@@ -1099,6 +1082,9 @@
         align-items:flex-start;
       }
       .bridge-grid,
+      .offer-grid,
+      .offer-footer,
+      .process-strip,
       .grid{
         grid-template-columns:1fr;
       }
@@ -1107,11 +1093,6 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .offer-grid,
-      .offer-footer,
-      .process-grid{
-        grid-template-columns:1fr;
-      }
       .thinking-lane{
         padding:0;
         border:none;
@@ -1214,87 +1195,85 @@
     </section>
 
     <section class="bridge-card" aria-label="Overview">
-  <div class="bridge-head">
-    <div>
-      <div class="eyebrow">Overview</div>
-      <h2 class="bridge-title">Why failure repeats.</h2>
-      <p class="bridge-sub">
-        Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.
-      </p>
-    </div>
-    <p class="bridge-tag">
-      repeated failure → hidden structure<br />
-      hidden structure → recurring cost
-    </p>
-  </div>
-
-  <div class="bridge-grid">
-    <div class="bridge-panel">
-      <span class="mini-kicker">What this replaces</span>
-      <ul class="bridge-list">
-        <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
-        <li>The gap between what policy says and what operating reality actually does</li>
-        <li>Roadmaps that describe intent but do not change the underlying failure</li>
-      </ul>
-    </div>
-
-    <div class="bridge-panel">
-      <span class="mini-kicker">Typical triggers</span>
-      <p class="paper-title">When this work becomes urgent</p>
-      <ul class="bridge-list">
-        <li>The same failure keeps reappearing under different names</li>
-        <li>Your operators are absorbing failures the system should absorb</li>
-        <li>Your platform signals one thing and optimises another</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="bridge-card" aria-label="How it works">
-  <div class="bridge-head">
-    <div>
-      <div class="eyebrow">How it works</div>
-      <h1 class="bridge-title">A structured path from recurring failure to executable change.</h1>
-      <p class="bridge-sub">
-        The work follows a fixed sequence: make the structure legible, define the target boundary, and deliver a written artifact builders can execute against.
-      </p>
-    </div>
-    <p class="bridge-tag">
-      structural read → boundary definition<br />
-      boundary definition → builder handoff
-    </p>
-  </div>
-
-    <div class="process-grid process-grid-4">
-      <div class="process-card">
-        <span class="process-step">How it works</span>
-        <p><strong>Three steps. One artifact. No drift into vague advice.</strong> This is not an open-ended consulting process. It is a fixed sequence that turns repeated failure into a usable structural read and an executable handoff.
-      </p></p>
+      <div class="bridge-head">
+        <div>
+          <div class="eyebrow">Overview</div>
+          <h2 class="bridge-title">Why failure repeats.</h2>
+          <p class="bridge-sub">
+            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.
+          </p>
+        </div>
+        <p class="bridge-tag">
+          repeated failure → hidden structure<br />
+          hidden structure → recurring cost
+        </p>
       </div>
 
-      <div class="process-card">
-        <span class="process-step">Step 01</span>
-        <p><strong>Locate the target boundary.</strong> Define what the system should become, what must stay fixed, and where the real line of change sits.</p>
+      <div class="bridge-grid">
+        <div class="bridge-panel">
+          <span class="mini-kicker">What this replaces</span>
+          <ul class="bridge-list">
+            <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
+            <li>The gap between what policy says and what operating reality actually does</li>
+            <li>Roadmaps that describe intent but do not change the underlying failure</li>
+          </ul>
+        </div>
+
+        <div class="bridge-panel">
+          <span class="mini-kicker">Typical triggers</span>
+          <p class="paper-title">When this work becomes urgent</p>
+          <ul class="bridge-list">
+            <li>The same failure keeps reappearing under different names</li>
+            <li>Your operators are absorbing failures the system should absorb</li>
+            <li>Your platform signals one thing and optimises another</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bridge-card" aria-label="How it works">
+      <div class="bridge-head">
+        <div>
+          <div class="eyebrow">How it works</div>
+          <h2 class="bridge-title">From recurring failure to executable change.</h2>
+          <p class="bridge-sub">
+            A fixed sequence: read the structure, define the line of change, and deliver a written artifact builders can execute against.
+          </p>
+        </div>
+        <p class="bridge-tag">
+          structural read → change path<br />
+          change path → builder handoff
+        </p>
       </div>
 
-      <div class="process-card">
-        <span class="process-step">Step 02</span>
-        <p><strong>Sequence the transition.</strong> Specify what moves first, what depends on what, and what must be blocked to prevent regression.</p>
-      </div>
+      <div class="process-strip">
+        <div class="process-card">
+          <span class="process-step">How it works</span>
+          <p><strong>Three steps. One artifact.</strong> This is a defined sequence, not open-ended consulting or vague advisory drift.</p>
+        </div>
 
-      <div class="process-card">
-        <span class="process-step">Step 03</span>
-        <p><strong>Deliver the artifact.</strong> One written document for internal circulation, decision-making, and builder execution with confidence.</p>
+        <div class="process-card">
+          <span class="process-step">Step 01</span>
+          <p><strong>Read the structure.</strong> Make the real rules, pressure points, and failure pattern visible.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step">Step 02</span>
+          <p><strong>Define the change path.</strong> Clarify what changes first, what stays fixed, and what must not drift.</p>
+        </div>
+
+        <div class="process-card">
+          <span class="process-step">Step 03</span>
+          <p><strong>Deliver the artifact.</strong> One written document for decisions, internal circulation, and builder execution.</p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <section class="offer-hero" aria-label="Core offerings">
       <div class="offer-hero-head">
         <div>
           <div class="eyebrow">Core offerings</div>
-          <h2 class="offer-hero-title">Buy the artifact that matches the state of the problem.</h2>
+          <h2 class="offer-hero-title">Start with the artifact that matches the state of the problem.</h2>
           <p class="offer-hero-sub">
             Two fixed-scope written engagements. Start with diagnosis when the failure is still structurally unclear. Move to redesign when the failure is visible but the transition path is not.
           </p>
@@ -1318,7 +1297,7 @@
           <span class="price">Fee — £10,000</span>
 
           <p class="offer-summary">
-            <strong>Buy this when</strong> something keeps breaking but the real failure is not yet visible.
+            <strong>Start here when</strong> something keeps breaking but the real failure is not yet visible.
           </p>
 
           <ul class="offer-list">
@@ -1353,7 +1332,7 @@
           <span class="price">Fee — £15,000–£25,000</span>
 
           <p class="offer-summary">
-            <strong>Buy this when</strong> the failure is visible but the change sequence is not.
+            <strong>Start here when</strong> the failure is visible but the change sequence is not.
           </p>
 
           <ul class="offer-list">
@@ -1466,7 +1445,7 @@
             If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.
           </p>
 
-          <div class="process-grid">
+          <div class="process-strip" style="grid-template-columns:repeat(3, 1fr);">
             <div class="process-card">
               <span class="process-step">Step 01</span>
               <p><strong>Send the brief.</strong> Five lines plus any relevant material you already have.</p>
