@@ -22,10 +22,12 @@
       --bg:#0b0b0c;
       --panel:#101114;
       --panel-soft:#0d0e11;
-      --panel-thinking:#0b1017;
-      --panel-thinking-soft:#0e1520;
-      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
-      --thinking-border:rgba(90,176,255,0.14);
+
+      /* Darkened thinking-lane palette only */
+      --panel-thinking:#0b0e13;
+      --panel-thinking-soft:#0e1218;
+      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.008));
+      --thinking-border:rgba(74,163,255,0.08);
 
       --text-main:#f1f3f5;
       --text-dim:#c6ccd4;
@@ -35,6 +37,7 @@
       --border-soft:rgba(255,255,255,0.06);
       --accent:#343a46;
 
+      /* Keep the heading/link blue family */
       --label-blue:#4aa3ff;
       --cta-blue:#5ab0ff;
 
@@ -280,6 +283,11 @@
       box-shadow:0 8px 24px rgba(0,0,0,0.18);
     }
 
+    .btn-offer{
+      margin-top:14px;
+      width:100%;
+    }
+
     .ico{display:inline-flex;align-items:center;justify-content:center;}
     .ico svg{display:block;}
 
@@ -455,9 +463,9 @@
       border:1px solid var(--thinking-border);
       border-radius:18px;
       background:
-        linear-gradient(180deg, rgba(90,176,255,0.055), rgba(255,255,255,0)),
+        linear-gradient(180deg, rgba(74,163,255,0.028), rgba(255,255,255,0)),
         linear-gradient(180deg, var(--panel-thinking), var(--panel-thinking-soft));
-      box-shadow:0 10px 30px rgba(0,0,0,0.20);
+      box-shadow:0 10px 30px rgba(0,0,0,0.22);
     }
 
     .card{
@@ -478,12 +486,12 @@
 
     .thinking-lane .card{
       background:var(--panel-thinking-card);
-      border-color:rgba(90,176,255,0.11);
-      box-shadow:0 8px 24px rgba(0,0,0,0.16);
+      border-color:rgba(74,163,255,0.07);
+      box-shadow:0 8px 24px rgba(0,0,0,0.20);
     }
     .thinking-lane .card:hover{
-      border-color:rgba(90,176,255,0.20);
-      box-shadow:0 0 0 1px rgba(90,176,255,0.08), 0 14px 38px rgba(0,0,0,0.24);
+      border-color:rgba(74,163,255,0.12);
+      box-shadow:0 0 0 1px rgba(74,163,255,0.05), 0 14px 38px rgba(0,0,0,0.24);
     }
 
     .label-row{
@@ -496,7 +504,7 @@
       margin-bottom:16px;
     }
     .thinking-lane .label-row{
-      border-bottom-color:rgba(255,255,255,0.07);
+      border-bottom-color:rgba(255,255,255,0.06);
     }
 
     .label{
@@ -559,8 +567,8 @@
     .paper + .paper{margin-top:12px;}
 
     .thinking-lane .paper{
-      border-color:rgba(255,255,255,0.07);
-      background:rgba(255,255,255,0.014);
+      border-color:rgba(255,255,255,0.06);
+      background:rgba(255,255,255,0.012);
     }
 
     .paper-row{
@@ -696,40 +704,6 @@
       text-transform:uppercase;
     }
 
-    .summary-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-bottom:14px;
-    }
-
-    .summary-card{
-      padding:14px;
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      background:rgba(255,255,255,0.012);
-      min-width:0;
-    }
-
-    .summary-list{
-      display:grid;
-      gap:8px;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-
-    .summary-list li{
-      color:#d7dce3;
-      font-size:13px;
-      line-height:1.58;
-    }
-
-    .summary-list strong{
-      color:#fff;
-      font-weight:600;
-    }
-
     .signal-box{
       padding:14px;
       border:1px solid rgba(90,176,255,0.14);
@@ -853,7 +827,6 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .summary-grid,
       .offer-grid{grid-template-columns:1fr;}
       .thinking-lane{
         padding:0;
@@ -989,17 +962,19 @@
                 <li><strong>You receive</strong> topology, primitive, invariants, enforcement, mismatch, build map</li>
                 <li><strong>Outcome</strong> a structural diagnosis your team can circulate and act against</li>
               </ul>
+              <a class="btn btn-primary btn-offer" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">REQUEST DIAGNOSTIC</a>
             </div>
 
             <div class="offer-card">
               <span class="mini-kicker">Fixed-scope engagement</span>
               <p class="paper-title">Redesign Artifact</p>
-              <span class="price">Fee — £15,000 - £25,000</span>
+              <span class="price">Fee — £15,000–£25,000</span>
               <ul class="clean">
                 <li><strong>Buy this when</strong> the failure is visible but the change sequence is not</li>
                 <li><strong>You receive</strong> target boundary, transition sequence, interface changes, dependency order, drift refusal</li>
                 <li><strong>Outcome</strong> a redesign blueprint builders can execute with confidence</li>
               </ul>
+              <a class="btn btn-primary btn-offer" href="mailto:hello@jamieforrester.com?subject=Redesign%20Request%20%E2%80%94%20%5BSystem%20Name%5D">REQUEST REDESIGN</a>
             </div>
           </div>
 
@@ -1007,13 +982,8 @@
             <p>The two engagements are designed to follow each other when needed, but each can stand alone.</p>
           </div>
 
-          <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-          </div>
-
           <div class="fee-note">
-            Full scope, delivery terms, and payment details live on the Services page.
+            Redesign pricing depends on system complexity, number of interfaces, and transition complexity. Full scope, delivery terms, and payment details live on the Services page.
           </div>
         </div>
 
@@ -1174,7 +1144,7 @@
           </ul>
 
           <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
             <a class="btn" href="./services.html">VIEW SERVICES</a>
             <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
           </div>
@@ -1422,7 +1392,7 @@
 
           <div class="thinking-cta">
             <p><strong>The public offer is the written artifact.</strong> The material above shows the frameworks, research, and live build work behind that practice.</p>
-            <p><a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Email a five-line brief</a> if the failure pattern is already visible and you want a structural read on it.</p>
+            <p><a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">Email a five-line brief</a> if the failure pattern is already visible and you want a structural read on it.</p>
           </div>
         </div>
       </section>
