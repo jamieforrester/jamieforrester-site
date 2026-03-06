@@ -51,7 +51,6 @@
       --space-4:20px;
       --space-5:24px;
       --space-6:32px;
-      --space-7:40px;
 
       --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
       --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
@@ -93,8 +92,7 @@
     .lane-head,
     .formula-line,
     .snap,
-    .mini-kicker,
-    .bridge-kicker{
+    .mini-kicker{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -286,8 +284,7 @@
     .eyebrow,
     .qk,
     .label-note,
-    .mini-kicker,
-    .bridge-kicker{
+    .mini-kicker{
       color:var(--label-blue);
     }
 
@@ -301,7 +298,7 @@
       background:
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
         linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      margin-bottom:18px;
+      margin-bottom:var(--space-5);
       box-shadow:var(--shadow-soft);
       transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
@@ -370,20 +367,17 @@
       padding:10px 0 10px 14px;
       background:transparent;
     }
-
     .quick dl{
       margin:0;
       display:grid;
       gap:14px;
     }
-
     .quick div{
       display:grid;
-      grid-template-columns:158px 1fr;
+      grid-template-columns:168px 1fr;
       gap:14px;
       align-items:start;
     }
-
     .qk{
       font-size:11px;
       text-transform:uppercase;
@@ -392,7 +386,6 @@
       white-space:normal;
       line-height:1.3;
     }
-
     .qv{
       margin:0;
       font-size:14px;
@@ -402,34 +395,6 @@
     }
     .qv strong{color:#fff;font-weight:600;}
 
-    .bridge{
-      margin:0 0 24px;
-      padding:14px 16px;
-      border:1px solid rgba(90,176,255,0.14);
-      border-radius:14px;
-      background:
-        linear-gradient(180deg, rgba(90,176,255,0.03), rgba(255,255,255,0)),
-        rgba(255,255,255,0.01);
-    }
-
-    .bridge-kicker{
-      display:block;
-      margin:0 0 8px;
-      font-size:10px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-    }
-
-    .bridge p{
-      margin:0;
-      color:var(--text-dim);
-      font-size:14px;
-      line-height:1.65;
-      max-width:90ch;
-    }
-
-    .bridge strong{color:#fff;}
-
     .grid{
       display:grid;
       grid-template-columns:1.03fr 0.97fr;
@@ -437,11 +402,9 @@
       align-items:start;
       position:relative;
     }
-
     .grid > section{
       min-width:0;
     }
-
     .grid::before{
       content:"";
       position:absolute;
@@ -466,7 +429,6 @@
       margin:0 0 14px;
       padding:0 2px;
     }
-
     .lane-title{
       margin:0;
       font-size:12px;
@@ -475,7 +437,6 @@
       color:var(--label-blue);
       font-weight:600;
     }
-
     .lane-sub{
       margin:0;
       font-size:10px;
@@ -523,6 +484,24 @@
       box-shadow:0 0 0 1px rgba(90,176,255,0.08), 0 14px 38px rgba(0,0,0,0.24);
     }
 
+    .thinking-intro{
+      margin:0 0 18px;
+      padding:14px 16px;
+      border:1px solid rgba(90,176,255,0.12);
+      border-radius:14px;
+      background:rgba(90,176,255,0.035);
+    }
+    .thinking-intro p{
+      margin:0;
+      color:var(--text-dim);
+      font-size:13px;
+      line-height:1.62;
+    }
+    .thinking-intro strong{
+      color:#fff;
+      font-weight:600;
+    }
+
     .label-row{
       display:flex;
       align-items:baseline;
@@ -532,7 +511,6 @@
       padding-bottom:12px;
       margin-bottom:16px;
     }
-
     .thinking-lane .label-row{
       border-bottom-color:rgba(255,255,255,0.07);
     }
@@ -544,7 +522,6 @@
       letter-spacing:0.16em;
       color:var(--label-blue);
     }
-
     .label-note{
       font-size:10px;
       letter-spacing:0.08em;
@@ -574,7 +551,6 @@
       display:grid;
       gap:10px;
     }
-
     ul.clean li{
       padding-left:16px;
       position:relative;
@@ -582,7 +558,6 @@
       font-size:14px;
       line-height:1.62;
     }
-
     ul.clean li::before{
       content:"→";
       position:absolute;
@@ -664,14 +639,12 @@
       white-space:nowrap;
       flex:0 0 auto;
     }
-
     .status-published{
       color:#0b0b0c;
       background:rgba(90,176,255,0.96);
       border-color:rgba(90,176,255,0.96);
       font-weight:600;
     }
-
     .status-dev{
       color:#d8eefc;
       background:rgba(90,176,255,0.10);
@@ -719,7 +692,6 @@
       font-size:12px;
       line-height:1.55;
     }
-
     .snap .snap-title{
       color:#fff;
       font-weight:600;
@@ -728,7 +700,6 @@
       font-size:11px;
       margin:0 0 10px;
     }
-
     .snap .snap-line{margin:0 0 6px;}
     .snap .snap-line:last-child{margin-bottom:0;}
     .snap .k{color:var(--text-faint);}
@@ -798,7 +769,6 @@
       border-radius:12px;
       background:rgba(255,255,255,0.012);
     }
-
     .callout p{
       margin:0;
       color:var(--text-dim);
@@ -848,6 +818,9 @@
         background:transparent;
         box-shadow:none;
       }
+      .thinking-intro{
+        margin-bottom:14px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -868,7 +841,7 @@
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row">
             <span class="pill" aria-label="Positioning">
-              Upstream diagnosis and redesign for systems that keep failing under scale
+              Diagnosis and redesign for systems that keep failing under scale
             </span>
           </div>
         </div>
@@ -912,7 +885,7 @@
         </p>
 
         <div class="trust">
-          WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND LAW-FIRST DESIGN
+          WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND STRUCTURAL DESIGN
         </div>
 
         <div class="hero-actions">
@@ -925,7 +898,7 @@
         </div>
 
         <p class="hero-sub" style="margin:14px 0 0 0;">
-          <strong>Start with the failure pattern. I review for fit and reply with scope and next steps.</strong>
+          <strong>If the same failure has happened twice, the structure is probably the problem.</strong>
         </p>
       </div>
 
@@ -949,14 +922,6 @@
           </div>
         </dl>
       </div>
-    </section>
-
-    <section class="bridge" aria-label="Bridge between practice and thinking">
-      <span class="bridge-kicker">How the site is organised</span>
-      <p>
-        <strong>The left side is the applied practice.</strong> It shows the engagements, deliverables, and entry route.
-        <strong>The right side is the upstream body of work.</strong> It shows the frameworks, papers, books, and internal systems that inform how the practice is done.
-      </p>
     </section>
 
     <main id="main" class="grid" role="main">
@@ -1015,7 +980,7 @@
             <ul class="clean">
               <li><strong>Primitive</strong> — the repeated unit of work the system actually performs</li>
               <li><strong>Invariants</strong> — the rules that must not break</li>
-              <li><strong>Enforcement</strong> — where those rules live in reality</li>
+              <li><strong>Enforcement</strong> — where those rules live in operating reality</li>
               <li><strong>Mismatch</strong> — where stated design and operating reality diverge</li>
               <li><strong>Build Map</strong> — what must change first, and what depends on what</li>
             </ul>
@@ -1095,7 +1060,7 @@
 
           <div class="callout">
             <p>
-              The output is designed to leave you with a usable structural truth: what is happening, why it is happening, what must change, and what order the work must follow.
+              The two engagements are designed to follow each other when needed, but each can stand alone.
             </p>
           </div>
         </div>
@@ -1130,11 +1095,11 @@
 
           <p class="lead" style="margin-bottom:10px;">
             If your system keeps failing in the same way under growth, send the failure pattern first.
-            I review for fit and determine whether the work should begin with diagnosis or move directly to redesign.
+            I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            <strong>If the same failure has happened twice, the structure is probably the problem.</strong>
+            <strong>If neither engagement is the right fit, I will say so.</strong>
           </p>
 
           <p class="lead" style="margin-bottom:10px;"><strong>Submit a Five-Line Brief:</strong></p>
@@ -1157,13 +1122,20 @@
       <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
-          <p class="lane-sub">framework → research → books → method → formula → builds</p>
+          <p class="lane-sub">selected foundations behind the practice</p>
+        </div>
+
+        <div class="thinking-intro">
+          <p>
+            <strong>These are the frameworks, papers, and methods behind the work.</strong>
+            The commercial offer is the written artifact. The material here shows the upstream reasoning that informs how those artifacts are built.
+          </p>
         </div>
 
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Core framework</span>
-            <span class="label-note">informs applied work</span>
+            <span class="label-note">basis of the diagnostic lens</span>
           </div>
 
           <div class="paper">
@@ -1180,7 +1152,7 @@
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
                 </p>
                 <p class="small">
-                  This framework locates where irreducible institutional functions have collapsed into consequence-bearing roles that cannot safely carry the load.
+                  This framework informs how consequence, interpretation, enforcement, and continuity are located inside the Diagnostic Artifact.
                 </p>
                 <div class="actions" style="margin-top:12px;">
                   <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
@@ -1208,7 +1180,10 @@
                   <span class="status status-published">Published</span>
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
-                <div class="actions">
+                <p class="small">
+                  A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
+                </p>
+                <div class="actions" style="margin-top:10px;">
                   <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
               </div>
@@ -1239,65 +1214,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">03 // Books</span>
-            <span class="label-note">work in progress</span>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="#" aria-label="Book cover: Seeing Systems">
-                <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">Seeing Systems</p>
-                  <span class="status">Drafted</span>
-                </div>
-                <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
-                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, enforcement, and failure in ordinary structures.</p>
-                <div class="actions" style="margin-top:10px;">
-                  <a
-                    class="link-blue"
-                    href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
-                  >Request sample chapters</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="#" aria-label="Book cover: The System Founder Framework">
-                <img class="thumb" src="./book2-image.png" alt="Cover: The System Founder Framework" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">The System Founder Framework</p>
-                  <span class="status">In design</span>
-                </div>
-                <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
-                <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">For publishers &amp; agents</p>
-            <p class="paper-desc" style="margin-bottom:10px;">
-              Proposal and sample chapters for <strong>Seeing Systems</strong> are available on request.
-            </p>
-            <div class="actions">
-              <a
-                class="link-blue"
-                href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
-              >Request proposal + sample chapters</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">04 // Seeing Systems method</span>
+            <span class="label">03 // Seeing Systems method</span>
             <span class="label-note">carrier bridge</span>
           </div>
 
@@ -1318,44 +1235,51 @@
           </ul>
 
           <p class="small" style="margin-top:12px;">
-            If a system cannot be explained through a carrier, it is usually still too abstract to redesign.
+            This is also the communication bridge: a way to make complex diagnosis legible to non-specialist stakeholders.
           </p>
 
-          <div class="actions" style="margin-top:12px;">
-            <a
-              class="muted-link"
-              href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
-            >Explore the carrier method in Seeing Systems</a>
+          <div class="paper" style="margin-top:14px;">
+            <div class="paper-row">
+              <a href="#" aria-label="Book cover: Seeing Systems">
+                <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">Seeing Systems</p>
+                  <span class="status">Drafted</span>
+                </div>
+                <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
+                <div class="actions" style="margin-top:10px;">
+                  <a
+                    class="link-blue"
+                    href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
+                  >Request sample chapters</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="card">
           <div class="label-row">
-            <span class="label">05 // Universal Formula</span>
-            <span class="label-note">canonical architecture</span>
+            <span class="label">04 // Books & systems in development</span>
+            <span class="label-note">broader body of work</span>
           </div>
 
-          <div class="formula-line" aria-label="Universal Formula">
-            <strong>Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</strong>
-          </div>
-
-          <p class="small" style="margin-bottom:12px;">
-            The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a primitive becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
-          </p>
-
-          <p class="small" style="margin-bottom:12px;">
-            It is used as a diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta.
-          </p>
-
-          <p class="small">
-            Referenced in <strong>The System Founder Framework</strong>, it is used to locate where scale is being built on the wrong layer.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">06 // Systems in development</span>
-            <span class="label-note">applied builds</span>
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="Book cover: The System Founder Framework">
+                <img class="thumb" src="./book2-image.png" alt="Cover: The System Founder Framework" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">The System Founder Framework</p>
+                  <span class="status">In design</span>
+                </div>
+                <p class="paper-desc">A construction doctrine for system builders in the AI era.</p>
+                <p class="small">A book project on building durable operating structures, design logic, and category-level systems without drifting into theatre.</p>
+              </div>
+            </div>
           </div>
 
           <div class="paper">
@@ -1368,7 +1292,8 @@
                   <p class="paper-title">Spectrum Registry</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. Internal build.</p>
+                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
+                <p class="small">Internal build. Included here because live build work informs how rules, boundaries, and enforcement are treated in practice.</p>
               </div>
             </div>
           </div>
@@ -1383,8 +1308,22 @@
                   <p class="paper-title">PromptFactory</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. Internal build.</p>
+                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
+                <p class="small">Internal build. Relevant here because it reflects the same preference for legibility, explicit rules, and failure-resistant design.</p>
               </div>
+            </div>
+          </div>
+
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">For publishers &amp; agents</p>
+            <p class="paper-desc" style="margin-bottom:10px;">
+              Proposal and sample chapters for <strong>Seeing Systems</strong> are available on request.
+            </p>
+            <div class="actions">
+              <a
+                class="link-blue"
+                href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
+              >Request proposal + sample chapters</a>
             </div>
           </div>
         </div>
