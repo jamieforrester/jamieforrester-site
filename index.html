@@ -86,7 +86,9 @@
     .status,
     .skip-link,
     .trust,
-    .lane-head{
+    .lane-head,
+    .formula-line,
+    .snap{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -599,8 +601,23 @@
       align-items:center;
     }
 
+    .formula-line{
+      display:block;
+      margin:0 0 14px;
+      padding:14px 16px;
+      border:1px solid rgba(90,176,255,0.18);
+      border-radius:12px;
+      background:rgba(90,176,255,0.045);
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:0.03em;
+      line-height:1.6;
+      overflow-x:auto;
+      white-space:nowrap;
+    }
+
     .snap{
-      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       margin-top:12px;
       padding:14px;
       border:1px solid rgba(255,255,255,0.10);
@@ -656,6 +673,7 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
+      .formula-line{white-space:normal;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -706,7 +724,7 @@
         <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
 
         <p class="hero-sub">
-          I make hidden rules visible, then redesign the boundary so the system stops failing in the same way.
+          I make hidden rules visible, then redesign the structure so the system stops failing in the same way.
         </p>
 
         <p class="hero-sub">
@@ -745,11 +763,11 @@
           </div>
           <div>
             <dt class="qk">What it solves <strong>→</strong></dt>
-            <dd class="qv"><strong>Recurring failure</strong> that survives because the real structure is still hidden in interfaces, incentives, or enforcement.</dd>
+            <dd class="qv"><strong>Recurring failure</strong> caused by hidden structure in interfaces, incentives, or enforcement.</dd>
           </div>
           <div>
             <dt class="qk">Who it is for <strong>→</strong></dt>
-            <dd class="qv"><strong>Founders, CTOs, and product/platform leads</strong> who need a single source of structural truth builders can execute against.</dd>
+            <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a single source of structural truth their builders can execute against.</dd>
           </div>
           <div>
             <dt class="qk">How to start <strong>→</strong></dt>
@@ -776,7 +794,7 @@
           <p class="lead"><strong>Why failure repeats</strong></p>
           <p class="lead" style="margin-top:-6px;">
             Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place.
-            Diagnosis makes the structure visible; Redesign defines the path to change it.
+            Diagnosis makes the structure visible; Redesign specifies what must change, in what order.
           </p>
 
           <div class="paper" style="margin-top:12px;">
@@ -820,7 +838,7 @@
               <li><strong>Invariants</strong> — Rules that must not break.</li>
               <li><strong>Enforcement</strong> — Where those rules live in reality.</li>
               <li><strong>Mismatch</strong> — Where stated design and operating reality diverge.</li>
-              <li><strong>Build Map</strong> — The structural implications that follow from the diagnosis.</li>
+              <li><strong>Build Map</strong> — What must change first, and what depends on what.</li>
             </ul>
           </div>
 
@@ -848,7 +866,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Each engagement ends with one written artifact designed for internal circulation, decision-making, and builder handoff.
+            Each engagement ends with one written artifact for internal circulation, decision-making, and builder handoff.
           </p>
 
           <div class="paper">
@@ -890,7 +908,7 @@
             <p class="snap-line"><span class="k">Observed:</span> reliability language used as a proxy for expertise.</p>
             <p class="snap-line"><span class="k">Mismatch:</span> throughput is measured; expertise is implied.</p>
             <p class="snap-line"><span class="k">Implication:</span> optimisers outcompete experts under scale.</p>
-            <p class="snap-line"><span class="k">Next move:</span> separate verification layers from payout layers.</p>
+            <p class="snap-line"><span class="k">Structural implication:</span> separate verification layers from payout layers.</p>
             <p class="snap-line" style="margin-top:10px;">
               <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF): Expertise Illusion</a>
             </p>
@@ -929,7 +947,7 @@
       <section aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
-          <p class="lane-sub">framework → research → books → method → architecture → builds</p>
+          <p class="lane-sub">framework → research → books → method → formula → builds</p>
         </div>
 
         <div class="card">
@@ -952,7 +970,7 @@
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
                 </p>
                 <p class="small">
-                  This is the governing framework behind the diagnostic lens: locating where core institutional functions have collapsed into consequence-bearing roles that cannot absorb the load.
+                  This framework locates where core institutional functions have collapsed into consequence-bearing roles that cannot carry the load.
                 </p>
                 <div class="actions" style="margin-top:12px;">
                   <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
@@ -1090,14 +1108,14 @@
           </ul>
 
           <p class="small" style="margin-top:12px;">
-            The aim is simple: if a system cannot be explained through a carrier, it is usually still too abstract to redesign well.
+            If a system cannot be explained through a carrier, it is usually still too abstract to redesign.
           </p>
 
           <div class="actions" style="margin-top:12px;">
             <a
               class="muted-link"
               href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
-            >See the method in the book</a>
+            >Explore the carrier method in Seeing Systems</a>
           </div>
         </div>
 
@@ -1107,20 +1125,20 @@
             <span class="label-note">canonical architecture</span>
           </div>
 
-          <p class="lead" style="margin-bottom:10px;">
-            Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta
+          <div class="formula-line" aria-label="Universal Formula">
+            <strong>Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</strong>
+          </div>
+
+          <p class="small" style="margin-bottom:12px;">
+            The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a primitive becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a foundational unit becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
-          </p>
-
-          <p class="small" style="margin-bottom:12px;">
-            It is not a slogan. It is a diagnostic and construction sequence: what the thing is for, what it repeats, what carries it, how it operates, where exchange forms around it, what category it creates, what larger world it reorders, and what meta-layer it unlocks above itself.
+            A diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta. Used to identify which layer is under-designed, wrongly named, or being mistaken for another.
           </p>
 
           <p class="small">
-            Referenced in <strong>The System Founder Framework</strong>, it is used to identify which layer is actually under-designed, wrongly named, or being mistaken for another.
+            Referenced in <strong>The System Founder Framework</strong>, it is used to locate where scale is being built on the wrong layer.
           </p>
         </div>
 
@@ -1140,7 +1158,7 @@
                   <p class="paper-title">Spectrum Registry</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. (Internal Build)</p>
+                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. Internal build.</p>
               </div>
             </div>
           </div>
@@ -1155,7 +1173,7 @@
                   <p class="paper-title">PromptFactory</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. (Internal Build)</p>
+                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. Internal build.</p>
               </div>
             </div>
           </div>
