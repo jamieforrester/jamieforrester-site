@@ -23,6 +23,9 @@
       --bg:#0b0b0c;
       --panel:#101114;
       --panel-soft:#0d0e11;
+      --panel-thinking:#0c1017;
+      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));
+      --thinking-border:rgba(90,176,255,0.10);
 
       --text-main:#f1f3f5;
       --text-dim:#c3c8d0;
@@ -412,6 +415,10 @@
       pointer-events:none;
     }
 
+    .lane{
+      min-width:0;
+    }
+
     .lane-head{
       display:flex;
       align-items:baseline;
@@ -439,6 +446,16 @@
       max-width:44ch;
     }
 
+    .thinking-lane{
+      padding:16px;
+      border:1px solid var(--thinking-border);
+      border-radius:18px;
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0)),
+        linear-gradient(180deg, var(--panel-thinking), var(--panel-thinking));
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+    }
+
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
       border:1px solid var(--border);
@@ -455,6 +472,16 @@
     }
     .card + .card{margin-top:22px;}
 
+    .thinking-lane .card{
+      background:var(--panel-thinking-card);
+      border-color:rgba(90,176,255,0.08);
+      box-shadow:0 8px 24px rgba(0,0,0,0.16);
+    }
+    .thinking-lane .card:hover{
+      border-color:rgba(90,176,255,0.18);
+      box-shadow:0 0 0 1px rgba(90,176,255,0.08), 0 14px 38px rgba(0,0,0,0.24);
+    }
+
     .label-row{
       display:flex;
       align-items:baseline;
@@ -464,6 +491,10 @@
       padding-bottom:12px;
       margin-bottom:16px;
     }
+    .thinking-lane .label-row{
+      border-bottom-color:rgba(255,255,255,0.06);
+    }
+
     .label{
       font-size:11px;
       font-weight:600;
@@ -522,6 +553,11 @@
       min-width:0;
     }
     .paper + .paper{margin-top:12px;}
+
+    .thinking-lane .paper{
+      border-color:rgba(255,255,255,0.06);
+      background:rgba(255,255,255,0.012);
+    }
 
     .paper-row{
       display:grid;
@@ -741,6 +777,13 @@
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
       .summary-grid{grid-template-columns:1fr;}
+      .thinking-lane{
+        padding:0;
+        border:none;
+        border-radius:0;
+        background:transparent;
+        box-shadow:none;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -846,7 +889,7 @@
 
     <main id="main" class="grid" role="main">
       <!-- PRACTICE (LEFT) -->
-      <section aria-label="Practice lane">
+      <section class="lane" aria-label="Practice lane">
         <div class="lane-head">
           <p class="lane-title">PRACTICE</p>
           <p class="lane-sub">overview → methods → deliverable → proof → start</p>
@@ -1035,7 +1078,7 @@
       </section>
 
       <!-- THINKING (RIGHT) -->
-      <section aria-label="Thinking lane">
+      <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
           <p class="lane-sub">framework → research → books → method → formula → builds</p>
