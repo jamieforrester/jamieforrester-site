@@ -6,7 +6,7 @@
   <title>Jamie Forrester — Independent Systems Architect</title>
   <meta
     name="description"
-    content="Independent Systems Architect — diagnostic and redesign artifacts for systems that fail under scale."
+    content="Independent Systems Architect — fixed-scope diagnostic and redesign artifacts for systems that fail under scale."
   />
   <link rel="icon" href="/favicon.png" />
 
@@ -51,6 +51,14 @@
 
       --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
       --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+
+      /* Lane accents (keep subtle; same palette) */
+      --lane-right-tint:rgba(255,255,255,0.008);
+      --lane-divider:rgba(90,176,255,0.16);
+
+      /* Code block */
+      --mono-bg:rgba(255,255,255,0.012);
+      --mono-border:rgba(255,255,255,0.08);
     }
 
     *{box-sizing:border-box;}
@@ -84,7 +92,10 @@
     .m-order,
     .status,
     .skip-link,
-    .trust{
+    .trust,
+    .lane-head,
+    .mini-def,
+    .snap{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -206,7 +217,7 @@
 
     .pill{
       display:-webkit-inline-box;
-      -webkit-line-clamp:2;
+      -webkit-line-clamp:3;
       -webkit-box-orient:vertical;
       overflow:hidden;
       align-items:center;
@@ -318,7 +329,7 @@
       letter-spacing:-0.04em;
       font-weight:700;
       color:#fff;
-      max-width:15ch;
+      max-width:22ch;
     }
 
     .hero-sub{
@@ -326,7 +337,7 @@
       color:#d8dde4;
       font-size:clamp(0.98rem, 0.94rem + 0.12vw, 1.04rem);
       line-height:1.68;
-      max-width:68ch;
+      max-width:72ch;
     }
     .hero-sub strong{
       color:#fff;
@@ -345,11 +356,11 @@
       gap:12px;
       flex-wrap:wrap;
       align-items:center;
-      margin-top:18px;
+      margin-top:16px;
     }
 
     .trust{
-      margin-top:16px;
+      margin-top:14px;
       padding:12px 14px;
       border:1px solid var(--border-soft);
       border-radius:12px;
@@ -398,11 +409,37 @@
       font-weight:600;
     }
 
+    /* ===== Two-lane grid ===== */
     .grid{
       display:grid;
       grid-template-columns:1.05fr 0.95fr;
       gap:24px;
       align-items:start;
+      position:relative;
+    }
+
+    .lane{
+      position:relative;
+    }
+
+    /* subtle right-lane tint (same palette) */
+    .lane-right{
+      background:var(--lane-right-tint);
+      border-radius:var(--radius-md);
+      padding:0;
+    }
+
+    /* visual divider */
+    .grid::before{
+      content:"";
+      position:absolute;
+      left:calc(50% - 12px);
+      top:0;
+      bottom:0;
+      width:1px;
+      background:linear-gradient(180deg, transparent, var(--lane-divider), transparent);
+      opacity:0.55;
+      pointer-events:none;
     }
 
     .card{
@@ -447,12 +484,39 @@
       text-transform:lowercase;
     }
 
+    .lane-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 0 14px;
+      padding:0 2px;
+    }
+    .lane-title{
+      margin:0;
+      font-size:12px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--label-blue);
+      font-weight:600;
+    }
+    .lane-sub{
+      margin:0;
+      font-size:10px;
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+      color:var(--text-faint);
+      line-height:1.35;
+      text-align:right;
+      max-width:34ch;
+    }
+
     .lead{
       margin:0 0 14px;
       color:#d7dce3;
       font-size:15px;
       line-height:1.7;
-      max-width:72ch;
+      max-width:76ch;
     }
 
     .small{
@@ -481,46 +545,6 @@
       position:absolute;
       left:0;
       color:var(--text-faint);
-    }
-
-    .method{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:10px;
-    }
-    .m-item{
-      padding:14px 14px;
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      background:rgba(255,255,255,0.012);
-    }
-    .m-top{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:6px;
-    }
-    .m-name{
-      font-weight:600;
-      color:#fff;
-      font-size:14px;
-      letter-spacing:-0.01em;
-    }
-    .m-order{
-      font-size:10px;
-      color:var(--text-faint);
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      white-space:nowrap;
-    }
-    .m-desc{
-      margin:0;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
     }
 
     .paper{
@@ -616,6 +640,86 @@
       align-items:center;
     }
 
+    /* Micro-definitions */
+    .mini-def{
+      margin-top:12px;
+      padding:12px 14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+      color:var(--text-dim);
+      font-size:11px;
+      line-height:1.6;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+    }
+    .mini-def strong{color:#fff; font-weight:600;}
+    .mini-def span{color:var(--text-faint);}
+
+    /* Failure pattern index */
+    .pattern-grid{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    .pattern{
+      padding:12px 12px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.010);
+    }
+    .pattern b{
+      display:block;
+      font-size:12px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:6px;
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .pattern p{
+      margin:0;
+      color:var(--text-dim);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    /* “What you receive” two-block */
+    .receive{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    /* Snapshot monospace */
+    .snap{
+      margin-top:12px;
+      padding:14px;
+      border:1px solid var(--mono-border);
+      border-radius:12px;
+      background:var(--mono-bg);
+      color:#d7dce3;
+      font-size:12px;
+      line-height:1.55;
+    }
+    .snap .snap-title{
+      color:#fff;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin:0 0 10px;
+    }
+    .snap .snap-line{
+      margin:0 0 6px;
+    }
+    .snap .snap-line:last-child{margin-bottom:0;}
+    .snap .k{color:var(--text-faint);}
+    .snap a{
+      font-size:12px;
+      border-bottom-color:transparent;
+    }
+
     footer{
       margin-top:32px;
       padding-top:18px;
@@ -644,10 +748,14 @@
       }
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr;}
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .grid::before{display:none;}
+      .lane-sub{text-align:left; max-width:none;}
+      .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .pill{width:100%;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -670,7 +778,9 @@
           <h1>Jamie Forrester</h1>
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row">
-            <span class="pill" aria-label="Positioning">Upstream diagnosis and redesign for systems that keep failing under scale</span>
+            <span class="pill" aria-label="Positioning">
+              Diagnosis and redesign for founders, CTOs, and platform/product leads whose systems fail repeatedly under scale
+            </span>
           </div>
         </div>
       </div>
@@ -681,7 +791,7 @@
 
         <a
           class="btn btn-primary"
-          href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+          href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%3A%20%5BSystem%20Name%5D"
         >
           <span class="ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
@@ -699,37 +809,42 @@
         <div class="eyebrow">What I do</div>
         <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
 
-         <p>I make hidden rules visible, then redesign the boundary so the system stops failing in the same way.</p>
+        <p class="hero-sub" style="margin-bottom:12px;">
+          I make hidden rules visible, then redesign where enforcement actually sits — interfaces, incentives, authority, and handoffs.
+        </p>
 
-        <p class="hero-sub">
-        I write <strong>Diagnostic Artifacts</strong> that define what your system is really doing, where it is failing, and why.</p>
+        <p class="hero-sub" style="margin-bottom:12px;">
+          I write <strong>Diagnostic Artifacts</strong> that define what your system is really doing, where it is failing, and why.
+        </p>
 
         <div class="hero-divider" aria-hidden="true"></div>
 
-        <p class="hero-sub">
-         I write <strong>Redesign Artifacts</strong> that specify what must change, in what order, so builders can execute with confidence.</p>
-        <p></p>
-      
+        <p class="hero-sub" style="margin-bottom:8px;">
+          I write <strong>Redesign Artifacts</strong> that specify what must change, in what order, so builders can execute without inventing design midstream.
+        </p>
+
         <div class="trust">
           WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND LAW-FIRST DESIGN
         </div>
 
-        <div class="hero-actions">
+        <!-- Fork -->
+        <div class="hero-actions" aria-label="Primary actions">
           <a
             class="btn btn-primary"
-            href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+            href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%3A%20%5BSystem%20Name%5D"
           >
-            EMAIL
+            START A DIAGNOSTIC
           </a>
+          <a class="btn" href="#thinking">READ THE WORK</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
-          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
 
-        <p class="hero-sub" style="margin:16px 0 0 0;">
-          <strong>Start with the failure pattern. I review for fit and reply with scope and next steps.</strong></p>
+        <p class="hero-sub" style="margin:14px 0 0 0;">
+          <strong>Start with the failure pattern. I review for fit and reply with scope and next steps.</strong>
+        </p>
       </div>
 
-      <div class="quick">
+      <div class="quick" aria-label="Fast clarity">
         <dl>
           <div>
             <dt class="qk">What this is <strong>→</strong></dt>
@@ -737,133 +852,213 @@
           </div>
           <div>
             <dt class="qk">What it solves <strong>→</strong></dt>
-            <dd class="qv"><strong>Recurring failure</strong> that survives because the real structure is still hidden in interfaces, incentives, or enforcement.</strong></dd>
+            <dd class="qv"><strong>Recurring failure</strong> that survives because the real structure is still hidden in interfaces, incentives, or enforcement.</dd>
           </div>
           <div>
             <dt class="qk">Who it is for <strong>→</strong></dt>
-            <dd class="qv"><strong>Decision-makers and builders</strong> who need a single source of structural truth they can execute against.</dd>
+            <dd class="qv"><strong>Founders, CTOs, Heads of Product/Platform</strong> who need a single source of structural truth builders can execute against.</dd>
           </div>
           <div>
             <dt class="qk">How to start <strong>→</strong></dt>
-            <dd class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</dd>
+            <dd class="qv"><strong>Email the Five-Line Brief</strong> plus any relevant materials you already have.</dd>
           </div>
         </dl>
+
+        <div class="mini-def" aria-label="Translation layer" style="margin-top:16px;">
+          <div><strong>Boundary</strong> <span>= where responsibility, authority, and enforcement actually sit.</span></div>
+          <div style="margin-top:6px;"><strong>Primitive</strong> <span>= the unit of work the system truly rewards.</span></div>
+          <div style="margin-top:6px;"><strong>Invariant</strong> <span>= a rule that must not break for the system to remain stable.</span></div>
+        </div>
       </div>
     </section>
 
-    <main id="main" class="grid" role="main">
-      <section>
+    <main id="main" class="grid" role="main" aria-label="Two-lane homepage">
+      <!-- LEFT LANE -->
+      <section class="lane lane-left" aria-label="Practice lane">
+        <div class="lane-head">
+          <p class="lane-title">PRACTICE</p>
+          <p class="lane-sub">Fixed-scope diagnostic + redesign artifacts for failing systems</p>
+        </div>
+
         <div class="card">
           <div class="label-row">
-            <span class="label">01 // Overview</span>
-            <span class="label-note">What this is</span>
+            <span class="label">01 // Recognition</span>
+            <span class="label-note">Does your system look like this?</span>
           </div>
-<p><strong>Why failure repeats</strong><p>
+
           <p class="lead">
-            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. Diagnosis makes the structure visible; Redesign defines the path to change it.
+            Buyers don’t need more interpretation. They need the real structure made explicit.
           </p>
 
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
-            <ul class="clean">
-    <li>Months of alignment meetings that end with "we all need to get on the same page"</li>
-    <li>The gap between what the policy says and what actually happens</li>
-    <li>Roadmaps that describe intent but cannot change failure</li>
-  </ul>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">What you can do with it</p>
-            <p class="paper-desc" style="margin-bottom:0;">
-              Hand it to builders. Use it to decide boundaries, enforcement points, and sequence. Reduce debate by making structure visible.
-            </p>
-          </div>
-
-          <div class="paper" style="margin-top:12px;">
-            <p class="paper-title" style="margin-bottom:6px;">What improves</p>
-            <ul class="clean">
-    <li>Decisions go from weeks to hours because the structure is no longer debatable</li>
-    <li>Failures stop recurring under new names</li>
-    <li>Builders stop inventing design midstream because the sequence is specified</li>
-    <li>Change under growth becomes safer because invariants are explicit</li>
-  </ul>
+          <div class="pattern-grid" aria-label="Failure pattern index">
+            <div class="pattern">
+              <b>Ghost Rules</b>
+              <p>Policy says X, reality requires Y to survive. The system runs on exceptions.</p>
+            </div>
+            <div class="pattern">
+              <b>Memory Collapse</b>
+              <p>The same structural failure returns under new names. Decisions don’t persist.</p>
+            </div>
+            <div class="pattern">
+              <b>Authority Inversion</b>
+              <p>People responsible for outcomes cannot change the rules that produce them.</p>
+            </div>
+            <div class="pattern">
+              <b>Signal–Reward Mismatch</b>
+              <p>Metrics improve while real quality declines. The system selects optimisers.</p>
+            </div>
+            <div class="pattern">
+              <b>Interface Obscurity</b>
+              <p>Critical decisions are hidden inside handoffs, tools, and local workarounds.</p>
+            </div>
+            <div class="pattern">
+              <b>Boundary Drift</b>
+              <p>Workarounds quietly re-enter as “exceptions” until failure becomes normal.</p>
+            </div>
           </div>
         </div>
 
-      <div class="card">
-  <div class="label-row">
-    <span class="label">02 // Methods</span>
-    <span class="label-note">How the work is structured</span>
-  </div>
+        <div class="card" aria-label="What you receive">
+          <div class="label-row">
+            <span class="label">02 // What you receive</span>
+            <span class="label-note">Deliverable composition</span>
+          </div>
 
-  <div class="paper">
-    <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
-    <p class="paper-desc" style="margin-bottom:12px;">
-      I make recurring failure structurally explicit:
-    </p>
+          <p class="lead" style="margin-bottom:10px;">
+            Each engagement ends in one written artifact designed for internal circulation, decision-making, and builder handoff.
+          </p>
 
-    <ul class="clean">
-      <li><strong>Primitive</strong> — The repeated unit of work the system actually performs.</li>
-      <li><strong>Invariants</strong> — Rules that must not break.</li>
-      <li><strong>Enforcement</strong> — Where those rules live in reality.</li>
-      <li><strong>Mismatch</strong> — Where stated design and operating reality diverge.</li>
-      <li><strong>Build Map</strong> — The structural implications that follow from the diagnosis.</li>
-    </ul>
-  </div>
+          <div class="receive">
+            <div class="paper">
+              <p class="paper-title" style="margin-bottom:8px;">Diagnostic Artifact includes</p>
+              <ul class="clean">
+                <li>System topology: where work actually flows</li>
+                <li>Primitive definition: the real unit of work</li>
+                <li>Invariants: rules that must not break</li>
+                <li>Enforcement map: where rules live vs where they break</li>
+                <li>Mismatch analysis: stated design vs operating reality</li>
+                <li>Build map: what must change first, and what depends on what</li>
+              </ul>
+            </div>
 
-  <div class="paper" style="margin-top:12px;">
-    <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
-    <p class="paper-desc" style="margin-bottom:12px;">
-      I define the target state and the path to reach it:
-    </p>
+            <div class="paper">
+              <p class="paper-title" style="margin-bottom:8px;">Redesign Artifact includes</p>
+              <ul class="clean">
+                <li>Target boundary spec: responsibility/authority/enforcement placement</li>
+                <li>Transition sequence: Step 1 → N</li>
+                <li>Interface tightening: what must be removed, clarified, or gated</li>
+                <li>Dependency order: what moves first, what relies on what</li>
+                <li>Drift refusal gates: constraints that prevent regression</li>
+              </ul>
+              <p class="small" style="margin-top:12px;">
+                Full scope, delivery terms, and service boundaries live on the Services page.
+              </p>
+            </div>
+          </div>
+        </div>
 
-    <ul class="clean">
-      <li><strong>Target Boundary</strong> — What the system should become.</li>
-      <li><strong>Transition Sequence</strong> — The order in which change must occur.</li>
-      <li><strong>Interface Changes</strong> — What must be tightened, removed, or clarified.</li>
-      <li><strong>Dependency Order</strong> — What moves first, and what depends on what.</li>
-      <li><strong>Drift Refusal</strong> — Gates that prevent local workarounds from re-entering the system.</li>
-    </ul>
-  </div>
+        <div class="card" aria-label="Applied proof snapshot">
+          <div class="label-row">
+            <span class="label">03 // Applied snapshot</span>
+            <span class="label-note">Make it tangible</span>
+          </div>
 
-  <p class="small" style="margin-top:14px;">
-    Full scope, delivery terms, and service boundaries live on the Services page.
-  </p>
-</div>
-        <div class="card">
-  <div class="label-row">
-    <span class="label">03 // How to start</span>
-    <span class="label-note">Entry route</span>
-  </div>
+          <p class="lead" style="margin-bottom:10px;">
+            A concrete example of the diagnostic lens applied to a public system class.
+          </p>
 
-  <p class="lead" style="margin-bottom:10px;">
-    If your system keeps failing in the same way under growth, send the failure pattern first. I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
-  </p>
- <p><strong>Submit a Five-Line Brief:</strong></p>
-  <ul class="clean">
-    <li><strong>The Pattern</strong>: What keeps breaking?</li>
-    <li><strong>The Stake</strong>: What is the cost?</li>
-    <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
-    <li><strong>Concentration</strong>: Where is the heat showing up?</li>
-    <li><strong>Constraints</strong>: What are the non-negotiables?</li>
-  </ul>
+          <div class="snap" role="note" aria-label="Diagnostic snapshot (public)">
+            <p class="snap-title">Example diagnostic snapshot — AI task marketplaces</p>
+            <p class="snap-line"><span class="k">Observed:</span> reliability language used as a proxy for expertise.</p>
+            <p class="snap-line"><span class="k">Primitive:</span> throughput is measured; expertise is implied.</p>
+            <p class="snap-line"><span class="k">Mismatch:</span> signal and reward attach to different primitives.</p>
+            <p class="snap-line"><span class="k">Implication:</span> quality declines as optimisers outcompete experts.</p>
+            <p class="snap-line"><span class="k">Next move:</span> separate verification layers from payout layers.</p>
+            <p class="snap-line" style="margin-top:10px;">
+              <a class="link-blue" href="./sample-artifact.pdf" target="_blank" rel="noopener">See a sample artifact page (PDF)</a>
+            </p>
+          </div>
 
-  <div class="actions" style="margin-top:14px;">
-    <a
-      class="btn btn-primary"
-      href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
-    >EMAIL</a>
-    <a class="btn" href="./services.html">VIEW SERVICES</a>
-    <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-  </div>
-</div>
+          <p class="small" style="margin-top:12px;">
+            If you want to start, send the Five-Line Brief. I’ll determine fit and entry route.
+          </p>
+        </div>
+
+        <div class="card" aria-label="How to start">
+          <div class="label-row">
+            <span class="label">04 // How to start</span>
+            <span class="label-note">Entry route</span>
+          </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            Submit a Five-Line Brief. Attach anything useful (diagrams, policies, post-mortems, screenshots, notes).
+          </p>
+
+          <ul class="clean">
+            <li><strong>The Pattern</strong>: What keeps breaking?</li>
+            <li><strong>The Stake</strong>: What is the cost?</li>
+            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
+            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
+            <li><strong>Constraints</strong>: What cannot change?</li>
+          </ul>
+
+          <div class="actions" style="margin-top:14px;">
+            <a
+              class="btn btn-primary"
+              href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%3A%20%5BSystem%20Name%5D&body=The%20Pattern%3A%20%0AThe%20Stake%3A%20%0AThe%20Interfaces%3A%20%0AConcentration%3A%20%0AConstraints%3A%20%0A%0AAttach%20anything%20useful%20(diagrams%2C%20policies%2C%20post-mortems%2C%20screenshots%2C%20notes)."
+            >EMAIL</a>
+            <a class="btn" href="./services.html">VIEW SERVICES</a>
+            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+          </div>
+
+          <div class="paper" style="margin-top:14px;">
+            <p class="paper-title" style="margin-bottom:6px;">Who this is for</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Founders of scaling platforms, CTOs and product/platform leads, marketplace operators, and institutional operators under pressure — when recurring failure survives process changes and roadmaps.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <div class="card">
+      <!-- RIGHT LANE -->
+      <section class="lane lane-right" id="thinking" aria-label="Thinking lane">
+        <div class="lane-head">
+          <p class="lane-title">THINKING</p>
+          <p class="lane-sub">Papers, books, and internal builds that inform the practice</p>
+        </div>
+
+        <div class="card" aria-label="Start here">
           <div class="label-row">
-            <span class="label">04 // Research</span>
-            <span class="label-note">Published and in progress</span>
+            <span class="label">Start here</span>
+            <span class="label-note">Recommended order</span>
+          </div>
+
+          <ul class="clean">
+            <li><strong>Expertise Illusion</strong> — applied diagnosis of signal/reward mismatch in AI task marketplaces</li>
+            <li><strong>Four-Function Law</strong> — general diagnostic law for institutional collapse patterns</li>
+            <li><strong>Seeing Systems</strong> — carrier method for translating abstraction into object-level clarity</li>
+            <li><strong>Category proofs</strong> — internal builds that harden the design doctrine</li>
+          </ul>
+        </div>
+
+        <div class="card" aria-label="Research">
+          <div class="label-row">
+            <span class="label">05 // Research</span>
+            <span class="label-note">Theory of operation</span>
+          </div>
+
+          <div class="paper" style="margin-bottom:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">Core framework</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              <strong>The Four-Function Law of Scalable Institutions</strong> — why systems fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
+            </p>
+            <p class="small" style="margin-top:10px;">
+              <strong>This framework informs all applied work.</strong>
+            </p>
+            <div class="actions" style="margin-top:10px;">
+              <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">View findings</a>
+              <a href="./status-notes.html" class="muted-link">Status notes</a>
+            </div>
           </div>
 
           <div class="paper">
@@ -878,28 +1073,7 @@
                 </div>
                 <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
                 <div class="actions">
-                  <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
-                <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                  <span class="status">In preparation</span>
-                </div>
-                <p class="paper-desc">
-                  Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single nodes under scale.
-                </p>
-                <div class="actions">
-                  <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
-                  <a href="./status-notes.html" class="muted-link">Status notes</a>
+                  <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read the paper (PDF)</a>
                 </div>
               </div>
             </div>
@@ -919,7 +1093,7 @@
                   Why execution-optimised systems lack an interface for upstream reframing — and therefore cannot self-correct.
                 </p>
                 <div class="actions">
-                  <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
+                  <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">View findings</a>
                   <a href="./status-notes.html#missing-redesign" class="muted-link">Status notes</a>
                 </div>
               </div>
@@ -931,9 +1105,9 @@
           </p>
         </div>
 
-        <div class="card">
+        <div class="card" aria-label="Books">
           <div class="label-row">
-            <span class="label">05 // Books</span>
+            <span class="label">06 // Books</span>
             <span class="label-note">Work in progress</span>
           </div>
 
@@ -948,7 +1122,15 @@
                   <span class="status">Drafted</span>
                 </div>
                 <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
-                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, and failure in ordinary structures.</p>
+                <p class="small" style="margin-top:8px;">
+                  Carrier method: doors, queues, gates, lifts — translating abstraction into object-level clarity.
+                </p>
+                <div class="actions" style="margin-top:10px;">
+                  <a
+                    class="link-blue"
+                    href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
+                  >Request sample chapters</a>
+                </div>
               </div>
             </div>
           </div>
@@ -968,13 +1150,28 @@
               </div>
             </div>
           </div>
+
+          <div class="paper" style="margin-top:12px;">
+            <p class="paper-title" style="margin-bottom:6px;">For publishers & agents</p>
+            <p class="paper-desc" style="margin-bottom:0;">
+              Book proposal and sample chapters available on request.
+              <a
+                class="muted-link"
+                href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
+              >Request materials</a>
+            </p>
+          </div>
         </div>
 
-        <div class="card">
+        <div class="card" aria-label="Systems in development">
           <div class="label-row">
-            <span class="label">06 // Systems in development</span>
-            <span class="label-note">Applied builds</span>
+            <span class="label">07 // Category proofs</span>
+            <span class="label-note">Internal builds</span>
           </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            These builds are testing grounds for the frameworks: constrained law, explicit invariants, enforced boundaries.
+          </p>
 
           <div class="paper">
             <div class="paper-row">
@@ -986,7 +1183,7 @@
                   <p class="paper-title">Spectrum Registry</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. (Internal Build)</p>
+                <p class="paper-desc">Applying symbolic law to constrained ownership flows. (Internal build)</p>
               </div>
             </div>
           </div>
@@ -1001,35 +1198,35 @@
                   <p class="paper-title">PromptFactory</p>
                   <span class="status status-dev">In development</span>
                 </div>
-                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. (Internal Build)</p>
+                <p class="paper-desc">Industrialising specification → verification → build. (Internal build)</p>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
- 
-    <footer>
-  <div class="footer-links">
-    <span>
-      Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-    </span>
-    <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
-    <span style="color:var(--text-faint);">/</span>
-    <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
-    <span style="color:var(--text-faint);">/</span>
-    <a
-      class="muted-link"
-      href="https://www.linkedin.com/in/jamie-forrester-773b7786"
-      target="_blank"
-      rel="noopener"
-    >LinkedIn</a>
-  </div>
 
-  <div>
-    <span style="color:var(--text-faint);">Last updated: 2026-03-04</span>
-  </div>
-</footer>
+    <footer>
+      <div class="footer-links">
+        <span>
+          Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </span>
+        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
+        <span style="color:var(--text-faint);">/</span>
+        <a
+          class="muted-link"
+          href="https://www.linkedin.com/in/jamie-forrester-773b7786"
+          target="_blank"
+          rel="noopener"
+        >LinkedIn</a>
+      </div>
+
+      <div>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
