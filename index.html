@@ -92,7 +92,9 @@
     .lane-head,
     .formula-line,
     .snap,
-    .mini-kicker{
+    .mini-kicker,
+    .price,
+    .fee-note{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -709,10 +711,6 @@
       min-width:0;
     }
 
-    .summary-card .paper-title{
-      margin-bottom:8px;
-    }
-
     .summary-list{
       display:grid;
       gap:8px;
@@ -742,6 +740,48 @@
 
     .signal-box .paper-title{
       margin-bottom:8px;
+    }
+
+    .offer-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .offer-card{
+      padding:16px;
+      border:1px solid rgba(90,176,255,0.16);
+      border-radius:14px;
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.035), rgba(255,255,255,0.01));
+      min-width:0;
+    }
+
+    .offer-card .paper-title{
+      margin-bottom:6px;
+    }
+
+    .price{
+      display:inline-block;
+      margin:0 0 12px;
+      padding:5px 8px;
+      border-radius:8px;
+      border:1px solid rgba(90,176,255,0.20);
+      background:rgba(90,176,255,0.06);
+      color:#fff;
+      font-size:11px;
+      letter-spacing:0.10em;
+      text-transform:uppercase;
+    }
+
+    .fee-note{
+      margin-top:12px;
+      color:var(--text-faint);
+      font-size:11px;
+      letter-spacing:0.04em;
+      line-height:1.55;
+      text-transform:uppercase;
     }
 
     .callout{
@@ -813,7 +853,8 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .summary-grid{grid-template-columns:1fr;}
+      .summary-grid,
+      .offer-grid{grid-template-columns:1fr;}
       .thinking-lane{
         padding:0;
         border:none;
@@ -889,10 +930,7 @@
         </div>
 
         <div class="hero-actions">
-          <a
-            class="btn btn-primary"
-            href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
-          >EMAIL</a>
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
@@ -925,16 +963,63 @@
     </section>
 
     <main id="main" class="grid" role="main">
-      <!-- PRACTICE (LEFT) -->
       <section class="lane" aria-label="Practice lane">
         <div class="lane-head">
           <p class="lane-title">PRACTICE</p>
-          <p class="lane-sub">overview → methods → deliverable → proof → start</p>
+          <p class="lane-sub">core offerings → overview → methods → deliverable → proof → start</p>
         </div>
 
         <div class="card">
           <div class="label-row">
-            <span class="label">01 // Overview</span>
+            <span class="label">01 // Core offerings</span>
+            <span class="label-note">what you can buy</span>
+          </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            Two fixed-scope written engagements. Buy the one that matches the state of the problem.
+          </p>
+
+          <div class="offer-grid">
+            <div class="offer-card">
+              <span class="mini-kicker">Fixed-scope engagement</span>
+              <p class="paper-title">Diagnostic Artifact</p>
+              <span class="price">Fee — £[DIAGNOSTIC_FEE]</span>
+              <ul class="clean">
+                <li><strong>Buy this when</strong> something keeps breaking but the real failure is not yet visible</li>
+                <li><strong>You receive</strong> topology, primitive, invariants, enforcement, mismatch, build map</li>
+                <li><strong>Outcome</strong> a structural diagnosis your team can circulate and act against</li>
+              </ul>
+            </div>
+
+            <div class="offer-card">
+              <span class="mini-kicker">Fixed-scope engagement</span>
+              <p class="paper-title">Redesign Artifact</p>
+              <span class="price">Fee — £[REDESIGN_FEE]</span>
+              <ul class="clean">
+                <li><strong>Buy this when</strong> the failure is visible but the change sequence is not</li>
+                <li><strong>You receive</strong> target boundary, transition sequence, interface changes, dependency order, drift refusal</li>
+                <li><strong>Outcome</strong> a redesign blueprint builders can execute with confidence</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout">
+            <p>The two engagements are designed to follow each other when needed, but each can stand alone.</p>
+          </div>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+            <a class="btn" href="./services.html">VIEW SERVICES</a>
+          </div>
+
+          <div class="fee-note">
+            Full scope, delivery terms, and payment details live on the Services page.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">02 // Overview</span>
             <span class="label-note">What this is</span>
           </div>
 
@@ -966,7 +1051,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">02 // Methods</span>
+            <span class="label">03 // Methods</span>
             <span class="label-note">How the work is structured</span>
           </div>
 
@@ -1006,7 +1091,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">03 // What you receive</span>
+            <span class="label">04 // What you receive</span>
             <span class="label-note">Deliverable composition</span>
           </div>
 
@@ -1066,7 +1151,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">04 // Applied snapshot</span>
+            <span class="label">05 // Applied snapshot</span>
             <span class="label-note">Proof of lens</span>
           </div>
 
@@ -1088,7 +1173,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">05 // How to start</span>
+            <span class="label">06 // How to start</span>
             <span class="label-note">Entry route</span>
           </div>
 
@@ -1118,7 +1203,6 @@
         </div>
       </section>
 
-      <!-- THINKING (RIGHT) -->
       <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
