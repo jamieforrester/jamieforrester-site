@@ -484,24 +484,6 @@
       box-shadow:0 0 0 1px rgba(90,176,255,0.08), 0 14px 38px rgba(0,0,0,0.24);
     }
 
-    .thinking-intro{
-      margin:0 0 18px;
-      padding:14px 16px;
-      border:1px solid rgba(90,176,255,0.12);
-      border-radius:14px;
-      background:rgba(90,176,255,0.035);
-    }
-    .thinking-intro p{
-      margin:0;
-      color:var(--text-dim);
-      font-size:13px;
-      line-height:1.62;
-    }
-    .thinking-intro strong{
-      color:#fff;
-      font-weight:600;
-    }
-
     .label-row{
       display:flex;
       align-items:baseline;
@@ -776,6 +758,27 @@
       line-height:1.65;
     }
 
+    .thinking-cta{
+      margin-top:22px;
+      padding:16px;
+      border:1px solid rgba(90,176,255,0.16);
+      border-radius:14px;
+      background:rgba(90,176,255,0.04);
+    }
+    .thinking-cta p{
+      margin:0 0 10px;
+      color:var(--text-dim);
+      font-size:13px;
+      line-height:1.65;
+    }
+    .thinking-cta p:last-child{
+      margin-bottom:0;
+    }
+    .thinking-cta strong{
+      color:#fff;
+      font-weight:600;
+    }
+
     footer{
       margin-top:32px;
       padding-top:18px;
@@ -818,9 +821,6 @@
         background:transparent;
         box-shadow:none;
       }
-      .thinking-intro{
-        margin-bottom:14px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -841,7 +841,7 @@
           <div class="sub">Independent Systems Architect</div>
           <div class="meta-row">
             <span class="pill" aria-label="Positioning">
-              Diagnosis and redesign for systems that keep failing under scale
+              Upstream diagnosis and redesign for systems that keep failing under scale
             </span>
           </div>
         </div>
@@ -925,6 +925,7 @@
     </section>
 
     <main id="main" class="grid" role="main">
+      <!-- PRACTICE (LEFT) -->
       <section class="lane" aria-label="Practice lane">
         <div class="lane-head">
           <p class="lane-title">PRACTICE</p>
@@ -939,8 +940,8 @@
 
           <p class="lead"><strong>Why failure repeats</strong></p>
           <p class="lead" style="margin-top:-6px;">
-            Most systems keep failing because their real rules are implicit, contested, or enforced in the wrong place.
-            Diagnosis makes the structure visible. Redesign defines what must change, in what order, so the failure stops repeating.
+            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place.
+            Diagnosis makes the structure visible; Redesign specifies what must change, in what order.
           </p>
 
           <div class="signal-box">
@@ -956,9 +957,9 @@
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <ul class="clean">
-              <li>Months of alignment meetings that still leave the failure intact</li>
-              <li>The gap between what policy says and what operating reality produces</li>
-              <li>Roadmaps that describe intent but cannot change the structure causing the problem</li>
+              <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
+              <li>The gap between what the policy says and what actually happens</li>
+              <li>Roadmaps that describe intent but cannot change failure</li>
             </ul>
           </div>
         </div>
@@ -976,25 +977,25 @@
 
           <div class="paper">
             <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
-            <p class="paper-desc" style="margin-bottom:12px;">The first task is to make recurring failure structurally explicit:</p>
+            <p class="paper-desc" style="margin-bottom:12px;">I make recurring failure structurally explicit:</p>
             <ul class="clean">
-              <li><strong>Primitive</strong> — the repeated unit of work the system actually performs</li>
-              <li><strong>Invariants</strong> — the rules that must not break</li>
-              <li><strong>Enforcement</strong> — where those rules live in operating reality</li>
-              <li><strong>Mismatch</strong> — where stated design and operating reality diverge</li>
-              <li><strong>Build Map</strong> — what must change first, and what depends on what</li>
+              <li><strong>Primitive</strong> — the repeated unit of work the system actually performs.</li>
+              <li><strong>Invariants</strong> — rules that must not break.</li>
+              <li><strong>Enforcement</strong> — where those rules live in operating reality.</li>
+              <li><strong>Mismatch</strong> — where stated design and operating reality diverge.</li>
+              <li><strong>Build Map</strong> — what must change first, and what depends on what.</li>
             </ul>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
-            <p class="paper-desc" style="margin-bottom:12px;">Once the failure is visible, the next task is to define the target state and transition sequence:</p>
+            <p class="paper-desc" style="margin-bottom:12px;">I define the target state and the path to reach it:</p>
             <ul class="clean">
-              <li><strong>Target Boundary</strong> — what the system should become</li>
-              <li><strong>Transition Sequence</strong> — the order in which change must occur</li>
-              <li><strong>Interface Changes</strong> — what must be tightened, removed, or clarified</li>
-              <li><strong>Dependency Order</strong> — what moves first, and what depends on what</li>
-              <li><strong>Drift Refusal</strong> — gates that stop local workarounds re-entering the system</li>
+              <li><strong>Target Boundary</strong> — what the system should become.</li>
+              <li><strong>Transition Sequence</strong> — the order in which change must occur.</li>
+              <li><strong>Interface Changes</strong> — what must be tightened, removed, or clarified.</li>
+              <li><strong>Dependency Order</strong> — what moves first, and what depends on what.</li>
+              <li><strong>Drift Refusal</strong> — gates that prevent local workarounds from re-entering the system.</li>
             </ul>
           </div>
 
@@ -1010,7 +1011,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Each engagement ends with one written artifact built for internal circulation, decision-making, and builder handoff.
+            Each engagement ends with one written artifact for internal circulation, decision-making, and builder handoff.
           </p>
 
           <div class="summary-grid">
@@ -1059,9 +1060,7 @@
           </div>
 
           <div class="callout">
-            <p>
-              The two engagements are designed to follow each other when needed, but each can stand alone.
-            </p>
+            <p>The two engagements are designed to follow each other when needed, but each can stand alone.</p>
           </div>
         </div>
 
@@ -1072,7 +1071,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            A public example of the diagnostic lens applied to a system class with visible incentive distortion.
+            A concrete example of the diagnostic lens applied to a public system class.
           </p>
 
           <div class="snap" role="note" aria-label="Applied snapshot">
@@ -1099,7 +1098,7 @@
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            <strong>If neither engagement is the right fit, I will say so.</strong>
+            <strong>If neither engagement is the right fit, I will say so.</strong> Send the brief first.
           </p>
 
           <p class="lead" style="margin-bottom:10px;"><strong>Submit a Five-Line Brief:</strong></p>
@@ -1119,23 +1118,17 @@
         </div>
       </section>
 
+      <!-- THINKING (RIGHT) -->
       <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
-          <p class="lane-sub">selected foundations behind the practice</p>
-        </div>
-
-        <div class="thinking-intro">
-          <p>
-            <strong>These are the frameworks, papers, and methods behind the work.</strong>
-            The commercial offer is the written artifact. The material here shows the upstream reasoning that informs how those artifacts are built.
-          </p>
+          <p class="lane-sub">framework → research → books → method → formula → builds</p>
         </div>
 
         <div class="card">
           <div class="label-row">
             <span class="label">01 // Core framework</span>
-            <span class="label-note">basis of the diagnostic lens</span>
+            <span class="label-note">informs applied work</span>
           </div>
 
           <div class="paper">
@@ -1152,7 +1145,7 @@
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
                 </p>
                 <p class="small">
-                  This framework informs how consequence, interpretation, enforcement, and continuity are located inside the Diagnostic Artifact.
+                  This framework sits directly behind how consequence, interpretation, authority, and continuity are located inside the Diagnostic Artifact.
                 </p>
                 <div class="actions" style="margin-top:12px;">
                   <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
@@ -1183,7 +1176,7 @@
                 <p class="small">
                   A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
                 </p>
-                <div class="actions" style="margin-top:10px;">
+                <div class="actions">
                   <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
                 </div>
               </div>
@@ -1214,31 +1207,11 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">03 // Seeing Systems method</span>
-            <span class="label-note">carrier bridge</span>
+            <span class="label">03 // Books</span>
+            <span class="label-note">work in progress</span>
           </div>
 
-          <p class="lead" style="margin-bottom:10px;">
-            <strong>Seeing Systems</strong> teaches structural literacy through pointable carriers rather than abstract theory alone.
-          </p>
-
-          <p class="small" style="margin-bottom:12px;">
-            Doors, queues, elevators, approval gates, and bottlenecks are not decorative examples. They are teaching objects. Each one makes a system visible at human scale: purpose, rules, enforcement, load, and failure posture can all be pointed to directly.
-          </p>
-
-          <ul class="clean">
-            <li><strong>Door</strong> — threshold, permission, fail-open vs fail-closed</li>
-            <li><strong>Queue</strong> — fairness, ordering, congestion, bypass pressure</li>
-            <li><strong>Elevator</strong> — capacity, sequencing, load under constraint</li>
-            <li><strong>Approval gate</strong> — submission, acceptance, rejection, exception paths</li>
-            <li><strong>Bottleneck</strong> — where visible flow hides structural concentration</li>
-          </ul>
-
-          <p class="small" style="margin-top:12px;">
-            This is also the communication bridge: a way to make complex diagnosis legible to non-specialist stakeholders.
-          </p>
-
-          <div class="paper" style="margin-top:14px;">
+          <div class="paper">
             <div class="paper-row">
               <a href="#" aria-label="Book cover: Seeing Systems">
                 <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
@@ -1249,6 +1222,7 @@
                   <span class="status">Drafted</span>
                 </div>
                 <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
+                <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, enforcement, and failure in ordinary structures.</p>
                 <div class="actions" style="margin-top:10px;">
                   <a
                     class="link-blue"
@@ -1257,13 +1231,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">04 // Books & systems in development</span>
-            <span class="label-note">broader body of work</span>
           </div>
 
           <div class="paper">
@@ -1276,40 +1243,8 @@
                   <p class="paper-title">The System Founder Framework</p>
                   <span class="status">In design</span>
                 </div>
-                <p class="paper-desc">A construction doctrine for system builders in the AI era.</p>
-                <p class="small">A book project on building durable operating structures, design logic, and category-level systems without drifting into theatre.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="#" aria-label="Spectrum Registry">
-                <img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">Spectrum Registry</p>
-                  <span class="status status-dev">In development</span>
-                </div>
-                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
-                <p class="small">Internal build. Included here because live build work informs how rules, boundaries, and enforcement are treated in practice.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="paper">
-            <div class="paper-row">
-              <a href="#" aria-label="PromptFactory">
-                <img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" />
-              </a>
-              <div>
-                <div class="paper-head">
-                  <p class="paper-title">PromptFactory</p>
-                  <span class="status status-dev">In development</span>
-                </div>
-                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
-                <p class="small">Internal build. Relevant here because it reflects the same preference for legibility, explicit rules, and failure-resistant design.</p>
+                <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
+                <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.</p>
               </div>
             </div>
           </div>
@@ -1325,6 +1260,107 @@
                 href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
               >Request proposal + sample chapters</a>
             </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">04 // Seeing Systems method</span>
+            <span class="label-note">carrier bridge</span>
+          </div>
+
+          <p class="lead" style="margin-bottom:10px;">
+            <strong>Seeing Systems</strong> teaches structural literacy through pointable carriers rather than abstract theory alone.
+          </p>
+
+          <p class="small" style="margin-bottom:12px;">
+            Doors, queues, elevators, approval gates, and bottlenecks are not random examples. They are teaching objects. Each one makes a system visible at human scale: purpose, rules, enforcement, load, and failure posture can all be pointed to directly.
+          </p>
+
+          <ul class="clean">
+            <li><strong>Door</strong> — threshold, permission, fail-open vs fail-closed</li>
+            <li><strong>Queue</strong> — fairness, ordering, congestion, bypass pressure</li>
+            <li><strong>Elevator</strong> — capacity, sequencing, load under constraint</li>
+            <li><strong>Approval gate</strong> — submission, acceptance, rejection, exception paths</li>
+            <li><strong>Bottleneck</strong> — where visible flow hides structural concentration</li>
+          </ul>
+
+          <p class="small" style="margin-top:12px;">
+            This is also the communication bridge: a way to make complex diagnosis legible to non-specialist stakeholders.
+          </p>
+
+          <div class="actions" style="margin-top:12px;">
+            <a
+              class="muted-link"
+              href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
+            >Explore the carrier method in Seeing Systems</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">05 // Universal Formula</span>
+            <span class="label-note">canonical architecture</span>
+          </div>
+
+          <div class="formula-line" aria-label="Universal Formula">
+            <strong>Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</strong>
+          </div>
+
+          <p class="small" style="margin-bottom:12px;">
+            The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a primitive becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
+          </p>
+
+          <p class="small" style="margin-bottom:12px;">
+            A diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta. Used to identify which layer is under-designed, wrongly named, or being mistaken for another.
+          </p>
+
+          <p class="small">
+            Referenced in <strong>The System Founder Framework</strong>, it is also part of the larger architecture behind how scale problems are located and named.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="label-row">
+            <span class="label">06 // Systems in development</span>
+            <span class="label-note">applied builds</span>
+          </div>
+
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="Spectrum Registry">
+                <img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">Spectrum Registry</p>
+                  <span class="status status-dev">In development</span>
+                </div>
+                <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. Internal build.</p>
+                <p class="small">Included here because live build work informs how rules, boundaries, and enforcement are treated in practice.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="paper">
+            <div class="paper-row">
+              <a href="#" aria-label="PromptFactory">
+                <img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" />
+              </a>
+              <div>
+                <div class="paper-head">
+                  <p class="paper-title">PromptFactory</p>
+                  <span class="status status-dev">In development</span>
+                </div>
+                <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. Internal build.</p>
+                <p class="small">Relevant here because it reflects the same preference for legibility, explicit rules, and failure-resistant design.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="thinking-cta">
+            <p><strong>The public offer is the written artifact.</strong> The material above shows the frameworks, research, and live build work behind that practice.</p>
+            <p><a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">Email a five-line brief</a> if the failure pattern is already visible and you want a structural read on it.</p>
           </div>
         </div>
       </section>
