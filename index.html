@@ -10,7 +10,6 @@
   />
   <link rel="icon" href="/favicon.png" />
 
-  <!-- IBM Plex Sans + Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -23,16 +22,17 @@
       --bg:#0b0b0c;
       --panel:#101114;
       --panel-soft:#0d0e11;
-      --panel-thinking:#0c1017;
-      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.006));
-      --thinking-border:rgba(90,176,255,0.10);
+      --panel-thinking:#0b1017;
+      --panel-thinking-soft:#0e1520;
+      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      --thinking-border:rgba(90,176,255,0.14);
 
       --text-main:#f1f3f5;
-      --text-dim:#c3c8d0;
-      --text-faint:#8b93a1;
+      --text-dim:#c6ccd4;
+      --text-faint:#8c94a2;
 
       --border:#232731;
-      --border-soft:rgba(255,255,255,0.05);
+      --border-soft:rgba(255,255,255,0.06);
       --accent:#343a46;
 
       --label-blue:#4aa3ff;
@@ -43,7 +43,7 @@
 
       --radius-sm:10px;
       --radius-md:14px;
-      --radius-lg:16px;
+      --radius-lg:18px;
 
       --space-1:8px;
       --space-2:12px;
@@ -51,6 +51,7 @@
       --space-4:20px;
       --space-5:24px;
       --space-6:32px;
+      --space-7:40px;
 
       --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
       --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
@@ -92,7 +93,8 @@
     .lane-head,
     .formula-line,
     .snap,
-    .mini-kicker{
+    .mini-kicker,
+    .bridge-kicker{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -167,12 +169,14 @@
       border-bottom:1px solid var(--border-soft);
       margin-bottom:var(--space-5);
     }
+
     .h-left{
       display:flex;
       align-items:center;
       gap:18px;
       min-width:0;
     }
+
     .h-ident{min-width:0;}
     .meta-row{margin-top:12px;}
 
@@ -282,21 +286,22 @@
     .eyebrow,
     .qk,
     .label-note,
-    .mini-kicker{
+    .mini-kicker,
+    .bridge-kicker{
       color:var(--label-blue);
     }
 
     .hero-strip{
       display:grid;
-      grid-template-columns:1.12fr 0.88fr;
-      gap:var(--space-4);
-      padding:26px;
+      grid-template-columns:1.14fr 0.86fr;
+      gap:var(--space-5);
+      padding:28px;
       border:1px solid var(--border);
       border-radius:var(--radius-lg);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
         linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      margin-bottom:var(--space-5);
+      margin-bottom:18px;
       box-shadow:var(--shadow-soft);
       transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
@@ -365,17 +370,20 @@
       padding:10px 0 10px 14px;
       background:transparent;
     }
+
     .quick dl{
       margin:0;
       display:grid;
       gap:14px;
     }
+
     .quick div{
       display:grid;
-      grid-template-columns:168px 1fr;
+      grid-template-columns:158px 1fr;
       gap:14px;
       align-items:start;
     }
+
     .qk{
       font-size:11px;
       text-transform:uppercase;
@@ -384,6 +392,7 @@
       white-space:normal;
       line-height:1.3;
     }
+
     .qv{
       margin:0;
       font-size:14px;
@@ -393,16 +402,46 @@
     }
     .qv strong{color:#fff;font-weight:600;}
 
+    .bridge{
+      margin:0 0 24px;
+      padding:14px 16px;
+      border:1px solid rgba(90,176,255,0.14);
+      border-radius:14px;
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.03), rgba(255,255,255,0)),
+        rgba(255,255,255,0.01);
+    }
+
+    .bridge-kicker{
+      display:block;
+      margin:0 0 8px;
+      font-size:10px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
+
+    .bridge p{
+      margin:0;
+      color:var(--text-dim);
+      font-size:14px;
+      line-height:1.65;
+      max-width:90ch;
+    }
+
+    .bridge strong{color:#fff;}
+
     .grid{
       display:grid;
-      grid-template-columns:1.05fr 0.95fr;
+      grid-template-columns:1.03fr 0.97fr;
       gap:24px;
       align-items:start;
       position:relative;
     }
+
     .grid > section{
       min-width:0;
     }
+
     .grid::before{
       content:"";
       position:absolute;
@@ -427,6 +466,7 @@
       margin:0 0 14px;
       padding:0 2px;
     }
+
     .lane-title{
       margin:0;
       font-size:12px;
@@ -435,6 +475,7 @@
       color:var(--label-blue);
       font-weight:600;
     }
+
     .lane-sub{
       margin:0;
       font-size:10px;
@@ -451,9 +492,9 @@
       border:1px solid var(--thinking-border);
       border-radius:18px;
       background:
-        linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0)),
-        linear-gradient(180deg, var(--panel-thinking), var(--panel-thinking));
-      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+        linear-gradient(180deg, rgba(90,176,255,0.055), rgba(255,255,255,0)),
+        linear-gradient(180deg, var(--panel-thinking), var(--panel-thinking-soft));
+      box-shadow:0 10px 30px rgba(0,0,0,0.20);
     }
 
     .card{
@@ -474,11 +515,11 @@
 
     .thinking-lane .card{
       background:var(--panel-thinking-card);
-      border-color:rgba(90,176,255,0.08);
+      border-color:rgba(90,176,255,0.11);
       box-shadow:0 8px 24px rgba(0,0,0,0.16);
     }
     .thinking-lane .card:hover{
-      border-color:rgba(90,176,255,0.18);
+      border-color:rgba(90,176,255,0.20);
       box-shadow:0 0 0 1px rgba(90,176,255,0.08), 0 14px 38px rgba(0,0,0,0.24);
     }
 
@@ -491,8 +532,9 @@
       padding-bottom:12px;
       margin-bottom:16px;
     }
+
     .thinking-lane .label-row{
-      border-bottom-color:rgba(255,255,255,0.06);
+      border-bottom-color:rgba(255,255,255,0.07);
     }
 
     .label{
@@ -502,6 +544,7 @@
       letter-spacing:0.16em;
       color:var(--label-blue);
     }
+
     .label-note{
       font-size:10px;
       letter-spacing:0.08em;
@@ -531,6 +574,7 @@
       display:grid;
       gap:10px;
     }
+
     ul.clean li{
       padding-left:16px;
       position:relative;
@@ -538,6 +582,7 @@
       font-size:14px;
       line-height:1.62;
     }
+
     ul.clean li::before{
       content:"→";
       position:absolute;
@@ -555,8 +600,8 @@
     .paper + .paper{margin-top:12px;}
 
     .thinking-lane .paper{
-      border-color:rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.012);
+      border-color:rgba(255,255,255,0.07);
+      background:rgba(255,255,255,0.014);
     }
 
     .paper-row{
@@ -619,16 +664,18 @@
       white-space:nowrap;
       flex:0 0 auto;
     }
+
     .status-published{
       color:#0b0b0c;
       background:rgba(90,176,255,0.96);
       border-color:rgba(90,176,255,0.96);
       font-weight:600;
     }
+
     .status-dev{
       color:#d8eefc;
       background:rgba(90,176,255,0.10);
-      border-color:rgba(90,176,255,0.22);
+      border-color:rgba(90,176,255,0.24);
     }
 
     .paper-desc{
@@ -649,9 +696,9 @@
       display:block;
       margin:0 0 14px;
       padding:14px 16px;
-      border:1px solid rgba(90,176,255,0.18);
+      border:1px solid rgba(90,176,255,0.20);
       border-radius:12px;
-      background:rgba(90,176,255,0.045);
+      background:rgba(90,176,255,0.05);
       color:#fff;
       font-size:14px;
       font-weight:600;
@@ -672,6 +719,7 @@
       font-size:12px;
       line-height:1.55;
     }
+
     .snap .snap-title{
       color:#fff;
       font-weight:600;
@@ -680,6 +728,7 @@
       font-size:11px;
       margin:0 0 10px;
     }
+
     .snap .snap-line{margin:0 0 6px;}
     .snap .snap-line:last-child{margin-bottom:0;}
     .snap .k{color:var(--text-faint);}
@@ -740,6 +789,21 @@
 
     .signal-box .paper-title{
       margin-bottom:8px;
+    }
+
+    .callout{
+      margin-top:14px;
+      padding:14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+    }
+
+    .callout p{
+      margin:0;
+      color:var(--text-dim);
+      font-size:13px;
+      line-height:1.65;
     }
 
     footer{
@@ -887,8 +951,15 @@
       </div>
     </section>
 
+    <section class="bridge" aria-label="Bridge between practice and thinking">
+      <span class="bridge-kicker">How the site is organised</span>
+      <p>
+        <strong>The left side is the applied practice.</strong> It shows the engagements, deliverables, and entry route.
+        <strong>The right side is the upstream body of work.</strong> It shows the frameworks, papers, books, and internal systems that inform how the practice is done.
+      </p>
+    </section>
+
     <main id="main" class="grid" role="main">
-      <!-- PRACTICE (LEFT) -->
       <section class="lane" aria-label="Practice lane">
         <div class="lane-head">
           <p class="lane-title">PRACTICE</p>
@@ -903,8 +974,8 @@
 
           <p class="lead"><strong>Why failure repeats</strong></p>
           <p class="lead" style="margin-top:-6px;">
-            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place.
-            Diagnosis makes the structure visible; Redesign specifies what must change, in what order.
+            Most systems keep failing because their real rules are implicit, contested, or enforced in the wrong place.
+            Diagnosis makes the structure visible. Redesign defines what must change, in what order, so the failure stops repeating.
           </p>
 
           <div class="signal-box">
@@ -920,9 +991,9 @@
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:6px;">What this replaces</p>
             <ul class="clean">
-              <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
-              <li>The gap between what the policy says and what actually happens</li>
-              <li>Roadmaps that describe intent but cannot change failure</li>
+              <li>Months of alignment meetings that still leave the failure intact</li>
+              <li>The gap between what policy says and what operating reality produces</li>
+              <li>Roadmaps that describe intent but cannot change the structure causing the problem</li>
             </ul>
           </div>
         </div>
@@ -940,25 +1011,25 @@
 
           <div class="paper">
             <p class="paper-title" style="margin-bottom:8px;">Diagnostic Method</p>
-            <p class="paper-desc" style="margin-bottom:12px;">I make recurring failure structurally explicit:</p>
+            <p class="paper-desc" style="margin-bottom:12px;">The first task is to make recurring failure structurally explicit:</p>
             <ul class="clean">
-              <li><strong>Primitive</strong> — The repeated unit of work the system actually performs.</li>
-              <li><strong>Invariants</strong> — Rules that must not break.</li>
-              <li><strong>Enforcement</strong> — Where those rules live in reality.</li>
-              <li><strong>Mismatch</strong> — Where stated design and operating reality diverge.</li>
-              <li><strong>Build Map</strong> — What must change first, and what depends on what.</li>
+              <li><strong>Primitive</strong> — the repeated unit of work the system actually performs</li>
+              <li><strong>Invariants</strong> — the rules that must not break</li>
+              <li><strong>Enforcement</strong> — where those rules live in reality</li>
+              <li><strong>Mismatch</strong> — where stated design and operating reality diverge</li>
+              <li><strong>Build Map</strong> — what must change first, and what depends on what</li>
             </ul>
           </div>
 
           <div class="paper" style="margin-top:12px;">
             <p class="paper-title" style="margin-bottom:8px;">Redesign Method</p>
-            <p class="paper-desc" style="margin-bottom:12px;">I define the target state and the path to reach it:</p>
+            <p class="paper-desc" style="margin-bottom:12px;">Once the failure is visible, the next task is to define the target state and transition sequence:</p>
             <ul class="clean">
-              <li><strong>Target Boundary</strong> — What the system should become.</li>
-              <li><strong>Transition Sequence</strong> — The order in which change must occur.</li>
-              <li><strong>Interface Changes</strong> — What must be tightened, removed, or clarified.</li>
-              <li><strong>Dependency Order</strong> — What moves first, and what depends on what.</li>
-              <li><strong>Drift Refusal</strong> — Gates that prevent local workarounds from re-entering the system.</li>
+              <li><strong>Target Boundary</strong> — what the system should become</li>
+              <li><strong>Transition Sequence</strong> — the order in which change must occur</li>
+              <li><strong>Interface Changes</strong> — what must be tightened, removed, or clarified</li>
+              <li><strong>Dependency Order</strong> — what moves first, and what depends on what</li>
+              <li><strong>Drift Refusal</strong> — gates that stop local workarounds re-entering the system</li>
             </ul>
           </div>
 
@@ -974,7 +1045,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            Each engagement ends with one written artifact for internal circulation, decision-making, and builder handoff.
+            Each engagement ends with one written artifact built for internal circulation, decision-making, and builder handoff.
           </p>
 
           <div class="summary-grid">
@@ -1021,6 +1092,12 @@
               <li>Drift refusal gates: constraints that prevent regression</li>
             </ul>
           </div>
+
+          <div class="callout">
+            <p>
+              The output is designed to leave you with a usable structural truth: what is happening, why it is happening, what must change, and what order the work must follow.
+            </p>
+          </div>
         </div>
 
         <div class="card">
@@ -1030,7 +1107,7 @@
           </div>
 
           <p class="lead" style="margin-bottom:10px;">
-            A concrete example of the diagnostic lens applied to a public system class.
+            A public example of the diagnostic lens applied to a system class with visible incentive distortion.
           </p>
 
           <div class="snap" role="note" aria-label="Applied snapshot">
@@ -1053,11 +1130,11 @@
 
           <p class="lead" style="margin-bottom:10px;">
             If your system keeps failing in the same way under growth, send the failure pattern first.
-            I review the fit and determine whether the work should begin with diagnosis or move directly to redesign.
+            I review for fit and determine whether the work should begin with diagnosis or move directly to redesign.
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            <strong>If the same failure has happened twice, the structure is probably the problem.</strong> Send the brief first.
+            <strong>If the same failure has happened twice, the structure is probably the problem.</strong>
           </p>
 
           <p class="lead" style="margin-bottom:10px;"><strong>Submit a Five-Line Brief:</strong></p>
@@ -1077,7 +1154,6 @@
         </div>
       </section>
 
-      <!-- THINKING (RIGHT) -->
       <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
@@ -1104,7 +1180,7 @@
                   Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
                 </p>
                 <p class="small">
-                  This framework locates where core institutional functions have collapsed into consequence-bearing roles that cannot carry the load.
+                  This framework locates where irreducible institutional functions have collapsed into consequence-bearing roles that cannot safely carry the load.
                 </p>
                 <div class="actions" style="margin-top:12px;">
                   <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
@@ -1230,7 +1306,7 @@
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            Doors, queues, elevators, approval gates, and bottlenecks are not random examples. They are teaching objects. Each one makes a system visible at human scale: purpose, rules, enforcement, load, and failure posture can all be pointed to directly.
+            Doors, queues, elevators, approval gates, and bottlenecks are not decorative examples. They are teaching objects. Each one makes a system visible at human scale: purpose, rules, enforcement, load, and failure posture can all be pointed to directly.
           </p>
 
           <ul class="clean">
@@ -1268,7 +1344,7 @@
           </p>
 
           <p class="small" style="margin-bottom:12px;">
-            A diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta. Used to identify which layer is under-designed, wrongly named, or being mistaken for another.
+            It is used as a diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta.
           </p>
 
           <p class="small">
