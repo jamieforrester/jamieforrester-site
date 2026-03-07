@@ -91,7 +91,7 @@
     .offer-chip,
     .bridge-tag,
     .signal-kicker,
-    .hero-start-title{
+    .start-strip-title{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -302,11 +302,12 @@
     .offer-chip,
     .bridge-tag,
     .signal-kicker,
-    .hero-start-title{
+    .start-strip-title{
       color:var(--label-blue);
     }
 
     .hero-strip,
+    .start-strip,
     .signal-strip,
     .bridge-card,
     .offer-hero,
@@ -316,6 +317,7 @@
     }
 
     .hero-strip:hover,
+    .start-strip:hover,
     .signal-strip:hover,
     .bridge-card:hover,
     .offer-hero:hover,
@@ -335,7 +337,7 @@
       background:
         linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
         linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      margin-bottom:var(--space-5);
+      margin-bottom:18px;
     }
 
     .eyebrow{
@@ -373,6 +375,16 @@
       margin-top:16px;
     }
 
+    .hero-anchor{
+      margin:16px 0 0;
+      color:#eef2f6;
+      font-size:15px;
+      line-height:1.65;
+      max-width:68ch;
+    }
+
+    .hero-anchor strong{color:#fff;font-weight:600;}
+
     .quick{
       border-left:2px solid rgba(90,176,255,0.24);
       padding:10px 0 10px 14px;
@@ -382,7 +394,7 @@
     .quick dl{
       margin:0;
       display:grid;
-      gap:14px;
+      gap:18px;
     }
 
     .quick div{
@@ -411,15 +423,25 @@
 
     .qv strong{color:#fff;font-weight:600;}
 
-    .quick-start-wrap{
-      margin-top:6px;
-      padding:14px 16px;
-      border:1px solid rgba(90,176,255,0.16);
-      border-radius:14px;
-      background:rgba(90,176,255,0.04);
+    .start-strip{
+      display:grid;
+      grid-template-columns:0.95fr 1.45fr auto;
+      gap:18px;
+      align-items:start;
+      padding:18px 20px;
+      margin-bottom:var(--space-5);
+      border:1px solid rgba(90,176,255,0.18);
+      border-radius:var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.05), rgba(255,255,255,0.012)),
+        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
     }
 
-    .hero-start-title{
+    .start-strip-intro{
+      min-width:0;
+    }
+
+    .start-strip-title{
       display:block;
       margin:0 0 8px;
       font-size:10px;
@@ -427,22 +449,23 @@
       text-transform:uppercase;
     }
 
-    .hero-start-text{
-      margin:0 0 10px;
+    .start-strip-text{
+      margin:0;
       color:#dbe0e7;
       font-size:14px;
       line-height:1.6;
     }
 
-    .hero-start-list{
+    .start-strip-list{
       margin:0;
       padding:0;
       list-style:none;
       display:grid;
-      gap:8px;
+      grid-template-columns:1fr 1fr;
+      gap:10px 18px;
     }
 
-    .hero-start-list li{
+    .start-strip-list li{
       position:relative;
       padding-left:16px;
       color:#d7dce3;
@@ -450,11 +473,17 @@
       line-height:1.55;
     }
 
-    .hero-start-list li::before{
+    .start-strip-list li::before{
       content:"→";
       position:absolute;
       left:0;
       color:var(--text-faint);
+    }
+
+    .start-strip-cta{
+      align-self:center;
+      justify-self:end;
+      white-space:nowrap;
     }
 
     .signal-strip{
@@ -1051,6 +1080,7 @@
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
 
+      .start-strip,
       .signal-strip,
       .bridge-grid,
       .offer-grid,
@@ -1070,6 +1100,7 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
+      .start-strip-cta{justify-self:start; align-self:start;}
 
       .label-row{
         flex-direction:column;
@@ -1142,7 +1173,11 @@
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
 
-        <p class="hero-sub" style="margin:14px 0 0 0;">
+        <p class="hero-anchor">
+          <strong>Start with a five-line brief.</strong> I review fit and determine whether the work begins with diagnosis or redesign.
+        </p>
+
+        <p class="hero-sub" style="margin:16px 0 0 0;">
           <strong>If the same failure has happened twice, the structure is probably the problem.</strong>
         </p>
       </div>
@@ -1161,22 +1196,29 @@
             <dt class="qk">Who it is for <strong>→</strong></dt>
             <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a structural read their builders can execute against.</dd>
           </div>
-
-          <div class="quick-start-wrap">
-            <span class="hero-start-title">How to start</span>
-            <p class="hero-start-text">
-              Email a five-line brief so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
-            </p>
-            <ul class="hero-start-list">
-              <li>What keeps breaking</li>
-              <li>What the cost is</li>
-              <li>Who or what touches the failure</li>
-              <li>Where the heat is showing up</li>
-              <li>What cannot change</li>
-            </ul>
-          </div>
         </dl>
       </div>
+    </section>
+
+    <section class="start-strip" aria-label="How to start">
+      <div class="start-strip-intro">
+        <span class="start-strip-title">How to start</span>
+        <p class="start-strip-text">
+          Email a five-line brief so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
+        </p>
+      </div>
+
+      <ul class="start-strip-list">
+        <li>What keeps breaking</li>
+        <li>What the cost is</li>
+        <li>Who or what touches the failure</li>
+        <li>Where the heat is showing up</li>
+        <li>What cannot change</li>
+      </ul>
+
+      <a class="btn btn-primary start-strip-cta" href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D">
+        EMAIL FIVE-LINE BRIEF
+      </a>
     </section>
 
     <section class="signal-strip" aria-label="Commercial summary">
@@ -1519,7 +1561,7 @@
         </div>
 
         <div class="actions" style="margin-top:14px;">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
