@@ -92,7 +92,6 @@
     .status,
     .skip-link,
     .trust,
-    .lane-head,
     .formula-line,
     .snap,
     .mini-kicker,
@@ -306,13 +305,15 @@
 
     .hero-strip,
     .bridge-card,
-    .offer-hero{
+    .offer-hero,
+    .card{
       box-shadow:var(--shadow-soft);
       transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
     .hero-strip:hover,
     .bridge-card:hover,
-    .offer-hero:hover{
+    .offer-hero:hover,
+    .card:hover{
       border-color:rgba(90,176,255,0.22);
       box-shadow:var(--shadow-hover);
       transform:translateY(-1px);
@@ -471,6 +472,7 @@
       border:1px solid rgba(255,255,255,0.06);
       border-radius:14px;
       background:rgba(255,255,255,0.012);
+      min-width:0;
     }
 
     .bridge-panel .paper-title{
@@ -715,97 +717,17 @@
       line-height:1.62;
     }
 
-    .grid{
+    .stack{
       display:grid;
-      grid-template-columns:1.03fr 0.97fr;
       gap:24px;
-      align-items:start;
-      position:relative;
-    }
-    .grid > section{
-      min-width:0;
-    }
-    .grid::before{
-      content:"";
-      position:absolute;
-      left:calc(50% - 12px);
-      top:0;
-      bottom:0;
-      width:1px;
-      background:linear-gradient(180deg, transparent, var(--divider), transparent);
-      opacity:0.55;
-      pointer-events:none;
-    }
-
-    .lane{
-      min-width:0;
-    }
-
-    .lane-head{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      margin:0 0 14px;
-      padding:0 2px;
-    }
-    .lane-title{
-      margin:0;
-      font-size:12px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--label-blue);
-      font-weight:600;
-    }
-    .lane-sub{
-      margin:0;
-      font-size:10px;
-      letter-spacing:0.10em;
-      text-transform:uppercase;
-      color:var(--text-faint);
-      line-height:1.35;
-      text-align:right;
-      max-width:44ch;
-    }
-
-    .thinking-lane{
-      padding:16px;
-      border:1px solid var(--thinking-border);
-      border-radius:18px;
-      background:
-        linear-gradient(180deg, rgba(74,163,255,0.028), rgba(255,255,255,0)),
-        linear-gradient(180deg, var(--panel-thinking), var(--panel-thinking-soft));
-      box-shadow:0 10px 30px rgba(0,0,0,0.22);
     }
 
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
       border:1px solid var(--border);
-      border-radius:var(--radius-md);
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+      border-radius:var(--radius-xl);
+      padding:28px;
       min-width:0;
-    }
-    .card:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
-    }
-    .card + .card{margin-top:22px;}
-
-    .practice-lane .card{
-      padding:20px;
-    }
-
-    .thinking-lane .card{
-      background:var(--panel-thinking-card);
-      border-color:rgba(74,163,255,0.07);
-      box-shadow:0 8px 24px rgba(0,0,0,0.20);
-    }
-    .thinking-lane .card:hover{
-      border-color:rgba(74,163,255,0.12);
-      box-shadow:0 0 0 1px rgba(74,163,255,0.05), 0 14px 38px rgba(0,0,0,0.24);
     }
 
     .label-row{
@@ -816,9 +738,6 @@
       border-bottom:1px solid var(--border-soft);
       padding-bottom:12px;
       margin-bottom:16px;
-    }
-    .thinking-lane .label-row{
-      border-bottom-color:rgba(255,255,255,0.06);
     }
 
     .label{
@@ -880,11 +799,6 @@
     }
     .paper + .paper{margin-top:12px;}
 
-    .thinking-lane .paper{
-      border-color:rgba(255,255,255,0.06);
-      background:rgba(255,255,255,0.012);
-    }
-
     .paper-row{
       display:grid;
       grid-template-columns:68px 1fr;
@@ -904,18 +818,6 @@
       display:block;
     }
 
-    .infra-thumb{
-      width:68px;
-      height:68px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.03);
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      padding:4px;
-    }
-
     .paper-head{
       display:flex;
       align-items:flex-start;
@@ -933,30 +835,6 @@
       letter-spacing:-0.02em;
     }
 
-    .status{
-      font-size:9px;
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      padding:4px 7px;
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,0.10);
-      color:var(--text-dim);
-      background:rgba(255,255,255,0.02);
-      white-space:nowrap;
-      flex:0 0 auto;
-    }
-    .status-published{
-      color:#0b0b0c;
-      background:rgba(90,176,255,0.96);
-      border-color:rgba(90,176,255,0.96);
-      font-weight:600;
-    }
-    .status-dev{
-      color:#d8eefc;
-      background:rgba(90,176,255,0.10);
-      border-color:rgba(90,176,255,0.24);
-    }
-
     .paper-desc{
       margin:0 0 10px;
       font-size:14px;
@@ -969,23 +847,6 @@
       gap:14px;
       flex-wrap:wrap;
       align-items:center;
-    }
-
-    .formula-line{
-      display:block;
-      margin:0 0 14px;
-      padding:14px 16px;
-      border:1px solid rgba(90,176,255,0.20);
-      border-radius:12px;
-      background:rgba(90,176,255,0.05);
-      color:#fff;
-      font-size:14px;
-      font-weight:600;
-      letter-spacing:0.03em;
-      line-height:1.6;
-      white-space:normal;
-      overflow-wrap:anywhere;
-      word-break:break-word;
     }
 
     .snap{
@@ -1044,27 +905,6 @@
       line-height:1.65;
     }
 
-    .thinking-cta{
-      margin-top:22px;
-      padding:16px;
-      border:1px solid rgba(90,176,255,0.16);
-      border-radius:14px;
-      background:rgba(90,176,255,0.04);
-    }
-    .thinking-cta p{
-      margin:0 0 10px;
-      color:var(--text-dim);
-      font-size:13px;
-      line-height:1.65;
-    }
-    .thinking-cta p:last-child{
-      margin-bottom:0;
-    }
-    .thinking-cta strong{
-      color:#fff;
-      font-weight:600;
-    }
-
     footer{
       margin-top:32px;
       padding-top:18px;
@@ -1101,22 +941,18 @@
       .bridge-grid,
       .offer-grid,
       .offer-footer,
-      .process-strip,
-      .grid{
+      .process-strip{
         grid-template-columns:1fr !important;
       }
-      .grid::before{display:none;}
-      .lane-sub{text-align:left; max-width:none;}
+      .bridge-tag{text-align:left; max-width:none;}
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .thinking-lane{
-        padding:0;
-        border:none;
-        border-radius:0;
-        background:transparent;
-        box-shadow:none;
+      .label-row{
+        flex-direction:column;
+        align-items:flex-start;
       }
+      .label-note{white-space:normal;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1250,7 +1086,7 @@
         <div class="bridge-panel bridge-proof-panel">
           <span class="mini-kicker">Core framework</span>
 
-          <div class="paper-row" style="grid-template-columns:68px 1fr; margin-top:2px;">
+          <div class="paper-row" style="margin-top:2px;">
             <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
               <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
             </a>
@@ -1408,23 +1244,18 @@
       </div>
     </section>
 
-    <main id="main" class="grid" role="main">
-      <section class="lane practice-lane" aria-label="Practice lane">
-        <div class="lane-head">
-          <p class="lane-title">PRACTICE</p>
-          <p class="lane-sub">method → proof → start</p>
+    <main id="main" class="stack" role="main">
+      <section class="card" aria-label="Method language">
+        <div class="label-row">
+          <span class="label">01 // Method language</span>
+          <span class="label-note">how the work is structured</span>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">01 // Method language</span>
-            <span class="label-note">how the work is structured</span>
-          </div>
+        <p class="lead" style="margin-bottom:10px;">
+          <strong>Written artifacts, not endless meetings.</strong> Structural diagnosis, not surface advice.
+        </p>
 
-          <p class="lead" style="margin-bottom:10px;">
-            <strong>Written artifacts, not endless meetings.</strong> Structural diagnosis, not surface advice.
-          </p>
-
+        <div class="bridge-grid">
           <div class="signal-box" style="margin-top:0;">
             <span class="mini-kicker">Diagnostic method</span>
             <ul class="clean">
@@ -1436,7 +1267,7 @@
             </ul>
           </div>
 
-          <div class="signal-box">
+          <div class="signal-box" style="margin-top:0;">
             <span class="mini-kicker">Redesign method</span>
             <ul class="clean">
               <li><strong>Target boundary</strong> — what the system should become</li>
@@ -1446,23 +1277,25 @@
               <li><strong>Drift refusal</strong> — gates that stop local workarounds re-entering</li>
             </ul>
           </div>
-
-          <p class="small" style="margin-top:14px;">
-            Full scope, delivery terms, and service boundaries live on the Services page.
-          </p>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">02 // Applied snapshot</span>
-            <span class="label-note">proof of lens</span>
-          </div>
+        <p class="small" style="margin-top:14px;">
+          Full scope, delivery terms, and service boundaries live on the Services page.
+        </p>
+      </section>
 
-          <p class="lead" style="margin-bottom:10px;">
-            A concrete example of the diagnostic lens applied to a public system class.
-          </p>
+      <section class="card" aria-label="Applied snapshot">
+        <div class="label-row">
+          <span class="label">02 // Applied snapshot</span>
+          <span class="label-note">proof of lens</span>
+        </div>
 
-          <div class="snap" role="note" aria-label="Applied snapshot">
+        <p class="lead" style="margin-bottom:10px;">
+          A concrete example of the diagnostic lens applied to a public system class.
+        </p>
+
+        <div class="bridge-grid">
+          <div class="snap" role="note" aria-label="Applied snapshot" style="margin-top:0;">
             <p class="snap-title">AI task marketplaces</p>
             <p class="snap-line"><span class="k">Observed:</span> reliability language used as a proxy for expertise.</p>
             <p class="snap-line"><span class="k">Mismatch:</span> throughput is measured; expertise is implied.</p>
@@ -1470,65 +1303,78 @@
             <p class="snap-line"><span class="k">Structural implication:</span> separate verification layers from payout layers.</p>
           </div>
 
-          <div class="signal-box">
+          <div class="signal-box" style="margin-top:0;">
             <span class="mini-kicker">Related paper</span>
-            <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-            <p class="small" style="margin-bottom:10px;">
-              A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
-            </p>
-            <div class="actions">
-              <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
+
+            <div class="paper" style="margin-top:0;">
+              <div class="paper-row">
+                <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
+                  <img class="thumb" src="./paper-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+                </a>
+
+                <div>
+                  <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
+                  <p class="small" style="margin-bottom:10px;">
+                    A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
+                  </p>
+                  <div class="actions">
+                    <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
+                    <a class="muted-link" href="./research.html">View research</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="label-row">
-            <span class="label">03 // How to start</span>
-            <span class="label-note">entry route</span>
-          </div>
-
-          <p class="lead" style="margin-bottom:10px;">
-            If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.
-          </p>
-
-          <div class="process-strip" style="grid-template-columns:repeat(3, 1fr);">
-            <div class="process-card">
-              <span class="process-step">Step 01</span>
-              <p><strong>Send the brief.</strong> Five lines plus any relevant material you already have.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-step">Step 02</span>
-              <p><strong>I review fit.</strong> Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
-            </div>
-            <div class="process-card">
-              <span class="process-step">Step 03</span>
-              <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
-            </div>
-          </div>
-
-          <div class="signal-box">
-            <span class="mini-kicker">Submit a Five-Line Brief</span>
-            <ul class="clean">
-              <li><strong>The Pattern</strong>: What keeps breaking?</li>
-              <li><strong>The Stake</strong>: What is the cost?</li>
-              <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
-              <li><strong>Concentration</strong>: Where is the heat showing up?</li>
-              <li><strong>Constraints</strong>: What are the non-negotiables?</li>
-            </ul>
-          </div>
-
-          <div class="callout">
-            <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
-          </div>
-
-          <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
           </div>
         </div>
       </section>
+
+      <section class="card" aria-label="How to start">
+        <div class="label-row">
+          <span class="label">03 // How to start</span>
+          <span class="label-note">entry route</span>
+        </div>
+
+        <p class="lead" style="margin-bottom:10px;">
+          If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.
+        </p>
+
+        <div class="process-strip" style="grid-template-columns:repeat(3, 1fr);">
+          <div class="process-card">
+            <span class="process-step">Step 01</span>
+            <p><strong>Send the brief.</strong> Five lines plus any relevant material you already have.</p>
+          </div>
+          <div class="process-card">
+            <span class="process-step">Step 02</span>
+            <p><strong>I review fit.</strong> Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
+          </div>
+          <div class="process-card">
+            <span class="process-step">Step 03</span>
+            <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
+          </div>
+        </div>
+
+        <div class="signal-box">
+          <span class="mini-kicker">Submit a Five-Line Brief</span>
+          <ul class="clean">
+            <li><strong>The Pattern</strong>: What keeps breaking?</li>
+            <li><strong>The Stake</strong>: What is the cost?</li>
+            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
+            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
+            <li><strong>Constraints</strong>: What are the non-negotiables?</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
+        </div>
+
+        <div class="actions" style="margin-top:14px;">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <div class="footer-links">
