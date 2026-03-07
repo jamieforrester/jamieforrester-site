@@ -84,14 +84,14 @@
     .eyebrow,
     .qk,
     .skip-link,
-    .trust,
     .snap,
     .mini-kicker,
     .price,
     .process-step,
     .offer-chip,
     .bridge-tag,
-    .signal-kicker{
+    .signal-kicker,
+    .hero-start-title{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -301,7 +301,8 @@
     .process-step,
     .offer-chip,
     .bridge-tag,
-    .signal-kicker{
+    .signal-kicker,
+    .hero-start-title{
       color:var(--label-blue);
     }
 
@@ -409,6 +410,52 @@
     }
 
     .qv strong{color:#fff;font-weight:600;}
+
+    .quick-start-wrap{
+      margin-top:6px;
+      padding:14px 16px;
+      border:1px solid rgba(90,176,255,0.16);
+      border-radius:14px;
+      background:rgba(90,176,255,0.04);
+    }
+
+    .hero-start-title{
+      display:block;
+      margin:0 0 8px;
+      font-size:10px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .hero-start-text{
+      margin:0 0 10px;
+      color:#dbe0e7;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .hero-start-list{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+
+    .hero-start-list li{
+      position:relative;
+      padding-left:16px;
+      color:#d7dce3;
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .hero-start-list li::before{
+      content:"→";
+      position:absolute;
+      left:0;
+      color:var(--text-faint);
+    }
 
     .signal-strip{
       display:grid;
@@ -992,55 +1039,6 @@
       align-items:center;
     }
 
-    .hero-start{
-  margin-top:18px;
-  padding:14px 16px;
-  border:1px solid rgba(90,176,255,0.16);
-  border-radius:14px;
-  background:rgba(90,176,255,0.04);
-  max-width:720px;
-}
-
-.hero-start-title{
-  display:block;
-  margin:0 0 8px;
-  font-size:10px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--label-blue);
-  font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-.hero-start-text{
-  margin:0 0 10px;
-  color:#dbe0e7;
-  font-size:14px;
-  line-height:1.6;
-}
-
-.hero-start-list{
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:grid;
-  gap:8px;
-}
-
-.hero-start-list li{
-  position:relative;
-  padding-left:16px;
-  color:#d7dce3;
-  font-size:14px;
-  line-height:1.55;
-}
-
-.hero-start-list li::before{
-  content:"→";
-  position:absolute;
-  left:0;
-  color:var(--text-faint);
-}
-
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
 
@@ -1112,7 +1110,7 @@
         <a class="btn" href="./research.html">RESEARCH</a>
         <a
           class="btn btn-primary"
-          href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
+          href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D"
         >
           <span class="ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
@@ -1143,19 +1141,6 @@
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
-        <div class="hero-start">
-  <span class="hero-start-title">How to start</span>
-  <p class="hero-start-text">
-    Email a five-line brief so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
-  </p>
-  <ul class="hero-start-list">
-    <li>What keeps breaking</li>
-    <li>What the cost is</li>
-    <li>Who or what touches the failure</li>
-    <li>Where the heat is showing up</li>
-    <li>What cannot change</li>
-  </ul>
-</div>
 
         <p class="hero-sub" style="margin:14px 0 0 0;">
           <strong>If the same failure has happened twice, the structure is probably the problem.</strong>
@@ -1176,9 +1161,19 @@
             <dt class="qk">Who it is for <strong>→</strong></dt>
             <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a structural read their builders can execute against.</dd>
           </div>
-          <div>
-            <dt class="qk">How to start <strong>→</strong></dt>
-            <dd class="qv"><strong>Email five lines</strong> plus any relevant material you already have.</dd>
+
+          <div class="quick-start-wrap">
+            <span class="hero-start-title">How to start</span>
+            <p class="hero-start-text">
+              Email a five-line brief so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
+            </p>
+            <ul class="hero-start-list">
+              <li>What keeps breaking</li>
+              <li>What the cost is</li>
+              <li>Who or what touches the failure</li>
+              <li>Where the heat is showing up</li>
+              <li>What cannot change</li>
+            </ul>
           </div>
         </dl>
       </div>
