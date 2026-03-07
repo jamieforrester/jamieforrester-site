@@ -91,7 +91,7 @@
     .offer-chip,
     .bridge-tag,
     .signal-kicker,
-    .start-strip-title{
+    .quick-brief-title{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -302,12 +302,11 @@
     .offer-chip,
     .bridge-tag,
     .signal-kicker,
-    .start-strip-title{
+    .quick-brief-title{
       color:var(--label-blue);
     }
 
     .hero-strip,
-    .start-strip,
     .signal-strip,
     .bridge-card,
     .offer-hero,
@@ -317,7 +316,6 @@
     }
 
     .hero-strip:hover,
-    .start-strip:hover,
     .signal-strip:hover,
     .bridge-card:hover,
     .offer-hero:hover,
@@ -423,25 +421,13 @@
 
     .qv strong{color:#fff;font-weight:600;}
 
-    .start-strip{
-      display:grid;
-      grid-template-columns:0.95fr 1.45fr auto;
-      gap:18px;
-      align-items:start;
-      padding:18px 20px;
-      margin-bottom:var(--space-5);
-      border:1px solid rgba(90,176,255,0.18);
-      border-radius:var(--radius-xl);
-      background:
-        linear-gradient(180deg, rgba(90,176,255,0.05), rgba(255,255,255,0.012)),
-        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+    .quick-brief{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,0.06);
     }
 
-    .start-strip-intro{
-      min-width:0;
-    }
-
-    .start-strip-title{
+    .quick-brief-title{
       display:block;
       margin:0 0 8px;
       font-size:10px;
@@ -449,41 +435,21 @@
       text-transform:uppercase;
     }
 
-    .start-strip-text{
-      margin:0;
+    .quick-brief-text{
+      margin:0 0 14px;
       color:#dbe0e7;
       font-size:14px;
-      line-height:1.6;
+      line-height:1.62;
     }
 
-    .start-strip-list{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px 18px;
+    .quick-brief-text strong{
+      color:#fff;
+      font-weight:600;
     }
 
-    .start-strip-list li{
-      position:relative;
-      padding-left:16px;
-      color:#d7dce3;
-      font-size:14px;
-      line-height:1.55;
-    }
-
-    .start-strip-list li::before{
-      content:"→";
-      position:absolute;
-      left:0;
-      color:var(--text-faint);
-    }
-
-    .start-strip-cta{
-      align-self:center;
-      justify-self:end;
-      white-space:nowrap;
+    .quick-brief-btn{
+      width:100%;
+      justify-content:center;
     }
 
     .signal-strip{
@@ -1080,7 +1046,6 @@
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
 
-      .start-strip,
       .signal-strip,
       .bridge-grid,
       .offer-grid,
@@ -1100,7 +1065,6 @@
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
-      .start-strip-cta{justify-self:start; align-self:start;}
 
       .label-row{
         flex-direction:column;
@@ -1168,7 +1132,6 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         </div>
@@ -1197,28 +1160,17 @@
             <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a structural read their builders can execute against.</dd>
           </div>
         </dl>
+
+        <div class="quick-brief">
+          <span class="quick-brief-title">How to start</span>
+          <p class="quick-brief-text">
+            <strong>Email a five-line brief</strong> so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
+          </p>
+          <a class="btn btn-primary quick-brief-btn" href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D">
+            EMAIL FIVE-LINE BRIEF
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section class="start-strip" aria-label="How to start">
-      <div class="start-strip-intro">
-        <span class="start-strip-title">How to start</span>
-        <p class="start-strip-text">
-          Email a five-line brief so I can assess fit and determine whether the work should begin with diagnosis or move directly to redesign.
-        </p>
-      </div>
-
-      <ul class="start-strip-list">
-        <li>What keeps breaking</li>
-        <li>What the cost is</li>
-        <li>Who or what touches the failure</li>
-        <li>Where the heat is showing up</li>
-        <li>What cannot change</li>
-      </ul>
-
-      <a class="btn btn-primary start-strip-cta" href="mailto:hello@jamieforrester.com?subject=Five-Line%20Brief%20%E2%80%94%20%5BSystem%20Name%5D">
-        EMAIL FIVE-LINE BRIEF
-      </a>
     </section>
 
     <section class="signal-strip" aria-label="Commercial summary">
