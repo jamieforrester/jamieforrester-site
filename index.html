@@ -473,6 +473,17 @@
       background:rgba(255,255,255,0.012);
     }
 
+    .bridge-panel .paper-title{
+      margin:0 0 8px;
+      font-size:15px;
+      line-height:1.32;
+    }
+
+    .bridge-panel .small{
+      font-size:13px;
+      line-height:1.62;
+    }
+
     .bridge-list{
       margin:0;
       padding:0;
@@ -485,8 +496,8 @@
       padding-left:16px;
       position:relative;
       color:#d7dce3;
-      font-size:14px;
-      line-height:1.62;
+      font-size:13px;
+      line-height:1.58;
     }
 
     .bridge-list li::before{
@@ -494,6 +505,12 @@
       position:absolute;
       left:0;
       color:var(--text-faint);
+    }
+
+    .bridge-proof-panel{
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0.012));
+      border-color:rgba(90,176,255,0.16);
     }
 
     .process-strip{
@@ -1066,118 +1083,6 @@
       flex-wrap:wrap;
       align-items:center;
     }
-    .bridge-panel .paper-title{
-  margin:0 0 8px;
-  font-size:15px;
-  line-height:1.32;
-}
-
-.bridge-panel .small{
-  font-size:13px;
-  line-height:1.62;
-}
-
-.bridge-list li{
-  font-size:13px;
-  line-height:1.58;
-}
-
-.bridge-proof-panel{
-  background:
-    linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0.012));
-  border-color:rgba(90,176,255,0.16);
-}
-    /* ✅ ADD THIS to your main stylesheet (or inside <style>), near your hero/header styles */
-
-.cta-rail {
-  position: relative;
-  z-index: 2;
-  padding: 12px 0 0;
-}
-
-.cta-rail__inner {
-  max-width: 1120px;               /* match your page container width */
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 46px;
-  padding: 0 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  line-height: 1;
-  user-select: none;
-  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease, opacity 120ms ease;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.cta-btn:focus-visible {
-  outline: 2px solid rgba(110, 231, 255, 0.8);  /* tweak to your existing accent */
-  outline-offset: 2px;
-}
-
-.cta-btn:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-.cta-btn:active {
-  transform: translateY(0px);
-  opacity: 0.92;
-}
-
-/* Primary: subtle “glass” fill */
-.cta-btn--primary {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Secondary: quieter, more outline */
-.cta-btn--secondary {
-  background: rgba(255, 255, 255, 0.04);
-}
-
-/* Small helper link */
-.cta-rail__link {
-  margin-left: 4px;
-  font-size: 14px;
-  text-decoration: none;
-  opacity: 0.75;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  padding-bottom: 2px;
-}
-
-.cta-rail__link:hover {
-  opacity: 0.95;
-  border-bottom-color: rgba(255, 255, 255, 0.4);
-}
-
-/* Responsive: stack nicely on small screens */
-@media (max-width: 640px) {
-  .cta-rail__inner {
-    gap: 10px;
-  }
-  .cta-btn {
-    width: 100%;
-  }
-  .cta-rail__link {
-    width: 100%;
-    border-bottom: none;
-    opacity: 0.8;
-    padding-bottom: 0;
-  }
-}
 
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
@@ -1198,7 +1103,7 @@
       .offer-footer,
       .process-strip,
       .grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr !important;
       }
       .grid::before{display:none;}
       .lane-sub{text-align:left; max-width:none;}
@@ -1241,6 +1146,7 @@
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
         <a
           class="btn btn-primary"
           href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D"
@@ -1256,23 +1162,6 @@
       </div>
     </header>
 
-    <!-- ✅ INSERT THIS BLOCK directly AFTER </header> and BEFORE your main hero section -->
-<section class="cta-rail" aria-label="Primary actions">
-  <div class="cta-rail__inner">
-    <a class="cta-btn cta-btn--primary"
-       href="mailto:YOUR_EMAIL_HERE?subject=Request%3A%20Diagnostic%20Artifact&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20a%20Diagnostic%20Artifact.%0A%0AContext%20(1%E2%80%933%20sentences)%3A%0A%0AFailure%20pattern%3A%0A%0AWhat%20I%20need%20from%20this%3A%0A%0ATimeline%3A%0A%0ABudget%20range%20(optional)%3A%0A%0AThanks%2C%0A%5BName%5D">
-      Request Diagnostic
-    </a>
-
-    <a class="cta-btn cta-btn--secondary"
-       href="mailto:YOUR_EMAIL_HERE?subject=Request%3A%20Redesign%20Artifact&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20a%20Redesign%20Artifact.%0A%0AContext%20(1%E2%80%933%20sentences)%3A%0A%0AWhat%20has%20already%20been%20diagnosed%20(if%20anything)%3A%0A%0AConstraints%20(teams%2C%20time%2C%20regulatory%2C%20budget)%3A%0A%0ATimeline%3A%0A%0AThanks%2C%0A%5BName%5D">
-      Request Redesign
-    </a>
-
-    <a class="cta-rail__link" href="#services">Not sure which? See services.</a>
-  </div>
-</section>
-
     <section class="hero-strip" aria-label="Primary summary">
       <div>
         <div class="eyebrow">What I do</div>
@@ -1286,8 +1175,9 @@
           I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against.
         </p>
 
-       <p></p>
-        <p></p>
+        <div class="trust">
+          WRITTEN ARTIFACTS FOR BUILDERS AND DECISION OWNERS // INFORMED BY LIVE BUILDS, RESEARCH, AND STRUCTURAL DESIGN
+        </div>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
@@ -1323,63 +1213,63 @@
     </section>
 
     <section class="bridge-card" aria-label="Overview">
-  <div class="bridge-head">
-    <div>
-      <div class="eyebrow">Overview</div>
-      <h2 class="bridge-title">Why failure repeats.</h2>
-      <p class="bridge-sub">
-        Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.
-      </p>
-    </div>
-    <p class="bridge-tag">
-      repeated failure → hidden structure<br />
-      hidden structure → recurring cost
-    </p>
-  </div>
-
-  <div class="bridge-grid" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
-    <div class="bridge-panel">
-      <span class="mini-kicker">What this replaces</span>
-      <ul class="bridge-list">
-        <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
-        <li>The gap between what policy says and what operating reality actually does</li>
-        <li>Roadmaps that describe intent but do not change the underlying failure</li>
-      </ul>
-    </div>
-
-    <div class="bridge-panel">
-      <span class="mini-kicker">Typical triggers</span>
-      <p class="paper-title">When this work becomes urgent</p>
-      <ul class="bridge-list">
-        <li>The same failure keeps reappearing under different names</li>
-        <li>Your operators are absorbing failures the system should absorb</li>
-        <li>Your platform signals one thing and optimises another</li>
-      </ul>
-    </div>
-
-    <div class="bridge-panel bridge-proof-panel">
-      <span class="mini-kicker">Core framework</span>
-
-      <div class="paper-row" style="grid-template-columns:68px 1fr; margin-top:2px;">
-        <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
-          <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-        </a>
-
+      <div class="bridge-head">
         <div>
-          <p class="paper-title" style="margin-bottom:8px;">The Four-Function Law of Scalable Institutions</p>
-          <p class="small" style="margin-bottom:10px;">
-            Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.
+          <div class="eyebrow">Overview</div>
+          <h2 class="bridge-title">Why failure repeats.</h2>
+          <p class="bridge-sub">
+            Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.
           </p>
-          <div class="actions">
-            <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
-            <a href="./status-notes.html" class="muted-link">Status notes</a>
+        </div>
+        <p class="bridge-tag">
+          repeated failure → hidden structure<br />
+          hidden structure → recurring cost
+        </p>
+      </div>
+
+      <div class="bridge-grid" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
+        <div class="bridge-panel">
+          <span class="mini-kicker">What this replaces</span>
+          <ul class="bridge-list">
+            <li>Months of alignment meetings that end with “we all need to get on the same page”</li>
+            <li>The gap between what policy says and what operating reality actually does</li>
+            <li>Roadmaps that describe intent but do not change the underlying failure</li>
+          </ul>
+        </div>
+
+        <div class="bridge-panel">
+          <span class="mini-kicker">Typical triggers</span>
+          <p class="paper-title">When this work becomes urgent</p>
+          <ul class="bridge-list">
+            <li>The same failure keeps reappearing under different names</li>
+            <li>Your operators are absorbing failures the system should absorb</li>
+            <li>Your platform signals one thing and optimises another</li>
+          </ul>
+        </div>
+
+        <div class="bridge-panel bridge-proof-panel">
+          <span class="mini-kicker">Core framework</span>
+
+          <div class="paper-row" style="grid-template-columns:68px 1fr; margin-top:2px;">
+            <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+              <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+            </a>
+
+            <div>
+              <p class="paper-title" style="margin-bottom:8px;">The Four-Function Law of Scalable Institutions</p>
+              <p class="small" style="margin-bottom:10px;">
+                Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.
+              </p>
+              <div class="actions">
+                <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
+                <a href="./status-notes.html" class="muted-link">Status notes</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-    
+    </section>
+
     <section class="bridge-card" aria-label="How it works">
       <div class="bridge-head">
         <div>
@@ -1563,34 +1453,34 @@
         </div>
 
         <div class="card">
-  <div class="label-row">
-    <span class="label">02 // Applied snapshot</span>
-    <span class="label-note">proof of lens</span>
-  </div>
+          <div class="label-row">
+            <span class="label">02 // Applied snapshot</span>
+            <span class="label-note">proof of lens</span>
+          </div>
 
-  <p class="lead" style="margin-bottom:10px;">
-    A concrete example of the diagnostic lens applied to a public system class.
-  </p>
+          <p class="lead" style="margin-bottom:10px;">
+            A concrete example of the diagnostic lens applied to a public system class.
+          </p>
 
-  <div class="snap" role="note" aria-label="Applied snapshot">
-    <p class="snap-title">AI task marketplaces</p>
-    <p class="snap-line"><span class="k">Observed:</span> reliability language used as a proxy for expertise.</p>
-    <p class="snap-line"><span class="k">Mismatch:</span> throughput is measured; expertise is implied.</p>
-    <p class="snap-line"><span class="k">Implication:</span> optimisers outcompete experts under scale.</p>
-    <p class="snap-line"><span class="k">Structural implication:</span> separate verification layers from payout layers.</p>
-  </div>
+          <div class="snap" role="note" aria-label="Applied snapshot">
+            <p class="snap-title">AI task marketplaces</p>
+            <p class="snap-line"><span class="k">Observed:</span> reliability language used as a proxy for expertise.</p>
+            <p class="snap-line"><span class="k">Mismatch:</span> throughput is measured; expertise is implied.</p>
+            <p class="snap-line"><span class="k">Implication:</span> optimisers outcompete experts under scale.</p>
+            <p class="snap-line"><span class="k">Structural implication:</span> separate verification layers from payout layers.</p>
+          </div>
 
-  <div class="signal-box">
-    <span class="mini-kicker">Related paper</span>
-    <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-    <p class="small" style="margin-bottom:10px;">
-      A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
-    </p>
-    <div class="actions">
-      <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
-    </div>
-  </div>
-</div>
+          <div class="signal-box">
+            <span class="mini-kicker">Related paper</span>
+            <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
+            <p class="small" style="margin-bottom:10px;">
+              A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
+            </p>
+            <div class="actions">
+              <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+        </div>
 
         <div class="card">
           <div class="label-row">
@@ -1643,7 +1533,7 @@
       <section class="lane thinking-lane" aria-label="Thinking lane">
         <div class="lane-head">
           <p class="lane-title">THINKING</p>
-          <p class="lane-sub">framework → research → books → method → formula → builds</p>
+          <p class="lane-sub">framework → research → books → formula → builds</p>
         </div>
 
         <div class="card">
@@ -1786,7 +1676,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">05 // Universal Formula</span>
+            <span class="label">04 // Universal Formula</span>
             <span class="label-note">canonical architecture</span>
           </div>
 
@@ -1809,7 +1699,7 @@
 
         <div class="card">
           <div class="label-row">
-            <span class="label">06 // Systems in development</span>
+            <span class="label">05 // Systems in development</span>
             <span class="label-note">applied builds</span>
           </div>
 
