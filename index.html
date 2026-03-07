@@ -90,7 +90,8 @@
     .price,
     .process-step,
     .offer-chip,
-    .bridge-tag{
+    .bridge-tag,
+    .signal-kicker{
       font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -109,6 +110,7 @@
       text-decoration:none;
       font-size:12px;
     }
+
     .skip-link:focus-visible{
       transform:translateY(0);
       outline:2px solid var(--focus-ring);
@@ -298,11 +300,13 @@
     .mini-kicker,
     .process-step,
     .offer-chip,
-    .bridge-tag{
+    .bridge-tag,
+    .signal-kicker{
       color:var(--label-blue);
     }
 
     .hero-strip,
+    .signal-strip,
     .bridge-card,
     .offer-hero,
     .card{
@@ -311,6 +315,7 @@
     }
 
     .hero-strip:hover,
+    .signal-strip:hover,
     .bridge-card:hover,
     .offer-hero:hover,
     .card:hover{
@@ -367,19 +372,6 @@
       margin-top:16px;
     }
 
-    .trust{
-      margin-top:14px;
-      padding:12px 14px;
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      background:rgba(255,255,255,0.012);
-      color:var(--text-dim);
-      font-size:11px;
-      line-height:1.55;
-      letter-spacing:0.04em;
-      text-transform:uppercase;
-    }
-
     .quick{
       border-left:2px solid rgba(90,176,255,0.24);
       padding:10px 0 10px 14px;
@@ -417,6 +409,47 @@
     }
 
     .qv strong{color:#fff;font-weight:600;}
+
+    .signal-strip{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+      padding:18px;
+      margin-bottom:var(--space-5);
+      border:1px solid rgba(90,176,255,0.18);
+      border-radius:var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(90,176,255,0.05), rgba(255,255,255,0.012)),
+        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+    }
+
+    .signal-box-inline{
+      padding:14px 16px;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:14px;
+      background:rgba(255,255,255,0.012);
+      min-width:0;
+    }
+
+    .signal-kicker{
+      display:block;
+      margin:0 0 8px;
+      font-size:10px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+    }
+
+    .signal-line{
+      margin:0;
+      color:#dbe0e7;
+      font-size:14px;
+      line-height:1.55;
+    }
+
+    .signal-line strong{
+      color:#fff;
+      font-weight:600;
+    }
 
     .bridge-card{
       padding:28px;
@@ -521,6 +554,14 @@
       border-color:rgba(90,176,255,0.16);
     }
 
+    .panel-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+
     .process-strip{
       display:grid;
       grid-template-columns:1.12fr 1fr 1fr 1fr;
@@ -583,7 +624,7 @@
       letter-spacing:-0.03em;
       font-weight:700;
       color:#fff;
-      max-width:20ch;
+      max-width:24ch;
     }
 
     .offer-hero-sub{
@@ -963,12 +1004,7 @@
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
 
-      .bridge-head,
-      .offer-hero-head{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
+      .signal-strip,
       .bridge-grid,
       .offer-grid,
       .offer-footer,
@@ -976,7 +1012,14 @@
         grid-template-columns:1fr !important;
       }
 
-      .bridge-tag{text-align:left; max-width:none;}
+      .bridge-head,
+      .offer-hero-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .bridge-tag,
+      .offer-hero-note{text-align:left; max-width:none;}
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
@@ -987,6 +1030,7 @@
       }
 
       .label-note{white-space:normal;}
+      .panel-top{flex-direction:column; align-items:flex-start;}
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1038,11 +1082,11 @@
         <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
 
         <p class="hero-sub">
-          I make hidden rules visible, then redesign the structure so the system stops failing in the same way.
+          I make hidden rules visible, then define the change sequence so the system stops failing in the same way.
         </p>
 
         <p class="hero-sub">
-          I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against.
+          I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> for decision owners and builders who need a single source of structural truth they can act against.
         </p>
 
         <div class="hero-actions">
@@ -1072,9 +1116,24 @@
           </div>
           <div>
             <dt class="qk">How to start <strong>→</strong></dt>
-            <dd class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</dd>
+            <dd class="qv"><strong>Email five lines</strong> plus any relevant material you already have.</dd>
           </div>
         </dl>
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Commercial summary">
+      <div class="signal-box-inline">
+        <span class="signal-kicker">What breaks</span>
+        <p class="signal-line"><strong>The same failure returns</strong> under different names because the real structure is still hidden.</p>
+      </div>
+      <div class="signal-box-inline">
+        <span class="signal-kicker">What I deliver</span>
+        <p class="signal-line"><strong>A written diagnostic or redesign artifact</strong> built for decision-making, internal circulation, and builder handoff.</p>
+      </div>
+      <div class="signal-box-inline">
+        <span class="signal-kicker">What changes</span>
+        <p class="signal-line"><strong>Builders get a sequence</strong>, not another round of ambiguity, alignment drift, or meeting spillover.</p>
       </div>
     </section>
 
@@ -1114,8 +1173,11 @@
         </div>
 
         <div class="bridge-panel bridge-proof-panel">
-          <span class="mini-kicker">Core framework</span>
-<span class="offer-chip">Related Research</span>
+          <div class="panel-top">
+            <span class="mini-kicker">Core framework</span>
+            <span class="offer-chip">Related research</span>
+          </div>
+
           <div class="paper-row" style="margin-top:2px;">
             <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
               <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
@@ -1178,7 +1240,7 @@
       <div class="offer-hero-head">
         <div>
           <div class="eyebrow">Core offerings</div>
-          <h2 class="offer-hero-title">Start with the artifact that matches the state of the problem.</h2>
+          <h2 class="offer-hero-title">Choose the artifact that matches the state of the problem.</h2>
           <p class="offer-hero-sub">
             Two fixed-scope written engagements. Start with diagnosis when the failure is still structurally unclear. Move to redesign when the failure is visible but the transition path is not.
           </p>
@@ -1322,7 +1384,7 @@
         </div>
 
         <p class="lead" style="margin-bottom:10px;">
-          A concrete example of the diagnostic lens applied to a public system class.
+          A concrete public example of the same diagnostic lens: what a system signals, what it optimises, and where the divergence breaks reality.
         </p>
 
         <div class="bridge-grid">
@@ -1425,7 +1487,7 @@
       </div>
 
       <div>
-        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-07</span>
       </div>
     </footer>
   </div>
