@@ -1,1 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research — Jamie Forrester</title>
+  <meta
+    name="description"
+    content="Research, papers, books, frameworks, and live builds by Jamie Forrester."
+  />
+  <link rel="icon" href="/favicon.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#101114;
+      --panel-soft:#0d0e11;
+
+      --text-main:#f1f3f5;
+      --text-dim:#c6ccd4;
+      --text-faint:#8c94a2;
+
+      --border:#232731;
+      --border-soft:rgba(255,255,255,0.06);
+      --accent:#343a46;
+
+      --label-blue:#4aa3ff;
+      --cta-blue:#5ab0ff;
+
+      --focus-ring:rgba(255,255,255,0.95);
+      --focus-bg:rgba(255,255,255,0.08);
+
+      --radius-sm:10px;
+      --radius-md:14px;
+      --radius-lg:18px;
+      --radius-xl:22px;
+
+      --space-1:8px;
+      --space-2:12px;
+      --space-3:16px;
+      --space-4:20px;
+      --space-5:24px;
+      --space-6:32px;
+
+      --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
+      --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+    }
+
+    *{box-sizing:border-box;}
+    html{color-scheme:dark;}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(90,176,255,0.035), transparent 28%),
+        linear-gradient(180deg, #0b0b0c, #0b0b0c);
+      color:var(--text-main);
+      font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+      font-size:16px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      font-feature-settings:"ss01" 1, "cv05" 1;
+    }
+
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:64px 24px 56px;
+    }
+
+    .sub,
+    .pill,
+    .label,
+    .label-note,
+    .eyebrow,
+    .status,
+    .skip-link,
+    .trust,
+    .mini-kicker,
+    .formula-line{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .skip-link{
+      position:absolute;
+      left:12px;
+      top:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid var(--accent);
+      background:var(--panel);
+      color:#fff;
+      transform:translateY(-200%);
+      transition:transform 120ms ease;
+      z-index:9999;
+      text-decoration:none;
+      font-size:12px;
+    }
+    .skip-link:focus-visible{
+      transform:translateY(0);
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+    }
+
+    a{
+      color:#fff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,0.18);
+      padding-bottom:1px;
+      font-size:14px;
+      transition:
+        border-color 140ms ease,
+        background-color 140ms ease,
+        color 140ms ease,
+        transform 140ms ease;
+    }
+    a:hover{
+      border-bottom-color:#fff;
+      background:rgba(255,255,255,0.05);
+    }
+    a:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      border-bottom-color:transparent;
+      background:var(--focus-bg);
+      border-radius:6px;
+    }
+
+    .muted-link{
+      color:var(--text-dim);
+      border-bottom-color:transparent;
+    }
+    .muted-link:hover{
+      border-bottom-color:rgba(255,255,255,0.45);
+    }
+
+    .link-blue{
+      color:var(--cta-blue);
+      border-bottom-color:transparent;
+    }
+    .link-blue:hover{
+      border-bottom-color:rgba(90,176,255,0.85);
+      background:rgba(90,176,255,0.08);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-4);
+      padding-bottom:var(--space-5);
+      border-bottom:1px solid var(--border-soft);
+      margin-bottom:var(--space-5);
+    }
+
+    .h-left{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      min-width:0;
+    }
+
+    .h-ident{min-width:0;}
+    .meta-row{margin-top:12px;}
+
+    .avatar{
+      width:78px;
+      height:78px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      object-fit:cover;
+      filter:grayscale(100%);
+      flex:0 0 auto;
+      box-shadow:0 6px 20px rgba(0,0,0,0.18);
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(1.1rem, 1rem + 0.7vw, 1.45rem);
+      font-weight:600;
+      letter-spacing:-0.03em;
+      line-height:1.15;
+    }
+
+    .sub{
+      margin-top:6px;
+      font-size:11px;
+      color:var(--text-dim);
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      white-space:nowrap;
+    }
+
+    .pill{
+      display:-webkit-inline-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      width:392px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      color:var(--text-dim);
+      font-size:11px;
+      letter-spacing:0.05em;
+      line-height:1.35;
+      white-space:normal;
+    }
+
+    .top-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--accent);
+      background:rgba(255,255,255,0.018);
+      color:#fff;
+      font-size:13px;
+      font-weight:500;
+      text-decoration:none;
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      white-space:nowrap;
+      transition:
+        transform 140ms ease,
+        background-color 140ms ease,
+        border-color 140ms ease,
+        box-shadow 140ms ease;
+    }
+    .btn:hover{
+      background:rgba(255,255,255,0.04);
+      transform:translateY(-1px);
+    }
+    .btn:focus-visible{
+      outline:2px solid var(--focus-ring);
+      outline-offset:3px;
+      background:var(--focus-bg);
+    }
+
+    .btn-primary{
+      color:var(--cta-blue);
+      border-color:rgba(90,176,255,0.30);
+      background:rgba(90,176,255,0.075);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .btn-primary:hover{
+      background:rgba(90,176,255,0.12);
+      border-color:rgba(90,176,255,0.45);
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .ico{display:inline-flex;align-items:center;justify-content:center;}
+    .ico svg{display:block;}
+
+    .hero-strip,
+    .card{
+      box-shadow:var(--shadow-soft);
+      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+    .hero-strip:hover,
+    .card:hover{
+      border-color:rgba(90,176,255,0.22);
+      box-shadow:var(--shadow-hover);
+      transform:translateY(-1px);
+    }
+
+    .hero-strip{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:var(--space-5);
+      padding:28px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
+        linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
+      margin-bottom:var(--space-5);
+    }
+
+    .eyebrow{
+      font-size:10px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+      color:var(--label-blue);
+    }
+
+    .hero-title{
+      margin:0 0 12px;
+      font-size:clamp(1.7rem, 1.38rem + 1vw, 2.2rem);
+      line-height:1.12;
+      letter-spacing:-0.04em;
+      font-weight:700;
+      color:#fff;
+      max-width:18ch;
+    }
+
+    .hero-sub{
+      margin:0 0 12px;
+      color:#d8dde4;
+      font-size:clamp(0.98rem, 0.94rem + 0.12vw, 1.04rem);
+      line-height:1.68;
+      max-width:72ch;
+    }
+
+    .trust{
+      margin-top:14px;
+      padding:12px 14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.012);
+      color:var(--text-dim);
+      font-size:11px;
+      line-height:1.55;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+    }
+
+    .hero-side{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .hero-side-card{
+      padding:16px;
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:14px;
+      background:rgba(255,255,255,0.012);
+    }
+
+    .hero-side-card p{
+      margin:0;
+      color:var(--text-dim);
+      font-size:14px;
+      line-height:1.62;
+    }
+
+    .stack{
+      display:grid;
+      gap:22px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
+      border:1px solid var(--border);
+      border-radius:var(--radius-md);
+      padding:22px;
+      min-width:0;
+    }
+
+    .label-row{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid var(--border-soft);
+      padding-bottom:12px;
+      margin-bottom:16px;
+    }
+
+    .label{
+      font-size:11px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--label-blue);
+    }
+
+    .label-note{
+      font-size:10px;
+      letter-spacing:0.08em;
+      white-space:nowrap;
+      text-transform:lowercase;
+      color:var(--label-blue);
+    }
+
+    .lead{
+      margin:0 0 14px;
+      color:#d7dce3;
+      font-size:15px;
+      line-height:1.7;
+      max-width:76ch;
+    }
+
+    .small{
+      margin:0;
+      font-size:13px;
+      color:var(--text-dim);
+      line-height:1.65;
+    }
+
+    .paper{
+      padding:14px;
+      border:1px solid var(--border-soft);
+      border-radius:12px;
+      background:rgba(255,255,255,0.01);
+      min-width:0;
+    }
+    .paper + .paper{margin-top:12px;}
+
+    .paper-row{
+      display:grid;
+      grid-template-columns:68px 1fr;
+      gap:14px;
+      align-items:start;
+      min-width:0;
+    }
+
+    .thumb{
+      width:68px;
+      height:92px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.03);
+      object-fit:cover;
+      filter:grayscale(100%);
+      display:block;
+    }
+
+    .infra-thumb{
+      width:68px;
+      height:68px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.03);
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      padding:4px;
+    }
+
+    .paper-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .paper-title{
+      margin:0;
+      font-size:15px;
+      font-weight:600;
+      color:#fff;
+      line-height:1.28;
+      letter-spacing:-0.02em;
+    }
+
+    .status{
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      padding:4px 7px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.10);
+      color:var(--text-dim);
+      background:rgba(255,255,255,0.02);
+      white-space:nowrap;
+      flex:0 0 auto;
+    }
+    .status-published{
+      color:#0b0b0c;
+      background:rgba(90,176,255,0.96);
+      border-color:rgba(90,176,255,0.96);
+      font-weight:600;
+    }
+    .status-dev{
+      color:#d8eefc;
+      background:rgba(90,176,255,0.10);
+      border-color:rgba(90,176,255,0.24);
+    }
+
+    .paper-desc{
+      margin:0 0 10px;
+      font-size:14px;
+      color:var(--text-dim);
+      line-height:1.62;
+    }
+
+    .actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .formula-line{
+      display:block;
+      margin:0 0 14px;
+      padding:14px 16px;
+      border:1px solid rgba(90,176,255,0.20);
+      border-radius:12px;
+      background:rgba(90,176,255,0.05);
+      color:#fff;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:0.03em;
+      line-height:1.6;
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .thinking-cta{
+      margin-top:22px;
+      padding:16px;
+      border:1px solid rgba(90,176,255,0.16);
+      border-radius:14px;
+      background:rgba(90,176,255,0.04);
+    }
+    .thinking-cta p{
+      margin:0 0 10px;
+      color:var(--text-dim);
+      font-size:13px;
+      line-height:1.65;
+    }
+    .thinking-cta p:last-child{
+      margin-bottom:0;
+    }
+    .thinking-cta strong{
+      color:#fff;
+      font-weight:600;
+    }
+
+    footer{
+      margin-top:32px;
+      padding-top:18px;
+      border-top:1px solid var(--border-soft);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:var(--text-faint);
+      font-size:12px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    @media (max-width: 920px){
+      .wrap{padding-top:48px;}
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:16px;
+      }
+      .top-cta{justify-content:flex-start;}
+      .hero-strip{
+        grid-template-columns:1fr;
+      }
+      .pill{width:100%;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important; transition:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        <div class="h-ident">
+          <h1>Jamie Forrester</h1>
+          <div class="sub">Independent Systems Architect</div>
+          <div class="meta-row">
+            <span class="pill" aria-label="Positioning">
+              Research, papers, books, frameworks, and live builds behind the practice
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-cta" aria-label="Primary links">
+        <a class="btn" href="./index.html">HOME</a>
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn btn-primary" href="./research.html">RESEARCH</a>
+        <a
+          class="btn"
+          href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D"
+        >
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          EMAIL
+        </a>
+      </div>
+    </header>
+
+    <section class="hero-strip" aria-label="Research overview">
+      <div>
+        <div class="eyebrow">Research</div>
+        <h2 class="hero-title">The papers, frameworks, books, and builds behind the work.</h2>
+        <p class="hero-sub">
+          This page gathers the intellectual infrastructure behind the practice: core papers, research in progress, books in development, canonical frameworks, and live build work.
+        </p>
+        <div class="trust">
+          PUBLIC PAPERS + DEVELOPING FRAMEWORKS + LIVE BUILDS // THE INTELLECTUAL LAYER BEHIND THE WRITTEN ARTIFACT
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-side-card">
+          <div class="eyebrow" style="margin-bottom:8px;">What this page contains</div>
+          <p>Core framework, published research, books in progress, canonical formula, and applied builds.</p>
+        </div>
+        <div class="hero-side-card">
+          <div class="eyebrow" style="margin-bottom:8px;">How it relates to practice</div>
+          <p>These materials show the models and proof objects behind the Diagnostic Artifact and Redesign Artifact.</p>
+        </div>
+      </div>
+    </section>
+
+    <main id="main" class="stack" role="main">
+      <div class="card">
+        <div class="label-row">
+          <span class="label">01 // Core framework</span>
+          <span class="label-note">informs applied work</span>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+              <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
+                <span class="status">In preparation</span>
+              </div>
+              <p class="paper-desc">
+                Why institutions fail when Sensing, Interpretation, Authority, and Memory fuse into single human nodes under scale.
+              </p>
+              <p class="small">
+                This framework sits directly behind how consequence, interpretation, authority, and continuity are located inside the Diagnostic Artifact.
+              </p>
+              <div class="actions" style="margin-top:12px;">
+                <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
+                <a href="./status-notes.html" class="muted-link">Status notes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label-row">
+          <span class="label">02 // Research</span>
+          <span class="label-note">published and in progress</span>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
+              <img class="thumb" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
+                <span class="status status-published">Published</span>
+              </div>
+              <p class="paper-desc">How reliability pipelines borrow the language of expertise.</p>
+              <p class="small">
+                A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.
+              </p>
+              <div class="actions">
+                <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Why Systems Can’t Fix Themselves">
+              <img class="thumb" src="./paper3-image.png" alt="Cover: Why Systems Can’t Fix Themselves: The Missing Redesign Layer" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</p>
+                <span class="status">In development</span>
+              </div>
+              <p class="paper-desc">
+                Why execution-optimised systems lack an interface for upstream reframing — and therefore cannot self-correct.
+              </p>
+              <div class="actions">
+                <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
+                <a href="./status-notes.html#missing-redesign" class="muted-link">Status notes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label-row">
+          <span class="label">03 // Books</span>
+          <span class="label-note">work in progress</span>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="#" aria-label="Book cover: Seeing Systems">
+              <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">Seeing Systems</p>
+                <span class="status">Drafted</span>
+              </div>
+              <p class="paper-desc">Why a 10-year-old can understand what organisations can’t.</p>
+              <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, enforcement, and failure in ordinary structures.</p>
+              <div class="actions" style="margin-top:10px;">
+                <a
+                  class="link-blue"
+                  href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C"
+                >Request sample chapters</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="#" aria-label="Book cover: The System Founder Framework">
+              <img class="thumb" src="./book2-image.png" alt="Cover: The System Founder Framework" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">The System Founder Framework</p>
+                <span class="status">In design</span>
+              </div>
+              <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
+              <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper" style="margin-top:12px;">
+          <p class="paper-title" style="margin-bottom:6px;">For publishers &amp; agents</p>
+          <p class="paper-desc" style="margin-bottom:10px;">
+            Proposal and sample chapters for <strong>Seeing Systems</strong> are available on request.
+          </p>
+          <div class="actions">
+            <a
+              class="link-blue"
+              href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C"
+            >Request proposal + sample chapters</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label-row">
+          <span class="label">04 // Universal Formula</span>
+          <span class="label-note">canonical architecture</span>
+        </div>
+
+        <div class="formula-line" aria-label="Universal Formula">
+          <strong>Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</strong>
+        </div>
+
+        <p class="small" style="margin-bottom:12px;">
+          The Universal Formula is the scaling architecture behind the broader body of work. It tracks how a primitive becomes an operating system, how that operating system becomes a market structure, and how that market structure can harden into a category or civilization-scale layer.
+        </p>
+
+        <p class="small" style="margin-bottom:12px;">
+          A diagnostic and construction sequence: purpose, primitive, medium, OS, marketplace, category, civilization, meta. Used to identify which layer is under-designed, wrongly named, or being mistaken for another.
+        </p>
+
+        <p class="small">
+          Used in both engagements to identify which layer the failure belongs to before the primitive, boundary, or redesign sequence is defined.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="label-row">
+          <span class="label">05 // Systems in development</span>
+          <span class="label-note">applied builds</span>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="#" aria-label="Spectrum Registry">
+              <img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">Spectrum Registry</p>
+                <span class="status status-dev">In development</span>
+              </div>
+              <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows. Internal build.</p>
+              <p class="small">Included here because live build work informs how rules, boundaries, and enforcement are treated in practice.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div class="paper-row">
+            <a href="#" aria-label="PromptFactory">
+              <img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" />
+            </a>
+            <div>
+              <div class="paper-head">
+                <p class="paper-title">PromptFactory</p>
+                <span class="status status-dev">In development</span>
+              </div>
+              <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification. Internal build.</p>
+              <p class="small">Relevant here because it reflects the same preference for legibility, explicit rules, and failure-resistant design.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="thinking-cta">
+          <p><strong>The public offer is the written artifact.</strong> The material above shows the frameworks, research, and live build work behind that practice.</p>
+          <p><a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">Email a five-line brief</a> if the failure pattern is already visible and you want a structural read on it.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <span>
+          Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </span>
+        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
+        <span style="color:var(--text-faint);">/</span>
+        <a
+          class="muted-link"
+          href="https://www.linkedin.com/in/jamie-forrester-773b7786"
+          target="_blank"
+          rel="noopener"
+        >LinkedIn</a>
+      </div>
+
+      <div>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-07</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
