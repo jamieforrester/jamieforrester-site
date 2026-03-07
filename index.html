@@ -1066,6 +1066,27 @@
       flex-wrap:wrap;
       align-items:center;
     }
+    .bridge-panel .paper-title{
+  margin:0 0 8px;
+  font-size:15px;
+  line-height:1.32;
+}
+
+.bridge-panel .small{
+  font-size:13px;
+  line-height:1.62;
+}
+
+.bridge-list li{
+  font-size:13px;
+  line-height:1.58;
+}
+
+.bridge-proof-panel{
+  background:
+    linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0.012));
+  border-color:rgba(90,176,255,0.16);
+}
 
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
@@ -1228,23 +1249,29 @@
       </ul>
     </div>
 
-    <div class="bridge-panel">
+    <div class="bridge-panel bridge-proof-panel">
       <span class="mini-kicker">Core framework</span>
-      <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-      <p class="small" style="margin-bottom:10px;">
-        Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.
-      </p>
-      <p class="small" style="margin-bottom:10px;">
-        This framework sits directly behind how consequence, interpretation, authority, and continuity are located inside the Diagnostic Artifact.
-      </p>
-      <div class="actions">
-        <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
-        <a href="./status-notes.html" class="muted-link">Status notes</a>
+
+      <div class="paper-row" style="grid-template-columns:68px 1fr; margin-top:2px;">
+        <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+          <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+        </a>
+
+        <div>
+          <p class="paper-title" style="margin-bottom:8px;">The Four-Function Law of Scalable Institutions</p>
+          <p class="small" style="margin-bottom:10px;">
+            Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.
+          </p>
+          <div class="actions">
+            <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read abstract (PDF)</a>
+            <a href="./status-notes.html" class="muted-link">Status notes</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
+    
     <section class="bridge-card" aria-label="How it works">
       <div class="bridge-head">
         <div>
