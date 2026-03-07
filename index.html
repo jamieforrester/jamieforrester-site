@@ -23,11 +23,6 @@
       --panel:#101114;
       --panel-soft:#0d0e11;
 
-      --panel-thinking:#0b0e13;
-      --panel-thinking-soft:#0e1218;
-      --panel-thinking-card:linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.008));
-      --thinking-border:rgba(74,163,255,0.08);
-
       --text-main:#f1f3f5;
       --text-dim:#c6ccd4;
       --text-faint:#8c94a2;
@@ -57,12 +52,11 @@
 
       --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
       --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
-
-      --divider:rgba(90,176,255,0.16);
     }
 
     *{box-sizing:border-box;}
     html{color-scheme:dark;}
+
     body{
       margin:0;
       background:
@@ -89,10 +83,8 @@
     .label-note,
     .eyebrow,
     .qk,
-    .status,
     .skip-link,
     .trust,
-    .formula-line,
     .snap,
     .mini-kicker,
     .price,
@@ -135,10 +127,12 @@
         color 140ms ease,
         transform 140ms ease;
     }
+
     a:hover{
       border-bottom-color:#fff;
       background:rgba(255,255,255,0.05);
     }
+
     a:focus-visible{
       outline:2px solid var(--focus-ring);
       outline-offset:3px;
@@ -151,6 +145,7 @@
       color:var(--text-dim);
       border-bottom-color:transparent;
     }
+
     .muted-link:hover{
       border-bottom-color:rgba(255,255,255,0.45);
     }
@@ -159,6 +154,7 @@
       color:var(--cta-blue);
       border-bottom-color:transparent;
     }
+
     .link-blue:hover{
       border-bottom-color:rgba(90,176,255,0.85);
       background:rgba(90,176,255,0.08);
@@ -262,10 +258,12 @@
         border-color 140ms ease,
         box-shadow 140ms ease;
     }
+
     .btn:hover{
       background:rgba(255,255,255,0.04);
       transform:translateY(-1px);
     }
+
     .btn:focus-visible{
       outline:2px solid var(--focus-ring);
       outline-offset:3px;
@@ -278,6 +276,7 @@
       background:rgba(90,176,255,0.075);
       box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
     }
+
     .btn-primary:hover{
       background:rgba(90,176,255,0.12);
       border-color:rgba(90,176,255,0.45);
@@ -285,7 +284,7 @@
     }
 
     .btn-offer{
-      margin-top:16px;
+      margin-top:auto;
       width:100%;
       justify-content:center;
     }
@@ -310,6 +309,7 @@
       box-shadow:var(--shadow-soft);
       transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
     }
+
     .hero-strip:hover,
     .bridge-card:hover,
     .offer-hero:hover,
@@ -356,6 +356,7 @@
       line-height:1.68;
       max-width:72ch;
     }
+
     .hero-sub strong{color:#fff;font-weight:600;}
 
     .hero-actions{
@@ -384,17 +385,20 @@
       padding:10px 0 10px 14px;
       background:transparent;
     }
+
     .quick dl{
       margin:0;
       display:grid;
       gap:14px;
     }
+
     .quick div{
       display:grid;
       grid-template-columns:168px 1fr;
       gap:14px;
       align-items:start;
     }
+
     .qk{
       font-size:11px;
       text-transform:uppercase;
@@ -403,6 +407,7 @@
       white-space:normal;
       line-height:1.3;
     }
+
     .qv{
       margin:0;
       font-size:14px;
@@ -410,6 +415,7 @@
       line-height:1.62;
       min-width:0;
     }
+
     .qv strong{color:#fff;font-weight:600;}
 
     .bridge-card{
@@ -555,7 +561,7 @@
       border:1px solid rgba(90,176,255,0.18);
       border-radius:var(--radius-xl);
       background:
-        linear-gradient(180deg, rgba(90,176,255,0.04), rgba(255,255,255,0.01)),
+        linear-gradient(180deg, rgba(90,176,255,0.05), rgba(255,255,255,0.012)),
         linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
       margin-bottom:var(--space-5);
     }
@@ -601,17 +607,33 @@
     .offer-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:16px;
+      gap:18px;
       margin-top:14px;
+      align-items:stretch;
     }
 
     .offer-card{
-      padding:18px;
-      border:1px solid rgba(90,176,255,0.16);
+      display:flex;
+      flex-direction:column;
+      height:100%;
+      padding:20px;
+      border:1px solid rgba(90,176,255,0.24);
       border-radius:16px;
       background:
-        linear-gradient(180deg, rgba(90,176,255,0.035), rgba(255,255,255,0.01));
+        linear-gradient(180deg, rgba(90,176,255,0.085), rgba(90,176,255,0.035)),
+        linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.012));
       min-width:0;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.03),
+        0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .offer-card:hover{
+      border-color:rgba(90,176,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 0 0 1px rgba(90,176,255,0.10),
+        0 16px 40px rgba(0,0,0,0.24);
     }
 
     .offer-top{
@@ -619,7 +641,7 @@
       align-items:start;
       justify-content:space-between;
       gap:12px;
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     .offer-card .paper-title{
@@ -632,8 +654,8 @@
       justify-content:center;
       padding:5px 8px;
       border-radius:999px;
-      border:1px solid rgba(90,176,255,0.18);
-      background:rgba(90,176,255,0.06);
+      border:1px solid rgba(90,176,255,0.20);
+      background:rgba(90,176,255,0.09);
       font-size:10px;
       letter-spacing:0.10em;
       text-transform:uppercase;
@@ -645,8 +667,8 @@
       margin:0 0 12px;
       padding:5px 8px;
       border-radius:8px;
-      border:1px solid rgba(90,176,255,0.20);
-      background:rgba(90,176,255,0.06);
+      border:1px solid rgba(90,176,255,0.24);
+      background:rgba(90,176,255,0.09);
       color:#fff;
       font-size:11px;
       letter-spacing:0.10em;
@@ -668,7 +690,7 @@
     .offer-section{
       margin-top:14px;
       padding-top:14px;
-      border-top:1px solid rgba(255,255,255,0.06);
+      border-top:1px solid rgba(255,255,255,0.08);
     }
 
     .offer-list{
@@ -747,6 +769,7 @@
       letter-spacing:0.16em;
       color:var(--label-blue);
     }
+
     .label-note{
       font-size:10px;
       letter-spacing:0.08em;
@@ -776,6 +799,7 @@
       display:grid;
       gap:10px;
     }
+
     ul.clean li{
       padding-left:16px;
       position:relative;
@@ -783,6 +807,7 @@
       font-size:14px;
       line-height:1.62;
     }
+
     ul.clean li::before{
       content:"→";
       position:absolute;
@@ -797,6 +822,7 @@
       background:rgba(255,255,255,0.01);
       min-width:0;
     }
+
     .paper + .paper{margin-top:12px;}
 
     .paper-row{
@@ -818,12 +844,10 @@
       display:block;
     }
 
-    .paper-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:8px;
+    .paper-cover-plain{
+      filter:none;
+      border-color:rgba(255,255,255,0.16);
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);
     }
 
     .paper-title{
@@ -859,6 +883,7 @@
       font-size:12px;
       line-height:1.55;
     }
+
     .snap .snap-title{
       color:#fff;
       font-weight:600;
@@ -867,6 +892,7 @@
       font-size:11px;
       margin:0 0 10px;
     }
+
     .snap .snap-line{margin:0 0 6px;}
     .snap .snap-line:last-child{margin-bottom:0;}
     .snap .k{color:var(--text-faint);}
@@ -898,6 +924,7 @@
       border-radius:12px;
       background:rgba(255,255,255,0.012);
     }
+
     .callout p{
       margin:0;
       color:var(--text-dim);
@@ -926,32 +953,39 @@
 
     @media (max-width: 920px){
       .wrap{padding-top:48px;}
+
       header{
         flex-direction:column;
         align-items:flex-start;
         gap:16px;
       }
+
       .top-cta{justify-content:flex-start;}
       .hero-strip{grid-template-columns:1fr;}
+
       .bridge-head,
       .offer-hero-head{
         flex-direction:column;
         align-items:flex-start;
       }
+
       .bridge-grid,
       .offer-grid,
       .offer-footer,
       .process-strip{
         grid-template-columns:1fr !important;
       }
+
       .bridge-tag{text-align:left; max-width:none;}
       .pill{width:100%;}
       .quick div{grid-template-columns:1fr;}
       .qk{padding-top:0;}
+
       .label-row{
         flex-direction:column;
         align-items:flex-start;
       }
+
       .label-note{white-space:normal;}
     }
 
@@ -1223,6 +1257,7 @@
               <li>Interface changes: what must be tightened, removed, or clarified</li>
               <li>Dependency order: what moves first, and what depends on what</li>
               <li>Drift refusal gates: constraints that prevent regression</li>
+              <li>Execution handoff: a builder-readable sequence for implementation</li>
             </ul>
           </div>
 
@@ -1309,7 +1344,7 @@
             <div class="paper" style="margin-top:0;">
               <div class="paper-row">
                 <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
-                  <img class="thumb" src="./paper-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+                  <img class="thumb paper-cover-plain" src="./paper-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
                 </a>
 
                 <div>
