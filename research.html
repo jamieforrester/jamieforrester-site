@@ -16,26 +16,20 @@
       --bg: #0b0b0c;
       --panel: #101114;
       --panel-soft: #0d0e11;
-
       --text-main: #f1f3f5;
       --text-dim: #c6ccd4;
       --text-faint: #8c94a2;
-
       --border: #232731;
       --border-soft: rgba(255,255,255,0.06);
       --accent: #343a46;
-
       --label-blue: #4aa3ff;
       --cta-blue: #5ab0ff;
-
       --focus-ring: rgba(255,255,255,0.95);
       --focus-bg: rgba(255,255,255,0.08);
-
       --radius-sm: 10px;
       --radius-md: 14px;
       --radius-lg: 18px;
       --radius-xl: 22px;
-
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
       --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
       --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
@@ -59,715 +53,202 @@
       font-feature-settings: "ss01" 1, "cv05" 1;
     }
 
-    .wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 64px 24px 56px;
-    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 64px 24px 56px; }
 
-    /* ── Skip link ── */
     .skip-link {
-      position: absolute;
-      left: 12px; top: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      background: var(--panel);
-      color: #fff;
-      transform: translateY(-200%);
-      transition: transform 120ms ease;
-      z-index: 9999;
-      text-decoration: none;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      position: absolute; left: 12px; top: 10px;
+      padding: 10px 12px; border-radius: 10px;
+      border: 1px solid var(--accent); background: var(--panel);
+      color: #fff; transform: translateY(-200%); transition: transform 120ms ease;
+      z-index: 9999; text-decoration: none;
+      font-family: "IBM Plex Mono", monospace; font-size: 12px;
     }
-    .skip-link:focus-visible {
-      transform: translateY(0);
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-    }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
-    /* ── Links ── */
     a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      padding-bottom: 1px;
-      font-size: 14px;
+      color: #fff; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px;
       transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
     }
     a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
-    a:focus-visible {
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-      border-bottom-color: transparent;
-      background: var(--focus-bg);
-      border-radius: 6px;
-    }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
     .muted-link { color: var(--text-dim); border-bottom-color: transparent; }
     .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
-    /* ── Header ── */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-soft);
-      margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
     }
-
-    .h-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      min-width: 0;
-    }
-
-    .avatar-link {
-      display: inline-flex;
-      border-bottom: none;
-      border-radius: 999px;
-      flex: 0 0 auto;
-    }
+    .h-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+    .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
-    .avatar-link:focus-visible {
-      background: transparent;
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 4px;
-      border-radius: 999px;
-    }
-
+    .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
     .avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      object-fit: cover;
-      filter: grayscale(100%);
-      display: block;
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
+      width: 64px; height: 64px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%);
+      display: block; box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
       transition: box-shadow 200ms ease, border-color 200ms ease;
     }
-    .avatar:hover {
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28);
-      border-color: rgba(90,176,255,0.3);
-    }
+    .avatar:hover { box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28); border-color: rgba(90,176,255,0.3); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .h-sub {
-      margin-top: 5px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      color: var(--text-faint);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .h-pill {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.015);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      color: var(--text-dim);
-      line-height: 1.4;
-    }
-
-    .top-cta {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    /* ── Buttons ── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      background: rgba(255,255,255,0.018);
-      color: #fff;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      font-weight: 500;
-      text-decoration: none;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      border-bottom: none;
-      padding-bottom: 9px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.018); color: #fff;
+      font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+      text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em;
+      white-space: nowrap; border-bottom: none; padding-bottom: 9px;
       transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
     }
-    .btn:hover {
-      background: rgba(255,255,255,0.05);
-      border-bottom: none;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .btn:focus-visible {
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-      background: var(--focus-bg);
-    }
-    .btn-primary {
-      color: var(--cta-blue);
-      border-color: rgba(90,176,255,0.32);
-      background: rgba(90,176,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-    .btn-primary:hover {
-      background: rgba(90,176,255,0.14);
-      border-color: rgba(90,176,255,0.5);
-      box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
-    }
-    .btn-current {
-      border-color: rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-dim);
-      cursor: default;
-      pointer-events: none;
-    }
-
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22); }
+    .btn-current { border-color: rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); color: var(--text-dim); cursor: default; pointer-events: none; }
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
 
-    /* ── Type atoms ── */
-    .eyebrow {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      margin: 0 0 10px;
-      display: block;
-    }
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; display: block; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 8px; }
+    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
+    .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
 
-    .mini-kicker {
-      display: block;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      margin: 0 0 8px;
-    }
+    .section-divider { margin: 0 0 20px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    .label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--label-blue);
-    }
-
-    .label-note {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      color: var(--label-blue);
-      white-space: nowrap;
-    }
-
-    /* ── Section divider ── */
-    .section-divider {
-      margin: 0 0 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .section-divider::before,
-    .section-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-    }
-    .section-divider-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      white-space: nowrap;
-    }
-
-    /* ── Hero strip ── */
+    /* Hero */
     .hero-strip {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background:
-        linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      margin-bottom: 32px;
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
+      display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      margin-bottom: 32px; overflow: hidden; box-shadow: var(--shadow-card);
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
-    .hero-strip:hover {
-      border-color: rgba(90,176,255,0.2);
-      box-shadow: var(--shadow-hover);
-    }
+    .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
+    .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
+    .hero-right { padding: 32px 28px; background: rgba(255,255,255,0.012); display: flex; flex-direction: column; justify-content: flex-start; gap: 10px; }
+    .hero-title { margin: 0 0 16px; font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; max-width: 22ch; }
+    .hero-sub { margin: 0 0 14px; color: #d4d9e0; font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem); line-height: 1.72; max-width: 60ch; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 22px; }
 
-    .hero-left {
-      padding: 36px 32px 36px 36px;
-      border-right: 1px solid var(--border-soft);
-    }
-
-    .hero-right {
-      padding: 32px 28px;
-      background: rgba(255,255,255,0.012);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 10px;
-    }
-
-    .hero-title {
-      margin: 0 0 16px;
-      font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-      font-weight: 700;
-      color: #fff;
-      max-width: 22ch;
-    }
-
-    .hero-sub {
-      margin: 0 0 14px;
-      color: #d4d9e0;
-      font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem);
-      line-height: 1.72;
-      max-width: 60ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 22px;
-    }
-
-    /* Content map panel */
-    .content-map-head {
-      padding-bottom: 12px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .content-map-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .content-map-sub {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      color: var(--text-faint);
-      letter-spacing: 0.05em;
-    }
-
+    .content-map-head { padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--border-soft); }
+    .content-map-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
+    .content-map-sub { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); letter-spacing: 0.05em; }
     .map-item {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.012);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding-bottom: 10px;
+      display: flex; align-items: baseline; gap: 10px; padding: 10px 12px;
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 10px;
+      background: rgba(255,255,255,0.012); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 10px;
       transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
     }
-    .map-item:hover {
-      border-color: rgba(90,176,255,0.22);
-      background: rgba(90,176,255,0.04);
-      transform: translateX(3px);
-    }
+    .map-item:hover { border-color: rgba(90,176,255,0.22); background: rgba(90,176,255,0.04); transform: translateX(3px); }
+    .map-item-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; color: var(--label-blue); flex: 0 0 auto; min-width: 20px; }
+    .map-item-text { font-size: 12px; color: var(--text-dim); line-height: 1.4; flex: 1; }
+    .map-item-text strong { display: block; font-size: 12px; color: #e0e4ea; font-weight: 600; margin-bottom: 1px; }
+    .map-item-status { font-family: "IBM Plex Mono", monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); flex: 0 0 auto; }
 
-    .map-item-num {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      color: var(--label-blue);
-      flex: 0 0 auto;
-      min-width: 20px;
-    }
-
-    .map-item-text {
-      font-size: 12px;
-      color: var(--text-dim);
-      line-height: 1.4;
-      flex: 1;
-    }
-
-    .map-item-text strong {
-      display: block;
-      font-size: 12px;
-      color: #e0e4ea;
-      font-weight: 600;
-      margin-bottom: 1px;
-    }
-
-    .map-item-status {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-faint);
-      flex: 0 0 auto;
-    }
-
-    /* ── Cards ── */
+    /* Cards */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      min-width: 0;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 20px;
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 20px;
       transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
-    .card:hover {
-      border-color: rgba(255,255,255,0.13);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3);
-      transform: translateY(-1px);
-    }
+    .card:hover { border-color: rgba(255,255,255,0.13); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3); transform: translateY(-1px); }
     .card:last-child { margin-bottom: 0; }
-
     .card-accent {
       border-color: rgba(90,176,255,0.22);
-      background:
-        linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.05),
-        inset 0 0 0 1px rgba(90,176,255,0.06),
-        0 12px 36px rgba(0,0,0,0.28);
+      background: linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(90,176,255,0.06), 0 12px 36px rgba(0,0,0,0.28);
     }
-    .card-accent:hover {
-      border-color: rgba(90,176,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(90,176,255,0.1),
-        0 18px 48px rgba(0,0,0,0.32);
-      transform: translateY(-2px);
-    }
+    .card-accent:hover { border-color: rgba(90,176,255,0.34); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(90,176,255,0.1), 0 18px 48px rgba(0,0,0,0.32); transform: translateY(-2px); }
 
-    .label-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 14px;
-      margin-bottom: 20px;
-    }
-
+    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 20px; }
     p { margin: 0 0 14px; color: var(--text-dim); }
     p:last-child { margin-bottom: 0; }
-
-    .lead {
-      color: #cdd2da;
-      font-size: 15px;
-      line-height: 1.72;
-      margin-bottom: 20px;
-    }
+    .lead { color: #cdd2da; font-size: 15px; line-height: 1.72; margin-bottom: 20px; }
     .lead strong { color: #fff; }
+    .small { margin: 0 0 10px; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
 
-    .small {
-      margin: 0 0 10px;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.65;
-    }
+    /* Status badges */
+    .status { font-family: "IBM Plex Mono", monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.10); color: var(--text-dim); background: rgba(255,255,255,0.02); white-space: nowrap; flex: 0 0 auto; }
+    .status-published { color: #0b0b0c; background: rgba(90,176,255,0.96); border-color: rgba(90,176,255,0.96); font-weight: 600; }
+    .status-dev { color: #d8eefc; background: rgba(90,176,255,0.10); border-color: rgba(90,176,255,0.24); }
 
-    /* ── Paper rows ── */
-    .paper {
-      padding: 16px;
-      border: 1px solid var(--border-soft);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-      min-width: 0;
-      transition: border-color 160ms ease, transform 160ms ease;
-    }
-    .paper:hover {
-      border-color: rgba(90,176,255,0.2);
-      transform: translateY(-1px);
-    }
+    /* Paper rows */
+    .paper { padding: 16px; border: 1px solid var(--border-soft); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
+    .paper:hover { border-color: rgba(90,176,255,0.2); transform: translateY(-1px); }
     .paper + .paper { margin-top: 12px; }
-
-    .paper-row {
-      display: grid;
-      grid-template-columns: 68px 1fr;
-      gap: 16px;
-      align-items: start;
-      min-width: 0;
-    }
-
-    .thumb {
-      width: 68px;
-      height: 92px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      object-fit: cover;
-      filter: grayscale(100%);
-      display: block;
-      transition: border-color 160ms ease, filter 160ms ease;
-    }
+    .paper-row { display: grid; grid-template-columns: 68px 1fr; gap: 16px; align-items: start; min-width: 0; }
+    .thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: cover; filter: grayscale(100%); display: block; transition: border-color 160ms ease, filter 160ms ease; }
     .thumb:hover { filter: grayscale(60%); border-color: rgba(90,176,255,0.3); }
-
-    .infra-thumb {
-      width: 68px;
-      height: 68px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      padding: 6px;
-      transition: border-color 160ms ease;
-    }
+    .infra-thumb { width: 68px; height: 68px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: contain; object-position: center; display: block; padding: 6px; transition: border-color 160ms ease; }
     .infra-thumb:hover { border-color: rgba(90,176,255,0.3); }
+    .paper-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .paper-title { margin: 0; font-size: 15px; font-weight: 600; color: #fff; line-height: 1.28; letter-spacing: -0.02em; }
+    .paper-desc { margin: 0 0 10px; font-size: 14px; color: var(--text-dim); line-height: 1.62; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
 
-    .paper-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
+    /* Foundations grid */
+    .foundations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+    .foundation-block { padding: 20px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+    .foundation-block:hover { border-color: rgba(90,176,255,0.3); transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.22); }
+    .foundation-block h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.28; }
+    .foundation-block p { font-size: 13px; color: var(--text-dim); line-height: 1.65; margin-bottom: 10px; }
+    .foundation-block .small { font-size: 12px; color: var(--text-faint); }
+    .formula-line { display: block; margin: 0 0 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.22); border-radius: 12px; background: rgba(90,176,255,0.06); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.7; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
-    .paper-title {
-      margin: 0;
-      font-size: 15px;
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.28;
-      letter-spacing: -0.02em;
-    }
+    /* ── Seeing Systems ── */
+    .book-grid { display: grid; grid-template-columns: 68px 1fr; gap: 20px; align-items: start; margin-bottom: 22px; }
+    .book-body h3 { margin: 0 0 6px; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.2; }
+    .book-tagline { font-size: 14px; color: var(--text-faint); font-style: italic; margin: 0 0 10px; }
+    .book-desc { font-size: 14px; color: var(--text-dim); line-height: 1.68; margin: 0 0 10px; }
 
-    .status {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 8px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.10);
-      color: var(--text-dim);
-      background: rgba(255,255,255,0.02);
-      white-space: nowrap;
-      flex: 0 0 auto;
-    }
-    .status-published {
-      color: #0b0b0c;
-      background: rgba(90,176,255,0.96);
-      border-color: rgba(90,176,255,0.96);
-      font-weight: 600;
-    }
-    .status-dev {
-      color: #d8eefc;
-      background: rgba(90,176,255,0.10);
-      border-color: rgba(90,176,255,0.24);
-    }
-    .status-drafted {
-      color: #c8f0d4;
-      background: rgba(60,200,120,0.10);
-      border-color: rgba(60,200,120,0.22);
-    }
+    /* 60-second tool */
+    .tool-block { margin: 0 0 14px; padding: 20px; border: 1px solid rgba(90,176,255,0.2); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.045) 0%, rgba(90,176,255,0.012) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .tool-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(90,176,255,0.14); }
+    .tool-block-title { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .tool-block-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); }
+    .tool-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tool-q { padding: 12px 14px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.03); }
+    .tool-q-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
+    .tool-q-label { font-size: 13px; font-weight: 700; color: #fff; display: block; margin-bottom: 3px; letter-spacing: -0.01em; }
+    .tool-q-desc { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
 
-    .paper-desc {
-      margin: 0 0 10px;
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.62;
-    }
+    /* Carrier chips */
+    .carrier-block { margin: 0 0 0; padding: 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
+    .carrier-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .carrier-block-title { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+    .carrier-block-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); }
+    .carrier-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .carrier-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); font-size: 12px; color: var(--text-dim); line-height: 1; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
+    .carrier-chip:hover { border-color: rgba(90,176,255,0.25); background: rgba(90,176,255,0.06); color: #e0e8f2; }
+    .carrier-chip-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
 
-    .actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 10px;
-    }
+    .book-cta-row { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .book-cta-left { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .book-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); text-transform: uppercase; }
 
-    /* ── Two-column foundations ── */
-    .foundations-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .foundation-block {
-      padding: 20px;
-      border: 1px solid rgba(90,176,255,0.18);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-    }
-    .foundation-block:hover {
-      border-color: rgba(90,176,255,0.3);
-      transform: translateY(-2px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.22);
-    }
-
-    .foundation-block h3 {
-      margin: 0 0 10px;
-      font-size: 15px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
-      line-height: 1.28;
-    }
-
-    .foundation-block p {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.65;
-      margin-bottom: 10px;
-    }
-
-    .foundation-block .small {
-      font-size: 12px;
-      color: var(--text-faint);
-    }
-
-    /* ── Formula line ── */
-    .formula-line {
-      display: block;
-      margin: 0 0 16px;
-      padding: 14px 16px;
-      border: 1px solid rgba(90,176,255,0.22);
-      border-radius: 12px;
-      background: rgba(90,176,255,0.06);
-      color: #fff;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      line-height: 1.7;
-      white-space: normal;
-      overflow-wrap: anywhere;
-      word-break: break-word;
-    }
-
-    /* ── For publishers block ── */
-    .publishers-block {
-      margin-top: 14px;
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 14px;
-      background: rgba(255,255,255,0.014);
-    }
-
-    .publishers-block h3 {
-      margin: 0 0 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.01em;
-    }
-
-    .publishers-block p {
-      margin: 0 0 12px;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.62;
-    }
-
-    /* ── Builds framing ── */
-    .builds-lead {
-      padding: 16px 18px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.014);
-      margin-bottom: 14px;
-    }
-    .builds-lead p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.68;
-    }
+    /* Builds */
+    .builds-lead { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); margin-bottom: 14px; }
+    .builds-lead p { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.68; }
     .builds-lead p strong { color: #e0e4ea; }
-
-    /* ── Thinking CTA ── */
-    .thinking-cta {
-      margin-top: 14px;
-      padding: 18px;
-      border: 1px solid rgba(90,176,255,0.18);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-    .thinking-cta p {
-      margin: 0 0 10px;
-      font-size: 14px;
-      color: var(--text-dim);
-      line-height: 1.68;
-    }
+    .thinking-cta { margin-top: 14px; padding: 18px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .thinking-cta p { margin: 0 0 10px; font-size: 14px; color: var(--text-dim); line-height: 1.68; }
     .thinking-cta p:last-child { margin-bottom: 0; }
     .thinking-cta p strong { color: #fff; font-weight: 600; }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-soft);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--text-faint);
-      font-size: 12px;
-    }
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--text-faint); font-size: 12px; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-    /* ── Responsive ── */
     @media (max-width: 920px) {
       .wrap { padding-top: 48px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -776,25 +257,21 @@
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
       .foundations-grid { grid-template-columns: 1fr; }
-      .paper-row { grid-template-columns: 56px 1fr; }
+      .tool-questions { grid-template-columns: 1fr; }
+      .paper-row, .book-grid { grid-template-columns: 56px 1fr; }
       .label-row { flex-direction: column; align-items: flex-start; }
+      .book-cta-row { flex-direction: column; align-items: flex-start; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <div class="wrap">
 
-    <!-- ── HEADER ── -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -806,103 +283,70 @@
           <div class="h-pill">Research, papers, books, frameworks, and live builds behind the practice</div>
         </div>
       </div>
-
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         <span class="btn btn-current" aria-current="page">RESEARCH</span>
         <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">
-          <span class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           EMAIL
         </a>
       </div>
     </header>
 
-    <!-- ── HERO ── -->
     <section class="hero-strip" aria-label="Research overview">
       <div class="hero-left">
         <span class="eyebrow">Research</span>
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
-
-        <p class="hero-sub">
-          The written artifacts are grounded in a body of work — not assembled for each engagement. This page shows the foundations: the theoretical models, published research, books in development, and live systems built on the same structural logic.
-        </p>
-
-        <p class="hero-sub" style="margin-bottom:0;">
-          The frameworks inform how failure is located. The builds prove the method works under real operating conditions. Everything here feeds directly into how the Diagnostic and Redesign Artifacts are produced.
-        </p>
-
+        <p class="hero-sub">The written artifacts are grounded in a body of work — not assembled for each engagement. This page shows the foundations: the theoretical models, published research, books in development, and live systems built on the same structural logic.</p>
+        <p class="hero-sub" style="margin-bottom:0;">The frameworks inform how failure is located. The builds prove the method works under real operating conditions. Everything here feeds directly into how the Diagnostic and Redesign Artifacts are produced.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </div>
-
       <div class="hero-right">
         <div class="content-map-head">
           <span class="content-map-label">On this page</span>
           <span class="content-map-sub">Jump to a section</span>
         </div>
-
         <a class="map-item" href="#foundations">
           <span class="map-item-num">01</span>
-          <span class="map-item-text">
-            <strong>Theoretical Foundations</strong>
-            Four-Function Law + Universal Formula
-          </span>
+          <span class="map-item-text"><strong>Theoretical Foundations</strong>Four-Function Law + Universal Formula</span>
           <span class="map-item-status">2 models</span>
         </a>
-
         <a class="map-item" href="#research">
           <span class="map-item-num">02</span>
-          <span class="map-item-text">
-            <strong>Research</strong>
-            Published and in progress
-          </span>
+          <span class="map-item-text"><strong>Research</strong>Published and in progress</span>
           <span class="map-item-status">2 papers</span>
         </a>
-
-        <a class="map-item" href="#books">
+        <a class="map-item" href="#seeing-systems">
           <span class="map-item-num">03</span>
-          <span class="map-item-text">
-            <strong>Books</strong>
-            Drafted and in design
-          </span>
-          <span class="map-item-status">2 books</span>
+          <span class="map-item-text"><strong>Seeing Systems</strong>Drafted — sample chapters available</span>
+          <span class="map-item-status">Book</span>
         </a>
-
-        <a class="map-item" href="#builds">
+        <a class="map-item" href="#system-founder">
           <span class="map-item-num">04</span>
-          <span class="map-item-text">
-            <strong>Applied Builds</strong>
-            Systems in development
-          </span>
+          <span class="map-item-text"><strong>System Founder Framework</strong>In design</span>
+          <span class="map-item-status">Book</span>
+        </a>
+        <a class="map-item" href="#builds">
+          <span class="map-item-num">05</span>
+          <span class="map-item-text"><strong>Applied Builds</strong>Systems in development</span>
           <span class="map-item-status">2 builds</span>
         </a>
       </div>
     </section>
 
-    <!-- ── MAIN ── -->
     <main id="main" role="main">
 
-      <!-- 01 Theoretical Foundations -->
       <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
-
       <section id="foundations" class="card card-accent" aria-label="Theoretical foundations">
         <div class="label-row">
           <span class="label">01 // Theoretical foundations</span>
           <span class="label-note">the two core models</span>
         </div>
-
-        <p class="lead">
-          Two models sit beneath the entire body of work. The <strong>Four-Function Law</strong> explains how institutions fail under scale. The <strong>Universal Formula</strong> explains how a primitive becomes a civilisation-layer. Both are used in every engagement to locate where the failure actually belongs before the artifact is written.
-        </p>
-
+        <p class="lead">Two models sit beneath the entire body of work. The <strong>Four-Function Law</strong> explains how institutions fail under scale. The <strong>Universal Formula</strong> explains how a primitive becomes a civilisation-layer. Both are used in every engagement to locate where the failure actually belongs before the artifact is written.</p>
         <div class="foundations-grid">
           <div class="foundation-block">
             <span class="mini-kicker">Four-Function Law</span>
@@ -915,34 +359,23 @@
               <span class="status">In preparation</span>
             </div>
           </div>
-
           <div class="foundation-block">
             <span class="mini-kicker">Universal Formula</span>
             <h3>How a primitive becomes a civilisation layer</h3>
-
-            <div class="formula-line" aria-label="Universal Formula">
-              Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta
-            </div>
-
+            <div class="formula-line" aria-label="Universal Formula">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</div>
             <p>A diagnostic and construction sequence that tracks how any durable system scales. Each layer has distinct structural requirements. Failure is almost always a mismatch between the layer a system is operating at and the layer it thinks it is at.</p>
             <p class="small">Used in both engagements to identify which layer the failure belongs to before the primitive, boundary, or redesign sequence is defined. A system cannot be correctly redesigned until its actual layer is identified.</p>
           </div>
         </div>
       </section>
 
-      <!-- 02 Research -->
       <div class="section-divider"><span class="section-divider-label">research</span></div>
-
       <section id="research" class="card" aria-label="Research papers">
         <div class="label-row">
           <span class="label">02 // Research</span>
           <span class="label-note">published and in progress</span>
         </div>
-
-        <p class="lead" style="margin-bottom:20px;">
-          Both papers apply the same structural logic used in diagnostic work to specific domains — showing how signal diverges from optimisation, and why systems built without an upstream reframing layer cannot self-correct.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">Both papers apply the same structural logic used in diagnostic work to specific domains — showing how signal diverges from optimisation, and why systems built without an upstream reframing layer cannot self-correct.</p>
         <div class="paper">
           <div class="paper-row">
             <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
@@ -955,13 +388,10 @@
               </div>
               <p class="paper-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks reality.</p>
               <p class="small">A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the gap between those two things produces systemic failure. The structural pattern recurs across every domain.</p>
-              <div class="actions">
-                <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
-              </div>
+              <div class="actions"><a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a></div>
             </div>
           </div>
         </div>
-
         <div class="paper">
           <div class="paper-row">
             <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Why Systems Can't Fix Themselves">
@@ -983,34 +413,91 @@
         </div>
       </section>
 
-      <!-- 03 Books -->
-      <div class="section-divider"><span class="section-divider-label">books</span></div>
-
-      <section id="books" class="card" aria-label="Books">
+      <div class="section-divider"><span class="section-divider-label">seeing systems</span></div>
+      <section id="seeing-systems" class="card card-accent" aria-label="Seeing Systems book">
         <div class="label-row">
-          <span class="label">03 // Books</span>
-          <span class="label-note">work in progress</span>
+          <span class="label">03 // Seeing Systems</span>
+          <span class="label-note">book — fully drafted</span>
         </div>
 
-        <div class="paper">
-          <div class="paper-row">
-            <a href="#" aria-label="Book cover: Seeing Systems">
-              <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
-            </a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">Seeing Systems</p>
-                <span class="status status-drafted">Drafted</span>
-              </div>
-              <p class="paper-desc">Why a 10-year-old can understand what organisations can't.</p>
-              <p class="small">A carrier-based method for systemic literacy: locating primitives, rules, enforcement, and failure in ordinary structures. The book makes the diagnostic lens accessible without requiring a technical background. Sample chapters available on request.</p>
-              <div class="actions">
-                <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C">Request sample chapters</a>
-              </div>
+        <div class="book-grid">
+          <a href="#" aria-label="Book cover: Seeing Systems">
+            <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
+          </a>
+          <div class="book-body">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
+              <h3>Seeing Systems</h3>
+              <span class="status status-dev">Drafted</span>
+            </div>
+            <p class="book-tagline">Why a 10-year-old can understand what organisations can't.</p>
+            <p class="book-desc">A carrier-based method for systemic literacy across 5 parts and 30 chapters. The book makes structural thinking accessible without requiring a technical background — using familiar objects to reveal the actions hiding inside complex systems. Once you can name the primitive, the system stops feeling mysterious.</p>
+          </div>
+        </div>
+
+        <div class="tool-block" aria-label="The 60-second reading tool">
+          <div class="tool-block-head">
+            <span class="tool-block-title">The 60-second reading tool</span>
+            <span class="tool-block-note">Four questions. One sentence each.</span>
+          </div>
+          <div class="tool-questions">
+            <div class="tool-q">
+              <span class="tool-q-num">01</span>
+              <span class="tool-q-label">Purpose</span>
+              <span class="tool-q-desc">What does this system actually exist to do? One sentence. Ignore what it says about itself.</span>
+            </div>
+            <div class="tool-q">
+              <span class="tool-q-num">02</span>
+              <span class="tool-q-label">Action</span>
+              <span class="tool-q-desc">What is the one thing it performs over and over? That repeated action is the primitive.</span>
+            </div>
+            <div class="tool-q">
+              <span class="tool-q-num">03</span>
+              <span class="tool-q-label">Rules</span>
+              <span class="tool-q-desc">What protects or constrains that action? If you can't see the rules, watch what stops things from moving.</span>
+            </div>
+            <div class="tool-q">
+              <span class="tool-q-num">04</span>
+              <span class="tool-q-label">Failure</span>
+              <span class="tool-q-desc">What breaks first? Who notices? Who pays the cost? Systems reveal themselves at their edges.</span>
             </div>
           </div>
         </div>
 
+        <div class="carrier-block" aria-label="Carrier index">
+          <div class="carrier-block-head">
+            <span class="carrier-block-title">Carrier Index — 11 worked examples</span>
+            <span class="carrier-block-note">Appendix A</span>
+          </div>
+          <div class="carrier-chips">
+            <span class="carrier-chip">Door <span class="carrier-chip-label">push/pull</span></span>
+            <span class="carrier-chip">Queue <span class="carrier-chip-label">one-at-a-time</span></span>
+            <span class="carrier-chip">Elevator <span class="carrier-chip-label">vertical movement</span></span>
+            <span class="carrier-chip">Traffic light <span class="carrier-chip-label">turn-taking</span></span>
+            <span class="carrier-chip">Form + approval gate <span class="carrier-chip-label">submit → accept/reject</span></span>
+            <span class="carrier-chip">Conveyor belt <span class="carrier-chip-label">continuous throughput</span></span>
+            <span class="carrier-chip">Passport / wristband <span class="carrier-chip-label">identity as access</span></span>
+            <span class="carrier-chip">School timetable <span class="carrier-chip-label">allocation over time</span></span>
+            <span class="carrier-chip">Support escalation ladder <span class="carrier-chip-label">handoff chain</span></span>
+            <span class="carrier-chip">Procurement threshold <span class="carrier-chip-label">permissioned spend</span></span>
+            <span class="carrier-chip">Kitchen during peak service <span class="carrier-chip-label">multi-distance view</span></span>
+          </div>
+        </div>
+
+        <div class="book-cta-row">
+          <div class="book-cta-left">
+            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C">Request sample chapters</a>
+            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C">Request proposal + sample chapters</a>
+          </div>
+          <span class="book-cta-note">Publishers and agents welcome</span>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">system founder framework</span></div>
+      <section id="system-founder" class="card" aria-label="The System Founder Framework">
+        <div class="label-row">
+          <span class="label">04 // The System Founder Framework</span>
+          <span class="label-note">book — in design</span>
+        </div>
         <div class="paper">
           <div class="paper-row">
             <a href="#" aria-label="Book cover: The System Founder Framework">
@@ -1022,38 +509,24 @@
                 <span class="status">In design</span>
               </div>
               <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
-              <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre. Applies the Universal Formula as a construction sequence rather than a diagnostic tool.</p>
+              <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre. Applies the Universal Formula as a construction sequence rather than a diagnostic tool. Where <em>Seeing Systems</em> teaches structural literacy, this book provides the build methodology.</p>
             </div>
-          </div>
-        </div>
-
-        <div class="publishers-block">
-          <h3>For publishers and agents</h3>
-          <p>Proposal and sample chapters for <strong>Seeing Systems</strong> are available on request. The book is fully drafted.</p>
-          <div class="actions">
-            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C">Request proposal and sample chapters</a>
           </div>
         </div>
       </section>
 
-      <!-- 04 Applied Builds -->
       <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
-
       <section id="builds" class="card" aria-label="Applied builds">
         <div class="label-row">
-          <span class="label">04 // Applied builds</span>
+          <span class="label">05 // Applied builds</span>
           <span class="label-note">systems in development</span>
         </div>
-
         <div class="builds-lead">
           <p>The practice is not purely advisory. These are live systems built on the same structural logic — law-first design, explicit rules, constrained ownership, deterministic pipelines. They are included here because building real systems under real constraints is part of how the diagnostic lens stays accurate. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
         </div>
-
         <div class="paper">
           <div class="paper-row">
-            <a href="#" aria-label="Spectrum Registry">
-              <img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" />
-            </a>
+            <a href="#" aria-label="Spectrum Registry"><img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" /></a>
             <div>
               <div class="paper-head">
                 <p class="paper-title">Spectrum Registry</p>
@@ -1064,12 +537,9 @@
             </div>
           </div>
         </div>
-
         <div class="paper">
           <div class="paper-row">
-            <a href="#" aria-label="PromptFactory">
-              <img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" />
-            </a>
+            <a href="#" aria-label="PromptFactory"><img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" /></a>
             <div>
               <div class="paper-head">
                 <p class="paper-title">PromptFactory</p>
@@ -1080,7 +550,6 @@
             </div>
           </div>
         </div>
-
         <div class="thinking-cta">
           <p><strong>The public offer is the written artifact.</strong> The material on this page — the frameworks, the research, the books, the builds — is the intellectual infrastructure behind that offer. It exists to show that the diagnostic lens is grounded, not assembled on demand.</p>
           <p><a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">Email a Five-Line Brief</a> if the failure pattern is already visible and you want a structural read on it.</p>
@@ -1089,7 +558,6 @@
 
     </main>
 
-    <!-- ── FOOTER ── -->
     <footer>
       <div class="footer-links">
         <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
@@ -1099,9 +567,7 @@
         <span style="color:var(--text-faint);">/</span>
         <a class="muted-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <div>
-        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
-      </div>
+      <div><span style="color:var(--text-faint);">Last updated: 2026-03-06</span></div>
     </footer>
 
   </div>
