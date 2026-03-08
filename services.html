@@ -4,727 +4,822 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Services — Jamie Forrester</title>
-  <meta
-    name="description"
-    content="Diagnostic and redesign artifacts for systems that keep failing under scale."
-  />
+  <meta name="description" content="Diagnostic and redesign artifacts for systems that keep failing under scale." />
   <link rel="icon" href="/favicon.png" />
 
-  <!-- IBM Plex Sans + Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#0b0b0c;
-      --panel:#101114;
-      --panel-soft:#0d0e11;
+    :root {
+      --bg: #0b0b0c;
+      --panel: #101114;
+      --panel-soft: #0d0e11;
 
-      --text-main:#f1f3f5;
-      --text-dim:#c3c8d0;
-      --text-faint:#8b93a1;
+      --text-main: #f1f3f5;
+      --text-dim: #c6ccd4;
+      --text-faint: #8c94a2;
 
-      --border:#232731;
-      --border-soft:rgba(255,255,255,0.05);
-      --accent:#343a46;
+      --border: #232731;
+      --border-soft: rgba(255,255,255,0.06);
+      --accent: #343a46;
 
-      --label-blue:#4aa3ff;
-      --cta-blue:#5ab0ff;
+      --label-blue: #4aa3ff;
+      --cta-blue: #5ab0ff;
 
-      --focus-ring:rgba(255,255,255,0.95);
-      --focus-bg:rgba(255,255,255,0.08);
+      --focus-ring: rgba(255,255,255,0.95);
+      --focus-bg: rgba(255,255,255,0.08);
 
-      --radius-sm:10px;
-      --radius-md:14px;
-      --radius-lg:16px;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 22px;
 
-      --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
-      --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
+      --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
     }
 
-    *{box-sizing:border-box;}
-    html{color-scheme:dark;}
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; }
 
-    body{
-      margin:0;
+    body {
+      margin: 0;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "ss01" 1, "cv05" 1;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 24px 56px;
+    }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute;
+      left: 12px; top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: var(--panel);
+      color: #fff;
+      transform: translateY(-200%);
+      transition: transform 120ms ease;
+      z-index: 9999;
+      text-decoration: none;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+    }
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    /* ── Links ── */
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      padding-bottom: 1px;
+      font-size: 14px;
+      transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+    }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+      background: var(--focus-bg);
+      border-radius: 6px;
+    }
+    .muted-link { color: var(--text-dim); border-bottom-color: transparent; }
+    .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-soft);
+      margin-bottom: var(--space-6, 32px);
+    }
+
+    .h-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .avatar-link {
+      display: inline-flex;
+      border-bottom: none;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+    .avatar-link:hover { background: transparent; transform: translateY(-1px); }
+    .avatar-link:focus-visible {
+      background: transparent;
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover;
+      filter: grayscale(100%);
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
+      display: block;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .avatar:hover {
+      box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28);
+      border-color: rgba(90,176,255,0.3);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .h-sub {
+      margin-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .h-pill {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.015);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .top-cta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.018);
+      color: #fff;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      border-bottom: none;
+      padding-bottom: 9px;
+      transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.05);
+      border-bottom: none;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+      background: var(--focus-bg);
+    }
+
+    .btn-primary {
+      color: var(--cta-blue);
+      border-color: rgba(90,176,255,0.32);
+      background: rgba(90,176,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .btn-primary:hover {
+      background: rgba(90,176,255,0.14);
+      border-color: rgba(90,176,255,0.5);
+      box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
+    }
+
+    .btn-current {
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-dim);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .ico { display: inline-flex; align-items: center; justify-content: center; }
+    .ico svg { display: block; }
+
+    /* ── Atoms ── */
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      margin: 0 0 10px;
+    }
+
+    .mini-kicker {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      margin: 0 0 10px;
+    }
+
+    .label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--label-blue);
+    }
+
+    .label-note {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--label-blue);
+      white-space: nowrap;
+    }
+
+    .arrow-chain {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      line-height: 1.7;
+      text-align: right;
+    }
+    .arrow-chain span { display: block; transition: color 160ms ease; }
+    .arrow-chain span:hover { color: var(--cta-blue); }
+
+    /* ── Section divider ── */
+    .section-divider {
+      margin: 0 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+    }
+    .section-divider-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ── Hero strip ── */
+    .hero-strip {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at top left, rgba(90,176,255,0.035), transparent 28%),
-        linear-gradient(180deg, #0b0b0c, #0b0b0c);
-      color:var(--text-main);
-      font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height:1.65;
-      font-size:16px;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      font-feature-settings:"ss01" 1, "cv05" 1;
+        linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      margin-bottom: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .hero-strip:hover {
+      border-color: rgba(90,176,255,0.2);
+      box-shadow: var(--shadow-hover);
     }
 
-    .wrap{
-      max-width:1120px;
-      margin:0 auto;
-      padding:64px 24px 56px;
+    .hero-left {
+      padding: 36px 32px 36px 36px;
+      border-right: 1px solid var(--border-soft);
     }
 
-    .mono,
-    .sub,
-    .pill,
-    .label,
-    .label-note,
-    .eyebrow,
-    .btn,
-    .skip-link,
-    .meta-chip,
-    .price-tag,
-    .scope-note,
-    .path-eyebrow,
-    .path-sub,
-    .path-index{
-      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    .hero-right {
+      padding: 36px 28px;
+      background: rgba(255,255,255,0.012);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .skip-link{
-      position:absolute;
-      left:12px;
-      top:10px;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid var(--accent);
-      background:var(--panel);
-      color:#fff;
-      transform:translateY(-200%);
-      transition:transform 120ms ease;
-      z-index:9999;
-      text-decoration:none;
-      font-size:12px;
-    }
-    .skip-link:focus-visible{
-      transform:translateY(0);
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
+    .hero-title {
+      margin: 0 0 16px;
+      font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+      color: #fff;
+      max-width: 20ch;
     }
 
-    a{
-      color:#fff;
-      text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,0.18);
-      padding-bottom:1px;
-      transition:border-color 140ms ease, background-color 140ms ease, color 140ms ease, transform 140ms ease;
+    .hero-sub {
+      margin: 0 0 14px;
+      color: #d4d9e0;
+      font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem);
+      line-height: 1.72;
+      max-width: 60ch;
     }
-    a:hover{
-      border-bottom-color:#fff;
-      background:rgba(255,255,255,0.05);
-    }
-    a:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      border-bottom-color:transparent;
-      background:var(--focus-bg);
-      border-radius:6px;
+    .hero-sub strong { color: #fff; font-weight: 600; }
+
+    .hero-rule {
+      margin: 20px 0;
+      border: none;
+      border-top: 1px solid var(--border-soft);
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--accent);
-      background:rgba(255,255,255,0.018);
-      color:#fff;
-      font-size:13px;
-      font-weight:500;
-      text-decoration:none;
-      line-height:1;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      white-space:nowrap;
-      transition:
-        transform 140ms ease,
-        background-color 140ms ease,
-        border-color 140ms ease,
-        box-shadow 140ms ease;
-    }
-    .btn:hover{
-      background:rgba(255,255,255,0.04);
-      transform:translateY(-1px);
-    }
-    .btn:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      background:var(--focus-bg);
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 22px;
     }
 
-    .btn-primary{
-      color:var(--cta-blue);
-      border-color:rgba(90,176,255,0.30);
-      background:rgba(90,176,255,0.075);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-    .btn-primary:hover{
-      background:rgba(90,176,255,0.12);
-      border-color:rgba(90,176,255,0.45);
-      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    /* Path card (right panel) */
+    .path-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .btn-current{
-      border-color:rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.03);
-      color:var(--text-dim);
-      cursor:default;
-      pointer-events:none;
+    .path-block {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.014);
     }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding-bottom:24px;
-      border-bottom:1px solid var(--border-soft);
-      margin-bottom:24px;
+    .path-block-accent {
+      border-color: rgba(90,176,255,0.18);
+      background: rgba(90,176,255,0.04);
     }
 
-    .h-left{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      min-width:0;
+    .path-index {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      display: block;
+      margin-bottom: 6px;
     }
 
-    .h-ident{
-      min-width:0;
+    .path-title {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
 
-    .avatar-link{
-      display:inline-flex;
-      border-bottom:none;
-      border-radius:999px;
-      flex:0 0 auto;
+    .path-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 6px;
     }
-    .avatar-link:hover{
-      background:transparent;
-      transform:translateY(-1px);
+    .path-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--text-dim);
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.02em;
     }
-    .avatar-link:focus-visible{
-      background:transparent;
-      outline:2px solid var(--focus-ring);
-      outline-offset:4px;
-      border-radius:999px;
-    }
-
-    .avatar{
-      width:78px;
-      height:78px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      object-fit:cover;
-      filter:grayscale(100%);
-      flex:0 0 auto;
-      box-shadow:0 6px 20px rgba(0,0,0,0.18);
-      display:block;
+    .path-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(1.1rem, 1rem + 0.7vw, 1.45rem);
-      font-weight:600;
-      letter-spacing:-0.03em;
-      line-height:1.15;
+    /* ── Main grid ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
-    .sub{
-      margin-top:6px;
-      font-size:11px;
-      color:var(--text-dim);
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      white-space:nowrap;
+    /* ── Cards ── */
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-width: 0;
+      box-shadow: var(--shadow-card);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
-
-    .meta-row-top{
-      margin-top:12px;
+    .card:hover {
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28);
+      transform: translateY(-1px);
     }
+    .card + .card { margin-top: 20px; }
 
-    .pill{
-      display:-webkit-inline-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-      align-items:center;
-      justify-content:center;
-      padding:8px 12px;
-      width:392px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.05em;
-      line-height:1.35;
-      white-space:normal;
-    }
-
-    .top-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-
-    .hero{
-      border:1px solid var(--border);
-      border-radius:var(--radius-lg);
-      padding:28px;
+    .card-accent {
+      border-color: rgba(90,176,255,0.2);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
-        linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      box-shadow:var(--shadow-soft);
-      margin-bottom:24px;
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        linear-gradient(160deg, rgba(90,176,255,0.05) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: var(--shadow-card), 0 0 0 1px rgba(90,176,255,0.06);
     }
-    .hero:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
+    .card-accent:hover {
+      border-color: rgba(90,176,255,0.32);
+      box-shadow: var(--shadow-hover);
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.06fr 0.94fr;
-      gap:24px;
-      align-items:stretch;
+    .label-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    .eyebrow{
-      color:var(--label-blue);
-      font-size:10px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      margin:0 0 10px;
+    /* Service head */
+    .service-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .hero h2{
-      margin:0 0 14px;
-      font-size:clamp(1.7rem, 1.35rem + 1.1vw, 2.35rem);
-      line-height:1.14;
-      letter-spacing:-0.04em;
-      font-weight:700;
-      max-width:16ch;
+    .service-title {
+      margin: 0;
+      font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      color: #fff;
+      max-width: 22ch;
     }
 
-    .hero p{
-      margin:0 0 12px;
-      color:#d8dde4;
-      font-size:clamp(0.98rem, 0.94rem + 0.15vw, 1.05rem);
-      max-width:70ch;
+    /* Price — prominent, matching homepage */
+    .price-tag {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(90,176,255,0.3);
+      background: rgba(90,176,255,0.1);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .price-label {
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--text-faint);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .hero strong{
-      color:#fff;
-      font-weight:600;
+    /* Meta chips */
+    .meta-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 16px;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:18px;
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
     }
 
-    .path-card{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
-      box-shadow:var(--shadow-soft);
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
+    .scope-note {
+      margin: 0 0 16px;
+      padding: 10px 14px;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.012);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      line-height: 1.6;
     }
 
-    .path-card-head{
-      padding-bottom:12px;
-      margin-bottom:12px;
-      border-bottom:1px solid var(--border-soft);
+    p { margin: 0 0 14px; color: var(--text-dim); }
+    p:last-child { margin-bottom: 0; }
+
+    .lead {
+      color: #cdd2da;
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+    .lead strong { color: #fff; }
+
+    .small {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.65;
     }
 
-    .path-eyebrow{
-      font-size:10px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:var(--label-blue);
-      margin-bottom:6px;
+    /* Mini blocks */
+    .split-list { display: grid; gap: 12px; }
+
+    .mini {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.012);
     }
 
-    .path-sub{
-      font-size:11px;
-      color:var(--text-faint);
-      letter-spacing:0.04em;
+    .mini h3 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
 
-    .path-section + .path-section{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid var(--border-soft);
+    .mini p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.62;
     }
 
-    .path-section-head{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      margin-bottom:8px;
+    /* Clean list */
+    ul.clean {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+    ul.clean li {
+      padding-left: 16px;
+      position: relative;
+      color: #ccd1da;
+      font-size: 13px;
+      line-height: 1.62;
+    }
+    ul.clean li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+    ul.clean li strong { color: #e8ecf0; }
+
+    /* Section block */
+    .section-block { margin-top: 18px; }
+
+    .section-head {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
 
-    .path-index{
-      font-size:10px;
-      letter-spacing:0.12em;
-      color:var(--label-blue);
-      text-transform:uppercase;
-      min-width:22px;
+    /* Fit grid */
+    .fit-grid { display: grid; gap: 12px; }
+
+    /* CTA bar */
+    .cta-bar {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .path-title{
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
+    /* Signal box */
+    .signal-box {
+      padding: 16px;
+      border: 1px solid rgba(90,176,255,0.15);
+      border-radius: 12px;
+      background: rgba(90,176,255,0.03);
+      margin-top: 14px;
     }
 
-    .path-list{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:grid;
-      gap:7px;
+    /* Callout */
+    .callout {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(90,176,255,0.16);
+      border-radius: 12px;
+      background: rgba(90,176,255,0.03);
+    }
+    .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+    .callout p strong { color: #e8ecf0; }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .path-list li{
-      position:relative;
-      padding-left:14px;
-      font-size:12px;
-      line-height:1.55;
-      color:var(--text-dim);
-    }
+    /* ── Responsive ── */
+    @media (max-width: 920px) {
+      .wrap { padding-top: 48px; }
 
-    .path-list li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      top:0;
-      color:var(--label-blue);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:start;
-    }
-
-    .card{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
-      border:1px solid var(--border);
-      border-radius:var(--radius-md);
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-    }
-    .card:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
-    }
-    .card + .card{margin-top:24px;}
-
-    .label-row{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      border-bottom:1px solid var(--border-soft);
-      padding-bottom:12px;
-      margin-bottom:16px;
-    }
-
-    .label{
-      font-size:11px;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:0.16em;
-      color:var(--label-blue);
-    }
-
-    .label-note{
-      font-size:10px;
-      letter-spacing:0.08em;
-      text-transform:lowercase;
-      color:var(--label-blue);
-      white-space:nowrap;
-    }
-
-    .service-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:14px;
-    }
-
-    .service-title{
-      margin:0;
-      font-size:1.15rem;
-      font-weight:600;
-      line-height:1.25;
-      letter-spacing:-0.02em;
-    }
-
-    .price-tag{
-      flex:0 0 auto;
-      font-size:10px;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      padding:6px 8px;
-      border-radius:8px;
-      border:1px solid rgba(90,176,255,0.22);
-      color:#d8eefc;
-      background:rgba(90,176,255,0.10);
-    }
-
-    p{
-      margin:0 0 14px;
-      color:var(--text-dim);
-    }
-
-    .lead{
-      color:#d7dce3;
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .meta-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,0.015);
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-    }
-
-    .meta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:0 0 16px;
-    }
-
-    .scope-note{
-      margin:0 0 14px;
-      padding:10px 12px;
-      border:1px solid var(--border-soft);
-      border-radius:10px;
-      background:rgba(255,255,255,0.012);
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.04em;
-      line-height:1.6;
-      text-transform:uppercase;
-    }
-
-    ul.clean{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    ul.clean li{
-      padding-left:16px;
-      position:relative;
-      color:#d7dce3;
-      font-size:14px;
-      line-height:1.62;
-    }
-    ul.clean li::before{
-      content:"→";
-      position:absolute;
-      left:0;
-      color:var(--text-faint);
-    }
-
-    .split-list{
-      display:grid;
-      gap:14px;
-    }
-
-    .mini{
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      padding:14px;
-      background:rgba(255,255,255,0.01);
-    }
-
-    .mini h3{
-      margin:0 0 8px;
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
-    }
-
-    .mini p{
-      margin:0;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
-    }
-
-    .section-block{
-      margin-top:16px;
-    }
-
-    .section-head{
-      margin:0 0 10px;
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
-    }
-
-    .fit-grid{
-      display:grid;
-      gap:14px;
-    }
-
-    .cta-bar{
-      margin-top:24px;
-      padding-top:18px;
-      border-top:1px solid var(--border-soft);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    footer{
-      margin-top:32px;
-      padding-top:18px;
-      border-top:1px solid var(--border-soft);
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--text-faint);
-      font-size:12px;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    @media (max-width: 920px){
-      .wrap{padding-top:48px;}
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:16px;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
       }
-      .top-links{justify-content:flex-start;}
-      .hero-grid{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr;}
-      .service-head{
-        flex-direction:column;
-        align-items:flex-start;
+
+      .top-cta { justify-content: flex-start; }
+
+      .hero-strip { grid-template-columns: 1fr; }
+      .hero-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border-soft);
+        padding: 28px 24px;
       }
-      .pill{width:100%;}
+      .hero-right { padding: 24px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .service-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .arrow-chain { text-align: left; }
+
+      .label-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .label-note { white-space: normal; }
     }
 
-    @media (prefers-reduced-motion: reduce){
-      *{
-        scroll-behavior:auto !important;
-        transition:none !important;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="wrap">
+
+    <!-- ── HEADER ── -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
           <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
         </a>
-
-        <div class="h-ident">
+        <div>
           <h1>Jamie Forrester</h1>
-          <div class="sub">Independent Systems Architect</div>
-          <div class="meta-row-top">
-            <span class="pill" aria-label="Positioning">Diagnostic + Redesign Artifacts for systems that keep failing under scale</span>
-          </div>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Diagnostic + Redesign Artifacts for systems that keep failing under scale</div>
         </div>
       </div>
 
-      <div class="top-links" aria-label="Primary links">
+      <div class="top-cta" aria-label="Primary links">
         <span class="btn btn-current" aria-current="page">SERVICES</span>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          EMAIL
+        </a>
       </div>
     </header>
 
-    <section class="hero" aria-label="Service overview">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">Service brief</div>
-          <h2>Two written artifacts that make failing systems legible.</h2>
-          <p>
-            I work upstream of delivery teams. If your system keeps failing in the same way, I produce the
-            structured document that makes the failure pattern visible and the path to change explicit.
-          </p>
-          <p>
-            This is <strong>not</strong> implementation, facilitation, coaching, or program ownership.
-            It is a fixed-scope written intervention designed for internal decision-making and builder handoff.
-          </p>
-          <p>
-            <strong>Diagnosis</strong> exposes what is really breaking. <strong>Redesign</strong> defines what
-            must change, where responsibility moves, and in what order implementation can begin without drift.
-          </p>
+    <!-- ── HERO STRIP ── -->
+    <section class="hero-strip" aria-label="Service overview">
+      <div class="hero-left">
+        <div class="eyebrow">Service brief</div>
+        <h2 class="hero-title">Two written artifacts that make failing systems legible.</h2>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-            <a class="btn" href="./index.html">BACK TO HOME</a>
-          </div>
+        <p class="hero-sub">
+          I work upstream of delivery teams. If your system keeps failing in the same way, I produce the structured document that makes the failure pattern visible and the path to change explicit.
+        </p>
+
+        <p class="hero-sub">
+          This is <strong>not</strong> implementation, facilitation, coaching, or program ownership. It is a fixed-scope written intervention designed for internal decision-making and builder handoff.
+        </p>
+
+        <hr class="hero-rule" />
+
+        <p class="hero-sub" style="margin-bottom:0;">
+          <strong>Diagnosis</strong> exposes what is really breaking. <strong>Redesign</strong> defines what must change, where responsibility moves, and in what order implementation can begin without drift.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+          <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
+      </div>
 
-        <div class="path-card" aria-label="Operating path">
-          <div class="path-card-head">
-            <div class="path-eyebrow">Operating Path</div>
-            <div class="path-sub">From diagnosis to redesign</div>
-          </div>
-
-          <div class="path-section">
-            <div class="path-section-head">
-              <span class="path-index">01</span>
-              <span class="path-title">Diagnostic Artifact</span>
-            </div>
+      <div class="hero-right">
+        <div class="path-panel">
+          <div class="path-block path-block-accent">
+            <span class="path-index">01 // Diagnostic Artifact</span>
+            <p class="path-title">Expose the structure</p>
             <ul class="path-list">
               <li>Primitive</li>
               <li>Invariants</li>
@@ -734,26 +829,35 @@
             </ul>
           </div>
 
-          <div class="path-section">
-            <div class="path-section-head">
-              <span class="path-index">02</span>
-              <span class="path-title">Redesign Artifact</span>
-            </div>
+          <div class="arrow-chain" style="text-align:center; padding: 0 8px;">
+            <span>diagnosis → redesign</span>
+          </div>
+
+          <div class="path-block path-block-accent">
+            <span class="path-index">02 // Redesign Artifact</span>
+            <p class="path-title">Define the change</p>
             <ul class="path-list">
               <li>Target Boundary</li>
               <li>Transition Sequence</li>
               <li>Interface Changes</li>
               <li>Dependency Order</li>
-              <li>Drift Controls</li>
+              <li>Drift Refusal Gates</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <main id="main" class="grid" role="main">
-      <section>
-        <div class="card">
+    <!-- ── SERVICES ── -->
+    <div class="section-divider"><span class="section-divider-label">engagements</span></div>
+
+    <main id="main" class="services-grid" role="main">
+
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <!-- 01 Diagnostic -->
+        <section class="card card-accent" aria-label="Diagnostic Artifact">
           <div class="label-row">
             <span class="label">01 // Diagnostic Artifact</span>
             <span class="label-note">entry engagement</span>
@@ -761,18 +865,21 @@
 
           <div class="service-head">
             <h2 class="service-title">Expose the real structure behind recurring failure.</h2>
-            <span class="price-tag">£10k fixed fee / 14 days</span>
+            <div class="price-tag">
+              <span class="price-label">Fee</span>
+              £10,000
+            </div>
           </div>
 
           <div class="meta-row">
             <span class="meta-chip">upstream</span>
             <span class="meta-chip">fixed-scope</span>
-            <span class="meta-chip">decision-ready document</span>
+            <span class="meta-chip">14 days</span>
+            <span class="meta-chip">decision-ready</span>
           </div>
 
           <p class="lead">
-            For systems that keep breaking in the same place under growth, complexity, or organizational scale.
-            This is the point where more meetings have stopped helping and the real structure needs to be made explicit.
+            For systems that keep breaking in the same place under growth, complexity, or organisational scale. The point where more meetings have stopped helping and the real structure needs to be made explicit.
           </p>
 
           <div class="split-list">
@@ -789,18 +896,12 @@
 
             <div class="mini">
               <h3>What you send</h3>
-              <p>
-                The recurring failure pattern, the interfaces involved, and any materials that reflect the current state:
-                diagrams, policies, workflows, notes, contracts, screenshots, or internal documents.
-              </p>
+              <p>The recurring failure pattern, the interfaces involved, and any materials that reflect the current state: diagrams, policies, workflows, notes, contracts, screenshots, or internal documents.</p>
             </div>
 
             <div class="mini">
               <h3>What you receive</h3>
-              <p>
-                One structured diagnostic document for internal decision-making and builder handoff.
-                In practice, it gives decision owners a single source of structural truth and gives builders a clearer basis for what must change first.
-              </p>
+              <p>One structured diagnostic document for internal decision-making and builder handoff. Decision owners get a single source of structural truth. Builders get a clearer basis for what must change first.</p>
             </div>
           </div>
 
@@ -824,29 +925,51 @@
               <li>Ongoing coaching or facilitation retainers</li>
             </ul>
           </div>
-        </div>
+        </section>
 
-        <div class="card">
+        <!-- 02 Engagement flow -->
+        <section class="card" aria-label="Engagement flow" style="margin-top:20px;">
           <div class="label-row">
             <span class="label">02 // Engagement flow</span>
             <span class="label-note">how it starts</span>
           </div>
 
-          <ul class="clean">
-            <li><strong>Step 1:</strong> Email a Five-Line Brief: The Pattern, The Stake, The Interfaces, Concentration, and Constraints, plus any materials you already have.</li>
-            <li><strong>Step 2:</strong> I assess fit and confirm whether the work should begin with Diagnostic or move directly to Redesign.</li>
-            <li><strong>Step 3:</strong> If the fit is correct, I return a structured written deliverable designed for internal circulation, decision-making, and builder handoff.</li>
-          </ul>
+          <p class="lead" style="margin-bottom:16px;">
+            Send the failure pattern first. I review fit and confirm whether the work begins with diagnosis or moves directly to redesign.
+          </p>
+
+          <div style="display:grid; gap:10px;">
+            <div class="mini">
+              <h3>Step 01 — Send the brief</h3>
+              <p>Five lines plus any materials you already have: the pattern, the stake, the interfaces, where the heat is, and what cannot change.</p>
+            </div>
+            <div class="mini">
+              <h3>Step 02 — I review fit</h3>
+              <p>I assess whether the work should begin with diagnosis or move directly to redesign. If neither engagement fits, I will say so.</p>
+            </div>
+            <div class="mini">
+              <h3>Step 03 — You receive the artifact</h3>
+              <p>One structured written document for internal circulation, decision-making, and builder handoff.</p>
+            </div>
+          </div>
+
+          <div class="callout">
+            <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
+          </div>
 
           <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
             <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section>
-        <div class="card">
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <!-- 03 Redesign -->
+        <section class="card card-accent" aria-label="Redesign Artifact">
           <div class="label-row">
             <span class="label">03 // Redesign Artifact</span>
             <span class="label-note">follow-on engagement</span>
@@ -854,7 +977,10 @@
 
           <div class="service-head">
             <h2 class="service-title">Define the new boundary and the order of change.</h2>
-            <span class="price-tag">£15k–£25k</span>
+            <div class="price-tag">
+              <span class="price-label">Fee</span>
+              £15k–£25k
+            </div>
           </div>
 
           <div class="meta-row">
@@ -863,38 +989,28 @@
             <span class="meta-chip">builder handoff</span>
           </div>
 
-          <p class="scope-note">
+          <div class="scope-note">
             Pricing depends on the breadth of the redesign, the number of interfaces involved, and the complexity of the transition path.
-          </p>
+          </div>
 
           <p class="lead">
-            This is the what-changes-now phase. When the failure is already visible, but the route to change is still unclear,
-            this engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.
+            When the failure is already visible but the route to change is still unclear. This engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.
           </p>
 
           <div class="split-list">
             <div class="mini">
               <h3>What it defines</h3>
-              <p>
-                The target boundary, the transition sequence, the interface changes required, the dependency order,
-                and the explicit constraints that prevent local workarounds from quietly reintroducing the same failure pattern.
-              </p>
+              <p>The target boundary, the transition sequence, the interface changes required, the dependency order, and the explicit constraints that prevent local workarounds from quietly reintroducing the same failure pattern.</p>
             </div>
 
             <div class="mini">
               <h3>What you send</h3>
-              <p>
-                Either the completed Diagnostic document plus current materials, or a clear failure description with known constraints
-                if the need for redesign is already obvious and bounded.
-              </p>
+              <p>Either the completed Diagnostic document plus current materials, or a clear failure description with known constraints if the need for redesign is already obvious and bounded.</p>
             </div>
 
             <div class="mini">
               <h3>What you receive</h3>
-              <p>
-                One structured redesign document that defines the new operating boundary and the order of change.
-                In practice, it gives builders a stable sequence to execute against instead of forcing them to invent design midstream.
-              </p>
+              <p>One structured redesign document that defines the new operating boundary and the order of change. Builders get a stable sequence to execute against instead of being forced to invent design midstream.</p>
             </div>
           </div>
 
@@ -918,9 +1034,10 @@
               <li>Stakeholder alignment workshops</li>
             </ul>
           </div>
-        </div>
+        </section>
 
-        <div class="card">
+        <!-- 04 Fit -->
+        <section class="card" aria-label="Fit" style="margin-top:20px;">
           <div class="label-row">
             <span class="label">04 // Fit</span>
             <span class="label-note">who this is for</span>
@@ -954,9 +1071,10 @@
             <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
             <a class="btn" href="./index.html">BACK TO HOME</a>
           </div>
-        </div>
+        </section>
 
-        <div class="card">
+        <!-- 05 Delivery terms -->
+        <section class="card" aria-label="Delivery terms" style="margin-top:20px;">
           <div class="label-row">
             <span class="label">05 // Delivery terms</span>
             <span class="label-note">after delivery</span>
@@ -965,16 +1083,12 @@
           <div class="split-list">
             <div class="mini">
               <h3>What happens next</h3>
-              <p>
-                One minor clarification pass is included after delivery. This covers clarification of the document as delivered, not new analysis or widened scope.
-              </p>
+              <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered, not new analysis or widened scope.</p>
             </div>
 
             <div class="mini">
               <h3>When a new engagement is required</h3>
-              <p>
-                If the boundary expands, the analysis deepens, or the problem changes shape, that becomes new work and requires a separate engagement.
-              </p>
+              <p>If the boundary expands, the analysis deepens, or the problem changes shape, that becomes new work and requires a separate engagement.</p>
             </div>
           </div>
 
@@ -982,31 +1096,26 @@
             <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
             <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </div>
     </main>
 
+    <!-- ── FOOTER ── -->
     <footer>
-  <div class="footer-links">
-    <span>
-      Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-    </span>
-    <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
-    <span style="color:var(--text-faint);">/</span>
-    <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
-    <span style="color:var(--text-faint);">/</span>
-    <a
-      class="muted-link"
-      href="https://www.linkedin.com/in/jamie-forrester-773b7786"
-      target="_blank"
-      rel="noopener"
-    >LinkedIn</a>
-  </div>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
+        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
+      </div>
+    </footer>
 
-  <div>
-    <span style="color:var(--text-faint);">Last updated: 2026-03-04</span>
-  </div>
-</footer>
   </div>
 </body>
 </html>
