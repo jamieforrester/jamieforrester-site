@@ -4,1021 +4,1228 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>How It Works — Jamie Forrester</title>
-  <meta
-    name="description"
-    content="How diagnostic and redesign engagements work, from first email to written delivery."
-  />
+  <meta name="description" content="How diagnostic and redesign engagements work, from first email to written delivery." />
   <link rel="icon" href="/favicon.png" />
 
-  <!-- IBM Plex Sans + Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#0b0b0c;
-      --panel:#101114;
-      --panel-soft:#0d0e11;
+    :root {
+      --bg: #0b0b0c;
+      --panel: #101114;
+      --panel-soft: #0d0e11;
 
-      --text-main:#f1f3f5;
-      --text-dim:#c3c8d0;
-      --text-faint:#8b93a1;
+      --text-main: #f1f3f5;
+      --text-dim: #c6ccd4;
+      --text-faint: #8c94a2;
 
-      --border:#232731;
-      --border-soft:rgba(255,255,255,0.05);
-      --accent:#343a46;
+      --border: #232731;
+      --border-soft: rgba(255,255,255,0.06);
+      --accent: #343a46;
 
-      --label-blue:#4aa3ff;
-      --cta-blue:#5ab0ff;
+      --label-blue: #4aa3ff;
+      --cta-blue: #5ab0ff;
 
-      --focus-ring:rgba(255,255,255,0.95);
-      --focus-bg:rgba(255,255,255,0.08);
+      --focus-ring: rgba(255,255,255,0.95);
+      --focus-bg: rgba(255,255,255,0.08);
 
-      --radius-sm:10px;
-      --radius-md:14px;
-      --radius-lg:16px;
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 22px;
 
-      --shadow-soft:0 10px 30px rgba(0,0,0,0.24);
-      --shadow-hover:0 0 0 1px rgba(90,176,255,0.10), 0 14px 38px rgba(0,0,0,0.28);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
+      --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
     }
 
-    *{box-sizing:border-box;}
-    html{color-scheme:dark;}
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; }
 
-    body{
-      margin:0;
+    body {
+      margin: 0;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "ss01" 1, "cv05" 1;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 64px 24px 56px;
+    }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute;
+      left: 12px; top: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: var(--panel);
+      color: #fff;
+      transform: translateY(-200%);
+      transition: transform 120ms ease;
+      z-index: 9999;
+      text-decoration: none;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+    }
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    /* ── Links ── */
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+      padding-bottom: 1px;
+      font-size: 14px;
+      transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+    }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-bottom-color: transparent;
+      background: var(--focus-bg);
+      border-radius: 6px;
+    }
+    .muted-link { color: var(--text-dim); border-bottom-color: transparent; }
+    .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-soft);
+      margin-bottom: 32px;
+    }
+
+    .h-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .avatar-link {
+      display: inline-flex;
+      border-bottom: none;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+    .avatar-link:hover { background: transparent; transform: translateY(-1px); }
+    .avatar-link:focus-visible {
+      background: transparent;
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 4px;
+      border-radius: 999px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover;
+      filter: grayscale(100%);
+      display: block;
+      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
+      transition: box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .avatar:hover {
+      box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28);
+      border-color: rgba(90,176,255,0.3);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .h-sub {
+      margin-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .h-pill {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.015);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .top-cta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.018);
+      color: #fff;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 500;
+      text-decoration: none;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      border-bottom: none;
+      padding-bottom: 9px;
+      transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
+    }
+    .btn:hover {
+      background: rgba(255,255,255,0.05);
+      border-bottom: none;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .btn:focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 3px;
+      background: var(--focus-bg);
+    }
+    .btn-primary {
+      color: var(--cta-blue);
+      border-color: rgba(90,176,255,0.32);
+      background: rgba(90,176,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    .btn-primary:hover {
+      background: rgba(90,176,255,0.14);
+      border-color: rgba(90,176,255,0.5);
+      box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
+    }
+    .btn-current {
+      border-color: rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-dim);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .ico { display: inline-flex; align-items: center; justify-content: center; }
+    .ico svg { display: block; }
+
+    /* ── Type atoms ── */
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      margin: 0 0 10px;
+    }
+
+    .mini-kicker {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      margin: 0 0 10px;
+    }
+
+    .label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--label-blue);
+    }
+
+    .label-note {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--label-blue);
+      white-space: nowrap;
+    }
+
+    .arrow-chain {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      line-height: 1.7;
+      text-align: right;
+    }
+    .arrow-chain span { display: block; transition: color 160ms ease; }
+    .arrow-chain span:hover { color: var(--cta-blue); }
+
+    /* ── Section divider ── */
+    .section-divider {
+      margin: 0 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
+    }
+    .section-divider-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+
+    /* ── Hero strip ── */
+    .hero-strip {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at top left, rgba(90,176,255,0.035), transparent 28%),
-        linear-gradient(180deg, #0b0b0c, #0b0b0c);
-      color:var(--text-main);
-      font-family:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height:1.65;
-      font-size:16px;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      font-feature-settings:"ss01" 1, "cv05" 1;
+        linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      margin-bottom: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .hero-strip:hover {
+      border-color: rgba(90,176,255,0.2);
+      box-shadow: var(--shadow-hover);
     }
 
-    .wrap{
-      max-width:1120px;
-      margin:0 auto;
-      padding:64px 24px 56px;
+    .hero-left {
+      padding: 36px 32px 36px 36px;
+      border-right: 1px solid var(--border-soft);
     }
 
-    .mono,
-    .sub,
-    .pill,
-    .label,
-    .label-note,
-    .eyebrow,
-    .btn,
-    .skip-link,
-    .meta-chip,
-    .phase-index,
-    .flow-label{
-      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    .hero-right {
+      padding: 36px 28px;
+      background: rgba(255,255,255,0.012);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .skip-link{
-      position:absolute;
-      left:12px;
-      top:10px;
-      padding:10px 12px;
-      border-radius:10px;
-      border:1px solid var(--accent);
-      background:var(--panel);
-      color:#fff;
-      transform:translateY(-200%);
-      transition:transform 120ms ease;
-      z-index:9999;
-      text-decoration:none;
-      font-size:12px;
-    }
-    .skip-link:focus-visible{
-      transform:translateY(0);
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
+    .hero-title {
+      margin: 0 0 16px;
+      font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+      color: #fff;
+      max-width: 20ch;
     }
 
-    a{
-      color:#fff;
-      text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,0.18);
-      padding-bottom:1px;
-      transition:border-color 140ms ease, background-color 140ms ease, color 140ms ease, transform 140ms ease;
+    .hero-sub {
+      margin: 0 0 14px;
+      color: #d4d9e0;
+      font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem);
+      line-height: 1.72;
+      max-width: 60ch;
     }
-    a:hover{
-      border-bottom-color:#fff;
-      background:rgba(255,255,255,0.05);
-    }
-    a:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      border-bottom-color:transparent;
-      background:var(--focus-bg);
-      border-radius:6px;
+    .hero-sub strong { color: #fff; font-weight: 600; }
+
+    .hero-rule {
+      margin: 20px 0;
+      border: none;
+      border-top: 1px solid var(--border-soft);
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--accent);
-      background:rgba(255,255,255,0.018);
-      color:#fff;
-      font-size:13px;
-      font-weight:500;
-      text-decoration:none;
-      line-height:1;
-      text-transform:uppercase;
-      letter-spacing:0.06em;
-      white-space:nowrap;
-      transition:
-        transform 140ms ease,
-        background-color 140ms ease,
-        border-color 140ms ease,
-        box-shadow 140ms ease;
-    }
-    .btn:hover{
-      background:rgba(255,255,255,0.04);
-      transform:translateY(-1px);
-    }
-    .btn:focus-visible{
-      outline:2px solid var(--focus-ring);
-      outline-offset:3px;
-      background:var(--focus-bg);
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 22px;
     }
 
-    .btn-primary{
-      color:var(--cta-blue);
-      border-color:rgba(90,176,255,0.30);
-      background:rgba(90,176,255,0.075);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-    .btn-primary:hover{
-      background:rgba(90,176,255,0.12);
-      border-color:rgba(90,176,255,0.45);
-      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    /* Process summary panel */
+    .process-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .btn-current{
-      border-color:rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.03);
-      color:var(--text-dim);
-      cursor:default;
-      pointer-events:none;
+    .process-summary-head {
+      padding-bottom: 12px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--border-soft);
     }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding-bottom:24px;
-      border-bottom:1px solid var(--border-soft);
-      margin-bottom:24px;
+    .process-summary-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      display: block;
+      margin-bottom: 4px;
     }
 
-    .h-left{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      min-width:0;
+    .process-summary-sub {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      color: var(--text-faint);
+      letter-spacing: 0.06em;
     }
 
-    .h-ident{
-      min-width:0;
+    .summary-step {
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: border-color 160ms ease, background 160ms ease;
+    }
+    .summary-step:hover {
+      border-color: rgba(90,176,255,0.2);
+      background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.008) 100%);
     }
 
-    .avatar-link{
-      display:inline-flex;
-      border-bottom:none;
-      border-radius:999px;
-      flex:0 0 auto;
-    }
-    .avatar-link:hover{
-      background:transparent;
-      transform:translateY(-1px);
-    }
-    .avatar-link:focus-visible{
-      background:transparent;
-      outline:2px solid var(--focus-ring);
-      outline-offset:4px;
-      border-radius:999px;
+    .summary-step-num {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      display: block;
+      margin-bottom: 3px;
     }
 
-    .avatar{
-      width:78px;
-      height:78px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
-      object-fit:cover;
-      filter:grayscale(100%);
-      flex:0 0 auto;
-      box-shadow:0 6px 20px rgba(0,0,0,0.18);
-      display:block;
+    .summary-step strong {
+      display: block;
+      font-size: 12px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 3px;
+      letter-spacing: -0.01em;
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(1.1rem, 1rem + 0.7vw, 1.45rem);
-      font-weight:600;
-      letter-spacing:-0.03em;
-      line-height:1.15;
+    .summary-step span {
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.5;
+      display: block;
     }
 
-    .sub{
-      margin-top:6px;
-      font-size:11px;
-      color:var(--text-dim);
-      text-transform:uppercase;
-      letter-spacing:0.14em;
-      white-space:nowrap;
+    /* ── Cards ── */
+    .card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-width: 0;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 20px;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
-
-    .meta-row-top{
-      margin-top:12px;
+    .card:hover {
+      border-color: rgba(255,255,255,0.13);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3);
+      transform: translateY(-1px);
     }
+    .card:last-child { margin-bottom: 0; }
 
-    .pill{
-      display:-webkit-inline-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-      align-items:center;
-      justify-content:center;
-      padding:8px 12px;
-      width:392px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.05em;
-      line-height:1.35;
-      white-space:normal;
-    }
-
-    .top-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      align-items:center;
-    }
-
-    .hero{
-      border:1px solid var(--border);
-      border-radius:var(--radius-lg);
-      padding:28px;
+    .card-accent {
+      border-color: rgba(90,176,255,0.22);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
-        linear-gradient(180deg, rgba(90,176,255,0.018), rgba(255,255,255,0));
-      box-shadow:var(--shadow-soft);
-      margin-bottom:24px;
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(90,176,255,0.06),
+        0 12px 36px rgba(0,0,0,0.28);
     }
-    .hero:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr 0.95fr;
-      gap:24px;
-      align-items:stretch;
+    .card-accent:hover {
+      border-color: rgba(90,176,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 0 0 1px rgba(90,176,255,0.1),
+        0 18px 48px rgba(0,0,0,0.32);
+      transform: translateY(-2px);
     }
 
-    .eyebrow{
-      color:var(--label-blue);
-      font-size:10px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      margin:0 0 10px;
-    }
-
-    .hero h2{
-      margin:0 0 14px;
-      font-size:clamp(1.7rem, 1.35rem + 1.1vw, 2.35rem);
-      line-height:1.14;
-      letter-spacing:-0.04em;
-      font-weight:700;
-      max-width:15ch;
-    }
-
-    .hero p{
-      margin:0 0 12px;
-      color:#d8dde4;
-      font-size:clamp(0.98rem, 0.94rem + 0.15vw, 1.05rem);
-      max-width:70ch;
-    }
-
-    .hero strong{
-      color:#fff;
-      font-weight:600;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top:18px;
-    }
-
-    .flow-card{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:18px;
+    .card-full {
+      border-color: rgba(90,176,255,0.16);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
-      box-shadow:var(--shadow-soft);
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
+        linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 10px 30px rgba(0,0,0,0.24);
+    }
+    .card-full:hover {
+      border-color: rgba(90,176,255,0.26);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-1px);
     }
 
-    .flow-card-head{
-      padding-bottom:12px;
-      margin-bottom:12px;
-      border-bottom:1px solid var(--border-soft);
+    .label-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    .flow-label{
-      font-size:10px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:var(--label-blue);
-      margin-bottom:6px;
+    .section-title {
+      margin: 0 0 16px;
+      font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.03em;
+      color: #fff;
     }
 
-    .flow-sub{
-      font-size:11px;
-      color:var(--text-faint);
-      letter-spacing:0.04em;
+    p { margin: 0 0 14px; color: var(--text-dim); }
+    p:last-child { margin-bottom: 0; }
+
+    .lead {
+      color: #cdd2da;
+      font-size: 15px;
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+    .lead strong { color: #fff; }
+
+    /* ── Protocol chips ── */
+    .meta-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
     }
 
-    .flow-list{
-      display:grid;
-      gap:10px;
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
     }
 
-    .flow-step{
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      padding:12px;
-      background:rgba(255,255,255,0.01);
+    /* ── Mini blocks ── */
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
 
-    .flow-step strong{
-      display:block;
-      font-size:13px;
-      color:#fff;
-      margin-bottom:4px;
+    .two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
-    .flow-step span{
-      font-size:13px;
-      color:var(--text-dim);
-      line-height:1.55;
+    .mini {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:start;
+    .mini h3 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
 
-    .card{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.008));
-      border:1px solid var(--border);
-      border-radius:var(--radius-md);
-      padding:22px;
-      box-shadow:var(--shadow-soft);
-      transition:border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-    }
-    .card:hover{
-      border-color:rgba(90,176,255,0.18);
-      box-shadow:var(--shadow-hover);
-      transform:translateY(-1px);
-    }
-    .card + .card{margin-top:24px;}
-
-    .label-row{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      border-bottom:1px solid var(--border-soft);
-      padding-bottom:12px;
-      margin-bottom:16px;
+    .mini p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.62;
     }
 
-    .label{
-      font-size:11px;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:0.16em;
-      color:var(--label-blue);
+    /* ── Phase list ── */
+    .phase-list { display: grid; gap: 10px; }
+
+    .phase {
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+    .phase:hover {
+      border-color: rgba(90,176,255,0.2);
+      transform: translateX(3px);
     }
 
-    .label-note{
-      font-size:10px;
-      letter-spacing:0.08em;
-      text-transform:lowercase;
-      color:var(--label-blue);
-      white-space:nowrap;
+    .phase-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
     }
 
-    .section-title{
-      margin:0 0 14px;
-      font-size:1.15rem;
-      font-weight:600;
-      line-height:1.25;
-      letter-spacing:-0.02em;
+    .phase-index {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--label-blue);
+      text-transform: uppercase;
+      min-width: 24px;
+      flex: 0 0 auto;
     }
 
-    p{
-      margin:0 0 14px;
-      color:var(--text-dim);
+    .phase-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.02em;
     }
 
-    .lead{
-      color:#d7dce3;
-      font-size:15px;
-      line-height:1.7;
+    .phase p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.65;
+      padding-left: 36px;
     }
 
-    .meta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:0 0 16px;
+    /* ── Route cards ── */
+    .route-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
-    .meta-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,0.015);
-      color:var(--text-dim);
-      font-size:11px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
+    .route-card {
+      padding: 20px;
+      border: 1px solid rgba(90,176,255,0.18);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.018) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    }
+    .route-card:hover {
+      border-color: rgba(90,176,255,0.32);
+      transform: translateY(-2px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.2);
     }
 
-    .phase-list{
-      display:grid;
-      gap:14px;
+    .route-card h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
     }
 
-    .phase{
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      padding:14px;
-      background:rgba(255,255,255,0.01);
+    .route-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.62;
     }
 
-    .phase-head{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      margin-bottom:8px;
+    .route-decision {
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.014);
     }
 
-    .phase-index{
-      font-size:10px;
-      letter-spacing:0.12em;
-      color:var(--label-blue);
-      text-transform:uppercase;
-      min-width:22px;
+    .route-decision h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
     }
 
-    .phase-title{
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
+    .route-decision p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.62;
     }
 
-    .phase p{
-      margin:0;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
+    /* ── Clean list ── */
+    ul.clean {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+    ul.clean li {
+      padding-left: 16px;
+      position: relative;
+      color: #ccd1da;
+      font-size: 13px;
+      line-height: 1.62;
+    }
+    ul.clean li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-faint);
+    }
+    ul.clean li strong { color: #e8ecf0; }
+
+    /* ── Section block ── */
+    .section-block { margin-top: 18px; }
+    .section-head {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
 
-    .split-list{
-      display:grid;
-      gap:14px;
+    /* ── Signal / callout ── */
+    .signal-box {
+      padding: 16px;
+      border: 1px solid rgba(90,176,255,0.15);
+      border-radius: 12px;
+      background: rgba(90,176,255,0.03);
+      margin-top: 16px;
     }
 
-    .mini{
-      border:1px solid var(--border-soft);
-      border-radius:12px;
-      padding:14px;
-      background:rgba(255,255,255,0.01);
+    .callout {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(90,176,255,0.16);
+      border-radius: 12px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%);
+    }
+    .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+    .callout p strong { color: #e8ecf0; }
+
+    /* ── CTA bar ── */
+    .cta-bar {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .mini h3{
-      margin:0 0 8px;
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
+    /* ── Footer ── */
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--text-faint);
+      font-size: 12px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .mini p{
-      margin:0;
-      font-size:14px;
-      color:var(--text-dim);
-      line-height:1.62;
+    /* ── Responsive ── */
+    @media (max-width: 920px) {
+      .wrap { padding-top: 48px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .top-cta { justify-content: flex-start; }
+      .hero-strip { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
+      .hero-right { padding: 24px; }
+      .three-grid,
+      .two-grid,
+      .route-grid { grid-template-columns: 1fr; }
+      .arrow-chain { text-align: left; }
+      .label-row { flex-direction: column; align-items: flex-start; }
+      .label-note { white-space: normal; }
+      .phase p { padding-left: 0; }
     }
 
-    .section-block{
-      margin-top:16px;
-    }
-
-    .section-head{
-      margin:0 0 10px;
-      font-size:14px;
-      font-weight:600;
-      color:#fff;
-      letter-spacing:-0.01em;
-    }
-
-    ul.clean{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-    ul.clean li{
-      padding-left:16px;
-      position:relative;
-      color:#d7dce3;
-      font-size:14px;
-      line-height:1.62;
-    }
-    ul.clean li::before{
-      content:"→";
-      position:absolute;
-      left:0;
-      color:var(--text-faint);
-    }
-
-    .cta-bar{
-      margin-top:24px;
-      padding-top:18px;
-      border-top:1px solid var(--border-soft);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    footer{
-      margin-top:32px;
-      padding-top:18px;
-      border-top:1px solid var(--border-soft);
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--text-faint);
-      font-size:12px;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    @media (max-width: 920px){
-      .wrap{padding-top:48px;}
-      header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:16px;
-      }
-      .top-links{justify-content:flex-start;}
-      .hero-grid{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr;}
-      .pill{width:100%;}
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      *{
-        scroll-behavior:auto !important;
-        transition:none !important;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="wrap">
+
+    <!-- ── HEADER ── -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
           <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
         </a>
-
-        <div class="h-ident">
+        <div>
           <h1>Jamie Forrester</h1>
-          <div class="sub">Independent Systems Architect</div>
-          <div class="meta-row-top">
-            <span class="pill" aria-label="Positioning">A fixed process from failure pattern to decision-ready document</span>
-          </div>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">A fixed process from failure pattern to decision-ready document</div>
         </div>
       </div>
 
-      <div class="top-links" aria-label="Primary links">
+      <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <span class="btn btn-current" aria-current="page">HOW IT WORKS</span>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">
+          <span class="ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          EMAIL
+        </a>
       </div>
     </header>
 
-    <section class="hero" aria-label="How it works overview">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">How it works</div>
-          <h2>From first email to a usable internal document.</h2>
-          <p>
-            This page explains exactly how an engagement works: what you send, how fit is assessed,
-            how the work is conducted, and what you receive at the end.
-          </p>
-          <p>
-            The process is fixed, written-first, and designed to reduce ambiguity. No slide decks.
-            No meeting chain by default. No open-ended advisory drift.
-          </p>
-          <p>
-            You send a <strong>Five-Line Brief</strong>. I determine whether the work should begin with
-            <strong>Diagnostic</strong> or move directly to <strong>Redesign</strong>. If the fit is correct,
-            I return one structured written artifact for decision owners and builders.
-          </p>
+    <!-- ── HERO ── -->
+    <section class="hero-strip" aria-label="How it works overview">
+      <div class="hero-left">
+        <div class="eyebrow">How it works</div>
+        <h2 class="hero-title">From first email to a usable internal document.</h2>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-            <a class="btn" href="./index.html">BACK TO HOME</a>
-          </div>
+        <p class="hero-sub">
+          This page explains exactly how an engagement works: what you send, how fit is assessed, how the work is conducted, and what you receive at the end.
+        </p>
+
+        <p class="hero-sub">
+          The process is fixed, written-first, and designed to reduce ambiguity. No slide decks. No meeting chain by default. No open-ended advisory drift.
+        </p>
+
+        <hr class="hero-rule" />
+
+        <p class="hero-sub" style="margin-bottom:0;">
+          You send a <strong>Five-Line Brief</strong>. I determine whether the work begins with <strong>Diagnosis</strong> or moves directly to <strong>Redesign</strong>. If the fit is correct, I return one structured written artifact for decision owners and builders.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
+      </div>
 
-        <div class="flow-card" aria-label="Process summary">
-          <div class="flow-card-head">
-            <div class="flow-label">Process Summary</div>
-            <div class="flow-sub">The path from entry to delivery</div>
+      <div class="hero-right">
+        <div class="process-summary">
+          <div class="process-summary-head">
+            <span class="process-summary-label">Process Summary</span>
+            <span class="process-summary-sub">The path from entry to delivery</span>
           </div>
 
-          <div class="flow-list">
-            <div class="flow-step">
-              <strong>01 — Five-Line Brief</strong>
-              <span>You send: The Pattern, The Stake, The Interfaces, Concentration, and Constraints, plus any relevant materials.</span>
-            </div>
-            <div class="flow-step">
-              <strong>02 — Fit Assessment</strong>
-              <span>I determine whether the issue is a fit, and whether the correct entry point is Diagnostic or Redesign.</span>
-            </div>
-            <div class="flow-step">
-              <strong>03 — Fixed Scope</strong>
-              <span>The engagement boundary is confirmed before work begins. The process does not expand by default.</span>
-            </div>
-            <div class="flow-step">
-              <strong>04 — Written Delivery</strong>
-              <span>You receive one structured document designed for internal circulation, decision-making, and builder handoff.</span>
-            </div>
-            <div class="flow-step">
-              <strong>05 — Clarification</strong>
-              <span>One minor clarification pass is included. New analysis or widened scope becomes new work.</span>
-            </div>
+          <div class="summary-step">
+            <span class="summary-step-num">01</span>
+            <strong>Five-Line Brief</strong>
+            <span>You send: The Pattern, The Stake, The Interfaces, Concentration, and Constraints, plus any relevant materials.</span>
+          </div>
+          <div class="summary-step">
+            <span class="summary-step-num">02</span>
+            <strong>Fit Assessment</strong>
+            <span>I determine whether this is a fit and whether the correct entry point is Diagnosis or Redesign.</span>
+          </div>
+          <div class="summary-step">
+            <span class="summary-step-num">03</span>
+            <strong>Scope Confirmed</strong>
+            <span>The engagement boundary is set before work begins. The process does not expand by default.</span>
+          </div>
+          <div class="summary-step">
+            <span class="summary-step-num">04</span>
+            <strong>Written Delivery</strong>
+            <span>You receive one structured document for internal circulation, decision-making, and builder handoff.</span>
+          </div>
+          <div class="summary-step">
+            <span class="summary-step-num">05</span>
+            <strong>Clarification Pass</strong>
+            <span>One minor clarification pass is included. New analysis or widened scope becomes a new engagement.</span>
           </div>
         </div>
       </div>
     </section>
 
-    <main id="main" class="grid" role="main">
-      <section>
-        <div class="card">
-          <div class="label-row">
-            <span class="label">01 // Working protocol</span>
-            <span class="label-note">how we interact</span>
-          </div>
+    <!-- ── MAIN ── -->
+    <main id="main" role="main">
 
-          <h2 class="section-title">Written-first, asynchronous, and bounded.</h2>
+      <!-- 01 Working protocol -->
+      <div class="section-divider"><span class="section-divider-label">working protocol</span></div>
 
-          <div class="meta-row">
-            <span class="meta-chip">written-first</span>
-            <span class="meta-chip">async by default</span>
-            <span class="meta-chip">fixed process</span>
-          </div>
-
-          <p class="lead">
-            Most of the work is conducted through written exchange and artifact review. I do not move into your workflow,
-            join your Slack, or begin with a chain of meetings. The point is to preserve structural objectivity and keep the process efficient.
-          </p>
-
-          <div class="split-list">
-            <div class="mini">
-              <h3>Default mode</h3>
-              <p>
-                The default mode is email, document review, and written clarification. This keeps the engagement focused on structural signal rather than conversational noise.
-              </p>
-            </div>
-
-            <div class="mini">
-              <h3>Clarifying questions</h3>
-              <p>
-                If something important is missing, I may ask targeted clarifying questions. These are used to tighten scope and locate the real boundary, not to create a meeting cycle.
-              </p>
-            </div>
-
-            <div class="mini">
-              <h3>What this prevents</h3>
-              <p>
-                This protocol is designed to prevent premature implementation, endless alignment calls, and the slow drift that happens when the work stays verbally defined.
-              </p>
-            </div>
-          </div>
+      <section class="card card-full" aria-label="Working protocol">
+        <div class="label-row">
+          <span class="label">01 // Working protocol</span>
+          <span class="label-note">how we interact</span>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">02 // The process</span>
-            <span class="label-note">start to finish</span>
-          </div>
+        <h2 class="section-title">Written-first, asynchronous, and bounded.</h2>
 
-          <h2 class="section-title">A fixed sequence from intake to delivery.</h2>
-
-          <div class="phase-list">
-            <div class="phase">
-              <div class="phase-head">
-                <span class="phase-index">01</span>
-                <span class="phase-title">Five-Line Brief</span>
-              </div>
-              <p>
-                You begin by emailing five lines: <strong>The Pattern</strong>, <strong>The Stake</strong>,
-                <strong>The Interfaces</strong>, <strong>Concentration</strong>, and <strong>Constraints</strong>.
-                You can attach any materials that reflect the current state.
-              </p>
-            </div>
-
-            <div class="phase">
-              <div class="phase-head">
-                <span class="phase-index">02</span>
-                <span class="phase-title">Fit Assessment</span>
-              </div>
-              <p>
-                I review the brief and the materials to determine whether the issue is structurally suited to this approach,
-                whether the boundary can be clearly defined, and whether the right starting point is Diagnostic or Redesign.
-              </p>
-            </div>
-
-            <div class="phase">
-              <div class="phase-head">
-                <span class="phase-index">03</span>
-                <span class="phase-title">Scope Confirmation</span>
-              </div>
-              <p>
-                If the fit is correct, the engagement is confirmed as a fixed-scope written intervention. The boundary of the work is set before analysis begins.
-              </p>
-            </div>
-
-            <div class="phase">
-              <div class="phase-head">
-                <span class="phase-index">04</span>
-                <span class="phase-title">Upstream Work</span>
-              </div>
-              <p>
-                I work through the materials, expose the structure through Diagnostic, or define the transition sequence through Redesign, depending on the confirmed route. In both cases, the goal is to make the next move clearer before execution begins.
-              </p>
-            </div>
-
-            <div class="phase">
-              <div class="phase-head">
-                <span class="phase-index">05</span>
-                <span class="phase-title">Delivery + Clarification</span>
-              </div>
-              <p>
-                You receive one structured written artifact for internal circulation. One minor clarification pass is included after delivery. If the boundary changes, that becomes a new engagement.
-              </p>
-            </div>
-          </div>
-
-          <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-          </div>
+        <div class="meta-row">
+          <span class="meta-chip">written-first</span>
+          <span class="meta-chip">async by default</span>
+          <span class="meta-chip">fixed process</span>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">03 // What you provide</span>
-            <span class="label-note">client inputs</span>
+        <p class="lead">
+          Most of the work is conducted through written exchange and artifact review. I do not move into your workflow, join your Slack, or begin with a chain of meetings. The point is to preserve structural objectivity and keep the process efficient.
+        </p>
+
+        <div class="three-grid">
+          <div class="mini">
+            <h3>Default mode</h3>
+            <p>Email, document review, and written clarification. This keeps the engagement focused on structural signal rather than conversational noise.</p>
           </div>
-
-          <h2 class="section-title">Useful signal, not polished presentation.</h2>
-
-          <p class="lead">
-            You do not need a perfect brief. You do need to send enough signal to make the real pattern visible.
-            Rough materials are acceptable if they reflect what is actually happening.
-          </p>
-
-          <div class="section-block">
-            <h3 class="section-head">What to send</h3>
-            <ul class="clean">
-              <li>A completed Five-Line Brief</li>
-              <li>Diagrams, policies, workflows, notes, contracts, screenshots, post-mortems, or internal documents</li>
-              <li>A clear statement of known constraints: technical, legal, budgetary, or operational</li>
-              <li>Timely written responses if clarifying questions are required</li>
-            </ul>
+          <div class="mini">
+            <h3>Clarifying questions</h3>
+            <p>If something important is missing, I may ask targeted questions. These are used to tighten scope and locate the real boundary — not to create a meeting cycle.</p>
           </div>
-
-          <div class="section-block">
-            <h3 class="section-head">What matters most</h3>
-            <ul class="clean">
-              <li>Accuracy over polish</li>
-              <li>Real operating reality over official narrative</li>
-              <li>Boundary signal over volume</li>
-            </ul>
+          <div class="mini">
+            <h3>What this prevents</h3>
+            <p>Premature implementation, endless alignment calls, and the slow drift that happens when the work stays verbally defined rather than written down.</p>
           </div>
         </div>
       </section>
 
-      <section>
-        <div class="card">
-          <div class="label-row">
-            <span class="label">04 // Which route applies</span>
-            <span class="label-note">diagnostic vs redesign</span>
+      <!-- 02 The process -->
+      <div class="section-divider"><span class="section-divider-label">the process</span></div>
+
+      <section class="card card-accent" aria-label="The process">
+        <div class="label-row">
+          <span class="label">02 // The process</span>
+          <span class="label-note">start to finish</span>
+        </div>
+
+        <h2 class="section-title">A fixed sequence from intake to delivery.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          Five steps. Each one is defined before the next begins. The process does not expand, loop back, or drift into ongoing advisory. It ends with a written artifact.
+        </p>
+
+        <div class="phase-list">
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-index">01</span>
+              <span class="phase-title">Five-Line Brief</span>
+            </div>
+            <p>You begin by emailing five lines: <strong>The Pattern</strong>, <strong>The Stake</strong>, <strong>The Interfaces</strong>, <strong>Concentration</strong>, and <strong>Constraints</strong>. Attach any materials that reflect the current state — diagrams, policies, workflows, contracts, post-mortems, screenshots. Accuracy matters more than polish.</p>
           </div>
 
-          <h2 class="section-title">Not every system starts in the same place.</h2>
-
-          <div class="split-list">
-            <div class="mini">
-              <h3>Start with Diagnostic</h3>
-              <p>
-                Begin with Diagnostic when the real structure is still unclear, the failure keeps recurring under different names,
-                or the team is still arguing about what is actually breaking.
-              </p>
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-index">02</span>
+              <span class="phase-title">Fit Assessment</span>
             </div>
+            <p>I review the brief and materials to determine whether the issue is structurally suited to this approach, whether the boundary can be clearly defined, and whether the correct starting point is Diagnosis or Redesign. If it is not a fit, I say so here.</p>
+          </div>
 
-            <div class="mini">
-              <h3>Start with Redesign</h3>
-              <p>
-                Move directly to Redesign when the failure mode is already obvious, the boundary is already visible,
-                and the real bottleneck is lack of a clear transition sequence.
-              </p>
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-index">03</span>
+              <span class="phase-title">Scope Confirmation</span>
             </div>
+            <p>If the fit is correct, the engagement is confirmed as a fixed-scope written intervention. The boundary of the work is set explicitly before analysis begins. This is the point at which the process becomes binding.</p>
+          </div>
 
-            <div class="mini">
-              <h3>How the decision is made</h3>
-              <p>
-                The Five-Line Brief exists partly to answer this question. If the correct route is unclear from the outside, I determine it during fit assessment.
-              </p>
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-index">04</span>
+              <span class="phase-title">Upstream Work</span>
+            </div>
+            <p>I work through the materials. For Diagnosis: I expose the real structure — the primitive, invariants, enforcement map, mismatch, and build map. For Redesign: I define the target boundary, transition sequence, interface changes, dependency order, and drift refusal gates. In both cases, the goal is to make the next move structurally legible before execution begins.</p>
+          </div>
+
+          <div class="phase">
+            <div class="phase-head">
+              <span class="phase-index">05</span>
+              <span class="phase-title">Delivery and Clarification</span>
+            </div>
+            <p>You receive one structured written artifact within 14 days of engagement start. It is designed for internal circulation, decision-making, and builder handoff. One minor clarification pass is included after delivery. If the boundary changes or new analysis is required, that becomes a new engagement.</p>
+          </div>
+        </div>
+
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+        </div>
+      </section>
+
+      <!-- 03 Which route -->
+      <div class="section-divider"><span class="section-divider-label">which route applies</span></div>
+
+      <section class="card" aria-label="Which route applies">
+        <div class="label-row">
+          <span class="label">03 // Which route applies</span>
+          <span class="label-note">diagnosis vs redesign</span>
+        </div>
+
+        <h2 class="section-title">Not every system starts in the same place.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          The Five-Line Brief exists partly to answer this question. Both routes end with a written artifact. The difference is where the structural uncertainty currently sits.
+        </p>
+
+        <div class="route-grid">
+          <div class="route-card">
+            <span class="mini-kicker">Start with Diagnosis</span>
+            <h3>When the real structure is still hidden</h3>
+            <p>Begin with Diagnosis when the failure keeps recurring under different names, the team is still debating what is actually breaking, or the real rules have never been made explicit. The Diagnostic Artifact makes the structure visible before anyone moves.</p>
+          </div>
+
+          <div class="route-card">
+            <span class="mini-kicker">Start with Redesign</span>
+            <h3>When the path to change is unclear</h3>
+            <p>Move directly to Redesign when the failure mode is already obvious, the boundary is already visible, and the real bottleneck is a lack of a clear, ordered transition sequence. The Redesign Artifact defines what changes first and prevents regression.</p>
+          </div>
+        </div>
+
+        <div class="route-decision">
+          <h3>If the correct route is unclear</h3>
+          <p>The fit assessment resolves this. If you are unsure whether you need Diagnosis or Redesign, send the Five-Line Brief and I will determine the correct entry point. You do not need to know before you send.</p>
+        </div>
+      </section>
+
+      <!-- 04 What you provide -->
+      <div class="section-divider"><span class="section-divider-label">what you provide</span></div>
+
+      <section class="card" aria-label="What you provide">
+        <div class="label-row">
+          <span class="label">04 // What you provide</span>
+          <span class="label-note">client inputs</span>
+        </div>
+
+        <h2 class="section-title">Useful signal, not polished presentation.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          You do not need a perfect brief or a well-organised document pack. Most clients arrive with messy, partial, or contradictory materials — that is normal. What matters is that the materials reflect what is actually happening, not what the official narrative says.
+        </p>
+
+        <div class="two-grid">
+          <div>
+            <div class="section-block" style="margin-top:0;">
+              <h3 class="section-head">What to send</h3>
+              <ul class="clean">
+                <li>A completed Five-Line Brief</li>
+                <li>Diagrams, policies, workflows, notes, contracts, or screenshots</li>
+                <li>Post-mortems, incident reports, or internal documents that show what actually happened</li>
+                <li>A clear statement of known constraints: technical, legal, budgetary, or operational</li>
+                <li>Timely written responses if clarifying questions are required</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-block" style="margin-top:0;">
+              <h3 class="section-head">What matters most</h3>
+              <ul class="clean">
+                <li><strong>Accuracy over polish</strong> — rough materials are fine if they reflect reality</li>
+                <li><strong>Operating reality over official narrative</strong> — what actually happens, not what the policy says</li>
+                <li><strong>Boundary signal over volume</strong> — knowing what cannot change is as useful as knowing what keeps breaking</li>
+                <li><strong>Honest constraints</strong> — hidden constraints discovered mid-engagement create scope problems</li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">05 // What you receive</span>
-            <span class="label-note">the deliverable</span>
+        <div class="callout">
+          <p>If you are unsure whether you have enough to send, send what you have. The fit assessment will determine whether there is sufficient signal to proceed.</p>
+        </div>
+      </section>
+
+      <!-- 05 What you receive -->
+      <div class="section-divider"><span class="section-divider-label">what you receive</span></div>
+
+      <section class="card" aria-label="What you receive">
+        <div class="label-row">
+          <span class="label">05 // What you receive</span>
+          <span class="label-note">the deliverable</span>
+        </div>
+
+        <h2 class="section-title">A structured document, not a deck.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          Every engagement ends with one written artifact. It is designed to be read, circulated internally, and handed directly to the people who need to make decisions or execute against it. It is not a slide deck, a workshop package, or an open-ended memo.
+        </p>
+
+        <div class="three-grid">
+          <div class="mini">
+            <h3>Who it is for</h3>
+            <p>Decision owners who need a single source of structural truth, and builders who need a clear basis for what must change first. Both can use the same document.</p>
           </div>
+          <div class="mini">
+            <h3>What it does</h3>
+            <p>Resolves structural uncertainty, reduces debate about what changes first, supports internal alignment, and provides a stable handoff point for execution teams.</p>
+          </div>
+          <div class="mini">
+            <h3>What it is not</h3>
+            <p>Not a slide deck. Not a workshop or facilitation package. Not implementation execution. Not an open-ended advisory retainer. One document. One engagement.</p>
+          </div>
+        </div>
+      </section>
 
-          <h2 class="section-title">A structured document, not a deck.</h2>
+      <!-- 06 When it is not a fit -->
+      <div class="section-divider"><span class="section-divider-label">when it is not a fit</span></div>
 
-          <p class="lead">
-            Every engagement ends with one written artifact designed for internal use. It is intended to be read,
-            circulated, and handed directly to the people who need to make decisions or execute against it.
-          </p>
-          <p>
-            It is designed to be circulated, acted on, and used to resolve structural uncertainty quickly.
-          </p>
+      <section class="card" aria-label="When it is not a fit">
+        <div class="label-row">
+          <span class="label">06 // When it is not a fit</span>
+          <span class="label-note">clear refusal logic</span>
+        </div>
 
-          <div class="section-block">
-            <h3 class="section-head">What the artifact is for</h3>
+        <h2 class="section-title">Not every problem belongs in this process.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          The intake exists to determine whether this approach is appropriate — not to force every problem into the same engagement. If it is not a fit, I say so at the fit assessment stage.
+        </p>
+
+        <div class="two-grid">
+          <div class="mini">
+            <h3>Not a fit when</h3>
             <ul class="clean">
-              <li>Internal decision-making</li>
-              <li>Builder handoff</li>
-              <li>Boundary clarification</li>
-              <li>Reducing debate about what changes first</li>
+              <li>The issue is too broad or undefined for a bounded written intervention</li>
+              <li>The real need is implementation ownership, delivery leadership, or ongoing facilitation</li>
+              <li>The available inputs do not contain enough signal to define a reliable boundary</li>
+              <li>The failure is primarily operational noise rather than a structural problem</li>
+              <li>Multiple unrelated failure modes are being combined into one request</li>
             </ul>
           </div>
 
-          <div class="section-block">
-            <h3 class="section-head">What it is not</h3>
-            <ul class="clean">
-              <li>Not a slide deck</li>
-              <li>Not a workshop or facilitation package</li>
-              <li>Not implementation execution</li>
-              <li>Not an open-ended advisory retainer</li>
-            </ul>
+          <div class="mini">
+            <h3>What happens then</h3>
+            <p style="margin-bottom:10px;">If it is not a fit, I say so at the fit assessment stage. There is no charge for this. The point of the intake is to determine whether this approach is appropriate.</p>
+            <p>If the problem is structurally interesting but outside the defined scope of these engagements, I may be able to point toward a more appropriate route.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 After delivery -->
+      <div class="section-divider"><span class="section-divider-label">after delivery</span></div>
+
+      <section class="card card-full" aria-label="After delivery">
+        <div class="label-row">
+          <span class="label">07 // After delivery</span>
+          <span class="label-note">what comes next</span>
+        </div>
+
+        <h2 class="section-title">The engagement ends. The artifact does not.</h2>
+
+        <p class="lead" style="margin-bottom:20px;">
+          The artifact is yours to circulate, act against, and use as a stable reference point. The engagement itself is bounded — it does not continue into ongoing advisory, retainer access, or implementation support.
+        </p>
+
+        <div class="three-grid">
+          <div class="mini">
+            <h3>Clarification pass</h3>
+            <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered — not new analysis, extended scope, or additional research.</p>
+          </div>
+          <div class="mini">
+            <h3>When new work is required</h3>
+            <p>If the boundary expands, the problem changes shape, or new analysis is required after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
+          </div>
+          <div class="mini">
+            <h3>How to start the next one</h3>
+            <p>The entry route is always the same. Send a Five-Line Brief, attach anything useful, and I will determine whether there is a fit and where the work should begin.</p>
           </div>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">06 // When it is not a fit</span>
-            <span class="label-note">clear refusal logic</span>
-          </div>
-
-          <h2 class="section-title">Not every problem belongs in this process.</h2>
-
+        <div class="signal-box">
+          <span class="mini-kicker">Submit a Five-Line Brief</span>
           <ul class="clean">
-            <li>The issue is too broad or too undefined for a bounded written intervention</li>
-            <li>The real need is implementation ownership, delivery leadership, or ongoing facilitation</li>
-            <li>The available inputs do not contain enough signal to define a reliable boundary</li>
-            <li>The failure is primarily operational noise rather than a structural problem</li>
-            <li>Multiple unrelated failure modes are being combined into one request</li>
+            <li><strong>The Pattern</strong>: What keeps breaking?</li>
+            <li><strong>The Stake</strong>: What is the cost?</li>
+            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
+            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
+            <li><strong>Constraints</strong>: What are the non-negotiables?</li>
           </ul>
-
-          <div class="section-block">
-            <h3 class="section-head">What happens then</h3>
-            <p>
-              If it is not a fit, I say so. The point of the intake is to determine whether this approach is appropriate, not to force every problem into the same engagement.
-            </p>
-          </div>
         </div>
 
-        <div class="card">
-          <div class="label-row">
-            <span class="label">07 // After delivery</span>
-            <span class="label-note">what happens next</span>
-          </div>
-
-          <div class="split-list">
-            <div class="mini">
-              <h3>Included</h3>
-              <p>
-                One minor clarification pass is included after delivery. This covers clarification of the document as delivered, not new analysis or widened scope.
-              </p>
-            </div>
-
-            <div class="mini">
-              <h3>New engagement threshold</h3>
-              <p>
-                If the boundary expands, the problem changes shape, or new analysis is required, that becomes new work and requires a separate engagement.
-              </p>
-            </div>
-
-            <div class="mini">
-              <h3>How to start</h3>
-              <p>
-                The entry route is always the same: send the Five-Line Brief, attach anything useful, and I will determine whether there is a fit and where the work should begin.
-              </p>
-            </div>
-          </div>
-
-          <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-            <a class="btn" href="./index.html">BACK TO HOME</a>
-          </div>
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
       </section>
+
     </main>
 
+    <!-- ── FOOTER ── -->
     <footer>
-  <div class="footer-links">
-    <span>
-      Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-    </span>
-    <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
-    <span style="color:var(--text-faint);">/</span>
-    <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
-    <span style="color:var(--text-faint);">/</span>
-    <a
-      class="muted-link"
-      href="https://www.linkedin.com/in/jamie-forrester-773b7786"
-      target="_blank"
-      rel="noopener"
-    >LinkedIn</a>
-  </div>
+      <div class="footer-links">
+        <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
+        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="./privacy-policy.html">Privacy Policy</a>
+        <span style="color:var(--text-faint);">/</span>
+        <a class="muted-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div>
+        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
+      </div>
+    </footer>
 
-  <div>
-    <span style="color:var(--text-faint);">Last updated: 2026-03-04</span>
-  </div>
-</footer>
   </div>
 </body>
 </html>
