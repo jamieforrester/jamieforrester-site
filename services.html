@@ -65,7 +65,6 @@
       padding: 64px 24px 56px;
     }
 
-    /* ── Skip link ── */
     .skip-link {
       position: absolute;
       left: 12px; top: 10px;
@@ -87,7 +86,6 @@
       outline-offset: 3px;
     }
 
-    /* ── Links ── */
     a {
       color: #fff;
       text-decoration: none;
@@ -109,7 +107,6 @@
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
-    /* ── Header ── */
     header {
       display: flex;
       align-items: center;
@@ -117,7 +114,7 @@
       gap: 20px;
       padding-bottom: 24px;
       border-bottom: 1px solid var(--border-soft);
-      margin-bottom: var(--space-6, 32px);
+      margin-bottom: 32px;
     }
 
     .h-left {
@@ -148,9 +145,8 @@
       border: 1px solid rgba(255,255,255,0.12);
       object-fit: cover;
       filter: grayscale(100%);
-      flex: 0 0 auto;
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
       display: block;
+      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
       transition: box-shadow 200ms ease, border-color 200ms ease;
     }
     .avatar:hover {
@@ -198,7 +194,6 @@
       justify-content: flex-end;
     }
 
-    /* ── Buttons ── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -232,7 +227,6 @@
       outline-offset: 3px;
       background: var(--focus-bg);
     }
-
     .btn-primary {
       color: var(--cta-blue);
       border-color: rgba(90,176,255,0.32);
@@ -244,7 +238,6 @@
       border-color: rgba(90,176,255,0.5);
       box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
     }
-
     .btn-current {
       border-color: rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.03);
@@ -256,7 +249,6 @@
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
 
-    /* ── Atoms ── */
     .eyebrow {
       font-family: "IBM Plex Mono", monospace;
       font-size: 10px;
@@ -305,7 +297,6 @@
     .arrow-chain span { display: block; transition: color 160ms ease; }
     .arrow-chain span:hover { color: var(--cta-blue); }
 
-    /* ── Section divider ── */
     .section-divider {
       margin: 0 0 24px;
       display: flex;
@@ -328,7 +319,7 @@
       white-space: nowrap;
     }
 
-    /* ── Hero strip ── */
+    /* Hero */
     .hero-strip {
       display: grid;
       grid-template-columns: 1.3fr 0.7fr;
@@ -394,23 +385,24 @@
       margin-top: 22px;
     }
 
-    /* Path card (right panel) */
+    /* Path panel */
     .path-panel {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
     }
 
     .path-block {
       padding: 16px;
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 14px;
-      background: rgba(255,255,255,0.014);
+      background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 100%);
     }
 
     .path-block-accent {
-      border-color: rgba(90,176,255,0.18);
-      background: rgba(90,176,255,0.04);
+      border-color: rgba(90,176,255,0.2);
+      background: linear-gradient(160deg, rgba(90,176,255,0.08) 0%, rgba(90,176,255,0.025) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
 
     .path-index {
@@ -425,7 +417,7 @@
 
     .path-title {
       margin: 0 0 10px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: #fff;
       letter-spacing: -0.01em;
@@ -436,13 +428,13 @@
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 6px;
+      gap: 5px;
     }
     .path-list li {
       position: relative;
       padding-left: 14px;
       font-size: 12px;
-      line-height: 1.55;
+      line-height: 1.5;
       color: var(--text-dim);
       font-family: "IBM Plex Mono", monospace;
       letter-spacing: 0.02em;
@@ -454,17 +446,38 @@
       color: var(--text-faint);
     }
 
-    /* ── Main grid ── */
+    .path-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 0;
+    }
+    .path-connector-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(90,176,255,0.25), transparent);
+    }
+    .path-connector-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(90,176,255,0.5);
+      white-space: nowrap;
+    }
+
+    /* Grid layouts */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
       align-items: start;
+      margin-bottom: 20px;
     }
 
-    /* ── Cards ── */
+    /* Cards */
     .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
+      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       padding: 28px;
@@ -473,22 +486,43 @@
       transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
     .card:hover {
-      border-color: rgba(255,255,255,0.12);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28);
+      border-color: rgba(255,255,255,0.13);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3);
       transform: translateY(-1px);
     }
     .card + .card { margin-top: 20px; }
 
     .card-accent {
-      border-color: rgba(90,176,255,0.2);
+      border-color: rgba(90,176,255,0.22);
       background:
-        linear-gradient(160deg, rgba(90,176,255,0.05) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: var(--shadow-card), 0 0 0 1px rgba(90,176,255,0.06);
+        linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 0 1px rgba(90,176,255,0.06),
+        0 12px 36px rgba(0,0,0,0.28);
     }
     .card-accent:hover {
-      border-color: rgba(90,176,255,0.32);
+      border-color: rgba(90,176,255,0.34);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 0 0 1px rgba(90,176,255,0.1),
+        0 18px 48px rgba(0,0,0,0.32);
+      transform: translateY(-2px);
+    }
+
+    .card-full {
+      border-color: rgba(90,176,255,0.16);
+      background:
+        linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%),
+        linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 10px 30px rgba(0,0,0,0.24);
+    }
+    .card-full:hover {
+      border-color: rgba(90,176,255,0.26);
       box-shadow: var(--shadow-hover);
+      transform: translateY(-1px);
     }
 
     .label-row {
@@ -501,7 +535,6 @@
       margin-bottom: 18px;
     }
 
-    /* Service head */
     .service-head {
       display: flex;
       align-items: flex-start;
@@ -520,7 +553,6 @@
       max-width: 22ch;
     }
 
-    /* Price — prominent, matching homepage */
     .price-tag {
       flex: 0 0 auto;
       display: inline-flex;
@@ -536,6 +568,7 @@
       letter-spacing: 0.04em;
       color: #fff;
       white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
     .price-label {
       font-size: 9px;
@@ -545,7 +578,6 @@
       text-transform: uppercase;
     }
 
-    /* Meta chips */
     .meta-row {
       display: flex;
       gap: 8px;
@@ -559,7 +591,7 @@
       padding: 5px 9px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.025);
       font-family: "IBM Plex Mono", monospace;
       font-size: 10px;
       letter-spacing: 0.08em;
@@ -572,7 +604,7 @@
       padding: 10px 14px;
       border: 1px solid var(--border-soft);
       border-radius: 10px;
-      background: rgba(255,255,255,0.012);
+      background: rgba(255,255,255,0.014);
       font-family: "IBM Plex Mono", monospace;
       font-size: 11px;
       letter-spacing: 0.04em;
@@ -591,20 +623,14 @@
     }
     .lead strong { color: #fff; }
 
-    .small {
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.65;
-    }
-
-    /* Mini blocks */
-    .split-list { display: grid; gap: 12px; }
+    .split-list { display: grid; gap: 10px; }
 
     .mini {
       padding: 16px;
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 14px;
-      background: rgba(255,255,255,0.012);
+      background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
     .mini h3 {
@@ -622,7 +648,6 @@
       line-height: 1.62;
     }
 
-    /* Clean list */
     ul.clean {
       margin: 0;
       padding: 0;
@@ -645,9 +670,7 @@
     }
     ul.clean li strong { color: #e8ecf0; }
 
-    /* Section block */
     .section-block { margin-top: 18px; }
-
     .section-head {
       margin: 0 0 10px;
       font-size: 13px;
@@ -656,10 +679,75 @@
       letter-spacing: -0.01em;
     }
 
-    /* Fit grid */
-    .fit-grid { display: grid; gap: 12px; }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
 
-    /* CTA bar */
+    .flow-step {
+      padding: 16px;
+      border: 1px solid rgba(90,176,255,0.14);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .flow-step-num {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+      margin-bottom: 8px;
+    }
+
+    .flow-step h3 {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .flow-step p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.62;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .signal-box {
+      padding: 16px;
+      border: 1px solid rgba(90,176,255,0.15);
+      border-radius: 12px;
+      background: rgba(90,176,255,0.03);
+      margin-top: 16px;
+    }
+
+    .callout {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(90,176,255,0.16);
+      border-radius: 12px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%);
+    }
+    .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+    .callout p strong { color: #e8ecf0; }
+
     .cta-bar {
       margin-top: 22px;
       padding-top: 18px;
@@ -670,27 +758,6 @@
       align-items: center;
     }
 
-    /* Signal box */
-    .signal-box {
-      padding: 16px;
-      border: 1px solid rgba(90,176,255,0.15);
-      border-radius: 12px;
-      background: rgba(90,176,255,0.03);
-      margin-top: 14px;
-    }
-
-    /* Callout */
-    .callout {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border: 1px solid rgba(90,176,255,0.16);
-      border-radius: 12px;
-      background: rgba(90,176,255,0.03);
-    }
-    .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
-    .callout p strong { color: #e8ecf0; }
-
-    /* Footer */
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -709,39 +776,20 @@
       align-items: center;
     }
 
-    /* ── Responsive ── */
     @media (max-width: 920px) {
       .wrap { padding-top: 48px; }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
+      header { flex-direction: column; align-items: flex-start; gap: 16px; }
       .top-cta { justify-content: flex-start; }
-
       .hero-strip { grid-template-columns: 1fr; }
-      .hero-left {
-        border-right: none;
-        border-bottom: 1px solid var(--border-soft);
-        padding: 28px 24px;
-      }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
-
-      .services-grid { grid-template-columns: 1fr; }
-
-      .service-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
+      .services-grid,
+      .flow-grid,
+      .two-grid,
+      .three-grid { grid-template-columns: 1fr; }
+      .service-head { flex-direction: column; align-items: flex-start; }
       .arrow-chain { text-align: left; }
-
-      .label-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .label-row { flex-direction: column; align-items: flex-start; }
       .label-note { white-space: normal; }
     }
 
@@ -759,7 +807,7 @@
 
   <div class="wrap">
 
-    <!-- ── HEADER ── -->
+    <!-- HEADER -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -788,7 +836,7 @@
       </div>
     </header>
 
-    <!-- ── HERO STRIP ── -->
+    <!-- HERO -->
     <section class="hero-strip" aria-label="Service overview">
       <div class="hero-left">
         <div class="eyebrow">Service brief</div>
@@ -829,8 +877,10 @@
             </ul>
           </div>
 
-          <div class="arrow-chain" style="text-align:center; padding: 0 8px;">
-            <span>diagnosis → redesign</span>
+          <div class="path-connector">
+            <div class="path-connector-line"></div>
+            <span class="path-connector-label">diagnosis → redesign</span>
+            <div class="path-connector-line"></div>
           </div>
 
           <div class="path-block path-block-accent">
@@ -848,13 +898,12 @@
       </div>
     </section>
 
-    <!-- ── SERVICES ── -->
+    <!-- ENGAGEMENTS -->
     <div class="section-divider"><span class="section-divider-label">engagements</span></div>
 
-    <main id="main" class="services-grid" role="main">
+    <main id="main" role="main">
 
-      <!-- LEFT COLUMN -->
-      <div>
+      <div class="services-grid">
 
         <!-- 01 Diagnostic -->
         <section class="card card-accent" aria-label="Diagnostic Artifact">
@@ -912,66 +961,15 @@
               <li>Invariant definition: the rules that must not break</li>
               <li>Enforcement visibility: where those rules live in reality, not only in policy</li>
               <li>Boundary visibility across teams, services, policies, and contracts</li>
-              <li>A build map showing the structural implications for sequence, interfaces, and transition logic</li>
-            </ul>
-          </div>
-
-          <div class="section-block">
-            <h3 class="section-head">Outside scope</h3>
-            <ul class="clean">
-              <li>Delivery ownership</li>
-              <li>Implementation execution</li>
-              <li>Org-change programs</li>
-              <li>Ongoing coaching or facilitation retainers</li>
+              <li>A build map showing structural implications for sequence, interfaces, and transition logic</li>
             </ul>
           </div>
         </section>
 
-        <!-- 02 Engagement flow -->
-        <section class="card" aria-label="Engagement flow" style="margin-top:20px;">
-          <div class="label-row">
-            <span class="label">02 // Engagement flow</span>
-            <span class="label-note">how it starts</span>
-          </div>
-
-          <p class="lead" style="margin-bottom:16px;">
-            Send the failure pattern first. I review fit and confirm whether the work begins with diagnosis or moves directly to redesign.
-          </p>
-
-          <div style="display:grid; gap:10px;">
-            <div class="mini">
-              <h3>Step 01 — Send the brief</h3>
-              <p>Five lines plus any materials you already have: the pattern, the stake, the interfaces, where the heat is, and what cannot change.</p>
-            </div>
-            <div class="mini">
-              <h3>Step 02 — I review fit</h3>
-              <p>I assess whether the work should begin with diagnosis or move directly to redesign. If neither engagement fits, I will say so.</p>
-            </div>
-            <div class="mini">
-              <h3>Step 03 — You receive the artifact</h3>
-              <p>One structured written document for internal circulation, decision-making, and builder handoff.</p>
-            </div>
-          </div>
-
-          <div class="callout">
-            <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
-          </div>
-
-          <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-          </div>
-        </section>
-
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div>
-
-        <!-- 03 Redesign -->
+        <!-- 02 Redesign -->
         <section class="card card-accent" aria-label="Redesign Artifact">
           <div class="label-row">
-            <span class="label">03 // Redesign Artifact</span>
+            <span class="label">02 // Redesign Artifact</span>
             <span class="label-note">follow-on engagement</span>
           </div>
 
@@ -986,6 +984,7 @@
           <div class="meta-row">
             <span class="meta-chip">post-diagnosis</span>
             <span class="meta-chip">scope-dependent</span>
+            <span class="meta-chip">14 days</span>
             <span class="meta-chip">builder handoff</span>
           </div>
 
@@ -1024,84 +1023,136 @@
               <li>Explicit constraints that prevent drift, workaround logic, or quiet re-coupling</li>
             </ul>
           </div>
-
-          <div class="section-block">
-            <h3 class="section-head">Outside scope</h3>
-            <ul class="clean">
-              <li>Program management</li>
-              <li>Team delivery leadership</li>
-              <li>Technical build execution</li>
-              <li>Stakeholder alignment workshops</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 04 Fit -->
-        <section class="card" aria-label="Fit" style="margin-top:20px;">
-          <div class="label-row">
-            <span class="label">04 // Fit</span>
-            <span class="label-note">who this is for</span>
-          </div>
-
-          <div class="fit-grid">
-            <div class="mini">
-              <h3>This fits if</h3>
-              <ul class="clean">
-                <li>Your system keeps failing in the same way under growth or scale</li>
-                <li>Your teams are stuck in a policy-versus-reality gap</li>
-                <li>Decision owners need structure, not more interpretation</li>
-                <li>Implementation is blocked by upstream ambiguity</li>
-                <li>Builders are being forced to reinvent design during execution</li>
-              </ul>
-            </div>
-
-            <div class="mini">
-              <h3>This does not fit if</h3>
-              <ul class="clean">
-                <li>You need implementation support, delivery leadership, or program ownership</li>
-                <li>You are looking for coaching, facilitation, or workshops</li>
-                <li>The problem is too broad or undefined for a bounded written intervention</li>
-                <li>You want open-ended advisory access rather than a fixed-scope artifact</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-            <a class="btn" href="./index.html">BACK TO HOME</a>
-          </div>
-        </section>
-
-        <!-- 05 Delivery terms -->
-        <section class="card" aria-label="Delivery terms" style="margin-top:20px;">
-          <div class="label-row">
-            <span class="label">05 // Delivery terms</span>
-            <span class="label-note">after delivery</span>
-          </div>
-
-          <div class="split-list">
-            <div class="mini">
-              <h3>What happens next</h3>
-              <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered, not new analysis or widened scope.</p>
-            </div>
-
-            <div class="mini">
-              <h3>When a new engagement is required</h3>
-              <p>If the boundary expands, the analysis deepens, or the problem changes shape, that becomes new work and requires a separate engagement.</p>
-            </div>
-          </div>
-
-          <div class="cta-bar">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
-            <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-          </div>
         </section>
 
       </div>
+
+      <!-- WHAT THIS IS NOT -->
+      <div class="section-divider"><span class="section-divider-label">scope</span></div>
+
+      <section class="card card-full" aria-label="Scope and fit" style="margin-bottom:20px;">
+        <div class="label-row">
+          <span class="label">03 // What this is not</span>
+          <span class="label-note">outside scope for both engagements</span>
+        </div>
+
+        <p class="lead" style="margin-bottom:18px;">
+          Both engagements produce written artifacts. Neither includes delivery ownership, ongoing access, or execution support of any kind.
+        </p>
+
+        <div class="two-grid">
+          <div class="mini">
+            <h3>Not included</h3>
+            <ul class="clean">
+              <li>Delivery ownership or program management</li>
+              <li>Implementation or build execution</li>
+              <li>Org-change programs or transformation leadership</li>
+              <li>Ongoing coaching, facilitation, or retainer access</li>
+              <li>Stakeholder alignment workshops</li>
+            </ul>
+          </div>
+
+          <div class="mini">
+            <h3>This fits when</h3>
+            <ul class="clean">
+              <li>Your system keeps failing in the same way under growth or scale</li>
+              <li>Your teams are stuck in a policy-versus-reality gap</li>
+              <li>Decision owners need structure, not more interpretation</li>
+              <li>Implementation is blocked by upstream ambiguity</li>
+              <li>Builders are being forced to reinvent design during execution</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENGAGEMENT FLOW -->
+      <div class="section-divider"><span class="section-divider-label">how it starts</span></div>
+
+      <section class="card card-full" aria-label="Engagement flow" style="margin-bottom:20px;">
+        <div class="label-row">
+          <span class="label">04 // Engagement flow</span>
+          <span class="label-note">from brief to artifact</span>
+        </div>
+
+        <p class="lead" style="margin-bottom:18px;">
+          Send the failure pattern first. I review fit and confirm whether the work begins with diagnosis or moves directly to redesign. Three steps. One artifact.
+        </p>
+
+        <div class="flow-grid">
+          <div class="flow-step">
+            <span class="flow-step-num">Step 01</span>
+            <h3>Send the brief</h3>
+            <p>Five lines plus any materials you already have: the pattern, the stake, the interfaces, where the heat is, and what cannot change.</p>
+          </div>
+          <div class="flow-step">
+            <span class="flow-step-num">Step 02</span>
+            <h3>I review fit</h3>
+            <p>I assess whether the work should begin with diagnosis or move directly to redesign. If neither engagement fits, I will say so.</p>
+          </div>
+          <div class="flow-step">
+            <span class="flow-step-num">Step 03</span>
+            <h3>You receive the artifact</h3>
+            <p>One structured written document for internal circulation, decision-making, and builder handoff. Delivered within 14 days of engagement start.</p>
+          </div>
+        </div>
+
+        <div class="signal-box">
+          <span class="mini-kicker">Submit a Five-Line Brief</span>
+          <ul class="clean">
+            <li><strong>The Pattern</strong>: What keeps breaking?</li>
+            <li><strong>The Stake</strong>: What is the cost?</li>
+            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
+            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
+            <li><strong>Constraints</strong>: What are the non-negotiables?</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
+        </div>
+
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+          <a class="btn" href="./index.html">BACK TO HOME</a>
+        </div>
+      </section>
+
+      <!-- DELIVERY TERMS -->
+      <div class="section-divider"><span class="section-divider-label">delivery terms</span></div>
+
+      <section class="card" aria-label="Delivery terms">
+        <div class="label-row">
+          <span class="label">05 // Delivery terms</span>
+          <span class="label-note">after the artifact is delivered</span>
+        </div>
+
+        <div class="three-grid">
+          <div class="mini">
+            <h3>Clarification pass</h3>
+            <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered — not new analysis, extended scope, or additional research.</p>
+          </div>
+
+          <div class="mini">
+            <h3>When new work is required</h3>
+            <p>If the boundary expands, the analysis deepens, or the problem changes shape after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
+          </div>
+
+          <div class="mini">
+            <h3>Confidentiality</h3>
+            <p>All materials you share are treated as confidential. The artifact is yours. It is not shared, referenced, or used as a case study without your explicit permission.</p>
+          </div>
+        </div>
+
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        </div>
+      </section>
+
     </main>
 
-    <!-- ── FOOTER ── -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-links">
         <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
