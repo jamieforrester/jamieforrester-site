@@ -206,36 +206,138 @@
     .foundation-block .small { font-size: 12px; color: var(--text-faint); }
     .formula-line { display: block; margin: 0 0 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.22); border-radius: 12px; background: rgba(90,176,255,0.06); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.7; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
-    /* ── Seeing Systems ── */
-    .book-grid { display: grid; grid-template-columns: 68px 1fr; gap: 20px; align-items: start; margin-bottom: 22px; }
-    .book-body h3 { margin: 0 0 6px; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.2; }
-    .book-tagline { font-size: 14px; color: var(--text-faint); font-style: italic; margin: 0 0 10px; }
-    .book-desc { font-size: 14px; color: var(--text-dim); line-height: 1.68; margin: 0 0 10px; }
-
-    /* 60-second tool */
-    .tool-block { margin: 0 0 14px; padding: 20px; border: 1px solid rgba(90,176,255,0.2); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.045) 0%, rgba(90,176,255,0.012) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
-    .tool-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(90,176,255,0.14); }
-    .tool-block-title { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
-    .tool-block-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); }
-    .tool-questions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .tool-q { padding: 12px 14px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.03); }
-    .tool-q-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
-    .tool-q-label { font-size: 13px; font-weight: 700; color: #fff; display: block; margin-bottom: 3px; letter-spacing: -0.01em; }
-    .tool-q-desc { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
-
-    /* Carrier chips */
-    .carrier-block { margin: 0 0 0; padding: 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
-    .carrier-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-    .carrier-block-title { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
-    .carrier-block-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); }
-    .carrier-chips { display: flex; flex-wrap: wrap; gap: 7px; }
-    .carrier-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); font-size: 12px; color: var(--text-dim); line-height: 1; transition: border-color 140ms ease, background 140ms ease, color 140ms ease; }
-    .carrier-chip:hover { border-color: rgba(90,176,255,0.25); background: rgba(90,176,255,0.06); color: #e0e8f2; }
-    .carrier-chip-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
-
-    .book-cta-row { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-    .book-cta-left { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-    .book-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); text-transform: uppercase; }
+    /* Books */
+    .books-intro {
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      border: 1px solid rgba(90,176,255,0.16);
+      border-radius: 14px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .books-intro p { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.72; }
+    .books-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .book-card {
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px;
+      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+      min-width: 0;
+    }
+    .book-card:hover {
+      border-color: rgba(90,176,255,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+    }
+    .book-card-inner {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .book-cover-link {
+      display: inline-flex;
+      border-bottom: none;
+      border-radius: 12px;
+      width: 84px;
+    }
+    .book-cover-link:hover { background: transparent; }
+    .book-cover {
+      width: 84px;
+      height: 116px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      object-fit: cover;
+      filter: grayscale(100%);
+      display: block;
+      background: rgba(255,255,255,0.03);
+      transition: border-color 160ms ease, filter 160ms ease;
+    }
+    .book-cover:hover {
+      filter: grayscale(55%);
+      border-color: rgba(90,176,255,0.3);
+    }
+    .book-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .book-number {
+      display: inline-flex;
+      margin-bottom: 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--label-blue);
+    }
+    .book-title {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+    .book-tagline {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--text-faint);
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .book-desc {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.68;
+    }
+    .book-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .book-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.022);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      line-height: 1;
+    }
+    .books-cta-row {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .books-cta-note {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--text-faint);
+      text-transform: uppercase;
+    }
 
     /* Builds */
     .builds-lead { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); margin-bottom: 14px; }
@@ -257,10 +359,12 @@
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
       .foundations-grid { grid-template-columns: 1fr; }
-      .tool-questions { grid-template-columns: 1fr; }
-      .paper-row, .book-grid { grid-template-columns: 56px 1fr; }
+      .books-grid { grid-template-columns: 1fr; }
+      .paper-row, .book-card-inner { grid-template-columns: 68px 1fr; }
+      .book-cover-link { width: 68px; }
+      .book-cover { width: 68px; height: 92px; border-radius: 10px; }
       .label-row { flex-direction: column; align-items: flex-start; }
-      .book-cta-row { flex-direction: column; align-items: flex-start; }
+      .books-cta-row { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -320,18 +424,13 @@
           <span class="map-item-text"><strong>Research</strong>Published and in progress</span>
           <span class="map-item-status">2 papers</span>
         </a>
-        <a class="map-item" href="#seeing-systems">
+        <a class="map-item" href="#books">
           <span class="map-item-num">03</span>
-          <span class="map-item-text"><strong>Seeing Systems</strong>Drafted — sample chapters available</span>
-          <span class="map-item-status">Book</span>
-        </a>
-        <a class="map-item" href="#system-founder">
-          <span class="map-item-num">04</span>
-          <span class="map-item-text"><strong>System Founder Framework</strong>In design</span>
-          <span class="map-item-status">Book</span>
+          <span class="map-item-text"><strong>Books</strong>Quadrilogy in development</span>
+          <span class="map-item-status">4 books</span>
         </a>
         <a class="map-item" href="#builds">
-          <span class="map-item-num">05</span>
+          <span class="map-item-num">04</span>
           <span class="map-item-text"><strong>Applied Builds</strong>Systems in development</span>
           <span class="map-item-status">2 builds</span>
         </a>
@@ -413,112 +512,130 @@
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">seeing systems</span></div>
-      <section id="seeing-systems" class="card card-accent" aria-label="Seeing Systems book">
+      <div class="section-divider"><span class="section-divider-label">books</span></div>
+      <section id="books" class="card card-accent" aria-label="Books">
         <div class="label-row">
-          <span class="label">03 // Seeing Systems</span>
-          <span class="label-note">book — fully drafted</span>
+          <span class="label">03 // Books</span>
+          <span class="label-note">four-book research spine</span>
         </div>
 
-        <div class="book-grid">
-          <a href="#" aria-label="Book cover: Seeing Systems">
-            <img class="thumb" src="./book1-image.png" alt="Cover: Seeing Systems" />
-          </a>
-          <div class="book-body">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;">
-              <h3>Seeing Systems</h3>
-              <span class="status status-dev">Drafted</span>
-            </div>
-            <p class="book-tagline">Why a 10-year-old can understand what organisations can't.</p>
-            <p class="book-desc">A carrier-based method for systemic literacy across 5 parts and 30 chapters. The book makes structural thinking accessible without requiring a technical background — using familiar objects to reveal the actions hiding inside complex systems. Once you can name the primitive, the system stops feeling mysterious.</p>
-          </div>
+        <div class="books-intro">
+          <p>This is no longer a two-book body of work. It is a four-book sequence that moves from structural literacy, to abstraction control, to founder architecture, to a general law of upstream build quality. Together, the books explain how to see systems, move across levels of thought, build operating environments, and design high-quality outputs by pushing intelligence upstream.</p>
         </div>
 
-        <div class="tool-block" aria-label="The 60-second reading tool">
-          <div class="tool-block-head">
-            <span class="tool-block-title">The 60-second reading tool</span>
-            <span class="tool-block-note">Four questions. One sentence each.</span>
-          </div>
-          <div class="tool-questions">
-            <div class="tool-q">
-              <span class="tool-q-num">01</span>
-              <span class="tool-q-label">Purpose</span>
-              <span class="tool-q-desc">What does this system actually exist to do? One sentence. Ignore what it says about itself.</span>
-            </div>
-            <div class="tool-q">
-              <span class="tool-q-num">02</span>
-              <span class="tool-q-label">Action</span>
-              <span class="tool-q-desc">What is the one thing it performs over and over? That repeated action is the primitive.</span>
-            </div>
-            <div class="tool-q">
-              <span class="tool-q-num">03</span>
-              <span class="tool-q-label">Rules</span>
-              <span class="tool-q-desc">What protects or constrains that action? If you can't see the rules, watch what stops things from moving.</span>
-            </div>
-            <div class="tool-q">
-              <span class="tool-q-num">04</span>
-              <span class="tool-q-label">Failure</span>
-              <span class="tool-q-desc">What breaks first? Who notices? Who pays the cost? Systems reveal themselves at their edges.</span>
-            </div>
-          </div>
-        </div>
+        <div class="books-grid">
 
-        <div class="carrier-block" aria-label="Carrier index">
-          <div class="carrier-block-head">
-            <span class="carrier-block-title">Carrier Index — 11 worked examples</span>
-            <span class="carrier-block-note">Appendix A</span>
-          </div>
-          <div class="carrier-chips">
-            <span class="carrier-chip">Door <span class="carrier-chip-label">push/pull</span></span>
-            <span class="carrier-chip">Queue <span class="carrier-chip-label">one-at-a-time</span></span>
-            <span class="carrier-chip">Elevator <span class="carrier-chip-label">vertical movement</span></span>
-            <span class="carrier-chip">Traffic light <span class="carrier-chip-label">turn-taking</span></span>
-            <span class="carrier-chip">Form + approval gate <span class="carrier-chip-label">submit → accept/reject</span></span>
-            <span class="carrier-chip">Conveyor belt <span class="carrier-chip-label">continuous throughput</span></span>
-            <span class="carrier-chip">Passport / wristband <span class="carrier-chip-label">identity as access</span></span>
-            <span class="carrier-chip">School timetable <span class="carrier-chip-label">allocation over time</span></span>
-            <span class="carrier-chip">Support escalation ladder <span class="carrier-chip-label">handoff chain</span></span>
-            <span class="carrier-chip">Procurement threshold <span class="carrier-chip-label">permissioned spend</span></span>
-            <span class="carrier-chip">Kitchen during peak service <span class="carrier-chip-label">multi-distance view</span></span>
-          </div>
-        </div>
-
-        <div class="book-cta-row">
-          <div class="book-cta-left">
-            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Seeing%20Systems%3A%20Request%20sample%20chapters&body=Hi%20Jamie%2C%0A%0ACould%20you%20send%20the%20first%203%20chapters%20(or%20sample%20chapters)%20of%20Seeing%20Systems%3F%0A%0AThanks%2C">Request sample chapters</a>
-            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%3A%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20the%20proposal%20and%20sample%20chapters.%0A%0AThanks%2C">Request proposal + sample chapters</a>
-          </div>
-          <span class="book-cta-note">Publishers and agents welcome</span>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">system founder framework</span></div>
-      <section id="system-founder" class="card" aria-label="The System Founder Framework">
-        <div class="label-row">
-          <span class="label">04 // The System Founder Framework</span>
-          <span class="label-note">book — in design</span>
-        </div>
-        <div class="paper">
-          <div class="paper-row">
-            <a href="#" aria-label="Book cover: The System Founder Framework">
-              <img class="thumb" src="./book2-image.png" alt="Cover: The System Founder Framework" />
-            </a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">The System Founder Framework</p>
-                <span class="status">In design</span>
+          <article class="book-card" aria-label="Book 1: Seeing Systems">
+            <div class="book-card-inner">
+              <a class="book-cover-link" href="#" aria-label="Book cover: Seeing Systems">
+                <img class="book-cover" src="./book1-image.png" alt="Cover: Seeing Systems" />
+              </a>
+              <div>
+                <span class="book-number">Book 1</span>
+                <div class="book-head">
+                  <h3 class="book-title">Seeing Systems</h3>
+                  <span class="status status-dev">Drafted</span>
+                </div>
+                <p class="book-tagline">Why a 10-year-old can understand what organisations can't.</p>
+                <p class="book-desc">A carrier-based introduction to systemic literacy. This book uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without relying on technical language. It teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery.</p>
+                <div class="book-meta">
+                  <span class="book-chip">30 chapters</span>
+                  <span class="book-chip">carrier method</span>
+                  <span class="book-chip">sample chapters available</span>
+                </div>
               </div>
-              <p class="paper-desc">A construction doctrine for OS-level building in the AI era.</p>
-              <p class="small">Formula, ladder, toolchain, and playbooks for building durable systems without drifting into theatre. Applies the Universal Formula as a construction sequence rather than a diagnostic tool. Where <em>Seeing Systems</em> teaches structural literacy, this book provides the build methodology.</p>
             </div>
+          </article>
+
+          <article class="book-card" aria-label="Book 2: The 15-Level Abstraction Ladder">
+            <div class="book-card-inner">
+              <a class="book-cover-link" href="#" aria-label="Placeholder cover: The 15-Level Abstraction Ladder">
+                <img
+                  class="book-cover"
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 220'><rect width='160' height='220' rx='18' fill='%23111216'/><rect x='10' y='10' width='140' height='200' rx='12' fill='none' stroke='%234aa3ff' stroke-opacity='0.28'/><text x='22' y='46' fill='%234aa3ff' font-family='IBM Plex Mono, monospace' font-size='12' letter-spacing='2'>BOOK 2</text><text x='22' y='88' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>The 15-Level</text><text x='22' y='112' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>Abstraction</text><text x='22' y='136' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>Ladder</text><text x='22' y='176' fill='%238c94a2' font-family='IBM Plex Mono, monospace' font-size='10'>placeholder cover</text></svg>"
+                  alt="Placeholder cover: The 15-Level Abstraction Ladder"
+                />
+              </a>
+              <div>
+                <span class="book-number">Book 2</span>
+                <div class="book-head">
+                  <h3 class="book-title">The 15-Level Abstraction Ladder</h3>
+                  <span class="status">In development</span>
+                </div>
+                <p class="book-tagline">How to move up and down the levels of thought, design, and civilization with confidence.</p>
+                <p class="book-desc">A navigation system for altitude. This book explains why people get trapped at one level of reasoning, why disagreement is often an altitude mismatch rather than an intelligence gap, and how to move deliberately between observation, product, system, infrastructure, marketplace, civilization, primitive, and meta-operating law.</p>
+                <div class="book-meta">
+                  <span class="book-chip">15 levels</span>
+                  <span class="book-chip">altitude control</span>
+                  <span class="book-chip">book in design</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" aria-label="Book 3: The System Founder Framework">
+            <div class="book-card-inner">
+              <a class="book-cover-link" href="#" aria-label="Book cover: The System Founder Framework">
+                <img class="book-cover" src="./book2-image.png" alt="Cover: The System Founder Framework" />
+              </a>
+              <div>
+                <span class="book-number">Book 3</span>
+                <div class="book-head">
+                  <h3 class="book-title">The System Founder Framework</h3>
+                  <span class="status">In design</span>
+                </div>
+                <p class="book-tagline">How one person with AI can build operating systems, categories, and institutions.</p>
+                <p class="book-desc">A founder manual for the AI era. This book distinguishes skill founders, product founders, and system founders, then shows how AI changes the economics of execution for people who naturally think in primitives, rules, operating environments, and category formation. It turns structural intelligence into a repeatable build posture.</p>
+                <div class="book-meta">
+                  <span class="book-chip">founder doctrine</span>
+                  <span class="book-chip">AI leverage</span>
+                  <span class="book-chip">system company design</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="book-card" aria-label="Book 4: The Universal Build Architecture">
+            <div class="book-card-inner">
+              <a class="book-cover-link" href="#" aria-label="Placeholder cover: The Universal Build Architecture">
+                <img
+                  class="book-cover"
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 220'><rect width='160' height='220' rx='18' fill='%23111216'/><rect x='10' y='10' width='140' height='200' rx='12' fill='none' stroke='%234aa3ff' stroke-opacity='0.28'/><text x='22' y='46' fill='%234aa3ff' font-family='IBM Plex Mono, monospace' font-size='12' letter-spacing='2'>BOOK 4</text><text x='22' y='82' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>The Universal</text><text x='22' y='106' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>Build</text><text x='22' y='130' fill='%23f1f3f5' font-family='IBM Plex Sans, sans-serif' font-size='18' font-weight='700'>Architecture</text><text x='22' y='176' fill='%238c94a2' font-family='IBM Plex Mono, monospace' font-size='10'>placeholder cover</text></svg>"
+                  alt="Placeholder cover: The Universal Build Architecture"
+                />
+              </a>
+              <div>
+                <span class="book-number">Book 4</span>
+                <div class="book-head">
+                  <h3 class="book-title">The Universal Build Architecture</h3>
+                  <span class="status">In development</span>
+                </div>
+                <p class="book-tagline">How high-quality outputs get made when intelligence moves upstream.</p>
+                <p class="book-desc">A general build law across code, prose, artifacts, systems, learning, and governance. The book argues that most poor outputs are not execution failures but upstream architecture failures, and shows where the pattern transfers strongly, partially, or weakly depending on whether the domain is construction, discovery, or emergence.</p>
+                <div class="book-meta">
+                  <span class="book-chip">upstream design</span>
+                  <span class="book-chip">cross-domain transfer</span>
+                  <span class="book-chip">build law</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="books-cta-row">
+          <div class="actions" style="margin-top:0;">
+            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Books%20%E2%80%94%20Request%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20materials%20for%20the%20book%20projects.%0A%0AThanks%2C">Request book materials</a>
+            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%20%E2%80%94%20book%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20book%20materials%20for%20review.%0A%0AThanks%2C">Request proposal materials</a>
           </div>
+          <span class="books-cta-note">Publishers and agents welcome</span>
         </div>
       </section>
 
       <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
       <section id="builds" class="card" aria-label="Applied builds">
         <div class="label-row">
-          <span class="label">05 // Applied builds</span>
+          <span class="label">04 // Applied builds</span>
           <span class="label-note">systems in development</span>
         </div>
         <div class="builds-lead">
@@ -567,7 +684,7 @@
         <span style="color:var(--text-faint);">/</span>
         <a class="muted-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <div><span style="color:var(--text-faint);">Last updated: 2026-03-06</span></div>
+      <div><span style="color:var(--text-faint);">Last updated: 2026-03-09</span></div>
     </footer>
 
   </div>
