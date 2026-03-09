@@ -206,130 +206,338 @@
     .foundation-block .small { font-size: 12px; color: var(--text-faint); }
     .formula-line { display: block; margin: 0 0 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.22); border-radius: 12px; background: rgba(90,176,255,0.06); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.7; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
-    /* Books */
-    .books-intro {
-      margin-bottom: 20px;
-      padding: 16px 18px;
-      border: 1px solid rgba(90,176,255,0.16);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    /* ============================================================
+       BOOKS SECTION — REDESIGNED
+    ============================================================ */
+
+    .books-section-header {
+      margin-bottom: 28px;
     }
-    .books-intro p { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.72; }
-    .books-grid {
+
+    .books-thesis {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      align-items: start;
+      gap: 12px;
+      margin-bottom: 24px;
     }
-    .book-card {
-      padding: 18px;
+    .books-thesis-main {
+      grid-column: 1 / -1;
+      padding: 20px 22px;
+      border: 1px solid rgba(90,176,255,0.2);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 60%, transparent 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+    .books-thesis-main p {
+      margin: 0;
+      font-size: 15px;
+      color: #cdd2da;
+      line-height: 1.72;
+    }
+    .books-thesis-main p strong { color: #fff; }
+    .books-thesis-stat {
+      padding: 16px 18px;
       border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-      min-width: 0;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.014);
     }
-    .book-card:hover {
-      border-color: rgba(90,176,255,0.22);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.24);
-    }
-    .book-card-inner {
-      display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-    .book-cover-link {
-      display: inline-flex;
-      border-bottom: none;
-      border-radius: 12px;
-      width: 84px;
-    }
-    .book-cover-link:hover { background: transparent; }
-    .book-cover {
-      width: 84px;
-      height: 116px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      object-fit: cover;
-      filter: grayscale(100%);
+    .books-thesis-stat-num {
       display: block;
-      background: rgba(255,255,255,0.03);
-      transition: border-color 160ms ease, filter 160ms ease;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--cta-blue);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
     }
-    .book-cover:hover {
-      filter: grayscale(55%);
-      border-color: rgba(90,176,255,0.3);
+    .books-thesis-stat-label {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      line-height: 1.4;
     }
-    .book-head {
+
+    /* Spine connector — visual thread showing the sequence */
+    .books-spine-label {
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
+      margin-bottom: 20px;
     }
-    .book-number {
-      display: inline-flex;
-      margin-bottom: 8px;
+    .books-spine-label::before,
+    .books-spine-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(90,176,255,0.2), transparent);
+    }
+    .books-spine-label-text {
       font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(90,176,255,0.55);
+      white-space: nowrap;
+    }
+
+    /* Book stack — full-width layout per book */
+    .books-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .book-entry {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.006) 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 4px 16px rgba(0,0,0,0.2);
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+      position: relative;
+    }
+    .book-entry:hover {
+      border-color: rgba(90,176,255,0.26);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 1px rgba(90,176,255,0.08), 0 12px 36px rgba(0,0,0,0.28);
+      transform: translateY(-2px);
+    }
+
+    /* Accent left stripe per book */
+    .book-entry::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      border-radius: 20px 0 0 20px;
+      background: linear-gradient(180deg, rgba(90,176,255,0.6) 0%, rgba(90,176,255,0.1) 100%);
+      opacity: 0;
+      transition: opacity 180ms ease;
+    }
+    .book-entry:hover::before { opacity: 1; }
+
+    .book-entry-cover-col {
+      padding: 20px 16px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.008);
+    }
+
+    .book-num-badge {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--label-blue);
+      background: rgba(90,176,255,0.1);
+      border: 1px solid rgba(90,176,255,0.2);
+      border-radius: 6px;
+      padding: 3px 7px;
+      line-height: 1;
+      white-space: nowrap;
     }
-    .book-title {
-      margin: 0;
+
+    .book-cover-wrap {
+      display: block;
+      border-bottom: none;
+      border-radius: 10px;
+      width: 72px;
+      flex: 0 0 auto;
+    }
+    .book-cover-wrap:hover { background: transparent; }
+
+    .book-cover-img {
+      width: 72px;
+      height: 100px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover;
+      filter: grayscale(100%);
+      display: block;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3), 2px 0 8px rgba(0,0,0,0.2);
+      transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+    }
+    .book-entry:hover .book-cover-img {
+      filter: grayscale(40%);
+      border-color: rgba(90,176,255,0.35);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.38), 0 0 0 2px rgba(90,176,255,0.12);
+      transform: scale(1.03) translateY(-2px);
+    }
+
+    .book-entry-body {
+      padding: 22px 24px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .book-entry-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .book-entry-title-group { min-width: 0; flex: 1; }
+
+    .book-entry-title {
+      margin: 0 0 5px;
       font-size: 18px;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.03em;
       line-height: 1.2;
     }
-    .book-tagline {
-      margin: 0 0 10px;
-      font-size: 14px;
+
+    .book-entry-tagline {
+      margin: 0;
+      font-size: 13px;
       color: var(--text-faint);
       font-style: italic;
       line-height: 1.5;
     }
-    .book-desc {
-      margin: 0 0 12px;
+
+    .book-entry-status-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+
+    .book-entry-desc {
       font-size: 14px;
       color: var(--text-dim);
-      line-height: 1.68;
+      line-height: 1.7;
+      margin: 0 0 14px;
     }
-    .book-meta {
+
+    /* What this book does — key insight block */
+    .book-insight {
+      display: flex;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(90,176,255,0.14);
+      border-radius: 12px;
+      background: rgba(90,176,255,0.04);
+      margin-bottom: 14px;
+    }
+    .book-insight-bar {
+      width: 3px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.3) 100%);
+      flex: 0 0 auto;
+      align-self: stretch;
+    }
+    .book-insight-text {
+      font-size: 13px;
+      color: #bfc6d0;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .book-insight-text strong { color: #e4e8ee; font-weight: 600; }
+
+    .book-entry-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: auto;
+    }
+
+    .book-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 6px;
     }
+
     .book-chip {
       display: inline-flex;
       align-items: center;
-      padding: 5px 9px;
+      padding: 4px 9px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.022);
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.018);
       font-family: "IBM Plex Mono", monospace;
       font-size: 9px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--text-faint);
       line-height: 1;
     }
-    .books-cta-row {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border-soft);
+
+    .book-entry-links {
       display: flex;
       gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Sequence connector between books */
+    .books-connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 0;
+    }
+    .books-connector-line {
+      width: 1px;
+      height: 20px;
+      background: linear-gradient(180deg, rgba(90,176,255,0.2) 0%, rgba(90,176,255,0.05) 100%);
+      margin: 0 auto;
+    }
+    .books-connector-arrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 9px;
+      color: rgba(90,176,255,0.4);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Books CTA row */
+    .books-cta-row {
+      margin-top: 24px;
+      padding: 20px 22px;
+      border: 1px solid rgba(90,176,255,0.16);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 60%, transparent 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+      display: flex;
+      gap: 16px;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+    }
+    .books-cta-text {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .books-cta-text strong { color: #e0e4ea; }
+    .books-cta-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .books-cta-note {
       font-family: "IBM Plex Mono", monospace;
@@ -359,12 +567,19 @@
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
       .foundations-grid { grid-template-columns: 1fr; }
-      .books-grid { grid-template-columns: 1fr; }
-      .paper-row, .book-card-inner { grid-template-columns: 68px 1fr; }
-      .book-cover-link { width: 68px; }
-      .book-cover { width: 68px; height: 92px; border-radius: 10px; }
+      .paper-row { grid-template-columns: 68px 1fr; }
       .label-row { flex-direction: column; align-items: flex-start; }
+      .books-thesis { grid-template-columns: 1fr; }
+      .book-entry { grid-template-columns: 90px 1fr; }
+      .book-cover-img { width: 58px; height: 80px; }
+      .book-entry-cover-col { padding: 16px 12px 16px 16px; }
+      .book-entry-body { padding: 18px 18px 18px 16px; }
+      .book-entry-title { font-size: 16px; }
       .books-cta-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .book-entry { grid-template-columns: 1fr; }
+      .book-entry-cover-col { flex-direction: row; align-items: center; gap: 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 16px 18px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -512,6 +727,9 @@
         </div>
       </section>
 
+      <!-- ============================================================
+           BOOKS SECTION — REDESIGNED
+      ============================================================ -->
       <div class="section-divider"><span class="section-divider-label">books</span></div>
       <section id="books" class="card card-accent" aria-label="Books">
         <div class="label-row">
@@ -519,115 +737,205 @@
           <span class="label-note">four-book research spine</span>
         </div>
 
-        <div class="books-intro">
-          <p>This is no longer a two-book body of work. It is a four-book sequence that moves from structural literacy, to abstraction control, to founder architecture, to a general law of upstream build quality. Together, the books explain how to see systems, move across levels of thought, build operating environments, and design high-quality outputs by pushing intelligence upstream.</p>
+        <div class="books-section-header">
+          <div class="books-thesis">
+            <div class="books-thesis-main">
+              <p>This is a four-book sequence — not a collection of standalone titles. Each book builds on the last. Together they move from <strong>structural literacy</strong>, to <strong>abstraction control</strong>, to <strong>founder architecture</strong>, to a <strong>general law of upstream build quality</strong>. The sequence explains how to see systems clearly, move deliberately across levels of thought, design operating environments from first principles, and produce high-quality outputs by pushing intelligence upstream before execution begins.</p>
+            </div>
+            <div class="books-thesis-stat">
+              <span class="books-thesis-stat-num">4</span>
+              <span class="books-thesis-stat-label">Books in sequence</span>
+            </div>
+            <div class="books-thesis-stat">
+              <span class="books-thesis-stat-num">2</span>
+              <span class="books-thesis-stat-label">Fully drafted</span>
+            </div>
+          </div>
         </div>
 
-        <div class="books-grid">
+        <div class="books-spine-label">
+          <span class="books-spine-label-text">The four-book sequence — read in order</span>
+        </div>
 
-          <article class="book-card" aria-label="Book 1: Seeing Systems">
-            <div class="book-card-inner">
-              <a class="book-cover-link" href="#" aria-label="Book cover: Seeing Systems">
-                <img class="book-cover" src="./book1-image.png" alt="Cover: Seeing Systems" />
+        <div class="books-stack">
+
+          <!-- Book 1 -->
+          <article class="book-entry" aria-label="Book 1: Seeing Systems">
+            <div class="book-entry-cover-col">
+              <span class="book-num-badge">Book 01</span>
+              <a class="book-cover-wrap" href="#" aria-label="Book cover: Seeing Systems">
+                <img class="book-cover-img" src="./book1-image.png" alt="Cover: Seeing Systems" />
               </a>
-              <div>
-                <span class="book-number">Book 1</span>
-                <div class="book-head">
-                  <h3 class="book-title">Seeing Systems</h3>
+            </div>
+            <div class="book-entry-body">
+              <div class="book-entry-top">
+                <div class="book-entry-title-group">
+                  <h3 class="book-entry-title">Seeing Systems</h3>
+                  <p class="book-entry-tagline">Why a 10-year-old can understand what organisations can't.</p>
+                </div>
+                <div class="book-entry-status-group">
                   <span class="status status-dev">Drafted</span>
                 </div>
-                <p class="book-tagline">Why a 10-year-old can understand what organisations can't.</p>
-                <p class="book-desc">A carrier-based introduction to systemic literacy. This book uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without relying on technical language. It teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery.</p>
-                <div class="book-meta">
+              </div>
+              <p class="book-entry-desc">A carrier-based introduction to systemic literacy. This book uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without relying on technical language. It teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery.</p>
+              <div class="book-insight">
+                <div class="book-insight-bar"></div>
+                <p class="book-insight-text"><strong>Core argument:</strong> Most organisational failure is not a complexity problem. It is a visibility problem. The structures causing failure were always there — they were simply never named. Naming them is the first act of structural control.</p>
+              </div>
+              <div class="book-entry-footer">
+                <div class="book-chips">
                   <span class="book-chip">30 chapters</span>
                   <span class="book-chip">carrier method</span>
                   <span class="book-chip">sample chapters available</span>
+                  <span class="book-chip">general audience</span>
+                </div>
+                <div class="book-entry-links">
+                  <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Book%201%20%E2%80%94%20Seeing%20Systems%3A%20Request%20materials">Request sample chapters</a>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="book-card" aria-label="Book 2: The 15-Level Abstraction Ladder">
-            <div class="book-card-inner">
-              <a class="book-cover-link" href="#" aria-label="Placeholder cover: The 15-Level Abstraction Ladder">
-                <img
-                  class="book-cover"
-                 <img class="book-cover" src="./book2-image.png" alt="Cover: The 15-Level Abstraction Ladder" />
-                />
+          <div class="books-connector">
+            <div class="books-connector-line"></div>
+            <div class="books-connector-arrow">↓ builds to</div>
+            <div class="books-connector-line"></div>
+          </div>
+
+          <!-- Book 2 -->
+          <article class="book-entry" aria-label="Book 2: The 15-Level Abstraction Ladder">
+            <div class="book-entry-cover-col">
+              <span class="book-num-badge">Book 02</span>
+              <a class="book-cover-wrap" href="#" aria-label="Book cover: The 15-Level Abstraction Ladder">
+                <img class="book-cover-img" src="./book2-image.png" alt="Cover: The 15-Level Abstraction Ladder" />
               </a>
-              <div>
-                <span class="book-number">Book 2</span>
-                <div class="book-head">
-                  <h3 class="book-title">The 15-Level Abstraction Ladder</h3>
+            </div>
+            <div class="book-entry-body">
+              <div class="book-entry-top">
+                <div class="book-entry-title-group">
+                  <h3 class="book-entry-title">The 15-Level Abstraction Ladder</h3>
+                  <p class="book-entry-tagline">How to move up and down the levels of thought, design, and civilisation with confidence.</p>
+                </div>
+                <div class="book-entry-status-group">
                   <span class="status">Drafted</span>
                 </div>
-                <p class="book-tagline">How to move up and down the levels of thought, design, and civilization with confidence.</p>
-                <p class="book-desc">A navigation system for altitude. This book explains why people get trapped at one level of reasoning, why disagreement is often an altitude mismatch rather than an intelligence gap, and how to move deliberately between observation, product, system, infrastructure, marketplace, civilization, primitive, and meta-operating law.</p>
-                <div class="book-meta">
+              </div>
+              <p class="book-entry-desc">A navigation system for altitude. This book explains why people get trapped at one level of reasoning, why disagreement is often an altitude mismatch rather than an intelligence gap, and how to move deliberately between observation, product, system, infrastructure, marketplace, civilisation, primitive, and meta-operating law.</p>
+              <div class="book-insight">
+                <div class="book-insight-bar"></div>
+                <p class="book-insight-text"><strong>Core argument:</strong> Most disagreement is not about facts or values. It is about altitude. Two people operating at different abstraction levels will produce incompatible outputs even when starting from the same intent — and neither will know why.</p>
+              </div>
+              <div class="book-entry-footer">
+                <div class="book-chips">
                   <span class="book-chip">15 levels</span>
                   <span class="book-chip">altitude control</span>
                   <span class="book-chip">book in design</span>
+                  <span class="book-chip">practitioners + strategists</span>
+                </div>
+                <div class="book-entry-links">
+                  <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Book%202%20%E2%80%94%20Abstraction%20Ladder%3A%20Request%20materials">Request materials</a>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="book-card" aria-label="Book 3: The System Founder Framework">
-            <div class="book-card-inner">
-              <a class="book-cover-link" href="#" aria-label="Book cover: The System Founder Framework">
-                <img class="book-cover" src="./book2-image.png" alt="Cover: The System Founder Framework" />
+          <div class="books-connector">
+            <div class="books-connector-line"></div>
+            <div class="books-connector-arrow">↓ builds to</div>
+            <div class="books-connector-line"></div>
+          </div>
+
+          <!-- Book 3 -->
+          <article class="book-entry" aria-label="Book 3: The System Founder Framework">
+            <div class="book-entry-cover-col">
+              <span class="book-num-badge">Book 03</span>
+              <a class="book-cover-wrap" href="#" aria-label="Book cover: The System Founder Framework">
+                <img class="book-cover-img" src="./book3-image.png" alt="Cover: The System Founder Framework" />
               </a>
-              <div>
-                <span class="book-number">Book 3</span>
-                <div class="book-head">
-                  <h3 class="book-title">The System Founder Framework</h3>
+            </div>
+            <div class="book-entry-body">
+              <div class="book-entry-top">
+                <div class="book-entry-title-group">
+                  <h3 class="book-entry-title">The System Founder Framework</h3>
+                  <p class="book-entry-tagline">How one person with AI can build operating systems, categories, and institutions.</p>
+                </div>
+                <div class="book-entry-status-group">
                   <span class="status">In design</span>
                 </div>
-                <p class="book-tagline">How one person with AI can build operating systems, categories, and institutions.</p>
-                <p class="book-desc">A founder manual for the AI era. This book distinguishes skill founders, product founders, and system founders, then shows how AI changes the economics of execution for people who naturally think in primitives, rules, operating environments, and category formation. It turns structural intelligence into a repeatable build posture.</p>
-                <div class="book-meta">
+              </div>
+              <p class="book-entry-desc">A founder manual for the AI era. This book distinguishes skill founders, product founders, and system founders, then shows how AI changes the economics of execution for people who naturally think in primitives, rules, operating environments, and category formation. It turns structural intelligence into a repeatable build posture.</p>
+              <div class="book-insight">
+                <div class="book-insight-bar"></div>
+                <p class="book-insight-text"><strong>Core argument:</strong> The rarest founder type is not the one with the best product instinct. It is the one who can see the operating environment that doesn't yet exist and build the rules before the participants arrive. AI collapses the execution cost of doing this alone.</p>
+              </div>
+              <div class="book-entry-footer">
+                <div class="book-chips">
                   <span class="book-chip">founder doctrine</span>
                   <span class="book-chip">AI leverage</span>
                   <span class="book-chip">system company design</span>
+                  <span class="book-chip">category formation</span>
+                </div>
+                <div class="book-entry-links">
+                  <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Book%203%20%E2%80%94%20System%20Founder%3A%20Request%20materials">Request materials</a>
                 </div>
               </div>
             </div>
           </article>
 
-          <article class="book-card" aria-label="Book 4: The Universal Build Architecture">
-            <div class="book-card-inner">
-              <a class="book-cover-link" href="#" aria-label="Placeholder cover: The Universal Build Architecture">
-                <img
-                  class="book-cover"
-            <img class="book-cover" src="./book4-image.png" alt="Cover: The Universal Build Architecture" />                  alt="Placeholder cover: The Universal Build Architecture"
-                />
+          <div class="books-connector">
+            <div class="books-connector-line"></div>
+            <div class="books-connector-arrow">↓ builds to</div>
+            <div class="books-connector-line"></div>
+          </div>
+
+          <!-- Book 4 -->
+          <article class="book-entry" aria-label="Book 4: The Universal Build Architecture">
+            <div class="book-entry-cover-col">
+              <span class="book-num-badge">Book 04</span>
+              <a class="book-cover-wrap" href="#" aria-label="Book cover: The Universal Build Architecture">
+                <img class="book-cover-img" src="./book4-image.png" alt="Cover: The Universal Build Architecture" />
               </a>
-              <div>
-                <span class="book-number">Book 4</span>
-                <div class="book-head">
-                  <h3 class="book-title">The Universal Build Architecture</h3>
+            </div>
+            <div class="book-entry-body">
+              <div class="book-entry-top">
+                <div class="book-entry-title-group">
+                  <h3 class="book-entry-title">The Universal Build Architecture</h3>
+                  <p class="book-entry-tagline">How high-quality outputs get made when intelligence moves upstream.</p>
+                </div>
+                <div class="book-entry-status-group">
                   <span class="status">In development</span>
                 </div>
-                <p class="book-tagline">How high-quality outputs get made when intelligence moves upstream.</p>
-                <p class="book-desc">A general build law across code, prose, artifacts, systems, learning, and governance. The book argues that most poor outputs are not execution failures but upstream architecture failures, and shows where the pattern transfers strongly, partially, or weakly depending on whether the domain is construction, discovery, or emergence.</p>
-                <div class="book-meta">
+              </div>
+              <p class="book-entry-desc">A general build law across code, prose, artifacts, systems, learning, and governance. The book argues that most poor outputs are not execution failures but upstream architecture failures, and shows where the pattern transfers strongly, partially, or weakly depending on whether the domain is construction, discovery, or emergence.</p>
+              <div class="book-insight">
+                <div class="book-insight-bar"></div>
+                <p class="book-insight-text"><strong>Core argument:</strong> Quality is not a property of execution. It is a property of upstream architecture. Every domain that produces consistently high-quality outputs — regardless of medium — does so by resolving ambiguity, constraints, and intent before execution begins. This is the transferable law.</p>
+              </div>
+              <div class="book-entry-footer">
+                <div class="book-chips">
                   <span class="book-chip">upstream design</span>
                   <span class="book-chip">cross-domain transfer</span>
                   <span class="book-chip">build law</span>
+                  <span class="book-chip">general theory</span>
+                </div>
+                <div class="book-entry-links">
+                  <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Book%204%20%E2%80%94%20Universal%20Build%20Architecture%3A%20Request%20materials">Request materials</a>
                 </div>
               </div>
             </div>
           </article>
 
-        </div>
+        </div><!-- /books-stack -->
 
         <div class="books-cta-row">
-          <div class="actions" style="margin-top:0;">
+          <p class="books-cta-text"><strong>Publishers and agents welcome.</strong> Sample chapters from Book 1 are available on request. Proposal materials for the full sequence can be provided for serious enquiries.</p>
+          <div class="books-cta-links">
             <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Books%20%E2%80%94%20Request%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20materials%20for%20the%20book%20projects.%0A%0AThanks%2C">Request book materials</a>
-            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%20%E2%80%94%20book%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20book%20materials%20for%20review.%0A%0AThanks%2C">Request proposal materials</a>
+            <a class="link-blue" href="mailto:hello@jamieforrester.com?subject=Publishing%20request%20%E2%80%94%20book%20materials&body=Hi%20Jamie%2C%0A%0AI%E2%80%99d%20like%20to%20request%20book%20materials%20for%20review.%0A%0AThanks%2C">Publishing enquiry</a>
+            <span class="books-cta-note">Publishers &amp; agents welcome</span>
           </div>
-          <span class="books-cta-note">Publishers and agents welcome</span>
         </div>
+
       </section>
 
       <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
