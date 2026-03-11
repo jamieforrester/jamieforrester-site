@@ -496,20 +496,196 @@
 
     </main>
 
-    <footer>
-      <div class="footer-links">
-        <span>Contact: <a href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a></span>
-        <span style="color:var(--text-faint);">/ Edinburgh, UK</span>
-        <span style="color:var(--text-faint);">/</span>
-        <a class="muted-link" href="./privacy-policy.html" aria-current="page">Privacy Policy</a>
-        <span style="color:var(--text-faint);">/</span>
-        <a class="muted-link" href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div>
-        <span style="color:var(--text-faint);">Last updated: 2026-03-06</span>
-      </div>
-    </footer>
-
+    
+<p></p>
+  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
+    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
   </div>
-</body>
-</html>
+
+</div><!-- end .wrap -->
+  
+<footer class="site-footer">
+  <div class="site-footer__inner">
+
+    <div class="site-footer__top">
+      <!-- Brand / identity -->
+      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+        <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+        <p class="site-footer__summary">
+          Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.
+        </p>
+        <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+      </section>
+
+      <!-- Navigation -->
+      <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+        <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+        <ul class="site-footer__list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./services.html">Services</a></li>
+          <li><a href="./how-it-works.html">How It Works</a></li>
+          <li><a href="./research.html">Research</a></li>
+        </ul>
+      </nav>
+
+      <!-- Legal -->
+      <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+        <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+        <ul class="site-footer__list">
+          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="./terms.html">Terms</a></li>
+        </ul>
+      </nav>
+
+      <!-- Elsewhere -->
+      <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+        <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+        <ul class="site-footer__list">
+          <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+      <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0e0f12;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .site-footer__inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 24px 32px;
+  }
+
+  .site-footer__top {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
+    gap: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .site-footer__eyebrow,
+  .site-footer__heading {
+    margin: 0 0 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--label-blue);
+    font-weight: 600;
+  }
+
+  .site-footer__eyebrow {
+    margin-bottom: 10px;
+    font-size: 11px;
+  }
+
+  .site-footer__summary {
+    margin: 0 0 20px;
+    max-width: 34ch;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text-faint);
+  }
+
+  .site-footer__email,
+  .site-footer__list a {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-faint);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition:
+      color 140ms ease,
+      border-color 140ms ease,
+      opacity 140ms ease;
+  }
+
+  .site-footer__email {
+    color: var(--label-blue);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .site-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .site-footer a:hover {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.24);
+  }
+
+  .site-footer a:focus-visible {
+    outline: 2px solid var(--label-blue);
+    outline-offset: 3px;
+    border-bottom-color: transparent;
+    border-radius: 2px;
+    color: #fff;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 24px;
+  }
+
+  .site-footer__bottom p {
+    margin: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer__top {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .site-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .site-footer__inner {
+      padding: 40px 20px 28px;
+    }
+
+    .site-footer__top {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+    }
+
+    .site-footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 20px;
+    }
+  }
+</style>
+
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
