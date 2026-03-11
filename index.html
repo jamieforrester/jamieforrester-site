@@ -826,49 +826,53 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
 
   </main>
 
-  <footer>
-    <div style="margin-top:40px; background:#0e0f12; border-top:1px solid var(--border-soft); border-radius:var(--radius-xl); padding:36px 36px 28px;">
+  <div style="display:flex; justify-content:center; padding: 24px 0 8px;">
+    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+  </div>
 
-      <!-- Footer columns -->
-      <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap:32px; margin-bottom:28px;">
+</div><!-- end .wrap -->
 
-        <!-- Col 1: Identity -->
-        <div>
-          <p style="margin:0 0 6px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Jamie Forrester</p>
-          <p style="margin:0 0 16px; font-size:13px; color:var(--text-faint); line-height:1.7;">Independent Systems Architect.<br>Diagnostic and redesign artifacts<br>for systems that fail under scale.</p>
-          <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">hello@jamieforrester.com</a>
-        </div>
+<footer style="background:#0e0f12; border-top:1px solid var(--border-soft); margin-top:40px;">
+  <div style="max-width:1120px; margin:0 auto; padding:36px 24px 28px;">
 
-        <!-- Col 2: Navigation -->
-        <div>
-          <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Navigation</p>
-          <nav style="display:grid; gap:10px;" aria-label="Footer navigation">
-            <a href="./index.html" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">Home</a>
-            <a href="./services.html" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">Services</a>
-            <a href="./how-it-works.html" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">How It Works</a>
-            <a href="./research.html" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">Research</a>
-          </nav>
-        </div>
+    <!-- Footer columns -->
+    <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap:32px; margin-bottom:28px;">
 
-        <!-- Col 3: Legal -->
-        <div>
-          <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Legal</p>
-          <nav style="display:grid; gap:10px;" aria-label="Legal links">
-            <a href="./privacy-policy.html" style="font-size:13px; color:var(--cta-blue); border-bottom-color:transparent;">Privacy Policy</a>
-          </nav>
-        </div>
-
+      <!-- Col 1: Identity -->
+      <div>
+        <p style="margin:0 0 6px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Jamie Forrester</p>
+        <p style="margin:0 0 16px; font-size:13px; color:var(--text-faint); line-height:1.7;">Independent Systems Architect.<br>Diagnostic and redesign artifacts<br>for systems that fail under scale.</p>
+        <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--label-blue); border-bottom-color:transparent;">hello@jamieforrester.com</a>
       </div>
 
-      <!-- Bottom bar -->
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:20px; border-top:1px solid var(--border-soft);">
-        <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">&copy; <script>document.write(new Date().getFullYear())</script> Jamie Forrester. All rights reserved.</p>
-        <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">Independent Systems Architect &mdash; Edinburgh</p>
+      <!-- Col 2: Navigation -->
+      <div>
+        <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Navigation</p>
+        <nav style="display:grid; gap:10px;" aria-label="Footer navigation">
+          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Home</a>
+          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Services</a>
+          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">How It Works</a>
+          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Research</a>
+        </nav>
+      </div>
+
+      <!-- Col 3: Legal -->
+      <div>
+        <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Legal</p>
+        <nav style="display:grid; gap:10px;" aria-label="Legal links">
+          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Privacy Policy</a>
+        </nav>
       </div>
 
     </div>
-  </footer>
 
-</div>
+    <!-- Bottom bar -->
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:20px; border-top:1px solid var(--border-soft);">
+      <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">&copy; <script>document.write(new Date().getFullYear())</script> Jamie Forrester. All rights reserved.</p>
+      <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">Independent Systems Architect &mdash; Edinburgh</p>
+    </div>
+
+  </div>
+</footer>
 </body>
 </html>
