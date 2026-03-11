@@ -421,9 +421,11 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
 @media (max-width: 920px) {
   .wrap { padding-top: 24px; }
   header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
-  .top-cta { display: none; }
+  .top-cta { padding-top: 0; justify-content: flex-start; }
   .site-nav-links { gap: 2px; }
   .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+  .site-nav-brand { min-width: 0; overflow: hidden; }
+  .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
   .hero-strip { grid-template-columns: 1fr; }
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
