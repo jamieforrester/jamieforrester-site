@@ -35,7 +35,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { color-scheme: dark; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -52,7 +52,7 @@
       font-feature-settings: "ss01" 1, "cv05" 1;
     }
 
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 64px 24px 56px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
 
     .skip-link {
       position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px;
@@ -74,25 +74,74 @@
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
-    header {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
+    /* ── Sticky nav — hidden until header scrolls out ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(11,11,12,0.88);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 0 24px;
+      transform: translateY(-100%);
+      transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease;
+      opacity: 0;
     }
-    .h-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; height: 56px;
+    }
+    .site-nav-brand {
+      display: flex; align-items: center; gap: 12px; min-width: 0;
+      border-bottom: none; padding-bottom: 0;
+    }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar {
+      width: 30px; height: 30px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover; filter: grayscale(100%); flex: 0 0 auto;
+    }
+    .site-nav-name {
+      font-family: "IBM Plex Mono", monospace; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; white-space: nowrap;
+    }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a {
+      font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
+      border-bottom: none; padding: 6px 10px; border-radius: 7px;
+      transition: color 140ms ease, background 140ms ease;
+    }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta {
+      color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
+      background: rgba(90,176,255,0.08); margin-left: 6px;
+    }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+
+    /* ── Header ── */
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 20px; padding: 40px 0 24px;
+      border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
+    }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
     .avatar {
-      width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
-      object-fit: cover; filter: grayscale(100%); display: block;
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
-      transition: box-shadow 200ms ease, border-color 200ms ease;
+      width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
+      object-fit: cover; filter: grayscale(60%); display: block;
+      box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3);
+      transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease;
     }
-    .avatar:hover { box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28); border-color: rgba(90,176,255,0.3); }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -108,10 +157,7 @@
     .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
     .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22); }
     .btn-current { border-color: rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); color: var(--text-dim); cursor: default; pointer-events: none; }
-    .btn-large {
-      padding: 13px 22px; font-size: 12px; border-radius: 12px; letter-spacing: 0.1em;
-      padding-bottom: 13px;
-    }
+    .btn-large { padding: 13px 22px; font-size: 12px; border-radius: 12px; letter-spacing: 0.1em; padding-bottom: 13px; }
     .btn-full { width: 100%; justify-content: center; }
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
@@ -125,7 +171,6 @@
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    /* Hero */
     .hero-strip {
       display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
       border: 1px solid var(--border); border-radius: var(--radius-xl);
@@ -154,10 +199,8 @@
     .path-connector-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(90,176,255,0.25), transparent); }
     .path-connector-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; color: rgba(90,176,255,0.5); white-space: nowrap; }
 
-    /* Services grid */
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; margin-bottom: 20px; }
 
-    /* Generic card */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
       border: 1px solid var(--border); border-radius: var(--radius-xl);
@@ -166,7 +209,6 @@
     }
     .card:hover { border-color: rgba(255,255,255,0.13); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3); transform: translateY(-1px); }
     .card + .card { margin-top: 20px; }
-
     .card-full {
       border-color: rgba(90,176,255,0.16);
       background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%);
@@ -174,269 +216,86 @@
     }
     .card-full:hover { border-color: rgba(90,176,255,0.26); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
 
-    /* ============================================================
-       SERVICE CARDS — REDESIGNED
-    ============================================================ */
-
     .service-card {
-      display: flex;
-      flex-direction: column;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
+      display: flex; flex-direction: column;
+      border-radius: var(--radius-xl); overflow: hidden;
       border: 1px solid rgba(90,176,255,0.22);
       background: linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(90,176,255,0.06), 0 12px 36px rgba(0,0,0,0.28);
       transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
       position: relative;
     }
-    .service-card:hover {
-      border-color: rgba(90,176,255,0.38);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 0 0 1px rgba(90,176,255,0.12), 0 20px 52px rgba(0,0,0,0.34);
-      transform: translateY(-3px);
-    }
+    .service-card:hover { border-color: rgba(90,176,255,0.38); box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 0 0 1px rgba(90,176,255,0.12), 0 20px 52px rgba(0,0,0,0.34); transform: translateY(-3px); }
     .service-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, rgba(90,176,255,0.0) 0%, rgba(90,176,255,0.7) 40%, rgba(90,176,255,0.9) 60%, rgba(90,176,255,0.0) 100%);
-      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-      opacity: 0;
-      transition: opacity 200ms ease;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0; opacity: 0; transition: opacity 200ms ease;
     }
     .service-card:hover::before { opacity: 1; }
 
-    /* Card header band */
-    .sc-header {
-      padding: 22px 26px 20px;
-      border-bottom: 1px solid rgba(90,176,255,0.12);
-      background: rgba(90,176,255,0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .sc-header-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
+    .sc-header { padding: 22px 26px 20px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.04); display: flex; flex-direction: column; gap: 14px; }
+    .sc-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .sc-label-group { display: flex; flex-direction: column; gap: 6px; }
+    .sc-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
+    .sc-type-pill { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.018); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); line-height: 1; }
+    .price-tag { flex: 0 0 auto; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+    .price-amount { font-family: "IBM Plex Mono", monospace; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.04em; line-height: 1; }
+    .price-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); }
+    .sc-title { margin: 0; font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; color: #fff; }
+    .sc-meta-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .meta-chip { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
 
-    .sc-index {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-    }
-
-    .sc-type-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.018);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      line-height: 1;
-    }
-
-    .price-tag {
-      flex: 0 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 3px;
-    }
-    .price-amount {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-    .price-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-    }
-
-    .sc-title {
-      margin: 0;
-      font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-
-    .sc-meta-row {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .meta-chip {
-      display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025);
-      font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--text-faint);
-    }
-
-    /* Card body */
-    .sc-body {
-      padding: 22px 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      flex: 1;
-    }
-
-    .sc-lead {
-      font-size: 14px;
-      color: #cdd2da;
-      line-height: 1.72;
-      margin: 0;
-    }
+    .sc-body { padding: 22px 26px; display: flex; flex-direction: column; gap: 18px; flex: 1; }
+    .sc-lead { font-size: 14px; color: #cdd2da; line-height: 1.72; margin: 0; }
     .sc-lead strong { color: #fff; }
-
-    /* Insight strip — like book-insight */
-    .sc-insight {
-      display: flex;
-      gap: 10px;
-      padding: 12px 14px;
-      border: 1px solid rgba(90,176,255,0.16);
-      border-radius: 12px;
-      background: rgba(90,176,255,0.05);
-    }
-    .sc-insight-bar {
-      width: 3px;
-      border-radius: 2px;
-      background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.25) 100%);
-      flex: 0 0 auto;
-      align-self: stretch;
-    }
-    .sc-insight-text {
-      font-size: 13px;
-      color: #bfc6d0;
-      line-height: 1.65;
-      margin: 0;
-    }
+    .sc-insight { display: flex; gap: 10px; padding: 12px 14px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.05); }
+    .sc-insight-bar { width: 3px; border-radius: 2px; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.25) 100%); flex: 0 0 auto; align-self: stretch; }
+    .sc-insight-text { font-size: 13px; color: #bfc6d0; line-height: 1.65; margin: 0; }
     .sc-insight-text strong { color: #e4e8ee; font-weight: 600; }
-
-    /* Scope note */
-    .sc-scope-note {
-      padding: 10px 14px;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.018);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.04em;
-      color: var(--text-dim);
-      line-height: 1.6;
-    }
-
-    /* Mini blocks */
+    .sc-scope-note { padding: 10px 14px; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; background: rgba(255,255,255,0.018); font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--text-dim); line-height: 1.6; }
     .sc-blocks { display: grid; gap: 10px; }
-
-    .sc-block {
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
+    .sc-block { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
     .sc-block h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
     .sc-block p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
-
-    ul.clean {
-      margin: 0; padding: 0; list-style: none; display: grid; gap: 9px;
-    }
-    ul.clean li {
-      padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.62;
-    }
+    ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+    ul.clean li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.62; }
     ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
     ul.clean li strong { color: #e8ecf0; }
-
-    /* Included list inside service card */
-    .sc-included {
-      padding: 14px 16px;
-      border: 1px solid rgba(90,176,255,0.14);
-      border-radius: 14px;
-      background: rgba(90,176,255,0.03);
-    }
+    .sc-included { padding: 14px 16px; border: 1px solid rgba(90,176,255,0.14); border-radius: 14px; background: rgba(90,176,255,0.03); }
     .sc-included h3 { margin: 0 0 10px; font-size: 12px; font-weight: 600; color: var(--label-blue); letter-spacing: 0.06em; text-transform: uppercase; font-family: "IBM Plex Mono", monospace; }
+    .sc-cta { padding: 20px 26px; border-top: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .sc-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); text-align: center; }
 
-    /* Card CTA — centred, full-width, prominent */
-    .sc-cta {
-      padding: 20px 26px;
-      border-top: 1px solid rgba(90,176,255,0.12);
-      background: rgba(90,176,255,0.03);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .sc-cta-note {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      text-align: center;
-    }
-
-    /* Other card internals */
     .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
     p { margin: 0 0 14px; color: var(--text-dim); }
     p:last-child { margin-bottom: 0; }
     .lead { color: #cdd2da; font-size: 15px; line-height: 1.72; margin-bottom: 18px; }
     .lead strong { color: #fff; }
-
     .split-list { display: grid; gap: 10px; }
     .mini { padding: 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
     .mini h3 { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
     .mini p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
-
     .section-block { margin-top: 18px; }
     .section-head { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-
     .flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .flow-step { padding: 16px; border: 1px solid rgba(90,176,255,0.14); border-radius: 14px; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
     .flow-step-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 8px; }
     .flow-step h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
     .flow-step p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
-
     .two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
     .signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); margin-top: 16px; }
     .callout { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
     .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
     .callout p strong { color: #e8ecf0; }
-
     .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
-    footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--text-faint); font-size: 12px; }
-    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-
     @media (max-width: 920px) {
-      .wrap { padding-top: 48px; }
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .top-cta { justify-content: flex-start; }
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links a:not(.nav-cta) { display: none; }
+      .site-nav-links .nav-cta { margin-left: 0; }
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
@@ -452,6 +311,22 @@
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./research.html">Research</a>
+        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="wrap">
 
     <header>
@@ -531,7 +406,6 @@
 
         <!-- 01 Diagnostic -->
         <section class="service-card" aria-label="Diagnostic Artifact">
-
           <div class="sc-header">
             <div class="sc-header-top">
               <div class="sc-label-group">
@@ -551,16 +425,12 @@
               <span class="meta-chip">decision-ready</span>
             </div>
           </div>
-
           <div class="sc-body">
-
             <p class="sc-lead">For systems that keep breaking in the same place under growth, complexity, or organisational scale &mdash; the point where more meetings have stopped helping and the real structure needs to be made explicit.</p>
-
             <div class="sc-insight">
               <div class="sc-insight-bar"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Most systems don&rsquo;t fail because people are incompetent. They fail because the actual rules, invariants, and enforcement boundaries were never made explicit. This artifact makes them visible in a form builders can act on.</p>
             </div>
-
             <div class="sc-blocks">
               <div class="sc-block">
                 <h3>What it answers</h3>
@@ -580,7 +450,6 @@
                 <p>One structured diagnostic document for internal decision-making and builder handoff. Decision owners get a single source of structural truth. Builders get a clearer basis for what must change first.</p>
               </div>
             </div>
-
             <div class="sc-included">
               <h3>Included</h3>
               <ul class="clean">
@@ -591,9 +460,7 @@
                 <li>A build map showing structural implications for sequence, interfaces, and transition logic</li>
               </ul>
             </div>
-
           </div>
-
           <div class="sc-cta">
             <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">
               <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -601,12 +468,10 @@
             </a>
             <span class="sc-cta-note">Fixed fee &middot; 14-day delivery &middot; One clarification pass included</span>
           </div>
-
         </section>
 
         <!-- 02 Redesign -->
         <section class="service-card" aria-label="Redesign Artifact">
-
           <div class="sc-header">
             <div class="sc-header-top">
               <div class="sc-label-group">
@@ -626,18 +491,13 @@
               <span class="meta-chip">builder handoff</span>
             </div>
           </div>
-
           <div class="sc-body">
-
             <div class="sc-scope-note">Pricing depends on the breadth of the redesign, the number of interfaces involved, and the complexity of the transition path.</div>
-
             <p class="sc-lead">When the failure is already visible but the route to change is still unclear. This engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.</p>
-
             <div class="sc-insight">
               <div class="sc-insight-bar"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Systems can&rsquo;t self-correct because the correction logic must be designed upstream of execution. This artifact provides that logic &mdash; explicitly sequenced so builders can execute against it instead of inventing design midstream.</p>
             </div>
-
             <div class="sc-blocks">
               <div class="sc-block">
                 <h3>What it defines</h3>
@@ -652,7 +512,6 @@
                 <p>One structured redesign document that defines the new operating boundary and the order of change. Builders get a stable sequence to execute against instead of being forced to invent design midstream.</p>
               </div>
             </div>
-
             <div class="sc-included">
               <h3>Included</h3>
               <ul class="clean">
@@ -663,9 +522,7 @@
                 <li>Explicit constraints that prevent drift, workaround logic, or quiet re-coupling</li>
               </ul>
             </div>
-
           </div>
-
           <div class="sc-cta">
             <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Redesign%20Request%20%E2%80%94%20%5BSystem%20Name%5D">
               <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -673,7 +530,6 @@
             </a>
             <span class="sc-cta-note">Requires prior diagnosis or clear bounded brief &middot; 14-day delivery</span>
           </div>
-
         </section>
 
       </div>
@@ -783,194 +639,103 @@
 
     </main>
 
-    <p></p>
-  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
-  </div>
-
-</div><!-- end .wrap -->
-<footer class="site-footer">
-  <div class="site-footer__inner">
-
-    <div class="site-footer__top">
-      <!-- Brand / identity -->
-      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-        <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-        <p class="site-footer__summary">
-          Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.
-        </p>
-        <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-      </section>
-
-      <!-- Navigation -->
-      <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-        <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-        <ul class="site-footer__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./services.html">Services</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
-          <li><a href="./research.html">Research</a></li>
-        </ul>
-      </nav>
-
-      <!-- Legal -->
-      <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-        <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-        <ul class="site-footer__list">
-          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./terms.html">Terms</a></li>
-        </ul>
-      </nav>
-
-      <!-- Elsewhere -->
-      <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-        <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-        <ul class="site-footer__list">
-          <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
-      </nav>
+    <div style="display:flex; justify-content:center; padding: 20px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
     </div>
 
-    <div class="site-footer__bottom">
-      <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-      <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+  </div><!-- end .wrap -->
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<style>
-  .site-footer {
-    background: #0e0f12;
-    border-top: 1px solid var(--border-soft);
-  }
-
-  .site-footer__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 48px 24px 32px;
-  }
-
-  .site-footer__top {
-    display: grid;
-    grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
-    gap: 40px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--border-soft);
-  }
-
-  .site-footer__eyebrow,
-  .site-footer__heading {
-    margin: 0 0 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--label-blue);
-    font-weight: 600;
-  }
-
-  .site-footer__eyebrow {
-    margin-bottom: 10px;
-    font-size: 11px;
-  }
-
-  .site-footer__summary {
-    margin: 0 0 20px;
-    max-width: 34ch;
-    font-size: 13px;
-    line-height: 1.75;
-    color: var(--text-faint);
-  }
-
-  .site-footer__email,
-  .site-footer__list a {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-faint);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition:
-      color 140ms ease,
-      border-color 140ms ease,
-      opacity 140ms ease;
-  }
-
-  .site-footer__email {
-    color: var(--label-blue);
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.02em;
-  }
-
-  .site-footer__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-  }
-
-  .site-footer a:hover {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.24);
-  }
-
-  .site-footer a:focus-visible {
-    outline: 2px solid var(--label-blue);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
-    border-radius: 2px;
-    color: #fff;
-  }
-
-  .site-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 24px;
-  }
-
-  .site-footer__bottom p {
-    margin: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.6;
-    letter-spacing: 0.06em;
-    color: var(--text-faint);
-  }
-
-  @media (max-width: 900px) {
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
     .site-footer__top {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
+      gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft);
     }
-
-    .site-footer__brand {
-      grid-column: 1 / -1;
+    .site-footer__eyebrow, .site-footer__heading {
+      margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--label-blue); font-weight: 600;
     }
-  }
-
-  @media (max-width: 640px) {
-    .site-footer__inner {
-      padding: 40px 20px 28px;
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a {
+      font-size: 13px; line-height: 1.6; color: var(--text-faint);
+      text-decoration: none; border-bottom: 1px solid transparent;
+      transition: color 140ms ease, border-color 140ms ease;
     }
-
-    .site-footer__top {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding-bottom: 28px;
+    .site-footer__email { color: var(--label-blue); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer a:focus-visible { outline: 2px solid var(--label-blue); outline-offset: 3px; border-bottom-color: transparent; border-radius: 2px; color: #fff; }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) {
+      .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .site-footer__brand { grid-column: 1 / -1; }
     }
-
-    .site-footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 20px;
+    @media (max-width: 640px) {
+      .site-footer__inner { padding: 40px 20px 28px; }
+      .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; }
+      .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; }
     }
-  }
-</style>
+  </style>
 
-<script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Sticky nav — slides in once header scrolls out of view
+    (function() {
+      var nav = document.querySelector('.site-nav');
+      var header = document.querySelector('header');
+      function onScroll() {
+        if (header.getBoundingClientRect().bottom <= 0) {
+          nav.classList.add('nav-visible');
+        } else {
+          nav.classList.remove('nav-visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
