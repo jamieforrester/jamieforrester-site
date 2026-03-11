@@ -718,14 +718,14 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
             <span class="offer-chip">Book</span>
           </div>
           <div class="paper-row">
-            <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Seeing Systems">
-              <img class="thumb paper-cover-plain" src="./paper3-image.png" alt="Cover: Seeing Systems" />
+            <a href="./paper3-image.png" onclick="openLightbox(this.href);return false;" aria-label="View cover: Seeing Systems" style="cursor:zoom-in; border-bottom:none;">
+              <img class="thumb paper-cover-plain" src="./paper3-image.png" alt="Cover: Seeing Systems" style="transition:opacity 160ms ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" />
             </a>
             <div>
               <p class="paper-title" style="margin-bottom:8px;">Seeing Systems</p>
               <p class="small" style="margin-bottom:10px;">Why organisations feel harder to understand than they should — and why the barrier is almost never complexity itself. The conceptual basis for the diagnostic method used in every engagement.</p>
               <div class="actions">
-                <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Request chapters</a>
+                <a class="link-blue" href="mailto:hello@jamieforrester.com">Request chapters</a>
                 <a class="muted-link" href="./research.html">View research</a>
               </div>
             </div>
@@ -826,53 +826,84 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
 
   </main>
 
-  <div style="display:flex; justify-content:center; padding: 24px 0 8px;">
+  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
     <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
   </div>
 
 </div><!-- end .wrap -->
 
-<footer style="background:#0e0f12; border-top:1px solid var(--border-soft); margin-top:40px;">
-  <div style="max-width:1120px; margin:0 auto; padding:36px 24px 28px;">
+<footer style="background:#0e0f12; border-top:1px solid var(--border-soft);">
+  <div style="max-width:1120px; margin:0 auto; padding:48px 24px 32px;">
 
-    <!-- Footer columns -->
-    <div style="display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap:32px; margin-bottom:28px;">
+    <!-- Top row: brand + nav columns -->
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px; padding-bottom:36px; border-bottom:1px solid var(--border-soft);">
 
       <!-- Col 1: Identity -->
       <div>
-        <p style="margin:0 0 6px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Jamie Forrester</p>
-        <p style="margin:0 0 16px; font-size:13px; color:var(--text-faint); line-height:1.7;">Independent Systems Architect.<br>Diagnostic and redesign artifacts<br>for systems that fail under scale.</p>
-        <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--label-blue); border-bottom-color:transparent;">hello@jamieforrester.com</a>
+        <p style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Jamie Forrester</p>
+        <p style="margin:0 0 20px; font-size:13px; color:var(--text-faint); line-height:1.75; max-width:32ch;">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+        <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--label-blue); border-bottom-color:transparent; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;">hello@jamieforrester.com</a>
       </div>
 
       <!-- Col 2: Navigation -->
       <div>
-        <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Navigation</p>
-        <nav style="display:grid; gap:10px;" aria-label="Footer navigation">
-          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Home</a>
-          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Services</a>
-          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">How It Works</a>
-          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Research</a>
+        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Navigation</p>
+        <nav style="display:grid; gap:12px;" aria-label="Footer navigation">
+          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent; transition:color 140ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Home</a>
+          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Services</a>
+          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">How It Works</a>
+          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Research</a>
         </nav>
       </div>
 
       <!-- Col 3: Legal -->
       <div>
-        <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">Legal</p>
-        <nav style="display:grid; gap:10px;" aria-label="Legal links">
-          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Privacy Policy</a>
+        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Legal</p>
+        <nav style="display:grid; gap:12px;" aria-label="Legal links">
+          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Privacy Policy</a>
         </nav>
       </div>
 
     </div>
 
     <!-- Bottom bar -->
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:20px; border-top:1px solid var(--border-soft);">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:24px;">
       <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">&copy; <script>document.write(new Date().getFullYear())</script> Jamie Forrester. All rights reserved.</p>
       <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">Independent Systems Architect &mdash; Edinburgh</p>
     </div>
 
   </div>
 </footer>
+<style>
+#lightbox-overlay {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.88); backdrop-filter:blur(6px);
+  align-items:center; justify-content:center; cursor:zoom-out;
+}
+#lightbox-overlay.active { display:flex; }
+#lightbox-overlay img {
+  max-width:90vw; max-height:90vh; border-radius:12px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.6);
+  animation:lb-in 180ms ease;
+}
+@keyframes lb-in { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
+</style>
+
+<div id="lightbox-overlay" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Enlarged view" />
+</div>
+
+<script>
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+</script>
 </body>
 </html>
