@@ -718,8 +718,8 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
             <span class="offer-chip">Book</span>
           </div>
           <div class="paper-row">
-            <a href="./book1-image.png" onclick="openLightbox(this.href);return false;" aria-label="View cover: Seeing Systems" style="cursor:zoom-in; border-bottom:none;">
-              <img class="thumb paper-cover-plain" src="./book1-image.png" alt="Cover: Seeing Systems" style="transition:opacity 160ms ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" />
+            <a href="./paper3-image.png" onclick="openLightbox(this.href);return false;" aria-label="View cover: Seeing Systems" style="cursor:zoom-in; border-bottom:none;">
+              <img class="thumb paper-cover-plain" src="./paper3-image.png" alt="Cover: Seeing Systems" style="transition:opacity 160ms ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" />
             </a>
             <div>
               <p class="paper-title" style="margin-bottom:8px;">Seeing Systems</p>
@@ -784,23 +784,14 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
       <div class="process-strip">
         <div class="process-card">
           <span class="process-step">Step 01</span>
-          <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
           <p><strong>Send the brief.</strong> Five lines plus any relevant material you already have.</p>
         </div>
         <div class="process-card">
           <span class="process-step">Step 02</span>
-          <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
           <p><strong>I review fit.</strong> Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
         </div>
         <div class="process-card">
           <span class="process-step">Step 03</span>
-          <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-          </div>
           <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
         </div>
       </div>
@@ -825,194 +816,86 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
     </section>
 
   </main>
-<p></p>
+
   <div style="display:flex; justify-content:center; padding: 20px 0 0;">
     <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
   </div>
 
 </div><!-- end .wrap -->
-<footer class="site-footer">
-  <div class="site-footer__inner">
 
-    <div class="site-footer__top">
-      <!-- Brand / identity -->
-      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-        <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-        <p class="site-footer__summary">
-          Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.
-        </p>
-        <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-      </section>
+<footer style="background:#0e0f12; border-top:1px solid var(--border-soft);">
+  <div style="max-width:1120px; margin:0 auto; padding:48px 24px 32px;">
 
-      <!-- Navigation -->
-      <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-        <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-        <ul class="site-footer__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./services.html">Services</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
-          <li><a href="./research.html">Research</a></li>
-        </ul>
-      </nav>
+    <!-- Top row: brand + nav columns -->
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; gap:48px; padding-bottom:36px; border-bottom:1px solid var(--border-soft);">
 
-      <!-- Legal -->
-      <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-        <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-        <ul class="site-footer__list">
-          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./terms.html">Terms</a></li>
-        </ul>
-      </nav>
+      <!-- Col 1: Identity -->
+      <div>
+        <p style="margin:0 0 10px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Jamie Forrester</p>
+        <p style="margin:0 0 20px; font-size:13px; color:var(--text-faint); line-height:1.75; max-width:32ch;">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+        <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--label-blue); border-bottom-color:transparent; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;">hello@jamieforrester.com</a>
+      </div>
 
-      <!-- Elsewhere -->
-      <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-        <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-        <ul class="site-footer__list">
-          <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
-      </nav>
+      <!-- Col 2: Navigation -->
+      <div>
+        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Navigation</p>
+        <nav style="display:grid; gap:12px;" aria-label="Footer navigation">
+          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent; transition:color 140ms ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Home</a>
+          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Services</a>
+          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">How It Works</a>
+          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Research</a>
+        </nav>
+      </div>
+
+      <!-- Col 3: Legal -->
+      <div>
+        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Legal</p>
+        <nav style="display:grid; gap:12px;" aria-label="Legal links">
+          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Privacy Policy</a>
+        </nav>
+      </div>
+
     </div>
 
-    <div class="site-footer__bottom">
-      <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-      <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+    <!-- Bottom bar -->
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:24px;">
+      <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">&copy; <script>document.write(new Date().getFullYear())</script> Jamie Forrester. All rights reserved.</p>
+      <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">Independent Systems Architect &mdash; Edinburgh</p>
     </div>
+
   </div>
 </footer>
-
 <style>
-  .site-footer {
-    background: #0e0f12;
-    border-top: 1px solid var(--border-soft);
-  }
-
-  .site-footer__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 48px 24px 32px;
-  }
-
-  .site-footer__top {
-    display: grid;
-    grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
-    gap: 40px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--border-soft);
-  }
-
-  .site-footer__eyebrow,
-  .site-footer__heading {
-    margin: 0 0 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--label-blue);
-    font-weight: 600;
-  }
-
-  .site-footer__eyebrow {
-    margin-bottom: 10px;
-    font-size: 11px;
-  }
-
-  .site-footer__summary {
-    margin: 0 0 20px;
-    max-width: 34ch;
-    font-size: 13px;
-    line-height: 1.75;
-    color: var(--text-faint);
-  }
-
-  .site-footer__email,
-  .site-footer__list a {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-faint);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition:
-      color 140ms ease,
-      border-color 140ms ease,
-      opacity 140ms ease;
-  }
-
-  .site-footer__email {
-    color: var(--label-blue);
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.02em;
-  }
-
-  .site-footer__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-  }
-
-  .site-footer a:hover {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.24);
-  }
-
-  .site-footer a:focus-visible {
-    outline: 2px solid var(--label-blue);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
-    border-radius: 2px;
-    color: #fff;
-  }
-
-  .site-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 24px;
-  }
-
-  .site-footer__bottom p {
-    margin: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.6;
-    letter-spacing: 0.06em;
-    color: var(--text-faint);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer__top {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .site-footer__brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .site-footer__inner {
-      padding: 40px 20px 28px;
-    }
-
-    .site-footer__top {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding-bottom: 28px;
-    }
-
-    .site-footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 20px;
-    }
-  }
+#lightbox-overlay {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.88); backdrop-filter:blur(6px);
+  align-items:center; justify-content:center; cursor:zoom-out;
+}
+#lightbox-overlay.active { display:flex; }
+#lightbox-overlay img {
+  max-width:90vw; max-height:90vh; border-radius:12px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.6);
+  animation:lb-in 180ms ease;
+}
+@keyframes lb-in { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
 </style>
 
+<div id="lightbox-overlay" onclick="closeLightbox()">
+  <button onclick="closeLightbox()" style="position:fixed; top:20px; right:24px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; width:40px; height:40px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10000; transition:background 140ms ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="Enlarged view" />
+</div>
+
 <script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-overlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox-overlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 </script>
+</body>
+</html>
