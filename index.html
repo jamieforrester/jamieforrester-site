@@ -371,6 +371,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
   border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0;
   box-shadow: var(--shadow-card); transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  margin-bottom: var(--space-5);
 }
 .card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28); transform: translateY(-1px); }
 
@@ -748,9 +749,9 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
     </div>
   </section>
 
-  <main id="main" class="stack" role="main">
-
   <div class="section-divider"><span class="section-divider-label">method</span></div>
+
+  <main id="main" role="main">
 
     <section class="card" aria-label="Method language">
       <div class="label-row">
@@ -810,9 +811,11 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
       <p class="small" style="margin-top:14px;">Full scope, delivery terms, and service boundaries live on the <a class="link-blue" href="./services.html">Services page</a>.</p>
     </section>
 
+  </main>
+
   <div class="section-divider"><span class="section-divider-label">applied snapshot</span></div>
 
-    <section class="card" aria-label="Applied snapshot">
+  <section class="card" aria-label="Applied snapshot">
       <div class="label-row">
         <span class="label">02 // Applied snapshot</span>
         <span class="label-note">proof of lens</span>
@@ -853,7 +856,7 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
 
   <div class="section-divider"><span class="section-divider-label">how to start</span></div>
 
-    <section class="card" aria-label="How to start">
+  <section class="card" aria-label="How to start">
       <div class="label-row">
         <span class="label">03 // How to start</span>
         <span class="label-note">entry route</span>
@@ -891,9 +894,7 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
         <a class="btn" href="./services.html">VIEW SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
       </div>
-    </section>
-
-  </main>
+  </section>
 
   <div style="display:flex; justify-content:center; padding: 20px 0 0;">
     <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
