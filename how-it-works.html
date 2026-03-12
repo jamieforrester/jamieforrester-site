@@ -16,33 +16,27 @@
       --bg: #0b0b0c;
       --panel: #101114;
       --panel-soft: #0d0e11;
-
       --text-main: #f1f3f5;
       --text-dim: #c6ccd4;
       --text-faint: #8c94a2;
-
       --border: #232731;
       --border-soft: rgba(255,255,255,0.06);
       --accent: #343a46;
-
       --label-blue: #4aa3ff;
       --cta-blue: #5ab0ff;
-
       --focus-ring: rgba(255,255,255,0.95);
       --focus-bg: rgba(255,255,255,0.08);
-
       --radius-sm: 10px;
       --radius-md: 14px;
       --radius-lg: 18px;
       --radius-xl: 22px;
-
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
       --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
       --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { color-scheme: dark; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -59,745 +53,231 @@
       font-feature-settings: "ss01" 1, "cv05" 1;
     }
 
-    .wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 64px 24px 56px;
-    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
 
-    /* ── Skip link ── */
     .skip-link {
-      position: absolute;
-      left: 12px; top: 10px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      background: var(--panel);
-      color: #fff;
-      transform: translateY(-200%);
-      transition: transform 120ms ease;
-      z-index: 9999;
-      text-decoration: none;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px;
+      border: 1px solid var(--accent); background: var(--panel); color: #fff;
+      transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999;
+      text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px;
     }
-    .skip-link:focus-visible {
-      transform: translateY(0);
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-    }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
 
-    /* ── Links ── */
     a {
-      color: #fff;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.18);
-      padding-bottom: 1px;
-      font-size: 14px;
+      color: #fff; text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px;
       transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
     }
     a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
-    a:focus-visible {
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-      border-bottom-color: transparent;
-      background: var(--focus-bg);
-      border-radius: 6px;
-    }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
     .muted-link { color: var(--text-dim); border-bottom-color: transparent; }
     .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
+    /* ── Sticky nav ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(11,11,12,0.88);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 0 24px;
+      transform: translateY(-100%);
+      transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease;
+      opacity: 0;
+    }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; height: 56px;
+    }
+    .site-nav-brand {
+      display: flex; align-items: center; gap: 12px; min-width: 0;
+      border-bottom: none; padding-bottom: 0; overflow: hidden;
+    }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar {
+      width: 30px; height: 30px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover; filter: grayscale(100%); flex: 0 0 auto;
+    }
+    .site-nav-name {
+      font-family: "IBM Plex Mono", monospace; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; white-space: nowrap;
+    }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a {
+      font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
+      border-bottom: none; padding: 6px 10px; border-radius: 7px;
+      transition: color 140ms ease, background 140ms ease;
+    }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta {
+      color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
+      background: rgba(90,176,255,0.08); margin-left: 6px;
+    }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+
     /* ── Header ── */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border-soft);
-      margin-bottom: 32px;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 20px; padding: 40px 0 24px;
+      border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
     }
-
-    .h-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      min-width: 0;
-    }
-
-    .avatar-link {
-      display: inline-flex;
-      border-bottom: none;
-      border-radius: 999px;
-      flex: 0 0 auto;
-    }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
-    .avatar-link:focus-visible {
-      background: transparent;
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 4px;
-      border-radius: 999px;
-    }
-
+    .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
     .avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      object-fit: cover;
-      filter: grayscale(100%);
-      display: block;
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
-      transition: box-shadow 200ms ease, border-color 200ms ease;
+      width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
+      object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto;
+      box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3);
+      transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease;
     }
-    .avatar:hover {
-      box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28);
-      border-color: rgba(90,176,255,0.3);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
-
-    .h-sub {
-      margin-top: 5px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      color: var(--text-faint);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .h-pill {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.015);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-      color: var(--text-dim);
-      line-height: 1.4;
-    }
-
-    .top-cta {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
 
     /* ── Buttons ── */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--accent);
-      background: rgba(255,255,255,0.018);
-      color: #fff;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      font-weight: 500;
-      text-decoration: none;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      border-bottom: none;
-      padding-bottom: 9px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent);
+      background: rgba(255,255,255,0.018); color: #fff;
+      font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+      text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em;
+      white-space: nowrap; border-bottom: none; padding-bottom: 9px;
       transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
     }
-    .btn:hover {
-      background: rgba(255,255,255,0.05);
-      border-bottom: none;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .btn:focus-visible {
-      outline: 2px solid var(--focus-ring);
-      outline-offset: 3px;
-      background: var(--focus-bg);
-    }
-    .btn-primary {
-      color: var(--cta-blue);
-      border-color: rgba(90,176,255,0.32);
-      background: rgba(90,176,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-    .btn-primary:hover {
-      background: rgba(90,176,255,0.14);
-      border-color: rgba(90,176,255,0.5);
-      box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
-    }
-    .btn-current {
-      border-color: rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-dim);
-      cursor: default;
-      pointer-events: none;
-    }
-
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22); }
+    .btn-current { border-color: rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); color: var(--text-dim); cursor: default; pointer-events: none; }
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
 
     /* ── Type atoms ── */
-    .eyebrow {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      margin: 0 0 10px;
-    }
-
-    .mini-kicker {
-      display: block;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      margin: 0 0 10px;
-    }
-
-    .label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--label-blue);
-    }
-
-    .label-note {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      color: var(--label-blue);
-      white-space: nowrap;
-    }
-
-    .arrow-chain {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      color: var(--text-faint);
-      line-height: 1.7;
-      text-align: right;
-    }
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
+    .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
+    .arrow-chain { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--text-faint); line-height: 1.7; text-align: right; }
     .arrow-chain span { display: block; transition: color 160ms ease; }
     .arrow-chain span:hover { color: var(--cta-blue); }
 
     /* ── Section divider ── */
-    .section-divider {
-      margin: 0 0 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .section-divider::before,
-    .section-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-    }
-    .section-divider-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      white-space: nowrap;
-    }
+    .section-divider { margin: 0 0 24px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
     /* ── Hero strip ── */
     .hero-strip {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background:
-        linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      margin-bottom: 32px;
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
+      display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
+      margin-bottom: 32px; overflow: hidden; box-shadow: var(--shadow-card);
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
-    .hero-strip:hover {
-      border-color: rgba(90,176,255,0.2);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .hero-left {
-      padding: 36px 32px 36px 36px;
-      border-right: 1px solid var(--border-soft);
-    }
-
-    .hero-right {
-      padding: 36px 28px;
-      background: rgba(255,255,255,0.012);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-title {
-      margin: 0 0 16px;
-      font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem);
-      line-height: 1.08;
-      letter-spacing: -0.045em;
-      font-weight: 700;
-      color: #fff;
-      max-width: 20ch;
-    }
-
-    .hero-sub {
-      margin: 0 0 14px;
-      color: #d4d9e0;
-      font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem);
-      line-height: 1.72;
-      max-width: 60ch;
-    }
+    .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
+    .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
+    .hero-right { padding: 36px 28px; background: rgba(255,255,255,0.012); display: flex; flex-direction: column; justify-content: center; }
+    .hero-title { margin: 0 0 16px; font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; max-width: 20ch; }
+    .hero-sub { margin: 0 0 14px; color: #d4d9e0; font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem); line-height: 1.72; max-width: 60ch; }
     .hero-sub strong { color: #fff; font-weight: 600; }
-
-    .hero-rule {
-      margin: 20px 0;
-      border: none;
-      border-top: 1px solid var(--border-soft);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 22px;
-    }
+    .hero-rule { margin: 20px 0; border: none; border-top: 1px solid var(--border-soft); }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 22px; }
 
     /* Process summary panel */
-    .process-summary {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .process-summary-head {
-      padding-bottom: 12px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .process-summary-label {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .process-summary-sub {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      color: var(--text-faint);
-      letter-spacing: 0.06em;
-    }
-
-    .summary-step {
-      padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-      transition: border-color 160ms ease, background 160ms ease;
-    }
-    .summary-step:hover {
-      border-color: rgba(90,176,255,0.2);
-      background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.008) 100%);
-    }
-
-    .summary-step-num {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 9px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--label-blue);
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .summary-step strong {
-      display: block;
-      font-size: 12px;
-      color: #fff;
-      font-weight: 600;
-      margin-bottom: 3px;
-      letter-spacing: -0.01em;
-    }
-
-    .summary-step span {
-      font-size: 11px;
-      color: var(--text-dim);
-      line-height: 1.5;
-      display: block;
-    }
+    .process-summary { display: flex; flex-direction: column; gap: 8px; }
+    .process-summary-head { padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--border-soft); }
+    .process-summary-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
+    .process-summary-sub { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); letter-spacing: 0.06em; }
+    .summary-step { padding: 12px 14px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: linear-gradient(160deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); transition: border-color 160ms ease, background 160ms ease; }
+    .summary-step:hover { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.008) 100%); }
+    .summary-step-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 3px; }
+    .summary-step strong { display: block; font-size: 12px; color: #fff; font-weight: 600; margin-bottom: 3px; letter-spacing: -0.01em; }
+    .summary-step span { font-size: 11px; color: var(--text-dim); line-height: 1.5; display: block; }
 
     /* ── Cards ── */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 28px;
-      min-width: 0;
-      box-shadow: var(--shadow-card);
-      margin-bottom: 20px;
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 20px;
       transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
-    .card:hover {
-      border-color: rgba(255,255,255,0.13);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3);
-      transform: translateY(-1px);
-    }
+    .card:hover { border-color: rgba(255,255,255,0.13); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3); transform: translateY(-1px); }
     .card:last-child { margin-bottom: 0; }
+    .card-accent { border-color: rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(90,176,255,0.06), 0 12px 36px rgba(0,0,0,0.28); }
+    .card-accent:hover { border-color: rgba(90,176,255,0.34); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(90,176,255,0.1), 0 18px 48px rgba(0,0,0,0.32); transform: translateY(-2px); }
+    .card-full { border-color: rgba(90,176,255,0.16); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 30px rgba(0,0,0,0.24); }
+    .card-full:hover { border-color: rgba(90,176,255,0.26); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
 
-    .card-accent {
-      border-color: rgba(90,176,255,0.22);
-      background:
-        linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.05),
-        inset 0 0 0 1px rgba(90,176,255,0.06),
-        0 12px 36px rgba(0,0,0,0.28);
-    }
-    .card-accent:hover {
-      border-color: rgba(90,176,255,0.34);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.06),
-        0 0 0 1px rgba(90,176,255,0.1),
-        0 18px 48px rgba(0,0,0,0.32);
-      transform: translateY(-2px);
-    }
-
-    .card-full {
-      border-color: rgba(90,176,255,0.16);
-      background:
-        linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%),
-        linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.04),
-        0 10px 30px rgba(0,0,0,0.24);
-    }
-    .card-full:hover {
-      border-color: rgba(90,176,255,0.26);
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-1px);
-    }
-
-    .label-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 14px;
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      margin: 0 0 16px;
-      font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
-      font-weight: 700;
-      line-height: 1.22;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-
+    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
+    .section-title { margin: 0 0 16px; font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); font-weight: 700; line-height: 1.22; letter-spacing: -0.03em; color: #fff; }
     p { margin: 0 0 14px; color: var(--text-dim); }
     p:last-child { margin-bottom: 0; }
-
-    .lead {
-      color: #cdd2da;
-      font-size: 15px;
-      line-height: 1.72;
-      margin-bottom: 18px;
-    }
+    .lead { color: #cdd2da; font-size: 15px; line-height: 1.72; margin-bottom: 18px; }
     .lead strong { color: #fff; }
 
-    /* ── Protocol chips ── */
-    .meta-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: 0 0 18px;
-    }
+    .meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
+    .meta-chip { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
 
-    .meta-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-    }
+    .three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mini { padding: 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
+    .mini h3 { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+    .mini p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
 
-    /* ── Mini blocks ── */
-    .three-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .two-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .mini {
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
-    .mini h3 {
-      margin: 0 0 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.01em;
-    }
-
-    .mini p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.62;
-    }
-
-    /* ── Phase list ── */
     .phase-list { display: grid; gap: 10px; }
+    .phase { padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); transition: border-color 160ms ease, transform 160ms ease; }
+    .phase:hover { border-color: rgba(90,176,255,0.2); transform: translateX(3px); }
+    .phase-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+    .phase-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--label-blue); text-transform: uppercase; min-width: 24px; flex: 0 0 auto; }
+    .phase-title { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.02em; }
+    .phase p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; padding-left: 36px; }
 
-    .phase {
-      padding: 18px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-      transition: border-color 160ms ease, transform 160ms ease;
-    }
-    .phase:hover {
-      border-color: rgba(90,176,255,0.2);
-      transform: translateX(3px);
-    }
+    .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .route-card { padding: 20px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.018) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+    .route-card:hover { border-color: rgba(90,176,255,0.32); transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.2); }
+    .route-card h3 { margin: 0 0 10px; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .route-card p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
+    .route-decision { margin-top: 14px; padding: 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.014); }
+    .route-decision h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #fff; }
+    .route-decision p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
 
-    .phase-head {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .phase-index {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--label-blue);
-      text-transform: uppercase;
-      min-width: 24px;
-      flex: 0 0 auto;
-    }
-
-    .phase-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-
-    .phase p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.65;
-      padding-left: 36px;
-    }
-
-    /* ── Route cards ── */
-    .route-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .route-card {
-      padding: 20px;
-      border: 1px solid rgba(90,176,255,0.18);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.018) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-      transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-    }
-    .route-card:hover {
-      border-color: rgba(90,176,255,0.32);
-      transform: translateY(-2px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.2);
-    }
-
-    .route-card h3 {
-      margin: 0 0 10px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.02em;
-    }
-
-    .route-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.62;
-    }
-
-    .route-decision {
-      margin-top: 14px;
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.014);
-    }
-
-    .route-decision h3 {
-      margin: 0 0 8px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .route-decision p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-dim);
-      line-height: 1.62;
-    }
-
-    /* ── Clean list ── */
-    ul.clean {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 9px;
-    }
-    ul.clean li {
-      padding-left: 16px;
-      position: relative;
-      color: #ccd1da;
-      font-size: 13px;
-      line-height: 1.62;
-    }
-    ul.clean li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--text-faint);
-    }
+    ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+    ul.clean li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.62; }
+    ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
     ul.clean li strong { color: #e8ecf0; }
 
-    /* ── Section block ── */
     .section-block { margin-top: 18px; }
-    .section-head {
-      margin: 0 0 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: -0.01em;
-    }
+    .section-head { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
 
-    /* ── Signal / callout ── */
-    .signal-box {
-      padding: 16px;
-      border: 1px solid rgba(90,176,255,0.15);
-      border-radius: 12px;
-      background: rgba(90,176,255,0.03);
-      margin-top: 16px;
-    }
-
-    .callout {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border: 1px solid rgba(90,176,255,0.16);
-      border-radius: 12px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%);
-    }
+    .signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); margin-top: 16px; }
+    .callout { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
     .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
     .callout p strong { color: #e8ecf0; }
 
-    /* ── CTA bar ── */
-    .cta-bar {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border-soft);
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    /* ── Footer ── */
-    footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-soft);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      color: var(--text-faint);
-      font-size: 12px;
-    }
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
     /* ── Responsive ── */
     @media (max-width: 920px) {
-      .wrap { padding-top: 48px; }
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .top-cta { justify-content: flex-start; }
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links { gap: 2px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
-      .three-grid,
-      .two-grid,
-      .route-grid { grid-template-columns: 1fr; }
+      .three-grid, .two-grid, .route-grid { grid-template-columns: 1fr; }
       .arrow-chain { text-align: left; }
       .label-row { flex-direction: column; align-items: flex-start; }
       .label-note { white-space: normal; }
@@ -805,16 +285,29 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ── STICKY NAV ── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./research.html">Research</a>
+        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
 
   <div class="wrap">
 
@@ -852,35 +345,22 @@
       <div class="hero-left">
         <div class="eyebrow">How it works</div>
         <h2 class="hero-title">From first email to a usable internal document.</h2>
-
-        <p class="hero-sub">
-          This page explains exactly how an engagement works: what you send, how fit is assessed, how the work is conducted, and what you receive at the end.
-        </p>
-
-        <p class="hero-sub">
-          The process is fixed, written-first, and designed to reduce ambiguity. No slide decks. No meeting chain by default. No open-ended advisory drift.
-        </p>
-
+        <p class="hero-sub">This page explains exactly how an engagement works: what you send, how fit is assessed, how the work is conducted, and what you receive at the end.</p>
+        <p class="hero-sub">The process is fixed, written-first, and designed to reduce ambiguity. No slide decks. No meeting chain by default. No open-ended advisory drift.</p>
         <hr class="hero-rule" />
-
-        <p class="hero-sub" style="margin-bottom:0;">
-          You send a <strong>Five-Line Brief</strong>. I determine whether the work begins with <strong>Diagnosis</strong> or moves directly to <strong>Redesign</strong>. If the fit is correct, I return one structured written artifact for decision owners and builders.
-        </p>
-
+        <p class="hero-sub" style="margin-bottom:0;">You send a <strong>Five-Line Brief</strong>. I determine whether the work begins with <strong>Diagnosis</strong> or moves directly to <strong>Redesign</strong>. If the fit is correct, I return one structured written artifact for decision owners and builders.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
           <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
       </div>
-
       <div class="hero-right">
         <div class="process-summary">
           <div class="process-summary-head">
             <span class="process-summary-label">Process Summary</span>
             <span class="process-summary-sub">The path from entry to delivery</span>
           </div>
-
           <div class="summary-step">
             <span class="summary-step-num">01</span>
             <strong>Five-Line Brief</strong>
@@ -913,7 +393,6 @@
     <!-- ── MAIN ── -->
     <main id="main" role="main">
 
-      <!-- 01 Working protocol -->
       <div class="section-divider"><span class="section-divider-label">working protocol</span></div>
 
       <section class="card card-full" aria-label="Working protocol">
@@ -921,19 +400,13 @@
           <span class="label">01 // Working protocol</span>
           <span class="label-note">how we interact</span>
         </div>
-
         <h2 class="section-title">Written-first, asynchronous, and bounded.</h2>
-
         <div class="meta-row">
           <span class="meta-chip">written-first</span>
           <span class="meta-chip">async by default</span>
           <span class="meta-chip">fixed process</span>
         </div>
-
-        <p class="lead">
-          Most of the work is conducted through written exchange and artifact review. I do not move into your workflow, join your Slack, or begin with a chain of meetings. The point is to preserve structural objectivity and keep the process efficient.
-        </p>
-
+        <p class="lead">Most of the work is conducted through written exchange and artifact review. I do not move into your workflow, join your Slack, or begin with a chain of meetings. The point is to preserve structural objectivity and keep the process efficient.</p>
         <div class="three-grid">
           <div class="mini">
             <h3>Default mode</h3>
@@ -950,7 +423,6 @@
         </div>
       </section>
 
-      <!-- 02 The process -->
       <div class="section-divider"><span class="section-divider-label">the process</span></div>
 
       <section class="card card-accent" aria-label="The process">
@@ -958,62 +430,36 @@
           <span class="label">02 // The process</span>
           <span class="label-note">start to finish</span>
         </div>
-
         <h2 class="section-title">A fixed sequence from intake to delivery.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          Five steps. Each one is defined before the next begins. The process does not expand, loop back, or drift into ongoing advisory. It ends with a written artifact.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">Five steps. Each one is defined before the next begins. The process does not expand, loop back, or drift into ongoing advisory. It ends with a written artifact.</p>
         <div class="phase-list">
           <div class="phase">
-            <div class="phase-head">
-              <span class="phase-index">01</span>
-              <span class="phase-title">Five-Line Brief</span>
-            </div>
+            <div class="phase-head"><span class="phase-index">01</span><span class="phase-title">Five-Line Brief</span></div>
             <p>You begin by emailing five lines: <strong>The Pattern</strong>, <strong>The Stake</strong>, <strong>The Interfaces</strong>, <strong>Concentration</strong>, and <strong>Constraints</strong>. Attach any materials that reflect the current state — diagrams, policies, workflows, contracts, post-mortems, screenshots. Accuracy matters more than polish.</p>
           </div>
-
           <div class="phase">
-            <div class="phase-head">
-              <span class="phase-index">02</span>
-              <span class="phase-title">Fit Assessment</span>
-            </div>
+            <div class="phase-head"><span class="phase-index">02</span><span class="phase-title">Fit Assessment</span></div>
             <p>I review the brief and materials to determine whether the issue is structurally suited to this approach, whether the boundary can be clearly defined, and whether the correct starting point is Diagnosis or Redesign. If it is not a fit, I say so here.</p>
           </div>
-
           <div class="phase">
-            <div class="phase-head">
-              <span class="phase-index">03</span>
-              <span class="phase-title">Scope Confirmation</span>
-            </div>
+            <div class="phase-head"><span class="phase-index">03</span><span class="phase-title">Scope Confirmation</span></div>
             <p>If the fit is correct, the engagement is confirmed as a fixed-scope written intervention. The boundary of the work is set explicitly before analysis begins. This is the point at which the process becomes binding.</p>
           </div>
-
           <div class="phase">
-            <div class="phase-head">
-              <span class="phase-index">04</span>
-              <span class="phase-title">Upstream Work</span>
-            </div>
+            <div class="phase-head"><span class="phase-index">04</span><span class="phase-title">Upstream Work</span></div>
             <p>I work through the materials. For Diagnosis: I expose the real structure — the primitive, invariants, enforcement map, mismatch, and build map. For Redesign: I define the target boundary, transition sequence, interface changes, dependency order, and drift refusal gates. In both cases, the goal is to make the next move structurally legible before execution begins.</p>
           </div>
-
           <div class="phase">
-            <div class="phase-head">
-              <span class="phase-index">05</span>
-              <span class="phase-title">Delivery and Clarification</span>
-            </div>
+            <div class="phase-head"><span class="phase-index">05</span><span class="phase-title">Delivery and Clarification</span></div>
             <p>You receive one structured written artifact within 14 days of engagement start. It is designed for internal circulation, decision-making, and builder handoff. One minor clarification pass is included after delivery. If the boundary changes or new analysis is required, that becomes a new engagement.</p>
           </div>
         </div>
-
         <div class="cta-bar">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </section>
 
-      <!-- 03 Which route -->
       <div class="section-divider"><span class="section-divider-label">which route applies</span></div>
 
       <section class="card" aria-label="Which route applies">
@@ -1021,34 +467,26 @@
           <span class="label">03 // Which route applies</span>
           <span class="label-note">diagnosis vs redesign</span>
         </div>
-
         <h2 class="section-title">Not every system starts in the same place.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          The Five-Line Brief exists partly to answer this question. Both routes end with a written artifact. The difference is where the structural uncertainty currently sits.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">The Five-Line Brief exists partly to answer this question. Both routes end with a written artifact. The difference is where the structural uncertainty currently sits.</p>
         <div class="route-grid">
           <div class="route-card">
             <span class="mini-kicker">Start with Diagnosis</span>
             <h3>When the real structure is still hidden</h3>
             <p>Begin with Diagnosis when the failure keeps recurring under different names, the team is still debating what is actually breaking, or the real rules have never been made explicit. The Diagnostic Artifact makes the structure visible before anyone moves.</p>
           </div>
-
           <div class="route-card">
             <span class="mini-kicker">Start with Redesign</span>
             <h3>When the path to change is unclear</h3>
             <p>Move directly to Redesign when the failure mode is already obvious, the boundary is already visible, and the real bottleneck is a lack of a clear, ordered transition sequence. The Redesign Artifact defines what changes first and prevents regression.</p>
           </div>
         </div>
-
         <div class="route-decision">
           <h3>If the correct route is unclear</h3>
           <p>The fit assessment resolves this. If you are unsure whether you need Diagnosis or Redesign, send the Five-Line Brief and I will determine the correct entry point. You do not need to know before you send.</p>
         </div>
       </section>
 
-      <!-- 04 What you provide -->
       <div class="section-divider"><span class="section-divider-label">what you provide</span></div>
 
       <section class="card" aria-label="What you provide">
@@ -1056,13 +494,8 @@
           <span class="label">04 // What you provide</span>
           <span class="label-note">client inputs</span>
         </div>
-
         <h2 class="section-title">Useful signal, not polished presentation.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          You do not need a perfect brief or a well-organised document pack. Most clients arrive with messy, partial, or contradictory materials — that is normal. What matters is that the materials reflect what is actually happening, not what the official narrative says.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">You do not need a perfect brief or a well-organised document pack. Most clients arrive with messy, partial, or contradictory materials — that is normal. What matters is that the materials reflect what is actually happening, not what the official narrative says.</p>
         <div class="two-grid">
           <div>
             <div class="section-block" style="margin-top:0;">
@@ -1076,7 +509,6 @@
               </ul>
             </div>
           </div>
-
           <div>
             <div class="section-block" style="margin-top:0;">
               <h3 class="section-head">What matters most</h3>
@@ -1089,13 +521,11 @@
             </div>
           </div>
         </div>
-
         <div class="callout">
           <p>If you are unsure whether you have enough to send, send what you have. The fit assessment will determine whether there is sufficient signal to proceed.</p>
         </div>
       </section>
 
-      <!-- 05 What you receive -->
       <div class="section-divider"><span class="section-divider-label">what you receive</span></div>
 
       <section class="card" aria-label="What you receive">
@@ -1103,13 +533,8 @@
           <span class="label">05 // What you receive</span>
           <span class="label-note">the deliverable</span>
         </div>
-
         <h2 class="section-title">A structured document, not a deck.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          Every engagement ends with one written artifact. It is designed to be read, circulated internally, and handed directly to the people who need to make decisions or execute against it. It is not a slide deck, a workshop package, or an open-ended memo.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">Every engagement ends with one written artifact. It is designed to be read, circulated internally, and handed directly to the people who need to make decisions or execute against it. It is not a slide deck, a workshop package, or an open-ended memo.</p>
         <div class="three-grid">
           <div class="mini">
             <h3>Who it is for</h3>
@@ -1126,7 +551,6 @@
         </div>
       </section>
 
-      <!-- 06 When it is not a fit -->
       <div class="section-divider"><span class="section-divider-label">when it is not a fit</span></div>
 
       <section class="card" aria-label="When it is not a fit">
@@ -1134,13 +558,8 @@
           <span class="label">06 // When it is not a fit</span>
           <span class="label-note">clear refusal logic</span>
         </div>
-
         <h2 class="section-title">Not every problem belongs in this process.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          The intake exists to determine whether this approach is appropriate — not to force every problem into the same engagement. If it is not a fit, I say so at the fit assessment stage.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">The intake exists to determine whether this approach is appropriate — not to force every problem into the same engagement. If it is not a fit, I say so at the fit assessment stage.</p>
         <div class="two-grid">
           <div class="mini">
             <h3>Not a fit when</h3>
@@ -1152,7 +571,6 @@
               <li>Multiple unrelated failure modes are being combined into one request</li>
             </ul>
           </div>
-
           <div class="mini">
             <h3>What happens then</h3>
             <p style="margin-bottom:10px;">If it is not a fit, I say so at the fit assessment stage. There is no charge for this. The point of the intake is to determine whether this approach is appropriate.</p>
@@ -1161,7 +579,6 @@
         </div>
       </section>
 
-      <!-- 07 After delivery -->
       <div class="section-divider"><span class="section-divider-label">after delivery</span></div>
 
       <section class="card card-full" aria-label="After delivery">
@@ -1169,13 +586,8 @@
           <span class="label">07 // After delivery</span>
           <span class="label-note">what comes next</span>
         </div>
-
         <h2 class="section-title">The engagement ends. The artifact does not.</h2>
-
-        <p class="lead" style="margin-bottom:20px;">
-          The artifact is yours to circulate, act against, and use as a stable reference point. The engagement itself is bounded — it does not continue into ongoing advisory, retainer access, or implementation support.
-        </p>
-
+        <p class="lead" style="margin-bottom:20px;">The artifact is yours to circulate, act against, and use as a stable reference point. The engagement itself is bounded — it does not continue into ongoing advisory, retainer access, or implementation support.</p>
         <div class="three-grid">
           <div class="mini">
             <h3>Clarification pass</h3>
@@ -1190,7 +602,6 @@
             <p>The entry route is always the same. Send a Five-Line Brief, attach anything useful, and I will determine whether there is a fit and where the work should begin.</p>
           </div>
         </div>
-
         <div class="signal-box">
           <span class="mini-kicker">Submit a Five-Line Brief</span>
           <ul class="clean">
@@ -1201,7 +612,6 @@
             <li><strong>Constraints</strong>: What are the non-negotiables?</li>
           </ul>
         </div>
-
         <div class="cta-bar">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
@@ -1211,195 +621,84 @@
 
     </main>
 
-<p></p>
-  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
-  </div>
-
-</div><!-- end .wrap -->
-  
-<footer class="site-footer">
-  <div class="site-footer__inner">
-
-    <div class="site-footer__top">
-      <!-- Brand / identity -->
-      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-        <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-        <p class="site-footer__summary">
-          Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.
-        </p>
-        <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-      </section>
-
-      <!-- Navigation -->
-      <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-        <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-        <ul class="site-footer__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./services.html">Services</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
-          <li><a href="./research.html">Research</a></li>
-        </ul>
-      </nav>
-
-      <!-- Legal -->
-      <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-        <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-        <ul class="site-footer__list">
-          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./terms.html">Terms</a></li>
-        </ul>
-      </nav>
-
-      <!-- Elsewhere -->
-      <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-        <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-        <ul class="site-footer__list">
-          <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
-      </nav>
+    <div style="display:flex; justify-content:center; padding: 20px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
     </div>
 
-    <div class="site-footer__bottom">
-      <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-      <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+  </div><!-- end .wrap -->
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<style>
-  .site-footer {
-    background: #0e0f12;
-    border-top: 1px solid var(--border-soft);
-  }
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
+    .site-footer__top { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft); }
+    .site-footer__eyebrow, .site-footer__heading { margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); font-weight: 600; }
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a { font-size: 13px; line-height: 1.6; color: var(--text-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 140ms ease, border-color 140ms ease; }
+    .site-footer__email { color: var(--label-blue); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer a:focus-visible { outline: 2px solid var(--label-blue); outline-offset: 3px; border-bottom-color: transparent; border-radius: 2px; color: #fff; }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
+    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
+  </style>
 
-  .site-footer__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 48px 24px 32px;
-  }
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  .site-footer__top {
-    display: grid;
-    grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
-    gap: 40px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--border-soft);
-  }
+    (function() {
+      var nav = document.querySelector('.site-nav');
+      var header = document.querySelector('header');
+      function onScroll() {
+        if (header.getBoundingClientRect().bottom <= 0) {
+          nav.classList.add('nav-visible');
+        } else {
+          nav.classList.remove('nav-visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 
-  .site-footer__eyebrow,
-  .site-footer__heading {
-    margin: 0 0 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--label-blue);
-    font-weight: 600;
-  }
-
-  .site-footer__eyebrow {
-    margin-bottom: 10px;
-    font-size: 11px;
-  }
-
-  .site-footer__summary {
-    margin: 0 0 20px;
-    max-width: 34ch;
-    font-size: 13px;
-    line-height: 1.75;
-    color: var(--text-faint);
-  }
-
-  .site-footer__email,
-  .site-footer__list a {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-faint);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition:
-      color 140ms ease,
-      border-color 140ms ease,
-      opacity 140ms ease;
-  }
-
-  .site-footer__email {
-    color: var(--label-blue);
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.02em;
-  }
-
-  .site-footer__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-  }
-
-  .site-footer a:hover {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.24);
-  }
-
-  .site-footer a:focus-visible {
-    outline: 2px solid var(--label-blue);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
-    border-radius: 2px;
-    color: #fff;
-  }
-
-  .site-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 24px;
-  }
-
-  .site-footer__bottom p {
-    margin: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.6;
-    letter-spacing: 0.06em;
-    color: var(--text-faint);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer__top {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .site-footer__brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .site-footer__inner {
-      padding: 40px 20px 28px;
-    }
-
-    .site-footer__top {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding-bottom: 28px;
-    }
-
-    .site-footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 20px;
-    }
-  }
-</style>
-
-<script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-</script>
+</body>
+</html>
