@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --bg: #0b0b0c;
@@ -33,10 +32,8 @@
       --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
       --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
     }
-
     *, *::before, *::after { box-sizing: border-box; }
-    html { color-scheme: dark; }
-
+    html { color-scheme: dark; scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
@@ -51,9 +48,7 @@
       text-rendering: optimizeLegibility;
       font-feature-settings: "ss01" 1, "cv05" 1;
     }
-
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 64px 24px 56px; }
-
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
     .skip-link {
       position: absolute; left: 12px; top: 10px;
       padding: 10px 12px; border-radius: 10px;
@@ -63,7 +58,6 @@
       font-family: "IBM Plex Mono", monospace; font-size: 12px;
     }
     .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
-
     a {
       color: #fff; text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px;
@@ -76,27 +70,76 @@
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
-    header {
+    /* ── Sticky nav ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(11,11,12,0.88);
+      backdrop-filter: blur(18px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 0 24px;
+      transform: translateY(-100%);
+      transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease;
+      opacity: 0;
+    }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner {
+      max-width: 1120px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      gap: 20px; padding-bottom: 24px;
+      gap: 16px; height: 56px;
+    }
+    .site-nav-brand {
+      display: flex; align-items: center; gap: 12px; min-width: 0;
+      border-bottom: none; padding-bottom: 0; overflow: hidden;
+    }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar {
+      width: 30px; height: 30px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      object-fit: cover; filter: grayscale(100%); flex: 0 0 auto;
+    }
+    .site-nav-name {
+      font-family: "IBM Plex Mono", monospace; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #fff; white-space: nowrap;
+    }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a {
+      font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
+      border-bottom: none; padding: 6px 10px; border-radius: 7px;
+      transition: color 140ms ease, background 140ms ease;
+    }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta {
+      color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
+      background: rgba(90,176,255,0.08); margin-left: 6px;
+    }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+
+    /* ── Header ── */
+    header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 20px; padding: 40px 0 24px;
       border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
     }
-    .h-left { display: flex; align-items: center; gap: 20px; min-width: 0; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
     .avatar {
-      width: 64px; height: 64px; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%);
-      display: block; box-shadow: 0 0 0 3px rgba(90,176,255,0.08), 0 6px 20px rgba(0,0,0,0.22);
-      transition: box-shadow 200ms ease, border-color 200ms ease;
+      width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
+      object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto;
+      box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3);
+      transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease;
     }
-    .avatar:hover { box-shadow: 0 0 0 3px rgba(90,176,255,0.18), 0 8px 28px rgba(0,0,0,0.28); border-color: rgba(90,176,255,0.3); }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
 
+    /* ── Buttons ── */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent);
@@ -114,16 +157,16 @@
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
 
+    /* ── Type atoms ── */
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; display: block; }
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 8px; }
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
     .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
-
     .section-divider { margin: 0 0 20px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    /* Hero */
+    /* ── Hero ── */
     .hero-strip {
       display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
       border: 1px solid var(--border); border-radius: var(--radius-xl);
@@ -137,7 +180,6 @@
     .hero-title { margin: 0 0 16px; font-size: clamp(1.9rem, 1.5rem + 1.2vw, 2.75rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; max-width: 22ch; }
     .hero-sub { margin: 0 0 14px; color: #d4d9e0; font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem); line-height: 1.72; max-width: 60ch; }
     .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 22px; }
-
     .content-map-head { padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--border-soft); }
     .content-map-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
     .content-map-sub { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); letter-spacing: 0.05em; }
@@ -154,7 +196,7 @@
     .map-item-text strong { display: block; font-size: 12px; color: #e0e4ea; font-weight: 600; margin-bottom: 1px; }
     .map-item-status { font-family: "IBM Plex Mono", monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); flex: 0 0 auto; }
 
-    /* Cards */
+    /* ── Cards ── */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
       border: 1px solid var(--border); border-radius: var(--radius-xl);
@@ -169,7 +211,6 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(90,176,255,0.06), 0 12px 36px rgba(0,0,0,0.28);
     }
     .card-accent:hover { border-color: rgba(90,176,255,0.34); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(90,176,255,0.1), 0 18px 48px rgba(0,0,0,0.32); transform: translateY(-2px); }
-
     .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 20px; }
     p { margin: 0 0 14px; color: var(--text-dim); }
     p:last-child { margin-bottom: 0; }
@@ -205,7 +246,7 @@
     .foundation-block .small { font-size: 12px; color: var(--text-faint); }
     .formula-line { display: block; margin: 0 0 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.22); border-radius: 12px; background: rgba(90,176,255,0.06); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; line-height: 1.7; white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
 
-    /* BOOKS SECTION */
+    /* Books */
     .books-section-header { margin-bottom: 28px; }
     .books-thesis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
     .books-thesis-main { grid-column: 1 / -1; padding: 20px 22px; border: 1px solid rgba(90,176,255,0.2); border-radius: 16px; background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 60%, transparent 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
@@ -214,13 +255,10 @@
     .books-thesis-stat { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
     .books-thesis-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 28px; font-weight: 600; color: var(--cta-blue); letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
     .books-thesis-stat-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); line-height: 1.4; }
-
     .books-spine-label { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
     .books-spine-label::before, .books-spine-label::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(90,176,255,0.2), transparent); }
     .books-spine-label-text { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(90,176,255,0.55); white-space: nowrap; }
-
     .books-stack { display: flex; flex-direction: column; gap: 16px; }
-
     .book-entry {
       display: grid; grid-template-columns: 110px 1fr; gap: 0;
       border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; overflow: hidden;
@@ -232,40 +270,30 @@
     .book-entry:hover { border-color: rgba(90,176,255,0.26); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 1px rgba(90,176,255,0.08), 0 12px 36px rgba(0,0,0,0.28); transform: translateY(-2px); }
     .book-entry::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 20px 0 0 20px; background: linear-gradient(180deg, rgba(90,176,255,0.6) 0%, rgba(90,176,255,0.1) 100%); opacity: 0; transition: opacity 180ms ease; }
     .book-entry:hover::before { opacity: 1; }
-
     .book-entry-cover-col { padding: 20px 16px 20px 22px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 12px; border-right: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.008); }
-
     .book-num-badge { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; white-space: nowrap; }
-
     .book-cover-wrap { display: block; border-bottom: none; border-radius: 10px; width: 72px; flex: 0 0 auto; cursor: zoom-in; }
     .book-cover-wrap:hover { background: transparent; }
-
     .book-cover-img { width: 72px; height: 100px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); display: block; background: rgba(255,255,255,0.04); box-shadow: 0 6px 20px rgba(0,0,0,0.3), 2px 0 8px rgba(0,0,0,0.2); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
     .book-entry:hover .book-cover-img { filter: grayscale(40%); border-color: rgba(90,176,255,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.38), 0 0 0 2px rgba(90,176,255,0.12); transform: scale(1.03) translateY(-2px); }
-
     .book-entry-body { padding: 22px 24px 22px 22px; display: flex; flex-direction: column; min-width: 0; }
-
     .book-entry-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
     .book-entry-title-group { min-width: 0; flex: 1; }
     .book-entry-title { margin: 0 0 5px; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.2; }
     .book-entry-tagline { margin: 0; font-size: 13px; color: var(--text-faint); font-style: italic; line-height: 1.5; }
     .book-entry-status-group { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex: 0 0 auto; }
     .book-entry-desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin: 0 0 14px; }
-
     .book-insight { display: flex; gap: 10px; padding: 12px 14px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.04); margin-bottom: 14px; }
     .book-insight-bar { width: 3px; border-radius: 2px; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.3) 100%); flex: 0 0 auto; align-self: stretch; }
     .book-insight-text { font-size: 13px; color: #bfc6d0; line-height: 1.65; margin: 0; }
     .book-insight-text strong { color: #e4e8ee; font-weight: 600; }
-
     .book-entry-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: auto; }
     .book-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .book-chip { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.018); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-faint); line-height: 1; }
     .book-entry-links { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-
     .books-connector { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 0; }
     .books-connector-line { width: 1px; height: 20px; background: linear-gradient(180deg, rgba(90,176,255,0.2) 0%, rgba(90,176,255,0.05) 100%); margin: 0 auto; }
     .books-connector-arrow { font-family: "IBM Plex Mono", monospace; font-size: 9px; color: rgba(90,176,255,0.4); letter-spacing: 0.12em; text-transform: uppercase; text-align: center; }
-
     .books-cta-row { margin-top: 24px; padding: 20px 22px; border: 1px solid rgba(90,176,255,0.16); border-radius: 16px; background: linear-gradient(135deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 60%, transparent 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
     .books-cta-text { font-size: 14px; color: var(--text-dim); line-height: 1.6; margin: 0; }
     .books-cta-text strong { color: #e0e4ea; }
@@ -281,10 +309,7 @@
     .thinking-cta p:last-child { margin-bottom: 0; }
     .thinking-cta p strong { color: #fff; font-weight: 600; }
 
-    footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--text-faint); font-size: 12px; }
-    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-
-    /* LIGHTBOX */
+    /* Lightbox */
     .lightbox {
       display: none; position: fixed; inset: 0; z-index: 9000;
       background: rgba(0,0,0,0.82);
@@ -308,10 +333,14 @@
     .lightbox-close:hover { background: #252830; border-color: rgba(90,176,255,0.3); transform: scale(1.1); }
     .lightbox-caption { margin-top: 12px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
 
+    /* ── Responsive ── */
     @media (max-width: 920px) {
-      .wrap { padding-top: 48px; }
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .top-cta { justify-content: flex-start; }
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links { gap: 2px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
@@ -335,11 +364,28 @@
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ── STICKY NAV ── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./research.html">Research</a>
+        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="wrap">
 
+    <!-- ── HEADER ── -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -362,6 +408,7 @@
       </div>
     </header>
 
+    <!-- ── HERO ── -->
     <section class="hero-strip" aria-label="Research overview">
       <div class="hero-left">
         <span class="eyebrow">Research</span>
@@ -401,9 +448,11 @@
       </div>
     </section>
 
+    <!-- ── MAIN ── -->
     <main id="main" role="main">
 
       <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
+
       <section id="foundations" class="card card-accent" aria-label="Theoretical foundations">
         <div class="label-row">
           <span class="label">01 // Theoretical foundations</span>
@@ -433,6 +482,7 @@
       </section>
 
       <div class="section-divider"><span class="section-divider-label">research</span></div>
+
       <section id="research" class="card" aria-label="Research papers">
         <div class="label-row">
           <span class="label">02 // Research</span>
@@ -477,12 +527,12 @@
       </section>
 
       <div class="section-divider"><span class="section-divider-label">books</span></div>
+
       <section id="books" class="card card-accent" aria-label="Books">
         <div class="label-row">
           <span class="label">03 // Books</span>
           <span class="label-note">four-book research spine</span>
         </div>
-
         <div class="books-section-header">
           <div class="books-thesis">
             <div class="books-thesis-main">
@@ -498,13 +548,10 @@
             </div>
           </div>
         </div>
-
         <div class="books-spine-label">
           <span class="books-spine-label-text">The four-book sequence &mdash; read in order</span>
         </div>
-
         <div class="books-stack">
-
           <article class="book-entry" aria-label="Book 1: Seeing Systems">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 01</span>
@@ -540,13 +587,11 @@
               </div>
             </div>
           </article>
-
           <div class="books-connector">
             <div class="books-connector-line"></div>
             <div class="books-connector-arrow">&#8595; builds to</div>
             <div class="books-connector-line"></div>
           </div>
-
           <article class="book-entry" aria-label="Book 2: The 15-Level Abstraction Ladder">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 02</span>
@@ -582,13 +627,11 @@
               </div>
             </div>
           </article>
-
           <div class="books-connector">
             <div class="books-connector-line"></div>
             <div class="books-connector-arrow">&#8595; builds to</div>
             <div class="books-connector-line"></div>
           </div>
-
           <article class="book-entry" aria-label="Book 3: The System Founder Framework">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 03</span>
@@ -624,13 +667,11 @@
               </div>
             </div>
           </article>
-
           <div class="books-connector">
             <div class="books-connector-line"></div>
             <div class="books-connector-arrow">&#8595; builds to</div>
             <div class="books-connector-line"></div>
           </div>
-
           <article class="book-entry" aria-label="Book 4: The Universal Build Architecture">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 04</span>
@@ -666,9 +707,7 @@
               </div>
             </div>
           </article>
-
         </div>
-
         <div class="books-cta-row">
           <p class="books-cta-text"><strong>Publishers and agents welcome.</strong> Sample chapters from Book 1 &amp; full proposal are available on request. Proposal materials for the full sequence can be provided for serious enquiries.</p>
           <div class="books-cta-links">
@@ -677,10 +716,10 @@
             <span class="books-cta-note">Publishers &amp; agents welcome</span>
           </div>
         </div>
-
       </section>
 
       <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
+
       <section id="builds" class="card" aria-label="Applied builds">
         <div class="label-row">
           <span class="label">04 // Applied builds</span>
@@ -723,194 +762,124 @@
 
     </main>
 
-    <p></p>
-  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
-  </div>
-
-</div><!-- end .wrap -->
-<footer class="site-footer">
-  <div class="site-footer__inner">
-
-    <div class="site-footer__top">
-      <!-- Brand / identity -->
-      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-        <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-        <p class="site-footer__summary">
-          Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.
-        </p>
-        <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
-      </section>
-
-      <!-- Navigation -->
-      <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-        <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-        <ul class="site-footer__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./services.html">Services</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
-          <li><a href="./research.html">Research</a></li>
-        </ul>
-      </nav>
-
-      <!-- Legal -->
-      <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-        <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-        <ul class="site-footer__list">
-          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./terms.html">Terms</a></li>
-        </ul>
-      </nav>
-
-      <!-- Elsewhere -->
-      <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-        <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-        <ul class="site-footer__list">
-          <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        </ul>
-      </nav>
+    <div style="display:flex; justify-content:center; padding: 20px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
     </div>
 
-    <div class="site-footer__bottom">
-      <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-      <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+  </div><!-- end .wrap -->
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="lightbox-inner">
+      <img class="lightbox-img" src="" alt="" id="lightbox-img" />
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close preview">&times;</button>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
-</footer>
 
-<style>
-  .site-footer {
-    background: #0e0f12;
-    border-top: 1px solid var(--border-soft);
-  }
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
 
-  .site-footer__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 48px 24px 32px;
-  }
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
+    .site-footer__top { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft); }
+    .site-footer__eyebrow, .site-footer__heading { margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); font-weight: 600; }
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a { font-size: 13px; line-height: 1.6; color: var(--text-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 140ms ease, border-color 140ms ease; }
+    .site-footer__email { color: var(--label-blue); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer a:focus-visible { outline: 2px solid var(--label-blue); outline-offset: 3px; border-bottom-color: transparent; border-radius: 2px; color: #fff; }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
+    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
+  </style>
 
-  .site-footer__top {
-    display: grid;
-    grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr));
-    gap: 40px;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--border-soft);
-  }
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  .site-footer__eyebrow,
-  .site-footer__heading {
-    margin: 0 0 18px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.5;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--label-blue);
-    font-weight: 600;
-  }
+    // Sticky nav
+    (function() {
+      var nav = document.querySelector('.site-nav');
+      var header = document.querySelector('header');
+      function onScroll() {
+        if (header.getBoundingClientRect().bottom <= 0) {
+          nav.classList.add('nav-visible');
+        } else {
+          nav.classList.remove('nav-visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
 
-  .site-footer__eyebrow {
-    margin-bottom: 10px;
-    font-size: 11px;
-  }
+    // Lightbox
+    (function() {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var lbCaption = document.getElementById('lightbox-caption');
+      var lbClose = document.getElementById('lightbox-close');
 
-  .site-footer__summary {
-    margin: 0 0 20px;
-    max-width: 34ch;
-    font-size: 13px;
-    line-height: 1.75;
-    color: var(--text-faint);
-  }
+      document.querySelectorAll('[data-lightbox-src]').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          lbImg.src = el.getAttribute('data-lightbox-src');
+          lbImg.alt = el.querySelector('img') ? el.querySelector('img').alt : '';
+          lbCaption.innerHTML = el.getAttribute('data-lightbox-caption') || '';
+          lb.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          lbClose.focus();
+        });
+      });
 
-  .site-footer__email,
-  .site-footer__list a {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-faint);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition:
-      color 140ms ease,
-      border-color 140ms ease,
-      opacity 140ms ease;
-  }
+      function closeLightbox() {
+        lb.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+      }
 
-  .site-footer__email {
-    color: var(--label-blue);
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.02em;
-  }
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox(); });
+    })();
+  </script>
 
-  .site-footer__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 12px;
-  }
-
-  .site-footer a:hover {
-    color: #fff;
-    border-bottom-color: rgba(255,255,255,0.24);
-  }
-
-  .site-footer a:focus-visible {
-    outline: 2px solid var(--label-blue);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
-    border-radius: 2px;
-    color: #fff;
-  }
-
-  .site-footer__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-    padding-top: 24px;
-  }
-
-  .site-footer__bottom p {
-    margin: 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.6;
-    letter-spacing: 0.06em;
-    color: var(--text-faint);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer__top {
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .site-footer__brand {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .site-footer__inner {
-      padding: 40px 20px 28px;
-    }
-
-    .site-footer__top {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      padding-bottom: 28px;
-    }
-
-    .site-footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 20px;
-    }
-  }
-</style>
-
-<script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-</script>
+</body>
+</html>
