@@ -54,7 +54,6 @@ body {
   font-feature-settings: "ss01" 1, "cv05" 1;
 }
 
-.mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
 
 .skip-link {
@@ -77,7 +76,7 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
 .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
 .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
 
-/* ── Sticky nav ── */
+/* Sticky nav */
 .site-nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   background: rgba(11,11,12,0.88);
@@ -89,10 +88,7 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
   transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease;
   opacity: 0;
 }
-.site-nav.nav-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
+.site-nav.nav-visible { transform: translateY(0); opacity: 1; }
 .site-nav-inner {
   max-width: 1120px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
@@ -113,9 +109,7 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
   font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   color: #fff; white-space: nowrap;
 }
-.site-nav-links {
-  display: flex; align-items: center; gap: 4px;
-}
+.site-nav-links { display: flex; align-items: center; gap: 4px; }
 .site-nav-links a {
   font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
@@ -129,6 +123,7 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
 }
 .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
 
+/* Header */
 header {
   display: flex; align-items: flex-start; justify-content: space-between;
   gap: var(--space-4); padding: 40px 0 var(--space-5);
@@ -169,14 +164,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
 .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
 .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; white-space: nowrap; text-transform: lowercase; color: var(--label-blue); }
-
 .arrow-chain { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--text-faint); line-height: 1.7; text-align: right; }
-.arrow-chain span { display: block; transition: color 160ms ease; }
-.arrow-chain span:hover { color: var(--cta-blue); }
+.arrow-chain span { display: block; }
 
 /* Hero */
 .hero-strip {
-  display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
+  display: grid; grid-template-columns: 1.28fr 0.72fr; gap: 0;
   border: 1px solid var(--border); border-radius: var(--radius-xl);
   background: linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
   margin-bottom: var(--space-6); overflow: hidden; box-shadow: var(--shadow-card);
@@ -185,19 +178,16 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
 .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
 .hero-right { padding: 36px 28px; background: rgba(255,255,255,0.012); display: flex; flex-direction: column; justify-content: center; }
-.hero-title { margin: 0 0 16px; font-size: clamp(2.2rem, 1.6rem + 2vw, 3.4rem); line-height: 1.05; letter-spacing: -0.05em; font-weight: 700; color: #fff; max-width: 18ch; }
+.hero-title { margin: 0 0 16px; font-size: clamp(2.2rem, 1.6rem + 2vw, 3.35rem); line-height: 1.04; letter-spacing: -0.05em; font-weight: 700; color: #fff; max-width: 16ch; }
 .hero-sub { margin: 0 0 14px; color: #d4d9e0; font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem); line-height: 1.72; max-width: 60ch; }
 .hero-sub strong { color: #fff; font-weight: 600; }
-.hero-sub:last-of-type { margin-bottom: 0; }
 .hero-rule { margin: 20px 0; border: none; border-top: 1px solid var(--border-soft); }
 .hero-statement { margin: 0; font-size: clamp(0.92rem, 0.88rem + 0.12vw, 0.98rem); color: var(--text-dim); line-height: 1.6; font-style: italic; }
 .hero-statement strong { color: #e8ecf0; font-style: normal; font-weight: 600; }
 .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 22px; }
 
-/* Quick DL — item panel treatment */
 .quick { border-left: 2px solid rgba(90,176,255,0.28); padding-left: 18px; }
 .quick dl { margin: 0; display: grid; gap: 10px; }
-
 .quick-item {
   display: grid; gap: 4px;
   padding: 10px 12px;
@@ -207,94 +197,79 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   transition: border-color 160ms ease, background 160ms ease;
 }
 .quick-item:hover { border-color: rgba(90,176,255,0.18); background: rgba(90,176,255,0.03); }
-
 .qk { font-family: "IBM Plex Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--label-blue); line-height: 1.3; margin: 0; }
 .qv { margin: 0; font-size: 13px; color: #c8ced7; line-height: 1.58; }
 .qv strong { color: #e8ecf0; font-weight: 600; }
 
-/* Section divider */
+/* Sections */
 .section-divider { margin: 0 0 var(--space-6); display: flex; align-items: center; gap: 16px; }
 .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
 .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-/* Bridge card */
-.bridge-card {
-  padding: 32px; border: 1px solid var(--border); border-radius: var(--radius-xl);
-  background: linear-gradient(160deg, rgba(90,176,255,0.032) 0%, transparent 45%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%);
-  margin-bottom: var(--space-5); box-shadow: var(--shadow-card);
+.bridge-card,
+.offer-hero,
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  min-width: 0;
+  box-shadow: var(--shadow-card);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  margin-bottom: var(--space-5);
 }
-.bridge-card:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
+.bridge-card:hover,
+.offer-hero:hover,
+.card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28); transform: translateY(-1px); }
 
-.bridge-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-5); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-soft); }
-.bridge-title { margin: 0; font-size: clamp(1.3rem, 1.1rem + 0.65vw, 1.85rem); line-height: 1.14; letter-spacing: -0.035em; font-weight: 700; color: #fff; max-width: 22ch; }
-.bridge-sub { margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 68ch; }
+.offer-hero {
+  border-color: rgba(90,176,255,0.2);
+  background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(255,255,255,0.012) 50%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%);
+}
+
+.bridge-head, .offer-hero-head {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--space-5); margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-soft);
+}
+.bridge-title, .offer-hero-title {
+  margin: 0; font-size: clamp(1.3rem, 1.1rem + 0.65vw, 1.85rem);
+  line-height: 1.14; letter-spacing: -0.035em; font-weight: 700; color: #fff; max-width: 24ch;
+}
+.bridge-sub, .offer-hero-sub {
+  margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 68ch;
+}
 
 .bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
 .bridge-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
 
-/* Bridge panels — subtle top-accent on hover */
-.bridge-panel {
+.bridge-panel, .proof-panel {
   padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;
   background: rgba(255,255,255,0.014); min-width: 0; position: relative; overflow: hidden;
   transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
-.bridge-panel::after {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(90,176,255,0.4), transparent);
-  opacity: 0; transition: opacity 180ms ease;
+.bridge-panel:hover, .proof-panel:hover {
+  border-color: rgba(90,176,255,0.18);
+  background: rgba(90,176,255,0.02);
+  transform: translateY(-1px);
 }
-.bridge-panel:hover { border-color: rgba(90,176,255,0.18); background: rgba(90,176,255,0.02); transform: translateY(-1px); }
-.bridge-panel:hover::after { opacity: 1; }
-
-.bridge-panel-accent { background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%); border-color: rgba(90,176,255,0.18); }
-.bridge-panel-accent:hover { background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.025) 100%); border-color: rgba(90,176,255,0.28); }
-
-.bridge-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.bridge-list li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.6; }
-.bridge-list li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
-
-/* Process strip — enhanced step badges */
-.process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
-
-.process-card {
-  padding: 16px 16px 18px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px;
-  background: rgba(90,176,255,0.03); min-width: 0; position: relative; overflow: hidden;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+.bridge-panel-accent, .proof-panel-accent {
+  background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%);
+  border-color: rgba(90,176,255,0.18);
 }
-.process-card::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
-  background: linear-gradient(180deg, rgba(90,176,255,0.5) 0%, rgba(90,176,255,0.08) 100%);
-  opacity: 0; transition: opacity 160ms ease;
-}
-.process-card:hover { border-color: rgba(90,176,255,0.24); background: rgba(90,176,255,0.05); transform: translateY(-1px); }
-.process-card:hover::before { opacity: 1; }
 
-.process-step {
-  display: inline-flex; align-items: center; margin-bottom: 10px;
-  font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--label-blue);
-  background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2);
-  border-radius: 6px; padding: 3px 7px; line-height: 1;
+.bridge-list, .offer-list, ul.clean {
+  margin: 0; padding: 0; list-style: none; display: grid; gap: 8px;
 }
-.process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
-.process-card strong { color: #fff; font-weight: 600; }
-
-/* Offer hero */
-.offer-hero {
-  padding: 32px; border: 1px solid rgba(90,176,255,0.2); border-radius: var(--radius-xl);
-  background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(255,255,255,0.012) 50%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%);
-  margin-bottom: var(--space-5); box-shadow: var(--shadow-card), 0 0 0 1px rgba(90,176,255,0.06);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+.bridge-list li, .offer-list li, ul.clean li {
+  padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.6;
 }
-.offer-hero:hover { border-color: rgba(90,176,255,0.28); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
-.offer-hero-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-5); margin-bottom: 22px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-.offer-hero-title { margin: 0; font-size: clamp(1.3rem, 1.1rem + 0.65vw, 1.85rem); line-height: 1.14; letter-spacing: -0.035em; font-weight: 700; color: #fff; max-width: 22ch; }
-.offer-hero-sub { margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 66ch; }
+.bridge-list li::before, .offer-list li::before, ul.clean li::before {
+  content: "→"; position: absolute; left: 0; color: var(--text-faint);
+}
 
+/* Offer cards */
 .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
 
-/* Offer cards — subtler than service cards */
 .offer-card {
   display: flex; flex-direction: column;
   border-radius: 18px; overflow: hidden;
@@ -304,15 +279,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   position: relative;
 }
-.offer-card::before {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(90,176,255,0.5), transparent);
-  opacity: 0; transition: opacity 200ms ease; border-radius: 18px 18px 0 0;
-}
 .offer-card:hover { border-color: rgba(90,176,255,0.3); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 1px rgba(90,176,255,0.08), 0 14px 36px rgba(0,0,0,0.26); transform: translateY(-2px); }
-.offer-card:hover::before { opacity: 1; }
 
-/* Offer card header band */
 .offer-card-header {
   padding: 18px 20px 16px;
   border-bottom: 1px solid rgba(90,176,255,0.1);
@@ -326,11 +294,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-card-price-amount { font-family: "IBM Plex Mono", monospace; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.04em; line-height: 1; }
 .offer-card-price-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); }
 .offer-card-title { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
-
-/* Offer card body */
 .offer-card-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
-
-/* Insight strip — lighter version */
+.offer-use { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
 .offer-insight {
   display: flex; gap: 10px; padding: 11px 13px;
   border: 1px solid rgba(90,176,255,0.12); border-radius: 11px; background: rgba(90,176,255,0.035);
@@ -338,17 +303,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-insight-bar { width: 2px; border-radius: 2px; background: linear-gradient(180deg, rgba(90,176,255,0.7) 0%, rgba(90,176,255,0.2) 100%); flex: 0 0 auto; align-self: stretch; }
 .offer-insight-text { font-size: 13px; color: #bfc6d0; line-height: 1.65; margin: 0; }
 .offer-insight-text strong { color: #e4e8ee; font-weight: 600; }
-
-.offer-outcome { margin: 0; font-size: 14px; font-weight: 600; color: #fff; line-height: 1.45; letter-spacing: -0.01em; }
-.offer-use { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
-
 .offer-section { padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
-
-.offer-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.offer-list li { padding-left: 16px; position: relative; color: #c8ced8; font-size: 13px; line-height: 1.6; }
-.offer-list li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
-
-/* Offer card CTA — centred footer */
 .offer-card-cta {
   padding: 16px 20px 18px;
   border-top: 1px solid rgba(90,176,255,0.1);
@@ -356,46 +311,36 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
 .offer-card-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); text-align: center; }
-
 .offer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); }
 .offer-footer-block { padding: 12px 14px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.012); }
 .offer-footer-block p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
-
-/* Offer chip */
 .offer-chip { display: inline-flex; align-items: center; justify-content: center; padding: 5px 9px; border-radius: 999px; border: 1px solid rgba(90,176,255,0.22); background: rgba(90,176,255,0.1); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.10em; color: var(--label-blue); text-transform: uppercase; white-space: nowrap; }
 
-/* Main cards */
-.stack { display: grid; gap: 20px; }
-
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
-  border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0;
-  box-shadow: var(--shadow-card); transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  margin-bottom: var(--space-5);
-}
-.card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28); transform: translateY(-1px); }
-
+/* Proof */
 .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
-
 .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
 .lead strong { color: #fff; }
 .small { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
 
-ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-ul.clean li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 14px; line-height: 1.62; }
-ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
-
-/* Paper */
-.paper { padding: 16px; border: 1px solid var(--border-soft); border-radius: 12px; background: rgba(255,255,255,0.01); min-width: 0; }
-.paper + .paper { margin-top: 12px; }
 .paper-row { display: grid; grid-template-columns: 68px 1fr; gap: 14px; align-items: start; min-width: 0; }
 .thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: cover; filter: grayscale(100%); display: block; }
 .paper-cover-plain { filter: none; border-color: rgba(255,255,255,0.16); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 .paper-title { margin: 0; font-size: 15px; font-weight: 600; color: #fff; line-height: 1.28; letter-spacing: -0.02em; }
-.paper-desc { margin: 0 0 10px; font-size: 14px; color: var(--text-dim); line-height: 1.62; }
 .actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-/* Snap — insight-bar treatment */
+.proof-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 14px; align-items: stretch; }
+.proof-list { display: grid; gap: 10px; }
+.proof-item {
+  display: grid; gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.014);
+}
+.proof-item-k { font-family: "IBM Plex Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--label-blue); margin: 0; }
+.proof-item-v { margin: 0; font-size: 13px; color: #c8ced7; line-height: 1.58; }
+.proof-item-v strong { color: #fff; }
+
 .snap {
   display: flex; gap: 12px;
   padding: 16px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px;
@@ -408,17 +353,27 @@ ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--
 .snap-line:last-child { margin-bottom: 0; }
 .snap .k { color: var(--text-faint); }
 
-/* Signal box */
-.signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); }
+.process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
+.process-card {
+  padding: 16px 16px 18px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px;
+  background: rgba(90,176,255,0.03); min-width: 0;
+}
+.process-step {
+  display: inline-flex; align-items: center; margin-bottom: 10px;
+  font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--label-blue);
+  background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2);
+  border-radius: 6px; padding: 3px 7px; line-height: 1;
+}
+.process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
+.process-card strong { color: #fff; font-weight: 600; }
 
-/* Callout */
+.signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); }
 .callout { margin-top: 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.03); }
 .callout p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
 .callout p strong { color: #e8ecf0; }
 
-footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--text-faint); font-size: 12px; }
-.footer-links { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-
+/* Responsive */
 @media (max-width: 920px) {
   .wrap { padding-top: 24px; }
   header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
@@ -431,11 +386,10 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
   .bridge-head, .offer-hero-head { flex-direction: column; align-items: flex-start; }
-  .bridge-grid, .bridge-grid-3, .offer-grid, .offer-footer, .process-strip { grid-template-columns: 1fr !important; }
+  .bridge-grid, .bridge-grid-3, .offer-grid, .offer-footer, .proof-grid, .process-strip, .footer-grid { grid-template-columns: 1fr !important; }
   .arrow-chain { text-align: left; }
   .label-row { flex-direction: column; align-items: flex-start; }
   .label-note { white-space: normal; }
-  footer .footer-grid { grid-template-columns: 1fr 1fr !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -483,385 +437,290 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
     </div>
   </header>
 
-  <section class="hero-strip" aria-label="Primary summary">
-    <div class="hero-left">
-      <div class="eyebrow">What I do</div>
-      <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
-      <p class="hero-sub">I make hidden rules visible, then redesign the structure so the system stops failing in the same way.</p>
-      <p class="hero-sub">I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against.</p>
-      <hr class="hero-rule" />
-      <p class="hero-statement"><strong>If the same failure has happened twice, the structure is probably the problem.</strong></p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
-        <a class="btn" href="./services.html">VIEW SERVICES</a>
-        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="quick">
-        <dl>
-          <div class="quick-item">
-            <dt class="qk">What this is &rarr;</dt>
-            <dd class="qv"><strong>Two fixed-scope written engagements</strong>: one to make the failure legible, one to define the change sequence.</dd>
-          </div>
-          <div class="quick-item">
-            <dt class="qk">What it solves &rarr;</dt>
-            <dd class="qv"><strong>Recurring failure</strong> caused by hidden structure in interfaces, incentives, or enforcement.</dd>
-          </div>
-          <div class="quick-item">
-            <dt class="qk">Who it is for &rarr;</dt>
-            <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a structural read their builders can execute against.</dd>
-          </div>
-          <div class="quick-item">
-            <dt class="qk">How to start &rarr;</dt>
-            <dd class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"><span class="section-divider-label">overview</span></div>
-
-  <section class="bridge-card" aria-label="Overview">
-    <div class="bridge-head">
-      <div>
-        <div class="eyebrow">Overview</div>
-        <h2 class="bridge-title">Why failure repeats.</h2>
-        <p class="bridge-sub">Most systems fail repeatedly because their real rules are implicit, contested, or enforced in the wrong place. The visible problem changes names. The underlying structure does not.</p>
-      </div>
-      <div class="arrow-chain" aria-hidden="true">
-        <span>repeated failure &rarr; hidden structure</span>
-        <span>hidden structure &rarr; recurring cost</span>
-      </div>
-    </div>
-
-    <div class="bridge-grid-3">
-      <div class="bridge-panel">
-        <span class="mini-kicker">What this replaces</span>
-        <ul class="bridge-list">
-          <li>Months of alignment meetings that end with &ldquo;we all need to get on the same page&rdquo;</li>
-          <li>The gap between what policy says and what operating reality actually does</li>
-          <li>Roadmaps that describe intent but do not change the underlying failure</li>
-        </ul>
-      </div>
-      <div class="bridge-panel">
-        <span class="mini-kicker">Typical triggers</span>
-        <p class="paper-title" style="margin-bottom:10px; font-size:13px; font-weight:500;">When this work becomes urgent</p>
-        <ul class="bridge-list">
-          <li>The same failure keeps reappearing under different names</li>
-          <li>Your operators are absorbing failures the system should absorb</li>
-          <li>Your platform signals one thing and optimises another</li>
-        </ul>
-      </div>
-      <div class="bridge-panel bridge-panel-accent">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
-          <span class="mini-kicker" style="margin:0;">Related research</span>
-          <span class="offer-chip">Core Framework</span>
-        </div>
-        <div class="paper-row">
-          <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
-            <img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-          </a>
-          <div>
-            <p class="paper-title" style="margin-bottom:8px; font-size:14px;">The Four-Function Law of Scalable Institutions</p>
-            <p class="small" style="margin-bottom:10px;">Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.</p>
-            <div class="actions">
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read Paper (PDF)</a>
-              <a href="./research.html" class="muted-link">View research</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"><span class="section-divider-label">how it works</span></div>
-
-  <section class="bridge-card" aria-label="How it works">
-    <div class="bridge-head">
-      <div>
-        <div class="eyebrow">How it works</div>
-        <h2 class="bridge-title">From recurring failure to executable change.</h2>
-        <p class="bridge-sub">A fixed sequence: read the structure, define the line of change, and deliver a written artifact builders can execute against.</p>
-      </div>
-      <div class="arrow-chain" aria-hidden="true">
-        <span>structural read &rarr; change path</span>
-        <span>change path &rarr; builder handoff</span>
-      </div>
-    </div>
-
-    <div class="process-strip">
-      <div class="process-card">
-        <span class="process-step">Step 01</span>
-        <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <p><strong>Read the structure.</strong> Make the real rules, pressure points, and failure pattern visible.</p>
-      </div>
-      <div class="process-card">
-        <span class="process-step">Step 02</span>
-        <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <p><strong>Define the change path.</strong> Clarify what changes first, what stays fixed, and what must not drift.</p>
-      </div>
-      <div class="process-card">
-        <span class="process-step">Step 03</span>
-        <div style="margin-bottom:10px; color:rgba(90,176,255,0.7);">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-        </div>
-        <p><strong>Deliver the artifact.</strong> One written document for decisions, internal circulation, and builder execution.</p>
-      </div>
-    </div>
-
-    <p class="small" style="margin-top:14px; padding: 12px 14px; border:1px solid var(--border-soft); border-radius:10px; background:rgba(255,255,255,0.01);">
-      <strong style="color:#e8ecf0;">Three steps. One artifact.</strong> This is a defined sequence, not open-ended consulting or vague advisory drift.
-    </p>
-  </section>
-
-  <div class="section-divider"><span class="section-divider-label">core offerings</span></div>
-
-  <section class="offer-hero" aria-label="Core offerings">
-    <div class="offer-hero-head">
-      <div>
-        <div class="eyebrow">Core offerings</div>
-        <h2 class="offer-hero-title">Start with the artifact that matches the state of the problem.</h2>
-        <p class="offer-hero-sub">Two fixed-scope written engagements. Start with diagnosis when the failure is still structurally unclear. Move to redesign when the failure is visible but the transition path is not.</p>
-      </div>
-      <div class="arrow-chain" aria-hidden="true">
-        <span>diagnosis &rarr; structural visibility</span>
-        <span>redesign &rarr; change sequence</span>
-      </div>
-    </div>
-
-    <div class="offer-grid">
-
-      <!-- Diagnostic -->
-      <div class="offer-card">
-        <div class="offer-card-header">
-          <div class="offer-card-header-top">
-            <div>
-              <div class="offer-card-index">01 // Diagnostic Artifact</div>
-            </div>
-            <div class="offer-card-price">
-              <span class="offer-card-price-amount">&pound;10,000</span>
-              <span class="offer-card-price-label">Fixed fee</span>
-            </div>
-          </div>
-          <h3 class="offer-card-title">A structural diagnosis your team can circulate and act against.</h3>
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="offer-card-type">entry engagement</span>
-            <span class="offer-card-type">14 days</span>
-            <span class="offer-card-type">fixed-scope</span>
-          </div>
-        </div>
-
-        <div class="offer-card-body">
-          <p class="offer-use">Start here when something keeps breaking but the real failure is not yet visible. Use it to make the real rules visible before builders move.</p>
-
-          <div class="offer-insight">
-            <div class="offer-insight-bar"></div>
-            <p class="offer-insight-text"><strong>When to use this:</strong> The same failure keeps reappearing. Teams disagree on what the problem actually is. Policy and reality have drifted apart. No one has a single structural read everyone can act against.</p>
-          </div>
-
-          <div class="offer-section">
-            <span class="mini-kicker">What you receive</span>
-            <ul class="offer-list">
-              <li>System topology: where work actually flows</li>
-              <li>Primitive definition: the real unit of work</li>
-              <li>Invariants: rules that must not break</li>
-              <li>Enforcement map: where rules live vs where they break</li>
-              <li>Mismatch analysis: stated design vs operating reality</li>
-              <li>Build map: what must change first, and what depends on what</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="offer-card-cta">
-          <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            REQUEST DIAGNOSTIC
-          </a>
-          <span class="offer-card-cta-note">Fixed fee &middot; 14-day delivery &middot; One clarification pass</span>
-        </div>
-      </div>
-
-      <!-- Redesign -->
-      <div class="offer-card">
-        <div class="offer-card-header">
-          <div class="offer-card-header-top">
-            <div>
-              <div class="offer-card-index">02 // Redesign Artifact</div>
-            </div>
-            <div class="offer-card-price">
-              <span class="offer-card-price-amount">&pound;15k&ndash;25k</span>
-              <span class="offer-card-price-label">Scope-dependent</span>
-            </div>
-          </div>
-          <h3 class="offer-card-title">A redesign blueprint builders can execute with confidence.</h3>
-          <div style="display:flex; gap:6px; flex-wrap:wrap;">
-            <span class="offer-card-type">follow-on engagement</span>
-            <span class="offer-card-type">14 days</span>
-            <span class="offer-card-type">builder handoff</span>
-          </div>
-        </div>
-
-        <div class="offer-card-body">
-          <p class="offer-use">Start here when the failure is visible but the change sequence is not. Use it to define what changes first, what stays fixed, and how regression is blocked.</p>
-
-          <div class="offer-insight">
-            <div class="offer-insight-bar"></div>
-            <p class="offer-insight-text"><strong>When to use this:</strong> The failure is understood but the transition path is not. Builders are being forced to invent design midstream. Implementation keeps drifting back to the same broken state.</p>
-          </div>
-
-          <div class="offer-section">
-            <span class="mini-kicker">What you receive</span>
-            <ul class="offer-list">
-              <li>Target boundary spec: what changes and what does not</li>
-              <li>Transition sequence: Step 1 &rarr; N</li>
-              <li>Interface changes: what must be tightened, removed, or clarified</li>
-              <li>Dependency order: what moves first, and what depends on what</li>
-              <li>Drift refusal gates: constraints that prevent regression</li>
-              <li>Execution handoff: a builder-readable sequence for implementation</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="offer-card-cta">
-          <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com">
-            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            REQUEST REDESIGN
-          </a>
-          <span class="offer-card-cta-note">Requires prior diagnosis or bounded brief &middot; 14-day delivery</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="offer-footer">
-      <div class="offer-footer-block">
-        <p>The two engagements are designed to follow each other when needed, but each can stand alone.</p>
-      </div>
-      <div class="offer-footer-block">
-        <p>Redesign pricing varies with system complexity, interface count, and transition depth. Full scope and delivery terms live on the Services page.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"><span class="section-divider-label">method</span></div>
-
   <main id="main" role="main">
 
-    <section class="card" aria-label="Method language">
-      <div class="label-row">
-        <span class="label">01 // Method language</span>
-        <span class="label-note">how the work is structured</span>
-      </div>
-      <p class="lead" style="margin-bottom:16px;"><strong>Written artifacts, not endless meetings.</strong> Structural diagnosis, not surface advice.</p>
-      <div class="bridge-grid">
-        <div class="signal-box">
-          <span class="mini-kicker">Diagnostic method</span>
-          <ul class="clean">
-            <li><strong>Primitive</strong> &mdash; the repeated unit of work the system actually performs</li>
-            <li><strong>Invariants</strong> &mdash; rules that must not break</li>
-            <li><strong>Enforcement</strong> &mdash; where those rules actually bite</li>
-            <li><strong>Mismatch</strong> &mdash; where stated design and operating reality diverge</li>
-            <li><strong>Build map</strong> &mdash; what must change first, and what depends on what</li>
-          </ul>
-        </div>
-        <div class="signal-box">
-          <span class="mini-kicker">Redesign method</span>
-          <ul class="clean">
-            <li><strong>Target boundary</strong> &mdash; what the system should become</li>
-            <li><strong>Transition sequence</strong> &mdash; the order in which change must occur</li>
-            <li><strong>Interface changes</strong> &mdash; what must be tightened, removed, or clarified</li>
-            <li><strong>Dependency order</strong> &mdash; what moves first, and what depends on what</li>
-            <li><strong>Drift refusal</strong> &mdash; gates that stop local workarounds re-entering</li>
-          </ul>
+    <section class="hero-strip" aria-label="Primary summary">
+      <div class="hero-left">
+        <div class="eyebrow">What I do</div>
+        <h2 class="hero-title">Structural diagnosis and redesign for systems that keep failing under scale.</h2>
+        <p class="hero-sub">I make hidden rules visible, define the actual line of failure, and produce written artifacts that decision owners and builders can act against.</p>
+        <p class="hero-sub"><strong>The output is not vague advice.</strong> It is a fixed-scope document: either a Diagnostic Artifact that makes the failure legible, or a Redesign Artifact that defines the change sequence.</p>
+        <hr class="hero-rule" />
+        <p class="hero-statement"><strong>If the same failure has happened twice, the structure is probably the problem.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./research.html">VIEW RESEARCH</a>
         </div>
       </div>
-      <div class="bridge-grid" style="margin-top:16px; align-items:stretch;">
-        <div class="bridge-panel" style="display:flex; flex-direction:column; gap:10px;">
-          <span class="mini-kicker" style="margin:0;">The foundation</span>
-          <p class="paper-title" style="margin:0;">Perspective, not complexity</p>
-          <p class="small" style="margin:0;">Most diagnostic work stalls not because the system is genuinely too complex to read, but because no one has found the right vantage point. The method above is built on that premise. The same logic — that perspective, not complexity, is the real barrier — underpins <em>Seeing Systems</em>, which provides the conceptual foundation for how this diagnostic work is structured and why it produces a result builders can actually execute against.</p>
-        </div>
-        <div class="bridge-panel bridge-panel-accent">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
-            <span class="mini-kicker" style="margin:0;">Related research</span>
-            <span class="offer-chip">Book</span>
-          </div>
-          <div class="paper-row">
-            <a href="./paper3-image.png" onclick="openLightbox(this.href);return false;" aria-label="View cover: Seeing Systems" style="cursor:zoom-in; border-bottom:none;">
-              <img class="thumb paper-cover-plain" src="./paper3-image.png" alt="Cover: Seeing Systems" style="transition:opacity 160ms ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'" />
-            </a>
-            <div>
-              <p class="paper-title" style="margin-bottom:8px;">Seeing Systems</p>
-              <p class="small" style="margin-bottom:10px;">Why organisations feel harder to understand than they should — and why the barrier is almost never complexity itself. The conceptual basis for the diagnostic method used in every engagement.</p>
-              <div class="actions">
-                <a class="link-blue" href="mailto:hello@jamieforrester.com">Request chapters</a>
-                <a class="muted-link" href="./research.html">View research</a>
-              </div>
+      <div class="hero-right">
+        <div class="quick">
+          <dl>
+            <div class="quick-item">
+              <dt class="qk">What this is &rarr;</dt>
+              <dd class="qv"><strong>Two fixed-scope written engagements</strong>: one to diagnose the failure, one to define the redesign path.</dd>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="small" style="margin-top:14px;">Full scope, delivery terms, and service boundaries live on the <a class="link-blue" href="./services.html">Services page</a>.</p>
-    </section>
-
-  </main>
-
-  <div class="section-divider"><span class="section-divider-label">applied snapshot</span></div>
-
-  <section class="card" aria-label="Applied snapshot">
-      <div class="label-row">
-        <span class="label">02 // Applied snapshot</span>
-        <span class="label-note">proof of lens</span>
-      </div>
-      <p class="lead" style="margin-bottom:16px;">A concrete example of the diagnostic lens applied to a public system class.</p>
-      <div class="bridge-grid">
-        <div class="snap" role="note" aria-label="Applied snapshot: AI task marketplaces">
-          <div class="snap-bar"></div>
-          <div class="snap-inner">
-            <span class="snap-title">AI task marketplaces</span>
-            <p class="snap-line"><span class="k">Observed: </span>reliability language used as a proxy for expertise.</p>
-            <p class="snap-line"><span class="k">Mismatch: </span>throughput is measured; expertise is implied.</p>
-            <p class="snap-line"><span class="k">Implication: </span>optimisers outcompete experts under scale.</p>
-            <p class="snap-line"><span class="k">Structural implication: </span>separate verification layers from payout layers.</p>
-          </div>
-        </div>
-        <div class="bridge-panel bridge-panel-accent">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
-            <span class="mini-kicker" style="margin:0;">Related research</span>
-            <span class="offer-chip">Paper</span>
-          </div>
-          <div class="paper-row">
-            <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
-              <img class="thumb paper-cover-plain" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
-            </a>
-            <div>
-              <p class="paper-title" style="margin-bottom:8px;">The Expertise Illusion in AI Task Marketplaces</p>
-              <p class="small" style="margin-bottom:10px;">A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the divergence breaks reality.</p>
-              <div class="actions">
-                <a class="link-blue" href="./paper.pdf" target="_blank" rel="noopener">Read paper (PDF)</a>
-                <a class="muted-link" href="./research.html">View research</a>
-              </div>
+            <div class="quick-item">
+              <dt class="qk">What it solves &rarr;</dt>
+              <dd class="qv"><strong>Recurring failure</strong> caused by hidden structure in interfaces, incentives, ownership, or enforcement.</dd>
             </div>
-          </div>
+            <div class="quick-item">
+              <dt class="qk">Who it is for &rarr;</dt>
+              <dd class="qv"><strong>Founders, CTOs, and product or platform leads</strong> who need a structural read their builders can execute against.</dd>
+            </div>
+            <div class="quick-item">
+              <dt class="qk">How to start &rarr;</dt>
+              <dd class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
-  <div class="section-divider"><span class="section-divider-label">how to start</span></div>
+    <div class="section-divider"><span class="section-divider-label">overview</span></div>
 
-  <section class="card" aria-label="How to start">
+    <section class="bridge-card" aria-label="Overview">
+      <div class="bridge-head">
+        <div>
+          <div class="eyebrow">Overview</div>
+          <h2 class="bridge-title">Why failure repeats.</h2>
+          <p class="bridge-sub">Most repeated failure is not a motivation problem or a communication problem. It is a structural problem. The visible issue changes names. The underlying rule, interface, or enforcement failure does not.</p>
+        </div>
+        <div class="arrow-chain" aria-hidden="true">
+          <span>hidden structure &rarr; repeated failure</span>
+          <span>repeated failure &rarr; recurring cost</span>
+        </div>
+      </div>
+
+      <div class="bridge-grid-3">
+        <div class="bridge-panel">
+          <span class="mini-kicker">What this replaces</span>
+          <ul class="bridge-list">
+            <li>Alignment cycles that produce shared language but no structural change</li>
+            <li>Policy surfaces that describe intent without changing operating reality</li>
+            <li>Roadmaps that move work around without removing the underlying failure</li>
+          </ul>
+        </div>
+        <div class="bridge-panel">
+          <span class="mini-kicker">Typical triggers</span>
+          <ul class="bridge-list">
+            <li>The same failure keeps returning under different names</li>
+            <li>Your operators are absorbing failures the system should absorb</li>
+            <li>Your platform signals one thing and optimises another</li>
+          </ul>
+        </div>
+        <div class="bridge-panel bridge-panel-accent">
+          <span class="mini-kicker">What changes after diagnosis</span>
+          <ul class="bridge-list">
+            <li>The real unit of failure becomes visible</li>
+            <li>The decision surface becomes clearer</li>
+            <li>Builders stop inventing the design while implementing it</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><span class="section-divider-label">core offerings</span></div>
+
+    <section class="offer-hero" aria-label="Core offerings">
+      <div class="offer-hero-head">
+        <div>
+          <div class="eyebrow">Core offerings</div>
+          <h2 class="offer-hero-title">Start with the artifact that matches the state of the problem.</h2>
+          <p class="offer-hero-sub">Two fixed-scope written engagements. Start with diagnosis when the failure is still structurally unclear. Move to redesign when the failure is visible but the transition path is not.</p>
+        </div>
+        <div class="arrow-chain" aria-hidden="true">
+          <span>diagnosis &rarr; structural visibility</span>
+          <span>redesign &rarr; change sequence</span>
+        </div>
+      </div>
+
+      <div class="offer-grid">
+
+        <div class="offer-card">
+          <div class="offer-card-header">
+            <div class="offer-card-header-top">
+              <div>
+                <div class="offer-card-index">01 // Diagnostic Artifact</div>
+              </div>
+              <div class="offer-card-price">
+                <span class="offer-card-price-amount">&pound;10,000</span>
+                <span class="offer-card-price-label">Fixed fee</span>
+              </div>
+            </div>
+            <h3 class="offer-card-title">A structural diagnosis your team can circulate and act against.</h3>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="offer-card-type">entry engagement</span>
+              <span class="offer-card-type">14 days</span>
+              <span class="offer-card-type">fixed-scope</span>
+            </div>
+          </div>
+
+          <div class="offer-card-body">
+            <p class="offer-use">Start here when something keeps breaking but the real failure is not yet visible. Use it to make the real rules visible before builders move.</p>
+
+            <div class="offer-insight">
+              <div class="offer-insight-bar"></div>
+              <p class="offer-insight-text"><strong>When to use this:</strong> The same failure keeps reappearing. Teams disagree on what the problem actually is. Policy and reality have drifted apart. No one has a single structural read everyone can act against.</p>
+            </div>
+
+            <div class="offer-section">
+              <span class="mini-kicker">What you receive</span>
+              <ul class="offer-list">
+                <li>System topology: where work actually flows</li>
+                <li>Primitive definition: the real unit of work</li>
+                <li>Invariants: rules that must not break</li>
+                <li>Enforcement map: where rules live vs where they break</li>
+                <li>Mismatch analysis: stated design vs operating reality</li>
+                <li>Build map: what must change first, and what depends on what</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="offer-card-cta">
+            <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com">
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              REQUEST DIAGNOSTIC
+            </a>
+            <span class="offer-card-cta-note">Fixed fee &middot; 14-day delivery &middot; One clarification pass</span>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-card-header">
+            <div class="offer-card-header-top">
+              <div>
+                <div class="offer-card-index">02 // Redesign Artifact</div>
+              </div>
+              <div class="offer-card-price">
+                <span class="offer-card-price-amount">&pound;15k&ndash;25k</span>
+                <span class="offer-card-price-label">Scope-dependent</span>
+              </div>
+            </div>
+            <h3 class="offer-card-title">A redesign blueprint builders can execute with confidence.</h3>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span class="offer-card-type">follow-on engagement</span>
+              <span class="offer-card-type">14 days</span>
+              <span class="offer-card-type">builder handoff</span>
+            </div>
+          </div>
+
+          <div class="offer-card-body">
+            <p class="offer-use">Start here when the failure is visible but the change sequence is not. Use it to define what changes first, what stays fixed, and how regression is blocked.</p>
+
+            <div class="offer-insight">
+              <div class="offer-insight-bar"></div>
+              <p class="offer-insight-text"><strong>When to use this:</strong> The failure is understood but the transition path is not. Builders are being forced to invent design midstream. Implementation keeps drifting back to the same broken state.</p>
+            </div>
+
+            <div class="offer-section">
+              <span class="mini-kicker">What you receive</span>
+              <ul class="offer-list">
+                <li>Target boundary spec: what changes and what does not</li>
+                <li>Transition sequence: Step 1 &rarr; N</li>
+                <li>Interface changes: what must be tightened, removed, or clarified</li>
+                <li>Dependency order: what moves first, and what depends on what</li>
+                <li>Drift refusal gates: constraints that prevent regression</li>
+                <li>Execution handoff: a builder-readable sequence for implementation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="offer-card-cta">
+            <a class="btn btn-primary btn-large btn-full" href="mailto:hello@jamieforrester.com">
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              REQUEST REDESIGN
+            </a>
+            <span class="offer-card-cta-note">Requires prior diagnosis or bounded brief &middot; 14-day delivery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-footer">
+        <div class="offer-footer-block">
+          <p>The two engagements are designed to follow each other when needed, but each can stand alone.</p>
+        </div>
+        <div class="offer-footer-block">
+          <p>Redesign pricing varies with system complexity, interface count, and transition depth. Full scope and delivery terms live on the Services page.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><span class="section-divider-label">proof</span></div>
+
+    <section class="card" aria-label="Proof of lens">
       <div class="label-row">
-        <span class="label">03 // How to start</span>
+        <span class="label">01 // Proof of lens</span>
+        <span class="label-note">research + public example + trust signals</span>
+      </div>
+      <p class="lead"><strong>The work is grounded in a defined lens, not assembled on demand.</strong> The same structural logic used in client engagements appears in published research, public system analysis, and a fixed commercial model.</p>
+
+      <div class="proof-grid">
+        <div class="proof-panel proof-panel-accent">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
+            <span class="mini-kicker" style="margin:0;">Published research</span>
+            <span class="offer-chip">Core framework</span>
+          </div>
+          <div class="paper-row">
+            <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+              <img class="thumb paper-cover-plain" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+            </a>
+            <div>
+              <p class="paper-title" style="margin-bottom:8px;">The Four-Function Law of Scalable Institutions</p>
+              <p class="small" style="margin-bottom:10px;">Why institutions fail when sensing, interpretation, authority, and memory collapse into the same human node under scale.</p>
+              <div class="actions">
+                <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+                <a href="./research.html" class="muted-link">View research</a>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;" class="snap" role="note" aria-label="Applied snapshot: AI task marketplaces">
+            <div class="snap-bar"></div>
+            <div class="snap-inner">
+              <span class="snap-title">Applied snapshot — AI task marketplaces</span>
+              <p class="snap-line"><span class="k">Observed: </span>reliability language used as a proxy for expertise.</p>
+              <p class="snap-line"><span class="k">Mismatch: </span>throughput is measured; expertise is implied.</p>
+              <p class="snap-line"><span class="k">Consequence: </span>optimisers outcompete experts under scale.</p>
+              <p class="snap-line"><span class="k">Structural move: </span>separate verification layers from payout layers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-list">
+          <div class="proof-item">
+            <p class="proof-item-k">Trust signal</p>
+            <p class="proof-item-v"><strong>Fixed-scope written engagements.</strong> Not open-ended advisory drift.</p>
+          </div>
+          <div class="proof-item">
+            <p class="proof-item-k">Trust signal</p>
+            <p class="proof-item-v"><strong>Transparent pricing.</strong> The entry engagement is explicitly priced.</p>
+          </div>
+          <div class="proof-item">
+            <p class="proof-item-k">Trust signal</p>
+            <p class="proof-item-v"><strong>Builder-readable output.</strong> The artifact is written to support decisions and execution.</p>
+          </div>
+          <div class="proof-item">
+            <p class="proof-item-k">Trust signal</p>
+            <p class="proof-item-v"><strong>Fit gate.</strong> If neither engagement is the right fit, I will say so.</p>
+          </div>
+          <div class="proof-item">
+            <p class="proof-item-k">Further depth</p>
+            <p class="proof-item-v"><strong>Research page.</strong> Books, papers, and frameworks sit behind the practice, but they do not slow the homepage decision path.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><span class="section-divider-label">how to start</span></div>
+
+    <section class="card" aria-label="How to start">
+      <div class="label-row">
+        <span class="label">02 // How to start</span>
         <span class="label-note">entry route</span>
       </div>
-      <p class="lead" style="margin-bottom:18px;">If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.</p>
+      <p class="lead">If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.</p>
+
       <div class="process-strip">
         <div class="process-card">
           <span class="process-step">Step 01</span>
@@ -876,8 +735,9 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
           <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
         </div>
       </div>
+
       <div class="signal-box" style="margin-top:16px;">
-        <span class="mini-kicker">Submit a Five-Line Brief</span>
+        <span class="mini-kicker">Submit a five-line brief</span>
         <ul class="clean">
           <li><strong>The Pattern</strong>: What keeps breaking?</li>
           <li><strong>The Stake</strong>: What is the cost?</li>
@@ -886,106 +746,70 @@ footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border
           <li><strong>Constraints</strong>: What are the non-negotiables?</li>
         </ul>
       </div>
+
       <div class="callout">
         <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
       </div>
+
       <div class="actions" style="margin-top:16px;">
         <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL FIVE-LINE BRIEF</a>
         <a class="btn" href="./services.html">VIEW SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
       </div>
-  </section>
+    </section>
 
-  <div style="display:flex; justify-content:center; padding: 20px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
-  </div>
+    <div style="display:flex; justify-content:center; padding: 20px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+    </div>
 
-</div><!-- end .wrap -->
+  </main>
+</div>
 
 <footer style="background:#0e0f12; border-top:1px solid var(--border-soft);">
   <div style="max-width:1120px; margin:0 auto; padding:48px 24px 32px;">
 
-    <!-- Top row: 4 columns -->
     <div class="footer-grid" style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; padding-bottom:36px; border-bottom:1px solid var(--border-soft);">
 
-      <!-- Col 1: Identity -->
       <div>
         <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Jamie Forrester</p>
         <p style="margin:0 0 20px; font-size:13px; color:var(--text-faint); line-height:1.75; max-width:32ch;"><span style="color:#fff;">Independent Systems Architect</span><br><br>Diagnostic and redesign artifacts for systems that fail under scale.</p>
         <a href="mailto:hello@jamieforrester.com" style="font-size:13px; color:var(--label-blue); border-bottom-color:transparent; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;">hello@jamieforrester.com</a>
       </div>
 
-      <!-- Col 2: Navigation -->
       <div>
         <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Navigation</p>
         <nav style="display:grid; gap:12px;" aria-label="Footer navigation">
-          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Home</a>
-          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Services</a>
-          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">How It Works</a>
-          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Research</a>
+          <a href="./index.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Home</a>
+          <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Services</a>
+          <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">How It Works</a>
+          <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Research</a>
         </nav>
       </div>
 
-      <!-- Col 3: Legal -->
       <div>
         <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Legal</p>
         <nav style="display:grid; gap:12px;" aria-label="Legal links">
-          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Privacy Policy</a>
-          <a href="./terms.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">Terms</a>
+          <a href="./privacy-policy.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Privacy Policy</a>
+          <a href="./terms.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Terms</a>
         </nav>
       </div>
 
-      <!-- Col 4: Elsewhere -->
       <div>
         <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); font-weight:600;">Elsewhere</p>
         <nav style="display:grid; gap:12px;" aria-label="External links">
-          <a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-faint)'">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">LinkedIn</a>
         </nav>
       </div>
-
     </div>
 
-    <!-- Bottom bar -->
     <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:24px;">
       <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">&copy; <script>document.write(new Date().getFullYear())</script> Jamie Forrester. All rights reserved.</p>
       <p style="margin:0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">Independent Systems Architect &mdash; Edinburgh, UK</p>
     </div>
-
   </div>
 </footer>
-<style>
-#lightbox-overlay {
-  display:none; position:fixed; inset:0; z-index:9999;
-  background:rgba(0,0,0,0.88); backdrop-filter:blur(6px);
-  align-items:center; justify-content:center; cursor:zoom-out;
-}
-#lightbox-overlay.active { display:flex; }
-#lightbox-overlay img {
-  max-width:90vw; max-height:90vh; border-radius:12px;
-  box-shadow:0 24px 80px rgba(0,0,0,0.6);
-  animation:lb-in 180ms ease;
-}
-@keyframes lb-in { from { opacity:0; transform:scale(0.96); } to { opacity:1; transform:scale(1); } }
-</style>
-
-<div id="lightbox-overlay" onclick="closeLightbox()">
-  <button onclick="closeLightbox()" style="position:fixed; top:20px; right:24px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; width:40px; height:40px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10000; transition:background 140ms ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'" aria-label="Close">&times;</button>
-  <img id="lightbox-img" src="" alt="Enlarged view" />
-</div>
 
 <script>
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-overlay').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox() {
-  document.getElementById('lightbox-overlay').classList.remove('active');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
-
-// Scroll-triggered nav
 (function() {
   var nav = document.querySelector('.site-nav');
   var header = document.querySelector('header');
