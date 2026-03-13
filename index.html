@@ -115,38 +115,23 @@ a:focus-visible {
 }
 .site-nav-name {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #fff;
-  white-space: nowrap;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #fff; white-space: nowrap;
 }
 .site-nav-links { display: flex; align-items: center; gap: 4px; }
 .site-nav-links a {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  border-bottom: none;
-  padding: 6px 10px;
-  border-radius: 7px;
+  font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-faint);
+  border-bottom: none; padding: 6px 10px; border-radius: 7px;
   transition: color 140ms ease, background 140ms ease;
 }
 .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
 .site-nav-links .nav-cta {
-  color: var(--cta-blue);
-  border: 1px solid rgba(90,176,255,0.28);
-  background: rgba(90,176,255,0.08);
-  margin-left: 6px;
+  color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
+  background: rgba(90,176,255,0.08); margin-left: 6px;
 }
-.site-nav-links .nav-cta:hover {
-  background: rgba(90,176,255,0.14);
-  color: var(--cta-blue);
-  border-color: rgba(90,176,255,0.45);
-}
+.site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
 
 /* Header */
 header {
@@ -163,18 +148,10 @@ header {
 }
 .avatar:hover {
   box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36);
-  border-color: rgba(90,176,255,0.35);
-  filter: grayscale(20%);
+  border-color: rgba(90,176,255,0.35); filter: grayscale(20%);
 }
 h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
-.h-sub {
-  margin-top: 5px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 10px;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-}
+.h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
 .h-pill {
   margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px;
   border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015);
@@ -196,14 +173,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
 .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
 .btn-primary {
-  color: var(--cta-blue);
-  border-color: rgba(90,176,255,0.32);
-  background: rgba(90,176,255,0.08);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  color: var(--cta-blue); border-color: rgba(90,176,255,0.32);
+  background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 .btn-primary:hover {
-  background: rgba(90,176,255,0.14);
-  border-color: rgba(90,176,255,0.5);
+  background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5);
   box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22);
 }
 .btn-full { width: 100%; justify-content: center; }
@@ -242,10 +216,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .quick { border-left: 2px solid rgba(90,176,255,0.28); padding-left: 18px; }
 .quick dl { margin: 0; display: grid; gap: 10px; }
 .quick-item {
-  display: grid; gap: 4px;
-  padding: 10px 12px;
-  border: 1px solid rgba(255,255,255,0.055);
-  border-radius: 10px;
+  display: grid; gap: 4px; padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.055); border-radius: 10px;
   background: rgba(255,255,255,0.014);
   transition: border-color 160ms ease, background 160ms ease;
 }
@@ -259,21 +231,14 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
 .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-.bridge-card,
-.offer-hero,
-.card {
+.bridge-card, .offer-hero, .card {
   background: linear-gradient(180deg, rgba(255,255,255,0.016) 0%, rgba(255,255,255,0.008) 100%);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 28px;
-  min-width: 0;
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 28px; min-width: 0; box-shadow: var(--shadow-card);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
   margin-bottom: var(--space-5);
 }
-.bridge-card:hover,
-.offer-hero:hover,
-.card:hover {
+.bridge-card:hover, .offer-hero:hover, .card:hover {
   border-color: rgba(255,255,255,0.12);
   box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28);
   transform: translateY(-1px);
@@ -291,37 +256,50 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   margin: 0; font-size: clamp(1.3rem, 1.1rem + 0.65vw, 1.85rem);
   line-height: 1.14; letter-spacing: -0.035em; font-weight: 700; color: #fff; max-width: 24ch;
 }
-.bridge-sub, .offer-hero-sub {
-  margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 68ch;
-}
+.bridge-sub, .offer-hero-sub { margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 68ch; }
 
-/* Overview */
+/* Overview — before/after two-column */
+.bridge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+
+.before-col-label, .after-col-label {
+  padding: 8px 12px; border-radius: 8px; display: inline-block; margin-bottom: 10px;
+}
+.before-col-label { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.after-col-label  { background: rgba(90,176,255,0.06); border: 1px solid rgba(90,176,255,0.18); }
+
+.pain-item, .gain-item {
+  display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; margin-bottom: 10px;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+.pain-item { border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.018); }
+.pain-item:hover { border-color: rgba(255,255,255,0.13); background: rgba(255,255,255,0.03); transform: translateX(3px); }
+.gain-item { border: 1px solid rgba(90,176,255,0.16); background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%); }
+.gain-item:hover { border-color: rgba(90,176,255,0.28); background: linear-gradient(160deg, rgba(90,176,255,0.08) 0%, rgba(90,176,255,0.025) 100%); transform: translateX(3px); }
+
+.pain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: rgba(255,255,255,0.12); }
+.gain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.8) 0%, rgba(90,176,255,0.2) 100%); }
+.pain-body, .gain-body { flex: 1; min-width: 0; }
+.pain-title { margin: 0 0 5px; font-size: 13px; font-weight: 600; color: #d0d5de; line-height: 1.35; letter-spacing: -0.01em; }
+.gain-title { margin: 0 0 5px; font-size: 13px; font-weight: 600; color: #e4eaf2; line-height: 1.35; letter-spacing: -0.01em; }
+.pain-desc, .gain-desc { margin: 0; font-size: 12px; line-height: 1.62; color: var(--text-faint); }
+
+/* Bridge panels */
 .bridge-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
 .bridge-panel {
   padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;
   background: rgba(255,255,255,0.014); min-width: 0;
   transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
-.bridge-panel:hover {
-  border-color: rgba(90,176,255,0.18);
-  background: rgba(90,176,255,0.02);
-  transform: translateY(-1px);
-}
-.bridge-panel-accent {
-  background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%);
-  border-color: rgba(90,176,255,0.18);
-}
+.bridge-panel:hover { border-color: rgba(90,176,255,0.18); background: rgba(90,176,255,0.02); transform: translateY(-1px); }
+.bridge-panel-accent { background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%); border-color: rgba(90,176,255,0.18); }
 .bridge-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-.bridge-list li {
-  padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.6;
-}
+.bridge-list li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.6; }
 .bridge-list li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
 
 /* Offer cards */
 .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
 .offer-card {
-  display: flex; flex-direction: column;
-  border-radius: 18px; overflow: hidden;
+  display: flex; flex-direction: column; border-radius: 18px; overflow: hidden;
   border: 1px solid rgba(90,176,255,0.2);
   background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 40%, rgba(255,255,255,0.008) 100%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 8px 24px rgba(0,0,0,0.2);
@@ -333,10 +311,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   transform: translateY(-2px);
 }
 .offer-card-header {
-  padding: 18px 20px 16px;
-  border-bottom: 1px solid rgba(90,176,255,0.1);
-  background: rgba(90,176,255,0.03);
-  display: flex; flex-direction: column; gap: 10px;
+  padding: 18px 20px 16px; border-bottom: 1px solid rgba(90,176,255,0.1);
+  background: rgba(90,176,255,0.03); display: flex; flex-direction: column; gap: 10px;
 }
 .offer-card-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .offer-card-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
@@ -347,10 +323,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-card-title { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
 .offer-card-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
 .offer-use { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
-.offer-insight {
-  display: flex; gap: 10px; padding: 11px 13px;
-  border: 1px solid rgba(90,176,255,0.12); border-radius: 11px; background: rgba(90,176,255,0.035);
-}
+.offer-insight { display: flex; gap: 10px; padding: 11px 13px; border: 1px solid rgba(90,176,255,0.12); border-radius: 11px; background: rgba(90,176,255,0.035); }
 .offer-insight-bar { width: 2px; border-radius: 2px; background: linear-gradient(180deg, rgba(90,176,255,0.7) 0%, rgba(90,176,255,0.2) 100%); flex: 0 0 auto; align-self: stretch; }
 .offer-insight-text { font-size: 13px; color: #bfc6d0; line-height: 1.65; margin: 0; }
 .offer-insight-text strong { color: #e4e8ee; font-weight: 600; }
@@ -359,10 +332,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-list li { padding-left: 16px; position: relative; color: #c8ced8; font-size: 13px; line-height: 1.6; }
 .offer-list li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
 .offer-card-cta {
-  padding: 16px 20px 18px;
-  border-top: 1px solid rgba(90,176,255,0.1);
-  background: rgba(90,176,255,0.025);
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px 20px 18px; border-top: 1px solid rgba(90,176,255,0.1);
+  background: rgba(90,176,255,0.025); display: flex; flex-direction: column; align-items: center; gap: 8px;
 }
 .offer-card-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); text-align: center; }
 .offer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); }
@@ -372,149 +343,37 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
 /* Selected research */
 .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
-.selected-research-intro {
-  margin: 0 0 18px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text-dim);
-}
-.selected-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 14px;
-  align-items: stretch;
-}
-.paper-stack {
-  display: grid;
-  gap: 14px;
-}
+.selected-research-intro { margin: 0 0 18px; font-size: 14px; line-height: 1.7; color: var(--text-dim); }
+.selected-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; align-items: stretch; }
+.paper-stack { display: grid; gap: 14px; }
 .paper-card, .snapshot-card, .behind-card {
-  padding: 18px;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 14px;
+  padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;
   background: rgba(255,255,255,0.014);
   transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
-.paper-card:hover, .snapshot-card:hover, .behind-card:hover {
-  border-color: rgba(90,176,255,0.18);
-  background: rgba(90,176,255,0.02);
-  transform: translateY(-1px);
-}
-.paper-card-accent {
-  background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%);
-  border-color: rgba(90,176,255,0.18);
-}
-.paper-card-head, .snapshot-head, .behind-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-.paper-row {
-  display: grid;
-  grid-template-columns: 68px 1fr;
-  gap: 14px;
-  align-items: start;
-  min-width: 0;
-}
-.thumb {
-  width: 68px;
-  height: 92px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(255,255,255,0.03);
-  object-fit: cover;
-  display: block;
-}
-.paper-cover-plain {
-  filter: none;
-  border-color: rgba(255,255,255,0.16);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-.paper-title {
-  margin: 0 0 8px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.28;
-  letter-spacing: -0.02em;
-}
-.small {
-  margin: 0;
-  font-size: 13px;
-  color: var(--text-dim);
-  line-height: 1.65;
-}
+.paper-card:hover, .snapshot-card:hover, .behind-card:hover { border-color: rgba(90,176,255,0.18); background: rgba(90,176,255,0.02); transform: translateY(-1px); }
+.paper-card-accent { background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.018) 100%); border-color: rgba(90,176,255,0.18); }
+.paper-card-head, .snapshot-head, .behind-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.paper-row { display: grid; grid-template-columns: 68px 1fr; gap: 14px; align-items: start; min-width: 0; }
+.thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: cover; display: block; }
+.paper-cover-plain { filter: none; border-color: rgba(255,255,255,0.16); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.paper-title { margin: 0 0 8px; font-size: 15px; font-weight: 600; color: #fff; line-height: 1.28; letter-spacing: -0.02em; }
+.small { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
 .actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
-
-.side-stack {
-  display: grid;
-  gap: 14px;
-}
-.snapshot-box {
-  display: grid;
-  gap: 10px;
-  padding: 14px;
-  border: 1px solid rgba(90,176,255,0.14);
-  border-radius: 12px;
-  background: rgba(90,176,255,0.025);
-}
-.snapshot-line {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #cdd2da;
-}
-.snapshot-k {
-  display: inline-block;
-  min-width: 126px;
-  color: var(--text-faint);
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
-}
-.body-of-work {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 10px;
-  margin-top: 14px;
-}
-.body-stat {
-  padding: 12px;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.014);
-}
-.body-stat-num {
-  display: block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--cta-blue);
-  margin-bottom: 6px;
-}
-.body-stat-label {
-  display: block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  line-height: 1.4;
-}
+.side-stack { display: grid; gap: 14px; }
+.snapshot-box { display: grid; gap: 10px; padding: 14px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.025); }
+.snapshot-line { margin: 0; font-size: 13px; line-height: 1.6; color: #cdd2da; }
+.snapshot-k { display: inline-block; min-width: 126px; color: var(--text-faint); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.body-of-work { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.body-stat { padding: 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
+.body-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 700; line-height: 1; color: var(--cta-blue); margin-bottom: 6px; }
+.body-stat-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); line-height: 1.4; }
 
 /* How to start */
 .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
 .lead strong { color: #fff; }
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
-.process-card {
-  padding: 16px 16px 18px;
-  border: 1px solid rgba(90,176,255,0.14);
-  border-radius: 12px;
-  background: rgba(90,176,255,0.03);
-  min-width: 0;
-}
+.process-card { padding: 16px 16px 18px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.03); min-width: 0; }
 .process-step {
   display: inline-flex; align-items: center; margin-bottom: 10px;
   font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em;
@@ -545,7 +404,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
   .bridge-head, .offer-hero-head { flex-direction: column; align-items: flex-start; }
-  .bridge-grid-3, .offer-grid, .offer-footer, .selected-grid, .body-of-work, .process-strip, .footer-grid { grid-template-columns: 1fr !important; }
+  .bridge-grid, .bridge-grid-3, .offer-grid, .offer-footer, .selected-grid, .body-of-work, .process-strip, .footer-grid { grid-template-columns: 1fr !important; }
   .arrow-chain { text-align: left; }
   .label-row { flex-direction: column; align-items: flex-start; }
   .label-note { white-space: normal; }
@@ -603,8 +462,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="hero-left">
         <div class="eyebrow">What I do</div>
         <h2 class="hero-title">Structural diagnosis and redesign for systems that keep failing under scale.</h2>
-         <p class="hero-sub">I make hidden rules visible, then redesign the structure so the system stops failing in the same way.</p>
-      <p class="hero-sub">I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against.</p><hr class="hero-rule" />
+        <p class="hero-sub">I make hidden rules visible, then redesign the structure so the system stops failing in the same way.</p>
+        <p class="hero-sub">I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against.</p>
+        <hr class="hero-rule" />
         <p class="hero-statement"><strong>If the same failure has happened twice, the structure is probably the problem.</strong></p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
@@ -642,8 +502,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="bridge-head">
         <div>
           <div class="eyebrow">Overview</div>
-          <h2 class="bridge-title">Why failure repeats.</h2>
-          <p class="bridge-sub">Most repeated failure is not a motivation problem or a communication problem. It is a structural problem. The visible issue changes names. The underlying rule, interface, or enforcement failure does not.</p>
+          <h2 class="bridge-title">Does any of this sound familiar?</h2>
+          <p class="bridge-sub">If it does, the problem is almost certainly structural — not a people problem, not a process problem, and not something another roadmap will fix.</p>
         </div>
         <div class="arrow-chain" aria-hidden="true">
           <span>hidden structure &rarr; repeated failure</span>
@@ -651,31 +511,83 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         </div>
       </div>
 
-      <div class="bridge-grid-3">
-        <div class="bridge-panel">
-          <span class="mini-kicker">What this replaces</span>
-          <ul class="bridge-list">
-            <li>Alignment cycles that produce shared language but no structural change</li>
-            <li>Policy surfaces that describe intent without changing operating reality</li>
-            <li>Roadmaps that move work around without removing the underlying failure</li>
-          </ul>
+      <div class="bridge-grid">
+
+        <!-- BEFORE column -->
+        <div>
+          <div class="before-col-label">
+            <span class="mini-kicker" style="margin:0; color:var(--text-faint);">Right now</span>
+          </div>
+          <div class="pain-item">
+            <div class="pain-bar"></div>
+            <div class="pain-body">
+              <p class="pain-title">The same failure keeps coming back with a new name.</p>
+              <p class="pain-desc">You fix the surface. Costs come down. Three months later it's back — rebranded as a different team's problem.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-bar"></div>
+            <div class="pain-body">
+              <p class="pain-title">Your builders are inventing the design while implementing it.</p>
+              <p class="pain-desc">There's no single structural read to execute against, so every sprint produces a slightly different interpretation of what the system should actually do.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-bar"></div>
+            <div class="pain-body">
+              <p class="pain-title">Your operators are absorbing costs the system should absorb.</p>
+              <p class="pain-desc">Manual workarounds have quietly become the operating model. The system boundary was never defined — so humans fill the gap.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-bar"></div>
+            <div class="pain-body">
+              <p class="pain-title">You can't get alignment because no one has a structural read to align against.</p>
+              <p class="pain-desc">Every meeting produces shared language. Nobody leaves with a document that says: this is the real structure, this is what must change first.</p>
+            </div>
+          </div>
         </div>
-        <div class="bridge-panel">
-          <span class="mini-kicker">Typical triggers</span>
-          <ul class="bridge-list">
-            <li>The same failure keeps returning under different names</li>
-            <li>Your operators are absorbing failures the system should absorb</li>
-            <li>Your platform signals one thing and optimises another</li>
-          </ul>
+
+        <!-- AFTER column -->
+        <div>
+          <div class="after-col-label">
+            <span class="mini-kicker" style="margin:0; color:var(--label-blue);">After the artifact</span>
+          </div>
+          <div class="gain-item">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">The real failure is named once — and located precisely.</p>
+              <p class="gain-desc">Not a symptom. Not a summary of complaints. The actual structural rule that is breaking, where it lives, and what depends on it.</p>
+            </div>
+          </div>
+          <div class="gain-item">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">Builders execute against a written structure, not a guess.</p>
+              <p class="gain-desc">One document becomes the design source. The interpretation gap closes. Implementation stops drifting.</p>
+            </div>
+          </div>
+          <div class="gain-item">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">The system boundary is defined — humans stop patching structural gaps.</p>
+              <p class="gain-desc">The artifact specifies what the system must enforce, what it must not absorb, and where the line sits. Workarounds stop being load-bearing.</p>
+            </div>
+          </div>
+          <div class="gain-item">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">One document. Everyone acts against the same structural truth.</p>
+              <p class="gain-desc">Decision owners and builders use the same artifact. The alignment conversation becomes: what does the document say?</p>
+            </div>
+          </div>
         </div>
-        <div class="bridge-panel bridge-panel-accent">
-          <span class="mini-kicker">What changes after diagnosis</span>
-          <ul class="bridge-list">
-            <li>The real unit of failure becomes visible</li>
-            <li>The decision surface becomes clearer</li>
-            <li>Builders stop inventing the design while implementing it</li>
-          </ul>
-        </div>
+
+      </div>
+
+      <div style="margin-top:20px; padding:16px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e8ecf0;">If the same failure has happened twice, the structure is probably the problem.</strong> The artifact makes it visible and gives you something to act against.</p>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL TO START</a>
       </div>
     </section>
 
@@ -726,12 +638,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
             <div class="offer-section">
               <span class="mini-kicker">What you receive</span>
               <ul class="offer-list">
-                <li>System topology: where work actually flows</li>
-                <li>Primitive definition: the real unit of work</li>
-                <li>Invariants: rules that must not break</li>
-                <li>Enforcement map: where rules live vs where they break</li>
-                <li>Mismatch analysis: stated design vs operating reality</li>
-                <li>Build map: what must change first, and what depends on what</li>
+                <li><strong>System topology:</strong> where work actually flows</li>
+                <li><strong>Primitive definition:</strong> the real unit of work</li>
+                <li><strong>Invariants:</strong> rules that must not break</li>
+                <li><strong>Enforcement map:</strong> where rules live vs where they break</li>
+                <li><strong>Mismatch analysis:</strong> stated design vs operating reality</li>
+                <li><strong>Build map:</strong> what must change first, and what depends on what</li>
               </ul>
             </div>
           </div>
@@ -775,12 +687,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
             <div class="offer-section">
               <span class="mini-kicker">What you receive</span>
               <ul class="offer-list">
-                <li>Target boundary spec: what changes and what does not</li>
-                <li>Transition sequence: Step 1 &rarr; N</li>
-                <li>Interface changes: what must be tightened, removed, or clarified</li>
-                <li>Dependency order: what moves first, and what depends on what</li>
-                <li>Drift refusal gates: constraints that prevent regression</li>
-                <li>Execution handoff: a builder-readable sequence for implementation</li>
+                <li><strong>Target boundary spec:</strong> what changes and what does not</li>
+                <li><strong>Transition sequence:</strong> Step 1 &rarr; N</li>
+                <li><strong>Interface changes:</strong> what must be tightened, removed, or clarified</li>
+                <li><strong>Dependency order:</strong> what moves first, and what depends on what</li>
+                <li><strong>Drift refusal gates:</strong> constraints that prevent regression</li>
+                <li><strong>Execution handoff:</strong> a builder-readable sequence for implementation</li>
               </ul>
             </div>
           </div>
@@ -865,7 +777,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <span class="mini-kicker" style="margin:0;">Snapshot</span>
               <span class="offer-chip">Applied read</span>
             </div>
-
             <div class="snapshot-box">
               <p class="snapshot-line"><span class="snapshot-k">System</span> AI task marketplaces.</p>
               <p class="snapshot-line"><span class="snapshot-k">Surface claim</span> Expertise market.</p>
@@ -880,9 +791,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <span class="mini-kicker" style="margin:0;">Behind the practice</span>
               <span class="offer-chip">Research spine</span>
             </div>
-
             <p class="small">The homepage is intentionally compressed. The wider body of work lives on the research page.</p>
-
             <div class="body-of-work">
               <div class="body-stat">
                 <span class="body-stat-num">2</span>
@@ -897,7 +806,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
                 <span class="body-stat-label">Live builds</span>
               </div>
             </div>
-
             <div class="actions">
               <a class="link-blue" href="./research.html">View full research page</a>
             </div>
