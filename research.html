@@ -220,15 +220,8 @@
 
     /* Status badges */
     .status { font-family: "IBM Plex Mono", monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.10); color: var(--text-dim); background: rgba(255,255,255,0.02); white-space: nowrap; flex: 0 0 auto; }
-.status-published {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  color: #0b0b0c;
-  background: rgba(90,176,255,0.96);
-  border-color: rgba(90,176,255,0.96);
-  font-weight: 600;
-}    .status-dev { color: #d8eefc; background: rgba(90,176,255,0.10); border-color: rgba(90,176,255,0.24); }
+    .status-published { color: #0b0b0c; background: rgba(90,176,255,0.96); border-color: rgba(90,176,255,0.96); font-weight: 600; }
+    .status-dev { color: #d8eefc; background: rgba(90,176,255,0.10); border-color: rgba(90,176,255,0.24); }
 
     /* Paper rows */
     .paper { padding: 16px; border: 1px solid var(--border-soft); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); min-width: 0; transition: border-color 160ms ease, transform 160ms ease; }
@@ -246,15 +239,7 @@
 
     /* Foundations grid */
     .foundations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
-.foundation-block {
-  position: relative;
-  padding: 52px 20px 20px;
-  border: 1px solid rgba(90,176,255,0.18);
-  border-radius: 16px;
-  background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
-}
+    .foundation-block { padding: 20px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
     .foundation-block:hover { border-color: rgba(90,176,255,0.3); transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.22); }
     .foundation-block h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.28; }
     .foundation-block p { font-size: 13px; color: var(--text-dim); line-height: 1.65; margin-bottom: 10px; }
