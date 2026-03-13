@@ -258,104 +258,112 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 }
 .bridge-sub, .offer-hero-sub { margin: 10px 0 0; color: var(--text-dim); font-size: 15px; line-height: 1.7; max-width: 68ch; }
 
-/* Overview — before/after two-column (B+C+D+E) */
+/* Overview — before/after row-paired layout (B+C+D+E) */
 
-/* C: asymmetric layout — pain narrower/darker, gain wider/lighter */
-.bridge-grid {
+/* Column headers */
+.bridge-col-headers {
   display: grid;
-  grid-template-columns: 9fr 1px 11fr;
+  grid-template-columns: 1fr 48px 1fr;
   gap: 0;
-  align-items: start;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.before-col-label {
+  padding: 7px 12px; border-radius: 8px; display: inline-block;
+  background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07);
+}
+.after-col-label {
+  padding: 7px 12px; border-radius: 8px; display: inline-block;
+  background: rgba(90,176,255,0.07); border: 1px solid rgba(90,176,255,0.22);
+}
+.bridge-col-headers-mid { /* empty spacer */ }
+
+/* D: each row is a paired set: pain | arrow | gain, all same height */
+.bridge-grid { display: flex; flex-direction: column; gap: 10px; }
+
+.bridge-row {
+  display: grid;
+  grid-template-columns: 1fr 48px 1fr;
+  gap: 0;
+  align-items: stretch;
 }
 
-/* D: central arrow divider */
-.bridge-divider {
+/* D: the arrow connector between each pair */
+.bridge-row-arrow {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
-  padding-top: 52px; /* align with first item */
-  gap: 8px;
+  gap: 0;
+  position: relative;
 }
-.bridge-divider-line {
-  flex: 1;
+.bridge-row-arrow::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%; transform: translateX(-50%);
   width: 1px;
-  min-height: 20px;
-  background: linear-gradient(180deg, transparent, rgba(90,176,255,0.25), transparent);
+  background: linear-gradient(180deg, transparent 0%, rgba(90,176,255,0.2) 30%, rgba(90,176,255,0.2) 70%, transparent 100%);
 }
-.bridge-divider-arrow {
+.bridge-row-arrow-icon {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
-  color: rgba(90,176,255,0.5);
+  font-size: 13px;
+  color: rgba(90,176,255,0.55);
   line-height: 1;
   user-select: none;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  padding: 4px 2px;
 }
 
-.before-col-label, .after-col-label {
-  padding: 8px 12px; border-radius: 8px; display: inline-block; margin-bottom: 10px;
-}
-.before-col-label { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); }
-.after-col-label  { background: rgba(90,176,255,0.07); border: 1px solid rgba(90,176,255,0.22); }
-
-/* C: pain column gets a slightly compressed, darker feel */
-.pain-col {
-  background: rgba(0,0,0,0.12);
-  border-radius: 16px;
-  padding: 16px 14px 6px;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-/* C: gain column breathes more, lighter */
-.gain-col {
-  padding: 16px 14px 6px;
-}
-
-/* E: scroll-triggered fade-in animation */
+/* E: scroll animation */
 @keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.pain-item, .gain-item {
-  display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; margin-bottom: 10px;
-  transition: border-color 160ms ease, transform 180ms ease, background 160ms ease, box-shadow 160ms ease;
-  /* E: start hidden, JS will trigger animation */
-  opacity: 0;
-}
-.pain-item.is-visible { animation: fadeSlideIn 420ms ease forwards; }
-.gain-item.is-visible { animation: fadeSlideIn 420ms ease forwards; }
 
-/* C+B: pain items — darker, more compressed, muted text */
+.pain-item, .gain-item {
+  display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px;
+  transition: border-color 160ms ease, transform 180ms ease, background 160ms ease, box-shadow 160ms ease;
+  opacity: 0;
+  height: 100%;
+}
+.pain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
+.gain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
+
+/* B+C: pain — compressed, darker, muted */
 .pain-item {
   border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.012);
+  background: rgba(255,255,255,0.01);
+  margin-right: 8px;
 }
 .pain-item:hover {
-  border-color: rgba(255,255,255,0.11);
-  background: rgba(255,255,255,0.022);
-  transform: translateX(2px);
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
 }
 
-/* C+B: gain items — brighter border, lighter background, more luminous */
+/* B+C: gain — wider feel, bright, luminous */
 .gain-item {
-  border: 1px solid rgba(90,176,255,0.2);
-  background: linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 100%);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+  border: 1px solid rgba(90,176,255,0.22);
+  background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 100%);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset;
+  margin-left: 8px;
 }
 .gain-item:hover {
-  border-color: rgba(90,176,255,0.35);
-  background: linear-gradient(160deg, rgba(90,176,255,0.1) 0%, rgba(90,176,255,0.03) 100%);
-  box-shadow: 0 0 0 1px rgba(90,176,255,0.08), 0 4px 16px rgba(0,0,0,0.2);
-  transform: translateX(2px);
+  border-color: rgba(90,176,255,0.38);
+  background: linear-gradient(160deg, rgba(90,176,255,0.11) 0%, rgba(90,176,255,0.03) 100%);
+  box-shadow: 0 0 0 1px rgba(90,176,255,0.1), 0 4px 20px rgba(0,0,0,0.18);
 }
 
-.pain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: rgba(255,255,255,0.1); }
-.gain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.9) 0%, rgba(90,176,255,0.25) 100%); }
+.pain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: rgba(255,255,255,0.09); }
+.gain-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.85) 0%, rgba(90,176,255,0.2) 100%); }
 .pain-body, .gain-body { flex: 1; min-width: 0; }
 
-/* B: pain titles stay muted, gain titles are fully bright */
-.pain-title { margin: 0 0 5px; font-size: 13px; font-weight: 500; color: #9ca3af; line-height: 1.35; letter-spacing: -0.01em; }
-.gain-title { margin: 0 0 5px; font-size: 13px; font-weight: 700; color: #f0f4ff; line-height: 1.35; letter-spacing: -0.02em; }
-.pain-desc  { margin: 0; font-size: 12px; line-height: 1.62; color: rgba(140,148,162,0.7); }
+/* B: pain muted, gain bright */
+.pain-title { margin: 0 0 5px; font-size: 13px; font-weight: 500; color: #8a9099; line-height: 1.35; letter-spacing: -0.01em; }
+.gain-title { margin: 0 0 5px; font-size: 13px; font-weight: 700; color: #eef2ff; line-height: 1.35; letter-spacing: -0.02em; }
+.pain-desc  { margin: 0; font-size: 12px; line-height: 1.62; color: rgba(130,138,150,0.65); }
 .gain-desc  { margin: 0; font-size: 12px; line-height: 1.62; color: #8c94a2; }
 
 /* Bridge panels */
@@ -480,9 +488,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .hero-right { padding: 24px; }
   .bridge-head, .offer-hero-head { flex-direction: column; align-items: flex-start; }
   .bridge-grid, .bridge-grid-3, .offer-grid, .offer-footer, .selected-grid, .body-of-work, .process-strip, .footer-grid { grid-template-columns: 1fr !important; }
-  .bridge-divider { flex-direction: row; padding: 0 0 12px; justify-content: flex-start; gap: 12px; }
-  .bridge-divider-line { flex: 0 0 30px; min-height: 0; height: 1px; width: auto; background: linear-gradient(90deg, transparent, rgba(90,176,255,0.25), transparent); }
-  .pain-col { margin-bottom: 8px; }
+  .bridge-row { grid-template-columns: 1fr !important; }
+  .bridge-row-arrow { display: none; }
+  .bridge-col-headers { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .bridge-col-headers-mid { display: none; }
+  .pain-item { margin-right: 0; }
+  .gain-item { margin-left: 0; }
   .arrow-chain { text-align: left; }
   .label-row { flex-direction: column; align-items: flex-start; }
   .label-note { white-space: normal; }
@@ -545,9 +556,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <hr class="hero-rule" />
         <p class="hero-statement"><strong>If the same failure has happened twice, the structure is probably the problem.</strong></p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
-          <a class="btn" href="./research.html">VIEW RESEARCH</a>
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL FIVE-LINE BRIEF</a>
         </div>
       </div>
       <div class="hero-right">
@@ -589,13 +598,17 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         </div>
       </div>
 
+      <!-- Column headers -->
+      <div class="bridge-col-headers">
+        <div><div class="before-col-label"><span class="mini-kicker" style="margin:0; color:var(--text-faint);">Right now</span></div></div>
+        <div class="bridge-col-headers-mid"></div>
+        <div><div class="after-col-label"><span class="mini-kicker" style="margin:0; color:var(--label-blue);">After the artifact</span></div></div>
+      </div>
+
+      <!-- Paired rows -->
       <div class="bridge-grid">
 
-        <!-- BEFORE column (C: compressed/dark) -->
-        <div class="pain-col">
-          <div class="before-col-label">
-            <span class="mini-kicker" style="margin:0; color:var(--text-faint);">Right now</span>
-          </div>
+        <div class="bridge-row">
           <div class="pain-item" data-reveal data-delay="0">
             <div class="pain-bar"></div>
             <div class="pain-body">
@@ -603,6 +616,19 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <p class="pain-desc">You fix the surface. Costs come down. Three months later it's back — rebranded as a different team's problem.</p>
             </div>
           </div>
+          <div class="bridge-row-arrow" aria-hidden="true">
+            <span class="bridge-row-arrow-icon">→</span>
+          </div>
+          <div class="gain-item" data-reveal data-delay="100">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">The real failure is named once — and located precisely.</p>
+              <p class="gain-desc">Not a symptom. Not a summary of complaints. The actual structural rule that is breaking, where it lives, and what depends on it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bridge-row">
           <div class="pain-item" data-reveal data-delay="80">
             <div class="pain-bar"></div>
             <div class="pain-body">
@@ -610,6 +636,19 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <p class="pain-desc">There's no single structural read to execute against, so every sprint produces a slightly different interpretation of what the system should actually do.</p>
             </div>
           </div>
+          <div class="bridge-row-arrow" aria-hidden="true">
+            <span class="bridge-row-arrow-icon">→</span>
+          </div>
+          <div class="gain-item" data-reveal data-delay="180">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">Builders execute against a written structure, not a guess.</p>
+              <p class="gain-desc">One document becomes the design source. The interpretation gap closes. Implementation stops drifting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bridge-row">
           <div class="pain-item" data-reveal data-delay="160">
             <div class="pain-bar"></div>
             <div class="pain-body">
@@ -617,6 +656,19 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <p class="pain-desc">Manual workarounds have quietly become the operating model. The system boundary was never defined — so humans fill the gap.</p>
             </div>
           </div>
+          <div class="bridge-row-arrow" aria-hidden="true">
+            <span class="bridge-row-arrow-icon">→</span>
+          </div>
+          <div class="gain-item" data-reveal data-delay="260">
+            <div class="gain-bar"></div>
+            <div class="gain-body">
+              <p class="gain-title">The system boundary is defined — humans stop patching structural gaps.</p>
+              <p class="gain-desc">The artifact specifies what the system must enforce, what it must not absorb, and where the line sits. Workarounds stop being load-bearing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bridge-row">
           <div class="pain-item" data-reveal data-delay="240">
             <div class="pain-bar"></div>
             <div class="pain-body">
@@ -624,42 +676,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <p class="pain-desc">Every meeting produces shared language. Nobody leaves with a document that says: this is the real structure, this is what must change first.</p>
             </div>
           </div>
-        </div>
-
-        <!-- D: central arrow divider -->
-        <div class="bridge-divider" aria-hidden="true">
-          <div class="bridge-divider-line"></div>
-          <span class="bridge-divider-arrow">→</span>
-          <div class="bridge-divider-line"></div>
-        </div>
-
-        <!-- AFTER column (C: wider/lighter) -->
-        <div class="gain-col">
-          <div class="after-col-label">
-            <span class="mini-kicker" style="margin:0; color:var(--label-blue);">After the artifact</span>
+          <div class="bridge-row-arrow" aria-hidden="true">
+            <span class="bridge-row-arrow-icon">→</span>
           </div>
-          <div class="gain-item" data-reveal data-delay="120">
-            <div class="gain-bar"></div>
-            <div class="gain-body">
-              <p class="gain-title">The real failure is named once — and located precisely.</p>
-              <p class="gain-desc">Not a symptom. Not a summary of complaints. The actual structural rule that is breaking, where it lives, and what depends on it.</p>
-            </div>
-          </div>
-          <div class="gain-item" data-reveal data-delay="200">
-            <div class="gain-bar"></div>
-            <div class="gain-body">
-              <p class="gain-title">Builders execute against a written structure, not a guess.</p>
-              <p class="gain-desc">One document becomes the design source. The interpretation gap closes. Implementation stops drifting.</p>
-            </div>
-          </div>
-          <div class="gain-item" data-reveal data-delay="280">
-            <div class="gain-bar"></div>
-            <div class="gain-body">
-              <p class="gain-title">The system boundary is defined — humans stop patching structural gaps.</p>
-              <p class="gain-desc">The artifact specifies what the system must enforce, what it must not absorb, and where the line sits. Workarounds stop being load-bearing.</p>
-            </div>
-          </div>
-          <div class="gain-item" data-reveal data-delay="360">
+          <div class="gain-item" data-reveal data-delay="340">
             <div class="gain-bar"></div>
             <div class="gain-body">
               <p class="gain-title">One document. Everyone acts against the same structural truth.</p>
@@ -672,7 +692,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <div style="margin-top:20px; padding:16px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
         <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e8ecf0;">If the same failure has happened twice, the structure is probably the problem.</strong> The artifact makes it visible and gives you something to act against.</p>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL TO START</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL FIVE-LINE BRIEF</a>
       </div>
     </section>
 
@@ -940,8 +960,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <div class="actions" style="margin-top:16px;">
         <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL FIVE-LINE BRIEF</a>
-        <a class="btn" href="./services.html">VIEW SERVICES</a>
-        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
       </div>
     </section>
 
