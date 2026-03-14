@@ -458,7 +458,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
 .lead strong { color: #fff; }
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
-/* Process steps — large background number, bold verb */
+/* Process steps — smaller ghost number + progressive border */
 .process-card {
   padding: 22px 20px 22px;
   border: 1px solid rgba(90,176,255,0.12);
@@ -473,13 +473,16 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   border-color: rgba(90,176,255,0.24);
   background: rgba(90,176,255,0.045);
 }
+.process-card:nth-child(1) { border-left: 2px solid rgba(90,176,255,0.2); }
+.process-card:nth-child(2) { border-left: 2px solid rgba(90,176,255,0.45); }
+.process-card:nth-child(3) { border-left: 2px solid rgba(90,176,255,0.85); }
 .process-card-num {
   position: absolute;
-  top: -8px; right: 12px;
+  top: -4px; right: 10px;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 72px;
+  font-size: 42px;
   font-weight: 700;
-  color: rgba(90,176,255,0.07);
+  color: rgba(90,176,255,0.045);
   line-height: 1;
   letter-spacing: -0.04em;
   user-select: none;
