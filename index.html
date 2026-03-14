@@ -474,6 +474,28 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .callout p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
 .callout p strong { color: #e8ecf0; }
 
+/* Fork block */
+.fork-block {
+  margin: 28px 0 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.014);
+}
+.fork-label {
+  margin: 0 0 14px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.fork-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 /* Responsive */
 @media (max-width: 920px) {
   .wrap { padding-top: 24px; }
@@ -483,6 +505,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .site-nav-links a { padding: 6px 7px; font-size: 9px; }
   .site-nav-brand { min-width: 0; overflow: hidden; }
   .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+  .fork-actions { flex-direction: column; }
+  .fork-actions .btn { width: 100%; text-align: center; justify-content: center; }
+  .fork-label { text-align: center; }
   .hero-strip { grid-template-columns: 1fr; }
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
@@ -544,6 +569,14 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </a>
     </div>
   </header>
+
+  <section class="fork-block" aria-label="Choose a route">
+    <p class="fork-label">Two ways to engage.</p>
+    <div class="fork-actions">
+      <a class="btn btn-primary" href="./services.html">SOLVE A STRUCTURAL FAILURE</a>
+      <a class="btn" href="./research.html">EXPLORE THE WORK</a>
+    </div>
+  </section>
 
   <main id="main" role="main">
 
@@ -896,7 +929,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
               <span class="mini-kicker" style="margin:0;">Behind the practice</span>
               <span class="offer-chip">Research spine</span>
             </div>
-            <p class="small">The homepage is intentionally compressed. The wider body of work lives on the research page.</p>
+            <p class="small">The wider body of work lives on the research page.</p>
             <div class="body-of-work">
               <div class="body-stat">
                 <span class="body-stat-num">2</span>
