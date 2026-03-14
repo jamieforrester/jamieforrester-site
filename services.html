@@ -284,10 +284,17 @@
     .flow-step p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
     .two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); margin-top: 16px; }
-    .callout { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
-    .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
-    .callout p strong { color: #e8ecf0; }
+    .signal-box { padding: 20px 22px; border: 1px solid rgba(90,176,255,0.15); border-radius: 14px; background: rgba(90,176,255,0.025); margin-top: 16px; }
+    .signal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+    .signal-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .signal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .signal-item:first-child { padding-top: 0; }
+    .signal-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.45); letter-spacing: 0.08em; line-height: 1.8; }
+    .signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; }
+    .signal-item span { color: var(--text-faint); font-size: 13px; }
+    .callout { margin-top: 24px; padding: 0 0 0 16px; border-left: 2px solid rgba(90,176,255,0.4); }
+    .callout p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+    .callout p strong { color: #e8ecf0; font-weight: 600; }
     .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
     @media (max-width: 920px) {
@@ -594,14 +601,29 @@
           </div>
         </div>
         <div class="signal-box">
-          <span class="mini-kicker">Submit a Five-Line Brief</span>
-          <ul class="clean">
-            <li><strong>The Pattern</strong>: What keeps breaking?</li>
-            <li><strong>The Stake</strong>: What is the cost?</li>
-            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
-            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
-            <li><strong>Constraints</strong>: What are the non-negotiables?</li>
-          </ul>
+          <span class="mini-kicker">Submit a five-line brief</span>
+          <ol class="signal-list">
+            <li class="signal-item">
+              <span class="signal-num">01</span>
+              <span><strong>The Pattern</strong>: What keeps breaking?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">02</span>
+              <span><strong>The Stake</strong>: What is the cost?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">03</span>
+              <span><strong>The Interfaces</strong>: Who or what is touching the failure?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">04</span>
+              <span><strong>Concentration</strong>: Where is the heat showing up?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">05</span>
+              <span><strong>Constraints</strong>: What are the non-negotiables?</span>
+            </li>
+          </ol>
         </div>
         <div class="callout">
           <p><strong>If neither engagement is the right fit, I will say so.</strong></p>
