@@ -445,9 +445,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .small { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
 .actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
 .side-stack { display: grid; gap: 14px; }
-.snapshot-box { display: grid; gap: 10px; padding: 14px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.025); }
-.snapshot-line { margin: 0; font-size: 13px; line-height: 1.6; color: #cdd2da; }
-.snapshot-k { display: inline-block; min-width: 126px; color: var(--text-faint); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.snapshot-box { display: grid; gap: 0; padding: 4px 14px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.025); }
+.snapshot-line { margin: 0; display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; line-height: 1.6; color: #cdd2da; }
+.snapshot-line:last-child { border-bottom: none; }
+.snapshot-k { color: var(--text-faint); font-family: "IBM Plex Mono", monospace; font-size: 11px; white-space: nowrap; }
 .body-of-work { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
 .body-stat { padding: 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
 .body-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 700; line-height: 1; color: var(--cta-blue); margin-bottom: 6px; }
@@ -583,7 +584,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .arrow-chain { text-align: left; }
   .label-row { flex-direction: column; align-items: flex-start; }
   .label-note { white-space: normal; }
-  .snapshot-k { min-width: 0; display: block; margin-bottom: 2px; }
+  .snapshot-line { grid-template-columns: 1fr; gap: 2px; }
+  .snapshot-k { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -932,7 +934,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <article class="paper-card paper-card-accent" aria-label="Paper: The Four-Function Law of Scalable Institutions">
             <div class="paper-card-head">
               <span class="mini-kicker" style="margin:0;">Core framework</span>
-              <span class="offer-chip offer-chip-blue">Core Framework</span>
+              <span class="offer-chip offer-chip-blue">Published</span>
             </div>
             <div class="paper-row">
               <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
@@ -952,7 +954,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <article class="paper-card" aria-label="Paper: The Expertise Illusion in AI Task Marketplaces">
             <div class="paper-card-head">
               <span class="mini-kicker" style="margin:0;">Applied example</span>
-              <span class="offer-chip offer-chip-blue">Applied Example</span>
+              <span class="offer-chip offer-chip-blue">Published</span>
             </div>
             <div class="paper-row">
               <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
