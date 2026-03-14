@@ -457,23 +457,81 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
 .lead strong { color: #fff; }
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
-.process-card { padding: 16px 16px 18px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.03); min-width: 0; }
+/* Process steps — large background number, bold verb */
+.process-card {
+  padding: 22px 20px 22px;
+  border: 1px solid rgba(90,176,255,0.12);
+  border-radius: 14px;
+  background: rgba(90,176,255,0.025);
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+.process-card:hover {
+  border-color: rgba(90,176,255,0.24);
+  background: rgba(90,176,255,0.045);
+}
+.process-card-num {
+  position: absolute;
+  top: -8px; right: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 72px;
+  font-weight: 700;
+  color: rgba(90,176,255,0.07);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+}
 .process-step {
-  display: inline-flex; align-items: center; margin-bottom: 10px;
+  display: inline-flex; align-items: center; margin-bottom: 12px;
   font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--label-blue);
   background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2);
   border-radius: 6px; padding: 3px 7px; line-height: 1;
 }
-.process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
-.process-card strong { color: #fff; font-weight: 600; }
-.signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); }
-.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-.clean li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 14px; line-height: 1.62; }
-.clean li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
-.callout { margin-top: 16px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.03); }
-.callout p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
-.callout p strong { color: #e8ecf0; }
+.process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
+.process-card strong { color: #fff; font-size: 14px; font-weight: 700; display: block; margin-bottom: 5px; }
+
+/* Signal box — numbered prompts */
+.signal-box {
+  padding: 20px 22px;
+  border: 1px solid rgba(90,176,255,0.15);
+  border-radius: 14px;
+  background: rgba(90,176,255,0.025);
+  margin-top: 16px;
+}
+.signal-box .mini-kicker { margin-bottom: 16px; display: block; }
+.signal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.signal-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: baseline;
+}
+.signal-item:last-child { border-bottom: none; padding-bottom: 0; }
+.signal-item:first-child { padding-top: 0; }
+.signal-num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: rgba(90,176,255,0.45);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+.signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; }
+.signal-item span { color: var(--text-faint); font-size: 13px; }
+
+/* Callout — standalone statement, no box */
+.callout {
+  margin-top: 24px;
+  padding: 0 0 0 16px;
+  border-left: 2px solid rgba(90,176,255,0.4);
+}
+.callout p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+.callout p strong { color: #e8ecf0; font-weight: 600; }
 
 /* Fork block */
 .fork-block {
@@ -963,28 +1021,46 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <div class="process-strip">
         <div class="process-card">
+          <span class="process-card-num" aria-hidden="true">01</span>
           <span class="process-step">Step 01</span>
-          <p><strong>Send the brief.</strong> Five lines plus any relevant material you already have.</p>
+          <p><strong>Send the brief.</strong>Five lines plus any relevant material you already have.</p>
         </div>
         <div class="process-card">
+          <span class="process-card-num" aria-hidden="true">02</span>
           <span class="process-step">Step 02</span>
-          <p><strong>I review fit.</strong> Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
+          <p><strong>I review fit.</strong>Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
         </div>
         <div class="process-card">
+          <span class="process-card-num" aria-hidden="true">03</span>
           <span class="process-step">Step 03</span>
-          <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
+          <p><strong>You receive the artifact.</strong>One written document built for decision-making and builder execution.</p>
         </div>
       </div>
 
       <div class="signal-box" style="margin-top:16px;">
         <span class="mini-kicker">Submit a five-line brief</span>
-        <ul class="clean">
-          <li><strong>The Pattern</strong>: What keeps breaking?</li>
-          <li><strong>The Stake</strong>: What is the cost?</li>
-          <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
-          <li><strong>Concentration</strong>: Where is the heat showing up?</li>
-          <li><strong>Constraints</strong>: What are the non-negotiables?</li>
-        </ul>
+        <ol class="signal-list">
+          <li class="signal-item">
+            <span class="signal-num">01</span>
+            <span><strong>The Pattern</strong>: What keeps breaking?</span>
+          </li>
+          <li class="signal-item">
+            <span class="signal-num">02</span>
+            <span><strong>The Stake</strong>: What is the cost?</span>
+          </li>
+          <li class="signal-item">
+            <span class="signal-num">03</span>
+            <span><strong>The Interfaces</strong>: Who or what is touching the failure?</span>
+          </li>
+          <li class="signal-item">
+            <span class="signal-num">04</span>
+            <span><strong>Concentration</strong>: Where is the heat showing up?</span>
+          </li>
+          <li class="signal-item">
+            <span class="signal-num">05</span>
+            <span><strong>Constraints</strong>: What are the non-negotiables?</span>
+          </li>
+        </ol>
       </div>
 
       <div class="callout">
