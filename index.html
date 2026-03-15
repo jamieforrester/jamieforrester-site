@@ -816,6 +816,35 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
   }, {passive:true});
 })();
 
+// Scroll reveal for overview cards
+(function(){
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  if (!els.length) return;
+  els.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = 'opacity 420ms ease, transform 420ms ease';
+  });
+  function check() {
+    var windowBottom = window.scrollY + window.innerHeight;
+    els = els.filter(function(el) {
+      var elTop = window.scrollY + el.getBoundingClientRect().top;
+      if (windowBottom > elTop + 40) {
+        var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+        setTimeout(function() {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, delay);
+        return false;
+      }
+      return true;
+    });
+    if (!els.length) window.removeEventListener('scroll', check);
+  }
+  window.addEventListener('scroll', check, {passive: true});
+  setTimeout(check, 100);
+})();
+
 // Five-line brief modal - only intercepts EMAIL FIVE-LINE BRIEF buttons
 (function(){
   var overlay = document.getElementById('briefModal');
