@@ -202,6 +202,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
 .lead strong { color: #fff; }
 
+/* Scan entry card */
+.scan-entry-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 20px; padding: 20px 24px; border: 1px solid rgba(90,176,255,0.16); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
+.scan-entry-left { flex: 1; min-width: 0; }
+.scan-entry-body { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; max-width: 68ch; }
+
 /* Process strip */
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
 .process-card { padding: 22px 20px 22px; border: 1px solid rgba(90,176,255,0.12); border-radius: 14px; background: rgba(90,176,255,0.025); min-width: 0; position: relative; overflow: hidden; transition: border-color 160ms ease, background 160ms ease; }
@@ -352,7 +357,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   <section class="fork-block" aria-label="Choose a route">
     <p class="fork-label">Two ways to engage.</p>
     <div class="fork-actions">
-      <a class="btn btn-primary" href="./services.html">SOLVE A STRUCTURAL FAILURE</a>
+      <a class="btn btn-primary" href="./services.html">DIAGNOSE A STRUCTURAL FAILURE</a>
       <a class="btn" href="./research.html">EXPLORE THE WORK</a>
     </div>
   </section>
@@ -442,53 +447,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div style="margin-top:20px; padding:16px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
         <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e8ecf0;">Once a failure repeats, the structure is now the most likely cause.</strong> The artifact makes it visible and gives you something to act against.</p>
         <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#afc7cac3c3c0efc5cec2c6cac9c0ddddcadcdbcadd81ccc0c2">EMAIL FIVE-LINE BRIEF</a>
-      </div>
-    </section>
-
-    <div class="section-divider"><span class="section-divider-label">60-second system scan</span></div>
-
-    <section class="card scan-section" aria-label="60-Second System Scan">
-      <div class="label-row">
-        <span class="label">// 60-Second System Scan</span>
-        <span class="label-note">free diagnostic tool</span>
-      </div>
-      <p class="lead">Answer four questions about any system you run or operate inside. The scan surfaces whether the failure you're experiencing is structural — and where to look first.</p>
-
-      <div class="scan-grid">
-        <div class="scan-questions">
-          <div class="scan-q">
-            <div class="scan-q-label"><span class="scan-num">01</span><span class="scan-q-title">Purpose</span></div>
-            <p class="scan-hint">What is this system supposed to do? What does it exist to deliver?</p>
-            <textarea class="scan-input" id="sq1" placeholder="e.g. Match freelance writers to content briefs and ensure delivery"></textarea>
-          </div>
-          <div class="scan-q">
-            <div class="scan-q-label"><span class="scan-num">02</span><span class="scan-q-title">Repeated action</span></div>
-            <p class="scan-hint">What is the one action this system performs over and over at its core?</p>
-            <textarea class="scan-input" id="sq2" placeholder="e.g. Assign a brief to a writer and collect the output"></textarea>
-          </div>
-          <div class="scan-q">
-            <div class="scan-q-label"><span class="scan-num">03</span><span class="scan-q-title">Rules</span></div>
-            <p class="scan-hint">What rules govern that action? What must always be true for the system to function?</p>
-            <textarea class="scan-input" id="sq3" placeholder="e.g. Writers must be matched within their expertise; output must meet quality threshold before payment"></textarea>
-          </div>
-          <div class="scan-q" style="margin-bottom:0;">
-            <div class="scan-q-label"><span class="scan-num">04</span><span class="scan-q-title">Failure</span></div>
-            <p class="scan-hint">Where does the system keep breaking? What rule is being violated — and where does that violation live?</p>
-            <textarea class="scan-input" id="sq4" placeholder="e.g. Writers are selected by availability, not expertise. The matching rule is stated but not enforced at assignment."></textarea>
-          </div>
-          <span class="scan-empty-msg" id="scan-empty">Answer at least one question to generate a read.</span>
-          <div class="scan-btns">
-            <button class="btn btn-primary" onclick="runIndexScan()">GENERATE STRUCTURAL READ</button>
-            <button class="btn" onclick="clearIndexScan()">CLEAR</button>
-          </div>
-        </div>
-
-        <div class="scan-output">
-          <div class="scan-output-inner" id="scan-output-inner">
-            <p class="scan-output-placeholder" id="scan-placeholder">Your structural read will appear here once you answer the questions.</p>
-            <div id="scan-result-content" style="display:none;"></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -587,6 +545,15 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <div class="offer-footer-block"><p>The two engagements are designed to follow each other when needed, but each can stand alone.</p></div>
         <div class="offer-footer-block"><p>Redesign pricing varies with system complexity, interface count, and transition depth. Full scope and delivery terms live on the Services page.</p></div>
       </div>
+
+      <div class="scan-entry-card">
+        <div class="scan-entry-left">
+          <span class="mini-kicker" style="margin-bottom:6px;">// Free diagnostic tool</span>
+          <p class="scan-entry-body">Answer four questions about any system you run or operate inside. The scan surfaces whether the failure you're experiencing is structural — and where to look first.</p>
+        </div>
+        <a class="btn btn-primary" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
+      </div>
+
     </section>
 
     <div class="section-divider"><span class="section-divider-label">selected research</span></div>
@@ -709,6 +676,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <a href="./services.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Services</a>
           <a href="./how-it-works.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">How It Works</a>
           <a href="./research.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Research</a>
+          <a href="./diagnostic-scan.html" style="font-size:13px; color:var(--text-faint); border-bottom-color:transparent;">Diagnostic Scan</a>
         </nav>
       </div>
       <div>
@@ -809,7 +777,7 @@ function runIndexScan() {
   var html = '<span class="scan-result-kicker">Structural read</span>'
     + rows
     + '<div class="scan-signal-block"><div class="scan-signal-bar"></div><p>'+signal+'</p></div>'
-    + '<div class="scan-result-cta"><a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20System%20Scan">EMAIL FIVE-LINE BRIEF</a></div>';
+    + '<div class="scan-result-cta"><p style="margin:0 0 12px; font-size:13px; color:var(--text-dim); line-height:1.65;">If this pattern points to a structural problem, email these four answers as your brief and I\'ll tell you whether it\'s a diagnostic fit.</p><a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20System%20Scan">EMAIL FIVE-LINE BRIEF</a></div>';
   document.getElementById('scan-result-content').innerHTML = html;
   document.getElementById('scan-result-content').style.display = 'block';
   document.getElementById('scan-placeholder').style.display = 'none';
