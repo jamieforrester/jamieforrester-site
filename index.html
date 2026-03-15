@@ -124,8 +124,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .bridge-row-arrow { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; position: relative; }
 .bridge-row-arrow::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; background: linear-gradient(180deg, transparent 0%, rgba(90,176,255,0.2) 30%, rgba(90,176,255,0.2) 70%, transparent 100%); }
 .bridge-row-arrow-icon { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: rgba(90,176,255,0.55); line-height: 1; user-select: none; position: relative; z-index: 1; background: var(--bg); padding: 4px 2px; }
-@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.pain-item, .gain-item { display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease; opacity: 1; height: 100%; }
+.pain-item, .gain-item { display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease; height: 100%; }
 .pain-item { border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01); margin-right: 8px; }
 .pain-item:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
 .gain-item { border: 1px solid rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset; margin-left: 8px; }
@@ -743,24 +742,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   window.addEventListener('scroll', onScroll, { passive: true });
 })();
 
-(function() {
-  // Progressive enhancement: animate cards on scroll if observer available
-  var els = document.querySelectorAll('[data-reveal]');
-  if (!els.length || !('IntersectionObserver' in window)) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var el = entry.target;
-        var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
-        setTimeout(function() {
-          el.style.animation = 'fadeSlideIn 400ms ease forwards';
-        }, delay);
-        observer.unobserve(el);
-      }
-    });
-  }, { threshold: 0.05 });
-  els.forEach(function(el) { observer.observe(el); });
-})();
+
 
 function runIndexScan() {
   var q1 = document.getElementById('sq1').value.trim();
@@ -799,3 +781,4 @@ function runIndexScan() {
   document.getElementById('scan-result-content').style.display = 'block';
   document.getElementById('scan-placeholder').style.display = 'none';
   do
+    
