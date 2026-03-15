@@ -126,7 +126,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .bridge-row-arrow-icon { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: rgba(90,176,255,0.55); line-height: 1; user-select: none; position: relative; z-index: 1; background: var(--bg); padding: 4px 2px; }
 @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .pain-item, .gain-item { display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease; height: auto; }
-.pain-item[data-reveal], .gain-item[data-reveal] { opacity: 0; }
 .pain-item.is-visible, .gain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
 .pain-item { border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01); margin-right: 8px; }
 .pain-item:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
@@ -753,10 +752,13 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     els.forEach(function(el) { el.classList.add('is-visible'); });
     return;
   }
+  // Hide immediately via JS so CSS doesn't cause flash
+  els.forEach(function(el) { el.style.opacity = '0'; });
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         var el = entry.target;
+        el.style.opacity = '';
         var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
         setTimeout(function() { el.classList.add('is-visible'); }, delay);
         observer.unobserve(el);
@@ -764,10 +766,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     });
   }, { threshold: 0.05 });
   els.forEach(function(el) { observer.observe(el); });
-  // Fallback: if any cards still hidden after 1.5s, show them
+  // Fallback: show all after 1.5s
   setTimeout(function() {
     els.forEach(function(el) {
       if (!el.classList.contains('is-visible')) {
+        el.style.opacity = '';
         el.classList.add('is-visible');
       }
     });
