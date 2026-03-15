@@ -125,9 +125,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .bridge-row-arrow::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; background: linear-gradient(180deg, transparent 0%, rgba(90,176,255,0.2) 30%, rgba(90,176,255,0.2) 70%, transparent 100%); }
 .bridge-row-arrow-icon { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: rgba(90,176,255,0.55); line-height: 1; user-select: none; position: relative; z-index: 1; background: var(--bg); padding: 4px 2px; }
 @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-.pain-item, .gain-item { display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; transition: border-color 160ms ease, transform 180ms ease, background 160ms ease, box-shadow 160ms ease; opacity: 0; height: 100%; }
-.pain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
-.gain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
+.pain-item, .gain-item { display: flex; gap: 12px; padding: 14px 16px; border-radius: 14px; transition: border-color 160ms ease, transform 180ms ease, background 160ms ease, box-shadow 160ms ease; opacity: 1; height: 100%; }
+.pain-item.is-visible, .gain-item.is-visible { animation: fadeSlideIn 400ms ease forwards; }
 .pain-item { border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01); margin-right: 8px; }
 .pain-item:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
 .gain-item { border: 1px solid rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset; margin-left: 8px; }
@@ -746,10 +745,15 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 })();
 
 (function() {
+  var els = document.querySelectorAll('[data-reveal]');
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('[data-reveal]').forEach(function(el) { el.style.opacity = '1'; });
+    els.forEach(function(el) { el.style.opacity = '1'; });
     return;
   }
+  // Fallback: show all after 800ms regardless
+  var fallback = setTimeout(function() {
+    els.forEach(function(el) { el.style.opacity = '1'; el.style.transform = 'none'; });
+  }, 800);
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -759,8 +763,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         observer.unobserve(el);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('[data-reveal]').forEach(function(el) { observer.observe(el); });
+  }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+  els.forEach(function(el) { observer.observe(el); });
 })();
 
 function runIndexScan() {
