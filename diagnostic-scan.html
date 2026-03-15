@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnostic Scan — Jamie Forrester</title>
+  <meta name="description" content="A four-question structural read for any system where the same failure keeps returning under growth." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+      --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+      line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
+    .muted-link { color: var(--text-dim); border-bottom-color: transparent; }
+    .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* Nav */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+
+    /* Header */
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
+    .avatar-link:hover { background: transparent; transform: translateY(-1px); }
+    .avatar { width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; cursor: pointer; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); box-shadow: 0 0 0 1px rgba(90,176,255,0.12), 0 8px 24px rgba(0,0,0,0.22); }
+    .btn-current { border-color: rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); color: var(--text-dim); cursor: default; pointer-events: none; }
+    .btn-large { padding: 13px 22px; font-size: 12px; border-radius: 12px; letter-spacing: 0.1em; padding-bottom: 13px; }
+    .btn-full { width: 100%; justify-content: center; }
+    .ico { display: inline-flex; align-items: center; justify-content: center; }
+    .ico svg { display: block; }
+
+    /* Type */
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
+    .section-divider { margin: 0 0 32px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Page hero */
+    .page-hero { max-width: 760px; margin: 0 auto 64px; text-align: center; }
+    .page-hero-title { margin: 0 0 20px; font-size: clamp(2.2rem, 1.8rem + 1.4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
+    .page-hero-title em { font-style: normal; color: var(--cta-blue); }
+    .page-hero-sub { margin: 0 0 16px; color: #d4d9e0; font-size: clamp(1rem, 0.95rem + 0.18vw, 1.1rem); line-height: 1.72; max-width: 58ch; margin-left: auto; margin-right: auto; }
+    .page-hero-note { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--text-faint); }
+
+    /* How it works strip */
+    .how-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 56px; }
+    .how-step { padding: 18px 20px; border: 1px solid rgba(90,176,255,0.12); border-radius: 14px; background: rgba(90,176,255,0.025); position: relative; overflow: hidden; }
+    .how-step:nth-child(1) { border-left: 2px solid rgba(90,176,255,0.2); }
+    .how-step:nth-child(2) { border-left: 2px solid rgba(90,176,255,0.5); }
+    .how-step:nth-child(3) { border-left: 2px solid rgba(90,176,255,0.9); }
+    .how-step-num { position: absolute; top: -4px; right: 10px; font-family: "IBM Plex Mono", monospace; font-size: 40px; font-weight: 700; color: rgba(90,176,255,0.04); line-height: 1; user-select: none; }
+    .how-step-badge { display: inline-flex; align-items: center; margin-bottom: 10px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; }
+    .how-step strong { display: block; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 5px; letter-spacing: -0.01em; }
+    .how-step p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    /* Scan layout */
+    .scan-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+
+    /* Questions panel */
+    .questions-panel { display: flex; flex-direction: column; gap: 0; }
+    .scan-q { padding: 22px 24px; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; background: linear-gradient(160deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); margin-bottom: 12px; transition: border-color 160ms ease, background 160ms ease; }
+    .scan-q:focus-within { border-color: rgba(90,176,255,0.3); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
+    .scan-q-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .scan-q-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 8px; line-height: 1; text-transform: uppercase; flex: 0 0 auto; }
+    .scan-q-title { font-size: 14px; font-weight: 600; color: #e8ecf0; letter-spacing: -0.01em; }
+    .scan-q-hint { margin: 0 0 10px; font-size: 12px; color: var(--text-faint); line-height: 1.55; }
+    textarea.scan-input { width: 100%; font-family: "IBM Plex Sans", sans-serif; font-size: 13px; color: var(--text-main); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; resize: vertical; min-height: 72px; line-height: 1.6; box-sizing: border-box; transition: border-color 140ms ease, background 140ms ease; }
+    textarea.scan-input:focus { outline: none; border-color: rgba(90,176,255,0.4); background: rgba(90,176,255,0.03); }
+    textarea.scan-input::placeholder { color: var(--text-faint); font-style: italic; }
+    .scan-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .scan-empty-msg { display: none; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(220,80,80,0.8); letter-spacing: 0.06em; margin: 0 0 10px; }
+    .scan-empty-msg.visible { display: block; }
+
+    /* Result panel */
+    .result-panel { position: sticky; top: 80px; }
+    .result-inner { border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; background: linear-gradient(160deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); overflow: hidden; transition: border-color 300ms ease; }
+    .result-inner.has-result { border-color: rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.015) 50%, rgba(255,255,255,0.006) 100%); }
+    .result-header { padding: 18px 22px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.014); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .result-inner.has-result .result-header { border-bottom-color: rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); }
+    .result-header-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); }
+    .result-inner.has-result .result-header-label { color: var(--label-blue); }
+    .result-status { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); color: var(--text-faint); background: rgba(255,255,255,0.02); }
+    .result-inner.has-result .result-status { color: var(--cta-blue); border-color: rgba(90,176,255,0.28); background: rgba(90,176,255,0.1); }
+    .result-body { padding: 22px; }
+    .result-placeholder { display: flex; flex-direction: column; gap: 12px; padding: 8px 0; }
+    .result-placeholder-line { height: 10px; border-radius: 6px; background: rgba(255,255,255,0.04); }
+    .result-placeholder-line:nth-child(1) { width: 45%; }
+    .result-placeholder-line:nth-child(2) { width: 80%; }
+    .result-placeholder-line:nth-child(3) { width: 65%; }
+    .result-placeholder-line:nth-child(4) { width: 75%; }
+    .result-placeholder-line:nth-child(5) { width: 50%; }
+    .result-placeholder-text { margin: 16px 0 0; font-size: 13px; color: var(--text-faint); line-height: 1.65; font-style: italic; text-align: center; }
+    .result-rows { display: grid; gap: 0; margin-bottom: 18px; }
+    .result-row { display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .result-row:last-child { border-bottom: none; }
+    .result-k { font-family: "IBM Plex Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); line-height: 1.6; }
+    .result-v { font-size: 13px; color: #ccd1da; line-height: 1.55; }
+    .result-signal { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.18); border-radius: 13px; background: rgba(90,176,255,0.04); margin-bottom: 18px; }
+    .result-signal-bar { width: 3px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .result-signal-body { flex: 1; min-width: 0; }
+    .result-signal-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 6px; }
+    .result-signal-text { margin: 0; font-size: 13px; color: #c8ced8; line-height: 1.65; }
+    .result-signal-text strong { color: #e4e8ee; font-weight: 600; }
+    .result-cta-block { padding: 18px 20px; border-top: 1px solid rgba(90,176,255,0.1); background: rgba(90,176,255,0.025); }
+    .result-cta-text { margin: 0 0 14px; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+    .result-cta-text strong { color: #e8ecf0; font-weight: 600; }
+
+    /* What happens next */
+    .next-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 56px; }
+    .next-card { padding: 20px; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, transform 160ms ease; }
+    .next-card:hover { border-color: rgba(90,176,255,0.18); transform: translateY(-1px); }
+    .next-card-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 10px; }
+    .next-card h3 { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+    .next-card p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
+
+    @media (max-width: 920px) {
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links { gap: 2px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+      .page-hero { margin-bottom: 40px; }
+      .how-strip, .scan-layout, .next-strip { grid-template-columns: 1fr; }
+      .result-panel { position: static; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html">How It Works</a>
+        <a href="./research.html">Research</a>
+        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <header>
+      <div class="h-left">
+        <a class="avatar-link" href="./index.html" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Diagnostic Scan — structural read for any failing system</div>
+        </div>
+      </div>
+      <div class="top-cta" aria-label="Primary links">
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          EMAIL
+        </a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Page hero -->
+      <div class="page-hero">
+        <span class="eyebrow">Diagnostic Scan</span>
+        <h2 class="page-hero-title">Read the structure of <em>any</em> failing system.</h2>
+        <p class="page-hero-sub">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this on any system where the same failure keeps returning under growth.</p>
+        <p class="page-hero-note">This is not a quiz. There are no scores. It is a structured method for locating where a system is actually breaking.</p>
+      </div>
+
+      <!-- How it works -->
+      <div class="how-strip" aria-label="How the scan works">
+        <div class="how-step">
+          <span class="how-step-num" aria-hidden="true">01</span>
+          <span class="how-step-badge">Step 01</span>
+          <strong>Answer four questions</strong>
+          <p>Purpose, repeated action, rules, failure. Write what is actually happening — not what the system is supposed to do.</p>
+        </div>
+        <div class="how-step">
+          <span class="how-step-num" aria-hidden="true">02</span>
+          <span class="how-step-badge">Step 02</span>
+          <strong>Generate your structural read</strong>
+          <p>The scan identifies where the rule violation is likely sitting and what to examine first before making any changes.</p>
+        </div>
+        <div class="how-step">
+          <span class="how-step-num" aria-hidden="true">03</span>
+          <span class="how-step-badge">Step 03</span>
+          <strong>Email it as your brief</strong>
+          <p>If the pattern points to a structural problem, your four answers are already the five-line brief. Send them directly.</p>
+        </div>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-label">the scan</span></div>
+
+      <!-- Scan tool -->
+      <div class="scan-layout">
+
+        <!-- Questions -->
+        <div class="questions-panel" id="questions-panel">
+
+          <div class="scan-q">
+            <div class="scan-q-head">
+              <span class="scan-q-num">01</span>
+              <span class="scan-q-title">Purpose</span>
+            </div>
+            <p class="scan-q-hint">What is this system supposed to do? What does it exist to deliver — not what it claims, what it actually does?</p>
+            <textarea class="scan-input" id="sq1" placeholder="e.g. Match freelance writers to content briefs and ensure consistent delivery quality"></textarea>
+          </div>
+
+          <div class="scan-q">
+            <div class="scan-q-head">
+              <span class="scan-q-num">02</span>
+              <span class="scan-q-title">Repeated action</span>
+            </div>
+            <p class="scan-q-hint">What is the one action this system performs over and over at its core? The primitive — the smallest unit of real work.</p>
+            <textarea class="scan-input" id="sq2" placeholder="e.g. Assign a brief to a writer, collect the output, and pass it to the client"></textarea>
+          </div>
+
+          <div class="scan-q">
+            <div class="scan-q-head">
+              <span class="scan-q-num">03</span>
+              <span class="scan-q-title">Rules</span>
+            </div>
+            <p class="scan-q-hint">What rules govern that action? What must always be true for the system to work? State the rules as they exist in practice, not in policy.</p>
+            <textarea class="scan-input" id="sq3" placeholder="e.g. Writers must be matched to briefs within their domain of expertise; output must pass quality review before client delivery"></textarea>
+          </div>
+
+          <div class="scan-q" style="margin-bottom:16px;">
+            <div class="scan-q-head">
+              <span class="scan-q-num">04</span>
+              <span class="scan-q-title">Failure</span>
+            </div>
+            <p class="scan-q-hint">Where does the system keep breaking? What rule is being violated — and where in the system does that violation actually live?</p>
+            <textarea class="scan-input" id="sq4" placeholder="e.g. Writers are selected by availability rather than expertise. The matching rule exists in the brief but is not enforced at the assignment stage"></textarea>
+          </div>
+
+          <span class="scan-empty-msg" id="scan-empty">Answer at least one question to generate a read.</span>
+          <div class="scan-actions">
+            <button class="btn btn-primary btn-large" onclick="runScan()">GENERATE STRUCTURAL READ</button>
+            <button class="btn" onclick="clearScan()">CLEAR</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="result-panel">
+          <div class="result-inner" id="result-inner">
+            <div class="result-header">
+              <span class="result-header-label">Structural read</span>
+              <span class="result-status" id="result-status">Waiting for input</span>
+            </div>
+            <div class="result-body" id="result-body">
+              <div class="result-placeholder" id="result-placeholder">
+                <div class="result-placeholder-line"></div>
+                <div class="result-placeholder-line"></div>
+                <div class="result-placeholder-line"></div>
+                <div class="result-placeholder-line"></div>
+                <div class="result-placeholder-line"></div>
+                <p class="result-placeholder-text">Your read will appear here once you answer the questions and generate.</p>
+              </div>
+              <div id="result-content" style="display:none;"></div>
+            </div>
+            <div id="result-cta-block" style="display:none;" class="result-cta-block">
+              <p class="result-cta-text"><strong>If this pattern points to a structural problem,</strong> email these four answers as your brief and I'll tell you whether it's a diagnostic fit.</p>
+              <a class="btn btn-primary btn-full btn-large" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Scan%20%E2%80%94%20Brief" id="email-btn">
+                <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                EMAIL FIVE-LINE BRIEF
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- What happens next -->
+      <div class="section-divider" style="margin-top:56px;"><span class="section-divider-label">what happens next</span></div>
+
+      <div class="next-strip" aria-label="What happens after the scan">
+        <div class="next-card">
+          <span class="next-card-kicker">If the scan reveals a pattern</span>
+          <h3>Email the four answers as your brief</h3>
+          <p>Your answers already contain the five-line brief. Copy them into an email and send. I'll assess fit and tell you whether this is a diagnostic engagement or something else.</p>
+        </div>
+        <div class="next-card">
+          <span class="next-card-kicker">If you need a full structural read</span>
+          <h3>Request a Diagnostic Artifact</h3>
+          <p>The scan surfaces the pattern. The Diagnostic Artifact locates the failure precisely — topology, invariants, enforcement map, build map — in a document your team can act against.</p>
+          <div style="margin-top:12px;"><a class="link-blue" href="./services.html">View services →</a></div>
+        </div>
+        <div class="next-card">
+          <span class="next-card-kicker">If the pattern is already visible</span>
+          <h3>Go straight to Redesign</h3>
+          <p>If you already know what's breaking but don't have a transition path, the Redesign Artifact defines what changes first, what stays fixed, and how regression is blocked.</p>
+          <div style="margin-top:12px;"><a class="link-blue" href="./how-it-works.html">How it works →</a></div>
+        </div>
+      </div>
+
+    </main>
+
+    <div style="display:flex; justify-content:center; padding: 32px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
+    .site-footer__top { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft); }
+    .site-footer__eyebrow, .site-footer__heading { margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); font-weight: 600; }
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a { font-size: 13px; line-height: 1.6; color: var(--text-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 140ms ease, border-color 140ms ease; }
+    .site-footer__email { color: var(--label-blue); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
+    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
+  </style>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    (function() {
+      var nav = document.querySelector('.site-nav');
+      var header = document.querySelector('header');
+      function onScroll() {
+        if (header.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
+        else { nav.classList.remove('nav-visible'); }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    function runScan() {
+      var q1 = document.getElementById('sq1').value.trim();
+      var q2 = document.getElementById('sq2').value.trim();
+      var q3 = document.getElementById('sq3').value.trim();
+      var q4 = document.getElementById('sq4').value.trim();
+      var filled = [q1,q2,q3,q4].filter(function(v){ return v.length > 0; });
+
+      if (filled.length === 0) {
+        document.getElementById('scan-empty').classList.add('visible');
+        return;
+      }
+      document.getElementById('scan-empty').classList.remove('visible');
+
+      var labels = ['Purpose','Repeated action','Rules','Failure'];
+      var vals = [q1,q2,q3,q4];
+      var rows = '';
+      for (var i = 0; i < 4; i++) {
+        if (vals[i]) {
+          rows += '<div class="result-row"><span class="result-k">'+labels[i]+'</span><span class="result-v">'+vals[i]+'</span></div>';
+        }
+      }
+
+      var signalKicker = 'Structural signal';
+      var signalText = '';
+      if (q4 && q3) {
+        signalKicker = 'Rule violation located';
+        signalText = 'The failure is naming a specific rule violation. The next question is whether that rule exists in written policy, in actual practice, or not at all. <strong>The gap between those three states is where the structural problem lives.</strong> Locate which enforcement point is missing before considering any change.';
+      } else if (q4 && q1) {
+        signalKicker = 'Purpose-failure gap visible';
+        signalText = '<strong>The stated purpose and the described failure are now in tension.</strong> The next question is: what rule should have prevented this failure — and where does responsibility for enforcing it actually sit? That gap is the structural entry point.';
+      } else if (q4) {
+        signalKicker = 'Failure point identified';
+        signalText = 'You have named a failure point. <strong>The diagnostic question is: what rule should have prevented this, and where does enforcement of that rule actually live?</strong> If the rule exists but is not enforced at the point of action, that is the structural gap.';
+      } else if (q3 && q2) {
+        signalKicker = 'Rule-action alignment check';
+        signalText = 'You have the repeated action and the rules that govern it. <strong>The diagnostic question is whether those rules are enforced at the point where the action occurs — or only stated in policy and violated in practice.</strong> Locate the enforcement point before looking for a failure.';
+      } else if (q3) {
+        signalKicker = 'Rules identified';
+        signalText = 'You have stated the governing rules. The scan is most useful once the failure is also named. <strong>Add what keeps breaking — the gap between the stated rule and operating reality is where the structural problem will be found.</strong>';
+      } else if (q2 && q1) {
+        signalKicker = 'Primitive identified';
+        signalText = 'Purpose and repeated action are in view. <strong>The scan becomes diagnostic once the rules governing that action are named — and where they are breaking.</strong> Add those to locate the structural problem.';
+      } else {
+        signalKicker = 'Starting point noted';
+        signalText = 'The failure pattern is almost always the clearest entry point. <strong>Add what keeps breaking to make the scan diagnostic.</strong> The gap between stated purpose and actual failure is where the structural problem is most likely to be found.';
+      }
+
+      var html = '<div class="result-rows">' + rows + '</div>'
+        + '<div class="result-signal"><div class="result-signal-bar"></div><div class="result-signal-body"><span class="result-signal-kicker">'+signalKicker+'</span><p class="result-signal-text">'+signalText+'</p></div></div>';
+
+      document.getElementById('result-placeholder').style.display = 'none';
+      document.getElementById('result-content').innerHTML = html;
+      document.getElementById('result-content').style.display = 'block';
+      document.getElementById('result-inner').classList.add('has-result');
+      document.getElementById('result-status').textContent = 'Read generated';
+      document.getElementById('result-cta-block').style.display = 'block';
+
+      // Build mailto with answers
+      var body = 'The Pattern: ' + (q4 || '—') + '\n\nThe Stake: \n\nThe Interfaces: \n\nConcentration: \n\nConstraints: \n\n---\nFull scan answers:\nPurpose: ' + (q1 || '—') + '\nRepeated action: ' + (q2 || '—') + '\nRules: ' + (q3 || '—') + '\nFailure: ' + (q4 || '—');
+      document.getElementById('email-btn').href = 'mailto:hello@jamieforrester.com?subject=Diagnostic%20Scan%20%E2%80%94%20Brief&body=' + encodeURIComponent(body);
+
+      // Scroll result into view on mobile
+      if (window.innerWidth < 921) {
+        document.getElementById('result-inner').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function clearScan() {
+      ['sq1','sq2','sq3','sq4'].forEach(function(id){ document.getElementById(id).value = ''; });
+      document.getElementById('result-placeholder').style.display = 'flex';
+      document.getElementById('result-content').style.display = 'none';
+      document.getElementById('result-content').innerHTML = '';
+      document.getElementById('result-inner').classList.remove('has-result');
+      document.getElementById('result-status').textContent = 'Waiting for input';
+      document.getElementById('result-cta-block').style.display = 'none';
+      document.getElementById('scan-empty').classList.remove('visible');
+    }
+  </script>
+</body>
+</html>
