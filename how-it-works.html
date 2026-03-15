@@ -6,55 +6,34 @@
   <title>How It Works — Jamie Forrester</title>
   <meta name="description" content="How diagnostic and redesign engagements work, from first email to written delivery." />
   <link rel="icon" href="/favicon.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --bg: #0b0b0c;
-      --panel: #101114;
-      --panel-soft: #0d0e11;
-      --text-main: #f1f3f5;
-      --text-dim: #c6ccd4;
-      --text-faint: #8c94a2;
-      --border: #232731;
-      --border-soft: rgba(255,255,255,0.06);
-      --accent: #343a46;
-      --label-blue: #4aa3ff;
-      --cta-blue: #5ab0ff;
-      --focus-ring: rgba(255,255,255,0.95);
-      --focus-bg: rgba(255,255,255,0.08);
-      --radius-sm: 10px;
-      --radius-md: 14px;
-      --radius-lg: 18px;
-      --radius-xl: 22px;
+      --bg: #0b0b0c; --panel: #101114; --panel-soft: #0d0e11;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-sm: 10px; --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.28);
       --shadow-hover: 0 0 0 1px rgba(90,176,255,0.14), 0 18px 48px rgba(0,0,0,0.32);
       --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
     }
-
     *, *::before, *::after { box-sizing: border-box; }
     html { color-scheme: dark; scroll-behavior: smooth; }
-
     body {
-      margin: 0;
-      background: var(--bg);
+      margin: 0; background: var(--bg);
       background-image:
         radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%),
         radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%);
       color: var(--text-main);
       font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-      line-height: 1.65;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      font-feature-settings: "ss01" 1, "cv05" 1;
+      line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility; font-feature-settings: "ss01" 1, "cv05" 1;
     }
-
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 56px; }
-
     .skip-link {
       position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px;
       border: 1px solid var(--accent); background: var(--panel); color: #fff;
@@ -62,7 +41,6 @@
       text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px;
     }
     .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
-
     a {
       color: #fff; text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px;
@@ -74,86 +52,36 @@
     .muted-link:hover { border-bottom-color: rgba(255,255,255,0.45); }
     .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
     .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
-
-    /* ── Sticky nav ── */
     .site-nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       background: rgba(11,11,12,0.88);
-      backdrop-filter: blur(18px) saturate(180%);
-      -webkit-backdrop-filter: blur(18px) saturate(180%);
-      border-bottom: 1px solid var(--border-soft);
-      padding: 0 24px;
-      transform: translateY(-100%);
-      transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease;
-      opacity: 0;
+      backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid var(--border-soft); padding: 0 24px;
+      transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0;
     }
     .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
-    .site-nav-inner {
-      max-width: 1120px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; height: 56px;
-    }
-    .site-nav-brand {
-      display: flex; align-items: center; gap: 12px; min-width: 0;
-      border-bottom: none; padding-bottom: 0; overflow: hidden;
-    }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
     .site-nav-brand:hover { background: transparent; }
-    .nav-avatar {
-      width: 30px; height: 30px; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      object-fit: cover; filter: grayscale(100%); flex: 0 0 auto;
-    }
-    .site-nav-name {
-      font-family: "IBM Plex Mono", monospace; font-size: 11px;
-      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: #fff; white-space: nowrap;
-    }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .site-nav-links { display: flex; align-items: center; gap: 4px; }
-    .site-nav-links a {
-      font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
-      border-bottom: none; padding: 6px 10px; border-radius: 7px;
-      transition: color 140ms ease, background 140ms ease;
-    }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
     .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
-    .site-nav-links .nav-cta {
-      color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
-      background: rgba(90,176,255,0.08); margin-left: 6px;
-    }
+    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
     .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
-
-    /* ── Header ── */
-    header {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 20px; padding: 40px 0 24px;
-      border-bottom: 1px solid var(--border-soft); margin-bottom: 32px;
-    }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 32px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
-    .avatar {
-      width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
-      object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto;
-      box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3);
-      transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease;
-    }
+    .avatar { width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
     .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
     .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
-
-    /* ── Buttons ── */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent);
-      background: rgba(255,255,255,0.018); color: #fff;
-      font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
-      text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em;
-      white-space: nowrap; border-bottom: none; padding-bottom: 9px;
-      transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
     .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
     .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
     .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
@@ -161,8 +89,6 @@
     .btn-current { border-color: rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); color: var(--text-dim); cursor: default; pointer-events: none; }
     .ico { display: inline-flex; align-items: center; justify-content: center; }
     .ico svg { display: block; }
-
-    /* ── Type atoms ── */
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
@@ -170,20 +96,10 @@
     .arrow-chain { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--text-faint); line-height: 1.7; text-align: right; }
     .arrow-chain span { display: block; transition: color 160ms ease; }
     .arrow-chain span:hover { color: var(--cta-blue); }
-
-    /* ── Section divider ── */
     .section-divider { margin: 0 0 24px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
-
-    /* ── Hero strip ── */
-    .hero-strip {
-      display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0;
-      border: 1px solid var(--border); border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      margin-bottom: 32px; overflow: hidden; box-shadow: var(--shadow-card);
-      transition: border-color 200ms ease, box-shadow 200ms ease;
-    }
+    .hero-strip { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.04) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); margin-bottom: 32px; overflow: hidden; box-shadow: var(--shadow-card); transition: border-color 200ms ease, box-shadow 200ms ease; }
     .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
     .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
     .hero-right { padding: 36px 28px; background: rgba(255,255,255,0.012); display: flex; flex-direction: column; justify-content: center; }
@@ -192,8 +108,6 @@
     .hero-sub strong { color: #fff; font-weight: 600; }
     .hero-rule { margin: 20px 0; border: none; border-top: 1px solid var(--border-soft); }
     .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 22px; }
-
-    /* Process summary panel */
     .process-summary { display: flex; flex-direction: column; gap: 8px; }
     .process-summary-head { padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--border-soft); }
     .process-summary-label { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 4px; }
@@ -203,37 +117,26 @@
     .summary-step-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); display: block; margin-bottom: 3px; }
     .summary-step strong { display: block; font-size: 12px; color: #fff; font-weight: 600; margin-bottom: 3px; letter-spacing: -0.01em; }
     .summary-step span { font-size: 11px; color: var(--text-dim); line-height: 1.5; display: block; }
-
-    /* ── Cards ── */
-    .card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%);
-      border: 1px solid var(--border); border-radius: var(--radius-xl);
-      padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 20px;
-      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-    }
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 20px; transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
     .card:hover { border-color: rgba(255,255,255,0.13); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 16px 42px rgba(0,0,0,0.3); transform: translateY(-1px); }
     .card:last-child { margin-bottom: 0; }
     .card-accent { border-color: rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.065) 0%, rgba(90,176,255,0.018) 40%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), inset 0 0 0 1px rgba(90,176,255,0.06), 0 12px 36px rgba(0,0,0,0.28); }
     .card-accent:hover { border-color: rgba(90,176,255,0.34); box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(90,176,255,0.1), 0 18px 48px rgba(0,0,0,0.32); transform: translateY(-2px); }
     .card-full { border-color: rgba(90,176,255,0.16); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 30px rgba(0,0,0,0.24); }
     .card-full:hover { border-color: rgba(90,176,255,0.26); box-shadow: var(--shadow-hover); transform: translateY(-1px); }
-
     .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
     .section-title { margin: 0 0 16px; font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); font-weight: 700; line-height: 1.22; letter-spacing: -0.03em; color: #fff; }
     p { margin: 0 0 14px; color: var(--text-dim); }
     p:last-child { margin-bottom: 0; }
     .lead { color: #cdd2da; font-size: 15px; line-height: 1.72; margin-bottom: 18px; }
     .lead strong { color: #fff; }
-
     .meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px; }
     .meta-chip { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
-
     .three-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .two-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .mini { padding: 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
     .mini h3 { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
     .mini p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
-
     .phase-list { display: grid; gap: 10px; }
     .phase { padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); transition: border-color 160ms ease, transform 160ms ease; }
     .phase:hover { border-color: rgba(90,176,255,0.2); transform: translateX(3px); }
@@ -241,7 +144,6 @@
     .phase-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--label-blue); text-transform: uppercase; min-width: 24px; flex: 0 0 auto; }
     .phase-title { font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.02em; }
     .phase p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; padding-left: 36px; }
-
     .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .route-card { padding: 20px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.018) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
     .route-card:hover { border-color: rgba(90,176,255,0.32); transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.2); }
@@ -250,23 +152,55 @@
     .route-decision { margin-top: 14px; padding: 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.014); }
     .route-decision h3 { margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #fff; }
     .route-decision p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.62; }
-
     ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
     ul.clean li { padding-left: 16px; position: relative; color: #ccd1da; font-size: 13px; line-height: 1.62; }
     ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--text-faint); }
     ul.clean li strong { color: #e8ecf0; }
-
     .section-block { margin-top: 18px; }
     .section-head { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-
-    .signal-box { padding: 16px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.03); margin-top: 16px; }
+    /* Canonical signal box */
+    .signal-box { padding: 20px 22px; border: 1px solid rgba(90,176,255,0.15); border-radius: 14px; background: rgba(90,176,255,0.025); margin-top: 16px; }
+    .signal-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+    .signal-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .signal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .signal-item:first-child { padding-top: 0; }
+    .signal-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.45); letter-spacing: 0.08em; line-height: 1.8; }
+    .signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; }
+    .signal-item span { color: var(--text-faint); font-size: 13px; }
     .callout { margin-top: 14px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
     .callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
     .callout p strong { color: #e8ecf0; }
+    /* ── Route decision (section 03) ── */
+    .route-decision { margin-top: 14px; display: flex; gap: 14px; align-items: stretch; padding: 18px 20px; border: 1px solid rgba(90,176,255,0.22); border-radius: 14px; background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .route-decision-bar { width: 3px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .route-decision-body { flex: 1; min-width: 0; }
+    .route-decision-body p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+
+    /* ── Input panels (section 04) ── */
+    .input-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .input-panel { padding: 20px; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.03); }
+    .input-panel-accent { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .input-panel-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .input-panel-bar { width: 3px; height: 16px; border-radius: 2px; flex: 0 0 auto; background: rgba(255,255,255,0.15); }
+    .input-panel-bar-blue { background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.3) 100%); }
+    .input-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+    .input-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .input-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .input-item:first-child { padding-top: 0; }
+    .input-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; line-height: 1.8; }
+    .input-num-blue { color: rgba(90,176,255,0.55); font-size: 13px; }
+    .provide-callout { display: flex; gap: 14px; align-items: stretch; margin-top: 16px; padding: 16px 18px; border: 1px solid rgba(90,176,255,0.15); border-radius: 12px; background: rgba(90,176,255,0.025); }
+    .provide-callout-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.6) 0%, rgba(90,176,255,0.15) 100%); }
+    .provide-callout p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+
+    /* ── Mini accent (section 06) ── */
+    .mini-accent-blue { border-color: rgba(90,176,255,0.18) !important; background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.015) 100%) !important; }
+    .mini-accent-blue h3 { color: var(--label-blue); }
+    .mini-insight { display: flex; gap: 10px; align-items: flex-start; }
+    .mini-insight-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; min-height: 100%; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.6) 0%, rgba(90,176,255,0.1) 100%); margin-top: 2px; }
+    .mini-insight p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
 
     .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-
-    /* ── Responsive ── */
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
@@ -277,23 +211,20 @@
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
-      .three-grid, .two-grid, .route-grid { grid-template-columns: 1fr; }
+      .three-grid, .two-grid, .route-grid, .input-panels { grid-template-columns: 1fr; }
       .arrow-chain { text-align: left; }
       .label-row { flex-direction: column; align-items: flex-start; }
       .label-note { white-space: normal; }
       .phase p { padding-left: 0; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ── STICKY NAV ── -->
   <nav class="site-nav" aria-label="Site navigation">
     <div class="site-nav-inner">
       <a href="./index.html" class="site-nav-brand">
@@ -311,7 +242,6 @@
 
   <div class="wrap">
 
-    <!-- ── HEADER ── -->
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -323,24 +253,17 @@
           <div class="h-pill">A fixed process from failure pattern to decision-ready document</div>
         </div>
       </div>
-
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
         <span class="btn btn-current" aria-current="page">HOW IT WORKS</span>
         <a class="btn" href="./research.html">RESEARCH</a>
         <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">
-          <span class="ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
-              <path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           EMAIL
         </a>
       </div>
     </header>
 
-    <!-- ── HERO ── -->
     <section class="hero-strip" aria-label="How it works overview">
       <div class="hero-left">
         <div class="eyebrow">How it works</div>
@@ -350,9 +273,8 @@
         <hr class="hero-rule" />
         <p class="hero-sub" style="margin-bottom:0;">You send a <strong>Five-Line Brief</strong>. I determine whether the work begins with <strong>Diagnosis</strong> or moves directly to <strong>Redesign</strong>. If the fit is correct, I return one structured written artifact for decision owners and builders.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
-          <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
       </div>
       <div class="hero-right">
@@ -390,7 +312,6 @@
       </div>
     </section>
 
-    <!-- ── MAIN ── -->
     <main id="main" role="main">
 
       <div class="section-divider"><span class="section-divider-label">working protocol</span></div>
@@ -455,7 +376,7 @@
           </div>
         </div>
         <div class="cta-bar">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL</a>
+          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </section>
@@ -482,8 +403,11 @@
           </div>
         </div>
         <div class="route-decision">
-          <h3>If the correct route is unclear</h3>
-          <p>The fit assessment resolves this. If you are unsure whether you need Diagnosis or Redesign, send the Five-Line Brief and I will determine the correct entry point. You do not need to know before you send.</p>
+          <div class="route-decision-bar"></div>
+          <div class="route-decision-body">
+            <span class="mini-kicker" style="margin-bottom:6px;">If the correct route is unclear</span>
+            <p>The fit assessment resolves this. If you are unsure whether you need Diagnosis or Redesign, send the Five-Line Brief and I will determine the correct entry point. <strong style="color:#e8ecf0;">You do not need to know before you send.</strong></p>
+          </div>
         </div>
       </section>
 
@@ -496,33 +420,63 @@
         </div>
         <h2 class="section-title">Useful signal, not polished presentation.</h2>
         <p class="lead" style="margin-bottom:20px;">You do not need a perfect brief or a well-organised document pack. Most clients arrive with messy, partial, or contradictory materials — that is normal. What matters is that the materials reflect what is actually happening, not what the official narrative says.</p>
-        <div class="two-grid">
-          <div>
-            <div class="section-block" style="margin-top:0;">
-              <h3 class="section-head">What to send</h3>
-              <ul class="clean">
-                <li>A completed Five-Line Brief</li>
-                <li>Diagrams, policies, workflows, notes, contracts, or screenshots</li>
-                <li>Post-mortems, incident reports, or internal documents that show what actually happened</li>
-                <li>A clear statement of known constraints: technical, legal, budgetary, or operational</li>
-                <li>Timely written responses if clarifying questions are required</li>
-              </ul>
+        <div class="input-panels">
+          <div class="input-panel">
+            <div class="input-panel-header">
+              <div class="input-panel-bar"></div>
+              <span class="mini-kicker" style="margin:0;">What to send</span>
             </div>
+            <ul class="input-list">
+              <li class="input-item">
+                <span class="input-num">01</span>
+                <span>A completed Five-Line Brief</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num">02</span>
+                <span>Diagrams, policies, workflows, notes, contracts, or screenshots</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num">03</span>
+                <span>Post-mortems, incident reports, or internal documents that show what actually happened</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num">04</span>
+                <span>A clear statement of known constraints: technical, legal, budgetary, or operational</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num">05</span>
+                <span>Timely written responses if clarifying questions are required</span>
+              </li>
+            </ul>
           </div>
-          <div>
-            <div class="section-block" style="margin-top:0;">
-              <h3 class="section-head">What matters most</h3>
-              <ul class="clean">
-                <li><strong>Accuracy over polish</strong> — rough materials are fine if they reflect reality</li>
-                <li><strong>Operating reality over official narrative</strong> — what actually happens, not what the policy says</li>
-                <li><strong>Boundary signal over volume</strong> — knowing what cannot change is as useful as knowing what keeps breaking</li>
-                <li><strong>Honest constraints</strong> — hidden constraints discovered mid-engagement create scope problems</li>
-              </ul>
+          <div class="input-panel input-panel-accent">
+            <div class="input-panel-header">
+              <div class="input-panel-bar input-panel-bar-blue"></div>
+              <span class="mini-kicker" style="margin:0;">What matters most</span>
             </div>
+            <ul class="input-list">
+              <li class="input-item">
+                <span class="input-num input-num-blue">→</span>
+                <span><strong style="color:#e8ecf0;">Accuracy over polish</strong> — rough materials are fine if they reflect reality</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num input-num-blue">→</span>
+                <span><strong style="color:#e8ecf0;">Operating reality over official narrative</strong> — what actually happens, not what the policy says</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num input-num-blue">→</span>
+                <span><strong style="color:#e8ecf0;">Boundary signal over volume</strong> — knowing what cannot change is as useful as knowing what keeps breaking</span>
+              </li>
+              <li class="input-item">
+                <span class="input-num input-num-blue">→</span>
+                <span><strong style="color:#e8ecf0;">Honest constraints</strong> — hidden constraints discovered mid-engagement create scope problems</span>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="callout">
-          <p>If you are unsure whether you have enough to send, send what you have. The fit assessment will determine whether there is sufficient signal to proceed.</p>
+        <div class="provide-callout">
+          <div class="provide-callout-bar"></div>
+          <p>If you are unsure whether you have enough to send, <strong style="color:#e8ecf0;">send what you have.</strong> The fit assessment will determine whether there is sufficient signal to proceed.</p>
         </div>
       </section>
 
@@ -571,10 +525,16 @@
               <li>Multiple unrelated failure modes are being combined into one request</li>
             </ul>
           </div>
-          <div class="mini">
-            <h3>What happens then</h3>
-            <p style="margin-bottom:10px;">If it is not a fit, I say so at the fit assessment stage. There is no charge for this. The point of the intake is to determine whether this approach is appropriate.</p>
-            <p>If the problem is structurally interesting but outside the defined scope of these engagements, I may be able to point toward a more appropriate route.</p>
+          <div class="mini mini-accent-blue">
+            <span class="mini-kicker" style="margin-bottom:12px;">What happens then</span>
+            <div class="mini-insight">
+              <div class="mini-insight-bar"></div>
+              <p>If it is not a fit, I say so at the fit assessment stage. <strong style="color:#e8ecf0;">There is no charge for this.</strong> The point of the intake is to determine whether this approach is appropriate.</p>
+            </div>
+            <div class="mini-insight" style="margin-top:10px;">
+              <div class="mini-insight-bar"></div>
+              <p>If the problem is structurally interesting but outside the defined scope of these engagements, I may be able to point toward a more appropriate route.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -602,20 +562,36 @@
             <p>The entry route is always the same. Send a Five-Line Brief, attach anything useful, and I will determine whether there is a fit and where the work should begin.</p>
           </div>
         </div>
+
         <div class="signal-box">
-          <span class="mini-kicker">Submit a Five-Line Brief</span>
-          <ul class="clean">
-            <li><strong>The Pattern</strong>: What keeps breaking?</li>
-            <li><strong>The Stake</strong>: What is the cost?</li>
-            <li><strong>The Interfaces</strong>: Who or what is touching the failure?</li>
-            <li><strong>Concentration</strong>: Where is the heat showing up?</li>
-            <li><strong>Constraints</strong>: What are the non-negotiables?</li>
-          </ul>
+          <span class="mini-kicker">Submit a five-line brief</span>
+          <ol class="signal-list">
+            <li class="signal-item">
+              <span class="signal-num">01</span>
+              <span><strong>The Pattern</strong>: What keeps breaking?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">02</span>
+              <span><strong>The Stake</strong>: What is the cost?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">03</span>
+              <span><strong>The Interfaces</strong>: Who or what is touching the failure?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">04</span>
+              <span><strong>Concentration</strong>: Where is the heat showing up?</span>
+            </li>
+            <li class="signal-item">
+              <span class="signal-num">05</span>
+              <span><strong>Constraints</strong>: What are the non-negotiables?</span>
+            </li>
+          </ol>
         </div>
+
         <div class="cta-bar">
           <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
-          <a class="btn" href="./index.html">BACK TO HOME</a>
         </div>
       </section>
 
@@ -625,7 +601,7 @@
       <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
     </div>
 
-  </div><!-- end .wrap -->
+  </div>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
@@ -685,20 +661,15 @@
 
   <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
-
     (function() {
       var nav = document.querySelector('.site-nav');
       var header = document.querySelector('header');
       function onScroll() {
-        if (header.getBoundingClientRect().bottom <= 0) {
-          nav.classList.add('nav-visible');
-        } else {
-          nav.classList.remove('nav-visible');
-        }
+        if (header.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
+        else { nav.classList.remove('nav-visible'); }
       }
       window.addEventListener('scroll', onScroll, { passive: true });
     })();
   </script>
-
 </body>
 </html>
