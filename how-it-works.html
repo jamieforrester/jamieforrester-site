@@ -69,13 +69,14 @@
     .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
     .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
     .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    .nav-how-short { display: none; }
     .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
     header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 32px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
-    .avatar { width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
     .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
@@ -208,6 +209,8 @@
       .site-nav-links { gap: 2px; }
       .site-nav-links a { padding: 6px 7px; font-size: 9px; }
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+  .nav-how-full { display: none; }
+  .nav-how-short { display: inline; }
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
@@ -233,9 +236,9 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html">How It Works</a>
+        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
         <a href="./research.html">Research</a>
-        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+        <a href="/cdn-cgi/l/email-protection#dcb4b9b0b0b39cb6bdb1b5b9bab3aeaeb9afa8b9aef2bfb3b1" class="nav-cta">Email</a>
       </div>
     </div>
   </nav>
@@ -257,7 +260,7 @@
         <a class="btn" href="./services.html">SERVICES</a>
         <span class="btn btn-current" aria-current="page">HOW IT WORKS</span>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">
+        <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#78101d14141738121915111d1e170a0a1d0b0c1d0a561b1715470b0d1a121d1b0c453c11191f16170b0c111b5d4a482a1d090d1d0b0c5d4b395d4a485d4d3a2b010b0c1d155d4a483619151d5d4d3c">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           EMAIL
         </a>
@@ -273,7 +276,7 @@
         <hr class="hero-rule" />
         <p class="hero-sub" style="margin-bottom:0;">You send a <strong>Five-Line Brief</strong>. I determine whether the work begins with <strong>Diagnosis</strong> or moves directly to <strong>Redesign</strong>. If the fit is correct, I return one structured written artifact for decision owners and builders.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#345c5158585b745e55595d51525b464651474051461a575b590b4741565e51574009705d55535a5b47405d5711060466514541514740110775110604110176674d474051591106047a555951110170">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </div>
@@ -376,7 +379,7 @@
           </div>
         </div>
         <div class="cta-bar">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%3A%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#4b232e2727240b212a26222e2d2439392e383f2e396528242674383e29212e283f760f222a2c2524383f22286e797b192e3a3e2e383f6e780a6e797b6e7e091832383f2e266e797b052a262e6e7e0f">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </section>
@@ -590,8 +593,11 @@
         </div>
 
         <div class="cta-bar">
-          <a class="btn btn-primary" href="mailto:hello@jamieforrester.com?subject=Diagnostic%20Request%20%E2%80%94%20%5BSystem%20Name%5D">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn btn-primary" href="/cdn-cgi/l/email-protection#9bf3fef7f7f4dbf1faf6f2fefdf4e9e9fee8effee9b5f8f4f6a4e8eef9f1fef8efa6dff2fafcf5f4e8eff2f8bea9abc9feeaeefee8efbea9abbedea9bea3abbea2afbea9abbeaed9c8e2e8effef6bea9abd5faf6febeaedf">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
+        </div>
+        <div class="callout">
+          <p>Not ready to send a brief yet? <a class="link-blue" href="./diagnostic-scan.html">Run a Diagnostic Scan</a> — four questions that surface the structural pattern before you commit to an engagement.</p>
         </div>
       </section>
 
@@ -609,14 +615,14 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+          <a class="site-footer__email" href="/cdn-cgi/l/email-protection#c5ada0a9a9aa85afa4a8aca0a3aab7b7a0b6b1a0b7eba6aaa8"><span class="__cf_email__" data-cfemail="adc5c8c1c1c2edc7ccc0c4c8cbc2dfdfc8ded9c8df83cec2c0">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a></li>
             <li><a href="./research.html">Research</a></li>
           </ul>
         </nav>
@@ -656,20 +662,4 @@
     .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
     .site-footer__bottom p { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
     @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
-    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
-  </style>
-
-  <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-    (function() {
-      var nav = document.querySelector('.site-nav');
-      var header = document.querySelector('header');
-      function onScroll() {
-        if (header.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
-        else { nav.classList.remove('nav-visible'); }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
-  </script>
-</body>
-</html>
+    @media (max-width: 640px) { .site-footer__inner { padding: 40p
