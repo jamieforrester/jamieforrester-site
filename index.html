@@ -56,11 +56,12 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
 .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
 .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
 .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
-.site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+.nav-how-short { display: none; }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
 
 header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4,20px); padding: 40px 0 var(--space-5,24px); border-bottom: 1px solid var(--border-soft); margin-bottom: var(--space-6,32px); }
 .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
-.avatar { width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+.avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
 .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
 h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
 .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
@@ -277,6 +278,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .site-nav-links a { padding: 6px 7px; font-size: 9px; }
   .site-nav-brand { min-width: 0; overflow: hidden; }
   .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+  .nav-how-full { display: none; }
+  .nav-how-short { display: inline; }
   .fork-actions { flex-direction: column; }
   .fork-actions .btn { width: 100%; text-align: center; justify-content: center; }
   .hero-strip { grid-template-columns: 1fr; }
@@ -325,7 +328,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     </a>
     <div class="site-nav-links">
       <a href="./services.html">Services</a>
-      <a href="./how-it-works.html">How It Works</a>
+      <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
       <a href="./research.html">Research</a>
       <a href="/cdn-cgi/l/email-protection#cfa7aaa3a3a08fa5aea2a6aaa9a0bdbdaabcbbaabde1aca0a2" class="nav-cta">Email</a>
     </div>
@@ -548,8 +551,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <div class="scan-entry-card">
         <div class="scan-entry-left">
-          <span class="mini-kicker" style="margin-bottom:6px;">// Free diagnostic tool</span>
-          <p class="scan-entry-body">Answer four questions about any system you run or operate inside. The scan surfaces whether the failure you're experiencing is structural — and where to look first.</p>
+          <span class="mini-kicker" style="margin-bottom:6px;">// Self-guided structural scan</span>
+          <p class="scan-entry-body">Answer four questions about any system you run or operate inside. The scan surfaces whether the failure is likely structural, and where to look first.</p>
         </div>
         <a class="btn btn-primary" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
       </div>
@@ -714,35 +717,32 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
 
 (function() {
-  var els = document.querySelectorAll('[data-reveal]');
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
   if (!els.length) return;
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(function(el) { el.classList.add('is-visible'); });
-    return;
-  }
-  // Hide immediately via JS so CSS doesn't cause flash
-  els.forEach(function(el) { el.style.opacity = '0'; });
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var el = entry.target;
-        el.style.opacity = '';
+  els.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = 'opacity 420ms ease, transform 420ms ease';
+  });
+  function check() {
+    var windowBottom = window.scrollY + window.innerHeight;
+    els = els.filter(function(el) {
+      var rect = el.getBoundingClientRect();
+      var elTop = window.scrollY + rect.top;
+      if (windowBottom > elTop + 40) {
         var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
-        setTimeout(function() { el.classList.add('is-visible'); }, delay);
-        observer.unobserve(el);
+        setTimeout(function() {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, delay);
+        return false;
       }
+      return true;
     });
-  }, { threshold: 0.05 });
-  els.forEach(function(el) { observer.observe(el); });
-  // Fallback: show all after 1.5s
-  setTimeout(function() {
-    els.forEach(function(el) {
-      if (!el.classList.contains('is-visible')) {
-        el.style.opacity = '';
-        el.classList.add('is-visible');
-      }
-    });
-  }, 1500);
+    if (!els.length) window.removeEventListener('scroll', check);
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  setTimeout(check, 100);
 })();
 
 function runIndexScan() {
@@ -781,4 +781,17 @@ function runIndexScan() {
   document.getElementById('scan-result-content').innerHTML = html;
   document.getElementById('scan-result-content').style.display = 'block';
   document.getElementById('scan-placeholder').style.display = 'none';
-  do
+  document.getElementById('scan-output-inner').classList.add('has-result');
+}
+
+function clearIndexScan() {
+  ['sq1','sq2','sq3','sq4'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('scan-result-content').style.display = 'none';
+  document.getElementById('scan-result-content').innerHTML = '';
+  document.getElementById('scan-placeholder').style.display = 'block';
+  document.getElementById('scan-output-inner').classList.remove('has-result');
+  document.getElementById('scan-empty').classList.remove('visible');
+}
+</script>
+</body>
+</html>
