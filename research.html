@@ -71,6 +71,7 @@
     .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
     .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
     .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    .nav-how-short { display: none; }
     .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
 
     /* ── Header ── */
@@ -79,7 +80,7 @@
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
-    .avatar { width: 80px; height: 80px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
     .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
@@ -312,6 +313,8 @@
       .site-nav-links { gap: 2px; }
       .site-nav-links a { padding: 6px 7px; font-size: 9px; }
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+  .nav-how-full { display: none; }
+  .nav-how-short { display: inline; }
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
@@ -346,7 +349,7 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html">How It Works</a>
+        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
         <a href="./research.html">Research</a>
         <a href="/cdn-cgi/l/email-protection#78101d14141738121915111d1e170a0a1d0b0c1d0a561b1715" class="nav-cta">Email</a>
       </div>
@@ -839,7 +842,7 @@
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a></li>
             <li><a href="./research.html">Research</a></li>
           </ul>
         </nav>
@@ -882,4 +885,37 @@
     @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
   </style>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>    document.getElementById("footer-year").textContent = new Date().getFullYear();
+    (function() {
+      var nav = document.querySelector(".site-nav");
+      var header = document.querySelector("header");
+      function onScroll() {
+        if (header.getBoundingClientRect().bottom <= 0) { nav.classList.add("nav-visible"); }
+        else { nav.classList.remove("nav-visible"); }
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+    (function() {
+      var lb = document.getElementById("lightbox");
+      var lbImg = document.getElementById("lightbox-img");
+      var lbCaption = document.getElementById("lightbox-caption");
+      var lbClose = document.getElementById("lightbox-close");
+      document.querySelectorAll("[data-lightbox-src]").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          lbImg.src = el.getAttribute("data-lightbox-src");
+          lbImg.alt = el.querySelector("img") ? el.querySelector("img").alt : "";
+          lbCaption.innerHTML = el.getAttribute("data-lightbox-caption") || "";
+          lb.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+          lbClose.focus();
+        });
+      });
+      function closeLightbox() { lb.classList.remove("is-open"); document.body.style.overflow = ""; lbImg.src = ""; }
+      lbClose.addEventListener("click", closeLightbox);
+      lb.addEventListener("click", function(e) { if (e.target === lb) closeLightbox(); });
+      document.addEventListener("keydown", function(e) { if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox(); });
+    })();
+  </script>
+</body>
+</html>
