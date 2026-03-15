@@ -276,7 +276,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
   .bridge-head, .offer-hero-head { flex-direction: column; align-items: flex-start; }
-  .bridge-grid, .bridge-grid-3, .offer-grid, .offer-footer, .selected-grid, .body-of-work, .process-strip, .scan-grid { grid-template-columns: 1fr !important; }
+  .bridge-grid, .bridge-grid-3, .offer-footer, .selected-grid, .body-of-work, .process-strip, .scan-grid { grid-template-columns: 1fr !important; }
   .bridge-row { grid-template-columns: 1fr !important; }
   .bridge-row-arrow { display: none; }
   .bridge-col-headers { grid-template-columns: 1fr 1fr !important; gap: 8px; }
@@ -305,6 +305,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .scan-grid { grid-template-columns: 1fr; }
   .scan-output { position: static; }
   .body-of-work { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 720px) {
+  .offer-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
