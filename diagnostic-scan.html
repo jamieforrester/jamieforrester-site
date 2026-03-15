@@ -208,7 +208,7 @@
         <a href="./services.html">Services</a>
         <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
         <a href="./research.html">Research</a>
-        <a href="mailto:hello@jamieforrester.com" class="nav-cta">Email</a>
+        <a data-mailto="1" class="nav-cta">Email</a>
       </div>
     </div>
   </nav>
@@ -230,7 +230,7 @@
         <a class="btn" href="./services.html">SERVICES</a>
         <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">
+        <a class="btn btn-primary" data-mailto="1">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           EMAIL
         </a>
@@ -368,7 +368,7 @@
                   <span class="brief-map-add">Add — what cannot change?</span>
                 </div>
               </div>
-              <a class="btn btn-primary btn-full btn-large" href="mailto:hello@jamieforrester.com" id="email-btn" style="margin-top:14px;">
+              <a class="btn btn-primary btn-full btn-large" data-mailto="1" id="email-btn" style="margin-top:14px;">
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                 EMAIL FIVE-LINE BRIEF
               </a>
@@ -387,7 +387,7 @@
           <h3>Email the four answers as your brief</h3>
           <p>Your answers already contain the five-line brief. Copy them into an email and send. I'll assess fit and tell you whether this is a diagnostic engagement or something else.</p>
           <div style="margin-top:12px;">
-            <a class="btn btn-primary" href="mailto:hello@jamieforrester.com">EMAIL FIVE-LINE BRIEF</a>
+            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           </div>
         </div>
         <div class="next-card">
@@ -417,7 +417,7 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="d6beb3babab996bcb7bbbfb3b0b9a4a4b3a5a2b3a4f8b5b9bb">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -537,8 +537,25 @@
 .brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}}
 </style>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Email link wiring - Cloudflare-proof
+document.addEventListener('DOMContentLoaded', function(){
+  var e = 'hello' + '@' + 'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){
+    el.setAttribute('href', 'mailto:' + e);
+  });
+});
+</script>
 <script>
 document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// Email link wiring
+document.addEventListener('DOMContentLoaded', function(){
+  var e = 'hello' + '@' + 'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){
+    el.setAttribute('href', 'mailto:' + e);
+  });
+});
 
 // Sticky nav
 (function(){
@@ -551,13 +568,12 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
   }, {passive:true});
 })();
 
-// Five-line brief modal - only intercepts EMAIL FIVE-LINE BRIEF buttons
+// Five-line brief modal
 (function(){
   var overlay = document.getElementById('briefModal');
   if (!overlay) return;
   var closeBtn = document.getElementById('briefModalClose');
   var submitBtn = document.getElementById('briefModalSubmit');
-
   function openModal() {
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -585,19 +601,17 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
     window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
     closeModal();
   }
-
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
-
-  // ONLY intercept exact "EMAIL FIVE-LINE BRIEF" buttons
   document.querySelectorAll('a.btn, button.btn').forEach(function(el){
     if (el.textContent.replace(/\s+/g,' ').trim().toUpperCase() === 'EMAIL FIVE-LINE BRIEF') {
       el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
     }
   });
 })();
+
 </script>
 </body>
 </html>
