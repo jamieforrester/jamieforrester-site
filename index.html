@@ -293,7 +293,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-@media (max-width: 1080px) and (min-width: 921px) {
+@media (max-width: 1080px) and (min-width: 721px) {
+  .offer-grid { grid-template-columns: 1fr 1fr !important; }
   .bridge-row { grid-template-columns: 1fr; }
   .bridge-row-arrow { display: none; }
   .bridge-col-headers { grid-template-columns: 1fr 1fr; gap: 8px; }
