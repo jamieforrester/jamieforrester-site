@@ -549,6 +549,76 @@ document.addEventListener('DOMContentLoaded', function(){
 <script>
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
+function runScan() {
+  var q1 = document.getElementById('sq1').value.trim();
+  var q2 = document.getElementById('sq2').value.trim();
+  var q3 = document.getElementById('sq3').value.trim();
+  var q4 = document.getElementById('sq4').value.trim();
+  var filled = [q1,q2,q3,q4].filter(function(v){ return v.length > 0; });
+  if (filled.length === 0) {
+    document.getElementById('scan-empty').classList.add('visible');
+    return;
+  }
+  document.getElementById('scan-empty').classList.remove('visible');
+  var labels = ['Purpose','Repeated action','Rules','Failure'];
+  var vals = [q1,q2,q3,q4];
+  var rows = '';
+  for (var i = 0; i < 4; i++) {
+    if (vals[i]) {
+      rows += '<div class="result-row"><span class="result-k">'+labels[i]+'</span><span class="result-v">'+vals[i]+'</span></div>';
+    }
+  }
+  var signalKicker = 'Structural signal';
+  var signalText = '';
+  if (q4 && q3) {
+    signalKicker = 'Rule violation located';
+    signalText = 'The failure is naming a specific rule violation. The next question is whether that rule exists in written policy, in actual practice, or not at all. <strong>The gap between those three states is where the structural problem lives.</strong>';
+  } else if (q4 && q1) {
+    signalKicker = 'Purpose-failure gap visible';
+    signalText = '<strong>The stated purpose and the described failure are now in tension.</strong> The next question is: what rule should have prevented this failure — and where does responsibility for enforcing it actually sit?';
+  } else if (q4) {
+    signalKicker = 'Failure point identified';
+    signalText = 'You have named a failure point. <strong>The diagnostic question is: what rule should have prevented this, and where does enforcement of that rule actually live?</strong>';
+  } else if (q3 && q2) {
+    signalKicker = 'Rule-action alignment check';
+    signalText = 'You have the repeated action and the rules that govern it. <strong>The diagnostic question is whether those rules are enforced at the point where the action occurs — or only stated in policy and violated in practice.</strong>';
+  } else if (q3) {
+    signalKicker = 'Rules identified';
+    signalText = 'You have stated the governing rules. <strong>Add what keeps breaking — the gap between the stated rule and operating reality is where the structural problem will be found.</strong>';
+  } else if (q2 && q1) {
+    signalKicker = 'Primitive identified';
+    signalText = 'Purpose and repeated action are in view. <strong>The scan becomes diagnostic once the rules governing that action are named — and where they are breaking.</strong>';
+  } else {
+    signalKicker = 'Starting point noted';
+    signalText = '<strong>Add what keeps breaking to make the scan diagnostic.</strong> The failure pattern is almost always the clearest entry point.';
+  }
+  var html = '<div class="result-rows">' + rows + '</div>'
+    + '<div class="result-signal"><div class="result-signal-bar"></div><div class="result-signal-body"><span class="result-signal-kicker">'+signalKicker+'</span><p class="result-signal-text">'+signalText+'</p></div></div>';
+  document.getElementById('result-placeholder').style.display = 'none';
+  document.getElementById('result-content').innerHTML = html;
+  document.getElementById('result-content').style.display = 'block';
+  document.getElementById('result-inner').classList.add('has-result');
+  document.getElementById('result-status').textContent = 'Read generated';
+  document.getElementById('result-cta-block').style.display = 'block';
+  var body = 'System / context:\n\n01 - The Pattern:\n'+(q4||'-')+'\n\n02 - The Stake:\n\n03 - The Interfaces:\n'+(q2||'-')+'\n\n04 - Concentration:\n'+(q4||'-')+'\n\n05 - Constraints:\n';
+  var em = 'hello'+'@'+'jamieforrester.com';
+  document.getElementById('email-btn').setAttribute('href','mailto:'+em+'?subject=Diagnostic%20Scan%20%E2%80%94%20Brief&body='+encodeURIComponent(body));
+  if (window.innerWidth < 921) {
+    document.getElementById('result-inner').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+function clearScan() {
+  ['sq1','sq2','sq3','sq4'].forEach(function(id){ document.getElementById(id).value = ''; });
+  document.getElementById('result-placeholder').style.display = 'flex';
+  document.getElementById('result-content').style.display = 'none';
+  document.getElementById('result-content').innerHTML = '';
+  document.getElementById('result-inner').classList.remove('has-result');
+  document.getElementById('result-status').textContent = 'Waiting for input';
+  document.getElementById('result-cta-block').style.display = 'none';
+  document.getElementById('scan-empty').classList.remove('visible');
+}
+
 // Email link wiring
 document.addEventListener('DOMContentLoaded', function(){
   var e = 'hello' + '@' + 'jamieforrester.com';
