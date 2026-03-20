@@ -366,7 +366,7 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Research, papers, books, frameworks, and live builds behind the practice</div>
+          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
@@ -891,28 +891,28 @@
       </div>
       <div class="brief-modal-divider"></div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> The Pattern</label>
-        <p class="brief-modal-hint">What keeps breaking?</p>
+        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> What keeps going wrong?</label>
+        <p class="brief-modal-hint">Describe the failure that keeps returning.</p>
         <textarea class="brief-modal-input" id="brief-1" rows="2" placeholder="e.g. Writers matched by availability not expertise."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> The Stake</label>
-        <p class="brief-modal-hint">What is the cost?</p>
+        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> What is it costing?</label>
+        <p class="brief-modal-hint">Describe the cost in money, time, trust, load, delay, or drift.</p>
         <textarea class="brief-modal-input" id="brief-2" rows="2" placeholder="e.g. 3 enterprise clients churned. £120k ARR at risk."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> The Interfaces</label>
-        <p class="brief-modal-hint">Who or what is touching the failure?</p>
+        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> Where does it show up?</label>
+        <p class="brief-modal-hint">Name the teams, roles, systems, or customer touchpoints involved.</p>
         <textarea class="brief-modal-input" id="brief-3" rows="2" placeholder="e.g. Matching algorithm, account managers, editorial review."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> Concentration</label>
-        <p class="brief-modal-hint">Where is the heat showing up?</p>
+        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> What has already been tried?</label>
+        <p class="brief-modal-hint">List any fixes, workarounds, or decisions already attempted.</p>
         <textarea class="brief-modal-input" id="brief-4" rows="2" placeholder="e.g. Highest complaints in technical and legal categories."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> Constraints</label>
-        <p class="brief-modal-hint">What are the non-negotiables?</p>
+        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> What cannot change?</label>
+        <p class="brief-modal-hint">State the non-negotiables, constraints, or conditions that must still hold.</p>
         <textarea class="brief-modal-input" id="brief-5" rows="2" placeholder="e.g. Cannot rebuild matching algorithm before Q3."></textarea>
       </div>
     </div>
@@ -1001,11 +1001,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var p5 = document.getElementById('brief-5').value.trim();
     var b = '';
     if (ctx) b += 'System / context:\n' + ctx + '\n\n';
-    b += '01 - The Pattern:\n' + (p1||'-') + '\n\n';
-    b += '02 - The Stake:\n' + (p2||'-') + '\n\n';
-    b += '03 - The Interfaces:\n' + (p3||'-') + '\n\n';
-    b += '04 - Concentration:\n' + (p4||'-') + '\n\n';
-    b += '05 - Constraints:\n' + (p5||'-');
+    b += '01 - What keeps going wrong?:\n' + (p1||'-') + '\n\n';
+    b += '02 - What is it costing?:\n' + (p2||'-') + '\n\n';
+    b += '03 - Where does it show up?:\n' + (p3||'-') + '\n\n';
+    b += '04 - What has already been tried?:\n' + (p4||'-') + '\n\n';
+    b += '05 - What cannot change?:\n' + (p5||'-');
     var e = 'hello' + '@' + 'jamieforrester.com';
     window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
     closeModal();
