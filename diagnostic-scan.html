@@ -223,7 +223,7 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Diagnostic Scan — structural read for any failing system</div>
+          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
@@ -243,7 +243,7 @@
       <div class="page-hero">
         <span class="eyebrow">Diagnostic Scan</span>
         <h2 class="page-hero-title">Read the structure of <em>any</em> failing system.</h2>
-        <p class="page-hero-sub">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this on any system where the same failure keeps returning under growth.</p>
+        <p class="page-hero-sub">Five questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this on any system where the same failure keeps returning under growth.</p>
         <p class="page-hero-note">This is not a quiz. There are no scores. It is a structured method for locating where a system is actually breaking.</p>
       </div>
 
@@ -252,7 +252,7 @@
         <div class="how-step">
           <span class="how-step-num" aria-hidden="true">01</span>
           <span class="how-step-badge">Step 01</span>
-          <strong>Answer four questions</strong>
+          <strong>Answer five questions</strong>
           <p>Purpose, repeated action, rules, failure. Write what is actually happening — not what the system is supposed to do.</p>
         </div>
         <div class="how-step">
@@ -265,7 +265,7 @@
           <span class="how-step-num" aria-hidden="true">03</span>
           <span class="how-step-badge">Step 03</span>
           <strong>Email it as your brief</strong>
-          <p>If the pattern points to a structural problem, your four answers are already the five-line brief. Send them directly.</p>
+          <p>If the pattern points to a structural problem, your five answers are already the five-line brief. Send them directly.</p>
         </div>
       </div>
 
@@ -313,6 +313,15 @@
             <textarea class="scan-input" id="sq4" placeholder="e.g. Writers are selected by availability rather than expertise. The matching rule exists in the brief but is not enforced at the assignment stage"></textarea>
           </div>
 
+          <div class="scan-q" style="margin-bottom:16px;">
+            <div class="scan-q-head">
+              <span class="scan-q-num">05</span>
+              <span class="scan-q-title">Concentration</span>
+            </div>
+            <p class="scan-q-hint">Where is the cost or burden showing up most clearly right now? Which team, role, or interface is absorbing the most pressure?</p>
+            <textarea class="scan-input" id="sq5" placeholder="e.g. Account managers are manually resolving client complaints that should be caught at the matching stage"></textarea>
+          </div>
+
           <span class="scan-empty-msg" id="scan-empty">Answer at least one question to generate a read.</span>
           <div class="scan-actions">
             <button class="btn btn-primary btn-large" onclick="runScan()">GENERATE STRUCTURAL READ</button>
@@ -340,7 +349,7 @@
             </div>
             <div id="result-cta-block" style="display:none;" class="result-cta-block">
               <span class="result-cta-kicker">From scan to five-line brief</span>
-              <p class="result-cta-text">Your four scan answers map directly to three of the five brief points. Add the two below and you're ready to send.</p>
+              <p class="result-cta-text">Your five scan answers map directly to four of the five brief points. Add the one below and you're ready to send.</p>
               <div class="brief-map">
                 <div class="brief-map-row brief-map-done">
                   <span class="brief-map-num">01</span>
@@ -360,12 +369,12 @@
                 <div class="brief-map-row brief-map-done">
                   <span class="brief-map-num">04</span>
                   <span class="brief-map-label">Concentration</span>
-                  <span class="brief-map-status">✓ from Q4 — Failure location</span>
+                  <span class="brief-map-status">✓ from Q5 — Concentration</span>
                 </div>
-                <div class="brief-map-row brief-map-missing">
+                <div class="brief-map-row brief-map-done">
                   <span class="brief-map-num">05</span>
                   <span class="brief-map-label">Constraints</span>
-                  <span class="brief-map-add">Add — what cannot change?</span>
+                  <span class="brief-map-status">✓ from Q3 — Rules</span>
                 </div>
               </div>
               <a class="btn btn-primary btn-full btn-large" data-mailto="1" id="email-btn" style="margin-top:14px;">
@@ -384,7 +393,7 @@
       <div class="next-strip" aria-label="What happens after the scan">
         <div class="next-card">
           <span class="next-card-kicker">If the scan reveals a pattern</span>
-          <h3>Email the four answers as your brief</h3>
+          <h3>Email the five answers as your brief</h3>
           <p>Your answers already contain the five-line brief. Copy them into an email and send. I'll assess fit and tell you whether this is a diagnostic engagement or something else.</p>
           <div style="margin-top:12px;">
             <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
@@ -554,14 +563,15 @@ function runScan() {
   var q2 = document.getElementById('sq2').value.trim();
   var q3 = document.getElementById('sq3').value.trim();
   var q4 = document.getElementById('sq4').value.trim();
-  var filled = [q1,q2,q3,q4].filter(function(v){ return v.length > 0; });
+  var q5 = document.getElementById('sq5').value.trim();
+  var filled = [q1,q2,q3,q4,q5].filter(function(v){ return v.length > 0; });
   if (filled.length === 0) {
     document.getElementById('scan-empty').classList.add('visible');
     return;
   }
   document.getElementById('scan-empty').classList.remove('visible');
-  var labels = ['Purpose','Repeated action','Rules','Failure'];
-  var vals = [q1,q2,q3,q4];
+  var labels = ['Purpose','Repeated action','Rules','Failure','Concentration'];
+  var vals = [q1,q2,q3,q4,q5];
   var rows = '';
   for (var i = 0; i < 4; i++) {
     if (vals[i]) {
@@ -600,7 +610,7 @@ function runScan() {
   document.getElementById('result-inner').classList.add('has-result');
   document.getElementById('result-status').textContent = 'Read generated';
   document.getElementById('result-cta-block').style.display = 'block';
-  var body = 'System / context:\n\n01 - The Pattern:\n'+(q4||'-')+'\n\n02 - The Stake:\n\n03 - The Interfaces:\n'+(q2||'-')+'\n\n04 - Concentration:\n'+(q4||'-')+'\n\n05 - Constraints:\n';
+  var body = 'System / context:\n\n01 - The Pattern:\n'+(q4||'-')+'\n\n02 - The Stake:\n\n03 - The Interfaces:\n'+(q2||'-')+'\n\n04 - Concentration:\n'+(q5||'-')+'\n\n05 - Constraints:\n'+(q3||'-');
   var em = 'hello'+'@'+'jamieforrester.com';
   document.getElementById('email-btn').setAttribute('href','mailto:'+em+'?subject=Diagnostic%20Scan%20%E2%80%94%20Brief&body='+encodeURIComponent(body));
   if (window.innerWidth < 921) {
@@ -609,7 +619,7 @@ function runScan() {
 }
 
 function clearScan() {
-  ['sq1','sq2','sq3','sq4'].forEach(function(id){ document.getElementById(id).value = ''; });
+  ['sq1','sq2','sq3','sq4','sq5'].forEach(function(id){ document.getElementById(id).value = ''; });
   document.getElementById('result-placeholder').style.display = 'flex';
   document.getElementById('result-content').style.display = 'none';
   document.getElementById('result-content').innerHTML = '';
