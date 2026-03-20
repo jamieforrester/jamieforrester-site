@@ -89,7 +89,26 @@
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    /* Page hero */
+    /* Scan page hero - two column */
+    .scan-page-hero { display: grid; grid-template-columns: 1fr 0.85fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+    .scan-hero-left { padding-top: 8px; }
+    .scan-hero-title { margin: 0 0 20px; font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.6rem); line-height: 1.1; letter-spacing: -0.04em; font-weight: 700; color: #fff; max-width: 22ch; }
+    .scan-hero-title em { font-style: normal; color: var(--cta-blue); }
+    .scan-hero-sub { margin: 0 0 14px; color: #c6ccd4; font-size: 14px; line-height: 1.72; max-width: 56ch; }
+    .scan-hero-sub:last-child { margin-bottom: 0; }
+    .scan-method-card { border: 1px solid rgba(90,176,255,0.2); border-radius: 20px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 40px rgba(0,0,0,0.28); }
+    .scan-method-card-head { padding: 16px 22px 14px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); }
+    .scan-method-card-head span { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
+    .scan-method-card-body { padding: 4px 0; }
+    .scan-method-list { display: flex; flex-direction: column; gap: 0; padding: 0 22px; }
+    .scan-method-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); align-items: start; }
+    .scan-method-item:last-child { border-bottom: none; }
+    .scan-method-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; color: rgba(90,176,255,0.5); padding-top: 2px; }
+    .scan-method-item strong { display: block; font-size: 13px; font-weight: 600; color: #e8ecf0; margin-bottom: 3px; letter-spacing: -0.01em; line-height: 1.3; }
+    .scan-method-item span { font-size: 12px; color: var(--text-faint); line-height: 1.5; }
+    .scan-method-note { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); line-height: 1.6; font-style: italic; padding: 14px 22px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.012); }
+
+    /* Page hero (kept for fallback) */
     .page-hero { max-width: 760px; margin: 0 auto 64px; text-align: center; }
     .page-hero-title { margin: 0 0 20px; font-size: clamp(2.2rem, 1.8rem + 1.4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
     .page-hero-title em { font-style: normal; color: var(--cta-blue); }
@@ -187,7 +206,7 @@
   .nav-how-full { display: none; }
   .nav-how-short { display: inline; }
       .page-hero { margin-bottom: 40px; }
-      .how-strip, .scan-layout, .next-strip { grid-template-columns: 1fr; }
+      .how-strip, .scan-layout, .next-strip, .scan-page-hero { grid-template-columns: 1fr; }
       .result-panel { position: static; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -239,33 +258,53 @@
 
     <main id="main" role="main">
 
-      <!-- Page hero -->
-      <div class="page-hero">
-        <span class="eyebrow">Diagnostic Scan</span>
-        <h2 class="page-hero-title">Read the structure of <em>any</em> failing system.</h2>
-        <p class="page-hero-sub">Five questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this on any system where the same failure keeps returning under growth.</p>
-        <p class="page-hero-note">This is not a quiz. There are no scores. It is a structured method for locating where a system is actually breaking.</p>
-      </div>
-
-      <!-- How it works -->
-      <div class="how-strip" aria-label="How the scan works">
-        <div class="how-step">
-          <span class="how-step-num" aria-hidden="true">01</span>
-          <span class="how-step-badge">Step 01</span>
-          <strong>Answer five questions</strong>
-          <p>Purpose, repeated action, rules, failure. Write what is actually happening — not what the system is supposed to do.</p>
+      <!-- Page hero - left-aligned, authoritative -->
+      <div class="scan-page-hero">
+        <div class="scan-hero-left">
+          <span class="eyebrow">Diagnostic Scan</span>
+          <h2 class="scan-hero-title">Most system confusion comes from not being able to name what the system is <em>actually doing</em>.</h2>
+          <p class="scan-hero-sub">Once those four things are named — purpose, repeated action, governing rules, and failure point — the system becomes legible enough to diagnose.</p>
+          <p class="scan-hero-sub">This scan applies that lens to any system you run or operate inside. Answer four questions. The scan surfaces a structural read. If the pattern appears structural, send the answers as your brief.</p>
         </div>
-        <div class="how-step">
-          <span class="how-step-num" aria-hidden="true">02</span>
-          <span class="how-step-badge">Step 02</span>
-          <strong>Generate your structural read</strong>
-          <p>The scan identifies where the rule violation is likely sitting and what to examine first before making any changes.</p>
-        </div>
-        <div class="how-step">
-          <span class="how-step-num" aria-hidden="true">03</span>
-          <span class="how-step-badge">Step 03</span>
-          <strong>Email it as your brief</strong>
-          <p>If the pattern points to a structural problem, your five answers are already the five-line brief. Send them directly.</p>
+        <div class="scan-hero-right">
+          <div class="scan-method-card">
+            <div class="scan-method-card-head">
+              <span>Four questions. One structural read.</span>
+            </div>
+            <div class="scan-method-card-body">
+              <div class="scan-method-list">
+              <div class="scan-method-item">
+                <span class="scan-method-num">01</span>
+                <div>
+                  <strong>What is this system really for?</strong>
+                  <span>Not what it claims. What it actually exists to do.</span>
+                </div>
+              </div>
+              <div class="scan-method-item">
+                <span class="scan-method-num">02</span>
+                <div>
+                  <strong>What action does it repeat?</strong>
+                  <span>The primitive: the smallest unit of real work.</span>
+                </div>
+              </div>
+              <div class="scan-method-item">
+                <span class="scan-method-num">03</span>
+                <div>
+                  <strong>What rules govern that action?</strong>
+                  <span>As they exist in practice, not in policy.</span>
+                </div>
+              </div>
+              <div class="scan-method-item">
+                <span class="scan-method-num">04</span>
+                <div>
+                  <strong>What happens when those rules fail?</strong>
+                  <span>What breaks first, who notices, and who absorbs the cost.</span>
+                </div>
+              </div>
+            </div>
+            <p class="scan-method-note">This is not a quiz or a score. It is a structured method for locating where a recurring failure is actually sitting.</p>
+          </div>
+          </div>
         </div>
       </div>
 
@@ -280,46 +319,37 @@
           <div class="scan-q">
             <div class="scan-q-head">
               <span class="scan-q-num">01</span>
-              <span class="scan-q-title">Purpose</span>
+              <span class="scan-q-title">What is this system really for?</span>
             </div>
-            <p class="scan-q-hint">What is this system supposed to do? What does it exist to deliver — not what it claims, what it actually does?</p>
-            <textarea class="scan-input" id="sq1" placeholder="e.g. Match freelance writers to content briefs and ensure consistent delivery quality"></textarea>
+            <p class="scan-q-hint">Not what it claims. What it actually exists to do.</p>
+            <textarea class="scan-input" id="sq1" placeholder="e.g. Match freelance writers to content briefs and ensure consistent quality of output for enterprise clients"></textarea>
           </div>
 
           <div class="scan-q">
             <div class="scan-q-head">
               <span class="scan-q-num">02</span>
-              <span class="scan-q-title">Repeated action</span>
+              <span class="scan-q-title">What action does it repeat?</span>
             </div>
-            <p class="scan-q-hint">What is the one action this system performs over and over at its core? The primitive — the smallest unit of real work.</p>
-            <textarea class="scan-input" id="sq2" placeholder="e.g. Assign a brief to a writer, collect the output, and pass it to the client"></textarea>
+            <p class="scan-q-hint">The primitive — the smallest unit of real work. Every system repeats something. Point at it.</p>
+            <textarea class="scan-input" id="sq2" placeholder="e.g. A brief is assigned to a writer, output is collected, and it is passed to the client for approval"></textarea>
           </div>
 
           <div class="scan-q">
             <div class="scan-q-head">
               <span class="scan-q-num">03</span>
-              <span class="scan-q-title">Rules</span>
+              <span class="scan-q-title">What rules govern that action?</span>
             </div>
-            <p class="scan-q-hint">What rules govern that action? What must always be true for the system to work? State the rules as they exist in practice, not in policy.</p>
-            <textarea class="scan-input" id="sq3" placeholder="e.g. Writers must be matched to briefs within their domain of expertise; output must pass quality review before client delivery"></textarea>
+            <p class="scan-q-hint">As they exist in practice, not in policy documents.</p>
+            <textarea class="scan-input" id="sq3" placeholder="e.g. Writers must be matched within their domain of expertise; output must pass quality review before client delivery"></textarea>
           </div>
 
           <div class="scan-q" style="margin-bottom:16px;">
             <div class="scan-q-head">
               <span class="scan-q-num">04</span>
-              <span class="scan-q-title">Failure</span>
+              <span class="scan-q-title">What happens when those rules fail?</span>
             </div>
-            <p class="scan-q-hint">Where does the system keep breaking? What rule is being violated — and where in the system does that violation actually live?</p>
-            <textarea class="scan-input" id="sq4" placeholder="e.g. Writers are selected by availability rather than expertise. The matching rule exists in the brief but is not enforced at the assignment stage"></textarea>
-          </div>
-
-          <div class="scan-q" style="margin-bottom:16px;">
-            <div class="scan-q-head">
-              <span class="scan-q-num">05</span>
-              <span class="scan-q-title">Concentration</span>
-            </div>
-            <p class="scan-q-hint">Where is the cost or burden showing up most clearly right now? Which team, role, or interface is absorbing the most pressure?</p>
-            <textarea class="scan-input" id="sq5" placeholder="e.g. Account managers are manually resolving client complaints that should be caught at the matching stage"></textarea>
+            <p class="scan-q-hint">What breaks first, who notices, and who absorbs the cost. Failure is clarifying — watch for the workarounds.</p>
+            <textarea class="scan-input" id="sq4" placeholder="e.g. Writers are selected by availability, not expertise. The matching rule is stated but not enforced at the assignment stage. Account managers absorb the complaints manually"></textarea>
           </div>
 
           <span class="scan-empty-msg" id="scan-empty">Answer at least one question to generate a read.</span>
@@ -343,43 +373,15 @@
                 <div class="result-placeholder-line"></div>
                 <div class="result-placeholder-line"></div>
                 <div class="result-placeholder-line"></div>
-                <p class="result-placeholder-text">Your read will appear here once you answer the questions and generate.</p>
+                <p class="result-placeholder-text">Once you answer the four questions, the scan will surface where the rule failure is most likely sitting and what to examine before changing anything.</p>
               </div>
               <div id="result-content" style="display:none;"></div>
             </div>
             <div id="result-cta-block" style="display:none;" class="result-cta-block">
-              <span class="result-cta-kicker">From scan to five-line brief</span>
-              <p class="result-cta-text">Your five scan answers map directly to four of the five brief points. Add the one below and you're ready to send.</p>
-              <div class="brief-map">
-                <div class="brief-map-row brief-map-done">
-                  <span class="brief-map-num">01</span>
-                  <span class="brief-map-label">The Pattern</span>
-                  <span class="brief-map-status">✓ from Q4 — Failure</span>
-                </div>
-                <div class="brief-map-row brief-map-missing">
-                  <span class="brief-map-num">02</span>
-                  <span class="brief-map-label">The Stake</span>
-                  <span class="brief-map-add">Add — what is the cost?</span>
-                </div>
-                <div class="brief-map-row brief-map-done">
-                  <span class="brief-map-num">03</span>
-                  <span class="brief-map-label">The Interfaces</span>
-                  <span class="brief-map-status">✓ from Q2 — Repeated action</span>
-                </div>
-                <div class="brief-map-row brief-map-done">
-                  <span class="brief-map-num">04</span>
-                  <span class="brief-map-label">Concentration</span>
-                  <span class="brief-map-status">✓ from Q5 — Concentration</span>
-                </div>
-                <div class="brief-map-row brief-map-done">
-                  <span class="brief-map-num">05</span>
-                  <span class="brief-map-label">Constraints</span>
-                  <span class="brief-map-status">✓ from Q3 — Rules</span>
-                </div>
-              </div>
+              <p class="result-cta-text"><strong>If this pattern points to a structural problem,</strong> email your four answers as your brief. I will assess whether it is a diagnostic fit and whether the work should begin with diagnosis or redesign.</p>
               <a class="btn btn-primary btn-full btn-large" data-mailto="1" id="email-btn" style="margin-top:14px;">
                 <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                EMAIL FIVE-LINE BRIEF
+                EMAIL FOUR-QUESTION BRIEF
               </a>
             </div>
           </div>
@@ -392,23 +394,23 @@
 
       <div class="next-strip" aria-label="What happens after the scan">
         <div class="next-card">
-          <span class="next-card-kicker">If the scan reveals a pattern</span>
-          <h3>Email the five answers as your brief</h3>
-          <p>Your answers already contain the five-line brief. Copy them into an email and send. I'll assess fit and tell you whether this is a diagnostic engagement or something else.</p>
+          <span class="next-card-kicker">If the scan surfaces a structural pattern</span>
+          <h3>Email the four answers as your brief</h3>
+          <p>The scan answers are enough for an initial fit review. Email them directly and I will assess whether the problem is structural and bounded.</p>
           <div style="margin-top:12px;">
-            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+            <a class="btn btn-primary" data-mailto="1">EMAIL FOUR-QUESTION BRIEF</a>
           </div>
         </div>
         <div class="next-card">
-          <span class="next-card-kicker">If you need a full structural read</span>
+          <span class="next-card-kicker">If the pattern is real but not yet fully located</span>
           <h3>Request a Diagnostic Artifact</h3>
           <p>The scan surfaces the pattern. The Diagnostic Artifact locates the failure precisely — topology, invariants, enforcement map, build map — in a document your team can act against.</p>
           <div style="margin-top:12px;"><a class="link-blue" href="./services.html">View services →</a></div>
         </div>
         <div class="next-card">
-          <span class="next-card-kicker">If the pattern is already visible</span>
+          <span class="next-card-kicker">If the failure is visible but the transition path is unclear</span>
           <h3>Go straight to Redesign</h3>
-          <p>If you already know what's breaking but don't have a transition path, the Redesign Artifact defines what changes first, what stays fixed, and how regression is blocked.</p>
+          <p>If you already know what must change but do not yet have a controlled sequence, the Redesign Artifact defines what changes first, what stays fixed, and how regression is blocked.</p>
           <div style="margin-top:12px;"><a class="link-blue" href="./how-it-works.html">How it works →</a></div>
         </div>
       </div>
@@ -491,28 +493,28 @@
       </div>
       <div class="brief-modal-divider"></div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> The Pattern</label>
-        <p class="brief-modal-hint">What keeps breaking?</p>
+        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> What keeps going wrong?</label>
+        <p class="brief-modal-hint">Describe the failure that keeps returning.</p>
         <textarea class="brief-modal-input" id="brief-1" rows="2" placeholder="e.g. Writers matched by availability not expertise."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> The Stake</label>
-        <p class="brief-modal-hint">What is the cost?</p>
+        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> What is it costing?</label>
+        <p class="brief-modal-hint">Describe the cost in money, time, trust, load, delay, or drift.</p>
         <textarea class="brief-modal-input" id="brief-2" rows="2" placeholder="e.g. 3 enterprise clients churned. £120k ARR at risk."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> The Interfaces</label>
-        <p class="brief-modal-hint">Who or what is touching the failure?</p>
+        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> Where does it show up?</label>
+        <p class="brief-modal-hint">Name the teams, roles, systems, or customer touchpoints involved.</p>
         <textarea class="brief-modal-input" id="brief-3" rows="2" placeholder="e.g. Matching algorithm, account managers, editorial review."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> Concentration</label>
-        <p class="brief-modal-hint">Where is the heat showing up?</p>
+        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> What has already been tried?</label>
+        <p class="brief-modal-hint">List any fixes, workarounds, or decisions already attempted.</p>
         <textarea class="brief-modal-input" id="brief-4" rows="2" placeholder="e.g. Highest complaints in technical and legal categories."></textarea>
       </div>
       <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> Constraints</label>
-        <p class="brief-modal-hint">What are the non-negotiables?</p>
+        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> What cannot change?</label>
+        <p class="brief-modal-hint">State the non-negotiables, constraints, or conditions that must still hold.</p>
         <textarea class="brief-modal-input" id="brief-5" rows="2" placeholder="e.g. Cannot rebuild matching algorithm before Q3."></textarea>
       </div>
     </div>
@@ -563,15 +565,14 @@ function runScan() {
   var q2 = document.getElementById('sq2').value.trim();
   var q3 = document.getElementById('sq3').value.trim();
   var q4 = document.getElementById('sq4').value.trim();
-  var q5 = document.getElementById('sq5').value.trim();
-  var filled = [q1,q2,q3,q4,q5].filter(function(v){ return v.length > 0; });
+  var filled = [q1,q2,q3,q4].filter(function(v){ return v.length > 0; });
   if (filled.length === 0) {
     document.getElementById('scan-empty').classList.add('visible');
     return;
   }
   document.getElementById('scan-empty').classList.remove('visible');
-  var labels = ['Purpose','Repeated action','Rules','Failure','Concentration'];
-  var vals = [q1,q2,q3,q4,q5];
+  var labels = ['What it is for','The repeated action','The rules','What happens when it fails'];
+  var vals = [q1,q2,q3,q4];
   var rows = '';
   for (var i = 0; i < 4; i++) {
     if (vals[i]) {
@@ -619,7 +620,7 @@ function runScan() {
 }
 
 function clearScan() {
-  ['sq1','sq2','sq3','sq4','sq5'].forEach(function(id){ document.getElementById(id).value = ''; });
+  ['sq1','sq2','sq3','sq4'].forEach(function(id){ document.getElementById(id).value = ''; });
   document.getElementById('result-placeholder').style.display = 'flex';
   document.getElementById('result-content').style.display = 'none';
   document.getElementById('result-content').innerHTML = '';
@@ -672,11 +673,11 @@ document.addEventListener('DOMContentLoaded', function(){
     var p5 = document.getElementById('brief-5').value.trim();
     var b = '';
     if (ctx) b += 'System / context:\n' + ctx + '\n\n';
-    b += '01 - The Pattern:\n' + (p1||'-') + '\n\n';
-    b += '02 - The Stake:\n' + (p2||'-') + '\n\n';
-    b += '03 - The Interfaces:\n' + (p3||'-') + '\n\n';
-    b += '04 - Concentration:\n' + (p4||'-') + '\n\n';
-    b += '05 - Constraints:\n' + (p5||'-');
+    b += '01 - What keeps going wrong?:\n' + (p1||'-') + '\n\n';
+    b += '02 - What is it costing?:\n' + (p2||'-') + '\n\n';
+    b += '03 - Where does it show up?:\n' + (p3||'-') + '\n\n';
+    b += '04 - What has already been tried?:\n' + (p4||'-') + '\n\n';
+    b += '05 - What cannot change?:\n' + (p5||'-');
     var e = 'hello' + '@' + 'jamieforrester.com';
     window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
     closeModal();
