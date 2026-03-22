@@ -220,6 +220,11 @@
     .thinking-cta p { margin: 0 0 16px; font-size: 14px; color: var(--text-dim); line-height: 1.68; }
     .thinking-cta p strong { color: #fff; font-weight: 600; }
     .thinking-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; padding-top: 4px; }
+    .card-head { padding: 18px 28px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 14px; }
+    .card-head-bar { width: 3px; height: 22px; border-radius: 2px; flex: 0 0 auto; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .card-head h2 { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+    .card-body { padding: 24px 28px; }
+    .card-cta { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); }
 
     /* Lightbox */
     .lightbox { display: none; position: fixed; inset: 0; z-index: 9000; background: rgba(0,0,0,0.82); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
@@ -804,9 +809,18 @@
             </div>
           </div>
         </div>
-        <div class="thinking-cta">
-          <p><strong>The public offer is the written artifact.</strong> The material on this page — the frameworks, the research, the books, the builds — is the intellectual infrastructure behind that offer. It exists to show that the diagnostic lens is grounded, not assembled on demand.</p>
-          <div class="thinking-cta-actions">
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">the offer</span></div>
+
+      <section class="card card-cta" aria-label="The offer">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>The public offer is the written artifact.</h2>
+        </div>
+        <div class="card-body">
+          <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68;">The material on this page — the frameworks, the research, the books, the builds — is the intellectual infrastructure behind that offer. It exists to show that the diagnostic lens is grounded, not assembled on demand.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
             <a class="btn" href="./services.html">VIEW SERVICES</a>
           </div>
@@ -825,7 +839,7 @@
       <div class="site-footer__top">
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
           <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="fe969b929291be949f93979b98918c8c9b8d8a9b8cd09d9193">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
@@ -835,6 +849,8 @@
             <li><a href="./services.html">Services</a></li>
             <li><a href="./how-it-works.html">How It Works</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./method.html">Method</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
