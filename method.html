@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Method — Jamie Forrester</title>
+  <meta name="description" content="How I work. The frameworks, structural logic, and final conclusions are mine. AI assists execution." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* Nav */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    .nav-how-short { display: none; }
+
+    /* Header */
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
+    .avatar-link:hover { background: transparent; transform: translateY(-1px); }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
+    .ico { display: inline-flex; align-items: center; justify-content: center; }
+    .ico svg { display: block; }
+
+    /* Type */
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .section-divider { margin: 0 0 28px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Page intro */
+    .method-hero { display: grid; grid-template-columns: 1fr 0.8fr; gap: 56px; align-items: start; margin-bottom: 56px; }
+    .method-hero-title { margin: 0 0 20px; font-size: clamp(2rem, 1.6rem + 1.2vw, 3rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
+    .method-hero-sub { margin: 0 0 14px; font-size: 15px; color: #c6ccd4; line-height: 1.72; max-width: 58ch; }
+    .method-hero-sub:last-child { margin-bottom: 0; }
+    .method-hero-sub strong { color: #fff; font-weight: 600; }
+    .method-principle { border: 1px solid rgba(90,176,255,0.22); border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 40px rgba(0,0,0,0.28); }
+    .method-principle-head { padding: 14px 22px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); }
+    .method-principle-head span { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
+    .method-principle-body { padding: 22px; }
+    .method-principle-body p { margin: 0 0 12px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .method-principle-body p:last-child { margin-bottom: 0; }
+    .method-principle-body strong { color: #e8ecf0; font-weight: 600; }
+
+    /* Cards */
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+    .card:last-child { margin-bottom: 0; }
+    .card-accent { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%); }
+    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 20px; }
+    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
+    .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
+
+    /* Prose */
+    .prose { max-width: 72ch; }
+    .prose p { margin: 0 0 14px; color: var(--text-dim); font-size: 14px; line-height: 1.72; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose p strong { color: #e8ecf0; font-weight: 600; }
+    .prose h3 { margin: 22px 0 8px; font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+    .prose h3:first-child { margin-top: 0; }
+
+    /* Two-col */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* List */
+    ul.clean { margin: 0 0 14px; padding: 0; list-style: none; display: grid; gap: 9px; }
+    ul.clean:last-child { margin-bottom: 0; }
+    ul.clean li { padding-left: 18px; position: relative; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+    ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--label-blue); }
+    ul.clean.muted li { color: var(--text-faint); }
+    ul.clean.muted li::before { color: var(--text-faint); }
+
+    /* Callout */
+    .callout { margin-top: 20px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(90,176,255,0.16); border-radius: 14px; background: rgba(90,176,255,0.035); }
+    .callout-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.8) 0%, rgba(90,176,255,0.15) 100%); }
+    .callout p { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.68; }
+    .callout p strong { color: #e8ecf0; font-weight: 600; }
+
+    .section-title { margin: 0 0 18px; font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); font-weight: 700; line-height: 1.22; letter-spacing: -0.03em; color: #fff; }
+    /* CTA bar */
+    .cta-bar { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    @media (max-width: 920px) {
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links { gap: 2px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
+      .method-hero { grid-template-columns: 1fr; gap: 32px; }
+      .two-col { grid-template-columns: 1fr; }
+      .label-row { flex-direction: column; align-items: flex-start; }
+      .nav-how-short { display: inline; }
+      .nav-how-full { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
+        <a href="./research.html">Research</a>
+        <a data-mailto="1" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <header>
+      <div class="h-left">
+        <a class="avatar-link" href="./index.html" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+        </div>
+      </div>
+      <div class="top-cta" aria-label="Primary links">
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn btn-primary" data-mailto="1">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          EMAIL
+        </a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Hero -->
+      <div class="method-hero">
+        <div>
+          <span class="eyebrow">Method</span>
+          <h2 class="method-hero-title">The work is architecture-led.</h2>
+          <p class="method-hero-sub"><strong>The frameworks, structural logic, and final conclusions are mine.</strong> AI assists execution.</p>
+          <p class="method-hero-sub">I define the structure, the governing logic, the distinctions that matter, and the direction of the work. I use AI as a drafting, articulation, and production tool to execute that work more clearly and efficiently.</p>
+        </div>
+        <div class="method-principle">
+          <div class="method-principle-head">
+            <span>The principle</span>
+          </div>
+          <div class="method-principle-body">
+            <p>An architect does not become irrelevant because drafting tools exist. The value remains in the design, the judgment, the constraints, and the responsibility for what is being built.</p>
+            <p><strong>I define the structure. AI helps accelerate execution. I remain responsible for the result.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-label">what is mine</span></div>
+
+      <section class="card" aria-label="What is mine">
+        <h2 class="section-title">What is mine</h2>
+        <div class="two-col">
+          <div class="prose">
+            <p>The core work begins with me. I do not begin with generated output and work backwards from something plausible-sounding. I begin with structure: what the system is doing, what rule is breaking, and what must change first.</p>
+            <p>The diagnostic lens, the sequencing logic, and the final conclusions are my own judgments, and I am responsible for them.</p>
+          </div>
+          <div>
+            <span class="mini-kicker" style="margin-bottom:12px;">This includes</span>
+            <ul class="clean">
+              <li>The frameworks and structural distinctions</li>
+              <li>The laws, formulas, and diagnostic lens</li>
+              <li>The judgment about what matters</li>
+              <li>The sequencing of what must happen first</li>
+              <li>The final conclusions and recommendations</li>
+              <li>The decision to publish or deliver the work</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">what ai does</span></div>
+
+      <section class="card" aria-label="What AI does">
+        <h2 class="section-title">What AI does</h2>
+        <div class="two-col">
+          <div class="prose">
+            <p>AI assists execution. It can articulate, draft, reorganise, and refine. It increases speed, range, and iteration.</p>
+            <p>AI does not decide what structure is actually there, which rule is breaking, or what must change first. Those are judgments, and judgment is not something I delegate.</p>
+          </div>
+          <div>
+            <span class="mini-kicker" style="margin-bottom:12px;">Depending on the project, AI may help</span>
+            <ul class="clean">
+              <li>Articulate complex ideas more clearly</li>
+              <li>Organise material into more usable forms</li>
+              <li>Draft and redraft prose</li>
+              <li>Test alternative phrasings and structures</li>
+              <li>Support research exploration</li>
+              <li>Assist with technical build work</li>
+              <li>Reduce production friction across writing and artifacts</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">what ai does not do</span></div>
+
+      <section class="card" aria-label="What AI does not do">
+        <h2 class="section-title">What AI does not do</h2>
+        <div class="prose">
+          <p>AI does not replace my reasoning. It does not decide the framework, set the structural logic, override my judgment, or remove my accountability.</p>
+          <p>I do not treat model output as authoritative on its own, and I do not publish or deliver work simply because it sounds plausible.</p>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">review and responsibility</span></div>
+
+      <section class="card" aria-label="Review and responsibility">
+        <h2 class="section-title">Review and responsibility</h2>
+        <div class="prose">
+          <p>Everything published or delivered under my name is reviewed by me.</p>
+          <p>That means I am responsible for the framing, the reasoning, the recommendations, the final form of the work, and the decision to publish or deliver it.</p>
+          <p>If something appears under my name, I stand behind it.</p>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">what this means for clients</span></div>
+
+      <section class="card card-accent" aria-label="What this means for clients">
+        <h2 class="section-title">What this means for clients</h2>
+        <div class="prose">
+          <p>If you engage me for a Diagnostic Artifact or Redesign Artifact, you are not paying for automated output.</p>
+          <p>You are paying for <strong>structural judgment, clear framing, serious synthesis, and a written artifact built to be used by decision-makers and builders.</strong></p>
+          <p>AI may assist parts of the production process, but the diagnostic logic, structural interpretation, and final recommendations remain mine.</p>
+        </div>
+        <div class="cta-bar">
+          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn" href="./services.html">VIEW SERVICES</a>
+        </div>
+      </section>
+
+    </main>
+
+    <div style="display:flex;justify-content:center;padding:32px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>
+Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="84ece1e8e8ebc4eee5e9ede1e2ebf6f6e1f7f0e1f6aae7ebe9">[email&#160;protected]</span></a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+            <li><a href="./method.html">Method</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
+    .site-footer__top { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft); }
+    .site-footer__eyebrow, .site-footer__heading { margin: 0 0 18px; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); font-weight: 600; }
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a { font-size: 13px; line-height: 1.6; color: var(--text-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 140ms ease, border-color 140ms ease; cursor: pointer; }
+    .site-footer__email { color: var(--label-blue); font-family: "IBM Plex Mono", monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
+    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
+  </style>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    (function(){
+      var nav = document.querySelector('.site-nav');
+      var hdr = document.querySelector('header');
+      if (!nav || !hdr) return;
+      window.addEventListener('scroll', function(){
+        if (hdr.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
+        else { nav.classList.remove('nav-visible'); }
+      }, {passive: true});
+    })();
+    document.addEventListener('DOMContentLoaded', function(){
+      var e
