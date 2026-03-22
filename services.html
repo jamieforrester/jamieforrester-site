@@ -350,8 +350,9 @@
     .refusal-block { padding: 18px 20px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: rgba(255,255,255,0.012); }
     .refusal-block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 14px; flex-wrap: wrap; }
     .refusal-block-note { margin: 0; font-size: 12px; color: var(--text-faint); line-height: 1.6; max-width: 56ch; }
-    .refusal-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .refusal-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
     .refusal-item { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); padding: 5px 10px; border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; background: rgba(255,255,255,0.014); white-space: nowrap; }
+    .refusal-note { margin: 0; font-size: 12px; color: var(--text-faint); line-height: 1.65; font-style: italic; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
     .method-callout { margin-bottom: 28px; padding: 14px 20px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.025); font-size: 13px; color: var(--text-dim); line-height: 1.65; }
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
@@ -657,10 +658,7 @@
 
         <!-- Refusal block -->
         <div class="refusal-block">
-          <div class="refusal-block-head">
-            <span class="mini-kicker" style="margin:0;">What I refuse</span>
-            <p class="refusal-block-note">I do not take engagements outside these boundaries. If the issue is primarily technical, already understood, or not credibly diagnosable from available evidence, I will say so at fit assessment.</p>
-          </div>
+          <span class="mini-kicker" style="margin-bottom:12px;">What I refuse</span>
           <div class="refusal-grid">
             <span class="refusal-item">Debugging or fixing code</span>
             <span class="refusal-item">Live incident investigation</span>
@@ -670,6 +668,7 @@
             <span class="refusal-item">Delivery ownership</span>
             <span class="refusal-item">Open-ended advisory without scope</span>
           </div>
+          <p class="refusal-note">I do not take engagements outside these boundaries. If the issue is primarily technical, already understood, or not credibly diagnosable from available evidence, I will say so at fit assessment.</p>
         </div>
       </section>
 
