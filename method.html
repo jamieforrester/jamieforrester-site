@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Method — Jamie Forrester</title>
-  <meta name="description" content="How I work. The frameworks, structural logic, and final conclusions are mine. AI assists execution." />
+  <meta name="description" content="How I diagnose recurring structural failure. The method, the sequence, the artifact, and how the work is produced." />
   <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,7 +50,7 @@
     header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
-    .avatar-link:hover { background: transparent; transform: translateY(-1px); }
+    .avatar-link:hover { background: transparent; }
     .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
     .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
@@ -64,65 +64,66 @@
     .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
     .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
     .ico { display: inline-flex; align-items: center; justify-content: center; }
-    .ico svg { display: block; }
 
     /* Type */
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
-    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
     .section-divider { margin: 0 0 28px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
-    /* Page intro */
-    .method-hero { display: grid; grid-template-columns: 1fr 0.8fr; gap: 56px; align-items: start; margin-bottom: 56px; }
-    .method-hero-title { margin: 0 0 20px; font-size: clamp(2rem, 1.6rem + 1.2vw, 3rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
+    /* Hero */
+    .method-hero { display: grid; grid-template-columns: 1fr 0.75fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+    .method-hero-title { margin: 0 0 16px; font-size: clamp(2rem, 1.6rem + 1.2vw, 3rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
     .method-hero-sub { margin: 0 0 14px; font-size: 15px; color: #c6ccd4; line-height: 1.72; max-width: 58ch; }
     .method-hero-sub:last-child { margin-bottom: 0; }
     .method-hero-sub strong { color: #fff; font-weight: 600; }
-    .method-principle { border: 1px solid rgba(90,176,255,0.22); border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 40px rgba(0,0,0,0.28); }
-    .method-principle-head { padding: 14px 22px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); }
-    .method-principle-head span { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
-    .method-principle-body { padding: 22px; }
-    .method-principle-body p { margin: 0 0 12px; font-size: 14px; color: var(--text-dim); line-height: 1.7; }
-    .method-principle-body p:last-child { margin-bottom: 0; }
-    .method-principle-body strong { color: #e8ecf0; font-weight: 600; }
+
+    /* Principle card */
+    .principle-card { border: 1px solid rgba(90,176,255,0.2); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 40px rgba(0,0,0,0.28); }
+    .principle-card-head { padding: 13px 20px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
+    .principle-card-body { padding: 20px; }
+    .principle-card-body p { margin: 0 0 12px; font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+    .principle-card-body p:last-child { margin-bottom: 0; }
+    .principle-card-body strong { color: #e8ecf0; font-weight: 600; }
 
     /* Cards */
-    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 16px; }
     .card:last-child { margin-bottom: 0; }
     .card-accent { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%); }
-    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 20px; }
-    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
-    .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
+    .card-head { padding: 18px 28px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 14px; }
+    .card-accent .card-head { border-bottom-color: rgba(90,176,255,0.14); background: rgba(90,176,255,0.025); }
+    .card-head-bar { width: 3px; height: 22px; border-radius: 2px; flex: 0 0 auto; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .card-head h2 { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+    .card-body { padding: 24px 28px; }
 
     /* Prose */
     .prose { max-width: 72ch; }
     .prose p { margin: 0 0 14px; color: var(--text-dim); font-size: 14px; line-height: 1.72; }
     .prose p:last-child { margin-bottom: 0; }
     .prose p strong { color: #e8ecf0; font-weight: 600; }
-    .prose h3 { margin: 22px 0 8px; font-size: 14px; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-    .prose h3:first-child { margin-top: 0; }
+
+    /* Steps */
+    .steps { display: grid; gap: 0; }
+    .step { display: grid; grid-template-columns: 52px 1fr; gap: 0; border-bottom: 1px solid var(--border-soft); padding: 20px 0; }
+    .step:last-child { border-bottom: none; padding-bottom: 0; }
+    .step:first-child { padding-top: 0; }
+    .step-num { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; color: var(--label-blue); letter-spacing: 0.1em; padding-top: 2px; }
+    .step-body h3 { margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
+    .step-body p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.68; }
 
     /* Two-col */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 
-    /* List */
-    ul.clean { margin: 0 0 14px; padding: 0; list-style: none; display: grid; gap: 9px; }
-    ul.clean:last-child { margin-bottom: 0; }
-    ul.clean li { padding-left: 18px; position: relative; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
-    ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--label-blue); }
-    ul.clean.muted li { color: var(--text-faint); }
-    ul.clean.muted li::before { color: var(--text-faint); }
+    /* List panel */
+    .list-panel { background: rgba(255,255,255,0.014); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 20px; }
+    .list-panel-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 14px; }
+    ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    ul.clean li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    ul.clean li::before { content: "→"; flex-shrink: 0; color: var(--label-blue); font-size: 12px; }
 
-    /* Callout */
-    .callout { margin-top: 20px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; border: 1px solid rgba(90,176,255,0.16); border-radius: 14px; background: rgba(90,176,255,0.035); }
-    .callout-bar { width: 2px; border-radius: 2px; flex: 0 0 auto; align-self: stretch; background: linear-gradient(180deg, rgba(90,176,255,0.8) 0%, rgba(90,176,255,0.15) 100%); }
-    .callout p { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.68; }
-    .callout p strong { color: #e8ecf0; font-weight: 600; }
-
-    .section-title { margin: 0 0 18px; font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem); font-weight: 700; line-height: 1.22; letter-spacing: -0.03em; color: #fff; }
     /* CTA bar */
-    .cta-bar { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .cta-bar { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
@@ -133,13 +134,13 @@
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
       .method-hero { grid-template-columns: 1fr; gap: 32px; }
       .two-col { grid-template-columns: 1fr; }
-      .label-row { flex-direction: column; align-items: flex-start; }
+      .card-head { padding: 16px 20px 14px; }
+      .card-body { padding: 18px 20px; }
+      .step { grid-template-columns: 40px 1fr; }
       .nav-how-short { display: inline; }
       .nav-how-full { display: none; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition-duration: 0.01ms !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
   </style>
 </head>
 <body>
@@ -161,7 +162,6 @@
   </nav>
 
   <div class="wrap">
-
     <header>
       <div class="h-left">
         <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -190,101 +190,209 @@
       <div class="method-hero">
         <div>
           <span class="eyebrow">Method</span>
-          <h2 class="method-hero-title">The work is architecture-led.</h2>
-          <p class="method-hero-sub"><strong>The frameworks, structural logic, and final conclusions are mine.</strong> AI assists execution.</p>
-          <p class="method-hero-sub">I define the structure, the governing logic, the distinctions that matter, and the direction of the work. I use AI as a drafting, articulation, and production tool to execute that work more clearly and efficiently.</p>
+          <h2 class="method-hero-title">How I diagnose recurring structural failure.</h2>
+          <p class="method-hero-sub">I do not begin with symptoms alone. I begin by identifying the structure producing them.</p>
+          <p class="method-hero-sub">Most recurring failure is not just a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, not doing any job at all, or forcing humans to absorb work the system should absorb itself.</p>
+          <p class="method-hero-sub">My method is designed to make that visible.</p>
         </div>
-        <div class="method-principle">
-          <div class="method-principle-head">
-            <span>The principle</span>
-          </div>
-          <div class="method-principle-body">
-            <p>An architect does not become irrelevant because drafting tools exist. The value remains in the design, the judgment, the constraints, and the responsibility for what is being built.</p>
-            <p><strong>I define the structure. AI helps accelerate execution. I remain responsible for the result.</strong></p>
+        <div class="principle-card">
+          <div class="principle-card-head">When this method applies</div>
+          <div class="principle-card-body">
+            <p>This method applies when the same problem keeps returning under different names, when teams do not share the same structural read, when workarounds have quietly become load-bearing, or when builders are being forced to invent the design while implementing it.</p>
+            <p><strong>The purpose is not to generate more commentary around the problem. The purpose is to produce one serious structural read that decision-makers and builders can act against.</strong></p>
           </div>
         </div>
       </div>
 
-      <div class="section-divider"><span class="section-divider-label">what is mine</span></div>
+      <div class="section-divider"><span class="section-divider-label">how the diagnosis works</span></div>
 
-      <section class="card" aria-label="What is mine">
-        <h2 class="section-title">What is mine</h2>
-        <div class="two-col">
-          <div class="prose">
-            <p>The core work begins with me. I do not begin with generated output and work backwards from something plausible-sounding. I begin with structure: what the system is doing, what rule is breaking, and what must change first.</p>
-            <p>The diagnostic lens, the sequencing logic, and the final conclusions are my own judgments, and I am responsible for them.</p>
-          </div>
-          <div>
-            <span class="mini-kicker" style="margin-bottom:12px;">This includes</span>
-            <ul class="clean">
-              <li>The frameworks and structural distinctions</li>
-              <li>The laws, formulas, and diagnostic lens</li>
-              <li>The judgment about what matters</li>
-              <li>The sequencing of what must happen first</li>
-              <li>The final conclusions and recommendations</li>
-              <li>The decision to publish or deliver the work</li>
-            </ul>
+      <section class="card" aria-label="How the diagnosis works">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>How the diagnosis works</h2>
+        </div>
+        <div class="card-body">
+          <div class="steps">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div class="step-body">
+                <h3>Define the system properly</h3>
+                <p>The first task is to identify what system is actually under analysis. That means defining the real boundary, the real scope, the adjacent systems, and where the work actually lives. Domain names and team names often describe the surface, not the operational structure underneath. Before diagnosis can be trusted, the system being named must be made explicit.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div class="step-body">
+                <h3>Identify the primitive and governing rules</h3>
+                <p>Once the system is defined, I identify what it repeatedly does — the primitive: the smallest unit of real work the system is organised around. I then surface what the system optimises for in practice, and the rules, constraints, and invariants that govern that repeated action. The question is not just what the policy says. It is what must actually hold for the system to function without drift.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div class="step-body">
+                <h3>Trace the failure path</h3>
+                <p>The next task is to identify where rules become real, where they fail, and what happens when they do. This includes interfaces, handoffs, decision points, enforcement points, and the places where burden quietly moves elsewhere. I look for where work stalls, where ambiguity crosses boundaries, where compensation mechanisms appear, and where humans have become the hidden reliability layer. Recurring failure follows a path. The path must be traced.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div class="step-body">
+                <h3>Separate the stated problem from the actual problem</h3>
+                <p>Clients usually arrive with a real pain pattern, but not always with the real diagnosis. One of the central tasks of the artifact is to separate what the client thinks is failing from what is actually producing the failure — and to explain why prior fixes have not held. This is where the governing diagnosis is formed: the central structural truth from which the rest of the failure follows.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">05</span>
+              <div class="step-body">
+                <h3>Make the stakes legible</h3>
+                <p>A diagnosis is incomplete if it does not make consequence visible. I make the current cost of the failure legible in practical terms: operational cost, human cost, financial cost, coordination cost, and future compounding risk where relevant. If the structural cost remains vague, the system will continue to absorb it invisibly.</p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">06</span>
+              <div class="step-body">
+                <h3>Produce the artifact</h3>
+                <p>The final task is to turn the diagnosis into a builder-readable structural document. The artifact names the system clearly, locates the rule that is breaking, explains the mismatch, defines what must change first, and shows what depends on what. It is not a brainstorming document and not a generic strategy deck. It is a source of structural truth that decision-makers and builders can use as a common reference point.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">what ai does</span></div>
+      <div class="section-divider"><span class="section-divider-label">what i am looking for</span></div>
 
-      <section class="card" aria-label="What AI does">
-        <h2 class="section-title">What AI does</h2>
-        <div class="two-col">
-          <div class="prose">
-            <p>AI assists execution. It can articulate, draft, reorganise, and refine. It increases speed, range, and iteration.</p>
-            <p>AI does not decide what structure is actually there, which rule is breaking, or what must change first. Those are judgments, and judgment is not something I delegate.</p>
-          </div>
-          <div>
-            <span class="mini-kicker" style="margin-bottom:12px;">Depending on the project, AI may help</span>
-            <ul class="clean">
-              <li>Articulate complex ideas more clearly</li>
-              <li>Organise material into more usable forms</li>
-              <li>Draft and redraft prose</li>
-              <li>Test alternative phrasings and structures</li>
-              <li>Support research exploration</li>
-              <li>Assist with technical build work</li>
-              <li>Reduce production friction across writing and artifacts</li>
-            </ul>
+      <section class="card" aria-label="What I am looking for">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>What I am looking for</h2>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div class="prose">
+              <p>Across different systems, I am often looking for the same classes of structural problem. The goal is not to collect every symptom. The goal is to identify the smallest set of structural truths that explains the recurring pattern.</p>
+              <p>I am also looking for places where a failure appears local but is actually systemic, where a named product is really functioning as something else, or where burden is being displaced onto the wrong people, teams, or functions.</p>
+            </div>
+            <div class="list-panel">
+              <span class="list-panel-label">Common structural problems</span>
+              <ul class="clean">
+                <li>Hidden incentives misaligned with stated purpose</li>
+                <li>Unclear ownership across interfaces</li>
+                <li>Weak or absent system boundaries</li>
+                <li>Broken or unenforced rules</li>
+                <li>Fragmented sources of structural truth</li>
+                <li>Recurring misclassification of work</li>
+                <li>Drift between policy and operating reality</li>
+                <li>Repeated human workarounds that have become the operating model</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">what ai does not do</span></div>
+      <div class="section-divider"><span class="section-divider-label">what the artifact contains</span></div>
 
-      <section class="card" aria-label="What AI does not do">
-        <h2 class="section-title">What AI does not do</h2>
-        <div class="prose">
-          <p>AI does not replace my reasoning. It does not decide the framework, set the structural logic, override my judgment, or remove my accountability.</p>
-          <p>I do not treat model output as authoritative on its own, and I do not publish or deliver work simply because it sounds plausible.</p>
+      <section class="card" aria-label="What the artifact contains">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>What the artifact contains</h2>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div class="prose">
+              <p>The exact shape of the artifact varies with the system, but the principle stays the same: the output must be serious enough to align decision-makers and concrete enough for builders to work from.</p>
+              <p>It is designed to give your team one document that makes the real failure visible, names what must change first, and reduces interpretation drift across the people responsible for acting on it.</p>
+            </div>
+            <div class="list-panel">
+              <span class="list-panel-label">A Diagnostic Artifact typically includes</span>
+              <ul class="clean">
+                <li>A clear definition of the system under analysis</li>
+                <li>A structural view of how work actually flows</li>
+                <li>The primitive and governing rules</li>
+                <li>The key interfaces and failure path</li>
+                <li>The distinction between stated and actual problem</li>
+                <li>The governing diagnosis</li>
+                <li>The present and future cost of the failure</li>
+                <li>What must change first, and what depends on what</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">review and responsibility</span></div>
+      <div class="section-divider"><span class="section-divider-label">why this is different</span></div>
 
-      <section class="card" aria-label="Review and responsibility">
-        <h2 class="section-title">Review and responsibility</h2>
-        <div class="prose">
-          <p>Everything published or delivered under my name is reviewed by me.</p>
-          <p>That means I am responsible for the framing, the reasoning, the recommendations, the final form of the work, and the decision to publish or deliver it.</p>
-          <p>If something appears under my name, I stand behind it.</p>
+      <section class="card" aria-label="Why this is different">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>Why this is different</h2>
+        </div>
+        <div class="card-body prose">
+          <p>This is not a technical root-cause analysis, a live incident response service, or a general consulting workshop. It is not designed to debug one isolated bug, patch one urgent issue, or produce vague strategy language that every team can interpret differently.</p>
+          <p>It is designed to identify the structural layer beneath recurring failure and convert that diagnosis into one written artifact that can actually govern action.</p>
+          <p>Many systems are repeatedly fixed at the symptom layer while the governing structure remains untouched. This work starts where surface explanation stops being sufficient.</p>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">how i produce the work</span></div>
+
+      <section class="card" aria-label="How I produce the work">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>How I produce the work</h2>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div class="prose">
+              <p>The work is architecture-led. I develop the frameworks, structural distinctions, diagnostic logic, and final conclusions myself. AI assists execution — I use it as a drafting, articulation, and production tool to work more clearly and efficiently, but not to replace reasoning.</p>
+              <p>I do not begin with generated output and work backwards from something plausible-sounding. I begin with structure. AI may help me organise material, test phrasing, refine drafts, or reduce production friction, but it does not decide what system is actually being diagnosed, which rule is breaking, or what must change first.</p>
+              <p>The thinking, the framework, and the responsibility are mine.</p>
+            </div>
+            <div class="list-panel">
+              <span class="list-panel-label">AI may assist</span>
+              <ul class="clean">
+                <li>Articulating complex ideas more clearly</li>
+                <li>Organising material into more usable forms</li>
+                <li>Drafting and redrafting prose</li>
+                <li>Testing alternative phrasings and structures</li>
+                <li>Supporting research exploration</li>
+                <li>Reducing production friction across writing and artifacts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">review and accountability</span></div>
+
+      <section class="card" aria-label="Review and accountability">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>Review and accountability</h2>
+        </div>
+        <div class="card-body prose">
+          <p>Everything published or delivered under my name is reviewed by me. That means I am responsible for the framing, the reasoning, the recommendations, the final form of the work, and the decision to publish or deliver it.</p>
+          <p>I do not treat model output as authoritative on its own, and I do not deliver work simply because it sounds plausible. If something appears under my name, I stand behind it.</p>
         </div>
       </section>
 
       <div class="section-divider"><span class="section-divider-label">what this means for clients</span></div>
 
       <section class="card card-accent" aria-label="What this means for clients">
-        <h2 class="section-title">What this means for clients</h2>
-        <div class="prose">
-          <p>If you engage me for a Diagnostic Artifact or Redesign Artifact, you are not paying for automated output.</p>
-          <p>You are paying for <strong>structural judgment, clear framing, serious synthesis, and a written artifact built to be used by decision-makers and builders.</strong></p>
-          <p>AI may assist parts of the production process, but the diagnostic logic, structural interpretation, and final recommendations remain mine.</p>
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>What this means for clients</h2>
         </div>
-        <div class="cta-bar">
-          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
+        <div class="card-body">
+          <div class="prose">
+            <p>If you engage me for a Diagnostic Artifact or Redesign Artifact, you are not paying for automated output.</p>
+            <p>You are paying for <strong>structural judgment, clear framing, serious synthesis, and a written artifact built to be used by decision-makers and builders.</strong></p>
+            <p>AI may assist parts of the production process, but the diagnostic logic, structural interpretation, and final recommendations remain mine. The aim is to give you one document that makes the real failure visible, names what must change first, and reduces interpretation drift across the people responsible for acting on it.</p>
+            <p>If your system keeps failing in the same way under growth, send the failure pattern first. Describe what keeps returning, what it is costing, where it shows up, what has already been tried, and what cannot change.</p>
+          </div>
+          <div class="cta-bar">
+            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+            <a class="btn" href="./services.html">VIEW SERVICES</a>
+          </div>
         </div>
       </section>
 
@@ -293,7 +401,6 @@
     <div style="display:flex;justify-content:center;padding:32px 0 0;">
       <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
     </div>
-
   </div>
 
   <footer class="site-footer">
@@ -303,7 +410,7 @@
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>
 Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="84ece1e8e8ebc4eee5e9ede1e2ebf6f6e1f7f0e1f6aae7ebe9">[email&#160;protected]</span></a>
+          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -313,6 +420,7 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
             <li><a href="./how-it-works.html">How It Works</a></li>
             <li><a href="./research.html">Research</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./method.html">Method</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
@@ -320,7 +428,6 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
           <ul class="site-footer__list">
             <li><a href="./privacy-policy.html">Privacy Policy</a></li>
             <li><a href="./terms.html">Terms</a></li>
-            <li><a href="./method.html">Method</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
@@ -354,7 +461,7 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
     @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; padding-top: 20px; } }
   </style>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.getElementById('footer-year').textContent = new Date().getFullYear();
     (function(){
       var nav = document.querySelector('.site-nav');
@@ -366,4 +473,11 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
       }, {passive: true});
     })();
     document.addEventListener('DOMContentLoaded', function(){
-      var e
+      var e = 'hello' + '@' + 'jamieforrester.com';
+      document.querySelectorAll('[data-mailto]').forEach(function(el){
+        el.setAttribute('href', 'mailto:' + e);
+      });
+    });
+  </script>
+</body>
+</html>
