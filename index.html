@@ -204,23 +204,27 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .lead strong { color: #fff; }
 
 /* Scan entry card */
-.scan-entry-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 20px; margin-bottom: 32px; padding: 20px 24px; border: 1px solid rgba(90,176,255,0.16); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
+.scan-entry-card { margin-bottom: 32px; border: 1px solid rgba(90,176,255,0.28); border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 50%, rgba(255,255,255,0.008) 100%); box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 12px 32px rgba(0,0,0,0.24); }
+.scan-entry-badge { display: flex; align-items: center; justify-content: space-between; padding: 10px 22px; border-bottom: 1px solid rgba(90,176,255,0.14); background: rgba(90,176,255,0.04); }
+.scan-entry-eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+.scan-entry-tag { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 3px 8px; }
+.scan-entry-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 22px; flex-wrap: wrap; }
 .scan-entry-left { flex: 1; min-width: 0; }
-.scan-entry-body { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; max-width: 68ch; }
+.scan-entry-title { margin: 0 0 6px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.3; }
+.scan-entry-body { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; max-width: 64ch; }
 
 /* Fit block */
-.fit-block { margin-bottom: 0; }
-.fit-grid { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0 32px; align-items: start; }
-.fit-divider { background: rgba(255,255,255,0.07); align-self: stretch; }
-.fit-col { padding: 4px 0; }
-.fit-lead { margin: 0 0 16px; font-size: 14px; color: var(--text-dim); line-height: 1.65; }
-.fit-list { margin: 0 0 16px; padding: 0; list-style: none; display: grid; gap: 9px; }
-.fit-list li { padding-left: 16px; position: relative; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+.fit-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 32px; }
+.fit-card-good { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 100%); margin-bottom: 0; }
+.fit-card-bad { margin-bottom: 0; }
+.fit-lead { margin: 0 0 14px; font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+.fit-list { margin: 0 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+.fit-list li { padding-left: 18px; position: relative; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
 .fit-list li::before { content: "→"; position: absolute; left: 0; color: var(--label-blue); }
 .fit-list-muted li::before { color: var(--text-faint); }
 .fit-list-muted li { color: var(--text-faint); }
-.fit-boundary { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-faint); line-height: 1.6; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font-style: italic; }
-@media (max-width: 720px) { .fit-grid { grid-template-columns: 1fr; } .fit-divider { height: 1px; width: 100%; } }
+.fit-boundary { margin: 14px 0 0; font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--text-faint); line-height: 1.6; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font-style: italic; }
+@media (max-width: 720px) { .fit-two-col { grid-template-columns: 1fr; } }
 
 /* Process strip */
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
@@ -565,12 +569,20 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     </section>
 
+    <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
+
     <div class="scan-entry-card">
-      <div class="scan-entry-left">
-        <span class="mini-kicker" style="margin-bottom:6px;">// Self-guided structural scan</span>
-        <p class="scan-entry-body">Answer five questions about any system you run or operate inside. The scan surfaces whether the failure is likely structural, and where to look first.</p>
+      <div class="scan-entry-badge">
+        <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
+        <span class="scan-entry-tag">Free · Self-guided</span>
       </div>
-      <a class="btn btn-primary" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
+      <div class="scan-entry-main">
+        <div class="scan-entry-left">
+          <h3 class="scan-entry-title">Not sure if your problem is structural?</h3>
+          <p class="scan-entry-body">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
+        </div>
+        <a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
+      </div>
     </div>
 
     <div class="section-divider"><span class="section-divider-label">selected research</span></div>
@@ -642,23 +654,35 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
     </section>
 
-    <div class="section-divider"><span class="section-divider-label">how to start</span></div>
+    <div class="section-divider"><span class="section-divider-label">fit and scope</span></div>
 
-    <section class="card fit-block" aria-label="Fit and scope">
-      <div class="fit-grid">
-        <div class="fit-col">
-          <span class="mini-kicker" style="margin-bottom:10px;">Who this is for</span>
-          <p class="fit-lead">This work is for recurring failure where the structural layer is plausibly involved.</p>
-          <p class="fit-lead" style="margin-bottom:0;">It fits when the same problem keeps returning under different labels, when teams do not share the same structural read, when manual workarounds have become load-bearing, or when builders are being forced to invent design during implementation.</p>
-        </div>
-        <div class="fit-divider"></div>
-        <div class="fit-col">
-          <span class="mini-kicker" style="margin-bottom:10px; color:var(--text-faint);">Not the right fit for</span>
-          <p class="fit-lead" style="color:var(--text-faint);">This work is not for one-off bugs, code-level debugging, live incident response, technical root-cause analysis, security review, or implementation support.</p>
-          <p class="fit-boundary">If the issue is purely technical, already well understood, or not credibly diagnosable from the available evidence, I will say so.</p>
-        </div>
-      </div>
-    </section>
+    <div class="fit-two-col">
+      <section class="card fit-card-good" aria-label="Who this is for">
+        <span class="mini-kicker" style="margin-bottom:12px;">Who this is for</span>
+        <p class="fit-lead">Recurring failure where the structural layer is plausibly involved.</p>
+        <ul class="fit-list">
+          <li>The same problem keeps returning under different labels</li>
+          <li>Teams do not share the same structural read of what is wrong</li>
+          <li>Manual workarounds have become load-bearing</li>
+          <li>Builders are inventing design during implementation</li>
+          <li>Ownership is blurred across roles, teams, or interfaces</li>
+        </ul>
+      </section>
+      <section class="card fit-card-bad" aria-label="Not the right fit for">
+        <span class="mini-kicker" style="margin-bottom:12px; color:var(--text-faint);">Not the right fit for</span>
+        <p class="fit-lead" style="color:var(--text-faint);">Issues that are narrow, isolated, and already understood at the technical layer.</p>
+        <ul class="fit-list fit-list-muted">
+          <li>One-off bugs with a clear technical owner</li>
+          <li>Known defects requiring engineering execution</li>
+          <li>Live incident investigation or response</li>
+          <li>Code-level root-cause analysis or security work</li>
+          <li>Open-ended advisory without a bounded failure pattern</li>
+        </ul>
+        <p class="fit-boundary">If the issue is purely technical, already well understood, or not credibly diagnosable from the available evidence, I will say so.</p>
+      </section>
+    </div>
+
+    <div class="section-divider" style="margin-top:32px;"><span class="section-divider-label">how to start</span></div>
 
     <section class="card" aria-label="How to start">
       <div class="label-row">
@@ -697,8 +721,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="site-footer__top">
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary">Independent Systems Architect. Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="2e464b4242416e444f43474b48415c5c4b5d5a4b5c004d4143">[email&#160;protected]</span></a>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -707,6 +731,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
             <li><a href="./services.html">Services</a></li>
             <li><a href="./how-it-works.html">How It Works</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
