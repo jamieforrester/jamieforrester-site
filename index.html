@@ -589,7 +589,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <section class="card" aria-label="Selected research">
       <div class="label-row">
-        <span class="label">01 // Selected research</span>
+        <span class="label">// Selected research</span>
         <span class="label-note">2 papers + snapshot + research spine</span>
       </div>
       <p class="selected-research-intro">Two published papers currently anchor the practice. A third is in development.</p>
@@ -686,7 +686,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <section class="card" aria-label="How to start">
       <div class="label-row">
-        <span class="label">02 // How to start</span>
+        <span class="label">// How to start</span>
         <span class="label-note">entry route</span>
       </div>
       <p class="lead">If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.<br><br><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-faint);letter-spacing:0.04em;">The five-line brief is a fit screen, not the diagnosis itself.</span></p>
@@ -722,7 +722,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="bdd5d8d1d1d2fdd7dcd0d4d8dbd2cfcfd8cec9d8cf93ded2d0">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -771,7 +771,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;padding-bottom:28px;}.site-footer__bottom{flex-direction:column;align-items:flex-start;padding-top:20px;}}
   </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><div class="brief-modal-overlay" id="briefModal" role="dialog" aria-modal="true" style="display:none;">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><div class="brief-modal-overlay" id="briefModal" role="dialog" aria-modal="true" style="display:none;">
   <div class="brief-modal">
     <div class="brief-modal-header">
       <div>
@@ -904,12 +904,4 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
   document.querySelectorAll('a.btn, button.btn').forEach(function(el){
-    if (el.textContent.replace(/\s+/g,' ').trim().toUpperCase() === 'EMAIL FIVE-LINE BRIEF') {
-      el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
-    }
-  });
-})();
-
-</script>
-</body>
-</html>
+    if (el.textCon
