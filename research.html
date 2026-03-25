@@ -311,6 +311,17 @@
     }
 
     /* ── Responsive ── */
+
+    /* Trilogy */
+    .trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
+    .trilogy-paper { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
+    .trilogy-paper-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .trilogy-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .trilogy-paper-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+    .trilogy-paper-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.65; flex: 1; }
+    .trilogy-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .trilogy-sequence { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); }
+
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
@@ -389,10 +400,10 @@
       <div class="hero-left">
         <span class="eyebrow">Research</span>
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
-        <p class="hero-sub">The written artifacts are grounded in a body of work — not assembled for each engagement. This page shows the foundations: the theoretical models, published research, books in development, and live systems built on the same structural logic.</p>
-        <p class="hero-sub" style="margin-bottom:0;">The frameworks inform how failure is located. The builds prove the method works under real operating conditions. Everything here feeds directly into how the Diagnostic and Redesign Artifacts are produced.</p>
+        <p class="hero-sub">This work is built as a coherent research program — not assembled per engagement. Core models, public papers, books in development, and live systems built under the same structural logic.</p>
+        <p class="hero-sub">The clearest public entry point is now the <strong>Diagnostic Lens Trilogy</strong>: three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. The public papers do not replace the client artifact. They show the diagnostic lens in public form.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn btn-primary" href="./trilogy.html">READ THE TRILOGY</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
         </div>
       </div>
@@ -401,24 +412,24 @@
           <span class="content-map-label">On this page</span>
           <span class="content-map-sub">Jump to a section</span>
         </div>
-        <a class="map-item" href="#foundations">
+        <a class="map-item" href="#trilogy">
           <span class="map-item-num">01</span>
+          <span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span>
+          <span class="map-item-status">3 papers</span>
+        </a>
+        <a class="map-item" href="#foundations">
+          <span class="map-item-num">02</span>
           <span class="map-item-text"><strong>Theoretical Foundations</strong>Four-Function Law + Universal Formula</span>
           <span class="map-item-status">2 models</span>
         </a>
-        <a class="map-item" href="#research">
-          <span class="map-item-num">02</span>
-          <span class="map-item-text"><strong>Research</strong>Published and in progress</span>
-          <span class="map-item-status">2 papers</span>
-        </a>
-        <a class="map-item" href="#books">
+        <a class="map-item" href="#pipeline">
           <span class="map-item-num">03</span>
           <span class="map-item-text"><strong>Research Pipeline</strong>Full 6-paper + monograph sequence</span>
           <span class="map-item-status">7 works</span>
         </a>
         <a class="map-item" href="#books">
           <span class="map-item-num">04</span>
-          <span class="map-item-text"><strong>Books</strong>Quadrilogy in development</span>
+          <span class="map-item-text"><strong>Books</strong>Four-book sequence in development</span>
           <span class="map-item-status">4 books</span>
         </a>
         <a class="map-item" href="#builds">
@@ -431,28 +442,67 @@
 
     <main id="main" role="main">
 
-      <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
+      <div class="section-divider"><span class="section-divider-label">diagnostic lens trilogy</span></div>
+
+      <section id="trilogy" class="card card-accent" aria-label="Diagnostic Lens Trilogy">
+        <div class="label-row">
+          <span class="label">01 // Diagnostic Lens Trilogy</span>
+          <span class="label-note">three papers · one closed loop</span>
+        </div>
+        <p class="lead">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch, to collapse, to missing redesign — a closed diagnostic sequence.</p>
+        <div class="trilogy-grid">
+          <div class="trilogy-paper">
+            <div class="trilogy-paper-head">
+              <span class="trilogy-num">Paper 01</span>
+              <span class="status status-published">Published</span>
+            </div>
+            <a href="./paper1-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" /></a>
+            <h3 class="trilogy-paper-title">The Expertise Illusion in AI Task Marketplaces</h3>
+            <p class="trilogy-paper-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks at scale. Introduces interface-legitimacy mismatch: systems that signal one kind of capability while operationally consuming another.</p>
+            <div class="actions">
+              <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+          <div class="trilogy-paper">
+            <div class="trilogy-paper-head">
+              <span class="trilogy-num">Paper 02</span>
+              <span class="status status-published">Published</span>
+            </div>
+            <a href="./paper2-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" /></a>
+            <h3 class="trilogy-paper-title">The Four-Function Law of Scalable Institutions</h3>
+            <p class="trilogy-paper-desc">Why institutions fail when sensing, interpretation, authority, and memory remain fused at the point of consequence. Shows how burden concentrates when irreducible functions are forced into the same human node under ambiguity and scale.</p>
+            <div class="actions">
+              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+          <div class="trilogy-paper">
+            <div class="trilogy-paper-head">
+              <span class="trilogy-num">Paper 03</span>
+              <span class="status status-published">Published</span>
+            </div>
+            <a href="./paper3-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" /></a>
+            <h3 class="trilogy-paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+            <p class="trilogy-paper-desc">Why execution-optimised systems cannot reliably generate redesign from within their own correction loops. Explains the structural absence that makes external diagnosis necessary rather than merely useful.</p>
+            <div class="actions">
+              <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+        </div>
+        <div class="trilogy-footer">
+          <span class="trilogy-sequence">Read in sequence: Paper 01 → Paper 02 → Paper 03</span>
+          <a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
+        </div>
+      </section>
+
+            <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
 
       <section id="foundations" class="card card-accent" aria-label="Theoretical foundations">
         <div class="label-row">
-          <span class="label">01 // Theoretical foundations</span>
-          <span class="label-note">the two core models</span>
+          <span class="label">02 // Theoretical foundations</span>
+          <span class="label-note">core models</span>
         </div>
-        <p class="lead">Two models sit beneath the entire body of work. The <strong>Four-Function Law</strong> explains how institutions fail under scale. The <strong>Universal Formula</strong> explains how a primitive becomes a civilisation-layer. Both are used in every engagement to locate where the failure actually belongs before the artifact is written.</p>
+        <p class="lead">The <strong>Universal Formula</strong> and the <strong>Four-Function Law</strong> sit beneath the entire body of work and are used in every engagement. The Four-Function Law is fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Universal Formula is documented separately.</p>
         <div class="foundations-grid">
-          <div class="foundation-block">
-            <span class="mini-kicker">Four-Function Law</span>
-            <h3>Why institutions fail when functions fuse</h3>
-            <a class="foundation-thumb-wrap" href="#" aria-label="Expand cover: The Four-Function Law of Scalable Institutions" data-lightbox-src="./paper2-image.png" data-lightbox-caption="The Four-Function Law of Scalable Institutions" style="float:left; margin: 0 16px 10px 0;">
-              <img class="foundation-thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-            </a>
-            <p>Every institution performs four irreducible functions: Sensing, Interpretation, Authority, and Memory. The law is not that these functions exist — it is what happens when they are forced into the same human node under ambiguity and consequence. Collapse is not a risk at that point. It is the structural outcome. What the institution calls burnout, shortage, or overload is the visible surface of a hidden allocation error — and it recurs across reform cycles because the topology is never examined.</p>
-            <p class="small">The Diagnostic Artifact uses this framework to locate which function has collapsed, where the burden has migrated, and what the structure must change before any other intervention will hold.</p>
-            <div class="actions" style="clear:both;">
-              <span class="status status-published">Published</span>
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read Paper (PDF)</a>
-            </div>
-          </div>
           <div class="foundation-block">
             <span class="mini-kicker">Universal Formula</span>
             <h3>How a primitive becomes a civilisation layer</h3>
@@ -463,60 +513,23 @@
               <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">research</span></div>
-
-      <section id="research" class="card" aria-label="Research papers">
-        <div class="label-row">
-          <span class="label">02 // Research</span>
-          <span class="label-note">published and in progress</span>
-        </div>
-        <p class="lead" style="margin-bottom:20px;">Two papers apply the same structural logic used in diagnostic work — showing how signal diverges from optimisation, and why systems built without an upstream reframing layer cannot self-correct. The full six-paper pipeline is listed below.</p>
-
-        <div class="paper">
-          <div class="paper-row">
-            <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
-              <img class="thumb" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
-            </a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-                <span class="status status-published">Published</span>
-              </div>
-              <p class="paper-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks reality.</p>
-              <p class="small">A public example of the same mismatch logic used in diagnostic work: what a system signals, what it optimises, and where the gap between those two things produces systemic failure. The structural pattern recurs across every domain.</p>
-              <div class="actions"><a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a></div>
+          <div class="foundation-block">
+            <span class="mini-kicker">Four-Function Law</span>
+            <h3>Why institutions fail when functions fuse</h3>
+            <p>Sensing, Interpretation, Authority, and Memory — the four irreducible functions of any scalable institution. The law explains what happens when they remain fused at the same human node under ambiguity and consequence. Collapse is the structural outcome, not a risk.</p>
+            <p class="small">Fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Diagnostic Artifact uses this framework to locate which function has collapsed and what must change before any intervention will hold.</p>
+            <div class="actions">
+              <span class="status status-published">Published</span>
+              <a href="./trilogy.html" class="link-blue">Read in trilogy →</a>
+              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
             </div>
           </div>
         </div>
-
-        <div class="paper">
-          <div class="paper-row">
-            <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Why Systems Can't Fix Themselves">
-              <img class="thumb" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves: The Missing Redesign Layer" />
-            </a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">Why Systems Can&#39;t Fix Themselves: The Missing Redesign Layer</p>
-                <span class="status">In development</span>
-              </div>
-              <p class="paper-desc">Why execution-optimised systems lack an interface for upstream reframing — and therefore cannot self-correct.</p>
-              <p class="small">The theoretical basis for why a Redesign Artifact must be produced upstream and externally, rather than generated from within the system that is already failing. Internal correction loops optimise for the wrong layer by default.</p>
-              <div class="actions">
-                <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">Read abstract (PDF)</a>
-                <a href="./status-notes.html#missing-redesign" class="muted-link">Status notes</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <div class="section-divider"><span class="section-divider-label">research pipeline</span></div>
 
-      <section class="card" aria-label="Full research pipeline">
+      <section id="pipeline" class="card" aria-label="Full research pipeline">
         <!-- Research pipeline card -->
         <div class="pipeline-card" style="margin-top:0;">
           <div class="pipeline-header">
@@ -546,7 +559,7 @@
                 <span class="pipeline-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</span>
                 <span class="pipeline-domain">Platform &amp; Org Design</span>
               </div>
-              <span class="status status-dev">In development</span>
+              <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">Read (PDF)</a>
             </li>
             <li class="pipeline-item">
               <span class="pipeline-num">04</span>
@@ -840,7 +853,7 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="e58d8089898aa58f84888c80838a97978096918097cb868a88">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -849,6 +862,7 @@
             <li><a href="./services.html">Services</a></li>
             <li><a href="./how-it-works.html">How It Works</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
           </ul>
@@ -962,7 +976,7 @@
 .brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}}
 </style>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
 // Email link wiring - Cloudflare-proof
 document.addEventListener('DOMContentLoaded', function(){
   var e = 'hello' + '@' + 'jamieforrester.com';
@@ -1031,12 +1045,4 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
   document.querySelectorAll('a.btn, button.btn').forEach(function(el){
-    if (el.textContent.replace(/\s+/g,' ').trim().toUpperCase() === 'EMAIL FIVE-LINE BRIEF') {
-      el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
-    }
-  });
-})();
-
-</script>
-</body>
-</html>
+    if (el.textCon
