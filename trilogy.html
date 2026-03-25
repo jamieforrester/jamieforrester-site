@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnostic Lens Trilogy — Jamie Forrester</title>
+  <meta name="description" content="Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. A closed diagnostic sequence: mismatch, collapse, missing redesign." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* Nav */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); }
+    .nav-how-short { display: none; }
+
+    /* Header */
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
+    .avatar-link:hover { background: transparent; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); display: block; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
+    .ico { display: inline-flex; align-items: center; }
+
+    /* Type */
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .section-divider { margin: 0 0 28px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+    .status-published { color: #5adf9a; background: rgba(90,223,154,0.08); border: 1px solid rgba(90,223,154,0.22); padding: 3px 8px; border-radius: 6px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* Cards */
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+    .card-accent { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%); }
+    .card-head { padding: 18px 28px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 14px; }
+    .card-accent .card-head { border-bottom-color: rgba(90,176,255,0.14); background: rgba(90,176,255,0.025); }
+    .card-head-bar { width: 3px; height: 22px; border-radius: 2px; flex: 0 0 auto; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .card-head h2 { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+    .card-body { padding: 24px 28px; }
+    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding: 18px 28px 16px; }
+    .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
+    .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--label-blue); }
+
+    /* Hero */
+    .trilogy-hero { display: grid; grid-template-columns: 1fr 0.75fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+    .trilogy-hero-title { margin: 0 0 16px; font-size: clamp(2rem, 1.6rem + 1.2vw, 3rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
+    .trilogy-hero-sub { margin: 0 0 14px; font-size: 15px; color: #c6ccd4; line-height: 1.72; }
+    .trilogy-hero-sub strong { color: #fff; font-weight: 600; }
+    .trilogy-hero-sub:last-child { margin-bottom: 0; }
+
+    /* Thesis card */
+    .thesis-card { border: 1px solid rgba(90,176,255,0.2); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); }
+    .thesis-card-head { padding: 13px 20px; border-bottom: 1px solid rgba(90,176,255,0.12); background: rgba(90,176,255,0.03); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); }
+    .thesis-card-body { padding: 20px; }
+    .thesis-card-body p { margin: 0 0 12px; font-size: 13px; color: var(--text-dim); line-height: 1.72; }
+    .thesis-card-body p:last-child { margin-bottom: 0; }
+    .thesis-card-body strong { color: #e8ecf0; font-weight: 600; }
+
+    /* Paper blocks */
+    .paper-block { display: grid; grid-template-columns: 140px 1fr; gap: 28px; padding: 28px; border-bottom: 1px solid var(--border-soft); align-items: start; }
+    .paper-block:last-child { border-bottom: none; }
+    .paper-block-cover { display: flex; flex-direction: column; gap: 10px; }
+    .paper-block-cover img { width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); display: block; }
+    .paper-block-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .paper-block-title { margin: 0 0 6px; font-size: clamp(1rem, 0.9rem + 0.3vw, 1.15rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
+    .paper-block-instrument { margin: 0 0 12px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--label-blue); letter-spacing: 0.04em; line-height: 1.5; }
+    .paper-block-desc { margin: 0 0 12px; font-size: 14px; color: var(--text-dim); line-height: 1.72; }
+    .paper-block-desc strong { color: #e8ecf0; font-weight: 600; }
+    .paper-block-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .paper-block-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+
+    /* Sequence connector */
+    .sequence-connector { display: flex; align-items: center; justify-content: center; padding: 8px 0; gap: 8px; }
+    .sequence-connector-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(90,176,255,0.2), transparent); }
+    .sequence-connector-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Closed loop */
+    .loop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+    .loop-item { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
+    .loop-item-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 8px; display: block; }
+    .loop-item-title { margin: 0 0 6px; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+    .loop-item-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.62; }
+    .loop-arrow { display: flex; align-items: center; justify-content: center; color: var(--label-blue); font-size: 18px; }
+
+    /* Prose */
+    .prose p { margin: 0 0 14px; color: var(--text-dim); font-size: 14px; line-height: 1.72; max-width: 72ch; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose p strong { color: #e8ecf0; font-weight: 600; }
+
+    /* CTA bar */
+    .cta-bar { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    @media (max-width: 920px) {
+      .wrap { padding-top: 24px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .site-nav-links { gap: 2px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9px; }
+      .trilogy-hero { grid-template-columns: 1fr; gap: 32px; }
+      .paper-block { grid-template-columns: 1fr; }
+      .paper-block-cover img { max-width: 180px; }
+      .loop-grid { grid-template-columns: 1fr; }
+      .nav-how-short { display: inline; }
+      .nav-how-full { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
+        <a href="./research.html">Research</a>
+        <a data-mailto="1" class="nav-cta">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <a class="avatar-link" href="./index.html" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+        </div>
+      </div>
+      <div class="top-cta" aria-label="Primary links">
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn btn-primary" data-mailto="1">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          EMAIL
+        </a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Hero -->
+      <div class="trilogy-hero">
+        <div>
+          <span class="eyebrow">Diagnostic Lens Trilogy</span>
+          <h2 class="trilogy-hero-title">Three papers. One closed diagnostic loop.</h2>
+          <p class="trilogy-hero-sub">A three-paper sequence diagnosing recurring failure across platforms, institutions, and self-correcting systems.</p>
+          <p class="trilogy-hero-sub">Together they move from <strong>mismatch</strong>, to <strong>collapse</strong>, to <strong>missing redesign</strong> — showing how systems mis-signal capability, how burden concentrates under scale, and why redesign cannot reliably be generated from within the same correction loops that produced the failure.</p>
+          <p class="trilogy-hero-sub">All three papers are now published.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;">
+            <a class="btn btn-primary" href="./paper.pdf" target="_blank" rel="noopener">PAPER 01 (PDF)</a>
+            <a class="btn" href="./four-function-law.pdf" target="_blank" rel="noopener">PAPER 02 (PDF)</a>
+            <a class="btn" href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">PAPER 03 (PDF)</a>
+          </div>
+        </div>
+        <div class="thesis-card">
+          <div class="thesis-card-head">Trilogy thesis</div>
+          <div class="thesis-card-body">
+            <p>Recurring system failure is often misread because the wrong layer is being named. Systems may appear to fail because of workload, complexity, shortage, bad actors, or poor execution.</p>
+            <p><strong>The deeper pattern is structural:</strong> mismatch between signal and optimisation, collapse of irreducible functions at the point of consequence, and absence of a legitimate redesign layer upstream of execution and diagnosis.</p>
+            <p>Each paper introduces one diagnostic instrument. Together they form a closed loop.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-label">the papers — read in sequence</span></div>
+
+      <section class="card" aria-label="The three papers">
+
+        <!-- Paper 01 -->
+        <div class="paper-block">
+          <div class="paper-block-cover">
+            <span class="paper-block-num">Paper 01</span>
+            <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces">
+              <img src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+            </a>
+            <span class="status-published">Published</span>
+          </div>
+          <div>
+            <div class="paper-block-head">
+              <h3 class="paper-block-title">The Expertise Illusion in AI Task Marketplaces</h3>
+            </div>
+            <p class="paper-block-instrument">Diagnostic instrument: Interface-legitimacy mismatch</p>
+            <p class="paper-block-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks reality under scale. The paper identifies a structural class of failure in which a system signals one kind of capability while operationally consuming another.</p>
+            <p class="paper-block-desc">The optimiser does not know what the interface claims. The interface does not enforce what the optimiser does. The gap between signal and operation is where the failure lives — and it recurs because the gap is structural, not incidental.</p>
+            <p class="paper-block-desc"><strong>What it introduces:</strong> A named diagnostic class — interface-legitimacy mismatch — that identifies when signal diverges from operational reality at the system boundary.</p>
+            <div class="paper-block-actions">
+              <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="sequence-connector">
+          <div class="sequence-connector-line"></div>
+          <span class="sequence-connector-label">mismatch → collapse</span>
+          <div class="sequence-connector-line"></div>
+        </div>
+
+        <!-- Paper 02 -->
+        <div class="paper-block">
+          <div class="paper-block-cover">
+            <span class="paper-block-num">Paper 02</span>
+            <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions">
+              <img src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+            </a>
+            <span class="status-published">Published</span>
+          </div>
+          <div>
+            <div class="paper-block-head">
+              <h3 class="paper-block-title">The Four-Function Law of Scalable Institutions</h3>
+            </div>
+            <p class="paper-block-instrument">Diagnostic instrument: Four-Function Law — Sensing · Interpretation · Authority · Memory</p>
+            <p class="paper-block-desc">Every institution performs four irreducible functions: Sensing, Interpretation, Authority, and Memory. The law is not that these functions exist — it is what happens when they remain fused at the same human node under ambiguity and consequence.</p>
+            <p class="paper-block-desc">Collapse is not a risk at that point. It is the structural outcome. What the institution calls burnout, shortage, or overload is the visible surface of a hidden allocation error — and it recurs across reform cycles because the topology is never examined.</p>
+            <p class="paper-block-desc"><strong>What it introduces:</strong> The Four-Function Law — a formal account of why institutional burden concentrates, how to locate where it has migrated, and what the structure must change before any intervention will hold.</p>
+            <div class="paper-block-actions">
+              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div class="sequence-connector">
+          <div class="sequence-connector-line"></div>
+          <span class="sequence-connector-label">collapse → missing redesign</span>
+          <div class="sequence-connector-line"></div>
+        </div>
+
+        <!-- Paper 03 -->
+        <div class="paper-block">
+          <div class="paper-block-cover">
+            <span class="paper-block-num">Paper 03</span>
+            <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener" aria-label="Open PDF: Why Systems Can't Fix Themselves">
+              <img src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves: The Missing Redesign Layer" />
+            </a>
+            <span class="status-published">Published</span>
+          </div>
+          <div>
+            <div class="paper-block-head">
+              <h3 class="paper-block-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+            </div>
+            <p class="paper-block-instrument">Diagnostic instrument: Redesign layer absence — the upstream interface that execution cannot generate</p>
+            <p class="paper-block-desc">Execution-optimised systems cannot reliably generate redesign from within their own correction loops. The paper explains why: internal correction optimises for the existing layer, not the upstream structural cause. The loops that produce execution also produce its failure modes.</p>
+            <p class="paper-block-desc">A system cannot diagnose what it is built to absorb. Redesign requires an interface upstream of both execution and diagnosis — and that interface is absent by default in most operating systems.</p>
+            <p class="paper-block-desc"><strong>What it introduces:</strong> The redesign layer — a formal account of why external diagnosis is necessary rather than merely useful, and what structural conditions must hold for redesign to be possible at all.</p>
+            <div class="paper-block-actions">
+              <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">why these three papers belong together</span></div>
+
+      <section class="card card-accent" aria-label="The closed loop">
+        <div class="label-row">
+          <span class="label">The closed loop</span>
+          <span class="label-note">mismatch · collapse · missing redesign</span>
+        </div>
+        <div class="card-body">
+          <div class="loop-grid">
+            <div class="loop-item">
+              <span class="loop-item-num">Paper 01</span>
+              <h3 class="loop-item-title">Mismatch</h3>
+              <p class="loop-item-desc">Shows that systems can signal one thing while consuming another. The interface and the optimiser are not aligned. The gap is structural.</p>
+            </div>
+            <div class="loop-item">
+              <span class="loop-item-num">Paper 02</span>
+              <h3 class="loop-item-title">Collapse</h3>
+              <p class="loop-item-desc">Shows how institutional burden concentrates when irreducible functions remain fused at the point of consequence. Reform cycles do not hold because the topology is never changed.</p>
+            </div>
+            <div class="loop-item">
+              <span class="loop-item-num">Paper 03</span>
+              <h3 class="loop-item-title">Missing redesign</h3>
+              <p class="loop-item-desc">Shows why the systems producing these failures cannot reliably redesign themselves. The correction loops optimise the wrong layer. The redesign interface is absent by default.</p>
+            </div>
+          </div>
+          <div class="prose">
+            <p>The trilogy does not just describe three failure modes. It explains why they form a sequence: mismatch produces the conditions for collapse; collapse confirms the absence of a legitimate redesign layer; and the missing redesign layer ensures the cycle repeats.</p>
+            <p>Understanding all three is what makes diagnosis possible rather than just symptom description.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">what comes next</span></div>
+
+      <section class="card" aria-label="What comes next">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>The trilogy is the entry point</h2>
+        </div>
+        <div class="card-body">
+          <div class="prose">
+            <p>The trilogy opens into a wider research pipeline: family substitution as institutional shadow systems, a taxonomy of institutional primitives, a grammar of system design, and a deeper monograph on how purpose becomes form.</p>
+            <p>The papers also feed directly into the diagnostic practice. The diagnostic logic behind the written artifacts is grounded in the same structural laws — not assembled per engagement.</p>
+          </div>
+          <div class="cta-bar">
+            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+            <a class="btn" href="./research.html">VIEW RESEARCH PROGRAM</a>
+            <a class="btn" href="./services.html">VIEW SERVICES</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div style="display:flex;justify-content:center;padding:32px 0 0;">
+      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>
+Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./research.html">Research</a></li>
+            <li><a href="./trilogy.html">Trilogy</a></li>
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./method.html">Method</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .site-footer { background: #0e0f12; border-top: 1px solid var(--border-soft); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; padding: 48px 24px 32px; }
+    .site-footer__top { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--border-soft); }
+    .site-footer__eyebrow, .site-footer__heading { margin: 0 0 18px; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.5; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); font-weight: 600; }
+    .site-footer__eyebrow { margin-bottom: 10px; font-size: 11px; }
+    .site-footer__summary { margin: 0 0 20px; max-width: 34ch; font-size: 13px; line-height: 1.75; color: var(--text-faint); }
+    .site-footer__email, .site-footer__list a { font-size: 13px; line-height: 1.6; color: var(--text-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 140ms, border-color 140ms; cursor: pointer; }
+    .site-footer__email { color: var(--label-blue); font-family: "IBM Plex Mono", monospace; letter-spacing: 0.02em; }
+    .site-footer__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .site-footer a:hover { color: #fff; border-bottom-color: rgba(255,255,255,0.24); }
+    .site-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; }
+    .site-footer__bottom p { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 10px; line-height: 1.6; letter-spacing: 0.06em; color: var(--text-faint); }
+    @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; } .site-footer__brand { grid-column: 1 / -1; } }
+    @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; } }
+  </style>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+    (function(){
+      var nav = document.querySelector('.site-nav');
+      var hdr = document.querySelector('header');
+      if (!nav || !hdr) return;
+      window.addEventListener('scroll', function(){
+        if (hdr.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
+        else { nav.classList.remove('nav-visible'); }
+      }, {passive: true});
+    })();
+    document.addEventListener('DOMContentLoaded', function(){
+      var e = 'hello' + '@' + 'jamieforrester.com';
+      document.querySelectorAll('[data-mailto]').forEach(function(el){
+        el.setAttribute('href', 'mailto:' + e);
+      });
+    });
+  </script>
+</body>
+</html>
