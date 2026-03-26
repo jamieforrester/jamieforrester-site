@@ -313,13 +313,17 @@
     /* ── Responsive ── */
 
     /* Trilogy */
-    .trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
-    .trilogy-paper { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
-    .trilogy-paper-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+    .trilogy-paper { display: flex; flex-direction: column; gap: 0; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.014); }
+    .trilogy-paper-badge { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
     .trilogy-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .trilogy-paper-cover { display: block; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.06); overflow: hidden; border-bottom: none; }
+    .trilogy-paper-cover img { display: block; width: 100%; height: 160px; object-fit: cover; object-position: top; }
+    .trilogy-paper-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
     .trilogy-paper-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
     .trilogy-paper-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.65; flex: 1; }
-    .trilogy-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .trilogy-paper-links { display: flex; gap: 12px; align-items: center; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: auto; }
+    .trilogy-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
     .trilogy-sequence { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); }
 
     @media (max-width: 920px) {
@@ -334,6 +338,7 @@
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
+      .trilogy-grid { grid-template-columns: 1fr 1fr; }
       .foundations-grid { grid-template-columns: 1fr; }
       .paper-row { grid-template-columns: 68px 1fr; }
       .label-row { flex-direction: column; align-items: flex-start; }
@@ -346,8 +351,10 @@
       .books-cta-row { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 600px) {
+      .trilogy-grid { grid-template-columns: 1fr; }
       .book-entry { grid-template-columns: 1fr; }
       .book-entry-cover-col { flex-direction: row; align-items: center; gap: 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 16px 18px; }
+      .trilogy-footer { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -365,7 +372,7 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
+        <a href="./how-it-works.html">How It Works</a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -400,7 +407,7 @@
       <div class="hero-left">
         <span class="eyebrow">Research</span>
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
-        <p class="hero-sub">This work is built as a coherent research program — not assembled per engagement. Core models, public papers, books in development, and live systems built under the same structural logic.</p>
+        <p class="hero-sub">This work is built as a coherent research program — not assembled per engagement. It includes core models, public papers, books in development, and live systems built under the same structural logic.</p>
         <p class="hero-sub">The clearest public entry point is now the <strong>Diagnostic Lens Trilogy</strong>: three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. The public papers do not replace the client artifact. They show the diagnostic lens in public form.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="./trilogy.html">READ THE TRILOGY</a>
@@ -447,50 +454,67 @@
       <section id="trilogy" class="card card-accent" aria-label="Diagnostic Lens Trilogy">
         <div class="label-row">
           <span class="label">01 // Diagnostic Lens Trilogy</span>
-          <span class="label-note">three papers · one closed loop</span>
+          <span class="label-note">three papers · one closed diagnostic loop</span>
         </div>
-        <p class="lead">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch, to collapse, to missing redesign — a closed diagnostic sequence.</p>
+        <p class="lead">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch between signalled and consumed capability, to collapse through function fusion under consequence, to the missing redesign layer that internal correction loops cannot reliably produce.</p>
         <div class="trilogy-grid">
           <div class="trilogy-paper">
-            <div class="trilogy-paper-head">
+            <div class="trilogy-paper-badge">
               <span class="trilogy-num">Paper 01</span>
-              <span class="status status-published">Published</span>
+              <span class="status status-published">Preprint on SSRN</span>
             </div>
-            <a href="./paper1-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" /></a>
-            <h3 class="trilogy-paper-title">The Expertise Illusion in AI Task Marketplaces</h3>
-            <p class="trilogy-paper-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks at scale. Introduces interface-legitimacy mismatch: systems that signal one kind of capability while operationally consuming another.</p>
-            <div class="actions">
-              <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            <a class="trilogy-paper-cover" href="./paper.pdf" target="_blank" rel="noopener">
+              <img src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+            </a>
+            <div class="trilogy-paper-body">
+              <h3 class="trilogy-paper-title">The Expertise Illusion in AI Task Marketplaces</h3>
+              <p class="trilogy-paper-desc">How reliability pipelines borrow the language of expertise. Introduces interface-legitimacy mismatch and the Transfer Test: systems that signal one kind of capability while operationally consuming another.</p>
+              <div class="trilogy-paper-links">
+                <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+                <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </div>
           <div class="trilogy-paper">
-            <div class="trilogy-paper-head">
+            <div class="trilogy-paper-badge">
               <span class="trilogy-num">Paper 02</span>
-              <span class="status status-published">Published</span>
+              <span class="status status-published">Preprint on SSRN</span>
             </div>
-            <a href="./paper2-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" /></a>
-            <h3 class="trilogy-paper-title">The Four-Function Law of Scalable Institutions</h3>
-            <p class="trilogy-paper-desc">Why institutions fail when sensing, interpretation, authority, and memory remain fused at the point of consequence. Shows how burden concentrates when irreducible functions are forced into the same human node under ambiguity and scale.</p>
-            <div class="actions">
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            <a class="trilogy-paper-cover" href="./four-function-law.pdf" target="_blank" rel="noopener">
+              <img src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+            </a>
+            <div class="trilogy-paper-body">
+              <h3 class="trilogy-paper-title">The Four-Function Law of Scalable Institutions</h3>
+              <p class="trilogy-paper-desc">Introduces the Four-Function Law: institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same human node at the point of consequence.</p>
+              <div class="trilogy-paper-links">
+                <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+                <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </div>
           <div class="trilogy-paper">
-            <div class="trilogy-paper-head">
+            <div class="trilogy-paper-badge">
               <span class="trilogy-num">Paper 03</span>
-              <span class="status status-published">Published</span>
+              <span class="status status-published">Preprint on SSRN</span>
             </div>
-            <a href="./paper3-image.png" target="_blank" rel="noopener"><img class="thumb" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" /></a>
-            <h3 class="trilogy-paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
-            <p class="trilogy-paper-desc">Why execution-optimised systems cannot reliably generate redesign from within their own correction loops. Explains the structural absence that makes external diagnosis necessary rather than merely useful.</p>
-            <div class="actions">
-              <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">Read paper (PDF)</a>
+            <a class="trilogy-paper-cover" href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">
+              <img src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" />
+            </a>
+            <div class="trilogy-paper-body">
+              <h3 class="trilogy-paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+              <p class="trilogy-paper-desc">Introduces the Redesign Law and correction collapse. Distinguishes execution, diagnosis, and redesign, and shows why the first two cannot reliably produce the third from within the same correction loops.</p>
+              <div class="trilogy-paper-links">
+                <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+                <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
+              </div>
             </div>
           </div>
         </div>
         <div class="trilogy-footer">
-          <span class="trilogy-sequence">Read in sequence: Paper 01 → Paper 02 → Paper 03</span>
-          <a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="./paper.pdf" target="_blank" rel="noopener">START WITH PAPER 01</a>
+            <a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
+          </div>
         </div>
       </section>
 
@@ -501,8 +525,19 @@
           <span class="label">02 // Theoretical foundations</span>
           <span class="label-note">core models</span>
         </div>
-        <p class="lead">The <strong>Universal Formula</strong> and the <strong>Four-Function Law</strong> sit beneath the entire body of work and are used in every engagement. The Four-Function Law is fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Universal Formula is documented separately.</p>
+        <p class="lead">The <strong>Four-Function Law</strong> and the <strong>Universal Formula</strong> sit beneath the entire body of work and are used in every engagement. The Four-Function Law is fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Universal Formula is documented separately.</p>
         <div class="foundations-grid">
+          <div class="foundation-block">
+            <span class="mini-kicker">Four-Function Law</span>
+            <h3>Why institutions fail when functions fuse</h3>
+            <p>Sensing, Interpretation, Authority, and Memory — the four irreducible functions of any scalable institution. The law explains what happens when they remain fused at the same human node under ambiguity and consequence. Collapse is the structural outcome, not a risk.</p>
+            <p class="small">Fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Diagnostic Artifact uses this framework to locate which function has collapsed and what must change before any intervention will hold.</p>
+            <div class="actions">
+              <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+              <a href="./trilogy.html" class="link-blue">Read in trilogy</a>
+              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
+            </div>
+          </div>
           <div class="foundation-block">
             <span class="mini-kicker">Universal Formula</span>
             <h3>How a primitive becomes a civilisation layer</h3>
@@ -511,17 +546,6 @@
             <p class="small">Used in both engagements to identify which layer the failure belongs to before the primitive, boundary, or redesign sequence is defined. A system cannot be correctly redesigned until its actual layer is identified.</p>
             <div class="actions">
               <a class="link-blue" data-mailto="1">Request materials</a>
-            </div>
-          </div>
-          <div class="foundation-block">
-            <span class="mini-kicker">Four-Function Law</span>
-            <h3>Why institutions fail when functions fuse</h3>
-            <p>Sensing, Interpretation, Authority, and Memory — the four irreducible functions of any scalable institution. The law explains what happens when they remain fused at the same human node under ambiguity and consequence. Collapse is the structural outcome, not a risk.</p>
-            <p class="small">Fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Diagnostic Artifact uses this framework to locate which function has collapsed and what must change before any intervention will hold.</p>
-            <div class="actions">
-              <span class="status status-published">Published</span>
-              <a href="./trilogy.html" class="link-blue">Read in trilogy →</a>
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
             </div>
           </div>
         </div>
@@ -533,33 +557,34 @@
         <!-- Research pipeline card -->
         <div class="pipeline-card" style="margin-top:0;">
           <div class="pipeline-header">
-            <span class="mini-kicker" style="margin:0;">Full research pipeline</span>
+            <span class="mini-kicker" style="margin:0;">03 // Research pipeline</span>
             <span class="pipeline-count">6 papers + 1 monograph</span>
           </div>
+          <p style="margin:16px 0 4px; font-size:13px; color:var(--text-faint); line-height:1.7;">The trilogy is the current public entry point into the broader research program. The papers that follow extend the diagnostic sequence into substitution, institutional primitives, design grammar, and a deeper monograph on emergence and form.</p>
           <ol class="pipeline-list">
             <li class="pipeline-item">
               <span class="pipeline-num">01</span>
               <div class="pipeline-body">
                 <span class="pipeline-title">The Expertise Illusion in AI Task Marketplaces</span>
-                <span class="pipeline-domain">AI Economics</span>
+                <span class="pipeline-domain">AI Economics · Preprint on SSRN</span>
               </div>
-              <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">Read (PDF)</a>
+              <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">SSRN</a>
             </li>
             <li class="pipeline-item">
               <span class="pipeline-num">02</span>
               <div class="pipeline-body">
                 <span class="pipeline-title">The Four-Function Law of Scalable Institutions</span>
-                <span class="pipeline-domain">Institutional Theory</span>
+                <span class="pipeline-domain">Institutional Theory · Preprint on SSRN</span>
               </div>
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">Read (PDF)</a>
+              <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">SSRN</a>
             </li>
             <li class="pipeline-item">
               <span class="pipeline-num">03</span>
               <div class="pipeline-body">
                 <span class="pipeline-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</span>
-                <span class="pipeline-domain">Platform &amp; Org Design</span>
+                <span class="pipeline-domain">Platform &amp; Org Design · Preprint on SSRN</span>
               </div>
-              <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">Read (PDF)</a>
+              <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">SSRN</a>
             </li>
             <li class="pipeline-item">
               <span class="pipeline-num">04</span>
@@ -606,7 +631,7 @@
 
       <section id="books" class="card card-accent" aria-label="Books">
         <div class="label-row">
-          <span class="label">03 // Books</span>
+          <span class="label">04 // Books</span>
           <span class="label-note">four-book research spine</span>
         </div>
         <div class="books-section-header">
@@ -690,7 +715,7 @@
                 <div class="book-chips">
                   <span class="book-chip">15 levels</span>
                   <span class="book-chip">altitude control</span>
-                  <span class="book-chip">book in design</span>
+                  <span class="book-chip">In development</span>
                   <span class="book-chip">practitioners + strategists</span>
                 </div>
                 <div class="book-entry-links">
@@ -717,7 +742,7 @@
                   <h3 class="book-entry-title">The System Founder Framework</h3>
                   <p class="book-entry-tagline">How one person with AI can build operating systems, categories, and institutions.</p>
                 </div>
-                <div class="book-entry-status-group"><span class="status">In design</span></div>
+                <div class="book-entry-status-group"><span class="status status-dev">In development</span></div>
               </div>
               <p class="book-entry-desc">A founder manual for the AI era. This book distinguishes skill founders, product founders, and system founders, then shows how AI changes the economics of execution for people who naturally think in primitives, rules, operating environments, and category formation. It turns structural intelligence into a repeatable build posture.</p>
               <div class="book-insight">
@@ -790,7 +815,7 @@
 
       <section id="builds" class="card" aria-label="Applied builds">
         <div class="label-row">
-          <span class="label">04 // Applied builds</span>
+          <span class="label">05 // Applied builds</span>
           <span class="label-note">systems in development</span>
         </div>
         <div class="builds-lead">
@@ -832,7 +857,7 @@
           <h2>The public offer is the written artifact.</h2>
         </div>
         <div class="card-body">
-          <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68;">The material on this page — the frameworks, the research, the books, the builds — is the intellectual infrastructure behind that offer. It exists to show that the diagnostic lens is grounded, not assembled on demand.</p>
+          <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68;">The material on this page — the trilogy, the models, the wider research pipeline, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to show that the diagnostic lens is grounded in a coherent body of work, not assembled on demand.</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
             <a class="btn" href="./services.html">VIEW SERVICES</a>
