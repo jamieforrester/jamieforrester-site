@@ -69,7 +69,7 @@
     .section-divider { margin: 0 0 28px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
-    .status-published { color: #5adf9a; background: rgba(90,223,154,0.08); border: 1px solid rgba(90,223,154,0.22); padding: 3px 8px; border-radius: 6px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
+    .status-published { color: var(--cta-blue); background: rgba(90,176,255,0.08); border: 1px solid rgba(90,176,255,0.25); padding: 3px 8px; border-radius: 6px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* Cards */
     .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 16px; }
@@ -131,6 +131,18 @@
 
     /* CTA bar */
     .cta-bar { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+
+    /* Power quote */
+    .trilogy-thesis-quote { margin: 0 0 20px; font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.3; font-style: italic; border-left: 3px solid var(--cta-blue); padding-left: 16px; }
+
+    /* Transfer Test box */
+    .transfer-test-box { margin: 16px 0 12px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.2); border-radius: 12px; background: rgba(90,176,255,0.04); }
+    .transfer-test-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 8px; }
+    .transfer-test-text { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.65; }
+
+    /* SSRN credibility note */
+    .ssrn-note { margin: 0 0 16px; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-faint); line-height: 1.6; }
 
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
@@ -195,14 +207,16 @@
         <div>
           <span class="eyebrow">Diagnostic Lens Trilogy</span>
           <h2 class="trilogy-hero-title">Three papers. One closed diagnostic loop.</h2>
+          <p class="trilogy-thesis-quote">Systems do not fail because they are complex. They fail because they are misclassified.</p>
           <p class="trilogy-hero-sub">A three-paper sequence diagnosing recurring failure across platforms, institutions, and self-correcting systems.</p>
           <p class="trilogy-hero-sub">Together they move from <strong>mismatch between signalled and consumed capability</strong>, to <strong>collapse through function fusion under consequence</strong>, to <strong>the missing redesign layer that internal correction loops cannot reliably produce</strong>.</p>
-          <p class="trilogy-hero-sub">All three papers are now published.</p>
+          <p class="trilogy-hero-sub">All three papers are now available on SSRN as preprints.</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;">
-            <a class="btn btn-primary" href="./paper.pdf" target="_blank" rel="noopener">PAPER 01 (PDF)</a>
-            <a class="btn" href="./four-function-law.pdf" target="_blank" rel="noopener">PAPER 02 (PDF)</a>
-            <a class="btn" href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">PAPER 03 (PDF)</a>
+            <a class="btn btn-primary" href="https://ssrn.com" target="_blank" rel="noopener">START WITH PAPER 01 (SSRN)</a>
+            <a class="btn" href="https://ssrn.com" target="_blank" rel="noopener">PAPER 02 (SSRN)</a>
+            <a class="btn" href="https://ssrn.com" target="_blank" rel="noopener">PAPER 03 (SSRN)</a>
           </div>
+          <p style="margin:12px 0 0; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; color:var(--text-faint);">Read in sequence, starting with Paper 01.</p>
         </div>
         <div class="thesis-card">
           <div class="thesis-card-head">Trilogy thesis</div>
@@ -232,9 +246,12 @@
               <h3 class="paper-block-title">The Expertise Illusion in AI Task Marketplaces</h3>
             </div>
             <p class="paper-block-instrument">Diagnostic instrument: Interface-legitimacy mismatch</p>
-            <p class="paper-block-desc">How reliability pipelines borrow the language of expertise — and why the divergence breaks reality under scale. The paper identifies a structural class of failure in which a system signals one kind of capability while operationally consuming another.</p>
-            <p class="paper-block-desc">The optimiser does not know what the interface claims. The interface does not enforce what the optimiser does. The gap between signal and operation is where the failure lives — structural, not incidental, and therefore recurring.</p>
-            <p class="paper-block-desc"><strong>Diagnostic instrument:</strong> Interface-legitimacy mismatch — identifies when signal diverges from operational reality at the system boundary.</p>
+            <p class="paper-block-desc">How reliability pipelines borrow the language of expertise and create a structural mismatch between signalled capability and consumed capability.</p>
+            <p class="paper-block-desc">The interface signals one thing. The operating logic consumes another. The gap between them is where the failure lives — structural, not incidental, and therefore recurring.</p>
+                        <div class="transfer-test-box">
+              <span class="transfer-test-label">The Transfer Test</span>
+              <p class="transfer-test-text">Compare what the system signals in its interface with what it optimises for in execution. When they diverge, the failure is structural.</p>
+            </div>
             <div class="paper-block-actions">
               <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
               <a href="./paper.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
@@ -263,10 +280,9 @@
               <h3 class="paper-block-title">The Four-Function Law of Scalable Institutions</h3>
             </div>
             <p class="paper-block-instrument">Diagnostic instrument: Four-Function Law — Sensing · Interpretation · Authority · Memory</p>
-            <p class="paper-block-desc">Introduces the Four-Function Law of Scalable Institutions. Every institution performs four irreducible functions: Sensing, Interpretation, Authority, and Memory. The law is not that these functions exist — it is what happens when they remain fused at the same human node under ambiguity and consequence.</p>
+            <p class="paper-block-desc">Establishes the Four-Function Law of Scalable Institutions. Every institution performs four irreducible functions: Sensing, Interpretation, Authority, and Memory. The law is not that these functions exist — it is what happens when they remain fused at the same human node under ambiguity and consequence.</p>
             <p class="paper-block-desc">Collapse is not a risk at that point. It is the structural outcome. What the institution calls burnout, shortage, or overload is the visible surface of a hidden allocation error — and it recurs across reform cycles because the topology is never examined.</p>
-            <p class="paper-block-desc"><strong>Diagnostic instrument:</strong> The Four-Function Law — a formal account of why institutional burden concentrates, how to locate where it has migrated, and what the structure must change before any intervention will hold.</p>
-            <div class="paper-block-actions">
+                        <div class="paper-block-actions">
               <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
               <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
             </div>
@@ -293,11 +309,10 @@
             <div class="paper-block-head">
               <h3 class="paper-block-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
             </div>
-            <p class="paper-block-instrument">Diagnostic instrument: Redesign layer absence — the upstream interface that execution cannot generate</p>
+            <p class="paper-block-instrument">Diagnostic instrument: The redesign layer — the upstream layer absent by default in most self-correcting systems</p>
             <p class="paper-block-desc">Introduces the Redesign Law and correction collapse. Distinguishes execution, diagnosis, and redesign, and shows why the first two cannot reliably produce the third from within the same correction loops.</p>
-            <p class="paper-block-desc">A system cannot diagnose what it is built to absorb. Redesign requires an interface upstream of both execution and diagnosis — and that interface is absent by default in most operating systems.</p>
-            <p class="paper-block-desc"><strong>Diagnostic instrument:</strong> The redesign layer — a formal account of why external diagnosis is necessary rather than merely useful, and what structural conditions must hold for redesign to be possible at all.</p>
-            <div class="paper-block-actions">
+            <p class="paper-block-desc">A system cannot redesign a frame its correction loops are built to preserve. Redesign requires a layer upstream of both execution and diagnosis — and that layer is absent by default in most systems.</p>
+                        <div class="paper-block-actions">
               <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
               <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
             </div>
@@ -318,7 +333,7 @@
             <div class="loop-item">
               <span class="loop-item-num">Paper 01</span>
               <h3 class="loop-item-title">Mismatch</h3>
-              <p class="loop-item-desc">Shows that systems can signal one thing while consuming another. The interface and the optimiser are not aligned. The gap is structural.</p>
+              <p class="loop-item-desc">Shows that systems can signal one thing while consuming another. The interface and the operating logic are not aligned. The gap is structural.</p>
             </div>
             <div class="loop-item">
               <span class="loop-item-num">Paper 02</span>
@@ -328,12 +343,12 @@
             <div class="loop-item">
               <span class="loop-item-num">Paper 03</span>
               <h3 class="loop-item-title">Missing redesign</h3>
-              <p class="loop-item-desc">Shows why the systems producing these failures cannot reliably redesign themselves. The correction loops optimise the wrong layer. The redesign interface is absent by default.</p>
+              <p class="loop-item-desc">Shows why the systems producing these failures cannot reliably redesign themselves. The correction loops optimise the wrong layer. The redesign layer is absent by default.</p>
             </div>
           </div>
           <div class="prose">
             <p>The trilogy does not just describe three failure modes. It explains why they form a sequence: mismatch produces the conditions for collapse; collapse confirms the absence of a legitimate redesign layer; and the missing redesign layer ensures the cycle repeats.</p>
-            <p>Understanding all three is what makes diagnosis possible rather than just symptom description.</p>
+            <p>Seeing all three together is what makes structural diagnosis possible rather than mere symptom description.</p>
           </div>
         </div>
       </section>
@@ -347,13 +362,13 @@
         </div>
         <div class="card-body">
           <div class="prose">
-            <p>The trilogy opens into a wider research pipeline: family substitution as institutional shadow systems, a taxonomy of institutional primitives, a grammar of system design, and a deeper monograph on how purpose becomes form.</p>
+            <p>The trilogy is the public entry point into a wider research program. That program extends the diagnostic sequence into family substitution as institutional shadow systems, a taxonomy of institutional primitives, a grammar of system design, and a deeper monograph on how purpose becomes form.</p>
             <p>The papers also feed directly into the diagnostic practice. The diagnostic logic behind the written artifacts is grounded in the same structural laws — not assembled per engagement.</p>
           </div>
           <div class="cta-bar">
-            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
             <a class="btn" href="./research.html">VIEW RESEARCH PROGRAM</a>
             <a class="btn" href="./services.html">VIEW SERVICES</a>
+            <a class="btn btn-primary" id="email-brief-cta">EMAIL FIVE-LINE BRIEF</a>
           </div>
         </div>
       </section>
@@ -372,7 +387,7 @@
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>
 Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="8de5e8e1e1e2cde7ece0e4e8ebe2ffffe8fef9e8ffa3eee2e0">[email&#160;protected]</span></a>
+          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -436,4 +451,13 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
       }, {passive: true});
     })();
     document.addEventListener('DOMContentLoaded', function(){
-      var e
+      var e = 'hello' + '@' + 'jamieforrester.com';
+      document.querySelectorAll('[data-mailto]').forEach(function(el){
+        el.setAttribute('href', 'mailto:' + e);
+      });
+      var briefBtn = document.getElementById('email-brief-cta');
+      if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + e + '?subject=Structural+Diagnosis+Inquiry');
+    });
+  </script>
+</body>
+</html>
