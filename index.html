@@ -109,8 +109,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
 .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
+    /* Arrow chain */
+    .arrow-chain { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right; }
+    .arrow-chain span { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-faint); white-space: nowrap; }
+
     /* What changes */
-    .what-changes { margin-bottom: 0; }
+    .what-changes { margin-bottom: 24px; }
     .what-changes-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
     .what-changes-title { margin: 0 0 10px; font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; color: #fff; }
     .what-changes-sub { margin: 0; font-size: 14px; color: var(--text-dim); line-height: 1.7; max-width: 60ch; }
@@ -435,7 +439,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">what changes</span></div>
 
-    <section class="what-changes" aria-label="What the artifact changes">
+    <section class="what-changes card" aria-label="What the artifact changes">
       <div class="what-changes-head">
         <div>
           <h2 class="what-changes-title">What changes once the artifact exists.</h2>
