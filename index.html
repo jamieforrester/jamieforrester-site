@@ -110,7 +110,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
     /* Arrow chain */
-    .arrow-chain { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right; }
+    .arrow-chain { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 16px; background: rgba(255,255,255,0.014); align-self: flex-start; }
     .arrow-chain span { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-faint); white-space: nowrap; }
 
     /* What changes */
@@ -124,7 +124,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .what-changes-item:nth-child(2) { border-left-color: rgba(90,176,255,0.55); }
     .what-changes-item:nth-child(3) { border-left-color: rgba(90,176,255,0.9); }
     .what-changes-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--label-blue); }
-    .what-changes-bg-num { position: absolute; top: -4px; right: 10px; font-family: "IBM Plex Mono", monospace; font-size: 48px; font-weight: 700; color: rgba(90,176,255,0.05); line-height: 1; user-select: none; pointer-events: none; }
     .what-changes-label { margin: 0; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
     .what-changes-desc { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.68; }
     
@@ -187,7 +186,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-chip-blue { background: rgba(59,130,246,0.18); border-color: rgba(99,163,255,0.45); color: #93c5fd; font-weight: 600; letter-spacing: 0.05em; }
 
 .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
-.selected-research-intro { margin: 0 0 18px; font-size: 14px; line-height: 1.7; color: var(--text-dim); }
+.selected-research-intro { margin: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--text-dim); }
 .selected-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 14px; align-items: stretch; }
 .paper-stack { display: grid; gap: 14px; }
 .paper-card, .snapshot-card, .behind-card { padding: 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, background 160ms ease, transform 160ms ease; }
@@ -337,7 +336,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 }
 @media (max-width: 1080px) and (min-width: 721px) {
   .offer-grid { grid-template-columns: 1fr 1fr !important; }
-  .selected-grid { grid-template-columns: 1fr !important; }
+  .trilogy-card-grid { grid-template-columns: 1fr; }
+      .trilogy-index-footer { flex-direction: column; align-items: flex-start; }
+      .trilogy-index-stats { width: 100%; }
   .scan-grid { grid-template-columns: 1fr !important; }
   .scan-output { position: static; }
 }
@@ -445,19 +446,16 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="what-changes-grid">
         <div class="what-changes-item">
           <span class="what-changes-num">01</span>
-          <span class="what-changes-bg-num" aria-hidden="true">01</span>
           <h3 class="what-changes-label">The failure is named correctly</h3>
           <p class="what-changes-desc">The repeated symptom stops being discussed as a moving target. The structural failure is named once and located precisely.</p>
         </div>
         <div class="what-changes-item">
           <span class="what-changes-num">02</span>
-          <span class="what-changes-bg-num" aria-hidden="true">02</span>
           <h3 class="what-changes-label">Builders stop designing while implementing</h3>
           <p class="what-changes-desc">The artifact becomes the design source. Builders execute against a written structure instead of inventing interpretation midstream.</p>
         </div>
         <div class="what-changes-item">
           <span class="what-changes-num">03</span>
-          <span class="what-changes-bg-num" aria-hidden="true">03</span>
           <h3 class="what-changes-label">Humans stop patching structural gaps</h3>
           <p class="what-changes-desc">Humans stop carrying work the system should carry. The artifact defines what the system must enforce, what it must not absorb, and where the boundary sits.</p>
         </div>
@@ -589,63 +587,66 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <span class="label-note">Diagnostic Lens Trilogy · 3 papers on SSRN</span>
       </div>
       <p class="selected-research-intro">The Diagnostic Lens Trilogy — three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. All three are now available on SSRN as preprints.</p>
-      <div class="selected-grid">
-        <div class="paper-stack">
-          <article class="paper-card paper-card-accent" aria-label="Paper: The Expertise Illusion in AI Task Marketplaces">
-            <div class="paper-card-head"><span class="mini-kicker" style="margin:0;">Trilogy Paper 01</span><span class="offer-chip offer-chip-blue">Preprint on SSRN</span></div>
-            <div class="paper-row">
-              <a href="./paper.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Expertise Illusion in AI Task Marketplaces"><img class="thumb paper-cover-plain" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" /></a>
-              <div>
-                <p class="paper-title">The Expertise Illusion in AI Task Marketplaces</p>
-                <p class="small">How reliability pipelines borrow the language of expertise and create a structural mismatch between signalled capability and consumed capability. Introduces interface-legitimacy mismatch.</p>
-                <div class="actions"><a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a><a href="./paper.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a></div>
-              </div>
-            </div>
-          </article>
-          <article class="paper-card" aria-label="Paper: The Four-Function Law of Scalable Institutions">
-            <div class="paper-card-head"><span class="mini-kicker" style="margin:0;">Trilogy Paper 02</span><span class="offer-chip offer-chip-blue">Preprint on SSRN</span></div>
-            <div class="paper-row">
-              <a href="./four-function-law.pdf" target="_blank" rel="noopener" aria-label="Open PDF: The Four-Function Law of Scalable Institutions"><img class="thumb paper-cover-plain" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" /></a>
-              <div>
-                <p class="paper-title">The Four-Function Law of Scalable Institutions</p>
-                <p class="small">Why institutions fail when sensing, interpretation, authority, and memory remain fused at the same human node under scale. Establishes the Four-Function Law.</p>
-                <div class="actions"><a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a><a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a></div>
-              </div>
-            </div>
-          </article>
-          <article class="paper-card" aria-label="Paper: Why Systems Can't Fix Themselves">
-            <div class="paper-card-head"><span class="mini-kicker" style="margin:0;">Trilogy Paper 03</span><span class="offer-chip offer-chip-blue">Preprint on SSRN</span></div>
-            <div class="paper-row">
-              <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener"><img class="thumb paper-cover-plain" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" /></a>
-              <div>
-                <p class="paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</p>
-                <p class="small">Introduces the Redesign Law and correction collapse. Shows why execution and diagnosis cannot reliably produce redesign from within the same correction loops — and why the redesign layer must come from outside.</p>
-                <div class="actions"><a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a><a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a></div>
-              </div>
-            </div>
-          </article>
+
+      <!-- Three paper cards in a row -->
+      <div class="trilogy-card-grid">
+        <article class="trilogy-index-card trilogy-index-card-1" aria-label="Paper 01">
+          <div class="trilogy-index-head">
+            <span class="trilogy-index-num">Paper 01</span>
+            <span class="offer-chip offer-chip-blue">Preprint on SSRN</span>
+          </div>
+          <a href="./paper.pdf" target="_blank" rel="noopener">
+            <img class="trilogy-index-cover" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
+          </a>
+          <h3 class="trilogy-index-title">The Expertise Illusion in AI Task Marketplaces</h3>
+          <p class="trilogy-index-desc">How reliability pipelines borrow the language of expertise and create a structural mismatch between signalled capability and consumed capability.</p>
+          <div class="trilogy-index-links">
+            <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+            <a href="./paper.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </article>
+        <article class="trilogy-index-card trilogy-index-card-2" aria-label="Paper 02">
+          <div class="trilogy-index-head">
+            <span class="trilogy-index-num">Paper 02</span>
+            <span class="offer-chip offer-chip-blue">Preprint on SSRN</span>
+          </div>
+          <a href="./four-function-law.pdf" target="_blank" rel="noopener">
+            <img class="trilogy-index-cover" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
+          </a>
+          <h3 class="trilogy-index-title">The Four-Function Law of Scalable Institutions</h3>
+          <p class="trilogy-index-desc">Why institutions fail when sensing, interpretation, authority, and memory remain fused at the same human node under scale.</p>
+          <div class="trilogy-index-links">
+            <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+            <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </article>
+        <article class="trilogy-index-card trilogy-index-card-3" aria-label="Paper 03">
+          <div class="trilogy-index-head">
+            <span class="trilogy-index-num">Paper 03</span>
+            <span class="offer-chip offer-chip-blue">Preprint on SSRN</span>
+          </div>
+          <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">
+            <img class="trilogy-index-cover" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" />
+          </a>
+          <h3 class="trilogy-index-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+          <p class="trilogy-index-desc">Introduces the Redesign Law and correction collapse. Shows why execution and diagnosis cannot reliably produce redesign from within the same correction loops.</p>
+          <div class="trilogy-index-links">
+            <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
+            <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bottom row: stats + CTA -->
+      <div class="trilogy-index-footer">
+        <div class="trilogy-index-stats">
+          <div class="body-stat"><span class="body-stat-num">3</span><span class="body-stat-label">Preprints on SSRN</span></div>
+          <div class="body-stat"><span class="body-stat-num">4</span><span class="body-stat-label">Books in progress</span></div>
+          <div class="body-stat"><span class="body-stat-num">2</span><span class="body-stat-label">Current builds</span></div>
         </div>
-        <div class="side-stack">
-          <section class="snapshot-card" aria-label="Snapshot">
-            <div class="snapshot-head"><span class="mini-kicker" style="margin:0;">Snapshot</span><span class="offer-chip">Application</span></div>
-            <div class="snapshot-box">
-              <p class="snapshot-line"><span class="snapshot-k">System</span> AI task marketplaces.</p>
-              <p class="snapshot-line"><span class="snapshot-k">Surface claim</span> Expertise market.</p>
-              <p class="snapshot-line"><span class="snapshot-k">Structural reality</span> Reliability pipeline shaped by throughput and optimiser behaviour.</p>
-              <p class="snapshot-line"><span class="snapshot-k">Failure</span> Expertise is implied where the incentive structure rewards something else.</p>
-              <p class="snapshot-line"><span class="snapshot-k">Result</span> Distorted selection and degraded signal under scale.</p>
-            </div>
-          </section>
-          <section class="behind-card" aria-label="Behind the practice">
-            <div class="behind-head"><span class="mini-kicker" style="margin:0;">Behind the practice</span><span class="offer-chip">Foundations</span></div>
-            <p class="small">The wider body of work lives on the research page.</p>
-            <div class="body-of-work">
-              <div class="body-stat"><span class="body-stat-num">3</span><span class="body-stat-label">Preprints on SSRN</span></div>
-              <div class="body-stat"><span class="body-stat-num">4</span><span class="body-stat-label">Books in progress</span></div>
-              <div class="body-stat"><span class="body-stat-num">2</span><span class="body-stat-label">Current builds</span></div>
-            </div>
-            <div class="actions"><a class="link-blue" href="./trilogy.html">Read the trilogy</a><a class="muted-link" href="./research.html">Full research page</a></div>
-          </section>
+        <div class="trilogy-index-ctas">
+          <a class="btn btn-primary" href="./trilogy.html">READ THE TRILOGY →</a>
+          <a class="btn" href="./research.html">FULL RESEARCH PAGE</a>
         </div>
       </div>
     </section>
@@ -905,4 +906,16 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key ===
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+  submitBtn.addEventListener('click', submitBrief);
+  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
+    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
+      btn.removeAttribute('href');
+      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
