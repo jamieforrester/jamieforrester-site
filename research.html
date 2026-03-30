@@ -102,8 +102,8 @@
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 8px; }
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
     .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
-    .section-divider { margin: 0 0 20px; display: flex; align-items: center; gap: 16px; }
-    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider { justify-content: center; margin: 0 0 20px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
     /* ── Hero ── */
@@ -157,7 +157,7 @@
     .paper-desc { margin: 0 0 10px; font-size: 14px; color: var(--text-dim); line-height: 1.62; }
 
     /* Foundations grid */
-    .foundations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+    .foundations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
     .foundation-block { padding: 20px; border: 1px solid rgba(90,176,255,0.18); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.055) 0%, rgba(90,176,255,0.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
     .foundation-block:hover { border-color: rgba(90,176,255,0.3); transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.22); }
     .foundation-block h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.28; }
@@ -426,8 +426,8 @@
         </a>
         <a class="map-item" href="#foundations">
           <span class="map-item-num">02</span>
-          <span class="map-item-text"><strong>Theoretical Foundations</strong>Four-Function Law + Universal Formula</span>
-          <span class="map-item-status">2 models</span>
+          <span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span>
+          <span class="map-item-status">3 models</span>
         </a>
         <a class="map-item" href="#pipeline">
           <span class="map-item-num">03</span>
@@ -525,23 +525,32 @@
           <span class="label">02 // Theoretical foundations</span>
           <span class="label-note">core models</span>
         </div>
-        <p class="lead">The <strong>Four-Function Law</strong> and the <strong>Universal Formula</strong> sit beneath the entire body of work and are used in every engagement. The Four-Function Law is fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Universal Formula is documented separately.</p>
+        <p class="lead">Three foundational models sit beneath the entire body of work and are used across every engagement. They are not paper-specific — they are the operating grammar beneath the diagnostic practice.</p>
         <div class="foundations-grid">
           <div class="foundation-block">
-            <span class="mini-kicker">Four-Function Law</span>
-            <h3>Why institutions fail when functions fuse</h3>
-            <p>Sensing, Interpretation, Authority, and Memory — the four irreducible functions of any scalable institution. The law explains what happens when they remain fused at the same human node under ambiguity and consequence. Collapse is the structural outcome, not a risk.</p>
-            <p class="small">Fully developed as Paper 02 of the Diagnostic Lens Trilogy. The Diagnostic Artifact uses this framework to locate which function has collapsed and what must change before any intervention will hold.</p>
+            <span class="mini-kicker">60-Second Scan</span>
+            <h3>Minimal structural orientation protocol</h3>
+            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">What is this system really for? · What action does it keep repeating? · What rules govern that action? · Where does it break first?</p>
+            <p>Four questions that establish first-pass structural legibility before any deeper diagnostic work begins. The scan does not produce a diagnosis — it determines whether a structural diagnosis is warranted and where to look first.</p>
+            <p class="small">Used at intake and at the start of every engagement to orient the diagnostic lens before the fuller instrument is applied. Also available publicly via the Diagnostic Scan page.</p>
             <div class="actions">
-              <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
-              <a href="./trilogy.html" class="link-blue">Read in trilogy</a>
-              <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">PDF</a>
+              <a href="./diagnostic-scan.html" class="link-blue">Run the scan</a>
+            </div>
+          </div>
+          <div class="foundation-block">
+            <span class="mini-kicker">Grammar Kernel</span>
+            <h3>How valid outputs are produced inside systems</h3>
+            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
+            <p>A compact structural grammar for inspecting how any system is supposed to produce valid outputs. Each stage is irreducible: without a defined primitive, law is unenforceable. Without law, sequence drifts. Without gates, quality cannot be protected. Without a clear output definition, execution has no target.</p>
+            <p class="small">Used in the Diagnostic Artifact to inspect whether a system's production logic is structurally sound — or whether the failure lives upstream of execution, in the grammar itself. The kernel also works in reverse: bad output traced backward through gates, sequence, law, and primitive to locate the real break.</p>
+            <div class="actions">
+              <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
           </div>
           <div class="foundation-block">
             <span class="mini-kicker">Universal Formula</span>
             <h3>How a primitive becomes a civilisation layer</h3>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.7; margin-bottom:14px;">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</p>
+            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</p>
             <p>A diagnostic and construction sequence that tracks how any durable system scales. Each layer has distinct structural requirements. Failure is almost always a mismatch between the layer a system is operating at and the layer it thinks it is at.</p>
             <p class="small">Used in both engagements to identify which layer the failure belongs to before the primitive, boundary, or redesign sequence is defined. A system cannot be correctly redesigned until its actual layer is identified.</p>
             <div class="actions">
