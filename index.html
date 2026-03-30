@@ -353,6 +353,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .scan-output { position: static; }
 }
 @media (max-width: 600px) {
+  .scan-entry-card { width: 100% !important; }
+  [style*="grid-template-columns: 1fr 280px"] { grid-template-columns: 1fr !important; gap: 20px !important; }
   .trilogy-card-grid { grid-template-columns: 1fr; }
   .trilogy-index-cover { height: 160px; }
   .trilogy-index-stats { width: 100%; }
@@ -364,6 +366,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .offer-grid { grid-template-columns: 1fr 1fr !important; }
   .scan-grid { grid-template-columns: 1fr !important; }
   .scan-layout { gap: 16px; }
+  .scan-two-col { grid-template-columns: 1fr !important; gap: 16px; }
+  .scan-two-col .scan-entry-card { width: 100% !important; }
   .scan-output { position: static; }
 }
 @media (max-width: 720px) {
@@ -589,12 +593,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
 
-    <div class="scan-layout">
-      <div class="scan-layout-left">
-        <h3 class="scan-layout-title">Not sure if your problem is structural?</h3>
-        <p class="scan-layout-body">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
+    <div style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:32px; container-type:inline-size;">
+      <div>
+        <h3 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Not sure if your problem is structural?</h3>
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
       </div>
-      <div class="scan-entry-card" style="margin-bottom:0; flex-shrink:0; min-width:260px; max-width:320px; width:320px;">
+      <div class="scan-entry-card" style="margin-bottom:0;">
         <div class="scan-entry-badge">
           <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
           <span class="scan-entry-tag">Free · Self-guided</span>
