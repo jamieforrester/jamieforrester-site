@@ -363,6 +363,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media (max-width: 1080px) and (min-width: 721px) {
   .offer-grid { grid-template-columns: 1fr 1fr !important; }
   .scan-grid { grid-template-columns: 1fr !important; }
+  .scan-layout { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .scan-layout .scan-entry-card { width: 100%; }
   .scan-output { position: static; }
 }
 @media (max-width: 720px) {
@@ -588,17 +590,17 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
 
-    <div class="scan-entry-card">
-      <div class="scan-entry-badge">
-        <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
-        <span class="scan-entry-tag">Free · Self-guided</span>
+    <div class="scan-layout">
+      <div class="scan-layout-left">
+        <h3 class="scan-layout-title">Not sure if your problem is structural?</h3>
+        <p class="scan-layout-body">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
       </div>
-      <div class="scan-entry-main">
-        <div class="scan-entry-left">
-          <h3 class="scan-entry-title">Not sure if your problem is structural?</h3>
-          <p class="scan-entry-body">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
+      <div class="scan-entry-card" style="margin-bottom:0; flex-shrink:0; min-width:260px; max-width:320px;">
+        <div class="scan-entry-badge">
+          <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
+          <span class="scan-entry-tag">Free · Self-guided</span>
         </div>
-        <a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
+        <a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="width:100%; justify-content:center; margin-top:12px; display:flex;">RUN THE SCAN →</a>
       </div>
     </div>
 
