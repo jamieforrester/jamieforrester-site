@@ -227,6 +227,25 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .trilogy-index-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
     .trilogy-index-stats { display: flex; gap: 10px; flex-wrap: wrap; }
     .trilogy-index-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Fit panels */
+    .fit-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+    .fit-panel { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+    .fit-panel-good { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
+    .fit-panel-bad { border-color: rgba(255,255,255,0.07); background: rgba(255,255,255,0.012); }
+    .fit-panel-head { padding: 16px 18px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .fit-panel-good .fit-panel-head { border-bottom-color: rgba(90,176,255,0.12); }
+    .fit-panel-badge { display: inline-flex; align-items: center; margin-bottom: 10px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 6px; padding: 3px 8px; line-height: 1; }
+    .fit-panel-badge-good { color: var(--cta-blue); background: rgba(90,176,255,0.12); border: 1px solid rgba(90,176,255,0.25); }
+    .fit-panel-badge-bad { color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+    .fit-panel-lead { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .fit-panel-bad .fit-panel-lead { color: var(--text-faint); }
+    .fit-check-list { margin: 0; padding: 12px 18px; list-style: none; display: grid; gap: 0; }
+    .fit-check-list li { display: flex; align-items: baseline; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+    .fit-check-list li:last-child { border-bottom: none; }
+    .fit-check-list-bad li { color: var(--text-faint); }
+    .fit-check { font-family: "IBM Plex Mono", monospace; font-size: 11px; flex-shrink: 0; color: var(--cta-blue); }
+    .fit-check-bad { color: rgba(255,255,255,0.2); }
 .body-of-work { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
 .body-stat { padding: 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
 .body-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 700; line-height: 1; color: var(--cta-blue); margin-bottom: 6px; }
@@ -356,6 +375,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .scan-entry-card { width: 100% !important; }
   [style*="grid-template-columns: 1fr 280px"] { grid-template-columns: 1fr !important; gap: 20px !important; }
   .trilogy-card-grid { grid-template-columns: 1fr; }
+  .fit-services-grid { grid-template-columns: 1fr; }
   .trilogy-index-cover { height: 160px; }
   .trilogy-index-stats { width: 100%; }
 }
@@ -683,37 +703,43 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">fit and scope</span></div>
 
-    <section class="card" aria-label="Fit and scope">
-      <div class="label-row">
-        <span class="label">// Fit and scope</span>
-        <span class="label-note">who this is for</span>
-      </div>
-    <div class="fit-two-col" style="margin-bottom:0;">
-      <section class="card fit-card-good" aria-label="Who this is for">
-        <span class="mini-kicker" style="margin-bottom:12px;">Who this is for</span>
-        <p class="fit-lead">Recurring failure where the structural layer is plausibly involved.</p>
-        <ul class="fit-list">
-          <li>The same problem keeps returning under different labels</li>
-          <li>Teams do not share the same structural read of what is wrong</li>
-          <li>Manual workarounds have become load-bearing</li>
-          <li>Builders are inventing design during implementation</li>
-          <li>Ownership is blurred across roles, teams, or interfaces</li>
-        </ul>
-      </section>
-      <section class="card fit-card-bad" aria-label="Not the right fit for">
-        <span class="mini-kicker" style="margin-bottom:12px; color:var(--text-faint);">Not the right fit for</span>
-        <p class="fit-lead" style="color:var(--text-faint);">Issues that are narrow, isolated, and already understood at the technical layer.</p>
-        <ul class="fit-list fit-list-muted">
-          <li>One-off bugs with a clear technical owner</li>
-          <li>Known defects requiring engineering execution</li>
-          <li>Live incident investigation or response</li>
-          <li>Code-level root-cause analysis or security work</li>
-          <li>Open-ended advisory without a bounded failure pattern</li>
-        </ul>
-        <p class="fit-boundary">If the issue is purely technical, already well understood, or not credibly diagnosable from the available evidence, I will say so.</p>
-      </section>
+    <div class="label-row" style="margin-bottom:16px;">
+      <span class="label">// Fit and scope</span>
+      <span class="label-note">who this is for</span>
     </div>
-    </section>
+
+    <div class="fit-services-grid">
+      <div class="fit-panel fit-panel-good">
+        <div class="fit-panel-head">
+          <span class="fit-panel-badge fit-panel-badge-good">Good fit</span>
+          <p class="fit-panel-lead">A failure has started repeating and nobody has a single structural read of what is actually wrong.</p>
+        </div>
+        <ul class="fit-check-list">
+          <li><span class="fit-check">✓</span>The same failure keeps returning under different labels</li>
+          <li><span class="fit-check">✓</span>Teams disagree on what the real problem actually is</li>
+          <li><span class="fit-check">✓</span>Builders are inventing design while implementing</li>
+          <li><span class="fit-check">✓</span>Manual workarounds are carrying load the system should absorb</li>
+          <li><span class="fit-check">✓</span>Ownership is blurred across roles, teams, or interfaces</li>
+          <li><span class="fit-check">✓</span>Policy, tooling, and operating reality have drifted apart</li>
+          <li><span class="fit-check">✓</span>The cost is recurring but the cause is structurally unclear</li>
+        </ul>
+      </div>
+      <div class="fit-panel fit-panel-bad">
+        <div class="fit-panel-head">
+          <span class="fit-panel-badge fit-panel-badge-bad">Not a fit</span>
+          <p class="fit-panel-lead">The issue is narrow, isolated, and already understood at the technical layer.</p>
+        </div>
+        <ul class="fit-check-list fit-check-list-bad">
+          <li><span class="fit-check fit-check-bad">✗</span>A one-off bug with a clear technical owner</li>
+          <li><span class="fit-check fit-check-bad">✗</span>A known defect requiring engineering execution</li>
+          <li><span class="fit-check fit-check-bad">✗</span>A live incident needing operational command</li>
+          <li><span class="fit-check fit-check-bad">✗</span>Code-level root-cause analysis from logs or infrastructure</li>
+          <li><span class="fit-check fit-check-bad">✗</span>Architecture, security, or infrastructure work</li>
+          <li><span class="fit-check fit-check-bad">✗</span>Vague dissatisfaction without a bounded failure pattern</li>
+          <li><span class="fit-check fit-check-bad">✗</span>Implementation support where the design is already settled</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="section-divider" style="margin-top:32px;"><span class="section-divider-label">how to start</span></div>
 
