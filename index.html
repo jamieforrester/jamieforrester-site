@@ -363,8 +363,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media (max-width: 1080px) and (min-width: 721px) {
   .offer-grid { grid-template-columns: 1fr 1fr !important; }
   .scan-grid { grid-template-columns: 1fr !important; }
-  .scan-layout { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .scan-layout .scan-entry-card { width: 100%; }
+  .scan-layout { gap: 16px; }
   .scan-output { position: static; }
 }
 @media (max-width: 720px) {
@@ -595,7 +594,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <h3 class="scan-layout-title">Not sure if your problem is structural?</h3>
         <p class="scan-layout-body">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
       </div>
-      <div class="scan-entry-card" style="margin-bottom:0; flex-shrink:0; min-width:260px; max-width:320px;">
+      <div class="scan-entry-card" style="margin-bottom:0; flex-shrink:0; min-width:260px; max-width:320px; width:320px;">
         <div class="scan-entry-badge">
           <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
           <span class="scan-entry-tag">Free · Self-guided</span>
@@ -604,12 +603,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
     </div>
 
-    <div class="section-divider"><span class="section-divider-label">selected research</span></div>
+    <div class="section-divider" style="margin-top:32px;"><span class="section-divider-label">selected research</span></div>
 
     <section class="card" aria-label="Selected research">
       <div class="label-row">
-        <span class="label">01 // Diagnostic Lens Trilogy</span>
-        <span class="label-note">three papers · one closed diagnostic loop</span>
+        <span class="label">// Selected research</span>
+        <span class="label-note">Diagnostic Lens Trilogy · 3 papers on SSRN</span>
       </div>
       <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68; max-width:80ch;">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch between signalled and consumed capability, to collapse through function fusion under consequence, to the missing redesign layer that internal correction loops cannot reliably produce.</p>
       <div class="trilogy-card-grid">
