@@ -112,6 +112,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     /* Arrow chain */
     .arrow-chain { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 16px; background: rgba(255,255,255,0.014); align-self: flex-start; }
     .arrow-chain span { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--text-faint); white-space: nowrap; }
+    
+
+.offer-hero { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(255,255,255,0.012) 50%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%); }
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: var(--space-5,24px); transition: border-color 180ms ease, box-shadow 180ms ease; }
+    .card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28); }
+    .offer-hero.card { border-color: rgba(90,176,255,0.2); }
 
     /* What changes */
     .what-changes { margin-bottom: 24px; }
@@ -126,12 +132,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .what-changes-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: var(--label-blue); }
     .what-changes-label { margin: 0; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
     .what-changes-desc { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.68; }
-    
-
-.offer-hero { border-color: rgba(90,176,255,0.2); background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(255,255,255,0.012) 50%), linear-gradient(180deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.008) 100%); }
-    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 28px; min-width: 0; box-shadow: var(--shadow-card); margin-bottom: var(--space-5,24px); transition: border-color 180ms ease, box-shadow 180ms ease; }
-    .card:hover { border-color: rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 14px 38px rgba(0,0,0,0.28); }
-    .offer-hero.card { border-color: rgba(90,176,255,0.2); }
     .what-changes.card { margin-bottom: 24px; }
 
     @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -205,6 +205,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .snapshot-line:last-child { border-bottom: none; }
 .snapshot-k { color: var(--text-faint); font-family: "IBM Plex Mono", monospace; font-size: 11px; white-space: nowrap; }
 
+    .research-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .research-strip-left { flex: 1; min-width: 0; }
+    .research-strip-desc { margin: 0 0 20px; font-size: 14px; color: var(--text-dim); line-height: 1.68; max-width: 60ch; }
+    .research-strip-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .research-strip-stats { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
     /* Trilogy index cards */
     .trilogy-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
     .trilogy-index-card { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, transform 160ms ease; }
@@ -217,6 +222,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .trilogy-index-cover { display: block; width: 100%; height: 140px; object-fit: cover; object-position: top; }
     .trilogy-index-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; padding: 10px 14px 0; }
     .trilogy-index-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.62; padding: 8px 14px 0; flex: 1; }
+    .trilogy-index-body { padding: 0 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
     .trilogy-index-links { display: flex; gap: 12px; padding: 10px 14px 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
     .trilogy-index-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
     .trilogy-index-stats { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -316,6 +322,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
 @media (max-width: 920px) {
   .trilogy-card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .research-strip { grid-template-columns: 1fr; }
+  .research-strip-stats { flex-direction: row; flex-wrap: wrap; }
   .trilogy-index-cover { height: 120px; }
   .trilogy-index-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
   .trilogy-index-ctas { flex-direction: column; width: 100%; }
@@ -416,11 +424,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     <section class="hero-strip" aria-label="Primary summary">
       <div class="hero-left">
         <div class="eyebrow">What I do</div>
-        <h2 class="hero-title">Structural truth for systems that keep failing under scale.</h2>
-        <p class="hero-sub">I make hidden rules visible, then redesign the structure so the system stops failing in the same way.</p>
-        <p class="hero-sub">I write <strong>Diagnostic Artifacts</strong> and <strong>Redesign Artifacts</strong> that give decision owners and builders a single source of structural truth they can act against. <a class="link-blue" href="./method.html">Read the method →</a></p>
+        <h2 class="hero-title">The same failure keeps returning. That usually means the structure is wrong — not the execution.</h2>
+        <p class="hero-sub">I make the hidden rules visible, locate the structural failure precisely, and produce a written artifact your team can act against.</p>
+        <p class="hero-sub">Two fixed-scope engagements: a <strong>Diagnostic Artifact</strong> that names the real failure, and a <strong>Redesign Artifact</strong> that defines the change sequence. <a class="link-blue" href="./method.html">Read the method →</a></p>
         <hr class="hero-rule" />
-        <p class="hero-statement"><strong>When the same failure keeps returning, the structural layer becomes the most likely place to look.</strong></p>
+        <p class="hero-statement"><strong>The same failure costs more the second time than the first. At some point, the structure has to be named.</strong></p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
         </div>
@@ -457,7 +465,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <h2 class="what-changes-title">What changes once the artifact exists.</h2>
           <p class="what-changes-sub">It does not add another summary or interpretation layer. It gives decision owners and builders a shared structural read of the failure, the rule that is breaking, and the order in which change must happen.</p>
         </div>
-        <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
       </div>
       <div class="what-changes-grid">
         <div class="what-changes-item">
@@ -475,6 +482,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <h3 class="what-changes-label">Humans stop patching structural gaps</h3>
           <p class="what-changes-desc">Humans stop carrying work the system should carry. The artifact defines what the system must enforce, what it must not absorb, and where the boundary sits.</p>
         </div>
+      </div>
+      <div style="margin-top:24px; text-align:center;">
+        <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
       </div>
     </section>
 
@@ -596,12 +606,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <section class="card" aria-label="Selected research">
       <div class="label-row">
-        <span class="label">// Selected research</span>
-        <span class="label-note">Diagnostic Lens Trilogy · 3 papers on SSRN</span>
+        <span class="label">01 // Diagnostic Lens Trilogy</span>
+        <span class="label-note">three papers · one closed diagnostic loop</span>
       </div>
-      <p class="selected-research-intro">The Diagnostic Lens Trilogy — three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. All three are now available on SSRN as preprints.</p>
-
-      <!-- Three paper cards in a row -->
+      <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68; max-width:80ch;">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch between signalled and consumed capability, to collapse through function fusion under consequence, to the missing redesign layer that internal correction loops cannot reliably produce.</p>
       <div class="trilogy-card-grid">
         <article class="trilogy-index-card trilogy-index-card-1" aria-label="Paper 01">
           <div class="trilogy-index-head">
@@ -611,8 +619,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <a href="./paper.pdf" target="_blank" rel="noopener">
             <img class="trilogy-index-cover" src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
           </a>
-          <h3 class="trilogy-index-title">The Expertise Illusion in AI Task Marketplaces</h3>
-          <p class="trilogy-index-desc">How reliability pipelines borrow the language of expertise and create a structural mismatch between signalled capability and consumed capability.</p>
+          <div class="trilogy-index-body">
+            <h3 class="trilogy-index-title">The Expertise Illusion in AI Task Marketplaces</h3>
+            <p class="trilogy-index-desc">How reliability pipelines borrow the language of expertise. Introduces interface-legitimacy mismatch and the Transfer Test: systems that signal one kind of capability while operationally consuming another.</p>
+          </div>
           <div class="trilogy-index-links">
             <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
             <a href="./paper.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
@@ -626,8 +636,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <a href="./four-function-law.pdf" target="_blank" rel="noopener">
             <img class="trilogy-index-cover" src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
           </a>
-          <h3 class="trilogy-index-title">The Four-Function Law of Scalable Institutions</h3>
-          <p class="trilogy-index-desc">Why institutions fail when sensing, interpretation, authority, and memory remain fused at the same human node under scale.</p>
+          <div class="trilogy-index-body">
+            <h3 class="trilogy-index-title">The Four-Function Law of Scalable Institutions</h3>
+            <p class="trilogy-index-desc">Introduces the Four-Function Law: institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same human node at the point of consequence.</p>
+          </div>
           <div class="trilogy-index-links">
             <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
             <a href="./four-function-law.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
@@ -641,23 +653,23 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <a href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">
             <img class="trilogy-index-cover" src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" />
           </a>
-          <h3 class="trilogy-index-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
-          <p class="trilogy-index-desc">Introduces the Redesign Law and correction collapse. Shows why execution and diagnosis cannot reliably produce redesign from within the same correction loops.</p>
+          <div class="trilogy-index-body">
+            <h3 class="trilogy-index-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+            <p class="trilogy-index-desc">Introduces the Redesign Law and correction collapse. Distinguishes execution, diagnosis, and redesign, and shows why the first two cannot reliably produce the third from within the same correction loops.</p>
+          </div>
           <div class="trilogy-index-links">
             <a href="https://ssrn.com" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
             <a href="./missing-redesign-layer.pdf" class="muted-link" target="_blank" rel="noopener">PDF</a>
           </div>
         </article>
       </div>
-
-      <!-- Bottom row: stats + CTA -->
-      <div class="trilogy-index-footer">
-        <div class="trilogy-index-stats">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <div class="body-stat"><span class="body-stat-num">3</span><span class="body-stat-label">Preprints on SSRN</span></div>
           <div class="body-stat"><span class="body-stat-num">4</span><span class="body-stat-label">Books in progress</span></div>
           <div class="body-stat"><span class="body-stat-num">2</span><span class="body-stat-label">Current builds</span></div>
         </div>
-        <div class="trilogy-index-ctas">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary" href="./trilogy.html">READ THE TRILOGY →</a>
           <a class="btn" href="./research.html">FULL RESEARCH PAGE</a>
         </div>
