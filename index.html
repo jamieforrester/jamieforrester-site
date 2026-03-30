@@ -204,6 +204,23 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .snapshot-line { margin: 0; display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; line-height: 1.6; color: #cdd2da; }
 .snapshot-line:last-child { border-bottom: none; }
 .snapshot-k { color: var(--text-faint); font-family: "IBM Plex Mono", monospace; font-size: 11px; white-space: nowrap; }
+
+    /* Trilogy index cards */
+    .trilogy-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
+    .trilogy-index-card { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, transform 160ms ease; }
+    .trilogy-index-card:hover { border-color: rgba(90,176,255,0.22); transform: translateY(-1px); }
+    .trilogy-index-card-1 { border-left: 2px solid rgba(90,176,255,0.25); }
+    .trilogy-index-card-2 { border-left: 2px solid rgba(90,176,255,0.55); }
+    .trilogy-index-card-3 { border-left: 2px solid rgba(90,176,255,0.9); }
+    .trilogy-index-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px 0; }
+    .trilogy-index-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .trilogy-index-cover { display: block; width: 100%; height: 140px; object-fit: cover; object-position: top; }
+    .trilogy-index-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; padding: 10px 14px 0; }
+    .trilogy-index-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.62; padding: 8px 14px 0; flex: 1; }
+    .trilogy-index-links { display: flex; gap: 12px; padding: 10px 14px 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+    .trilogy-index-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
+    .trilogy-index-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+    .trilogy-index-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
 .body-of-work { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 14px; }
 .body-stat { padding: 12px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
 .body-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 700; line-height: 1; color: var(--cta-blue); margin-bottom: 6px; }
