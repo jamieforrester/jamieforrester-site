@@ -280,7 +280,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .callout p strong { color: #e8ecf0; font-weight: 600; }
 
 /* Fork block */
-.fork-block { margin: 28px 0 8px; padding: 8px 0 16px; text-align: center; }
+.fork-block { margin: 28px 0 8px; padding: 8px 0 48px; text-align: center; }
 .fork-label { margin: 0 0 14px; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text-faint); }
 .fork-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .fork-actions .btn { min-width: 220px; justify-content: center; }
@@ -315,6 +315,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .scan-result-cta { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
 
 @media (max-width: 920px) {
+  .trilogy-card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .trilogy-index-cover { height: 120px; }
+  .trilogy-index-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .trilogy-index-ctas { flex-direction: column; width: 100%; }
+  .trilogy-index-ctas .btn { width: 100%; justify-content: center; }
   .wrap { padding-top: 24px; }
   header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
   .top-cta { padding-top: 0; justify-content: flex-start; }
@@ -340,22 +345,15 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .scan-output { position: static; }
 }
 @media (max-width: 600px) {
-  
-  
-  
-  
-  
-  
-  
+  .trilogy-card-grid { grid-template-columns: 1fr; }
+  .trilogy-index-cover { height: 160px; }
+  .trilogy-index-stats { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 @media (max-width: 1080px) and (min-width: 721px) {
   .offer-grid { grid-template-columns: 1fr 1fr !important; }
-  .trilogy-card-grid { grid-template-columns: 1fr; }
-      .trilogy-index-footer { flex-direction: column; align-items: flex-start; }
-      .trilogy-index-stats { width: 100%; }
   .scan-grid { grid-template-columns: 1fr !important; }
   .scan-output { position: static; }
 }
@@ -453,12 +451,13 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">what changes</span></div>
 
-    <section class="what-changes card" aria-label="What the artifact changes">
+    <section class="what-changes" aria-label="What the artifact changes">
       <div class="what-changes-head">
         <div>
           <h2 class="what-changes-title">What changes once the artifact exists.</h2>
           <p class="what-changes-sub">It does not add another summary or interpretation layer. It gives decision owners and builders a shared structural read of the failure, the rule that is breaking, and the order in which change must happen.</p>
         </div>
+        <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
       </div>
       <div class="what-changes-grid">
         <div class="what-changes-item">
@@ -476,9 +475,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <h3 class="what-changes-label">Humans stop patching structural gaps</h3>
           <p class="what-changes-desc">Humans stop carrying work the system should carry. The artifact defines what the system must enforce, what it must not absorb, and where the boundary sits.</p>
         </div>
-      </div>
-      <div style="margin-top:20px; text-align:center;">
-        <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
       </div>
     </section>
 
