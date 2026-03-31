@@ -530,6 +530,22 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 </script>
+  <style>
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
+    .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;padding-bottom:28px;}.site-footer__bottom{flex-direction:column;align-items:flex-start;padding-top:20px;}}
+  </style>
 </body>
 </html
 
@@ -538,9 +554,8 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="site-footer__top">
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>
-Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="ea828f868685aa808b87838f8c8598988f999e8f98c4898587">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -596,7 +611,7 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
     @media (max-width: 640px) { .site-footer__inner { padding: 40px 20px 28px; } .site-footer__top { grid-template-columns: 1fr; gap: 28px; } .site-footer__bottom { flex-direction: column; align-items: flex-start; } }
   </style>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
     (function(){
       var nav = document.querySelector('.site-nav');
@@ -607,8 +622,4 @@ Diagnostic and redesign artifacts for systems that fail under scale.</p>
         else { nav.classList.remove('nav-visible'); }
       }, {passive: true});
     })();
-    document.addEventListener('DOMContentLoaded', function(){
-      var e = 'hello' + '@' + 'jamieforrester.com';
-      document.querySelectorAll('[data-mailto]').forEach(function(el){
-      el.setAttribute('href', 'mailto:' + e);
-      });
+    document.addEventListener('DOMCon
