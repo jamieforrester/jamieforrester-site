@@ -97,8 +97,6 @@
       border-bottom: none; padding-bottom: 0;
     }
     .site-nav-brand:hover { background: transparent; }
-    .nav-short { display: none; }
-    .nav-full { display: inline; }
     .nav-avatar {
       width: 30px; height: 30px; border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
@@ -117,6 +115,8 @@
       transition: color 140ms ease, background 140ms ease;
     }
     .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .nav-short { display: none; }
+    .nav-full { display: inline; }
     .site-nav-links .nav-cta {
       color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28);
       background: rgba(90,176,255,0.08); margin-left: 6px;
@@ -1013,3 +1013,6 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
   document.querySelectorAll('a.btn, button.btn').for
+</script>
+</body>
+</html>
