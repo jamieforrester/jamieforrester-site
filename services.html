@@ -993,7 +993,10 @@ document.addEventListener('DOMContentLoaded', function(){
     overlay.style.display = 'none';
     document.body.style.overflow = '';
   }
-  functiim();
+  function submitBrief() {
+    var ctx = document.getElementById('brief-context').value.trim();
+    var p1 = document.getElementById('brief-1').value.trim();
+    var p2 = document.getElementById('brief-2').value.trim();
     var p3 = document.getElementById('brief-3').value.trim();
     var p4 = document.getElementById('brief-4').value.trim();
     var p5 = document.getElementById('brief-5').value.trim();
@@ -1010,9 +1013,19 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a.btn, button.btn').for
+  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
+    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
+      btn.removeAttribute('href');
+      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
+    }
+  });
+  var briefBtn = document.getElementById('email-brief-cta');
+  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
+})();
+
 </script>
 </body>
 </html>
