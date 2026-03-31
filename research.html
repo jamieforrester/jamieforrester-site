@@ -65,6 +65,8 @@
     .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
     .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
     .site-nav-brand:hover { background: transparent; }
+    .nav-short { display: none; }
+    .nav-full { display: inline; }
     .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .site-nav-links { display: flex; align-items: center; gap: 4px; }
@@ -331,6 +333,8 @@
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
       .top-cta { justify-content: flex-start; padding-top: 0; }
       .site-nav-links { gap: 2px; }
+  .nav-short { display: inline; }
+  .nav-full { display: none; }
       .site-nav-links a { padding: 6px 7px; font-size: 9px; }
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
   .nav-how-full { display: none; }
@@ -372,7 +376,7 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html">How It Works</a>
+        <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -884,14 +888,14 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="e58d8089898aa58f84888c80838a97978096918097cb868a88">[email&#160;protected]</span></a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="432b262f2f2c0329222e2a26252c313126303726316d202c2e">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a></li>
             <li><a href="./research.html">Research</a></li>
             <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
@@ -1073,7 +1077,16 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a.btn, button.btn').forEach(function(el){
-    if (el.textCon
+  document.querySelectorAll('[data-mailto]').forEach(function(btn){
+    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
+      btn.removeAttribute('href');
+      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
