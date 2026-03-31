@@ -978,4 +978,9 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = docume
+  var briefBtn = document.getElementById('email-brief-cta');
+  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
+})();
+</script>
+</body>
+</html>
