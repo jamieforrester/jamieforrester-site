@@ -97,6 +97,8 @@
       border-bottom: none; padding-bottom: 0;
     }
     .site-nav-brand:hover { background: transparent; }
+    .nav-short { display: none; }
+    .nav-full { display: inline; }
     .nav-avatar {
       width: 30px; height: 30px; border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.12);
@@ -142,6 +144,8 @@
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
+    .top-cta-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
     .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
 
     .btn {
@@ -168,8 +172,8 @@
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
     .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
 
-    .section-divider { margin: 0 0 24px; display: flex; align-items: center; gap: 16px; }
-    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); }
+    .section-divider { justify-content: center; margin: 0 0 24px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
     .hero-strip {
@@ -357,8 +361,12 @@
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
-      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
+    .top-cta-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .top-cta { justify-content: flex-start; padding-top: 0; }
       .site-nav-links { gap: 2px; }
+  .nav-short { display: inline; }
+  .nav-full { display: none; }
       .site-nav-links a { padding: 6px 7px; font-size: 9px; }
       .site-nav-brand { min-width: 0; overflow: hidden; }
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
@@ -389,7 +397,7 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html"><span class="nav-how-full">How It Works</span><span class="nav-how-short">How</span></a>
+        <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -805,7 +813,7 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="87efe2ebebe8c7ede6eaeee2e1e8f5f5e2f4f3e2f5a9e4e8ea">[email&#160;protected]</span></a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="ea828f868685aa808b87838f8c8598988f999e8f98c4898587">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -814,6 +822,12 @@
             <li><a href="./services.html">Services</a></li>
             <li><a href="./how-it-works.html">How It Works</a></li>
             <li><a href="./research.html">Research</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
+          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
+          <ul class="site-footer__list">
+            <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
           </ul>
@@ -841,11 +855,11 @@
   <style>
     .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
     .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-    .site-footer__top{display:grid;grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
     .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
     .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
     .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
-    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;}
+    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
     .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
     .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
     .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
@@ -927,23 +941,29 @@
 .brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}}
 </style>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
 // Email link wiring - Cloudflare-proof
 document.addEventListener('DOMContentLoaded', function(){
   var e = 'hello' + '@' + 'jamieforrester.com';
   document.querySelectorAll('[data-mailto]').forEach(function(el){
-    el.setAttribute('href', 'mailto:' + e);
+    var txt = el.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+    if (txt !== 'EMAIL FIVE-LINE BRIEF' && txt.indexOf('REQUEST') === -1) {
+      el.setAttribute('href', 'mailto:' + e);
+    }
   });
 });
 </script>
 <script>
-document.getElementById('footer-year').textContent = new Date().getFullYear();
+var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
 document.addEventListener('DOMContentLoaded', function(){
   var e = 'hello' + '@' + 'jamieforrester.com';
   document.querySelectorAll('[data-mailto]').forEach(function(el){
-    el.setAttribute('href', 'mailto:' + e);
+    var txt = el.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+    if (txt !== 'EMAIL FIVE-LINE BRIEF' && txt.indexOf('REQUEST') === -1) {
+      el.setAttribute('href', 'mailto:' + e);
+    }
   });
 });
 
@@ -973,10 +993,7 @@ document.addEventListener('DOMContentLoaded', function(){
     overlay.style.display = 'none';
     document.body.style.overflow = '';
   }
-  function submitBrief() {
-    var ctx = document.getElementById('brief-context').value.trim();
-    var p1 = document.getElementById('brief-1').value.trim();
-    var p2 = document.getElementById('brief-2').value.trim();
+  functiim();
     var p3 = document.getElementById('brief-3').value.trim();
     var p4 = document.getElementById('brief-4').value.trim();
     var p5 = document.getElementById('brief-5').value.trim();
@@ -995,13 +1012,4 @@ document.addEventListener('DOMContentLoaded', function(){
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display === 'flex') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a.btn, button.btn').forEach(function(el){
-    if (el.textContent.replace(/\s+/g,' ').trim().toUpperCase() === 'EMAIL FIVE-LINE BRIEF') {
-      el.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
-    }
-  });
-})();
-
-</script>
-</body>
-</html>
+  document.querySelectorAll('a.btn, button.btn').for
