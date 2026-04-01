@@ -330,6 +330,18 @@
     .trilogy-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
     .trilogy-sequence { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); }
 
+
+    /* Extension paper */
+    .extension-paper-block { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: start; margin-top: 20px; }
+    .extension-cover-img { width: 140px; height: 196px; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 24px rgba(0,0,0,0.3); display: block; }
+    .extension-paper-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .extension-paper-title { margin: 0 0 4px; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.03em; line-height: 1.2; }
+    .extension-paper-sub { margin: 0 0 14px; font-size: 13px; color: var(--text-faint); font-style: italic; }
+    .extension-paper-desc { margin: 0 0 20px; font-size: 13px; color: var(--text-dim); line-height: 1.7; }
+    .extension-reading-order { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.014); }
+    .extension-order-list { margin: 0; padding: 0 0 0 16px; display: flex; flex-direction: column; gap: 6px; }
+    .extension-order-list li { font-size: 12px; color: var(--text-faint); line-height: 1.5; }
+    .extension-order-list li strong { color: var(--cta-blue); }
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
@@ -359,6 +371,8 @@
       .books-cta-row { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 600px) {
+      .extension-paper-block { grid-template-columns: 1fr; }
+      .extension-cover-img { width: 100px; height: 140px; }
       .trilogy-grid { grid-template-columns: 1fr; }
       .book-entry { grid-template-columns: 1fr; }
       .book-entry-cover-col { flex-direction: row; align-items: center; gap: 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 16px 18px; }
@@ -416,7 +430,7 @@
         <span class="eyebrow">Research</span>
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
         <p class="hero-sub">This work is built as a coherent research program — not assembled per engagement. It includes core models, public papers, books in development, and live systems built under the same structural logic.</p>
-        <p class="hero-sub">The clearest public entry point is now the <strong>Diagnostic Lens Trilogy</strong>: three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. The public papers do not replace the client artifact. They show the diagnostic lens in public form.</p>
+        <p class="hero-sub">The clearest public entry point is the <strong>Diagnostic Lens Trilogy</strong>: three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. A fourth paper extends the sequence by asking how legacy institutions actually lose centrality once failure is visible. The public papers do not replace the client artifact. They show the diagnostic lens in public form.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="./trilogy.html">READ THE TRILOGY</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
@@ -432,23 +446,28 @@
           <span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span>
           <span class="map-item-status">3 papers</span>
         </a>
-        <a class="map-item" href="#foundations">
+        <a class="map-item" href="#extension">
           <span class="map-item-num">02</span>
+          <span class="map-item-text"><strong>Extension Paper</strong>Institution Migration — beyond the trilogy</span>
+          <span class="map-item-status">1 paper</span>
+        </a>
+        <a class="map-item" href="#foundations">
+          <span class="map-item-num">03</span>
           <span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span>
           <span class="map-item-status">3 models</span>
         </a>
         <a class="map-item" href="#pipeline">
-          <span class="map-item-num">03</span>
-          <span class="map-item-text"><strong>Research Pipeline</strong>Full 6-paper + monograph sequence</span>
+          <span class="map-item-num">04</span>
+          <span class="map-item-text"><strong>Research Pipeline</strong>4 public papers + forthcoming works</span>
           <span class="map-item-status">7 works</span>
         </a>
         <a class="map-item" href="#books">
-          <span class="map-item-num">04</span>
+          <span class="map-item-num">05</span>
           <span class="map-item-text"><strong>Books</strong>Four-book sequence in development</span>
           <span class="map-item-status">4 books</span>
         </a>
         <a class="map-item" href="#builds">
-          <span class="map-item-num">05</span>
+          <span class="map-item-num">06</span>
           <span class="map-item-text"><strong>Applied Builds</strong>Systems in development</span>
           <span class="map-item-status">2 builds</span>
         </a>
@@ -518,6 +537,7 @@
             </div>
           </div>
         </div>
+        <p style="margin: 16px 0 0; font-size:13px; color:var(--text-faint); line-height:1.7; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The trilogy closes the diagnostic loop. A separate extension paper asks what actually makes legacy institutions lose centrality once that loop has been seen.</p>
         <div class="trilogy-footer">
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn" href="./expertise-illusion.pdf" target="_blank" rel="noopener">START WITH PAPER 01</a>
@@ -526,11 +546,49 @@
         </div>
       </section>
 
+      <div class="section-divider"><span class="section-divider-label">extension paper</span></div>
+
+      <section id="extension" class="card" aria-label="Extension paper">
+        <div class="label-row">
+          <span class="label">02 // Extension Paper</span>
+          <span class="label-note">beyond the diagnostic loop</span>
+        </div>
+        <p class="lead">Papers 1–3 form a closed diagnostic trilogy; Paper 4 extends that work into institutional replacement.</p>
+        <div class="extension-paper-block">
+          <div class="extension-paper-cover">
+            <a href="./institution-migration.pdf" target="_blank" rel="noopener">
+              <img src="./paper4-image.png" alt="Cover: Institution Migration" class="extension-cover-img" />
+            </a>
+          </div>
+          <div class="extension-paper-body">
+            <div class="extension-paper-head">
+              <span class="mini-kicker">Paper 04</span>
+              <span class="offer-chip offer-chip-blue">PDF available</span>
+            </div>
+            <h3 class="extension-paper-title">Institution Migration</h3>
+            <p class="extension-paper-sub">How better coordination makes legacy institutions unnecessary</p>
+            <p class="extension-paper-desc">Extends the trilogy from diagnosis into replacement. If Papers 1–3 explain how systems fail, collapse, and cannot redesign themselves from within, this paper asks the next question: how are they actually outgrown? Introduces the Migration Law — institutions persist while the burden of their incoherence can be transferred outward. They begin to be replaced when a superior coordination architecture makes that burden avoidable.</p>
+            <div class="extension-reading-order">
+              <span class="mini-kicker" style="margin-bottom:8px;">Suggested reading order</span>
+              <ol class="extension-order-list">
+                <li>The Expertise Illusion in AI Task Marketplaces</li>
+                <li>The Four-Function Law of Scalable Institutions</li>
+                <li>Why Systems Can&#39;t Fix Themselves</li>
+                <li><strong>Institution Migration</strong></li>
+              </ol>
+            </div>
+            <div class="actions" style="margin-top:16px;">
+              <a href="./institution-migration.pdf" class="link-blue" target="_blank" rel="noopener">Read Paper 04 (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
             <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
 
       <section id="foundations" class="card card-accent" aria-label="Theoretical foundations">
         <div class="label-row">
-          <span class="label">02 // Theoretical foundations</span>
+          <span class="label">03 // Theoretical foundations</span>
           <span class="label-note">core models</span>
         </div>
         <p class="lead">Three foundational models sit beneath the public papers and are used across every engagement. They are the structural operating models beneath the diagnostic practice.</p>
@@ -571,10 +629,11 @@
         <!-- Research pipeline card -->
         <div class="pipeline-card" style="margin-top:0;">
           <div class="pipeline-header">
-            <span class="mini-kicker" style="margin:0;">03 // Research pipeline</span>
-            <span class="pipeline-count">6 papers + 1 monograph</span>
+            <span class="mini-kicker" style="margin:0;">04 // Research pipeline</span>
+            <span class="pipeline-count">4 public · 3 forthcoming · 1 monograph</span>
           </div>
-          <p style="margin:16px 0 4px; font-size:13px; color:var(--text-faint); line-height:1.7;">The trilogy is the current public entry point into the broader research program. The papers that follow extend the diagnostic sequence into substitution, institutional primitives, design grammar, and a deeper monograph on emergence and form.</p>
+          <p style="margin:16px 0 4px; font-size:13px; color:var(--text-faint); line-height:1.7;">The public work now consists of the Diagnostic Lens Trilogy plus one extension paper on institutional replacement. The broader research pipeline continues from there into substitution, institutional primitives, design grammar, and a deeper monograph on emergence and form.</p>
+          <p style="margin:8px 0 4px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue);">Public papers</p>
           <ol class="pipeline-list">
             <li class="pipeline-item">
               <span class="pipeline-num">01</span>
@@ -603,13 +662,24 @@
             <li class="pipeline-item">
               <span class="pipeline-num">04</span>
               <div class="pipeline-body">
+                <span class="pipeline-title">Institution Migration: How Better Coordination Makes Legacy Institutions Unnecessary</span>
+                <span class="pipeline-domain">Institutional Replacement · PDF available</span>
+              </div>
+              <a href="./institution-migration.pdf" class="link-blue" target="_blank" rel="noopener" style="white-space:nowrap; font-size:12px;">PDF</a>
+            </li>
+          </ol>
+          <p style="margin:16px 0 4px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint);">Forthcoming</p>
+          <ol class="pipeline-list" start="5">
+            <li class="pipeline-item">
+              <span class="pipeline-num">05</span>
+              <div class="pipeline-body">
                 <span class="pipeline-title">The Shadow Institution: How Families Replace Failed Systems</span>
                 <span class="pipeline-domain">Sociology / Governance</span>
               </div>
               <span class="status pipeline-forthcoming">Forthcoming</span>
             </li>
             <li class="pipeline-item">
-              <span class="pipeline-num">05</span>
+              <span class="pipeline-num">06</span>
               <div class="pipeline-body">
                 <span class="pipeline-title">The Twelve Kernels: A Taxonomy of Institutional Primitives</span>
                 <span class="pipeline-domain">Institutional Classification</span>
@@ -617,7 +687,7 @@
               <span class="status pipeline-forthcoming">Forthcoming</span>
             </li>
             <li class="pipeline-item">
-              <span class="pipeline-num">06</span>
+              <span class="pipeline-num">07</span>
               <div class="pipeline-body">
                 <span class="pipeline-title">The Eight-Stage Grammar of System Design</span>
                 <span class="pipeline-domain">Systems Architecture</span>
@@ -942,7 +1012,7 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="6d05080101022d070c0004080b021f1f081e19081f430e0200">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -1024,7 +1094,7 @@
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
@@ -1093,9 +1163,4 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
-</html>
+  var briefBtn = docume
