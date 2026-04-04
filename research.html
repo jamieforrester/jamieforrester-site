@@ -317,6 +317,11 @@
     .extension-order-list li:last-child { border-bottom: none; }
     .extension-order-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--label-blue); flex-shrink: 0; }
     .extension-order-list li strong { color: var(--cta-blue); font-weight: 600; }
+
+    .build-role-label { margin: 2px 0 8px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); font-style: italic; }
+    .build-status-line { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+    .build-stat { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--label-blue); }
+    .build-stat-sep { color: var(--text-faint); font-size: 10px; }
     @media (max-width: 920px) {
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
@@ -441,7 +446,7 @@
         </a>
         <a class="map-item" href="#builds">
           <span class="map-item-num">06</span>
-          <span class="map-item-text"><strong>Applied Builds</strong>Systems in development</span>
+          <span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span>
           <span class="map-item-status">2 builds</span>
         </a>
       </div>
@@ -794,10 +799,11 @@
       <section id="builds" class="card" aria-label="Applied builds">
         <div class="label-row">
           <span class="label">06 // Applied builds</span>
-          <span class="label-note">systems in development</span>
+          <span class="label-note">two live proving grounds</span>
         </div>
         <div class="builds-lead">
-          <p>The practice is not purely advisory. These are live systems built on the same structural logic — law-first design, explicit rules, constrained ownership, deterministic pipelines. They are included here because building real systems under real constraints is part of how the diagnostic lens stays accurate. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
+          <p>The practice is not purely advisory. These are live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
+          <p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
         </div>
         <div class="paper">
           <div class="paper-row">
@@ -807,8 +813,14 @@
                 <p class="paper-title">Spectrum Registry</p>
                 <span class="status status-dev">In development</span>
               </div>
-              <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership flows.</p>
-              <p class="small">Designed from the primitive outward: what the minimal unit of truth is, how ownership is constrained by rule rather than convention, and how the registry resists drift as it scales. The structural decisions made during this build directly inform how boundaries and enforcement are analysed in the Diagnostic Artifact.</p>
+              <p class="build-role-label">law-first registry proving ground</p>
+              <div class="build-status-line">
+                <span class="build-stat">Feature 29/40</span>
+                <span class="build-stat-sep">·</span>
+                <span class="build-stat">Target launch 2026</span>
+              </div>
+              <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership. The system starts at the primitive: what counts as a valid unit, what may be claimed, what must be refused, and how ownership remains bounded by rule rather than drift or convention.</p>
+              <p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled inside the Diagnostic Artifact.</p>
             </div>
           </div>
         </div>
@@ -820,8 +832,15 @@
                 <p class="paper-title">PromptFactory</p>
                 <span class="status status-dev">In development</span>
               </div>
-              <p class="paper-desc">A deterministic build pipeline that pushes intelligence upstream into specification and verification.</p>
-              <p class="small">Built on the principle that ambiguity should be resolved at specification time, not execution time. The same preference for legibility, explicit rules, and failure-resistant design that appears in the written artifacts appears here as engineering decisions.</p>
+              <p class="build-role-label">law-first build system proving ground</p>
+              <div class="build-status-line">
+                <span class="build-stat">Build methodology proven</span>
+                <span class="build-stat-sep">·</span>
+                <span class="build-stat">Commercialisation in progress</span>
+              </div>
+              <p class="paper-desc">A deterministic build architecture that moves software production upstream into law, specification, and verification. Rather than treating code generation as the centre of the system, PromptFactory treats generation as one constrained stage inside a larger build grammar: primitive, law, sequence, gates, output.</p>
+              <p class="small">Its purpose is to reduce build drift by resolving ambiguity before execution and by refusing promotion when outputs fail explicit checks. It matters here not as a product announcement, but as applied proof: a test of whether the same structural preferences visible in the public research — legibility, bounded ownership, explicit rules, and redesign before repetition — can be made operational inside software construction itself.</p>
+              <p class="small" style="margin-top:10px; color:var(--text-faint);">The Grammar Kernel — primitive → law → sequence → gates → output — is the structural spine the build runs on. This build is especially relevant to Book 4 and the broader build law work because it operationalises the claim that quality is set upstream before execution begins.</p>
             </div>
           </div>
         </div>
