@@ -214,18 +214,18 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .research-strip-stats { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
     /* Trilogy index cards */
     .trilogy-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
-    .trilogy-index-card { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, transform 160ms ease; }
+    .trilogy-index-card { display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.014); transition: border-color 160ms ease, transform 160ms ease; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
     .trilogy-index-card:hover { border-color: rgba(90,176,255,0.22); transform: translateY(-1px); }
     .trilogy-index-card-1 { }
     .trilogy-index-card-2 { }
     .trilogy-index-card-3 { }
-    .trilogy-index-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px 0; }
+    .trilogy-index-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
     .trilogy-index-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
-    .trilogy-index-cover { display: block; width: 100%; height: 140px; object-fit: cover; object-position: top; }
-    .trilogy-index-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; padding: 10px 14px 0; }
-    .trilogy-index-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.62; padding: 8px 14px 0; flex: 1; }
-    .trilogy-index-body { padding: 0 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .trilogy-index-links { display: flex; gap: 12px; padding: 10px 14px 14px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 10px; }
+    .trilogy-index-cover { display: block; width: 100%; height: 160px; object-fit: cover; object-position: top; }
+    .trilogy-index-title { margin: 0; font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
+    .trilogy-index-desc { margin: 0; font-size: 12px; color: var(--text-dim); line-height: 1.65; flex: 1; }
+    .trilogy-index-body { padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .trilogy-index-links { display: flex; gap: 12px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: auto; }
     .trilogy-index-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 4px; }
     .trilogy-index-stats { display: flex; gap: 10px; flex-wrap: wrap; }
     .trilogy-index-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -345,7 +345,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .trilogy-card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .research-strip { grid-template-columns: 1fr; }
   .research-strip-stats { flex-direction: row; flex-wrap: wrap; }
-  .trilogy-index-cover { height: 120px; }
+  .trilogy-index-cover { height: 140px; }
   .trilogy-index-footer { flex-direction: column; align-items: flex-start; gap: 12px; }
   .trilogy-index-ctas { flex-direction: column; width: 100%; }
   .trilogy-index-ctas .btn { width: 100%; justify-content: center; }
@@ -381,7 +381,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .trilogy-card-grid { grid-template-columns: 1fr; }
   .process-strip { grid-template-columns: 1fr; }
   .fit-services-grid { grid-template-columns: 1fr; }
-  .trilogy-index-cover { height: 160px; }
+  .trilogy-index-cover { height: 180px; }
   .trilogy-index-stats { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -607,7 +607,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <div class="offer-footer">
         <div class="offer-footer-block"><p>The two engagements are designed to follow each other when needed, but each can stand alone.</p></div>
-        <div class="offer-footer-block"><p>Redesign pricing varies with system complexity, interface count, and transition depth. Full scope and delivery terms live on the Services page.</p></div>
+        <div class="offer-footer-block"><p>Redesign pricing varies with system complexity, interface count, and transition depth. Full scope and delivery terms live on the <a href="./services.html" class="link-blue">Services page</a>.</p></div>
       </div>
 
     </section>
@@ -832,7 +832,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="98f0fdf4f4f7d8f2f9f5f1fdfef7eaeafdebecfdeab6fbf7f5">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -914,7 +914,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
@@ -983,9 +983,4 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
-</html>
+  var briefBtn = docume
