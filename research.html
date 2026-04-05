@@ -262,13 +262,51 @@
     
     
     .pipeline-monograph {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      gap: 14px; padding: 14px 16px;
-      border: 1px solid rgba(90,176,255,0.16); border-radius: 12px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.012) 100%);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid rgba(90,176,255,0.2); border-radius: 16px;
+      background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.01) 100%);
+      overflow: hidden;
     }
-    .pipeline-monograph-left { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+    .monograph-header {
+      padding: 16px 20px; border-bottom: 1px solid rgba(90,176,255,0.12);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      background: rgba(90,176,255,0.03);
+    }
+    .monograph-equation-block {
+      padding: 28px 20px; text-align: center; border-bottom: 1px solid rgba(90,176,255,0.1);
+      background: rgba(90,176,255,0.025);
+    }
+    .monograph-equation {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+      font-weight: 600; color: #fff; letter-spacing: 0.04em;
+      line-height: 1.4; display: block; margin-bottom: 10px;
+    }
+    .monograph-equation-label {
+      font-family: "IBM Plex Mono", monospace; font-size: 10px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(90,176,255,0.6);
+    }
+    .monograph-mechanics {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      border-bottom: 1px solid rgba(90,176,255,0.1);
+    }
+    .monograph-mechanic {
+      padding: 14px 16px; border-right: 1px solid rgba(90,176,255,0.08);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .monograph-mechanic:last-child { border-right: none; }
+    .monograph-mechanic-letter {
+      font-family: "IBM Plex Mono", monospace; font-size: 16px;
+      font-weight: 700; color: var(--cta-blue); line-height: 1;
+    }
+    .monograph-mechanic-name {
+      font-size: 11px; font-weight: 600; color: #e0e4ea; text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .monograph-mechanic-desc {
+      font-size: 11px; color: var(--text-faint); line-height: 1.5;
+    }
+    .monograph-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
     .pipeline-monograph-kicker {
       font-family: "IBM Plex Mono", monospace; font-size: 9px;
       letter-spacing: 0.16em; text-transform: uppercase;
@@ -279,7 +317,7 @@
       letter-spacing: -0.01em;
     }
     .pipeline-monograph-sub {
-      font-size: 12px; color: var(--text-faint); line-height: 1.6;
+      font-size: 12px; color: var(--text-faint); line-height: 1.65;
     }
 
     /* ── Responsive ── */
@@ -352,6 +390,9 @@
     }
     @media (max-width: 600px) {
       .extension-paper-block { grid-template-columns: 1fr; }
+      .monograph-mechanics { grid-template-columns: repeat(2, 1fr); }
+      .monograph-mechanic:nth-child(2) { border-right: none; }
+      .monograph-mechanic:nth-child(3) { border-right: 1px solid rgba(90,176,255,0.08); }
       .extension-cover-img { width: 120px; height: 168px; }
       .trilogy-grid { grid-template-columns: 1fr; }
       .book-entry { grid-template-columns: 1fr; }
@@ -602,12 +643,42 @@
           <span class="label-note">deep layer</span>
         </div>
         <div class="pipeline-monograph" style="margin-top:0;">
-          <div class="pipeline-monograph-left">
-            <span class="pipeline-monograph-kicker">Monograph</span>
-            <span class="pipeline-monograph-title">How Purpose Becomes Form: A General Theory of Emergence</span>
-            <span class="pipeline-monograph-sub">A technical monograph on emergence, form, and the conditions under which durable structure appears. This is the deepest theoretical layer beneath the papers and books — intended for release after the broader framework is established.</span>
+          <div class="monograph-header">
+            <div>
+              <span class="pipeline-monograph-kicker">Monograph · In development</span>
+              <div class="pipeline-monograph-title" style="margin-top:4px;">How Purpose Becomes Form: A General Theory of Emergence</div>
+            </div>
+            <span class="status status-dev">In development</span>
           </div>
-          <span class="status status-dev">In development</span>
+          <div class="monograph-equation-block">
+            <span class="monograph-equation">E(n, p₀) = pₙ = p₀(ofmr)ⁿ</span>
+            <span class="monograph-equation-label">The Universal Emergence Equation</span>
+          </div>
+          <div class="monograph-mechanics">
+            <div class="monograph-mechanic">
+              <span class="monograph-mechanic-letter">o</span>
+              <span class="monograph-mechanic-name">Oscillation</span>
+              <span class="monograph-mechanic-desc">Cyclic variation generating the conditions for change</span>
+            </div>
+            <div class="monograph-mechanic">
+              <span class="monograph-mechanic-letter">f</span>
+              <span class="monograph-mechanic-name">Force</span>
+              <span class="monograph-mechanic-desc">Directed energy that moves potential toward form</span>
+            </div>
+            <div class="monograph-mechanic">
+              <span class="monograph-mechanic-letter">m</span>
+              <span class="monograph-mechanic-name">Medium</span>
+              <span class="monograph-mechanic-desc">The substrate through which transformation propagates</span>
+            </div>
+            <div class="monograph-mechanic">
+              <span class="monograph-mechanic-letter">r</span>
+              <span class="monograph-mechanic-name">Reflection</span>
+              <span class="monograph-mechanic-desc">The system's capacity to encode and retain what it has become</span>
+            </div>
+          </div>
+          <div class="monograph-body">
+            <p class="pipeline-monograph-sub">The equation generates a universal developmental ladder from Void through Spark, Creation, Consciousness, Civilization, and Meta. It works bidirectionally: forward as a generative system, backward as a diagnostic instrument. This is the deepest theoretical layer beneath the papers, the books, and the builds — the framework from which the Grammar Kernel, the Universal Formula, and the Seven Revolutions are all derived.</p>
+          </div>
         </div>
       </section>
 
