@@ -337,6 +337,16 @@
     .trilogy-sequence { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text-faint); }
 
 
+
+    /* Reading routes */
+    .reading-routes { margin-top: 20px; padding: 16px 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.014); }
+    .reading-routes-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 12px; }
+    .reading-routes-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .reading-route-link { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); border-bottom-width: 1px; text-decoration: none; border-bottom-style: solid; transition: background 140ms ease; }
+    .reading-routes-list li:last-child .reading-route-link { border-bottom: none; }
+    .reading-route-link:hover .reading-route-text { color: #fff; }
+    .reading-route-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--label-blue); flex-shrink: 0; min-width: 18px; }
+    .reading-route-text { font-size: 13px; color: var(--text-dim); line-height: 1.5; border-bottom: none; padding-bottom: 0; }
     /* Extension paper */
     .extension-paper-block { display: grid; grid-template-columns: 180px 1fr; gap: 32px; align-items: start; margin-top: 20px; }
     .extension-cover-wrap { position: relative; }
@@ -450,6 +460,18 @@
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
         <p class="hero-sub">This work includes six public papers, core models, books in development, and live proving grounds — all built under the same structural logic.</p>
         <p class="hero-sub">The public research now has two linked parts: a <strong>Diagnostic Lens Trilogy</strong> on recurring structural failure, and a three-paper <strong>Replacement Sequence</strong> on migration, substitute construction, and admissibility. Together they move from diagnosis to replacement. The papers do not replace the client artifact. They expose the public logic behind it.</p>
+        <p class="hero-sub">The <strong>six papers</strong> can be read as a <strong>complete sequence</strong> from diagnosis to replacement, but each <strong>stands alone</strong>. Start with the paper closest to the failure pattern, build problem, or institutional constraint you are currently facing.</p>
+        <div class="reading-routes">
+          <span class="reading-routes-label">Start where the failure is</span>
+          <ul class="reading-routes-list">
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">01</span><span class="reading-route-text">If the system promises one thing but operationally runs on another</span></a></li>
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">02</span><span class="reading-route-text">If failure concentrates through overloaded decision nodes</span></a></li>
+            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">03</span><span class="reading-route-text">If repeated fixes never resolve the same failure</span></a></li>
+            <li><a href="./institution-migration.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">04</span><span class="reading-route-text">If legacy institutions remain central despite visible incoherence</span></a></li>
+            <li><a href="./institutional-replacement-pipeline.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">05</span><span class="reading-route-text">If you need to move from diagnosis to buildable replacement</span></a></li>
+            <li><a href="./admissibility-problem.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">06</span><span class="reading-route-text">If a better system still struggles to become operationally real</span></a></li>
+          </ul>
+        </div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="./expertise-illusion.pdf" target="_blank" rel="noopener">START WITH PAPER 01</a>
           <a class="btn" href="./services.html">VIEW SERVICES</a>
