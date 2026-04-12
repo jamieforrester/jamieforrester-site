@@ -331,7 +331,11 @@
     .actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
-    .scan-entry-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; padding: 20px 24px; border: 1px solid rgba(90,176,255,0.16); border-radius: 16px; background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(90,176,255,0.01) 100%); }
+
+    .scan-entry-badge { display: flex; align-items: center; justify-content: space-between; padding: 10px 22px; border-bottom: 1px solid rgba(90,176,255,0.14); background: rgba(90,176,255,0.04); }
+    .scan-entry-eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .scan-entry-tag { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 3px 8px; }
+    .scan-entry-card { margin-bottom: 20px; border: 1px solid rgba(90,176,255,0.28); border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 50%, rgba(255,255,255,0.008) 100%); box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 12px 32px rgba(0,0,0,0.24); }
     .scan-entry-left { flex: 1; min-width: 0; }
     .scan-entry-body { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.65; max-width: 68ch; }
     .fit-services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
@@ -432,7 +436,7 @@
       <div class="hero-left">
         <div class="eyebrow">Service brief</div>
         <h2 class="hero-title">Two fixed-scope written artifacts for systems that keep failing in the same way.</h2>
-        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce one builder-readable artifact that makes the failure pattern visible, names what is structurally breaking, and gives decision-makers and builders a single basis to act from without further interpretation.</p>
+        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce one builder-readable artifact that makes the failure pattern visible, names the structural break, and gives decision-makers and builders a single basis to act from without further interpretation.</p>
         <p class="hero-sub">The cost of unresolved structural failure is not abstract: rework, delay, decision churn, manual compensation, and compounding risk as the system continues operating on the wrong rules. These artifacts are designed to end that cycle.</p>
         <hr class="hero-rule" />
         <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is structurally breaking and why prior fixes have not held. <strong>Redesign</strong> defines what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
@@ -530,7 +534,7 @@
             <div class="sc-included">
               <h3>What the artifact makes explicit</h3>
               <ul class="clean">
-                <li>The primitive: what the system is actually organised to do, named precisely enough to distinguish it from what the system claims to do</li>
+                <li>The primitive: what the system is actually organised to do, distinguished from what the system claims to do</li>
                 <li>Invariant definition: the rules that must not break</li>
                 <li>Enforcement visibility: where those rules live in reality, not only in policy</li>
                 <li>Boundary visibility across teams, services, policies, and contracts</li>
@@ -612,12 +616,20 @@
 
       </div>
 
-      <div class="scan-entry-card">
-        <div class="scan-entry-left">
-          <span class="mini-kicker" style="margin-bottom:6px;">// Self-guided structural scan</span>
-          <p class="scan-entry-body">Answer four questions about any system you run or operate inside. The scan surfaces whether the failure is likely structural, and where to look first.</p>
+      <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
+
+      <div style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:20px;">
+        <div>
+          <h3 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Not sure if your problem is structural?</h3>
+          <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions. Answer them honestly and the structural problem — if there is one — becomes visible. Use this before you send a brief.</p>
         </div>
-        <a class="btn btn-primary" href="./diagnostic-scan.html" style="flex-shrink:0;">RUN THE SCAN →</a>
+        <div class="scan-entry-card" style="margin-bottom:0;">
+          <div class="scan-entry-badge">
+            <span class="scan-entry-eyebrow">// Diagnostic Scan</span>
+            <span class="scan-entry-tag">Free · Self-guided</span>
+          </div>
+          <a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="width:100%; justify-content:center; margin-top:12px; display:flex;">RUN THE SCAN →</a>
+        </div>
       </div>
 
       <div class="method-callout">Each artifact is built through a defined diagnosis sequence designed to produce one builder-readable structural read. <a class="link-blue" href="./method.html">Read the method →</a></div>
