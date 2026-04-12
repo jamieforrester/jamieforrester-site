@@ -72,7 +72,7 @@
     /* Type */
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
-    .section-divider { justify-content: center; margin: 0 0 28px; display: flex; align-items: center; gap: 16px; }
+    .section-divider { justify-content: center; margin: 40px 0 32px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
@@ -162,7 +162,7 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
+        <a href="./how-it-works.html"><span class="nav-full">Method</span><span class="nav-short">Method</span></a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./how-it-works.html">METHOD</a>
         <a class="btn" href="./research.html">RESEARCH</a>
         <a class="btn btn-primary" data-mailto="1">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -199,9 +199,9 @@
         <div>
           <span class="eyebrow">Method</span>
           <h2 class="method-hero-title">How I diagnose recurring structural failure.</h2>
-          <p class="method-hero-sub">I do not begin with symptoms alone. I begin by identifying the structure producing them.</p>
-          <p class="method-hero-sub">Most recurring failure is not just a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, not doing any job at all, or forcing humans to absorb work the system should absorb itself.</p>
-          <p class="method-hero-sub">My method is designed to make that visible.</p>
+          <p class="method-hero-sub">The purpose of this method is to identify what is structurally producing recurring failure — and to convert that diagnosis into one written artifact that builders can act against without further interpretation.</p>
+          <p class="method-hero-sub">Most recurring failure is not a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, no job at all, or forcing humans to absorb work the system should carry. Surface fixes do not hold because the structure producing the failure is never named.</p>
+          <p class="method-hero-sub">This method starts where symptom-level explanation stops being sufficient.</p>
         </div>
         <div class="principle-card">
           <div class="principle-card-head">When this method applies</div>
@@ -225,42 +225,42 @@
               <span class="step-num">01</span>
               <div class="step-body">
                 <h3>Define the system properly</h3>
-                <p>The first task is to identify what system is actually under analysis. That means defining the real boundary, the real scope, the adjacent systems, and where the work actually lives. Domain names and team names often describe the surface, not the operational structure underneath. Before diagnosis can be trusted, the system being named must be made explicit.</p>
+                <p>The first task is to identify what system is actually under analysis — the real boundary, real scope, adjacent systems, and where work actually lives. Domain and team names often describe the surface, not the operational structure. <strong>This step must come first because every subsequent diagnostic claim depends on having the right system in scope.</strong> A diagnosis of the wrong system is not a partial diagnosis. It is a different artifact entirely.</p>
               </div>
             </div>
             <div class="step">
               <span class="step-num">02</span>
               <div class="step-body">
                 <h3>Identify the primitive and governing rules</h3>
-                <p>Once the system is defined, I identify what it repeatedly does — the primitive: the smallest unit of real work the system is organised around. I then surface what the system optimises for in practice, and the rules, constraints, and invariants that govern that repeated action. The question is not just what the policy says. It is what must actually hold for the system to function without drift.</p>
+                <p>Once the system is defined, I identify its primitive — the smallest unit of real work the system is organised around — and the rules, constraints, and invariants that govern that action. The question is not what the policy says. It is what must actually hold for the system to function without drift. <strong>This step must come before failure tracing because a broken rule can only be identified once the governing rule has been named.</strong></p>
               </div>
             </div>
             <div class="step">
               <span class="step-num">03</span>
               <div class="step-body">
                 <h3>Trace the failure path</h3>
-                <p>The next task is to identify where rules become real, where they fail, and what happens when they do. This includes interfaces, handoffs, decision points, enforcement points, and the places where burden quietly moves elsewhere. I look for where work stalls, where ambiguity crosses boundaries, where compensation mechanisms appear, and where humans have become the hidden reliability layer. Recurring failure follows a path. The path must be traced.</p>
+                <p>With the system and its governing rules established, I trace where rules become real, where they fail, and what happens when they do — interfaces, handoffs, decision points, enforcement points, and places where burden moves elsewhere. I look for where humans have become the hidden reliability layer. <strong>This step must precede diagnosis because the failure path shows where the break actually lives, which is rarely where it first appears.</strong></p>
               </div>
             </div>
             <div class="step">
               <span class="step-num">04</span>
               <div class="step-body">
-                <h3>Separate the stated problem from the actual problem</h3>
-                <p>Clients usually arrive with a real pain pattern, but not always with the real diagnosis. One of the central tasks of the artifact is to separate what the client thinks is failing from what is actually producing the failure — and to explain why prior fixes have not held. This is where the governing diagnosis is formed: the central structural truth from which the rest of the failure follows.</p>
+                <h3>Form the governing diagnosis</h3>
+                <p>This is the central moment of the method. The governing diagnosis is the structural truth from which the rest of the failure follows — the one claim that, if correct, explains why prior fixes have not held and what must change before any intervention will. It separates what the client thinks is failing from what is actually producing the failure. <strong>Everything in the artifact either leads toward this paragraph or flows from it.</strong> It is the paragraph decision-makers will circulate internally.</p>
               </div>
             </div>
             <div class="step">
               <span class="step-num">05</span>
               <div class="step-body">
                 <h3>Make the stakes legible</h3>
-                <p>A diagnosis is incomplete if it does not make consequence visible. I make the current cost of the failure legible in practical terms: operational cost, human cost, financial cost, coordination cost, and future compounding risk where relevant. If the structural cost remains vague, the system will continue to absorb it invisibly.</p>
+                <p>A diagnosis is incomplete if it does not make consequence visible. I make the current cost of the failure legible: operational cost, human cost, financial cost, coordination cost, and future compounding risk. <strong>This step matters because structural cost that remains vague continues to be absorbed invisibly — and invisible cost does not produce structural decisions.</strong></p>
               </div>
             </div>
             <div class="step">
               <span class="step-num">06</span>
               <div class="step-body">
                 <h3>Produce the artifact</h3>
-                <p>The final task is to turn the diagnosis into a builder-readable structural document. The artifact names the system clearly, locates the rule that is breaking, explains the mismatch, defines what must change first, and shows what depends on what. It is not a brainstorming document and not a generic strategy deck. It is a source of structural truth that decision-makers and builders can use as a common reference point.</p>
+                <p>The final task is to turn the diagnosis into a builder-readable structural document. The artifact names the system, locates the rule that is breaking, explains the mismatch, identifies what must change first and clarifies the structural implications that follow. It is not a brainstorming document and not a generic strategy deck. <strong>It is the output the preceding five steps were in service of</strong> — a single source of structural truth that decision-makers and builders can act against without further interpretation.</p>
               </div>
             </div>
           </div>
@@ -294,6 +294,21 @@
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+
+      <div class="section-divider"><span class="section-divider-label">when diagnosis cannot be completed</span></div>
+
+      <section class="card" aria-label="When diagnosis cannot be completed">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>When diagnosis cannot be completed</h2>
+        </div>
+        <div class="card-body prose">
+          <p>Not every engagement produces a complete Diagnostic Artifact. There are conditions under which a credible structural diagnosis is not possible — and delivering an artifact anyway would be worse than delivering nothing.</p>
+          <p>I will not produce a diagnosis if the system in scope cannot be defined clearly enough to make claims about, if the available evidence does not support a structural conclusion, or if the problem is primarily technical, operational, or implementational in nature rather than structural. In those cases, I will say so at the fit assessment stage rather than deliver work that would not hold under scrutiny.</p>
+          <p><strong>The artifact is only useful if it is accurate. A plausible-sounding diagnosis that is wrong is actively harmful.</strong> Refusal to proceed when conditions are not met is part of the method, not a failure of it.</p>
         </div>
       </section>
 
@@ -351,19 +366,15 @@
         <div class="card-body">
           <div class="two-col">
             <div class="prose">
-              <p>The work is architecture-led. I develop the frameworks, structural distinctions, diagnostic logic, and final conclusions myself. AI assists execution — I use it as a drafting, articulation, and production tool to work more clearly and efficiently, but not to replace reasoning.</p>
-              <p>I do not begin with generated output and work backwards from something plausible-sounding. I begin with structure. AI may help me organise material, test phrasing, refine drafts, or reduce production friction, but it does not decide what system is actually being diagnosed, which rule is breaking, or what must change first.</p>
-              <p>The thinking, the framework, and the responsibility are mine.</p>
+              <p>The work is architecture-led. The frameworks, structural distinctions, diagnostic logic, and conclusions are mine. AI assists drafting and production — it helps me work more clearly and efficiently. It does not decide what is being diagnosed, which rule is breaking, or what must change first.</p>
             </div>
             <div class="list-panel">
               <span class="list-panel-label">AI may assist</span>
               <ul class="clean">
-                <li>Articulating complex ideas more clearly</li>
-                <li>Organising material into more usable forms</li>
-                <li>Drafting and redrafting prose</li>
-                <li>Testing alternative phrasings and structures</li>
-                <li>Supporting research exploration</li>
-                <li>Reducing production friction across writing and artifacts</li>
+                <li>Drafting and refining prose</li>
+                <li>Organising material into usable forms</li>
+                <li>Testing phrasings and structures</li>
+                <li>Reducing production friction</li>
               </ul>
             </div>
           </div>
@@ -378,24 +389,34 @@
           <h2>Review and accountability</h2>
         </div>
         <div class="card-body prose">
-          <p>Everything published or delivered under my name is reviewed by me. That means I am responsible for the framing, the reasoning, the recommendations, the final form of the work, and the decision to publish or deliver it.</p>
-          <p>I do not treat model output as authoritative on its own, and I do not deliver work simply because it sounds plausible. If something appears under my name, I stand behind it.</p>
+          <p>Everything delivered under my name reflects my judgment. I am responsible for the framing, the reasoning, and the final form of the work.</p>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">what this means for clients</span></div>
+      <div class="section-divider"><span class="section-divider-label">the research behind the method</span></div>
 
-      <section class="card card-accent" aria-label="What this means for clients">
+      <section class="card" aria-label="The research behind the method">
         <div class="card-head">
           <div class="card-head-bar"></div>
-          <h2>What this means for clients</h2>
+          <h2>The research behind the method</h2>
+        </div>
+        <div class="card-body prose">
+          <p>The diagnostic logic used in practice is grounded in a body of published research. The public papers formalise the structural laws the method applies: why systems signal one capability while consuming another, why institutional burden concentrates at single decision nodes, why correction loops cannot reliably generate redesign from inside the same frame, and how legacy institutions persist long after their incoherence is visible.</p>
+          <p>The papers are not the method. They are the public form of the structural laws the method is built on. <a href="./research.html" class="link-blue">Read the research →</a></p>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">start here</span></div>
+
+      <section class="card card-accent" aria-label="Start here">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>When to start</h2>
         </div>
         <div class="card-body">
           <div class="prose">
-            <p>If you engage me for a Diagnostic Artifact or Redesign Artifact, you are not paying for automated output.</p>
-            <p>You are paying for <strong>structural judgment, clear framing, serious synthesis, and a written artifact built to be used by decision-makers and builders.</strong></p>
-            <p>AI may assist parts of the production process, but the diagnostic logic, structural interpretation, and final recommendations remain mine. The aim is to give you one document that makes the real failure visible, names what must change first, and reduces interpretation drift across the people responsible for acting on it.</p>
-            <p>If your system keeps failing in the same way under growth, send the failure pattern first. Describe what keeps returning, what it is costing, where it shows up, what has already been tried, and what cannot change.</p>
+            <p>You are paying for structural judgment, serious synthesis, and a written artifact built to be used by decision-makers and builders — not for automated output or another interpretation layer.</p>
+            <p>If the same failure keeps returning and your team cannot agree on what is actually producing it, that is the right moment to start with the Diagnostic Artifact. Send the failure pattern first.</p>
           </div>
           <div class="cta-bar">
             <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
@@ -467,20 +488,21 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="a5cdc0c9c9cae5cfc4c8ccc0c3cad7d7c0d6d1c0d78bc6cac8">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html">Method</a></li>
             <li><a href="./research.html">Research</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
           <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
           <ul class="site-footer__list">
+            <li><a href="./research.html">Research Papers</a></li>
             <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
@@ -549,7 +571,7 @@
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
@@ -618,9 +640,4 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
-</html>
+  var briefBtn = docume
