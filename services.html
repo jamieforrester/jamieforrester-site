@@ -172,7 +172,7 @@
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
     .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
 
-    .section-divider { justify-content: center; margin: 0 0 24px; display: flex; align-items: center; gap: 16px; }
+    .section-divider { justify-content: center; margin: 40px 0 32px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
@@ -431,11 +431,11 @@
     <section class="hero-strip" aria-label="Service overview">
       <div class="hero-left">
         <div class="eyebrow">Service brief</div>
-        <h2 class="hero-title">Two written artifacts that make failing systems legible.</h2>
-        <p class="hero-sub">I work upstream of delivery teams. If your system keeps failing in the same way, I produce the structured document that makes the failure pattern visible and the path to change explicit.</p>
-        <p class="hero-sub">This is <strong>not</strong> implementation, facilitation, coaching, or program ownership. It is a fixed-scope written intervention designed for internal decision-making and builder handoff.</p>
+        <h2 class="hero-title">Two fixed-scope written artifacts for systems that keep failing in the same way.</h2>
+        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce one builder-readable artifact that makes the failure pattern visible, names what is structurally breaking, and gives decision-makers and builders a single basis to act from without further interpretation.</p>
+        <p class="hero-sub">The cost of unresolved structural failure is not abstract: rework, delay, decision churn, manual compensation, and compounding risk as the system continues operating on the wrong rules. These artifacts are designed to end that cycle.</p>
         <hr class="hero-rule" />
-        <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is really breaking. <strong>Redesign</strong> defines what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
+        <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is structurally breaking and why prior fixes have not held. <strong>Redesign</strong> defines what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
@@ -451,6 +451,7 @@
               <li>Invariants</li>
               <li>Enforcement</li>
               <li>Mismatch</li>
+              <li>Governing Diagnosis</li>
               <li>Build Map</li>
             </ul>
           </div>
@@ -502,7 +503,7 @@
             </div>
           </div>
           <div class="sc-body">
-            <p class="sc-lead">For systems that keep breaking in the same place under growth, complexity, or organisational scale &mdash; the point where more meetings have stopped helping and the real structure needs to be made explicit.</p>
+            <p class="sc-lead">For systems that keep breaking in the same place under growth, complexity, or organisational scale — the point where more meetings have stopped helping and the real structure needs to be made explicit. The fixed fee reflects the bounded scope and the upstream diagnostic rigour required to produce a structural read that holds.</p>
             <div class="sc-insight">
               <div class="sc-insight-bar"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Most systems don&rsquo;t fail because people are incompetent. They fail because the actual rules, invariants, and enforcement boundaries were never made explicit. This artifact makes them visible in a form builders can act on.</p>
@@ -514,7 +515,7 @@
                   <li>What is this system actually doing &mdash; not what it claims to do?</li>
                   <li>Which rules are breaking that must not break?</li>
                   <li>Where does stated design diverge from operating reality?</li>
-                  <li>What does that imply builders now need to address?</li>
+                  <li>What is the first structural break, and what does it imply must change first?</li>
                 </ul>
               </div>
               <div class="sc-block">
@@ -523,16 +524,17 @@
               </div>
               <div class="sc-block">
                 <h3>What you receive</h3>
-                <p>One structured diagnostic document for internal decision-making and builder handoff. Decision owners get a single source of structural truth. Builders get a clearer basis for what must change first.</p>
+                <p>One structured diagnostic document — a single structural read, internally circulable, and decision-ready. Decision owners get a common reference point that ends interpretation drift. Builders get a clear basis for what must change first, without having to invent design midstream.</p>
               </div>
             </div>
             <div class="sc-included">
-              <h3>Included</h3>
+              <h3>What the artifact makes explicit</h3>
               <ul class="clean">
-                <li>Clarity on what kind of system you are actually running, and why that matters</li>
+                <li>The primitive: what the system is actually organised to do, named precisely enough to distinguish it from what the system claims to do</li>
                 <li>Invariant definition: the rules that must not break</li>
                 <li>Enforcement visibility: where those rules live in reality, not only in policy</li>
                 <li>Boundary visibility across teams, services, policies, and contracts</li>
+                <li><strong>The governing diagnosis</strong> — the central structural truth from which the rest of the failure follows, written so decision-makers can circulate it and builders can act against it</li>
                 <li>A build map showing structural implications for sequence, interfaces, and transition logic</li>
               </ul>
             </div>
@@ -568,8 +570,8 @@
             </div>
           </div>
           <div class="sc-body">
-            <div class="sc-scope-note">Pricing depends on the breadth of the redesign, the number of interfaces involved, and the complexity of the transition path.</div>
             <p class="sc-lead">When the failure is already visible but the route to change is still unclear. This engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.</p>
+            <div class="sc-scope-note">Pricing reflects scope: the number of interfaces being redesigned and the complexity of the transition path. Simpler boundary changes sit toward £15k. Multi-interface redesigns with complex transition sequencing and drift-refusal gates sit toward £25k.</div>
             <div class="sc-insight">
               <div class="sc-insight-bar"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Systems can&rsquo;t self-correct because the correction logic must be designed upstream of execution. This artifact provides that logic &mdash; explicitly sequenced so builders can execute against it instead of inventing design midstream.</p>
@@ -585,11 +587,11 @@
               </div>
               <div class="sc-block">
                 <h3>What you receive</h3>
-                <p>One structured redesign document that defines the new operating boundary and the order of change. Builders get a stable sequence to execute against instead of being forced to invent design midstream.</p>
+                <p>One structured redesign document — transition logic, dependency order, and anti-regression architecture in a single builder-readable artifact. This is not implementation support. It is the upstream design layer that makes implementation possible without drift or reinvention midstream.</p>
               </div>
             </div>
             <div class="sc-included">
-              <h3>Included</h3>
+              <h3>Structural outputs</h3>
               <ul class="clean">
                 <li>Boundary redesign</li>
                 <li>Transition sequence and dependency order</li>
@@ -620,11 +622,46 @@
 
       <div class="method-callout">Each artifact is built through a defined diagnosis sequence designed to produce one builder-readable structural read. <a class="link-blue" href="./method.html">Read the method →</a></div>
 
+
+      <div class="section-divider"><span class="section-divider-label">what this is not</span></div>
+
+      <section class="card card-full" aria-label="What this is not" style="margin-bottom:20px;">
+        <div class="label-row">
+          <span class="label">03 // What this is not</span>
+          <span class="label-note">outside scope for both engagements</span>
+        </div>
+        <p class="lead">Both engagements produce fixed-scope written artifacts. Neither includes delivery ownership, ongoing access, or execution support of any kind.</p>
+        <div class="two-grid">
+          <div class="mini">
+            <h3>Not a strategy deck</h3>
+            <p style="margin-bottom:10px;">These are not vision documents, workshop outputs, or open-ended advisory reports. They are structural reads built to govern action.</p>
+            <ul class="clean">
+              <li>No workshops or facilitation</li>
+              <li>No transformation programmes</li>
+              <li>No ongoing coaching or retainer access</li>
+              <li>No delivery ownership or program management</li>
+              <li>No code audits or technical root-cause analysis</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h3>Not implementation support</h3>
+            <p style="margin-bottom:10px;">The artifact defines what must change and in what order. Execution is yours. The artifact makes that execution possible without reinventing design midstream.</p>
+            <ul class="clean">
+              <li>No implementation or build execution</li>
+              <li>No architecture or infrastructure work</li>
+              <li>No live incident response</li>
+              <li>No security or compliance audits</li>
+              <li>No open-ended advisory without defined scope</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <div class="section-divider"><span class="section-divider-label">fit and scope</span></div>
 
       <section aria-label="Fit and scope" style="margin-bottom:20px;">
         <div class="label-row" style="padding: 0 4px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 16px;">
-          <span class="label">03 // Fit and scope</span>
+          <span class="label">04 // Fit and scope</span>
           <span class="label-note">who this is for</span>
         </div>
 
@@ -664,6 +701,17 @@
           </div>
         </div>
 
+
+        <div class="mini" style="margin-top:16px;">
+          <h3>Structural fit examples</h3>
+          <ul class="clean">
+            <li>A platform that recruits one kind of worker but operationally runs on a different capability profile — resulting in persistent mismatch, routing failure, and accumulated workaround logic</li>
+            <li>A healthcare system in which continuity is nominally the institution's responsibility but is actually held by families and frontline staff outside the formal record</li>
+            <li>A product team in which every sprint produces fixes that do not hold, because the structural rule governing the failure has never been named</li>
+            <li>An organisation in which builders are inventing design decisions during implementation because the upstream architecture was never resolved</li>
+          </ul>
+        </div>
+
         <!-- Refusal block -->
         <div class="refusal-block">
           <span class="mini-kicker" style="margin-bottom:12px;">What I refuse</span>
@@ -676,47 +724,17 @@
             <span class="refusal-item">Delivery ownership</span>
             <span class="refusal-item">Open-ended advisory without scope</span>
           </div>
-          <p class="refusal-note">I do not take engagements outside these boundaries. If the issue is primarily technical, already understood, or not credibly diagnosable from available evidence, I will say so at fit assessment.</p>
+          <p class="refusal-note">I do not take engagements outside these boundaries. If the problem is primarily technical, already understood at the structural layer, or not credibly diagnosable from available evidence, I will say so at fit assessment rather than deliver work that would not hold under scrutiny.</p>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">scope</span></div>
 
-      <section class="card card-full" aria-label="Scope and fit" style="margin-bottom:20px;">
-        <div class="label-row">
-          <span class="label">03 // What this is not</span>
-          <span class="label-note">outside scope for both engagements</span>
-        </div>
-        <p class="lead" style="margin-bottom:18px;">Both engagements produce written artifacts. Neither includes delivery ownership, ongoing access, or execution support of any kind.</p>
-        <div class="two-grid">
-          <div class="mini">
-            <h3>Not included</h3>
-            <ul class="clean">
-              <li>Delivery ownership or program management</li>
-              <li>Implementation or build execution</li>
-              <li>Org-change programs or transformation leadership</li>
-              <li>Ongoing coaching, facilitation, or retainer access</li>
-              <li>Stakeholder alignment workshops</li>
-            </ul>
-          </div>
-          <div class="mini">
-            <h3>This fits when</h3>
-            <ul class="clean">
-              <li>Your system keeps failing in the same way under growth or scale</li>
-              <li>Your teams are stuck in a policy-versus-reality gap</li>
-              <li>Decision owners need structure, not more interpretation</li>
-              <li>Implementation is blocked by upstream ambiguity</li>
-              <li>Builders are being forced to reinvent design during execution</li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
       <div class="section-divider"><span class="section-divider-label">how to start</span></div>
 
       <section class="card card-full" aria-label="How to start" style="margin-bottom:20px;">
         <div class="label-row">
-          <span class="label">04 // How to start</span>
+          <span class="label">05 // How to start</span>
           <span class="label-note">entry route</span>
         </div>
         <p class="lead">If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.</p>
@@ -778,7 +796,7 @@
 
       <section class="card" aria-label="Delivery terms">
         <div class="label-row">
-          <span class="label">05 // Delivery terms</span>
+          <span class="label">06 // Delivery terms</span>
           <span class="label-note">after the artifact is delivered</span>
         </div>
         <div class="three-grid">
@@ -863,7 +881,7 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="18707d74747758727975717d7e776a6a7d6b6c7d6a367b7775">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -877,6 +895,7 @@
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
           <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
           <ul class="site-footer__list">
+            <li><a href="./research.html">Research Papers</a></li>
             <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
@@ -945,7 +964,7 @@
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
