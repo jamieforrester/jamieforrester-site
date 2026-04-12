@@ -677,7 +677,8 @@
             <span class="mini-kicker">Grammar Kernel</span>
             <h3>How systems generate valid outputs</h3>
             <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
-            <p>A structural grammar for inspecting how a system produces outputs. It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break.</p>
+            <p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
+            <p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the model behind how the Diagnostic Artifact is produced.</p>
             <div class="actions">
               <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
@@ -686,7 +687,8 @@
             <span class="mini-kicker">Universal Formula</span>
             <h3>How a primitive becomes a civilisation layer</h3>
             <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</p>
-            <p>Tracks how any durable system scales. Failure is almost always a mismatch between the layer a system is operating at and the layer it thinks it is at. Used to locate the true operating layer before redesign begins.</p>
+            <p>An eight-stage model that tracks how any durable system scales from a single repeated action into a civilisation-level layer. Each stage is defined by what the system has to become to survive at that level of coordination demand.</p>
+            <p>Failure is almost always a mismatch between the layer a system is operating at and the layer it believes it is at. A product trying to behave like a marketplace, or an OS trying to behave like a product, will fail structurally regardless of execution quality. Used in diagnosis to locate the true operating layer before redesign begins.</p>
             <div class="actions">
               <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
@@ -934,6 +936,7 @@
         <div class="builds-lead">
           <p>The practice is not purely advisory. These are live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
           <p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
+          <p class="small" style="margin-top:6px;">PromptFactory and the Diagnostic Artifact method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural diagnosis. The production logic is the same.</p>
         </div>
         <div class="paper">
           <div class="paper-row">
