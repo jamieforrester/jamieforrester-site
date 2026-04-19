@@ -398,6 +398,8 @@
       .book-entry-title { font-size: 16px; }
       .books-cta-row { flex-direction: column; align-items: flex-start; }
     }
+    .books-45-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 720px) { .books-45-grid { grid-template-columns: 1fr !important; } }
     @media (max-width: 600px) {
       .extension-paper-block { grid-template-columns: 1fr; }
       .monograph-mechanics { grid-template-columns: repeat(2, 1fr); }
@@ -916,12 +918,11 @@
               </div>
             </div>
           </article>
-          <div class="books-connector">
-            <div class="books-connector-line"></div>
-            <div class="books-connector-arrow">&#8595; builds to</div>
-            <div class="books-connector-line"></div>
-          </div>
-          <article class="book-entry" aria-label="Book 4: The Universal Build Architecture">
+        </div>
+
+        <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:20px;" class="books-45-grid">
+
+          <article class="book-entry" aria-label="Book 4: The Universal Build Architecture" style="border-radius:20px;">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 04</span>
               <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Universal Build Architecture" data-lightbox-src="./book4-image.png" data-lightbox-caption="Book 04 &mdash; The Universal Build Architecture">
@@ -953,12 +954,9 @@
                 </div>
               </div>
             </div>
-          <div class="books-connector">
-            <div class="books-connector-line"></div>
-            <div class="books-connector-arrow">&#8595; builds to</div>
-            <div class="books-connector-line"></div>
-          </div>
-          <article class="book-entry" aria-label="Book 5: The Full Field">
+          </article>
+
+          <article class="book-entry" aria-label="Book 5: The Full Field" style="border-radius:20px;">
             <div class="book-entry-cover-col">
               <span class="book-num-badge">Book 05</span>
               <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Full Field" data-lightbox-src="./book5-image.png" data-lightbox-caption="Book 05 &mdash; The Full Field">
@@ -991,6 +989,7 @@
               </div>
             </div>
           </article>
+
         </div>
         <div class="books-cta-row">
           <p class="books-cta-text"><strong>Publishers and agents welcome.</strong> Sample chapters from Book 1 &amp; full proposal are available on request. Proposal materials for the full sequence can be provided for serious enquiries.</p>
