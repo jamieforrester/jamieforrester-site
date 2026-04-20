@@ -212,9 +212,12 @@
       .hero-strip { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); }
       .site-footer__top { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .site-nav-links a { padding: 6px 7px; font-size: 9.5px; }
     }
     @media (max-width: 600px) {
       .site-footer__top { grid-template-columns: 1fr; }
+      .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
+      .site-nav-name { display: none; }
     }
   </style>
 </head>
@@ -229,7 +232,7 @@
     <div class="site-nav-links">
       <a href="./services.html">Services</a>
       <a href="./examples.html">Examples</a>
-      <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
+      <a href="./method.html">Method</a>
       <a href="./research.html">Research</a>
       <a data-mailto="1" class="nav-cta">Email</a>
     </div>
@@ -250,7 +253,7 @@
     <div class="top-cta" aria-label="Primary links">
       <a class="btn" href="./services.html">SERVICES</a>
       <span class="btn btn-current" aria-current="page">EXAMPLES</span>
-      <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+      <a class="btn" href="./method.html">METHOD</a>
       <a class="btn" href="./research.html">RESEARCH</a>
       <a class="btn btn-primary" data-mailto="1">
         <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -498,7 +501,7 @@
               <li class="gated">Transition sequence &#x2014; seven-move dependency order</li>
               <li class="gated">Rules and invariants</li>
               <li class="gated">Drift immune system &#x2014; five recapture vectors including NHS custody transfer and diagnostic feature creep</li>
-              <li class="gated">Admissibility scoring &#x2014; eight conditions, three &#x26A0;&#xFE0F; warnings, one &#x274C; recognition channel gap &#x2014; and builder handoff</li>
+              <li class="gated">Admissibility scoring &#x2014; eight conditions, three warnings, one recognition channel gap &#x2014; and builder handoff</li>
             </ul>
           </div>
         </div>
@@ -557,7 +560,7 @@
           <li><a href="./index.html">Home</a></li>
           <li><a href="./services.html">Services</a></li>
           <li><a href="./examples.html">Examples</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
+          <li><a href="./how-it-works.html">Process</a></li>
           <li><a href="./research.html">Research</a></li>
         </ul>
       </div>
