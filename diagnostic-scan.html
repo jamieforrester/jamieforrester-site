@@ -89,7 +89,7 @@
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
-    .section-divider { justify-content: center; margin: 0 0 32px; display: flex; align-items: center; gap: 16px; }
+    .section-divider { justify-content: center; margin: 40px 0 32px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
@@ -201,6 +201,7 @@
     .brief-map-status { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.55); letter-spacing: 0.04em; white-space: nowrap; }
     .brief-map-add { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--cta-blue); letter-spacing: 0.04em; white-space: nowrap; font-weight: 600; }
     @media (max-width: 920px) {
+      .site-nav-links a { padding: 6px 7px; font-size: 9.5px; }
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
       .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
@@ -233,7 +234,8 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
+        <a href="./examples.html">Examples</a>
+        <a href="./method.html">Method</a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -255,7 +257,8 @@
       </div>
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./method.html">METHOD</a>
         <a class="btn" href="./research.html">RESEARCH</a>
         <a class="btn btn-primary" data-mailto="1">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -436,20 +439,21 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="5f373a3333301f353e32363a39302d2d3a2c2b3a2d713c3032">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html">Process</a></li>
             <li><a href="./research.html">Research</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
           <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
           <ul class="site-footer__list">
+            <li><a href="./research.html">Research Papers</a></li>
             <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
@@ -493,7 +497,7 @@
     @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
@@ -562,9 +566,4 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
-</html>
+  var briefBtn = docume
