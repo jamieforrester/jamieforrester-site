@@ -182,6 +182,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 .offer-card-cta { padding: 16px 20px 18px; border-top: 1px solid rgba(90,176,255,0.1); background: rgba(90,176,255,0.025); display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .offer-card-cta-note { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); text-align: center; }
 .offer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); }
+@media (max-width: 600px) { .offer-footer { grid-template-columns: 1fr; } }
 .offer-footer-block { padding: 12px 14px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.012); }
 .offer-footer-block p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.62; }
 .offer-chip { display: inline-flex; align-items: center; justify-content: center; padding: 5px 9px; border-radius: 999px; border: 1px solid rgba(90,176,255,0.5); background: rgba(90,176,255,0.18); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.10em; color: #7ec8ff; text-transform: uppercase; white-space: nowrap; }
