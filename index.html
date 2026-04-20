@@ -377,6 +377,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 }
 @media (max-width: 600px) {
   .scan-entry-card { width: 100% !important; }
+  .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
   [style*="grid-template-columns: 1fr 280px"] { grid-template-columns: 1fr !important; gap: 20px !important; }
   .trilogy-card-grid { grid-template-columns: 1fr; }
   .process-strip { grid-template-columns: 1fr; }
@@ -693,7 +694,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
 
-    <div style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:32px; container-type:inline-size;">
+    <div class="scan-layout-grid" style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:32px;">
       <div>
         <h3 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Self-screen before sending a brief.</h3>
         <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions. Answer them honestly and you will know whether the failure is structural, and where to look first. Use this as a first-pass fit check before briefing.</p>
