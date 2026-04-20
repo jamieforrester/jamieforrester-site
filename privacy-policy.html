@@ -78,7 +78,7 @@
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; display: block; }
     .label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--label-blue); }
     .label-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--label-blue); white-space: nowrap; }
-    .section-divider { justify-content: center; margin: 0 0 20px; display: flex; align-items: center; gap: 16px; }
+    .section-divider { justify-content: center; margin: 40px 0 32px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
     .hero { border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px 36px; background: linear-gradient(135deg, rgba(90,176,255,0.035) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.008) 100%); margin-bottom: 32px; box-shadow: var(--shadow-card); transition: border-color 200ms ease, box-shadow 200ms ease; }
@@ -122,6 +122,7 @@
     .cta-bar { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
     @media (max-width: 920px) {
+      .site-nav-links a { padding: 6px 7px; font-size: 9.5px; }
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
       .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
@@ -143,6 +144,8 @@
       .nav-how-full { display: none; }
     }
     @media (max-width: 600px) {
+      .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
+      .site-nav-name { display: none; }
       .glance-grid { grid-template-columns: 1fr; }
       .mini-grid { grid-template-columns: 1fr; }
     }
@@ -162,7 +165,8 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./how-it-works.html"><span class="nav-full">How It Works</span><span class="nav-short">How</span></a>
+        <a href="./examples.html">Examples</a>
+        <a href="./method.html">Method</a>
         <a href="./research.html">Research</a>
         <a data-mailto="1" class="nav-cta">Email</a>
       </div>
@@ -184,7 +188,8 @@
       </div>
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./how-it-works.html">HOW IT WORKS</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./method.html">METHOD</a>
         <a class="btn" href="./research.html">RESEARCH</a>
         <a class="btn btn-primary" data-mailto="1">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -221,7 +226,7 @@
         <p class="lead">For the purposes of UK data protection law, the data controller for this website and related business communications is:</p>
         <div class="mini-grid">
           <div class="mini"><h3>Name</h3><p>Jamie Forrester</p></div>
-          <div class="mini"><h3>Contact email</h3><p><a data-mailto="1">hello@jamieforrester.com</a></p></div>
+          <div class="mini"><h3>Contact email</h3><p><a data-mailto="1"><span class="__cf_email__" data-cfemail="234b464f4f4c6349424e4a46454c515146505746510d404c4e">[email&#160;protected]</span></a></p></div>
           <div class="mini"><h3>Business address</h3><p>Edinburgh, Scotland, UK</p></div>
         </div>
         <div class="section-block">
@@ -278,7 +283,7 @@
           <div class="basis-item"><span class="basis-item-purpose">Consent-based purposes</span><span class="basis-item-basis">Consent</span><span class="basis-item-note">Where consent is the basis, this will be made clear at the point of collection and may be withdrawn at any time.</span></div>
         </div>
         <div class="callout" style="margin-top:16px;">
-          <p><strong>Right to object.</strong> Where processing is based on legitimate interests, you have the right to object at any time. To exercise this right, contact <a class="link-blue" data-mailto="1">hello@jamieforrester.com</a>. Processing will stop unless there are compelling legitimate grounds that override your interests.</p>
+          <p><strong>Right to object.</strong> Where processing is based on legitimate interests, you have the right to object at any time. To exercise this right, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="6f070a0303002f050e02060a09001d1d0a1c1b0a1d410c0002">[email&#160;protected]</span></a>. Processing will stop unless there are compelling legitimate grounds that override your interests.</p>
         </div>
       </section>
 
@@ -317,7 +322,7 @@
           <p>This website uses Google Fonts, which may result in your browser making a request to Google's servers. Google's privacy policy governs any data processed in that context. No engagement-related personal data is transmitted via font loading.</p>
         </div>
         <div class="callout">
-          <p>If you have questions about the safeguards applied to any specific transfer, contact <a class="link-blue" data-mailto="1">hello@jamieforrester.com</a>.</p>
+          <p>If you have questions about the safeguards applied to any specific transfer, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="7f171a1313103f151e12161a19100d0d1a0c0b1a0d511c1012">[email&#160;protected]</span></a>.</p>
         </div>
       </section>
 
@@ -373,7 +378,7 @@
         </ul>
         <div class="section-block">
           <h3 class="section-head">How to exercise rights</h3>
-          <p>To exercise any of these rights, email <a data-mailto="1">hello@jamieforrester.com</a>. Reasonable steps may be taken to verify identity before responding to a request. A response will be provided within one month of receipt.</p>
+          <p>To exercise any of these rights, email <a data-mailto="1"><span class="__cf_email__" data-cfemail="a3cbc6cfcfcce3c9c2cecac6c5ccd1d1c6d0d7c6d18dc0ccce">[email&#160;protected]</span></a>. Reasonable steps may be taken to verify identity before responding to a request. A response will be provided within one month of receipt.</p>
         </div>
       </section>
 
@@ -390,7 +395,7 @@
         <div class="label-row"><span class="label">11 // Complaints and updates</span><span class="label-note">final matters</span></div>
         <h2 class="section-title">Questions, complaints, and changes</h2>
         <div class="mini-grid">
-          <div class="mini"><h3>Questions or concerns</h3><p>If you have questions about this Privacy Policy or how personal data is handled, contact <a data-mailto="1">hello@jamieforrester.com</a> in the first instance.</p></div>
+          <div class="mini"><h3>Questions or concerns</h3><p>If you have questions about this Privacy Policy or how personal data is handled, contact <a data-mailto="1"><span class="__cf_email__" data-cfemail="630b060f0f0c2309020e0a06050c111106101706114d000c0e">[email&#160;protected]</span></a> in the first instance.</p></div>
           <div class="mini"><h3>Complaints to the ICO</h3><p>You may also complain to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection. The ICO can be reached at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a> or by calling 0303 123 1113.</p></div>
           <div class="mini"><h3>Policy updates</h3><p>This policy may be updated from time to time to reflect legal, operational, or website changes. The most current version will always appear on this page with the date it was last revised.</p></div>
         </div>
@@ -413,20 +418,21 @@
         <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
           <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1">hello@jamieforrester.com</a>
+          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="157d7079797a557f74787c70737a676770666170673b767a78">[email&#160;protected]</span></a>
         </section>
         <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
+            <li><a href="./how-it-works.html">Process</a></li>
             <li><a href="./research.html">Research</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
           <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
           <ul class="site-footer__list">
+            <li><a href="./research.html">Research Papers</a></li>
             <li><a href="./trilogy.html">Trilogy</a></li>
             <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
             <li><a href="./method.html">Method</a></li>
@@ -470,7 +476,7 @@
     @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
   </style>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
@@ -530,18 +536,4 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-  submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
-    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
-      btn.removeAttribute('href');
-      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
-    }
-  });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
-</html>
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMod
