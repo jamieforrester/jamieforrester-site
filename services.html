@@ -363,6 +363,7 @@
     .refusal-note { margin: 0; font-size: 12px; color: var(--text-faint); line-height: 1.65; font-style: italic; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
     .method-callout { margin-bottom: 28px; padding: 14px 20px; border: 1px solid rgba(90,176,255,0.14); border-radius: 12px; background: rgba(90,176,255,0.025); font-size: 13px; color: var(--text-dim); line-height: 1.65; }
     @media (max-width: 920px) {
+      .site-nav-links a { padding: 6px 7px; font-size: 9.5px; }
       .wrap { padding-top: 24px; }
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
       .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
@@ -387,6 +388,9 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+    @media (max-width: 600px) {
+      .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
+      .site-nav-name { display: none; } .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; } }
   </style>
 </head>
 
@@ -620,7 +624,7 @@
 
       <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
 
-      <div style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:20px;">
+      <div class="scan-layout-grid" style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:20px;">
         <div>
           <h3 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Self-screen before sending a brief.</h3>
           <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions. Answer them honestly and you will know whether the failure is structural, and where to look first. Use this as a first-pass fit check before briefing.</p>
