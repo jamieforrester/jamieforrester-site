@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Method — Jamie Forrester</title>
-  <meta name="description" content="How I diagnose recurring structural failure. The method, the sequence, the artifact, and how the work is produced." />
+  <meta name="description" content="How I diagnose recurring structural failure and specify the change sequence. The method, the sequence, the artifact, and how the work is produced." />
   <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,11 +77,16 @@
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
 
     /* Hero */
-    .method-hero { display: grid; grid-template-columns: 1fr 0.75fr; gap: 48px; align-items: start; margin-bottom: 56px; }
-    .method-hero-title { margin: 0 0 16px; font-size: clamp(2rem, 1.6rem + 1.2vw, 3rem); line-height: 1.08; letter-spacing: -0.045em; font-weight: 700; color: #fff; }
-    .method-hero-sub { margin: 0 0 14px; font-size: 15px; color: #c6ccd4; line-height: 1.72; max-width: 58ch; }
+    .method-hero { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.7); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 40%, rgba(255,255,255,0.008) 100%); margin-bottom: 40px; overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.08), 0 20px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
+    .method-hero-left { padding: 44px 36px 44px 44px; border-right: 1px solid rgba(90,176,255,0.12); }
+    .method-hero-right { padding: 36px 28px; background: rgba(0,0,0,0.18); display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+    .method-hero-title { margin: 0 0 18px; font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem); line-height: 1.06; letter-spacing: -0.05em; font-weight: 700; color: #fff; }
+    .method-hero-sub { margin: 0 0 14px; font-size: 15px; color: #c6ccd4; line-height: 1.72; }
     .method-hero-sub:last-child { margin-bottom: 0; }
     .method-hero-sub strong { color: #fff; font-weight: 600; }
+    .method-stat { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.18); border-radius: 12px; background: rgba(90,176,255,0.04); }
+    .method-stat-num { font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 700; color: var(--cta-blue); letter-spacing: -0.02em; line-height: 1; }
+    .method-stat-label { font-family: "IBM Plex Mono", monospace; font-size: 8.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-top: 2px; }
 
     /* Principle card */
     .principle-card { border: 1px solid rgba(90,176,255,0.2); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(90,176,255,0.01) 60%, rgba(255,255,255,0.008) 100%); box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset, 0 16px 40px rgba(0,0,0,0.28); }
@@ -92,14 +97,16 @@
     .principle-card-body strong { color: #e8ecf0; font-weight: 600; }
 
     /* Cards */
-    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+    .card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 20px; transition: border-color 200ms ease; }
     .card:last-child { margin-bottom: 0; }
-    .card-accent { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 60%); }
-    .card-head { padding: 18px 28px 16px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 14px; }
-    .card-accent .card-head { border-bottom-color: rgba(90,176,255,0.14); background: rgba(90,176,255,0.025); }
-    .card-head-bar { width: 3px; height: 22px; border-radius: 2px; flex: 0 0 auto; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
-    .card-head h2 { margin: 0; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
-    .card-body { padding: 24px 28px; }
+    .card:hover { border-color: rgba(255,255,255,0.12); }
+    .card-accent { border-color: rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(255,255,255,0.01) 60%); }
+    .card-accent:hover { border-color: rgba(90,176,255,0.35); }
+    .card-head { padding: 20px 28px 18px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; gap: 14px; }
+    .card-accent .card-head { border-bottom-color: rgba(90,176,255,0.14); background: rgba(90,176,255,0.03); }
+    .card-head-bar { width: 3px; height: 24px; border-radius: 2px; flex: 0 0 auto; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.2) 100%); }
+    .card-head h2 { margin: 0; font-size: 16px; font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.2; }
+    .card-body { padding: 26px 28px; }
 
     /* Prose */
     .prose { max-width: 72ch; }
@@ -109,22 +116,32 @@
 
     /* Steps */
     .steps { display: grid; gap: 0; }
-    .step { display: grid; grid-template-columns: 52px 1fr; gap: 0; border-bottom: 1px solid var(--border-soft); padding: 20px 0; }
-    .step:last-child { border-bottom: none; padding-bottom: 0; }
-    .step:first-child { padding-top: 0; }
-    .step-num { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; color: var(--label-blue); letter-spacing: 0.1em; padding-top: 2px; }
-    .step-body h3 { margin: 0 0 8px; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.25; }
-    .step-body p { margin: 0; font-size: 13px; color: var(--text-dim); line-height: 1.68; }
+    .step { display: grid; grid-template-columns: 64px 1fr; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.055); padding: 24px 0; position: relative; }
+    .step:last-child { border-bottom: none; padding-bottom: 4px; }
+    .step:first-child { padding-top: 4px; }
+    .step-num { font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 700; color: var(--cta-blue); letter-spacing: 0.06em; padding-top: 1px; opacity: 0.7; }
+    .step-body h3 { margin: 0 0 10px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.2; }
+    .step-body p { margin: 0; font-size: 13.5px; color: var(--text-dim); line-height: 1.72; }
+    .step-body p strong { color: #dde1e8; }
+    .step-highlight { background: rgba(90,176,255,0.04); border-radius: 14px; padding: 20px 24px; border: 1px solid rgba(90,176,255,0.14); }
+    .step-highlight .step-num { opacity: 1; }
+    .step-highlight h3 { color: var(--cta-blue); }
 
     /* Two-col */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 
     /* List panel */
-    .list-panel { background: rgba(255,255,255,0.014); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px 20px; }
-    .list-panel-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 14px; }
+    .list-panel { background: rgba(90,176,255,0.03); border: 1px solid rgba(90,176,255,0.14); border-radius: 14px; padding: 20px 22px; }
+    .list-panel-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 14px; border-bottom: 1px solid rgba(90,176,255,0.12); padding-bottom: 10px; }
     ul.clean { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
     ul.clean li { display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--text-dim); line-height: 1.6; }
     ul.clean li::before { content: "→"; flex-shrink: 0; color: var(--label-blue); font-size: 12px; }
+
+    /* Insight block */
+    .method-insight { display: flex; gap: 10px; padding: 14px 16px; border: 1px solid rgba(90,176,255,0.16); border-radius: 12px; background: rgba(90,176,255,0.05); margin-top: 16px; }
+    .method-insight-bar { width: 3px; border-radius: 2px; background: linear-gradient(180deg, var(--cta-blue) 0%, rgba(90,176,255,0.25) 100%); flex: 0 0 auto; align-self: stretch; }
+    .method-insight-text { font-size: 13px; color: #bfc6d0; line-height: 1.65; margin: 0; }
+    .method-insight-text strong { color: #e4e8ee; font-weight: 600; }
 
     /* CTA bar */
     .cta-bar { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-soft); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
@@ -141,7 +158,9 @@
   .nav-full { display: none; }
       .site-nav-links a { padding: 6px 7px; font-size: 9px; }
       .site-nav-name { overflow: hidden; text-overflow: ellipsis; }
-      .method-hero { grid-template-columns: 1fr; gap: 32px; }
+      .method-hero { grid-template-columns: 1fr; }
+      .method-hero-left { padding: 28px 24px; border-right: none; border-bottom: 1px solid rgba(90,176,255,0.12); }
+      .method-hero-right { padding: 24px; }
       .two-col { grid-template-columns: 1fr; }
       .card-head { padding: 16px 20px 14px; }
       .card-body { padding: 18px 20px; }
@@ -198,22 +217,29 @@
     <main id="main" role="main">
 
       <!-- Hero -->
-      <div class="method-hero">
-        <div>
+      <section class="method-hero" aria-label="Method introduction">
+        <div class="method-hero-left">
           <span class="eyebrow">Method</span>
-          <h2 class="method-hero-title">How I diagnose recurring structural failure.</h2>
-          <p class="method-hero-sub">The purpose of this method is to identify what is structurally producing recurring failure — and to convert that diagnosis into one written artifact that builders can act against without further interpretation.</p>
-          <p class="method-hero-sub">Most recurring failure is not a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, no job at all, or forcing humans to absorb work the system should carry. Surface fixes do not hold because the structure producing the failure is never named.</p>
-          <p class="method-hero-sub">This method starts where symptom-level explanation stops being sufficient.</p>
+          <h2 class="method-hero-title">How I diagnose recurring structural failure and specify the change sequence.</h2>
+          <p class="method-hero-sub">The purpose of this method is to identify what is structurally producing recurring failure — and to convert that diagnosis into a written artifact — and, where the full engagement is commissioned, into a redesign sequence builders can execute against.</p>
+          <p class="method-hero-sub">Most recurring failure is not a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, no job at all, or forcing humans to absorb work the system should carry.</p>
+          <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.06);" />
+          <p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.65;">This method starts where symptom-level explanation stops being sufficient.</p>
         </div>
-        <div class="principle-card">
-          <div class="principle-card-head">When this method applies</div>
-          <div class="principle-card-body">
-            <p>This method applies when the same problem keeps returning under different names, when teams do not share the same structural read, when workarounds have quietly become load-bearing, or when builders are being forced to invent the design while implementing it.</p>
-            <p><strong>The purpose is not to generate more commentary around the problem. The purpose is to produce one serious structural read that decision-makers and builders can act against.</strong></p>
+        <div class="method-hero-right">
+          <div class="method-stat"><span class="method-stat-num">7 steps</span><span class="method-stat-label">Diagnostic sequence</span></div>
+          <div class="method-stat"><span class="method-stat-num">Written</span><span class="method-stat-label">Single builder-readable artifact</span></div>
+          <div class="method-stat"><span class="method-stat-num">14 days</span><span class="method-stat-label">Fixed delivery window</span></div>
+          <div class="method-stat"><span class="method-stat-num">Law-first</span><span class="method-stat-label">Every claim must hold under scrutiny</span></div>
+          <div class="principle-card" style="margin-top:4px;">
+            <div class="principle-card-head">When this method applies</div>
+            <div class="principle-card-body">
+              <p>This method applies when the same problem keeps returning under different names, when teams do not share the same structural read, when workarounds have quietly become load-bearing, or when builders are being forced to invent the design while implementing it.</p>
+              <p><strong>The purpose is not to generate more commentary around the problem. The purpose is to produce one serious structural read that decision-makers and builders can act against.</strong></p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div class="section-divider"><span class="section-divider-label">how the diagnosis works</span></div>
 
@@ -259,14 +285,34 @@
                 <p>A diagnosis is incomplete if it does not make consequence visible. I make the current cost of the failure legible: operational cost, human cost, financial cost, coordination cost, and future compounding risk. <strong>This step matters because structural cost that remains vague continues to be absorbed invisibly — and invisible cost does not produce structural decisions.</strong></p>
               </div>
             </div>
-            <div class="step">
+            <div class="step step-highlight">
               <span class="step-num">06</span>
               <div class="step-body">
+                <h3>Lock the diagnostic frame</h3>
+                <p>The redesign does not begin until the governing diagnosis is locked. This prevents premature solutioning and ensures the change sequence flows from the structural break rather than from preference, urgency, or stakeholder pressure. <strong>A redesign produced before the diagnostic frame is locked is speculative. A speculative redesign is not what this practice delivers.</strong></p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">07</span>
+              <div class="step-body">
                 <h3>Produce the artifact</h3>
-                <p>The final task is to turn the diagnosis into a builder-readable structural document. The artifact names the system, locates the rule that is breaking, explains the mismatch, identifies what must change first and clarifies the structural implications that follow. It is not a brainstorming document and not a generic strategy deck. <strong>It is the output the preceding five steps were in service of</strong> — a single source of structural truth that decision-makers and builders can act against without further interpretation.</p>
+                <p>The final task is to produce the agreed artifact path &#x2014; either a Diagnostic Artifact alone, or two linked artifacts in the Full Structural Engagement: a Diagnostic Artifact followed by a Redesign Artifact derived from the locked diagnostic frame. The artifact names the system, locates the rule that is breaking, explains the mismatch, identifies what must change first and clarifies the structural implications that follow. It is not a brainstorming document and not a generic strategy deck. <strong>It is the output the preceding steps were in service of</strong> — a single source of structural truth that decision-makers and builders can act against without further interpretation.</p>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">how diagnosis becomes redesign</span></div>
+
+      <section class="card" aria-label="How diagnosis becomes redesign">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>How diagnosis becomes redesign</h2>
+        </div>
+        <div class="card-body prose">
+          <p>Redesign is not produced by brainstorming solutions against a problem statement. It follows from the locked diagnosis. Once the structural break, primitive, invariants, and failure path are established, the redesign defines the corrected boundary, transition sequence, dependency order, interface changes, and drift refusal gates &#x2014; in the order that prevents the same failure returning under a different name.</p>
+          <p>If the diagnostic frame does not support a valid intervention boundary, the redesign portion of the Full Structural Engagement will not be produced. The engagement resolves as Diagnostic only, and the redesign fee is not charged. A change sequence that cannot be traced to the governing diagnosis is not a redesign. It is a speculation.</p>
         </div>
       </section>
 
@@ -312,6 +358,7 @@
           <p>Not every engagement produces a complete Diagnostic Artifact. There are conditions under which a credible structural diagnosis is not possible — and delivering an artifact anyway would be worse than delivering nothing.</p>
           <p>I will not produce a diagnosis if the system in scope cannot be defined clearly enough to make claims about, if the available evidence does not support a structural conclusion, or if the problem is primarily technical, operational, or implementational in nature rather than structural. In those cases, I will say so at the fit assessment stage rather than deliver work that would not hold under scrutiny.</p>
           <p><strong>The artifact is only useful if it is accurate. A plausible-sounding diagnosis that is wrong is actively harmful.</strong> Refusal to proceed when conditions are not met is part of the method, not a failure of it.</p>
+          <p>The same principle applies to redesign. If the diagnostic frame does not produce a valid intervention boundary within scope, the redesign does not proceed. Delivering a speculative change sequence would be structurally dishonest.</p>
         </div>
       </section>
 
@@ -339,6 +386,15 @@
                 <li>The governing diagnosis</li>
                 <li>The present and future cost of the failure</li>
                 <li>What must change first, and what depends on what</li>
+              </ul>
+              <span class="list-panel-label" style="margin-top:20px; display:block;">A Redesign Artifact (Full Structural Engagement) typically includes</span>
+              <ul class="clean">
+                <li>The corrected primitive &#x2014; what the system must actually be organised to do</li>
+                <li>Target boundary &#x2014; what changes and what does not</li>
+                <li>Transition sequence &#x2014; the dependency-ordered change path</li>
+                <li>Interface changes &#x2014; what must be tightened, removed, or clarified</li>
+                <li>Drift refusal gates &#x2014; constraints that prevent regression</li>
+                <li>Builder handoff &#x2014; the execution-ready sequence</li>
               </ul>
             </div>
           </div>
@@ -421,7 +477,7 @@
         <div class="card-body">
           <div class="prose">
             <p>You are paying for structural judgment, serious synthesis, and a written artifact built to be used by decision-makers and builders — not for automated output or another interpretation layer.</p>
-            <p>If the same failure keeps returning and your team cannot agree on what is actually producing it, that is the right moment to start with the Diagnostic Artifact. Send the failure pattern first.</p>
+            <p>If the same failure keeps returning and your team cannot agree on what is actually producing it, send the failure pattern first. I will confirm whether the right path is the Diagnostic Artifact alone or the Full Structural Engagement. The method is the same either way &#x2014; the scope of the output differs.</p>
           </div>
           <div class="cta-bar">
             <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
