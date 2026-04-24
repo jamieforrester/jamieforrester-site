@@ -441,11 +441,11 @@
     <section class="hero-strip" aria-label="Service overview">
       <div class="hero-left">
         <div class="eyebrow">Service brief</div>
-        <h2 class="hero-title">Two fixed-scope written artifacts for systems that keep failing in the same way.</h2>
-        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce one builder-readable artifact that makes the failure pattern visible, names the structural break, and gives decision-makers and builders a single basis to act from without further interpretation.</p>
+        <h2 class="hero-title">Two fixed-scope engagement paths for systems that keep failing in the same way.</h2>
+        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce builder-readable artifacts that make the failure pattern visible, name the structural break, and give decision-makers and builders a single basis to act from without further interpretation.</p>
         <p class="hero-sub">The cost of unresolved structural failure is not abstract: rework, delay, decision churn, manual compensation, and compounding risk as the system continues operating on the wrong rules. These artifacts are designed to end that cycle.</p>
         <hr class="hero-rule" />
-        <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is structurally breaking and why prior fixes have not held. <strong>Redesign</strong> defines what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
+        <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is structurally breaking and why prior fixes have not held. The full engagement carries that diagnosis into a redesign artifact: what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn" href="./method.html">METHOD</a>
@@ -465,27 +465,51 @@
               <li>Build Map</li>
             </ul>
           </div>
-          <div class="path-connector">
-            <div class="path-connector-line"></div>
-            <span class="path-connector-label">diagnosis &rarr; redesign</span>
-            <div class="path-connector-line"></div>
-          </div>
+          
           <div class="path-block path-block-accent">
-            <span class="path-index">02 // Redesign Artifact</span>
-            <p class="path-title">Define the change</p>
+            <span class="path-index">02 // Full Structural Engagement</span>
+            <p class="path-title">Diagnose and define the change sequence</p>
+            <p style="font-size:11px; color:var(--text-faint); margin:0 0 8px; font-style:italic;">Everything in the Diagnostic Artifact, plus:</p>
             <ul class="path-list">
               <li>Target Boundary</li>
               <li>Transition Sequence</li>
-              <li>Interface Changes</li>
               <li>Dependency Order</li>
               <li>Drift Refusal Gates</li>
+              <li>Builder Handoff</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"><span class="section-divider-label">engagements</span></div>
+<div style="margin:0 0 28px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.01);">
+        <table class="comparison-table" aria-label="Engagement comparison">
+          <thead>
+            <tr>
+              <th>Deliverable</th>
+              <th>Diagnostic Artifact<br>&pound;10,000</th>
+              <th>Full Structural Engagement<br>&pound;25,000</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Primitive definition</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Invariants and enforcement map</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Governing diagnosis</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Build map</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Corrected primitive</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Target boundary redesign</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Transition sequence</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Dependency order</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Drift refusal gates</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+            <tr><td>Builder handoff specification</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
+          </tbody>
+        </table>
+        <p style="margin:0; padding:14px 16px; font-size:12.5px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06);">Commissioned separately, diagnosis and redesign total &pound;35,000. Commissioned as one governed sequence, the Full Structural Engagement is &pound;25,000.</p>
+      </div>
+
+      <p style="margin:0 0 24px; font-size:13.5px; color:var(--text-dim); line-height:1.7;">Most systems that need a diagnosis also need a redesign. A structural read without a change sequence leaves builders with a named problem and no sequence to act on. The full engagement removes that gap.</p>
+
+    <div class="section-divider"><span class="section-divider-label">Engagement paths</span></div>
 
     <main id="main" role="main">
 
@@ -497,7 +521,7 @@
             <div class="sc-header-top">
               <div class="sc-label-group">
                 <span class="sc-index">01 // Diagnostic Artifact</span>
-                <span class="sc-type-pill">Entry engagement</span>
+                <span class="sc-type-pill">Diagnostic only</span>
               </div>
               <div class="price-tag">
                 <span class="price-amount">from &pound;10,000</span>
@@ -505,6 +529,7 @@
               </div>
             </div>
             <h2 class="sc-title">Expose the real structure behind recurring failure.</h2>
+            <p style="margin:6px 0 12px; font-size:13px; color:var(--text-faint); font-style:italic;">Best when the immediate need is a single structural read.</p>
             <div class="sc-meta-row">
               <span class="meta-chip">upstream</span>
               <span class="meta-chip">fixed-scope</span>
@@ -531,6 +556,7 @@
               <div class="sc-block">
                 <h3>What you send</h3>
                 <p>The recurring failure pattern, the interfaces involved, and any materials that reflect the current state: diagrams, policies, workflows, notes, contracts, screenshots, or internal documents.</p>
+                <p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">For some public platforms and institutions, externally visible failure patterns may be enough to begin diagnosis. Internal access is preferred where available, and required where the failure is not externally observable. This is particularly relevant for platforms and institutions where contributor or user failure patterns are documented in the public domain.</p>
               </div>
               <div class="sc-block">
                 <h3>What you receive</h3>
@@ -563,25 +589,27 @@
           <div class="sc-header">
             <div class="sc-header-top">
               <div class="sc-label-group">
-                <span class="sc-index">02 // Redesign Artifact</span>
-                <span class="sc-type-pill">Follow-on engagement</span>
+                <span class="sc-index">02 // Full Structural Engagement</span>
               </div>
               <div class="price-tag">
                 <span class="price-amount">from &pound;25,000</span>
-                <span class="price-label">Scope-dependent</span>
+                <span class="price-label">Fixed fee</span>
               </div>
             </div>
-            <h2 class="sc-title">Define the new boundary and the order of change.</h2>
+            <p style="margin:8px 0 12px; font-size:12px; color:var(--text-faint); line-height:1.5;">&pound;25,000 includes the complete Diagnostic Artifact and the complete Redesign Artifact for most systems. No hourly rates.</p>
+            <h2 class="sc-title">Diagnose the structural break, then define the new boundary and order of change.</h2>
+            <p style="margin:6px 0 8px; font-size:13px; color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; letter-spacing:0.03em;">One governed engagement, one diagnostic frame, one change sequence.</p>
+            <p style="margin:0 0 12px; font-size:13px; color:var(--text-faint); font-style:italic;">Best when the failure is serious enough that naming it is not sufficient &#x2014; and leaving builders without a change sequence would simply restart the cycle.</p>
             <div class="sc-meta-row">
-              <span class="meta-chip">post-diagnosis</span>
-              <span class="meta-chip">scope-dependent</span>
+              <span class="meta-chip">diagnosis + redesign</span>
+              <span class="meta-chip">fixed-scope</span>
               <span class="meta-chip">14 days</span>
               <span class="meta-chip">builder handoff</span>
             </div>
           </div>
           <div class="sc-body">
-            <p class="sc-lead">When the failure is already visible but the route to change is still unclear. This engagement defines what must change, where responsibility moves, and in what order implementation can safely begin.</p>
-            <div class="sc-scope-note">Pricing reflects scope: the number of interfaces being redesigned and the complexity of the transition path. Larger institutional systems, multi-interface environments, and high-consequence redesigns are scoped separately and priced above the base range.</div>
+            <p class="sc-lead">When the failure is serious enough that naming it and defining the change sequence should happen in one governed engagement.</p>
+            <p style="margin:0 0 14px; font-size:12px; color:var(--text-faint); line-height:1.65;">For the vast majority of systems the fee is a fixed &pound;25,000. If the system is unusually large &#x2014; multiple institutions, dozens of interfaces, or high-consequence redesign &#x2014; I will scope separately and provide a tailored quote during fit assessment.</p>
             <div class="sc-insight">
               <div class="sc-insight-bar"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Systems can&rsquo;t self-correct because the correction logic must be designed upstream of execution. This artifact provides that logic &mdash; explicitly sequenced so builders can execute against it instead of inventing design midstream.</p>
@@ -593,11 +621,11 @@
               </div>
               <div class="sc-block">
                 <h3>What you send</h3>
-                <p>Either the completed Diagnostic document plus current materials, or a clear failure description with known constraints if the need for redesign is already obvious and bounded.</p>
+                <p>The same five-line brief. Diagnosis runs first. Redesign follows only from the locked diagnosis &#x2014; this ensures both artifacts are coherent by construction.</p>
               </div>
               <div class="sc-block">
                 <h3>What you receive</h3>
-                <p>One structured redesign document — transition logic, dependency order, and anti-regression architecture in a single builder-readable artifact. This is not implementation support. It is the upstream design layer that makes implementation possible without drift or reinvention midstream.</p>
+                <p>Two linked written artifacts: a Diagnostic Artifact that names the structural break, and a Redesign Artifact that defines the corrected boundary, transition sequence, dependency order, interface changes, and drift refusal gates.</p>
               </div>
             </div>
             <div class="sc-included">
@@ -614,14 +642,13 @@
           <div class="sc-cta">
             <a class="btn btn-primary btn-large btn-full" data-mailto="1">
               <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              REQUEST REDESIGN
+              REQUEST FULL ENGAGEMENT
             </a>
-            <span class="sc-cta-note">50% upfront, 50% on delivery &middot; 14-day delivery &middot; Requires prior diagnosis or clear bounded brief</span>
+            <span class="sc-cta-note">50% upfront, 50% on delivery &middot; 14-day delivery &middot; Diagnostic delivered first, redesign follows</span>
           </div>
         </section>
 
       </div>
-
       <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
 
       <div class="scan-layout-grid" style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:20px;">
@@ -755,8 +782,6 @@
           <span class="label">05 // How to start</span>
           <span class="label-note">entry route</span>
         </div>
-        <p class="lead">If your system keeps failing in the same way under growth, send the failure pattern first. I review fit and determine whether the work should begin with diagnosis or move directly to redesign.</p>
-
         <div class="process-strip">
           <div class="process-card">
             <span class="process-card-num" aria-hidden="true">01</span>
@@ -766,12 +791,12 @@
           <div class="process-card">
             <span class="process-card-num" aria-hidden="true">02</span>
             <span class="process-step">Step 02</span>
-            <p><strong>I review fit.</strong> Diagnosis if the structure is still unclear; redesign if the failure is already visible.</p>
+            <p><strong>I review fit.</strong> I confirm whether the right path is the Diagnostic Artifact alone or the Full Structural Engagement. No one moves directly to redesign &#x2014; diagnosis always runs first.</p>
           </div>
           <div class="process-card">
             <span class="process-card-num" aria-hidden="true">03</span>
             <span class="process-step">Step 03</span>
-            <p><strong>You receive the artifact.</strong> One written document built for decision-making and builder execution.</p>
+            <p><strong>You receive the agreed artifact path.</strong> Either one Diagnostic Artifact, or two linked artifacts in the Full Structural Engagement &#x2014; written for decision-making and builder execution.</p>
           </div>
         </div>
 
@@ -821,10 +846,12 @@
           <div class="mini">
             <h3>Clarification pass</h3>
             <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered &mdash; not new analysis, extended scope, or additional research.</p>
+            <p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">For the Full Structural Engagement, one clarification pass applies to each artifact.</p>
           </div>
           <div class="mini">
             <h3>When new work is required</h3>
             <p>If the boundary expands, the analysis deepens, or the problem changes shape after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
+            <p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">In the Full Structural Engagement, redesign does not begin until the diagnostic frame is locked.</p>
           </div>
           <div class="mini">
             <h3>Confidentiality</h3>
