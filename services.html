@@ -390,7 +390,7 @@
     }
     @media (max-width: 600px) {
       .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
-      .site-nav-name { display: none; } .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; } }
+      .site-nav-name { display: none; } .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; } .comparison-cards-grid { grid-template-columns: 1fr !important; } }
   </style>
 </head>
 
@@ -482,35 +482,56 @@
       </div>
     </section>
 
-<div style="margin:0 0 28px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.01);">
-        <table class="comparison-table" aria-label="Engagement comparison">
-          <colgroup>
-            <col />
-            <col />
-            <col />
-          </colgroup>
-          <thead>
-            <tr>
-              <th>Deliverable</th>
-              <th style="text-align:center;">Diagnostic Artifact<br><span style="font-size:11px; color:#fff; letter-spacing:0;">£10,000</span></th>
-              <th style="text-align:center;">Full Structural Engagement<br><span style="font-size:11px; color:#fff; letter-spacing:0;">£25,000</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Primitive definition</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Invariants and enforcement map</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Governing diagnosis</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Build map</td><td class="check-yes">&#x2713;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Corrected primitive</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Target boundary redesign</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Transition sequence</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Dependency order</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Drift refusal gates</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-            <tr><td>Builder handoff specification</td><td class="check-no">&mdash;</td><td class="check-yes">&#x2713;</td></tr>
-          </tbody>
-        </table>
-        <p style="margin:0; padding:14px 16px; font-size:12.5px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06);">Commissioned separately, diagnosis and redesign total &pound;35,000. Commissioned as one governed sequence, the Full Structural Engagement is &pound;25,000.</p>
+<div class="comparison-cards-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 16px;">
+
+        <!-- Diagnostic card -->
+        <div style="border:1px solid rgba(90,176,255,0.22); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(90,176,255,0.055) 0%,rgba(90,176,255,0.015) 50%,transparent 100%); position:relative;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(90,176,255,0.7) 40%,rgba(90,176,255,0.9) 60%,transparent);opacity:0.55;"></div>
+          <div style="padding:16px 20px 14px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">01 // Diagnostic Artifact</div>
+            <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">Structural diagnosis only</div>
+          </div>
+          <div style="padding:16px 20px;">
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px;">
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Primitive definition</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Invariants and enforcement map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Governing diagnosis</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Build map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Corrected primitive</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Target boundary redesign</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Transition sequence</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Dependency order</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Drift refusal gates</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Builder handoff specification</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Full Structural Engagement card -->
+        <div style="border:1px solid rgba(90,176,255,0.38); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(90,176,255,0.09) 0%,rgba(90,176,255,0.03) 50%,transparent 100%); position:relative; box-shadow:0 0 0 1px rgba(90,176,255,0.08),0 12px 36px rgba(0,0,0,0.22);">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(90,176,255,0.7) 40%,rgba(90,176,255,0.9) 60%,transparent);"></div>
+          <div style="padding:16px 20px 14px; border-bottom:1px solid rgba(90,176,255,0.18); background:rgba(90,176,255,0.07);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">02 // Full Structural Engagement</div>
+            <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">Diagnosis and redesign sequence</div>
+          </div>
+          <div style="padding:16px 20px;">
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px;">
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Primitive definition</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Invariants and enforcement map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Governing diagnosis</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Build map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Corrected primitive</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Target boundary redesign</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Transition sequence</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Dependency order</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Drift refusal gates</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Builder handoff specification</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
+      <p style="margin:0 0 24px; font-size:12.5px; color:var(--text-faint); line-height:1.65;">Commissioned separately, diagnosis and redesign total &pound;35,000. Commissioned as one governed sequence, the Full Structural Engagement is &pound;25,000.</p>
 
       <p style="margin:0 0 24px; font-size:13.5px; color:var(--text-dim); line-height:1.7;">Most systems that need a diagnosis also need a redesign. A structural read without a change sequence leaves builders with a named problem and no sequence to act on. The full engagement removes that gap.</p>
 
@@ -857,6 +878,7 @@
             <h3>When new work is required</h3>
             <p>If the boundary expands, the analysis deepens, or the problem changes shape after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
             <p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">In the Full Structural Engagement, redesign does not begin until the diagnostic frame is locked.</p>
+            <p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">Redesign proceeds only from a locked diagnostic frame. If the diagnostic shows that redesign is not valid within the engagement boundary, I will say so rather than produce a speculative artifact.</p>
           </div>
           <div class="mini">
             <h3>Confidentiality</h3>
@@ -1088,4 +1110,5 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 </body>
+
 </html>
