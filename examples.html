@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Examples — Jamie Forrester</title>
-  <meta name="description" content="Diagnostic and redesign artifacts for real systems. Full-method structural diagnosis and replacement specification, produced using public evidence." />
+  <meta name="description" content="Public proof sets for structural diagnosis and redesign. Four-artifact sets for Outlier AI and NHS Primary Care Continuity System." />
   <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -220,9 +220,42 @@
       .site-nav-name { display: none; }
     }
   </style>
+  <style>
+    /* Four-artifact layout */
+    .public-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .restricted-card-wrap { margin-bottom: 24px; }
+    .restricted-card { border: 1px solid rgba(255,190,70,0.28); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(255,190,70,0.04) 0%, rgba(255,255,255,0.007) 100%); position: relative; }
+    .restricted-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, rgba(255,190,70,0.6) 40%, rgba(255,190,70,0.8) 60%, transparent); opacity: 0.7; }
+    .rc-header { padding: 18px 24px 16px; border-bottom: 1px solid rgba(255,190,70,0.12); background: rgba(255,190,70,0.03); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .rc-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,190,70,0.75); }
+    .rc-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,190,70,0.85); border: 1px solid rgba(255,190,70,0.22); background: rgba(255,190,70,0.06); }
+    .rc-title { margin: 12px 24px 0; font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1rem); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.25; }
+    .rc-body { padding: 16px 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .rc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.72; margin: 0; }
+    .rc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+    .rc-cta { display: flex; flex-direction: column; gap: 8px; }
+    .rc-note { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: 0.06em; color: var(--text-faint); text-align: center; }
+    @media (max-width: 960px) { .public-cards-grid { grid-template-columns: 1fr 1fr; } .rc-body { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .public-cards-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .hero-strip { grid-template-columns: 1fr !important; } .hero-left { border-right: none !important; border-bottom: 1px solid var(--border-soft); } }
+
+    /* Replacement direction block */
+    .replacement-dir { margin-bottom: 14px; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
+    .replacement-dir-label { font-family: "IBM Plex Mono", monospace; font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 5px; }
+    .replacement-dir-text { font-size: 13px; color: var(--text-dim); line-height: 1.65; margin: 0; }
+
+    /* Independent note */
+    .independent-note { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.04em; color: var(--text-faint); margin-bottom: 14px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; background: rgba(255,255,255,0.01); }
+
+    /* Best for line */
+    .best-for { font-size: 12px; color: var(--text-faint); line-height: 1.55; margin-top: 10px; }
+    .best-for strong { color: rgba(90,176,255,0.6); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <nav class="site-nav" aria-label="Site navigation">
   <div class="site-nav-inner">
     <a href="./index.html" class="site-nav-brand">
@@ -238,7 +271,9 @@
     </div>
   </div>
 </nav>
+
 <div class="wrap">
+
   <header>
     <div class="h-left">
       <a class="avatar-link" href="./index.html" aria-label="Back to home">
@@ -264,42 +299,71 @@
 
   <main id="main" role="main">
 
+    <!-- HERO -->
     <section class="hero-strip" aria-label="Examples overview">
       <div class="hero-left">
         <span class="eyebrow">Examples</span>
-        <h2 class="hero-title">Full-system diagnostic and redesign artifacts.</h2>
-        <p class="hero-sub">Each example shows the method across diagnosis and redesign. Public diagnostic artifacts are available in full. Public redesign executive summaries are derived from full internal replacement specifications not published on the site. Diagnostic artifacts separate direct evidence, convergent public symptom patterns, and structural inference. Produced independently, using public evidence, not commissioned by the systems analysed.</p>
+        <h2 class="hero-title">Public proof sets for structural diagnosis and redesign.</h2>
+        <p class="hero-sub">Each system below is presented as a complete artifact set. Three artifacts form the public proof layer: Translation Artifact, Diagnostic Artifact, and Redesign Executive Summary. The fourth, the full Redesign Artifact, is the restricted specification delivered in a Full Structural Engagement.</p>
+        <p class="hero-sub">These are complete deliverables, not case-study summaries, slide decks, or advisory notes. Produced independently from public evidence. Not commissioned by the systems analysed.</p>
         <hr class="hero-rule" />
-        <p style="font-size:13px; color:var(--text-dim); line-height:1.7; margin:0 0 10px;">Each artifact follows the same structural sequence: <span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.02em;">system boundary &#x2192; workflow trace &#x2192; functional diagnosis &#x2192; governing diagnosis &#x2192; redesign dependency order</span>.</p>
-        <p style="font-size:12px; color:var(--text-faint); line-height:1.65; margin:0; font-family:'IBM Plex Mono',monospace; letter-spacing:0.03em;">Proof of structural capability, not contracted outcomes.</p>
+        <div style="padding:11px 15px; border:1px solid rgba(90,176,255,0.2); border-left:3px solid var(--cta-blue); border-radius:0 10px 10px 0; background:rgba(90,176,255,0.04);">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:6px;">Public reading order</span>
+          <p style="margin:0 0 8px; font-size:11px; color:var(--text-dim); line-height:1.65; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;">Translation Artifact &#x2192; Diagnostic Artifact &#x2192; Redesign Executive Summary</p>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); display:block; margin-bottom:4px;">Restricted layer</span>
+          <p style="margin:0; font-size:11px; color:var(--text-faint); line-height:1.65; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;">Full Redesign Artifact &#x2014; restricted specification</p>
+        </div>
       </div>
       <div class="hero-right">
-        <div class="signal-stat">
-          <span class="signal-stat-num">2</span>
-          <span class="signal-stat-label">Systems analysed</span>
-        </div>
-        <div class="signal-stat">
-          <span class="signal-stat-num">4</span>
-          <span class="signal-stat-label">Complete artifacts</span>
-        </div>
-        <div class="signal-stat" style="border-color:rgba(90,176,255,0.18); background:rgba(90,176,255,0.04);">
-          <span class="signal-stat-num" style="color:var(--cta-blue);">2 full pipelines</span>
-          <span class="signal-stat-label">Diagnostic &#x2192; Redesign</span>
-        </div>
-        <div class="signal-stat">
-          <span class="signal-stat-num">2 Public</span>
-          <span class="signal-stat-label">Diagnostics</span>
-        </div>
-        <div class="signal-stat">
-          <span class="signal-stat-num">2 Restricted</span>
-          <span class="signal-stat-label">Redesigns</span>
-        </div>
+        <div class="signal-stat"><span class="signal-stat-num">2</span><span class="signal-stat-label">Systems analysed</span></div>
+        <div class="signal-stat"><span class="signal-stat-num">8</span><span class="signal-stat-label">Complete artifacts</span></div>
+        <div class="signal-stat"><span class="signal-stat-num">6</span><span class="signal-stat-label">Public proof documents</span></div>
+        <div class="signal-stat"><span class="signal-stat-num">2</span><span class="signal-stat-label">Restricted redesign specifications</span></div>
+        <div class="signal-stat" style="border-color:rgba(90,176,255,0.18); background:rgba(90,176,255,0.04);"><span class="signal-stat-num" style="color:var(--cta-blue);">2</span><span class="signal-stat-label">Full diagnostic &#x2192; redesign pipelines</span></div>
       </div>
     </section>
 
+    <!-- LEGEND -->
+    <div style="margin-bottom:8px; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:rgba(255,255,255,0.01);">
+      <div style="padding:12px 20px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue);">How each example is structured</span>
+      </div>
+      <table style="width:100%; border-collapse:collapse;">
+        <thead><tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); padding:10px 16px; text-align:left; width:28%;">Artifact</th>
+          <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); padding:10px 16px; text-align:left; width:12%;">Status</th>
+          <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); padding:10px 16px; text-align:left;">Role</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+            <td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Translation Artifact</td>
+            <td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td>
+            <td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Start here. Plain-language entry point into the failure and replacement.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+            <td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Diagnostic Artifact</td>
+            <td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td>
+            <td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Full structural diagnosis from public evidence. Names the break, burden carrier, and correction order.</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+            <td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Redesign Executive Summary</td>
+            <td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td>
+            <td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Board-level replacement logic derived from the restricted specification.</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Full Redesign Artifact</td>
+            <td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,190,70,0.85); border:1px solid rgba(255,190,70,0.22); padding:3px 7px; border-radius:999px; background:rgba(255,190,70,0.06);">Restricted</span></td>
+            <td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Complete replacement specification. Delivered in a Full Structural Engagement.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ═══════════════════════════════ SYSTEM 01 — OUTLIER ═══════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">system 01</span></div>
 
-    <div class="system-head" id="outlier" style="scroll-margin-top: 80px;">
+    <div class="system-head" id="outlier" style="scroll-margin-top:80px;">
       <div class="system-head-inner">
         <span class="system-index">01 //</span>
         <h2 class="system-title-h">Outlier AI</h2>
@@ -309,107 +373,124 @@
       <div class="governing-bar" role="note">
         <div>
           <span class="governing-bar-label">Governing Diagnosis</span>
-          <p class="governing-bar-text" style="font-size:14.5px; color:#dde1ea; font-weight:500;">Outlier recruits through the grammar of an expertise market while operating through the mechanics of a reliability pipeline. The expertise it recruits functions primarily as a legitimacy signal for upstream clients rather than as the production input the platform actually consumes.</p>
+          <p class="governing-bar-text" style="font-size:14.5px; color:#dde1ea; font-weight:500;">Outlier recruits through the grammar of an expertise market while operating through the mechanics of a reliability pipeline. In plain terms: the platform recruits experts to do compliance work. That is why surface corrections have not resolved the failure.</p>
         </div>
       </div>
+      <div class="replacement-dir">
+        <span class="replacement-dir-label">Replacement direction</span>
+        <p class="replacement-dir-text">Replace the single contributor frame with a dual-stream contributor coordination system: Stream A for constrained reliability execution, Stream B for bounded expert judgment, connected by a portable contributor continuity record.</p>
+      </div>
+      <p class="independent-note">Produced independently from public evidence. Not commissioned by Outlier or Scale AI.</p>
     </div>
 
-    <div class="artifact-grid">
+    <!-- Outlier: three public cards -->
+    <div class="public-cards-grid">
 
-      <section class="service-card" aria-label="Outlier AI Diagnostic Artifact" style="position:relative;">
-        <span class="sc-ghost-num" aria-hidden="true">01</span>
+      <section class="service-card" aria-label="Outlier AI Translation Artifact">
         <div class="sc-header">
           <div class="sc-header-top">
-            <span class="sc-index">01 // Diagnostic Artifact</span>
+            <span class="sc-index">01 // Translation Artifact</span>
             <span class="sc-badge sc-badge-public">Public</span>
           </div>
-          <h2 class="sc-title">The governing diagnosis, first structural break, and full failure trace &#x2014; from qualification-to-execution handoff to compensatory burden.</h2>
-          <div class="sc-stat-row">
-            <div class="sc-stat"><span class="sc-stat-num">14</span><span class="sc-stat-label">Sections</span></div>
-            <div class="sc-stat"><span class="sc-stat-num">Full</span><span class="sc-stat-label">Artifact</span></div>
-            <div class="sc-stat"><span class="sc-stat-num">Public</span><span class="sc-stat-label">Access</span></div>
+          <h2 class="sc-title">Plain-language entry point into the Outlier diagnosis and replacement.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Start here</span>
+            <span class="meta-chip">Plain language</span>
           </div>
         </div>
         <div class="sc-body">
-          <p class="sc-lead">Because the intake architecture and the execution architecture select for different inputs, every downstream mechanism &#x2014; the qualification gate, quality score, routing algorithm, and payment structure &#x2014; operates on a false premise.</p>
+          <p class="sc-lead">Translates the Outlier diagnosis into a shared explanation: why experts are recruited into compliance work, why Queue Managers and external tooling carry hidden coherence burden, and why the replacement requires two streams rather than a better single frame.</p>
+          <p class="best-for"><strong>Best for</strong> first-time readers, leadership, operators, contributors, and reviewers.</p>
+        </div>
+        <div class="sc-cta">
+          <a class="btn btn-primary btn-large btn-full" href="./outlier-translation.pdf" target="_blank" rel="noopener">
+            <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+            READ TRANSLATION
+          </a>
+          <span class="sc-cta-note">Public proof document &middot; plain-language layer</span>
+        </div>
+      </section>
+
+      <section class="service-card" aria-label="Outlier AI Diagnostic Artifact">
+        <div class="sc-header">
+          <div class="sc-header-top">
+            <span class="sc-index">02 // Diagnostic Artifact</span>
+            <span class="sc-badge sc-badge-public">Public</span>
+          </div>
+          <h2 class="sc-title">Evidence-tiered structural diagnosis from public sources.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Full evidence</span>
+            <span class="meta-chip">Evidence-tiered</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <p class="sc-lead">Names the primitive mismatch, locates the qualification-to-execution break, traces the hidden burden layer, and defines the correction order without claiming internal access or intent.</p>
           <div class="sc-insight">
             <div class="sc-insight-bar"></div>
-            <p class="sc-insight-text"><strong>Primitive mismatch:</strong> Stated &#x2014; expert human judgment improves AI systems. Actual &#x2014; variance-controlled instruction adherence at scale. These have never been the same thing.</p>
+            <p class="sc-insight-text"><strong>Governing diagnosis:</strong> Outlier recruits through the grammar of an expertise market while operating through the mechanics of a reliability pipeline.</p>
           </div>
-          <div class="sc-included">
-            <h3>What this artifact covers</h3>
-            <ul class="clean">
-              <li>Governing diagnosis and one-line board verdict</li>
-              <li>System boundary map and full workflow trace</li>
-              <li>Functional diagnosis &#x2014; sensing-authority collapse, absent cross-project memory, fragmented interpretation at the QM layer</li>
-              <li>Hidden burden &#x2014; Queue Managers and contributor compensation</li>
-              <li>Cost of continuation &#x2014; recruitment waste, QA inflation, legal exposure, regulatory pressure, and deteriorating labour trust</li>
-              <li>Structural implications for redesign &#x2014; what must change first if the primitive is corrected</li>
-            </ul>
-          </div>
+          <p class="best-for"><strong>Best for</strong> evidence review, leadership alignment, and understanding the governing diagnosis.</p>
         </div>
         <div class="sc-cta">
           <a class="btn btn-primary btn-large btn-full" href="./outlier-diagnostic.pdf" target="_blank" rel="noopener">
             <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
-            READ ARTIFACT
+            READ DIAGNOSTIC
           </a>
-          <span class="sc-cta-note">Full public artifact &middot; produced from public evidence</span>
+          <span class="sc-cta-note">Public proof document &middot; evidence-tiered diagnosis</span>
         </div>
       </section>
 
-      <section class="service-card service-card-restricted" aria-label="Outlier AI Redesign Artifact" style="position:relative;">
-        <span class="sc-ghost-num" aria-hidden="true">02</span>
-        <div class="sc-header sc-header-restricted">
+      <section class="service-card" aria-label="Outlier AI Redesign Executive Summary">
+        <div class="sc-header">
           <div class="sc-header-top">
-            <span class="sc-index sc-index-restricted">02 // Redesign Artifact</span>
-            <span class="sc-badge sc-badge-restricted">Restricted</span>
+            <span class="sc-index">03 // Redesign Executive Summary</span>
+            <span class="sc-badge sc-badge-public">Public</span>
           </div>
-          <h2 class="sc-title">The corrected primitive, dual-stream architecture, and structural replacement specification for a platform built on a category error.</h2>
-          <div class="sc-stat-row">
-            <div class="sc-stat"><span class="sc-stat-num">18</span><span class="sc-stat-label">Sections</span></div>
-            <div class="sc-stat"><span class="sc-stat-num" style="font-size:9px;">Public Executive Summary</span><span class="sc-stat-label">Available</span></div>
-            <div class="sc-stat"><span class="sc-stat-num" style="font-size:10px;">Full redesign spec</span><span class="sc-stat-label">Not public</span></div>
+          <h2 class="sc-title">Board-level replacement logic derived from the restricted specification.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Board summary</span>
+            <span class="meta-chip">Replacement logic</span>
           </div>
         </div>
         <div class="sc-body">
-          <p class="sc-lead">This public executive summary specifies the corrected primitive, replacement architecture, and dependency order. The full redesign specification, rules, invariants, and builder handoff are not public.</p>
-          <div class="sc-insight sc-insight-restricted">
-            <div class="sc-insight-bar sc-insight-bar-indigo"></div>
-            <p class="sc-insight-text"><strong>Corrected primitive:</strong> A dual-stream contributor coordination system that separately coordinates constrained reliability execution and bounded expert judgment &#x2014; each with its own gate, routing logic, and consequence path.</p>
-          </div>
-          <div class="sc-included">
-            <h3>Executive summary covers</h3>
-            <ul class="clean">
-              <li>Corrected primitive and redesign law</li>
-              <li>Truth kernel &#x2014; the portable contributor continuity record</li>
-              <li>Target-state architecture &#x2014; dual-stream design</li>
-              <li>Vanish list &#x2014; credential proxy as quality gate, guideline inflation, queue opacity, contributor volume freeze before redesign</li>
-            </ul>
-          </div>
-          <div class="sc-included sc-included-restricted">
-            <h3>Restricted sections</h3>
-            <ul class="clean">
-              <li class="gated">Full transition sequence &#x2014; six-move dependency order</li>
-              <li class="gated">Rules and invariants</li>
-              <li class="gated">Drift immune system &#x2014; five recapture vectors and fail-closed gates</li>
-              <li class="gated">Admissibility conditions, burden carrier map, and builder handoff</li>
-            </ul>
-          </div>
+          <p class="sc-lead">Shows the corrected primitive, Stream A / Stream B contracts, contributor continuity record, minimum replacement conditions, fake-progress tests, proof standard, and consequence of deferral.</p>
+          <p class="best-for"><strong>Best for</strong> executives, product leaders, board readers, and decision owners.</p>
         </div>
-        <div class="sc-cta sc-cta-restricted">
+        <div class="sc-cta">
           <a class="btn btn-primary btn-large btn-full" href="./outlier-redesign-summary.pdf" target="_blank" rel="noopener">
             <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
             READ EXECUTIVE SUMMARY
           </a>
-          <span class="sc-cta-note">Full redesign specification not publicly available</span>
+          <span class="sc-cta-note">Public proof document &middot; summary of restricted specification</span>
         </div>
       </section>
 
     </div>
 
+    <!-- Outlier: restricted card -->
+    <div class="restricted-card-wrap">
+      <div class="restricted-card" aria-label="Outlier AI Full Redesign Artifact">
+        <div class="rc-header">
+          <span class="rc-index">04 // Full Redesign Artifact</span>
+          <span class="rc-badge">Restricted &middot; Full specification</span>
+        </div>
+        <h2 class="rc-title">Complete replacement specification.</h2>
+        <div class="rc-body">
+          <p class="rc-desc">Contains the transition sequence, contributor continuity schema, consequence review model, expert signal lifecycle, compensation truthfulness invariant, recapture gates, admissibility conditions, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="padding:10px 14px; border:1px solid rgba(255,190,70,0.18); border-radius:10px; background:rgba(255,190,70,0.04); text-align:center;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,190,70,0.65);">Restricted specification &middot; delivered in paid engagements</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════ SYSTEM 02 — NHS ═══════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">system 02</span></div>
 
-    <div class="system-head" id="nhs" style="scroll-margin-top: 80px;">
+    <div class="system-head" id="nhs" style="scroll-margin-top:80px;">
       <div class="system-head-inner">
         <span class="system-index">02 //</span>
         <h2 class="system-title-h">NHS Primary Care Continuity System</h2>
@@ -419,126 +500,156 @@
       <div class="governing-bar" role="note">
         <div>
           <span class="governing-bar-label">Governing Diagnosis</span>
-          <p class="governing-bar-text" style="font-size:14.5px; color:#dde1ea; font-weight:500;">The NHS has externalised its operational memory function onto the patient by architectural default &#x2014; while fusing sensing, interpretation, authority, and memory reconstruction into a single ten-minute GP consultation operating without structural support for any of them.</p>
+          <p class="governing-bar-text" style="font-size:14.5px; color:#dde1ea; font-weight:500;">NHS primary care is record-rich and continuity-poor. Operational memory is not structurally present at the point of clinical consequence, so the patient becomes the record.</p>
         </div>
       </div>
+      <div class="replacement-dir">
+        <span class="replacement-dir-label">Replacement direction</span>
+        <p class="replacement-dir-text">Replace fragmented institutional memory with a patient-held operational continuity system: portable continuity record, symptom event layer, Consultation Packet, outcome append, emergency access, carer access, and recognition pathway.</p>
+      </div>
+      <p class="independent-note">Produced independently from public evidence. Not commissioned by the NHS, NHS England, or DHSC.</p>
     </div>
 
-    <div class="artifact-grid">
+    <!-- NHS: three public cards -->
+    <div class="public-cards-grid">
 
-      <section class="service-card" aria-label="NHS Primary Care Diagnostic Artifact" style="position:relative;">
-        <span class="sc-ghost-num" aria-hidden="true">01</span>
+      <section class="service-card" aria-label="NHS Primary Care Translation Artifact">
         <div class="sc-header">
           <div class="sc-header-top">
-            <span class="sc-index">01 // Diagnostic Artifact</span>
+            <span class="sc-index">01 // Translation Artifact</span>
             <span class="sc-badge sc-badge-public">Public</span>
           </div>
-          <h2 class="sc-title">The governing diagnosis, collapse node, and ghost structure of hidden human carriers keeping a &pound;2.8bn-per-year failure operational.</h2>
-          <div class="sc-stat-row">
-            <div class="sc-stat"><span class="sc-stat-num">14</span><span class="sc-stat-label">Sections</span></div>
-            <div class="sc-stat"><span class="sc-stat-num">Full</span><span class="sc-stat-label">Artifact</span></div>
-            <div class="sc-stat"><span class="sc-stat-num">Public</span><span class="sc-stat-label">Access</span></div>
+          <h2 class="sc-title">Plain-language entry point into the NHS continuity diagnosis and replacement.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Start here</span>
+            <span class="meta-chip">Plain language</span>
           </div>
         </div>
         <div class="sc-body">
-          <p class="sc-lead">The NHS has instrumented itself heavily for audit and compliance while the operational continuity function has migrated outward. It generates more data about patients than at any prior point. Less of it arrives, in retrievable form, at the moment a decision must be made.</p>
+          <p class="sc-lead">Translates the NHS continuity diagnosis into shared language: why the patient becomes the record, how the GP consultation becomes the collapse node, and how the redesign moves operational memory out of hidden human carriers and into a patient-held continuity object.</p>
+          <p class="best-for"><strong>Best for</strong> first-time readers, leadership, clinicians, patients, carers, policymakers, and builders.</p>
+        </div>
+        <div class="sc-cta">
+          <a class="btn btn-primary btn-large btn-full" href="./nhs-translation.pdf" target="_blank" rel="noopener">
+            <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+            READ TRANSLATION
+          </a>
+          <span class="sc-cta-note">Public proof document &middot; plain-language layer</span>
+        </div>
+      </section>
+
+      <section class="service-card" aria-label="NHS Primary Care Diagnostic Artifact">
+        <div class="sc-header">
+          <div class="sc-header-top">
+            <span class="sc-index">02 // Diagnostic Artifact</span>
+            <span class="sc-badge sc-badge-public">Public</span>
+          </div>
+          <h2 class="sc-title">Structural diagnosis from public evidence.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Full evidence</span>
+            <span class="meta-chip">Evidence-tiered</span>
+          </div>
+        </div>
+        <div class="sc-body">
+          <p class="sc-lead">Names the record-rich / continuity-poor failure, locates the GP consultation collapse node, identifies patient and carer ghost structure, and separates operational memory from audit trace.</p>
           <div class="sc-insight">
             <div class="sc-insight-bar"></div>
-            <p class="sc-insight-text"><strong>Primitive mismatch:</strong> Promised &#x2014; joined-up care in which records support clinical decisions across the patient&#x2019;s whole NHS journey. Actual &#x2014; each organisation holds its own records, sharing is after-the-fact, and the patient repeats their history as the default mechanism.</p>
+            <p class="sc-insight-text"><strong>Governing diagnosis:</strong> NHS primary care is record-rich and continuity-poor. Operational memory is not structurally present at the point of clinical consequence.</p>
           </div>
-          <div class="sc-included">
-            <h3>What this artifact covers</h3>
-            <ul class="clean">
-              <li>Governing diagnosis and one-line board verdict</li>
-              <li>System boundary map across the GP &#x2192; referral &#x2192; specialist &#x2192; discharge &#x2192; return lifecycle</li>
-              <li>Structural failure point &#x2014; memory externalisation at the consultation node</li>
-              <li>Four-function collapse: sensing, interpretation, authority, memory fused</li>
-              <li>Ghost structure &#x2014; patient, carer, known GP, receptionist as hidden carriers</li>
-              <li>Cost of continuation &#x2014; &pound;2.8bn negligence annually, 36 PFD warnings, 11 million acute presentations without record access, and repeated digital reform without retrieval-layer correction</li>
-              <li>Correction dependency order &#x2014; vanish list, four-stop sequence, and audience-segmented structural priorities for NHS England, NHS Digital, and GP practices</li>
-            </ul>
-          </div>
+          <p class="best-for"><strong>Best for</strong> evidence review, policy framing, clinical leadership, and understanding the governing diagnosis.</p>
         </div>
         <div class="sc-cta">
           <a class="btn btn-primary btn-large btn-full" href="./nhs-diagnostic.pdf" target="_blank" rel="noopener">
             <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
-            READ ARTIFACT
+            READ DIAGNOSTIC
           </a>
-          <span class="sc-cta-note">Full public artifact &middot; produced from public evidence</span>
+          <span class="sc-cta-note">Public proof document &middot; evidence-tiered diagnosis</span>
         </div>
       </section>
 
-      <section class="service-card service-card-restricted" aria-label="NHS Primary Care Redesign Artifact" style="position:relative;">
-        <span class="sc-ghost-num" aria-hidden="true">02</span>
-        <div class="sc-header sc-header-restricted">
+      <section class="service-card" aria-label="NHS Primary Care Redesign Executive Summary">
+        <div class="sc-header">
           <div class="sc-header-top">
-            <span class="sc-index sc-index-restricted">02 // Redesign Artifact</span>
-            <span class="sc-badge sc-badge-restricted">Restricted</span>
+            <span class="sc-index">03 // Redesign Executive Summary</span>
+            <span class="sc-badge sc-badge-public">Public</span>
           </div>
-          <h2 class="sc-title">The patient-held continuity architecture, separated consultation functions, and seven-move replacement sequence for NHS primary care.</h2>
-          <div class="sc-stat-row">
-            <div class="sc-stat"><span class="sc-stat-num">18</span><span class="sc-stat-label">Sections</span></div>
-            <div class="sc-stat"><span class="sc-stat-num" style="font-size:9px;">Public Executive Summary</span><span class="sc-stat-label">Available</span></div>
-            <div class="sc-stat"><span class="sc-stat-num" style="font-size:10px;">Full redesign spec</span><span class="sc-stat-label">Not public</span></div>
+          <h2 class="sc-title">Board-level replacement logic derived from the restricted specification.</h2>
+          <div class="sc-meta-row">
+            <span class="meta-chip">Board summary</span>
+            <span class="meta-chip">Replacement logic</span>
           </div>
         </div>
         <div class="sc-body">
-          <p class="sc-lead">This public executive summary specifies the corrected primitive, patient-held continuity architecture, and dependency order. The full redesign specification, rules, invariants, and builder handoff are not public.</p>
-          <div class="sc-insight sc-insight-restricted">
-            <div class="sc-insight-bar sc-insight-bar-indigo"></div>
-            <p class="sc-insight-text"><strong>Corrected primitive:</strong> Operational continuity must be present at the point of consequence, in patient-held form, readable by any clinician at any encounter, independent of institutional interoperability.</p>
-          </div>
-          <div class="sc-included">
-            <h3>Executive summary covers</h3>
-            <ul class="clean">
-              <li>Corrected primitive and redesign law</li>
-              <li>Truth kernel &#x2014; the patient&#x2019;s portable operational continuity record</li>
-              <li>Target-state dual-layer architecture</li>
-              <li>Vanish list &#x2014; digital adoption as continuity proxy, ARRS expansion as continuity fix, NHS passport as empowerment framing</li>
-            </ul>
-          </div>
-          <div class="sc-included sc-included-restricted">
-            <h3>Restricted sections</h3>
-            <ul class="clean">
-              <li class="gated">Full transition sequence &#x2014; seven-move dependency order</li>
-              <li class="gated">Rules and invariants</li>
-              <li class="gated">Drift immune system &#x2014; five recapture vectors including NHS custody transfer and diagnostic feature creep</li>
-              <li class="gated">Admissibility scoring &#x2014; eight conditions, three warnings, one recognition channel gap &#x2014; and builder handoff</li>
-            </ul>
-          </div>
+          <p class="sc-lead">Shows the patient-held continuity architecture, Consultation Packet, outcome append, emergency access, patient-held &#x2260; patient-burdened rule, fake-progress tests, proof standard, and consequence of deferral.</p>
+          <p class="best-for"><strong>Best for</strong> policy leads, executives, clinical leaders, commissioners, and decision owners.</p>
         </div>
-        <div class="sc-cta sc-cta-restricted">
+        <div class="sc-cta">
           <a class="btn btn-primary btn-large btn-full" href="./nhs-redesign-summary.pdf" target="_blank" rel="noopener">
             <span class="ico"><svg viewBox="0 0 16 16" width="12" height="12" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
             READ EXECUTIVE SUMMARY
           </a>
-          <span class="sc-cta-note">Full redesign specification not publicly available</span>
+          <span class="sc-cta-note">Public proof document &middot; summary of restricted specification</span>
         </div>
       </section>
 
     </div>
 
+    <!-- NHS: restricted card -->
+    <div class="restricted-card-wrap">
+      <div class="restricted-card" aria-label="NHS Primary Care Full Redesign Artifact">
+        <div class="rc-header">
+          <span class="rc-index">04 // Full Redesign Artifact</span>
+          <span class="rc-badge">Restricted &middot; Full specification</span>
+        </div>
+        <h2 class="rc-title">Complete replacement specification.</h2>
+        <div class="rc-body">
+          <p class="rc-desc">Contains the seven-move transition sequence, truth-kernel schema, custody / hosting / authority separation, invalid continuity states, source-of-truth hierarchy, emergency and carer access, refusal invariants, admissibility conditions, recapture gates, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="padding:10px 14px; border:1px solid rgba(255,190,70,0.18); border-radius:10px; background:rgba(255,190,70,0.04); text-align:center;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,190,70,0.65);">Restricted specification &middot; delivered in paid engagements</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- WHAT THESE EXAMPLES SHOW -->
     <div class="section-divider"><span class="section-divider-label">what these examples show</span></div>
 
     <section class="card" aria-label="What these examples show">
-      <div class="card-head">
-        <div class="card-head-bar"></div>
-        <h2>What these examples show</h2>
-      </div>
-      <p class="extraction-lead">The domain changes. The structure does not.</p>
-      <p>In both systems, a critical function is absent at the point where consequence must be carried. Hidden human carriers absorb what the architecture cannot hold &#x2014; Queue Managers in the platform, patients and carers in the institution. In both cases, correction remained inside the inherited frame and intensified for years without touching the primitive.</p>
-      <p style="font-style:italic; color:var(--text-faint); margin-bottom:0;">This is the redesign law: diagnosis can name the structural failure, but correction loops operating inside the existing frame cannot generate the primitive change the system requires.</p>
-      <div class="actions">
-        <a class="btn btn-primary" data-mailto="1">
-          <span class="ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          EMAIL FIVE-LINE BRIEF
-        </a>
-        <a class="btn" href="./services.html">VIEW SERVICES</a>
+      <div class="card-head"><div class="card-head-bar"></div><h2>What these examples show</h2></div>
+      <div style="padding:0 28px 26px; display:flex; flex-direction:column; gap:14px;">
+        <p style="font-size:15px; color:#d0d4dc; font-weight:500; font-style:italic; line-height:1.6; margin:0; padding-left:16px; border-left:2px solid rgba(90,176,255,0.4);">The domain changes. The structural method does not.</p>
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0;">Outlier is a private AI task marketplace. NHS primary care is a public healthcare institution. The surfaces are different. The diagnostic movement is the same: locate the malformed primitive, identify the hidden burden carrier, name the first structural break, define what must stop, and specify the replacement object.</p>
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0;">In Outlier, the missing structure is carried by Queue Managers, contributors, and external tooling. In NHS primary care, it is carried by patients, carers, known GPs, and informal practice staff. In both cases, the system appears to function because people absorb work the architecture does not hold.</p>
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0;">The artifacts demonstrate the same conversion across domains: <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--cta-blue); letter-spacing:0.02em;">recurring failure &#x2192; structural diagnosis &#x2192; replacement architecture &#x2192; proof condition.</span></p>
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0;">Both cases show the full deliverable structure: translation, diagnosis, public replacement summary, and restricted replacement specification.</p>
+        <p style="font-size:14px; color:var(--text-faint); font-style:italic; line-height:1.65; margin:0;">This is the redesign law: diagnosis can name the structural failure, but correction loops operating inside the existing frame cannot generate the primitive change the system requires.</p>
       </div>
     </section>
 
-    <div class="closing-note">
-      <p>These are complete deliverables &#x2014; not case-study summaries, slide decks, or advisory summaries. The <a href="./method.html" class="link-blue">Method page</a> explains how they are produced. The <a href="./services.html" class="link-blue">Services page</a> defines the terms under which they are commissioned. These artifacts are produced through a fixed engagement protocol. <a href="./how-it-works.html" class="link-blue">How it works →</a></p>
+    <!-- WHY RESTRICTED -->
+    <section class="card" style="margin-top:16px;" aria-label="Why the full redesign is restricted">
+      <div class="card-head"><div class="card-head-bar"></div><h2>Why the full Redesign Artifact is restricted</h2></div>
+      <div style="padding:0 28px 24px;">
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0 0 12px;">The public proof layer is sufficient to demonstrate the method, evidence boundary, governing diagnosis, and replacement logic. The full Redesign Artifact is restricted because it contains the implementation-value layer: transition sequence, refusal invariants, admissibility conditions, recapture gates, pilot validity rules, object-level specifications, and builder handoff.</p>
+        <p style="font-size:14px; color:var(--text-dim); line-height:1.72; margin:0;">Public artifacts demonstrate capability. Restricted specifications define the full replacement.</p>
+      </div>
+    </section>
+
+    <div class="closing-note" style="margin-top:16px;">
+      <p>Restricted Redesign Artifacts are not public exemplar downloads. They show the depth of the Full Structural Engagement without exposing the full replacement specification.
+
+If your system has a recurring failure pattern, send the failure pattern first. The five-line brief is a fit screen, not the diagnosis.
+      </div>
+    </section>
+
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px;">
+      <a class="btn btn-primary" data-mailto="1"><span class="ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>EMAIL FIVE-LINE BRIEF</a>
+      <a class="btn" href="./services.html">VIEW SERVICES</a>
+    </div>
+    <p style="display:none;"> The <a href="./method.html" class="link-blue">Method page</a> explains how they are produced. The <a href="./services.html" class="link-blue">Services page</a> defines the terms. <a href="./how-it-works.html" class="link-blue">How it works &#x2192;</a></p>
     </div>
 
   </main>
@@ -587,43 +698,6 @@
           <li><a href="https://linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
         </ul>
-      </div>
-    </div>
-      <div>
-                <p class="site-footer__col-title">Navigation</p>
-        <ul class="site-footer__list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./services.html">Services</a></li>
-          <li><a href="./examples.html">Examples</a></li>
-          <li><a href="./method.html">Method</a></li>
-          <li><a href="./research.html">Research</a></li>
-        </ul>
-      
-      </div>
-      <div>
-                <p class="site-footer__col-title">Tools &amp; Research</p>
-        <ul class="site-footer__list">
-          <li><a href="./trilogy.html">Trilogy</a></li>
-          <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-          <li><a href="./how-it-works.html">How It Works</a></li>
-        </ul>
-      
-      </div>
-      <div>
-                <p class="site-footer__col-title">Legal</p>
-        <ul class="site-footer__list">
-          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="./terms.html">Terms</a></li>
-        </ul>
-      
-      </div>
-      <div>
-                <p class="site-footer__col-title">Elsewhere</p>
-        <ul class="site-footer__list">
-          <li><a href="https://linkedin.com/in/jamie-forrester-773b7786/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
-        </ul>
-      
       </div>
     </div>
     <div class="site-footer__bottom">
