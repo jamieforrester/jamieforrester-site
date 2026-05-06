@@ -169,6 +169,20 @@
       .nav-how-full { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
+    .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
   </style>
 </head>
 <body>
@@ -221,21 +235,21 @@
         <div class="method-hero-left">
           <span class="eyebrow">Method</span>
           <h2 class="method-hero-title">How I diagnose recurring structural failure and specify the change sequence.</h2>
-          <p class="method-hero-sub">The purpose of this method is to identify what is structurally producing recurring failure — and to convert that diagnosis into a written artifact — and, where the full engagement is commissioned, into a redesign sequence builders can execute against.</p>
+          <p class="method-hero-sub">The purpose of this method is to identify what is structurally producing recurring failure — and to convert that diagnosis into the agreed artifact path: either a Diagnostic Artifact alone, or a complete four-artifact governed sequence in the Full Structural Engagement — Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact.</p>
           <p class="method-hero-sub">Most recurring failure is not a matter of local execution, poor communication, or one bad decision. It is structural. Something in the system is doing the wrong job, no job at all, or forcing humans to absorb work the system should carry.</p>
           <hr style="margin:20px 0; border:none; border-top:1px solid rgba(255,255,255,0.06);" />
           <p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.65;">This method starts where symptom-level explanation stops being sufficient.</p>
         </div>
         <div class="method-hero-right">
           <div class="method-stat"><span class="method-stat-num">7 steps</span><span class="method-stat-label">Diagnostic sequence</span></div>
-          <div class="method-stat"><span class="method-stat-num">Written</span><span class="method-stat-label">Single builder-readable artifact</span></div>
+          <div class="method-stat"><span class="method-stat-num">Written</span><span class="method-stat-label">Builder-readable artifact system</span></div>
           <div class="method-stat"><span class="method-stat-num">14 days</span><span class="method-stat-label">Fixed delivery window</span></div>
           <div class="method-stat"><span class="method-stat-num">Law-first</span><span class="method-stat-label">Every claim must hold under scrutiny</span></div>
           <div class="principle-card" style="margin-top:4px;">
             <div class="principle-card-head">When this method applies</div>
             <div class="principle-card-body">
               <p>This method applies when the same problem keeps returning under different names, when teams do not share the same structural read, when workarounds have quietly become load-bearing, or when builders are being forced to invent the design while implementing it.</p>
-              <p><strong>The purpose is not to generate more commentary around the problem. The purpose is to produce one serious structural read that decision-makers and builders can act against.</strong></p>
+              <p><strong>The purpose is not to generate more commentary around the problem. The purpose is to produce one serious structural read &#x2014; then, where the full engagement is commissioned, carry that read into the shared-language, executive, and builder-specification layers required for change.</strong></p>
             </div>
           </div>
         </div>
@@ -296,7 +310,13 @@
               <span class="step-num">07</span>
               <div class="step-body">
                 <h3>Produce the artifact</h3>
-                <p>The final task is to produce the agreed artifact path &#x2014; either a Diagnostic Artifact alone, or two linked artifacts in the Full Structural Engagement: a Diagnostic Artifact followed by a Redesign Artifact derived from the locked diagnostic frame. The artifact names the system, locates the rule that is breaking, explains the mismatch, identifies what must change first and clarifies the structural implications that follow. It is not a brainstorming document and not a generic strategy deck. <strong>It is the output the preceding steps were in service of</strong> — a single source of structural truth that decision-makers and builders can act against without further interpretation.</p>
+                <p>The final task is to produce the agreed artifact path &#x2014; either a Diagnostic Artifact alone, or the complete four-artifact governed sequence in the Full Structural Engagement. In the full engagement, the same locked diagnosis produces four linked outputs:
+                <ul class="clean" style="margin-top:12px;">
+                  <li><strong>Translation Artifact</strong> &#x2014; shared language layer for leadership, operations, and non-specialist audiences</li>
+                  <li><strong>Diagnostic Artifact</strong> &#x2014; governing diagnosis, evidence base, and build map</li>
+                  <li><strong>Redesign Executive Summary</strong> &#x2014; board-level public summary of the restricted specification</li>
+                  <li><strong>Full Redesign Artifact</strong> &#x2014; restricted builder specification: corrected primitive, transition sequence, dependency order, refusal invariants, recapture gates, and builder handoff</li>
+                </ul> The artifact names the system, locates the rule that is breaking, explains the mismatch, identifies what must change first and clarifies the structural implications that follow. It is not a brainstorming document and not a generic strategy deck. <strong>It is the output the preceding steps were in service of</strong> — a single source of structural truth that decision-makers and builders can act against without further interpretation.</p>
               </div>
             </div>
           </div>
@@ -312,7 +332,24 @@
         </div>
         <div class="card-body prose">
           <p>Redesign is not produced by brainstorming solutions against a problem statement. It follows from the locked diagnosis. Once the structural break, primitive, invariants, and failure path are established, the redesign defines the corrected boundary, transition sequence, dependency order, interface changes, and drift refusal gates &#x2014; in the order that prevents the same failure returning under a different name.</p>
-          <p>If the diagnostic frame does not support a valid intervention boundary, the redesign portion of the Full Structural Engagement will not be produced. The engagement resolves as Diagnostic only, and the redesign fee is not charged. A change sequence that cannot be traced to the governing diagnosis is not a redesign. It is a speculation.</p>
+          <p>In the Full Structural Engagement, the locked diagnosis produces two redesign outputs. The Redesign Executive Summary converts the replacement logic into board-level form &#x2014; designed to circulate internally and externally. The Full Redesign Artifact specifies the complete restricted builder sequence: corrected primitive, target boundary, transition order, refusal invariants, recapture gates, pilot validity conditions, and handoff logic. The sequence matters: executive summary without full specification becomes rhetoric; full specification without locked diagnosis becomes speculation.</p>
+        </div>
+      </section>
+
+      <div class="section-divider"><span class="section-divider-label">how the four artifacts relate</span></div>
+
+      <section class="card card-accent" aria-label="How the four artifacts relate">
+        <div class="card-head">
+          <div class="card-head-bar"></div>
+          <h2>How the four artifacts relate</h2>
+        </div>
+        <div class="card-body prose">
+          <p>The four artifacts are not four separate opinions. They are four layers of the same structural judgment.</p>
+          <p>The <strong>Translation Artifact</strong> makes the diagnosis legible to non-specialist audiences before the full evidence base is circulated.</p>
+          <p>The <strong>Diagnostic Artifact</strong> carries the evidence, failure trace, governing diagnosis, and build map.</p>
+          <p>The <strong>Redesign Executive Summary</strong> converts the replacement logic into board-level form.</p>
+          <p>The <strong>Full Redesign Artifact</strong> specifies the restricted builder sequence: corrected primitive, target boundary, transition order, refusal invariants, recapture gates, proof conditions, and handoff.</p>
+          <p style="font-style:italic; color:var(--text-faint);">Translation without diagnosis becomes simplification. Diagnosis without redesign leaves builders without a change path. Executive summary without full specification becomes rhetoric. Full specification without locked diagnosis becomes speculation.</p>
         </div>
       </section>
 
@@ -330,22 +367,19 @@
               <p>I am also looking for places where a failure appears local but is actually systemic, where a named product is really functioning as something else, or where burden is being displaced onto the wrong people, teams, or functions.</p>
             </div>
             <div class="list-panel">
-              <span class="list-panel-label">Common structural problems</span>
+              <span class="list-panel-label">What structural problems look like</span>
               <ul class="clean">
-                <li>Hidden incentives misaligned with stated purpose</li>
-                <li>Unclear ownership across interfaces</li>
-                <li>Weak or absent system boundaries</li>
-                <li>Broken or unenforced rules</li>
-                <li>Fragmented sources of structural truth</li>
-                <li>Recurring misclassification of work</li>
-                <li>Drift between policy and operating reality</li>
-                <li>Repeated human workarounds that have become the operating model</li>
+                <li>A function that is nominally present but operationally absent</li>
+                <li>A burden that is being carried by the wrong person, team, or process</li>
+                <li>A product or system that is functionally something different from what it is officially defined to be</li>
+                <li>A correction that keeps being applied without ever touching the primitive</li>
+                <li>A workaround that has become load-bearing</li>
+                <li>A boundary that is stated but not enforced — or enforced against the wrong party</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-
 
       <div class="section-divider"><span class="section-divider-label">when diagnosis cannot be completed</span></div>
 
@@ -355,48 +389,60 @@
           <h2>When diagnosis cannot be completed</h2>
         </div>
         <div class="card-body prose">
-          <p>Not every engagement produces a complete Diagnostic Artifact. There are conditions under which a credible structural diagnosis is not possible — and delivering an artifact anyway would be worse than delivering nothing.</p>
-          <p>I will not produce a diagnosis if the system in scope cannot be defined clearly enough to make claims about, if the available evidence does not support a structural conclusion, or if the problem is primarily technical, operational, or implementational in nature rather than structural. In those cases, I will say so at the fit assessment stage rather than deliver work that would not hold under scrutiny.</p>
+          <p>Sometimes the available material is not sufficient to produce a diagnostic conclusion that can hold under scrutiny. The failure pattern may be too ambiguous, the system boundary too contested, or the material too thin to distinguish structural failure from local variance. In these cases, I will say so rather than produce an artifact that appears complete but is not.</p>
           <p><strong>The artifact is only useful if it is accurate. A plausible-sounding diagnosis that is wrong is actively harmful.</strong> Refusal to proceed when conditions are not met is part of the method, not a failure of it.</p>
-          <p>The same principle applies to redesign. If the diagnostic frame does not produce a valid intervention boundary within scope, the redesign does not proceed. Delivering a speculative change sequence would be structurally dishonest.</p>
+          <p>Redesign proceeds only from a locked diagnostic frame. If the diagnosis shows that redesign is not valid within the engagement boundary, I will stop at that point rather than produce a speculative Full Redesign Artifact. Any commercial adjustment is handled according to the agreed engagement terms.</p>
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">what the artifact contains</span></div>
+      <div class="section-divider"><span class="section-divider-label">what the artifacts contain</span></div>
 
-      <section class="card" aria-label="What the artifact contains">
+      <section class="card card-accent" aria-label="What the artifacts contain">
         <div class="card-head">
           <div class="card-head-bar"></div>
-          <h2>What the artifact contains</h2>
+          <h2>What the artifacts contain</h2>
         </div>
         <div class="card-body">
-          <div class="two-col">
-            <div class="prose">
-              <p>The exact shape of the artifact varies with the system, but the principle stays the same: the output must be serious enough to align decision-makers and concrete enough for builders to work from.</p>
-              <p>It is designed to give your team one document that makes the real failure visible, names what must change first, and reduces interpretation drift across the people responsible for acting on it.</p>
-            </div>
-            <div class="list-panel">
-              <span class="list-panel-label">A Diagnostic Artifact typically includes</span>
-              <ul class="clean">
-                <li>A clear definition of the system under analysis</li>
-                <li>A structural view of how work actually flows</li>
-                <li>The primitive and governing rules</li>
-                <li>The key interfaces and failure path</li>
-                <li>The distinction between stated and actual problem</li>
-                <li>The governing diagnosis</li>
-                <li>The present and future cost of the failure</li>
-                <li>What must change first, and what depends on what</li>
-              </ul>
-              <span class="list-panel-label" style="margin-top:20px; display:block;">A Redesign Artifact (Full Structural Engagement) typically includes</span>
-              <ul class="clean">
-                <li>The corrected primitive &#x2014; what the system must actually be organised to do</li>
-                <li>Target boundary &#x2014; what changes and what does not</li>
-                <li>Transition sequence &#x2014; the dependency-ordered change path</li>
-                <li>Interface changes &#x2014; what must be tightened, removed, or clarified</li>
-                <li>Drift refusal gates &#x2014; constraints that prevent regression</li>
-                <li>Builder handoff &#x2014; the execution-ready sequence</li>
-              </ul>
-            </div>
+          <p style="margin:0 0 18px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">The Diagnostic Artifact gives your team one structural read. In the Full Structural Engagement, the four artifacts carry that same read across shared language, evidence, executive decision-making, and builder specification.</p>
+          <div class="list-panel">
+            <span class="list-panel-label">A Translation Artifact typically includes</span>
+            <ul class="clean">
+              <li>Plain-language explanation of the structural failure</li>
+              <li>Shared vocabulary across leadership, operations, and non-specialist roles</li>
+              <li>Accessible explanation of the governing diagnosis</li>
+              <li>Why prior fixes have not held</li>
+              <li>Plain-language summary of the replacement direction</li>
+              <li>Audience routing guidance &#x2014; who reads what and where to go next</li>
+            </ul>
+            <span class="list-panel-label" style="margin-top:20px; display:block;">A Diagnostic Artifact typically includes</span>
+            <ul class="clean">
+              <li>A clear definition of the system under analysis</li>
+              <li>A structural view of how work actually flows</li>
+              <li>The primitive and governing rules</li>
+              <li>The key interfaces and failure path</li>
+              <li>The distinction between stated and actual problem</li>
+              <li>The governing diagnosis</li>
+              <li>The present and future cost of the failure</li>
+              <li>What must change first, and what depends on what</li>
+            </ul>
+            <span class="list-panel-label" style="margin-top:20px; display:block;">A Redesign Executive Summary typically includes</span>
+            <ul class="clean">
+              <li>Board-level replacement logic</li>
+              <li>Corrected primitive</li>
+              <li>Minimum valid replacement conditions</li>
+              <li>Fake-progress tests</li>
+              <li>Proof standard and consequence of deferral</li>
+              <li>Dependency order in plain terms</li>
+            </ul>
+            <span class="list-panel-label" style="margin-top:20px; display:block;">A Full Redesign Artifact (restricted) typically includes</span>
+            <ul class="clean">
+              <li>The corrected primitive &#x2014; what the system must actually be organised to do</li>
+              <li>Target boundary &#x2014; what changes and what does not</li>
+              <li>Transition sequence &#x2014; the dependency-ordered change path</li>
+              <li>Interface changes &#x2014; what must be tightened, removed, or clarified</li>
+              <li>Drift refusal gates &#x2014; constraints that prevent regression</li>
+              <li>Builder handoff &#x2014; the execution-ready sequence</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -410,7 +456,7 @@
         </div>
         <div class="card-body prose">
           <p>This is not a technical root-cause analysis, a live incident response service, or a general consulting workshop. It is not designed to debug one isolated bug, patch one urgent issue, or produce vague strategy language that every team can interpret differently.</p>
-          <p>It is designed to identify the structural layer beneath recurring failure and convert that diagnosis into one written artifact that can actually govern action.</p>
+          <p>It is designed to identify the structural layer beneath recurring failure and convert that diagnosis into the appropriate written artifact path &#x2014; a standalone Diagnostic Artifact, or a complete four-artifact sequence that carries the diagnosis from shared language to builder specification.</p>
           <p>Many systems are repeatedly fixed at the symptom layer while the governing structure remains untouched. This work starts where surface explanation stops being sufficient.</p>
         </div>
       </section>
@@ -425,7 +471,7 @@
         <div class="card-body">
           <div class="two-col">
             <div class="prose">
-              <p>The work is architecture-led. The frameworks, structural distinctions, diagnostic logic, and conclusions are mine. AI assists drafting and production — it helps me work more clearly and efficiently. It does not decide what is being diagnosed, which rule is breaking, or what must change first.</p>
+              <p>The work is architecture-led. The frameworks, structural distinctions, diagnostic logic, and conclusions are mine. AI assists drafting and production &#x2014; it helps me work more clearly and efficiently. In a Full Structural Engagement, AI may also assist with consistency checking across all four artifacts. It does not decide what is being diagnosed, which rule is breaking, or what must change first, and does not determine the final recommendations in any artifact.</p>
             </div>
             <div class="list-panel">
               <span class="list-panel-label">AI may assist</span>
@@ -433,7 +479,14 @@
                 <li>Drafting and refining prose</li>
                 <li>Organising material into usable forms</li>
                 <li>Testing phrasings and structures</li>
-                <li>Reducing production friction</li>
+                <li>Structuring large volumes of background material</li>
+              </ul>
+              <span class="list-panel-label" style="margin-top:16px; display:block;">AI does not</span>
+              <ul class="clean">
+                <li>Determine the governing diagnosis</li>
+                <li>Decide the redesign boundary or correction order</li>
+                <li>Generate the structural laws the work applies</li>
+                <li>Replace review, judgment, or accountability</li>
               </ul>
             </div>
           </div>
@@ -448,7 +501,8 @@
           <h2>Review and accountability</h2>
         </div>
         <div class="card-body prose">
-          <p>Everything delivered under my name reflects my judgment. I am responsible for the framing, the reasoning, and the final form of the work.</p>
+          <p>Every artifact is reviewed before delivery. The structural conclusions are mine. The diagnostic sequence, governing laws, and correction order are not delegated to AI, pattern-matching, or probabilistic inference. The artifact is accountable to the evidence it presents and the structural logic it applies. If a claim cannot survive scrutiny, it does not belong in the artifact.</p>
+          <p>One clarification pass is included after delivery. For the Full Structural Engagement, one clarification pass applies to the Diagnostic Artifact and one to the Full Redesign Artifact. The Translation Artifact and Redesign Executive Summary are derived from those locked frames and do not require separate clarification passes.</p>
         </div>
       </section>
 
@@ -460,98 +514,39 @@
           <h2>The research behind the method</h2>
         </div>
         <div class="card-body prose">
-          <p>The diagnostic logic used in practice is grounded in a body of published research. The public papers formalise the structural laws the method applies: why systems signal one capability while consuming another, why institutional burden concentrates at single decision nodes, why correction loops cannot reliably generate redesign from inside the same frame, and how legacy institutions persist long after their incoherence is visible.</p>
-          <p>The papers are not the method. They are the public form of the structural laws the method is built on. <a href="./research.html" class="link-blue">Read the research →</a></p>
+          <p>The method is grounded in a ten-paper Diagnostic and Replacement Series. The papers define the structural laws the method applies: primitive mismatch, function collapse, burden transfer, the missing redesign layer, institution migration, replacement pipeline construction, admissibility conditions, governed correction sequences, host-constrained primitive compression, and kernel reduction. The papers are not the method. They are the public form of the structural laws the method is built on. The artifacts are the applied form of those laws within a bounded system.</p>
+          <p><a class="link-blue" href="./research.html">Read the research →</a></p>
         </div>
       </section>
 
-      <div class="method-callout" style="margin-bottom:0;">The method describes the diagnostic logic and structural authority behind the work. For engagement mechanics, sequence, and interaction rules: <a class="link-blue" href="./how-it-works.html">See the process →</a></div>
-
       <div class="section-divider"><span class="section-divider-label">start here</span></div>
 
-      <section class="card card-accent" aria-label="Start here">
+      <section class="card" aria-label="When to start">
         <div class="card-head">
           <div class="card-head-bar"></div>
           <h2>When to start</h2>
         </div>
-        <div class="card-body">
-          <div class="prose">
-            <p>You are paying for structural judgment, serious synthesis, and a written artifact built to be used by decision-makers and builders — not for automated output or another interpretation layer.</p>
-            <p>If the same failure keeps returning and your team cannot agree on what is actually producing it, send the failure pattern first. I will confirm whether the right path is the Diagnostic Artifact alone or the Full Structural Engagement. The method is the same either way &#x2014; the scope of the output differs.</p>
-          </div>
-          <div class="cta-bar">
-            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
-          </div>
+        <div class="card-body prose">
+          <p>If the same failure keeps returning and your team cannot agree on what is actually producing it, send the failure pattern first. I will confirm whether the right path is the Diagnostic Artifact alone or the Full Structural Engagement. The method is the same either way. The diagnostic path produces one Diagnostic Artifact. The full engagement produces four linked artifacts &#x2014; Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact &#x2014; all derived from the same locked diagnostic frame.</p>
+          <div class="method-callout" style="margin-bottom:0;">The Method defines the diagnostic logic. The engagement mechanics, sequence, and interaction rules live separately. <a class="link-blue" href="./how-it-works.html">How it works &#x2192;</a></div>
         </div>
       </section>
 
+      <div style="margin-top:24px; text-align:center;">
+        <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+      </div>
+
     </main>
-
-    <div style="display:flex;justify-content:center;padding:32px 0 0;">
-      <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
-    </div>
   </div>
 
-<div class="brief-modal-overlay" id="briefModal" role="dialog" aria-modal="true" style="display:none;">
-  <div class="brief-modal">
-    <div class="brief-modal-header">
-      <div>
-        <span class="brief-modal-eyebrow">Five-Line Brief</span>
-        <h2 class="brief-modal-title">Send a brief</h2>
-      </div>
-      <button class="brief-modal-close" id="briefModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="brief-modal-body">
-      <p class="brief-modal-intro">Describe your system and the failure you are experiencing. Your answers will open pre-filled in your email client.</p>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-context">System or situation</label>
-        <p class="brief-modal-hint">Briefly describe the system, product, or organisation this is about.</p>
-        <textarea class="brief-modal-input" id="brief-context" rows="2" placeholder="e.g. A freelance content marketplace with 200 active writers and 50 enterprise clients"></textarea>
-      </div>
-      <div class="brief-modal-divider"></div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> What keeps going wrong?</label>
-        <p class="brief-modal-hint">Describe the failure that keeps returning.</p>
-        <textarea class="brief-modal-input" id="brief-1" rows="2" placeholder="e.g. Writers matched by availability not expertise."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> What is it costing?</label>
-        <p class="brief-modal-hint">Describe the cost in money, time, trust, load, delay, or drift.</p>
-        <textarea class="brief-modal-input" id="brief-2" rows="2" placeholder="e.g. 3 enterprise clients churned. £120k ARR at risk."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> Where does it show up?</label>
-        <p class="brief-modal-hint">Name the teams, roles, systems, or customer touchpoints involved.</p>
-        <textarea class="brief-modal-input" id="brief-3" rows="2" placeholder="e.g. Matching algorithm, account managers, editorial review."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> What has already been tried?</label>
-        <p class="brief-modal-hint">List any fixes, workarounds, or decisions already attempted.</p>
-        <textarea class="brief-modal-input" id="brief-4" rows="2" placeholder="e.g. Highest complaints in technical and legal categories."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> What cannot change?</label>
-        <p class="brief-modal-hint">State the non-negotiables, constraints, or conditions that must still hold.</p>
-        <textarea class="brief-modal-input" id="brief-5" rows="2" placeholder="e.g. Cannot rebuild matching algorithm before Q3."></textarea>
-      </div>
-    </div>
-    <div class="brief-modal-footer">
-      <p class="brief-modal-footer-note">Opens your email client with answers pre-filled. Review and edit before sending.</p>
-      <button class="brief-modal-submit" id="briefModalSubmit">OPEN IN EMAIL &rarr;</button>
-    </div>
-  </div>
-</div>
-
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="site-footer__inner">
       <div class="site-footer__top">
-        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+                <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="a5cdc0c9c9cae5cfc4c8ccc0c3cad7d7c0d6d1c0d78bc6cac8">[email&#160;protected]</span></a>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
         </section>
-                <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
@@ -585,124 +580,21 @@
         </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+        <span class="site-footer__copy">&copy; 2026 Jamie Forrester. All rights reserved.</span>
+        <span class="site-footer__legal"><a href="./privacy-policy.html">Privacy</a> &middot; <a href="./terms.html">Terms</a></span>
       </div>
     </div>
   </footer>
 
-  <style>
-    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
-    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
-    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
-    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
-    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
-    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
-    .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
-    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
-    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
-    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
-    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
-    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
-    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
-  </style>
+</div>
 
-  <style>
-    .brief-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;}
-.brief-modal{background:#101114;border:1px solid rgba(90,176,255,0.22);border-radius:20px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
-.brief-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
-.brief-modal-eyebrow{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#4aa3ff;margin-bottom:4px;}
-.brief-modal-title{margin:0;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.03em;}
-.brief-modal-close{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#8c94a2;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 140ms,color 140ms;}
-.brief-modal-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
-.brief-modal-body{padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:14px;}
-.brief-modal-intro{margin:0;font-size:13px;color:#8c94a2;line-height:1.65;}
-.brief-modal-divider{height:1px;background:rgba(255,255,255,0.06);}
-.brief-modal-field{display:flex;flex-direction:column;gap:4px;}
-.brief-modal-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#e8ecf0;}
-.brief-modal-num{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.14em;color:#4aa3ff;background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);border-radius:5px;padding:2px 6px;line-height:1;}
-.brief-modal-hint{margin:0;font-size:12px;color:#8c94a2;line-height:1.5;}
-.brief-modal-input{width:100%;font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:#f1f3f5;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;resize:vertical;line-height:1.6;box-sizing:border-box;transition:border-color 140ms,background 140ms;}
-.brief-modal-input:focus{outline:none;border-color:rgba(90,176,255,0.4);background:rgba(90,176,255,0.03);}
-.brief-modal-input::placeholder{color:#4a5260;font-style:italic;}
-.brief-modal-footer{padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(90,176,255,0.025);border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
-.brief-modal-footer-note{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#8c94a2;line-height:1.5;}
-.brief-modal-submit{width:100%;padding:13px 20px;border-radius:12px;border:1px solid rgba(90,176,255,0.32);background:rgba(90,176,255,0.08);color:#5ab0ff;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background 140ms,border-color 140ms;}
-.brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
-@media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
-  </style>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
-
-// Email link wiring
-document.addEventListener('DOMContentLoaded', function(){
-  var e = 'hello' + '@' + 'jamieforrester.com';
-  document.querySelectorAll('[data-mailto]').forEach(function(el){
-    var txt = el.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt !== 'EMAIL FIVE-LINE BRIEF' && txt !== 'REQUEST DIAGNOSTIC' && txt !== 'REQUEST REDESIGN') {
-      el.setAttribute('href', 'mailto:' + e);
-    }
+<script>
+(function() {
+  const mailto = 'hello' + '@' + 'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(el => {
+    el.setAttribute('href', 'mailto:' + mailto + '?subject=Structural+Diagnosis+Inquiry');
   });
-});
-
-// Sticky nav
-(function(){
-  var nav = document.querySelector('.site-nav');
-  var hdr = document.querySelector('header');
-  if (!nav || !hdr) return;
-  window.addEventListener('scroll', function(){
-    if (hdr.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
-    else { nav.classList.remove('nav-visible'); }
-  }, {passive:true});
-})();
-
-// Five-line brief modal
-(function(){
-  var overlay = document.getElementById('briefModal');
-  if (!overlay) return;
-  var closeBtn = document.getElementById('briefModalClose');
-  var submitBtn = document.getElementById('briefModalSubmit');
-  function openModal() {
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    setTimeout(function(){ document.getElementById('brief-context').focus(); }, 50);
-  }
-  function closeModal() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  function submitBrief() {
-    var ctx = document.getElementById('brief-context').value.trim();
-    var p1 = document.getElementById('brief-1').value.trim();
-    var p2 = document.getElementById('brief-2').value.trim();
-    var p3 = document.getElementById('brief-3').value.trim();
-    var p4 = document.getElementById('brief-4').value.trim();
-    var p5 = document.getElementById('brief-5').value.trim();
-    var b = '';
-    if (ctx) b += 'System / context:\n' + ctx + '\n\n';
-    b += '01 - What keeps going wrong?:\n' + (p1||'-') + '\n\n';
-    b += '02 - What is it costing?:\n' + (p2||'-') + '\n\n';
-    b += '03 - Where does it show up?:\n' + (p3||'-') + '\n\n';
-    b += '04 - What has already been tried?:\n' + (p4||'-') + '\n\n';
-    b += '05 - What cannot change?:\n' + (p5||'-');
-    var e = 'hello' + '@' + 'jamieforrester.com';
-    window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
-    closeModal();
-  }
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-  submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
-    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
-      btn.removeAttribute('href');
-      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
-    }
-  });
-  var briefBtn = document.getElementById('email-brief-cta');
+  const briefBtn = document.getElementById('briefMailtoBtn');
   if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
 })();
 </script>
