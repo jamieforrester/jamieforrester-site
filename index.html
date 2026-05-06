@@ -404,6 +404,17 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media (max-width: 720px) {
   .offer-grid { grid-template-columns: 1fr !important; }
 }
+
+/* Hero mobile fixes */
+@media (max-width: 920px) {
+  .hero-left { padding: 28px 22px !important; }
+  .hero-right { padding: 22px !important; }
+}
+@media (max-width: 600px) {
+  .hero-btn-row { grid-template-columns: 1fr !important; }
+  .hero-stat-grid { gap: 6px !important; }
+  .hero-title { font-size: 1.65rem !important; }
+}
 </style>
 </head>
 
@@ -491,7 +502,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
         <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px;">
           <a class="btn btn-primary btn-large btn-full" href="./services.html">&#x2192; &nbsp; DIAGNOSE A STRUCTURAL FAILURE</a>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <div class="hero-btn-row" style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
             <a class="btn btn-large btn-full" href="./examples.html">VIEW PROOF SETS</a>
             <a class="btn btn-large btn-full" href="./method.html">READ THE METHOD</a>
           </div>
@@ -525,7 +536,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px;">
+        <div class="hero-stat-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px;">
           <div style="padding:10px 12px; border:1px solid rgba(90,176,255,0.12); border-radius:10px; background:rgba(90,176,255,0.04);">
             <div style="font-family:'IBM Plex Mono',monospace; font-size:15px; font-weight:700; color:var(--cta-blue); letter-spacing:-0.02em; line-height:1;">10</div>
             <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-top:4px;">Public papers</div>
