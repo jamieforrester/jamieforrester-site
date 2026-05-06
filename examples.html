@@ -224,11 +224,11 @@
     /* Four-artifact layout */
     .public-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; align-items: stretch; }
     .restricted-card-wrap { margin-bottom: 24px; }
-    .restricted-card { border: 1px solid rgba(255,190,70,0.28); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(255,190,70,0.04) 0%, rgba(255,255,255,0.007) 100%); position: relative; }
-    .restricted-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, rgba(255,190,70,0.6) 40%, rgba(255,190,70,0.8) 60%, transparent); opacity: 0.7; }
-    .rc-header { padding: 18px 24px 16px; border-bottom: 1px solid rgba(255,190,70,0.12); background: rgba(255,190,70,0.03); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .rc-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,190,70,0.75); }
-    .rc-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,190,70,0.85); border: 1px solid rgba(255,190,70,0.22); background: rgba(255,190,70,0.06); }
+    .restricted-card { border: 1px solid rgba(80,200,120,0.28); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(80,200,120,0.04) 0%, rgba(255,255,255,0.007) 100%); position: relative; }
+    .restricted-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, rgba(80,200,120,0.6) 40%, rgba(80,200,120,0.8) 60%, transparent); opacity: 0.7; }
+    .rc-header { padding: 18px 24px 16px; border-bottom: 1px solid rgba(80,200,120,0.12); background: rgba(80,200,120,0.03); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .rc-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(80,200,120,0.75); }
+    .rc-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(80,200,120,0.85); border: 1px solid rgba(80,200,120,0.22); background: rgba(80,200,120,0.06); }
     .rc-title { margin: 12px 24px 0; font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1rem); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.25; }
     .rc-body { padding: 16px 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
     .rc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.72; margin: 0; }
@@ -332,7 +332,7 @@
           <tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Translation Artifact</td><td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td><td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Start here. Shared language entry point.</td></tr>
           <tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Diagnostic Artifact</td><td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td><td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Full evidence base and governing diagnosis.</td></tr>
           <tr style="border-bottom:1px solid rgba(255,255,255,0.04);"><td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Redesign Executive Summary</td><td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.3); padding:3px 7px; border-radius:999px; background:rgba(90,176,255,0.08);">Public</span></td><td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Board-level replacement logic and proof conditions.</td></tr>
-          <tr><td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Full Redesign Artifact</td><td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,190,70,0.85); border:1px solid rgba(255,190,70,0.22); padding:3px 7px; border-radius:999px; background:rgba(255,190,70,0.06);">Restricted</span></td><td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Complete transition sequence, invariants, recapture gates, and builder handoff.</td></tr>
+          <tr><td style="padding:10px 16px; font-size:13px; color:#e4e8ee; font-weight:600;">Full Redesign Artifact</td><td style="padding:10px 16px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(80,200,120,0.85); border:1px solid rgba(80,200,120,0.22); padding:3px 7px; border-radius:999px; background:rgba(80,200,120,0.06);">Restricted</span></td><td style="padding:10px 16px; font-size:13px; color:var(--text-dim); line-height:1.55;">Complete transition sequence, invariants, recapture gates, and builder handoff.</td></tr>
         </tbody>
       </table>
     </div>
@@ -428,9 +428,9 @@
         <div class="rc-body">
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: transition sequence, contributor continuity schema, consequence review model, expert signal lifecycle, compensation truthfulness invariant, recapture gates, admissibility conditions, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
           <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Request%20access%20-%20Outlier%20Full%20Redesign%20Artifact" style="border-color:rgba(255,190,70,0.3); color:rgba(255,190,70,0.9); background:rgba(255,190,70,0.06);">Request Access</a>
+            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Request%20access%20-%20Outlier%20Full%20Redesign%20Artifact" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
             <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
-            <div style="padding:8px 12px; border:1px solid rgba(255,190,70,0.16); border-radius:8px; background:rgba(255,190,70,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,190,70,0.6);">Restricted specification &middot; access by request</span></div>
+            <div style="padding:8px 12px; border:1px solid rgba(80,200,120,0.16); border-radius:8px; background:rgba(80,200,120,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.6);">Restricted specification &middot; access by request</span></div>
           </div>
         </div>
       </div>
@@ -528,9 +528,9 @@
         <div class="rc-body">
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: seven-move transition sequence, truth-kernel schema, custody / hosting / authority separation, invalid continuity states, source-of-truth hierarchy, emergency and carer access, refusal invariants, admissibility conditions, recapture gates, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
           <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Request%20access%20-%20NHS%20Full%20Redesign%20Artifact" style="border-color:rgba(255,190,70,0.3); color:rgba(255,190,70,0.9); background:rgba(255,190,70,0.06);">Request Access</a>
+            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Request%20access%20-%20NHS%20Full%20Redesign%20Artifact" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
             <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
-            <div style="padding:8px 12px; border:1px solid rgba(255,190,70,0.16); border-radius:8px; background:rgba(255,190,70,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,190,70,0.6);">Restricted specification &middot; access by request</span></div>
+            <div style="padding:8px 12px; border:1px solid rgba(80,200,120,0.16); border-radius:8px; background:rgba(80,200,120,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.6);">Restricted specification &middot; access by request</span></div>
           </div>
         </div>
       </div>
@@ -585,10 +585,10 @@
 <footer class="site-footer" role="contentinfo">
   <div class="site-footer__inner">
     <div class="site-footer__top">
-      <div>
-        <a href="./index.html" class="site-footer__logo">Jamie Forrester</a>
-        <p class="site-footer__tagline">Independent Systems Architect. Structural diagnosis and redesign for recurring failure under scale.</p>
-      </div>
+      <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+        </section>
       <div>
         <p class="site-footer__col-title">Navigation</p>
         <ul class="site-footer__list">
