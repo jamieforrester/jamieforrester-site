@@ -417,6 +417,12 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
+  
+    /* Paper pair grid — 07/08 and 09/10 side by side on desktop */
+    .papers-pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .paper-pair-card { padding: 20px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.018); }
+    @media (max-width: 860px) { .papers-pair-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .offer-grid-inner { grid-template-columns: 1fr !important; } }
   </style>
 </head>
 <body>
@@ -446,7 +452,7 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+          <div class="h-pill">Fixed-scope diagnostic and redesign artifacts for recurring failure under scale</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
@@ -466,8 +472,9 @@
         <span class="eyebrow">Research</span>
         <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
         <p class="hero-sub">This work rests on a complete ten-paper Diagnostic and Replacement Series that functions as the constitutional grammar for diagnosing, replacing, and recomposing scalable institutions and platforms. It also includes three foundational frameworks, books in development, and live proving grounds — all built under the same structural logic.</p>
-        <p class="hero-sub">The papers form four linked layers. First, a <strong>Diagnostic Lens Trilogy</strong> that names interface-legitimacy mismatch, function collapse, and the missing redesign layer. Second, a three-paper <strong>Replacement Arc</strong> on how institutions lose centrality, how substitutes are built, and what makes them admissible. Third, a <strong>Correction and Constraint Layer</strong> — the governing correction sequence and host-imposed primitive compression. Fourth, a <strong>Kernel Layer</strong> that reduces recurring failure to irreducible coordination primitives and turns that reduction into a generative method for new institutional categories. The papers do not replace the client artifact. They expose the public logic behind it.</p>
+        <p class="hero-sub">The papers form four linked layers. First, a <strong>Diagnostic Lens Trilogy</strong> that names interface-legitimacy mismatch, function collapse, and the missing redesign layer. Second, a three-paper <strong>Replacement Arc</strong> on how institutions lose centrality, how substitutes are built, and what makes them admissible. Third, a <strong>Correction and Constraint Layer</strong> — the governing correction sequence and host-imposed primitive compression. Fourth, a <strong>Kernel Layer</strong> that reduces recurring failure to irreducible coordination primitives and turns that reduction into a generative method for new institutional categories. The papers do not replace the client artifacts. They expose the public logic behind the four-artifact sequence: Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact.</p>
         <p class="hero-sub"><strong>The ten papers can be read as a complete sequence — but each stands alone.</strong> Start with the paper closest to the failure pattern, build problem, or institutional constraint you are currently facing.</p>
+        <p class="hero-sub">To see the research applied to real systems, the public proof sets for Outlier AI and NHS Primary Care Continuity show the laws in use across two structurally different domains. <a class="link-blue" href="./examples.html">View proof sets &#x2192;</a></p>
         <div style="margin:0 0 22px; padding:16px 20px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03);">
           <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:12px;">The research spine</span>
           <div style="display:flex; flex-direction:column; gap:7px;">
@@ -494,7 +501,7 @@
         </div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="./expertise-illusion.pdf" target="_blank" rel="noopener">START WITH PAPER 01</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
+          <a class="btn" href="./services.html">VIEW PROOF SETS</a>
         </div>
       </div>
       <div class="hero-right">
@@ -570,6 +577,7 @@
               <div class="trilogy-paper-links">
                 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
                 <a href="./expertise-illusion.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
+                <a href="./examples.html#outlier" class="link-blue" style="font-size:12px;">Outlier proof set &#x2192;</a>
               </div>
             </div>
           </div>
@@ -587,6 +595,7 @@
               <div class="trilogy-paper-links">
                 <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
                 <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
+                <a href="./examples.html#nhs" class="link-blue" style="font-size:12px;" target="_blank" rel="noopener">NHS proof set &#x2192;</a>
               </div>
             </div>
           </div>
@@ -609,6 +618,7 @@
           </div>
         </div>
         <p style="margin: 16px 0 0; font-size:13px; color:var(--text-faint); line-height:1.7; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The trilogy closes the diagnostic loop. A second public sequence begins where it stops: how legacy institutions lose centrality, how substitutes are built, and what makes them admissible.</p>
+        <p style="margin:8px 0 12px; font-size:13px; color:var(--text-faint); line-height:1.65;">The Outlier AI and NHS Primary Care artifact families are the applied proof of Papers 01&#x2013;03. <a href="./examples.html" class="link-blue">See the public proof sets &#x2192;</a></p>
         <div class="trilogy-footer">
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
@@ -682,6 +692,7 @@
             <a class="btn btn-primary" href="./institution-migration.pdf" target="_blank" rel="noopener">START THE REPLACEMENT SEQUENCE</a>
           </div>
           <p style="margin:12px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Replacement Arc completes the path from structural diagnosis to admissible substitute form. The Correction and Constraint Layer follows &#x2014; naming the governing sequence above it and the external force that can compress a platform's native primitive into incoherence.</p>
+        <p style="margin:8px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Redesign Executive Summary and Full Redesign Artifact in both proof sets demonstrate the Replacement Arc in practice. <a href="./examples.html" class="link-blue">See the examples &#x2192;</a></p>
         </div>
       </section>
 
@@ -694,41 +705,45 @@
           <span class="label-note">two papers · the governing sequence and host-imposed compression</span>
         </div>
         <p class="lead">Two papers that operate above and around the replacement arc. Paper 07 names the structural correction sequence that high-consequence frameworks independently evolve — and the frame-level gate every existing instantiation fails to complete. Paper 08 names a new failure class: what happens when a platform's native economic primitive cannot survive its host interface.</p>
-        <div style="margin-top:20px;">
-          <a href="./governed-correction-sequence.pdf" target="_blank" rel="noopener" style="float:left; margin:0 24px 8px 0; border-bottom:none; display:block;">
-            <img src="./paper7-image.png" alt="Cover: The Governed Correction Sequence" style="width:130px; height:182px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-          </a>
-          <div class="extension-paper-head" style="margin-bottom:10px;">
-            <span class="mini-kicker">Paper 07</span>
-            <span class="status status-dev">Pending SSRN</span>
+        <div class="papers-pair-grid" style="margin-top:20px;">
+          <!-- Paper 07 -->
+          <div class="paper-pair-card">
+            <a href="./governed-correction-sequence.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
+              <img src="./paper7-image.png" alt="Cover: The Governed Correction Sequence" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
+            </a>
+            <div class="extension-paper-head" style="margin-bottom:10px;">
+              <span class="mini-kicker">Paper 07</span>
+              <span class="status status-dev">Pending SSRN</span>
+            </div>
+            <h3 class="extension-paper-title">The Governed Correction Sequence</h3>
+            <p class="extension-paper-sub">Names the structural sequence that correction frameworks in high-consequence domains independently evolve — and identifies the frame-level gate every existing instantiation fails to complete.</p>
+            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Papers 1–6 diagnosed failure and specified the construction path. Paper 7 makes explicit the sequence beneath them — and the structural stopping point every existing instantiation reaches.</p>
+            <div class="actions" style="clear:none;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+              &nbsp;&nbsp;
+              <a href="./governed-correction-sequence.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
+            </div>
+            <div style="clear:both;"></div>
           </div>
-          <h3 class="extension-paper-title">The Governed Correction Sequence</h3>
-          <p class="extension-paper-sub">Names the structural sequence that correction frameworks in high-consequence domains independently evolve — and identifies the frame-level gate every existing instantiation fails to complete.</p>
-          <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Papers 1–6 diagnosed failure and specified the construction path. Paper 7 makes explicit the sequence beneath them — and the structural stopping point every existing instantiation reaches.</p>
-          <div class="actions" style="clear:none;">
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-            &nbsp;&nbsp;
-            <a href="./governed-correction-sequence.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
+          <!-- Paper 08 -->
+          <div class="paper-pair-card">
+            <a href="./host-constrained-primitive-mismatch.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
+              <img src="./paper8-image.png" alt="Cover: Host-Constrained Primitive Mismatch" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
+            </a>
+            <div class="extension-paper-head" style="margin-bottom:10px;">
+              <span class="mini-kicker">Paper 08</span>
+              <span class="status status-dev">Pending SSRN</span>
+            </div>
+            <h3 class="extension-paper-title">Host-Constrained Primitive Mismatch</h3>
+            <p class="extension-paper-sub">The structural decay of relationship-coded systems inside transaction-coded hosts</p>
+            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Hostage Platform Law, Representational Loss, the Trust Tax Corollary, and the Platform Decay Spectrum. Proves the failure class through Patreon/Apple, with lower-resolution checks across Spotify, Kindle, and Epic Games. Provides the Host Constraint Test and a four-exit redesign model.</p>
+            <div class="actions" style="clear:none;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+              &nbsp;&nbsp;
+              <a href="./host-constrained-primitive-mismatch.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
+            </div>
+            <div style="clear:both;"></div>
           </div>
-          <div style="clear:both;"></div>
-        </div>
-                <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.06);">
-          <a href="./host-constrained-primitive-mismatch.pdf" target="_blank" rel="noopener" style="float:left; margin:0 24px 8px 0; border-bottom:none; display:block;">
-            <img src="./paper8-image.png" alt="Cover: Host-Constrained Primitive Mismatch" style="width:130px; height:182px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-          </a>
-          <div class="extension-paper-head" style="margin-bottom:10px;">
-            <span class="mini-kicker">Paper 08</span>
-            <span class="status status-dev">Pending SSRN</span>
-          </div>
-          <h3 class="extension-paper-title">Host-Constrained Primitive Mismatch</h3>
-          <p class="extension-paper-sub">The structural decay of relationship-coded systems inside transaction-coded hosts</p>
-          <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Hostage Platform Law, Representational Loss, the Trust Tax Corollary, and the Platform Decay Spectrum. Proves the failure class through Patreon/Apple, with lower-resolution checks across Spotify, Kindle, and Epic Games. Provides the Host Constraint Test and a four-exit redesign model.</p>
-          <div class="actions" style="clear:none;">
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-            &nbsp;&nbsp;
-            <a href="./host-constrained-primitive-mismatch.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-          </div>
-          <div style="clear:both;"></div>
         </div>
         <p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The Correction and Constraint Layer names the sequence beneath the first six papers and the external force that rewrites a platform's economic primitive. The Kernel Layer follows — the coordination substrate beneath all of it. <a href="#kernel" class="link-blue">Read the Kernel Layer →</a></p>
       </section>
@@ -742,10 +757,11 @@
           <span class="label-note">two papers · reduction to primitives and generation of new categories</span>
         </div>
         <p class="lead">The culminating two papers of the series. Paper 09 reduces the failure classes diagnosed across Papers 1–8 to a finite set of irreducible coordination kernels — proving the series has been approaching the same underlying structure from different failure surfaces. Paper 10 turns that reduction into a generative method: if systems are kernel arrangements, new institutional categories can be designed by deliberate recomposition.</p>
-        <div style="margin-top:20px; display:flex; flex-direction:column; gap:24px;">
-          <div>
-            <a href="./kernel-reduction.pdf" target="_blank" rel="noopener" style="float:left; margin:0 24px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper9-image.png" alt="Cover: The Kernel Reduction of Institutional Systems" style="width:130px; height:182px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
+        <div class="papers-pair-grid" style="margin-top:20px;">
+          <!-- Paper 09 -->
+          <div class="paper-pair-card">
+            <a href="./kernel-reduction.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
+              <img src="./paper9-image.png" alt="Cover: The Kernel Reduction of Institutional Systems" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
             </a>
             <div class="extension-paper-head" style="margin-bottom:10px;">
               <span class="mini-kicker">Paper 09</span>
@@ -761,9 +777,10 @@
             </div>
             <div style="clear:both;"></div>
           </div>
-          <div style="padding-top:20px; border-top:1px solid rgba(255,255,255,0.06);">
-            <a href="./kernel-recomposition.pdf" target="_blank" rel="noopener" style="float:left; margin:0 24px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper10-image.png" alt="Cover: Kernel Recomposition Patterns" style="width:130px; height:182px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
+          <!-- Paper 10 -->
+          <div class="paper-pair-card">
+            <a href="./kernel-recomposition.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
+              <img src="./paper10-image.png" alt="Cover: Kernel Recomposition Patterns" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
             </a>
             <div class="extension-paper-head" style="margin-bottom:10px;">
               <span class="mini-kicker">Paper 10</span>
@@ -807,7 +824,7 @@
             <h3>How systems generate valid outputs</h3>
             <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
             <p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
-            <p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact. The ten papers are now being compiled into a machine-usable canon to power governed diagnostic and redesign artifact production.</p>
+            <p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
             <div class="actions">
               <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
@@ -1099,7 +1116,7 @@
         <div class="builds-lead">
           <p>The practice is not purely advisory. These are live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
           <p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
-          <p class="small" style="margin-top:6px;">PromptFactory and the Diagnostic Artifact method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural diagnosis. The production logic is the same.</p>
+          <p class="small" style="margin-top:6px;">PromptFactory and the artifact-production method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural artifacts. The production logic is the same.</p>
         </div>
         <div class="paper">
           <div class="paper-row">
@@ -1116,7 +1133,7 @@
                 <span class="build-stat">Target launch 2026</span>
               </div>
               <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership. The system starts at the primitive: what counts as a valid unit, what may be claimed, what must be refused, and how ownership remains bounded by rule rather than drift or convention.</p>
-              <p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled inside the Diagnostic Artifact. Spectrum Registry matters here as a bounded proof that invariant-first design can survive translation into a working system under real build constraints, as described in Paper 05.</p>
+              <p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled across the Diagnostic Artifact and Full Redesign Artifact. Spectrum Registry matters here as a bounded proof that invariant-first design can survive translation into a working system under real build constraints, as described in Paper 05.</p>
             </div>
           </div>
         </div>
@@ -1144,17 +1161,45 @@
 
       <div class="section-divider"><span class="section-divider-label">the offer</span></div>
 
-      <section class="card card-cta" aria-label="The offer">
-        <div class="card-head">
-          <div class="card-head-bar"></div>
-          <h2>The public offer is the written artifact.</h2>
-        </div>
-        <div class="card-body">
-          <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68;">The material on this page — the public papers, the core models, the deeper monograph, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the written artifact legible.</p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-            <a class="btn" href="./services.html">VIEW SERVICES</a>
+      <section class="card" style="border-color:rgba(90,176,255,0.28); border-top:3px solid rgba(90,176,255,0.7); background:linear-gradient(135deg,rgba(90,176,255,0.07) 0%,rgba(90,176,255,0.02) 45%,rgba(255,255,255,0.006) 100%); box-shadow:0 0 0 1px rgba(90,176,255,0.06),0 24px 64px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.06);" aria-label="The offer">
+        <div class="offer-grid-inner" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:0; overflow:hidden;">
+
+          <!-- Left: positioning -->
+          <div style="padding:36px 32px 36px 36px; border-right:1px solid rgba(90,176,255,0.12);">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:14px;">The offer</span>
+            <h2 style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem+1vw,2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">The public offer is the written artifact system.</h2>
+            <p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page — the public papers, the core models, the deeper monograph, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
+            <p style="margin:0 0 22px; font-size:13.5px; color:var(--text-faint); line-height:1.72; font-style:italic;">The research defines the laws. The Method defines the diagnostic sequence. The Examples show the laws applied to bounded systems. The Services page defines how the artifact system is commissioned.</p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+              <a class="btn" href="./examples.html">VIEW EXAMPLES &#x2192;</a>
+              <a class="btn" href="./services.html">VIEW SERVICES</a>
+            </div>
           </div>
+
+          <!-- Right: chain -->
+          <div style="padding:32px 28px; background:rgba(0,0,0,0.18); display:flex; flex-direction:column; gap:0;">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); display:block; margin-bottom:16px;">How this connects</span>
+            <div style="display:flex; flex-direction:column; gap:0;">
+              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Research</div>
+                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the structural laws. Ten public papers across four linked layers.</div>
+              </div>
+              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Method</div>
+                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the seven-step diagnostic sequence and four-artifact output path.</div>
+              </div>
+              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Examples</div>
+                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Shows the laws applied. Public proof sets for Outlier AI and NHS Primary Care.</div>
+              </div>
+              <div style="padding:12px 0;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Services</div>
+                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines how the artifact system is commissioned. Fixed scope, fixed fee.</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1218,10 +1263,9 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__top">
-        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+                <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Diagnostic and redesign artifacts for systems that fail under scale.</p>
-          <a class="site-footer__email" data-mailto="1"><span class="__cf_email__" data-cfemail="6d05080101022d070c0004080b021f1f081e19081f430e0200">[email&#160;protected]</span></a>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
