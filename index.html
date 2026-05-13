@@ -379,10 +379,16 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .snapshot-k { white-space: normal; }
   .scan-output { position: static; }
 }
+@media (max-width: 900px) {
+  .artifact-preview-grid { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 901px) {
+  .artifact-preview-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+}
 @media (max-width: 600px) {
   .scan-entry-card { width: 100% !important; }
   .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-  .artifact-preview-grid { grid-template-columns: 1fr 1fr !important; }
+  .artifact-preview-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 640px) {
   .artifact-preview-grid { grid-template-columns: 1fr !important; }
@@ -507,10 +513,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <!-- PROOF STRIP -->
     <div style="margin:0 0 8px; border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; background:rgba(255,255,255,0.014);">
-      <div style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center; padding:14px 20px; border-bottom:1px solid rgba(255,255,255,0.07);">
-        <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;">Grounded in a <strong>10-paper Diagnostic and Replacement Series</strong>. Demonstrated through public proof sets for <strong>Outlier AI</strong>, <strong>NHS Primary Care</strong>, and <strong>Patreon / Apple IAP</strong>.</p>
-        <p style="margin:4px 0 0; font-size:11px; color:var(--text-faint); font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em;">Public proof: 3 systems &nbsp;&middot;&nbsp; 13 complete deliverables &nbsp;&middot;&nbsp; 9 public documents &nbsp;&middot;&nbsp; 4 restricted specifications</p>
-<a href="./examples.html" class="btn" style="font-size:9px; font-family:'IBM Plex Mono',monospace; letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; flex-shrink:0; padding:6px 12px;">VIEW EXAMPLES &#x2192;</a>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 20px; border-bottom:1px solid rgba(255,255,255,0.07); flex-wrap:wrap;">
+        <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6; flex:1; min-width:200px;">Grounded in a <strong>10-paper Diagnostic and Replacement Series</strong>. Demonstrated through public proof sets for <strong>Outlier AI</strong>, <strong>NHS Primary Care</strong>, and <strong>Patreon / Apple IAP</strong>.</p>
+        <a href="./examples.html" class="btn" style="font-size:9px; font-family:'IBM Plex Mono',monospace; letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; flex-shrink:0; padding:6px 12px;">VIEW EXAMPLES &#x2192;</a>
       </div>
       <div style="display:grid; grid-template-columns:repeat(4,1fr);">
         <div style="padding:12px 16px; border-right:1px solid rgba(255,255,255,0.07);">
