@@ -87,10 +87,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
 
 
-.hero-strip { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: start; gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.75); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 45%, rgba(255,255,255,0.006) 100%); margin-bottom: var(--space-6,32px); overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 24px 64px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06); transition: border-color 200ms ease, box-shadow 200ms ease; }
+.hero-strip { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: start; border: 1px solid rgba(90,176,255,0.22); border-top: 3px solid rgba(90,176,255,0.7); border-radius: 22px; overflow: hidden; background: #0e0f12; box-shadow: 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04); gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.75); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 45%, rgba(255,255,255,0.006) 100%); margin-bottom: var(--space-6,32px); overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 24px 64px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06); transition: border-color 200ms ease, box-shadow 200ms ease; }
 .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
 .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
-.hero-right { padding: 32px 28px; background: rgba(0,0,0,0.22); display: flex; flex-direction: column; justify-content: center; }
+.hero-right { padding: 28px 24px; background: rgba(0,0,0,0.25); display: flex; flex-direction: column; justify-content: center; }
 .hero-title { margin: 0 0 16px; font-size: clamp(1.8rem, 1.3rem + 1.6vw, 2.7rem); line-height: 1.08; letter-spacing: -0.04em; font-weight: 700; color: #fff; max-width: 18ch; }
 .hero-sub { margin: 0 0 14px; color: #d4d9e0; font-size: clamp(0.95rem, 0.9rem + 0.15vw, 1.03rem); line-height: 1.72; max-width: 60ch; }
 .hero-sub strong { color: #fff; font-weight: 600; }
@@ -472,58 +472,68 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
     <section class="hero-strip" aria-label="Primary summary">
       <div class="hero-left">
-        <div class="eyebrow" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <div class="eyebrow" style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
           Independent Systems Architect
           <span style="flex:1; height:1px; background:linear-gradient(90deg,rgba(90,176,255,0.3),transparent); display:block;"></span>
         </div>
         <h2 class="hero-title">When the same failure keeps returning, the problem is no longer <span style="color:var(--cta-blue);">execution.</span> It is structure.</h2>
-        <p class="hero-sub" style="margin-bottom:28px;">I produce fixed-scope <strong>diagnostic and redesign artifacts</strong> that name the <strong>hidden structural break</strong>, locate the <strong>governing mismatch</strong>, and give builders a <strong>governed replacement sequence</strong>.</p>
+        <p class="hero-sub" style="margin-bottom:26px;">I produce fixed-scope <strong>diagnostic and redesign artifacts</strong> that name the <strong>hidden structural break</strong>, locate the <strong>governing mismatch</strong>, and give builders a <strong>governed replacement sequence</strong>.</p>
 
-        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px;">
-          <div style="padding:14px 18px 14px 21px; border-radius:14px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.024); position:relative; overflow:hidden;">
-            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(90,176,255,0.35); border-radius:0;"></div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Diagnostic Artifact</div>
-            <div style="font-size:16px; font-weight:700; color:#fff; letter-spacing:-0.025em; margin-bottom:4px;">&pound;10,000 &middot; fixed fee &middot; <span style="color:var(--label-blue);">14 days</span></div>
-            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55; margin-bottom:3px;">Structural diagnosis and correction map.</div>
-            <div style="font-size:11.5px; color:var(--text-faint); font-style:italic; line-height:1.5;">When you need to name the real failure.</div>
+        <!-- Offer paths — unified card -->
+        <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:20px;">
+          <!-- Diagnostic -->
+          <div style="padding:14px 18px 14px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:start; gap:12px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(90,176,255,0.4);"></div>
+            <div style="padding-left:2px;">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Diagnostic Artifact</div>
+              <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:4px;">&pound;10,000 &middot; fixed fee</div>
+              <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55; margin-bottom:2px;">Structural diagnosis and correction map.</div>
+              <div style="font-size:11px; color:var(--text-faint); font-style:italic;">When you need to name the real failure.</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.06em; color:rgba(90,176,255,0.6); border:1px solid rgba(90,176,255,0.2); padding:3px 8px; border-radius:999px; white-space:nowrap; align-self:start; margin-top:2px;">14 days</div>
           </div>
-          <div style="padding:14px 18px 14px 21px; border-radius:14px; border:1px solid rgba(90,176,255,0.22); background:rgba(90,176,255,0.06); position:relative; overflow:hidden;">
-            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,#5ab0ff,rgba(90,176,255,0.4)); border-radius:0;"></div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Full Structural Engagement</div>
-            <div style="font-size:16px; font-weight:700; color:#fff; letter-spacing:-0.025em; margin-bottom:4px;">&pound;25,000 &middot; fixed fee</div>
-            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55; margin-bottom:3px;">Complete governed sequence. Four artifacts.</div>
-            <div style="font-size:11.5px; color:var(--text-faint); font-style:italic; line-height:1.5;">When you need the replacement architecture.</div>
+          <!-- Full Structural Engagement -->
+          <div style="padding:14px 18px 14px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:start; gap:12px; background:rgba(90,176,255,0.05);">
+            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,#5ab0ff,rgba(90,176,255,0.3));"></div>
+            <div style="padding-left:2px;">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Full Structural Engagement</div>
+              <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:4px;">&pound;25,000 &middot; fixed fee</div>
+              <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55; margin-bottom:2px;">Complete governed sequence. Four artifacts.</div>
+              <div style="font-size:11px; color:var(--text-faint); font-style:italic;">When you need the replacement architecture.</div>
+            </div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.06em; color:rgba(90,176,255,0.6); border:1px solid rgba(90,176,255,0.2); padding:3px 8px; border-radius:999px; white-space:nowrap; align-self:start; margin-top:2px;">4 artifacts</div>
           </div>
         </div>
 
-        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.04em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
+        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--text-faint); letter-spacing:0.06em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
 
-        <div style="display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;">
+        <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
           <a class="btn btn-primary btn-large" data-mailto="1" href="#">SEND FIVE-LINE BRIEF</a>
           <a class="btn btn-large" href="./services.html">VIEW SERVICES</a>
         </div>
-        <p style="margin:0; font-size:12px; color:var(--text-faint); line-height:1.6; font-style:italic;"><strong style="font-style:normal; color:var(--text-dim);">The same failure costs more the second time than the first.</strong> At some point, the structure has to be named.</p>
+
+        <p style="margin:0; font-size:11.5px; color:var(--text-faint); line-height:1.6; font-style:italic;"><strong style="font-style:normal; color:var(--text-dim);">The same failure costs more the second time than the first.</strong> At some point, the structure has to be named.</p>
       </div>
 
       <div class="hero-right">
         <div style="display:flex; flex-direction:column; gap:0;">
-          <div style="padding:0 0 12px; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,0.06);">
             <div class="qk" style="margin-bottom:4px;">What this is</div>
             <div class="qv"><strong>Two fixed-scope paths:</strong> Diagnostic Artifact (&pound;10k) for structural diagnosis, or Full Structural Engagement (&pound;25k) for diagnosis carried into the complete four-artifact redesign sequence.</div>
           </div>
-          <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
             <div class="qk" style="margin-bottom:4px;">What it solves</div>
             <div class="qv"><strong>Recurring failure</strong> caused by hidden structure in interfaces, incentives, ownership, host constraints, or enforcement.</div>
           </div>
-          <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
             <div class="qk" style="margin-bottom:4px;">Who it is for</div>
             <div class="qv"><strong>Founders, CTOs, product leads, and decision owners</strong> who need a structural read their builders can execute against.</div>
           </div>
-          <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
             <div class="qk" style="margin-bottom:4px;">The method</div>
             <div class="qv"><strong>Seven-step diagnosis sequence</strong> &mdash; system definition through governing diagnosis to builder-ready artifact. <a class="link-blue" href="./method.html">Read the method &rarr;</a></div>
           </div>
-          <div style="padding:12px 0 0;">
+          <div style="padding:11px 0 0;">
             <div class="qk" style="margin-bottom:4px;">How to start</div>
             <div class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</div>
           </div>
