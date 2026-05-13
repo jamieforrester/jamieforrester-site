@@ -224,13 +224,14 @@
     /* Four-artifact layout */
     .public-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; align-items: stretch; }
     .restricted-card-wrap { margin-bottom: 24px; }
-    .restricted-card { border: 1px solid rgba(80,200,120,0.28); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(80,200,120,0.04) 0%, rgba(255,255,255,0.007) 100%); position: relative; }
+    .restricted-card { border: 1px solid rgba(80,200,120,0.28); border-radius: var(--radius-xl); background: linear-gradient(160deg, rgba(80,200,120,0.04) 0%, rgba(255,255,255,0.007) 100%); position: relative; overflow: visible; }
+    .restricted-card::after { content: ""; display: table; clear: both; }
     .restricted-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, rgba(80,200,120,0.6) 40%, rgba(80,200,120,0.8) 60%, transparent); opacity: 0.7; }
     .rc-header { padding: 18px 24px 16px; border-bottom: 1px solid rgba(80,200,120,0.12); background: rgba(80,200,120,0.03); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .rc-index { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(80,200,120,0.75); }
     .rc-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(80,200,120,0.85); border: 1px solid rgba(80,200,120,0.22); background: rgba(80,200,120,0.06); }
     .rc-title { margin: 12px 24px 0; font-size: clamp(1rem, 0.9rem + 0.3vw, 1.1rem); font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.25; }
-    .rc-body { padding: 16px 24px 20px; display: block; }
+    .rc-body { padding: 16px 24px 20px; display: block; overflow: hidden; }
     .patreon-restricted-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .rc-desc { font-size: 13px; color: var(--text-dim); line-height: 1.72; margin: 0; }
     .rc-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
@@ -446,12 +447,9 @@
         </div>
         <h2 class="rc-title">Complete replacement specification.</h2>
         <div class="rc-body">
-          <div style="display:block; overflow:hidden;"><img src="./outlier4-image.png" alt="Outlier Full Redesign Artifact cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
+          <img src="./outlier4-image.png" alt="Outlier Full Redesign Artifact cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: transition sequence, contributor continuity schema, consequence review model, expert signal lifecycle, compensation truthfulness invariant, recapture gates, admissibility conditions, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
-          <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Outlier%20Full%20Redesign%20Artifact&body=Organisation%3A%0ARole%2FContext%3A%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
-            <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
-            <div style="padding:8px 12px; border:1px solid rgba(80,200,120,0.16); border-radius:8px; background:rgba(80,200,120,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.6);">Restricted specification &middot; access by request</span></div>
+          <div style="clear:both;"></div>
           </div>
         </div>
       </div>
@@ -553,12 +551,9 @@
         </div>
         <h2 class="rc-title">Complete replacement specification.</h2>
         <div class="rc-body">
-          <div style="display:block; overflow:hidden;"><img src="./nhs4-image.png" alt="NHS Full Redesign Artifact cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
+          <img src="./nhs4-image.png" alt="NHS Full Redesign Artifact cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: seven-move transition sequence, truth-kernel schema, custody / hosting / authority separation, invalid continuity states, source-of-truth hierarchy, emergency and carer access, refusal invariants, admissibility conditions, recapture gates, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
-          <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20NHS%20Full%20Redesign%20Artifact&body=Organisation%3A%0ARole%2FContext%3A%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
-            <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
-            <div style="padding:8px 12px; border:1px solid rgba(80,200,120,0.16); border-radius:8px; background:rgba(80,200,120,0.03); text-align:center; margin-top:4px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.6);">Restricted specification &middot; access by request</span></div>
+          <div style="clear:both;"></div>
           </div>
         </div>
       </div>
@@ -673,8 +668,9 @@
           </div>
           <h2 class="rc-title">The Decoupler. Continuity-preserving replacement.</h2>
           <div class="rc-body">
-            <div style="display:block; overflow:hidden;"><img src="./patreon4-image.png" alt="Patreon Full Redesign Artifact Path A cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
-          <p class="rc-desc">Complete builder specification for The Decoupler &#x2014; the continuity-preserving exit that preserves bilateral creator-fan patronage behind an Apple-compatible payment rail.<br><br>Includes the Credit Event Log, Dual Ledger, Fan Agreement Object, Publication Event Handler, refusal gates, Translation Engine, Reconciliation Reserve, fan-facing credit balance, creator-facing per-creation earnings interface, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple funds the relationship. Patreon defines it.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path A specification is restricted.</p>
+            <img src="./patreon4-image.png" alt="Patreon Full Redesign Artifact Path A cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
+            <p class="rc-desc">Complete builder specification for The Decoupler &#x2014; the continuity-preserving exit that preserves bilateral creator-fan patronage behind an Apple-compatible payment rail.<br><br>Includes the Credit Event Log, Dual Ledger, Fan Agreement Object, Publication Event Handler, refusal gates, Translation Engine, Reconciliation Reserve, fan-facing credit balance, creator-facing per-creation earnings interface, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple funds the relationship. Patreon defines it.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path A specification is restricted.</p>
+            <div style="clear:both;"></div>
             <div class="rc-cta">
               <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Patreon%20Structural%20Redesign%20Path%20A&body=Organisation%3A%0ARole%2FContext%3A%0APath%20requested%3A%20Path%20A%20%E2%80%94%20The%20Decoupler%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
               <p class="rc-note">Access reviewed by context. Include organisation and request context. The full specification is not a public download.</p>
@@ -690,8 +686,9 @@
           </div>
           <h2 class="rc-title">The Allocation Shift. Category-transforming replacement.</h2>
           <div class="rc-body">
-            <div style="display:block; overflow:hidden;"><img src="./patreon5-image.png" alt="Patreon Full Redesign Artifact Path B cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
-          <p class="rc-desc">Complete builder specification for The Allocation Shift &#x2014; the category-transforming exit that replaces bilateral creator-fan payment with platform-level patronage allocation.<br><br>Includes the Platform Subscription Object, Fan Patronage Account, Allocation Rule Object, Patronage Allocation Ledger, Allocation Engine, Publication Event Listener, Creator Payout Engine, Reconciliation Reserve, fan allocation UI, creator payout interface, payor-of-record architecture, relational frame invariants, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple sees one platform subscription. Patreon governs allocation internally.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path B specification is restricted.</p>
+            <img src="./patreon5-image.png" alt="Patreon Full Redesign Artifact Path B cover" style="width:90px; height:126px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 6px 18px rgba(0,0,0,0.35); display:block; float:left; margin:0 14px 10px 0;" />
+            <p class="rc-desc">Complete builder specification for The Allocation Shift &#x2014; the category-transforming exit that replaces bilateral creator-fan payment with platform-level patronage allocation.<br><br>Includes the Platform Subscription Object, Fan Patronage Account, Allocation Rule Object, Patronage Allocation Ledger, Allocation Engine, Publication Event Listener, Creator Payout Engine, Reconciliation Reserve, fan allocation UI, creator payout interface, payor-of-record architecture, relational frame invariants, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple sees one platform subscription. Patreon governs allocation internally.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path B specification is restricted.</p>
+            <div style="clear:both;"></div>
             <div class="rc-cta">
               <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Patreon%20Structural%20Redesign%20Path%20B&body=Organisation%3A%0ARole%2FContext%3A%0APath%20requested%3A%20Path%20B%20%E2%80%94%20The%20Allocation%20Shift%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
               <p class="rc-note">Access reviewed by context. Include organisation and request context. The full specification is not a public download.</p>
