@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnostic Taxonomy — Jamie Forrester</title>
+  <meta name="description" content="The Complete Diagnostic Taxonomy: nine failure classes, fifty-four sub-types, formal inclusion and exclusion criteria. Paper 11 of the Diagnostic and Replacement Series." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    /* Nav */
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 2px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 9px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; white-space: nowrap; }
+    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links a.nav-active { color: #fff; }
+    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 4px; }
+    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+
+    /* Header */
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease; }
+    .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); filter: grayscale(20%); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
+
+    /* Type */
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .section-divider { justify-content: center; margin: 48px 0 36px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Hero */
+    .taxonomy-hero { border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.7); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 45%, rgba(255,255,255,0.006) 100%); padding: 44px; margin-bottom: 40px; box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06); }
+    .taxonomy-hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; }
+    .taxonomy-hero-title { margin: 0 0 16px; font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem); line-height: 1.06; letter-spacing: -0.05em; font-weight: 700; color: #fff; }
+    .taxonomy-hero-sub { margin: 0 0 20px; font-size: 15px; color: #c6ccd4; line-height: 1.72; max-width: 64ch; }
+    .taxonomy-hero-sub strong { color: #fff; }
+    .taxonomy-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; min-width: 280px; }
+    .taxonomy-stat { padding: 16px; border: 1px solid rgba(90,176,255,0.18); border-radius: 12px; background: rgba(90,176,255,0.04); text-align: center; }
+    .taxonomy-stat-num { display: block; font-family: "IBM Plex Mono", monospace; font-size: 22px; font-weight: 700; color: var(--cta-blue); line-height: 1; margin-bottom: 5px; }
+    .taxonomy-stat-label { display: block; font-family: "IBM Plex Mono", monospace; font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); line-height: 1.4; }
+    .taxonomy-source { margin-top: 20px; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(255,255,255,0.014); font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); line-height: 1.6; }
+    .taxonomy-source strong { color: var(--text-dim); }
+
+    /* Quick reference grid */
+    .qr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 8px; }
+    .qr-card { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.012); transition: border-color 160ms ease, background 160ms ease, transform 140ms ease; cursor: pointer; }
+    .qr-card:hover { border-color: rgba(90,176,255,0.22); background: rgba(90,176,255,0.03); transform: translateY(-1px); }
+    .qr-card-code { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 6px; }
+    .qr-card-name { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 5px; }
+    .qr-card-count { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); }
+
+    /* Decision tree */
+    .decision-tree { display: grid; gap: 0; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; overflow: hidden; }
+    .dt-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 0 16px; padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .dt-row:last-child { border-bottom: none; }
+    .dt-q-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.5); letter-spacing: 0.08em; padding-top: 1px; }
+    .dt-q-text { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+    .dt-q-result { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--cta-blue); white-space: nowrap; letter-spacing: 0.04em; text-align: right; }
+
+    /* Class sections */
+    .class-section { margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-xl); overflow: hidden; transition: border-color 160ms ease; }
+    .class-section:hover { border-color: rgba(90,176,255,0.18); }
+    .class-header { padding: 22px 28px; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; gap: 0 20px; align-items: center; background: rgba(255,255,255,0.012); user-select: none; }
+    .class-header:hover { background: rgba(255,255,255,0.02); }
+    .class-code { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.22); border-radius: 7px; padding: 5px 10px; white-space: nowrap; }
+    .class-title-block { min-width: 0; }
+    .class-name { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.2; margin-bottom: 4px; }
+    .class-tagline { font-size: 12.5px; color: var(--text-faint); line-height: 1.5; }
+    .class-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .class-count-badge { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 4px 8px; }
+    .class-toggle { font-family: "IBM Plex Mono", monospace; font-size: 14px; color: var(--text-faint); width: 24px; text-align: center; transition: transform 200ms ease; }
+    .class-section.open .class-toggle { transform: rotate(180deg); }
+
+    /* Class body */
+    .class-body { display: none; border-top: 1px solid rgba(255,255,255,0.06); }
+    .class-section.open .class-body { display: block; }
+    .class-definition { padding: 20px 28px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(90,176,255,0.02); }
+    .class-definition p { margin: 0 0 10px; font-size: 13.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
+    .class-definition p:last-child { margin: 0; }
+    .class-criteria { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 28px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.008); }
+    .criteria-block { padding: 14px 16px; border-radius: 10px; }
+    .criteria-block-include { border: 1px solid rgba(90,176,255,0.15); background: rgba(90,176,255,0.025); }
+    .criteria-block-exclude { border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.012); }
+    .criteria-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 6px; display: block; }
+    .criteria-block-exclude .criteria-label { color: var(--text-faint); }
+    .criteria-text { font-size: 12px; color: var(--text-dim); line-height: 1.65; margin: 0; }
+
+    /* Sub-type accordion */
+    .subtypes { padding: 0 28px 20px; }
+    .subtypes-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-faint); padding: 14px 0 10px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 8px; }
+    .subtype { border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; margin-bottom: 6px; overflow: hidden; transition: border-color 140ms ease; }
+    .subtype:hover { border-color: rgba(90,176,255,0.15); }
+    .subtype-header { padding: 12px 16px; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; gap: 0 12px; align-items: center; background: rgba(255,255,255,0.01); user-select: none; }
+    .subtype-code { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; color: rgba(90,176,255,0.6); }
+    .subtype-name { font-size: 13px; font-weight: 600; color: #e0e4ea; letter-spacing: -0.01em; }
+    .subtype-toggle { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-faint); transition: transform 200ms ease; }
+    .subtype.open .subtype-toggle { transform: rotate(180deg); }
+    .subtype-body { display: none; padding: 0 16px 14px; border-top: 1px solid rgba(255,255,255,0.04); }
+    .subtype.open .subtype-body { display: block; }
+    .subtype-def { margin: 10px 0 10px; font-size: 13px; color: var(--text-dim); line-height: 1.68; }
+    .subtype-rows { display: grid; gap: 0; }
+    .subtype-row { display: grid; grid-template-columns: 110px 1fr; gap: 6px 14px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 12px; align-items: baseline; }
+    .subtype-row:last-child { border-bottom: none; }
+    .subtype-k { font-family: "IBM Plex Mono", monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); line-height: 1.6; }
+    .subtype-v { color: #c8ced8; line-height: 1.6; }
+    .subtype-v strong { color: #e0e4ea; }
+
+    /* Compound failures note */
+    .compound-note { padding: 20px 24px; border: 1px solid rgba(90,176,255,0.15); border-left: 3px solid rgba(90,176,255,0.5); border-radius: 14px; background: rgba(90,176,255,0.025); margin-bottom: 20px; }
+    .compound-note p { margin: 0 0 10px; font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
+    .compound-note p:last-child { margin: 0; }
+    .compound-note strong { color: #e0e4ea; }
+
+    /* Misclassification rules */
+    .misclass-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .misclass-item { padding: 14px 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; background: rgba(255,255,255,0.012); }
+    .misclass-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(220,80,80,0.7); margin-bottom: 6px; }
+    .misclass-text { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+
+    /* Footer */
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+
+    /* Responsive */
+    @media (max-width: 920px) {
+      .site-nav-links { gap: 1px; }
+      .site-nav-links a { padding: 5px 7px; font-size: 9px; letter-spacing: 0.05em; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; max-width: 100px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .wrap { padding-top: 24px; }
+      .taxonomy-hero-inner { grid-template-columns: 1fr; gap: 24px; }
+      .taxonomy-stats { grid-template-columns: repeat(3, 1fr); min-width: 0; }
+      .qr-grid { grid-template-columns: repeat(2, 1fr); }
+      .class-criteria { grid-template-columns: 1fr; }
+      .misclass-grid { grid-template-columns: 1fr 1fr; }
+      @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    }
+    @media (max-width: 640px) {
+      .qr-grid { grid-template-columns: 1fr; }
+      .misclass-grid { grid-template-columns: 1fr; }
+      .taxonomy-stats { grid-template-columns: 1fr; }
+      .class-header { grid-template-columns: auto 1fr; }
+      .class-meta { display: none; }
+      .subtype-header { grid-template-columns: auto 1fr auto; }
+      .site-footer__inner{padding:40px 20px 28px;}
+      .site-nav-name { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation" id="site-nav">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html" class="nav-active">Taxonomy</a>
+        <a href="./research.html">Research</a>
+        <a href="./books.html">Books</a>
+        <a href="./products.html">Products</a>
+        <a href="./diagnostic-scan.html" class="nav-cta">Run Scan</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <a href="./index.html" style="border-bottom:none; display:inline-flex; border-radius:999px;" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Diagnostic Taxonomy — Paper 11 · v6.3</div>
+        </div>
+      </div>
+      <div class="top-cta">
+        <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Hero -->
+      <section class="taxonomy-hero" aria-label="Taxonomy introduction">
+        <div class="taxonomy-hero-inner">
+          <div>
+            <span class="eyebrow">Diagnostic and Replacement Series · Paper 11</span>
+            <h2 class="taxonomy-hero-title">The Complete Diagnostic Taxonomy</h2>
+            <p class="taxonomy-hero-sub">A structural classification system for recurring failure in organisations, platforms, and institutions. <strong>Nine failure classes. Fifty-four sub-types.</strong> Formal inclusion and exclusion criteria, false positive tests, refusal conditions, and corrective directions for each.</p>
+            <p class="taxonomy-hero-sub">Recurring failure is not random. It belongs to a class. The class names the correction. The sub-type determines the correction sequence.</p>
+            <div class="taxonomy-source">
+              <strong>Source:</strong> Paper 11 — The Complete Diagnostic Taxonomy · v6.3 · May 2026 · This is the current diagnostic standard and supersedes earlier taxonomy maps, sub-type counts, and coverage drafts. Sub-type criteria attached to planned anchor papers are stated as working-standard criteria: valid for practitioner use, subject to refinement when the dedicated anchor paper is written.
+            </div>
+          </div>
+          <div>
+            <div class="taxonomy-stats">
+              <div class="taxonomy-stat">
+                <span class="taxonomy-stat-num">9</span>
+                <span class="taxonomy-stat-label">Failure classes</span>
+              </div>
+              <div class="taxonomy-stat">
+                <span class="taxonomy-stat-num">54</span>
+                <span class="taxonomy-stat-label">Sub-types</span>
+              </div>
+              <div class="taxonomy-stat">
+                <span class="taxonomy-stat-num">11</span>
+                <span class="taxonomy-stat-label">Paper in series</span>
+              </div>
+            </div>
+            <div style="margin-top:12px; padding:14px 16px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.012);">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px;">How to use this taxonomy</div>
+              <p style="margin:0; font-size:12px; color:var(--text-dim); line-height:1.65;">Use the decision tree to narrow to a class. Then locate your sub-type in the relevant class section below. A failure only qualifies when it satisfies the inclusion criteria and survives the exclusion, false-positive, and refusal tests. The table is not the diagnosis — it is the route into the criteria.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick reference -->
+      <div class="section-divider"><span class="section-divider-label">quick reference — all nine classes</span></div>
+
+      <div class="qr-grid" role="list">
+        <a href="#class-1" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 1</div><div class="qr-card-name">External Constraint Failure</div><div class="qr-card-count">7 sub-types · 1.1–1.7</div></div>
+        </a>
+        <a href="#class-2" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 2</div><div class="qr-card-name">Scaling Failure</div><div class="qr-card-count">5 sub-types · 2.1–2.5</div></div>
+        </a>
+        <a href="#class-3" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 3</div><div class="qr-card-name">Founding Model Failure</div><div class="qr-card-count">4 sub-types · 3.1–3.4</div></div>
+        </a>
+        <a href="#class-4" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 4</div><div class="qr-card-name">Boundary Failure</div><div class="qr-card-count">6 sub-types · 4.1–4.6</div></div>
+        </a>
+        <a href="#class-5" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 5</div><div class="qr-card-name">Governance Failure</div><div class="qr-card-count">5 sub-types · 5.1–5.5</div></div>
+        </a>
+        <a href="#class-6" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 6</div><div class="qr-card-name">Incentive Misalignment Failure</div><div class="qr-card-count">4 sub-types · 6.1–6.4</div></div>
+        </a>
+        <a href="#class-7" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 7</div><div class="qr-card-name">Human-System Interface Failure</div><div class="qr-card-count">6 sub-types · 7.1–7.6</div></div>
+        </a>
+        <a href="#class-8" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 8</div><div class="qr-card-name">Transition &amp; Migration Failure</div><div class="qr-card-count">4 sub-types · 8.1–8.4</div></div>
+        </a>
+        <a href="#class-9" style="border:none; padding:0; display:block;" role="listitem">
+          <div class="qr-card"><div class="qr-card-code">Class 9</div><div class="qr-card-name">Governance Compression Failure</div><div class="qr-card-count">13 sub-types · 9.1–9.13</div></div>
+        </a>
+      </div>
+
+      <!-- Decision tree -->
+      <div class="section-divider"><span class="section-divider-label">diagnostic decision tree</span></div>
+
+      <p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:72ch;">Start at Q1. Follow the path. Most real failures trigger multiple branches — the branch with the strongest structural signal is the primary failure class.</p>
+
+      <div class="decision-tree" role="table" aria-label="Diagnostic decision tree">
+        <div class="dt-row"><span class="dt-q-num">Q1</span><span class="dt-q-text">Does the organisation operate through a system it does not control — another platform's rules, a regulator, a marketplace, or infrastructure it cannot change?</span><span class="dt-q-result">Yes → Class 1</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q2</span><span class="dt-q-text">Did the failure emerge or worsen significantly as the system scaled in size, volume, or team complexity?</span><span class="dt-q-result">Yes → Class 2</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q3</span><span class="dt-q-text">Was the organisation built around an assumption about what users want, what technology can do, or what the market looks like — and has that assumption been materially disproved?</span><span class="dt-q-result">Yes → Class 3</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q4</span><span class="dt-q-text">Does the failure live at the interface between two systems that were designed separately and are now expected to work together?</span><span class="dt-q-result">Yes → Class 4</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q5</span><span class="dt-q-text">Does the system work technically, but nobody has clear authority to make, enforce, remember, or correct a specific class of decision?</span><span class="dt-q-result">Yes → Class 5</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q6</span><span class="dt-q-text">Are rational people following their incentives and producing outcomes the organisation does not want — without anyone behaving badly?</span><span class="dt-q-result">Yes → Class 6</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q7</span><span class="dt-q-text">Does the failure occur because the system assumes humans will behave in ways they cannot sustain under real conditions of load, ambiguity, or complexity?</span><span class="dt-q-result">Yes → Class 7</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q8</span><span class="dt-q-text">Is the system currently in transition — migrating, merging, upgrading, or operating under an external deadline — and the failure lives in the movement rather than the steady state?</span><span class="dt-q-result">Yes → Class 8</span></div>
+        <div class="dt-row"><span class="dt-q-num">Q9</span><span class="dt-q-text">Is a person or user absorbing institutional burden that a governing system should be carrying — around access, records, consent, proof, reputation, care, or meaning?</span><span class="dt-q-result">Yes → Class 9</span></div>
+      </div>
+
+      <!-- Compound failures -->
+      <div class="section-divider"><span class="section-divider-label">on compound failures and misclassification</span></div>
+
+      <div class="compound-note">
+        <p><strong>Most real failures are compounds.</strong> A compound failure contains a primary governing break, secondary consequences, and tertiary adaptations. Do not diagnose every symptom as a separate primary failure. The diagnostic question is always: which break, if corrected, would change the behaviour of the others? That is the primary class. The others are secondary.</p>
+        <p>The primary class governs the correction sequence. Fix the governing break first, then address secondary failures in dependency order. When two classes are triggered simultaneously, ask which one is upstream. The upstream class is primary.</p>
+      </div>
+
+      <p style="margin:0 0 8px; font-size:14px; font-weight:600; color:#e0e4ea;">Misclassification rules — do not classify by:</p>
+      <div class="misclass-grid">
+        <div class="misclass-item"><div class="misclass-label">Do not</div><div class="misclass-text">The loudest symptom. Classify by the break that makes the failure recur.</div></div>
+        <div class="misclass-item"><div class="misclass-label">Do not</div><div class="misclass-text">The department where the pain appears. The source and the symptom are rarely in the same place.</div></div>
+        <div class="misclass-item"><div class="misclass-label">Do not</div><div class="misclass-text">The first visible incident. The first incident is rarely the governing break.</div></div>
+        <div class="misclass-item"><div class="misclass-label">Do not</div><div class="misclass-text">Who is blamed. Blame follows visibility, not structural causation.</div></div>
+        <div class="misclass-item"><div class="misclass-label">Do not</div><div class="misclass-text">What would be easiest to fix. The easiest correction is rarely the structural one.</div></div>
+        <div class="misclass-item"><div class="misclass-label">Refuse if</div><div class="misclass-text">There is no recurrence. Structural diagnosis should be refused if the failure does not recur.</div></div>
+      </div>
+
+      <!-- Nine Classes -->
+      <div class="section-divider"><span class="section-divider-label">the nine classes — expand to view sub-types and criteria</span></div>
+
+      <!-- CLASS 1 -->
+      <div class="class-section" id="class-1">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 1</span>
+          <div class="class-title-block">
+            <div class="class-name">External Constraint Failure</div>
+            <div class="class-tagline">A company forced to operate through a system it does not control while carrying the user-facing consequence of failure.</div>
+          </div>
+          <div class="class-meta">
+            <span class="class-count-badge">7 sub-types</span>
+            <span class="class-toggle">▾</span>
+          </div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>A company is forced to operate through a system it does not control — a host platform, regulator, marketplace, payment authority, or infrastructure provider — while still carrying the user-facing consequence of any failure or mismatch that system produces.</em></p>
+            <p><strong>Core diagnostic question:</strong> What external system governs the condition of success while this organisation carries the consequence of failure?</p>
+            <p><strong>Boundary with Class 3:</strong> Remove the external constraint mentally. If the company's model would work without it, the failure is Class 1. If the model is structurally broken regardless, the failure is Class 3.</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include">
+              <span class="criteria-label">Include when all three hold</span>
+              <p class="criteria-text">An external system governs a condition of operating success; the company cannot change the rules of that external system; and the company carries the user-facing consequence when that system fails or misaligns.</p>
+            </div>
+            <div class="criteria-block criteria-block-exclude">
+              <span class="criteria-label">Exclude when</span>
+              <p class="criteria-text">The company voluntarily chose the dependency and can exit it without structural consequence; the external system's rules are compatible with the company's promise; or the failure is in the company's own response to the constraint rather than in the constraint itself.</p>
+            </div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype" id="st-1-1">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.1</span>
+                <span class="subtype-name">Host Platform Constraint</span>
+                <span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">The product must pass through another company's rules, payment grammar, or distribution logic to reach its users, and those rules are incompatible with the product's core promise.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">Patreon operating inside Apple's App Store subscription grammar. Creator patronage is a relationship primitive; Apple's system is a subscription primitive. The two are structurally incompatible. Patreon carries the consequence.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Refusal</span><span class="subtype-v">Refuse if the product's primitive is genuinely compatible with the host's grammar — the constraint is then operational, not structural.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify the primitive mismatch. Redesign the interface layer to govern the relationship independently of the host's grammar, or build an admissible off-platform path.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Paper anchor</span><span class="subtype-v">Paper 08 — Host-Constrained Primitive Mismatch</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.2</span>
+                <span class="subtype-name">Payment Authority Constraint</span>
+                <span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">The company owns the customer relationship but not the payment authority. A third party controls refunds, payouts, entitlement logic, or subscription state.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A creator platform where Apple owns subscription state and payout timing. The creator blames the platform. The platform cannot fix it without Apple's system acting.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Refusal</span><span class="subtype-v">Refuse if the payment authority boundary is acknowledged, navigable, and not generating recurring user-consequence.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Separate relationship authority from payment authority architecturally. Design explicit continuity for cases where payment state and relationship state diverge.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.3</span><span class="subtype-name">Marketplace Dependency Constraint</span><span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">Discovery, ranking, pricing, or access is governed externally with no structural alternative the company controls.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">An independent seller whose entire revenue depends on Amazon search ranking. When the algorithm changes, revenue changes — the seller had no say.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Build a discovery primitive the company owns: direct relationship, owned audience, or alternative distribution. The marketplace becomes optional, not load-bearing.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.4</span><span class="subtype-name">Regulatory Constraint</span><span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">External regulation reshapes the operating model faster than the architecture can follow, creating compliance regimes that grow without resolving the underlying structural mismatch.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A financial services platform simultaneously required to comply with GDPR (data minimisation) and AML regulations (maximum data retention). Both legally mandatory. They conflict architecturally.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify the specific incompatibility between regulatory requirements and operating architecture. Redesign around the constraint rather than building compliance workarounds inside it.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.5</span><span class="subtype-name">Infrastructure Dependency Constraint</span><span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">The product's reliability has a ceiling set by a provider the company does not control. When the upstream provider degrades, the product degrades with it.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A SaaS platform whose availability is directly capped by AWS us-east-1 uptime. When AWS degrades, the platform degrades. The platform carries the customer complaint.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Map the propagation chain from provider to user consequence. Design redundancy at each single-point dependency. Where redundancy is structurally impossible, disclose the ceiling to users.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.6</span><span class="subtype-name">User-Expectation Constraint</span><span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">Users now structurally expect something the architecture was never built to provide — continuity, ownership, personalisation — and every product improvement falls short because the underlying architecture cannot satisfy the expectation.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">NHS primary care: patients expect continuity of relationship. The architecture provides continuity of record. The gap between relationship and record is structural and cannot be closed with record improvements alone.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Paper anchor</span><span class="subtype-v">Paper 03 · NHS proof set</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="subtype">
+              <div class="subtype-header" onclick="toggleSubtype(this)">
+                <span class="subtype-code">1.7</span><span class="subtype-name">Inherited Architecture Constraint</span><span class="subtype-toggle">▾</span>
+              </div>
+              <div class="subtype-body">
+                <p class="subtype-def">The organisation was designed for a world that no longer exists. Reform programmes stall at the same architectural boundary each cycle because the founding structure cannot be redesigned from inside it.</p>
+                <div class="subtype-rows">
+                  <div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A national public institution designed around in-person, paper-based governance trying to operate digital services. Each reform programme hits the same data-sharing, consent, and authority boundary.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Apply the Institutional Replacement Pipeline (Paper 5): diagnose the governing break, extract the kernel of what the architecture must carry, redesign around that kernel rather than reforming the inherited structure.</span></div>
+                  <div class="subtype-row"><span class="subtype-k">Paper anchor</span><span class="subtype-v">Papers 04 · 05 — Institution Migration · Institutional Replacement Pipeline</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 2 -->
+      <div class="class-section" id="class-2">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 2</span>
+          <div class="class-title-block">
+            <div class="class-name">Scaling Failure</div>
+            <div class="class-tagline">The system worked at one scale and broke at another. The design did not change; the load exceeded what it could carry.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">5 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The failure is not in the people or the execution — it is in the mismatch between the design's load assumptions and the current load.</em></p>
+            <p><strong>Core diagnostic question:</strong> What scale condition did the original design never have to survive?</p>
+            <p><strong>Boundary with Class 5:</strong> Ask whether the authority problem would exist at the original scale. If yes, the failure is Class 5 — it was always a governance problem, scale merely made it visible. If no, the failure is Class 2.</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include">
+              <span class="criteria-label">Include when all three hold</span>
+              <p class="criteria-text">The system functioned adequately at a prior scale; the failure emerged or worsened significantly as the system scaled; and the design was not updated to match the new operating conditions.</p>
+            </div>
+            <div class="criteria-block criteria-block-exclude">
+              <span class="criteria-label">Exclude when</span>
+              <p class="criteria-text">The authority to govern the scaled system is missing (Class 5); humans absorb scale load because the system was designed around impossible human behaviour (Class 7); or the failure exists at original scale as well as current scale.</p>
+            </div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">2.1</span><span class="subtype-name">Volume Scaling Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The same process runs on more inputs than it was designed for. Quality, accuracy, or reliability degrades proportionally to volume.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A content moderation system designed for 10,000 posts/day now receiving 10 million. Same rules, same team structure — the design was never built for this load.</span></div><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Redesign the process for the real operating volume. Do not solve volume scaling failure with more people inside an unchanged process design.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">2.2</span><span class="subtype-name">Complexity Scaling Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Edge cases grow faster than the rules designed to handle them. At founding scale the common cases dominate. At current scale the edge cases multiply until they become the majority.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A two-sided marketplace's trust and safety policies. At 1,000 users, common cases dominate. At 100 million users, edge cases — fraud patterns, ambiguous content, cross-cultural norms — become the majority of case load.</span></div><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Audit the ratio of common-case to edge-case volume. Redesign the governance layer for the actual complexity profile now present, not the founding profile.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">2.3</span><span class="subtype-name">Coordination Scaling Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Informal coordination that worked at small scale has no structural replacement at large scale. Nobody knows who owns the decision when twelve teams need to make it simultaneously.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">An engineering organisation that grew from 5 to 500 engineers while retaining the same ad hoc coordination practices. Decisions that two people could make in a corridor now require twelve teams and three timezones with no owned process.</span></div><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Build formal coordination primitives for the scale now present: decision ownership, escalation paths, cross-team authority, and memory systems.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">2.4</span><span class="subtype-name">Trust Scaling Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The platform was built on human reputation and relationships. At scale, those mechanisms stop working — the signals are too thin, the relationships too distant — and fraud, abuse, and quality collapse fill the gap.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">Airbnb at 1,000 listings: host reputation is visible, reviews meaningful. At 8 million listings: the same review system is gamed, reputation signals manufactured, trust architecture structurally insufficient.</span></div><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Redesign the trust primitives for actual operating scale: structural verification, statistical signal detection, and governance mechanisms that do not depend on relationship density.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">2.5</span><span class="subtype-name">Maintenance Decay Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system was never designed for the maintenance load it now carries. Technical debt, documentation decay, and dependency accumulation create a structural maintenance burden that exceeds the organisation's capacity to manage it.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Example</span><span class="subtype-v">A legacy codebase where the maintenance burden of undocumented dependencies exceeds the capacity of the current engineering team — even with headcount increases the system continues to degrade.</span></div><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify the maintenance primitives the system must carry and redesign for sustainability at the actual scale of the maintenance load, not the founding load.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 3 -->
+      <div class="class-section" id="class-3">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 3</span>
+          <div class="class-title-block">
+            <div class="class-name">Founding Model Failure</div>
+            <div class="class-tagline">The organisation was built around an assumption that has been materially disproved.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">4 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The founding premise — about what users want, what technology can do, what the market looks like, or what the competitive environment allows — was wrong or has become wrong. The organisation continues to operate as if the premise holds.</em></p>
+            <p><strong>Core diagnostic question:</strong> Which founding assumption is the organisation still executing against that has been materially disproved?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">A core premise on which the operating model was built has been materially disproved; the organisation continues to execute against the original model; and the recurring failure traces back to that original mismatch.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The failure is caused by an external constraint the organisation cannot remove (Class 1); or the failure is in execution of a sound model rather than in the model itself.</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">3.1</span><span class="subtype-name">Market Premise Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The organisation was built for a market that does not exist at the assumed size, shape, or willingness to pay.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Diagnose what market actually exists and whether the product can be redesigned to serve it. Do not iterate the product toward the assumed market — restate the premise.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">3.2</span><span class="subtype-name">Technology Premise Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The product's core value depended on a technology capability that does not exist, cannot be achieved at the assumed cost, or has been commoditised.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify which layer of the value stack remains valid and redesign the model around what is genuinely achievable at the real technology cost.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">3.3</span><span class="subtype-name">Economic Premise Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The unit economics the model was built on cannot be achieved at the operating scale required for sustainability.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Restate the unit economics at real operating parameters. Identify whether a viable model exists within those parameters before continuing to execute the original model.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">3.4</span><span class="subtype-name">Competitive Premise Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The competitive position the model assumed — first-mover advantage, network effects, structural moat — has been eroded or never materialised.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Diagnose whether a defensible position exists given the actual competitive landscape. The correction is a new model, not a new marketing strategy.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 4 -->
+      <div class="class-section" id="class-4">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 4</span>
+          <div class="class-title-block">
+            <div class="class-name">Boundary Failure</div>
+            <div class="class-tagline">The failure lives at the interface between two systems designed separately and now expected to work together.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">6 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>Two or more systems are expected to interoperate, but their boundaries — around data, authority, timing, vocabulary, or ownership — were designed independently and are now structurally incompatible.</em></p>
+            <p><strong>Core diagnostic question:</strong> Where do two systems meet, and what does each system assume about the other that the other cannot satisfy?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">A failure lives at the interface between two systems; both systems function adequately in isolation; and the failure recurs at the boundary regardless of changes made within either system.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The failure is within a single system rather than at an interface; or the boundary is shared with an external party the organisation cannot negotiate with (Class 1).</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.1</span><span class="subtype-name">Data Boundary Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Two systems expect to share data that is defined, formatted, or updated differently in each. The mismatch is structural, not a communication failure.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Define the canonical data structure that both systems must work from, and establish which system owns it. Do not build translation layers indefinitely — fix the source definition.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.2</span><span class="subtype-name">Authority Boundary Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Two systems each believe they have authority over the same decision. The conflict is structural: both systems were designed to own the same thing.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Assign formal authority to one system and establish the interface through which the other system receives the decision. One system governs, the other consults.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.3</span><span class="subtype-name">Timing Boundary Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Two systems operate at different time scales and the mismatch creates structural failure at the handoff point.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify the timing mismatch and design an explicit buffer or state-management layer at the boundary that holds state until both systems can align.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.4</span><span class="subtype-name">Vocabulary Boundary Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Two systems use the same word to mean structurally different things, creating failures that appear to be communication problems but are actually definitional conflicts.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Produce a bounded vocabulary that defines each term precisely for each system, and redesign handoffs to use the bounded vocabulary rather than natural language.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.5</span><span class="subtype-name">Ownership Boundary Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Nobody owns the space between two systems. The interface is everyone's problem and therefore nobody's problem.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Assign formal ownership of the interface itself. The interface is a system; it requires a governing owner, defined inputs and outputs, and a correction path when it fails.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">4.6</span><span class="subtype-name">Cascading Dependency Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">A failure in one system triggers failures in dependent systems in a sequence that amplifies faster than any single system can absorb or correct.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Map the dependency chain and identify the structural isolation points that are missing. Design circuit-breaker conditions that prevent cascade propagation before redesigning the dependent systems.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 5 -->
+      <div class="class-section" id="class-5">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 5</span>
+          <div class="class-title-block">
+            <div class="class-name">Governance Failure</div>
+            <div class="class-tagline">The system works technically, but nobody has clear authority to make, enforce, remember, or correct a specific class of decision.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">5 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The failure is not in the technology or the people — it is in the absence of a structural decision-making, enforcement, memory, or correction authority for a specific class of decisions.</em></p>
+            <p><strong>Core diagnostic question:</strong> What class of decision has no structural owner — no person or system with the authority, information, and accountability to make, enforce, remember, or correct it?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">A specific class of decision recurs; the decision has no structural owner; and the failure repeats because the absence of authority is not remedied by adding more people, process, or technology within the current structure.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">Authority exists but is poorly exercised — that is an execution failure. Exclude if the governance gap is caused by scaling (Class 2) rather than by an inherent absence of authority design.</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">5.1</span><span class="subtype-name">Decision Authority Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">No person or system has the structural authority to make a specific class of decision. Decisions are deferred, escalated, or made inconsistently because ownership is absent.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Assign formal decision authority to a specific role or system. Specify the scope, the information required, and the escalation conditions. Communicate the assignment structurally, not through culture.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">5.2</span><span class="subtype-name">Enforcement Authority Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Decisions are made but there is no structural authority to enforce them. Rules exist on paper; nobody is structurally empowered to require compliance.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Separate the decision-making authority from the enforcement authority and assign both explicitly. Enforcement requires its own owner, its own information, and its own correction path.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">5.3</span><span class="subtype-name">Institutional Memory Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Decisions are made but not recorded in a form that persists across personnel changes. The same decision is remade repeatedly because the prior decision left no structural trace.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Design a memory system for the specific class of decision: who owns it, where it is recorded, who can retrieve it, and how it is updated. Memory is a structural function, not a documentation task.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">5.4</span><span class="subtype-name">Correction Authority Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">When decisions produce wrong outcomes, there is no structural authority to recognise the error and correct it. Errors persist because the correction path does not exist.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Design a correction authority that is distinct from the decision authority: who can observe outcomes, who can name errors, and who can override or revise the original decision.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">5.5</span><span class="subtype-name">Feedback Loop Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system has no structural mechanism for converting outcomes into decision inputs. Decisions are made without access to what previous decisions produced.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Design a feedback loop as a structural component: what signal is captured, by what system, in what form, and how it reaches the decision authority on the next cycle.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 6 -->
+      <div class="class-section" id="class-6">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 6</span>
+          <div class="class-title-block">
+            <div class="class-name">Incentive Misalignment Failure</div>
+            <div class="class-tagline">Rational people following their incentives produce outcomes the organisation does not want — without anyone behaving badly.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">4 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The incentive structure produces outcomes that diverge from organisational goals. Nobody is acting irrationally or maliciously. The structure itself is the problem.</em></p>
+            <p><strong>Core diagnostic question:</strong> What rational behaviour does the current incentive structure reward that produces the outcome the organisation does not want?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">The failure produces outcomes the organisation does not want; the people producing those outcomes are following rational incentives; and changing the people without changing the incentive structure would not change the outcome.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The failure is caused by deliberate bad behaviour rather than rational incentive-following; or the incentive structure is sound and the failure is in execution or measurement.</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">6.1</span><span class="subtype-name">Measurement Misalignment</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The metric being optimised is not the outcome the organisation actually needs. People maximise the measured thing at the expense of the unmeasured thing that matters.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify what is being measured versus what the organisation actually needs. Redesign the measurement system around the genuine outcome, not its proxy.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">6.2</span><span class="subtype-name">Reward Misalignment</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The reward structure compensates behaviour that produces the wrong outcome. People are rewarded for activity that looks right but produces structural harm.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Map the reward structure against the actual outcomes it produces. Redesign so the reward is coupled to the structural outcome, not the visible activity.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">6.3</span><span class="subtype-name">Time Horizon Misalignment</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Decision-makers are rewarded on short-term outcomes; the structural costs of those decisions are paid on long-term timescales they will not personally experience.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Extend the consequence window for decision-makers through delayed vesting, structural accountability, or decision logging that creates personal consequence for long-term outcomes.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">6.4</span><span class="subtype-name">Principal-Agent Misalignment</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The agent is structurally positioned to benefit from outcomes that harm the principal. The relationship is structurally conflicted, not a matter of individual integrity.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify the structural conflict of interest and redesign the relationship so the agent's reward is coupled to the principal's outcome, not to an intermediate metric the agent controls.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 7 -->
+      <div class="class-section" id="class-7">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 7</span>
+          <div class="class-title-block">
+            <div class="class-name">Human-System Interface Failure</div>
+            <div class="class-tagline">The system assumes humans will behave in ways they cannot sustain under real conditions of load, ambiguity, or complexity.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">6 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The failure is not in the humans — it is in the system's design assumption that humans will reliably do something they structurally cannot sustain. The system places cognitive, procedural, or interpretive demands that exceed what humans can reliably carry under real operating conditions.</em></p>
+            <p><strong>Core diagnostic question:</strong> What does this system require humans to reliably do that humans cannot reliably do under actual conditions?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">The failure traces to a structural assumption about human behaviour; that assumption is violated under real operating conditions of load, ambiguity, or complexity; and the failure would disappear if the system stopped making that assumption.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The failure is caused by individual bad behaviour or deliberate violation. Exclude if the human load has simply grown beyond design capacity — that is Class 2 (Volume Scaling Failure).</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.1</span><span class="subtype-name">Cognitive Load Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system requires humans to hold too much in working memory simultaneously. Errors are produced not by incompetence but by structural overload.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify what the system is requiring humans to hold in working memory and redesign the system to carry it structurally. Move the cognitive load from the human to the system.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.2</span><span class="subtype-name">Ambiguity Absorption Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system produces ambiguous outputs or instructions and relies on humans to resolve the ambiguity consistently. The resolution is inconsistent because the ambiguity is structural.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify where the system produces ambiguity and redesign it to produce unambiguous outputs. Move ambiguity resolution from humans to system design.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.3</span><span class="subtype-name">Procedure-Reality Gap Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The documented procedure and the real operating practice have diverged. Humans work around the procedure to get the job done; the procedure is nominal.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Document the actual practice and redesign the formal procedure around it. Do not enforce a nominal procedure against a diverged reality — the divergence is a signal about what the system actually requires.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.4</span><span class="subtype-name">Alarm and Signal Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system produces more signals than humans can process, or produces signals that cannot be distinguished from noise. Critical signals are missed because the signal architecture is structurally unusable.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Audit the signal-to-noise ratio. Redesign the signal architecture so critical signals are structurally distinguishable and actionable without requiring sustained human attention to monitor noise.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.5</span><span class="subtype-name">Black Box Decision Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The system makes decisions humans cannot understand, override, or correct. Accountability is structurally absent because the decision process is opaque.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Design a legibility layer that makes the system's decisions understandable, a correction path that allows humans to override or revise them, and an accountability structure that assigns responsibility for outcomes.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">7.6</span><span class="subtype-name">Shadow System Proliferation</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Humans have built informal systems — spreadsheets, workarounds, offline processes — to do the work the formal system cannot do. The shadow systems have become load-bearing.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Map what the shadow systems are doing that the formal system cannot. Redesign the formal system to carry that function structurally, then retire the shadow systems in dependency order.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 8 -->
+      <div class="class-section" id="class-8">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 8</span>
+          <div class="class-title-block">
+            <div class="class-name">Transition and Migration Failure</div>
+            <div class="class-tagline">The system is in movement — migrating, merging, upgrading — and the failure lives in the transition rather than the steady state.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">4 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The failure is not in the origin state or the target state — it is in the transition itself. The movement between states has not been designed as a governed sequence, and failure occurs in the space between.</em></p>
+            <p><strong>Core diagnostic question:</strong> What is the system in movement between, and where does the transition itself produce failure that neither the origin nor the target state contains?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">The system is currently in transition between states; the failure occurs in the transition itself rather than in the origin or target state; and the failure would not occur if the system were stable at either end.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The failure is in the target state design rather than the transition; or the failure is a steady-state failure that was present before the transition began.</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">8.1</span><span class="subtype-name">Parallel Operation Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The old system and the new system are running simultaneously, creating conflicting states, duplicate processes, and accountability gaps in the overlap zone.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Design the parallel operation period as a governed transition with a defined handover sequence, explicit ownership at each stage, and a retirement date for the origin system.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">8.2</span><span class="subtype-name">Dependency Sequencing Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The transition is being executed in the wrong order. Changes are being made to dependent systems before the systems they depend on have been changed.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Map the dependency order and redesign the transition sequence so dependencies are resolved before the systems that depend on them are migrated.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">8.3</span><span class="subtype-name">Identity Continuity Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">During a merger, acquisition, or reorganisation, the new entity cannot establish a stable identity — who owns what, who has authority, whose processes govern — and the resulting ambiguity produces recurring failure.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Define the governing structure of the new entity explicitly before the transition completes. Authority, ownership, and process governance must be assigned to the new entity, not carried over implicitly from both predecessors.</span></div></div></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">8.4</span><span class="subtype-name">Deadline-Driven Compression Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">An external deadline has compressed the transition timeline to the point where structural dependencies cannot be resolved in order. The deadline produces a structurally incomplete transition.</p><div class="subtype-rows"><div class="subtype-row"><span class="subtype-k">Correction</span><span class="subtype-v">Identify which dependencies cannot be resolved within the deadline and design an explicit interim state that is structurally stable until the remaining dependencies can be addressed. Do not compress the dependency sequence — compress the scope of what the deadline delivers.</span></div></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLASS 9 -->
+      <div class="class-section" id="class-9">
+        <div class="class-header" onclick="toggleClass(this)" aria-expanded="false">
+          <span class="class-code">Class 9</span>
+          <div class="class-title-block">
+            <div class="class-name">Governance Compression Failure</div>
+            <div class="class-tagline">A person absorbs institutional burden that a governing system should be carrying — around access, records, consent, proof, reputation, care, or meaning.</div>
+          </div>
+          <div class="class-meta"><span class="class-count-badge">13 sub-types</span><span class="class-toggle">▾</span></div>
+        </div>
+        <div class="class-body">
+          <div class="class-definition">
+            <p><em>The institution compresses its own governance obligations onto the individual. The individual must carry administrative, evidential, reputational, or relational burden that the institution was designed to carry — and cannot carry it without losing access to what the institution controls.</em></p>
+            <p><strong>Core diagnostic question:</strong> What institutional obligation has been transferred to the individual — and what does the individual lose when they cannot carry it?</p>
+          </div>
+          <div class="class-criteria">
+            <div class="criteria-block criteria-block-include"><span class="criteria-label">Include when</span><p class="criteria-text">An individual is absorbing burden that a governing institution should carry; that burden recurs structurally rather than as a one-off administrative friction; and the individual loses access or entitlement when they cannot carry the burden.</p></div>
+            <div class="criteria-block criteria-block-exclude"><span class="criteria-label">Exclude when</span><p class="criteria-text">The administrative burden is genuinely reasonable given the nature of what is being accessed; or the failure is a one-off error rather than a structural pattern.</p></div>
+          </div>
+          <div class="subtypes">
+            <div class="subtypes-label">Sub-types · 9.1–9.13</div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.1</span><span class="subtype-name">Access Allocation Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Access to a resource or entitlement is allocated through a process the individual cannot navigate without specialist knowledge, persistent effort, or insider information. The allocation mechanism compresses the institution's obligation to distribute access fairly onto the individual's capacity to navigate complexity.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.2</span><span class="subtype-name">Record-Return Paradox</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The individual needs records to access entitlements, but the institution holds those records and will not release them without prior authorisation from the entitlement the individual cannot yet access. A closed loop where access requires proof and proof requires access.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.3</span><span class="subtype-name">Consent Compression Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Consent is obtained in a form — volume, complexity, or frequency — that makes genuine informed consent structurally impossible. The individual must consent without understanding, or lose access.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.4</span><span class="subtype-name">Verification Burden Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The institution places the burden of identity or eligibility verification on the individual in a form that creates structural exclusion for those who cannot provide the required documentation.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.5</span><span class="subtype-name">Reputation Compression Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The individual's access or treatment is determined by a reputational signal they cannot understand, contest, or correct. The reputation system is opaque and the individual cannot navigate it.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.6</span><span class="subtype-name">Relationship Continuity Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">A relationship that requires continuity — care, support, professional relationship — is interrupted by institutional structure, and the individual must rebuild it from scratch each time.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.7</span><span class="subtype-name">Commitment Compression Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The institution makes commitments it cannot keep, and the individual must absorb the gap between the commitment and the reality without recourse.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.8</span><span class="subtype-name">Care Continuity Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Care — medical, social, or professional — is fragmented by institutional structure so that no single actor carries the individual's full picture. The individual must carry their own care continuity across a system designed to provide it.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.9</span><span class="subtype-name">Entitlement Reset Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">An entitlement the individual had built up is reset — by system change, institutional restructuring, or policy shift — without acknowledgment or compensation. The individual must restart from zero.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.10</span><span class="subtype-name">Narrative Compression Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The institution reduces the individual to a category or data point that does not capture their actual situation. The individual must carry the burden of being misrepresented in a system that makes decisions based on that misrepresentation.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.11</span><span class="subtype-name">Punitive Memory Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The institution retains a record of the individual's past failure — a penalty, a debt, a classification — beyond the point where that record serves a structural purpose. The individual cannot escape the record.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.12</span><span class="subtype-name">Category Misassignment Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">The individual has been placed in the wrong category by the institution — the wrong risk band, the wrong eligibility tier, the wrong classification — and cannot correct the assignment through normal channels.</p></div></div>
+            <div class="subtype"><div class="subtype-header" onclick="toggleSubtype(this)"><span class="subtype-code">9.13</span><span class="subtype-name">Treatment Continuity Failure</span><span class="subtype-toggle">▾</span></div><div class="subtype-body"><p class="subtype-def">Ongoing treatment — medical, therapeutic, legal, or administrative — is interrupted by institutional structure rather than by the individual's situation. The interruption creates harm that the institution is not designed to track or repair.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="section-divider"><span class="section-divider-label">apply the taxonomy</span></div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
+        <div style="padding:22px 24px; border:1px solid rgba(90,176,255,0.18); border-radius:14px; background:rgba(90,176,255,0.03);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Run the scan first</div>
+          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;">Use the 60-Second Scan to surface your system's purpose, primitive, and failure signal before applying the taxonomy. The scan answers narrow the class before you enter the criteria.</p>
+          <a class="btn btn-primary" href="./diagnostic-scan.html">RUN THE 60-SECOND SCAN →</a>
+        </div>
+        <div style="padding:22px 24px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.012);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px;">Commission a diagnostic</div>
+          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;">If you have a clear recurring failure and need the taxonomy applied by a practitioner, send the Five-Line Brief. The Diagnostic Artifact names the governing break and produces the correction sequence.</p>
+          <a class="btn" data-mailto="1">SEND FIVE-LINE BRIEF</a>
+        </div>
+      </div>
+
+      <div style="padding:16px 20px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); font-size:12.5px; color:var(--text-faint); line-height:1.65;">
+        <strong style="color:var(--text-dim);">Paper 11</strong> is the pivot paper of the Diagnostic and Replacement Series. Papers 12–59 are the anchor papers for the sub-types this taxonomy names — each will go deeper into one class or sub-type. Paper 11 stays as the reference point. <a class="link-blue" href="./research.html">View the full research series →</a>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
+            <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
+          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
+          <ul class="site-footer__list">
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./trilogy.html">Trilogy</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('site-nav');
+  var hdr = document.querySelector('header');
+  if (nav && hdr) {
+    window.addEventListener('scroll', function(){
+      nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0);
+    }, {passive:true});
+  }
+  var e = 'hello'+'@'+'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){
+    el.setAttribute('href','mailto:'+e+'?subject=Structural+Diagnosis+Inquiry');
+  });
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+})();
+
+function toggleClass(header) {
+  var section = header.parentElement;
+  var isOpen = section.classList.contains('open');
+  section.classList.toggle('open', !isOpen);
+  header.setAttribute('aria-expanded', !isOpen);
+}
+
+function toggleSubtype(header) {
+  var subtype = header.parentElement;
+  subtype.classList.toggle('open');
+}
+
+// Open class from anchor link
+(function(){
+  function openFromHash() {
+    var hash = window.location.hash;
+    if (!hash) return;
+    var el = document.querySelector(hash);
+    if (el && el.classList.contains('class-section')) {
+      el.classList.add('open');
+      var hdr = el.querySelector('.class-header');
+      if (hdr) hdr.setAttribute('aria-expanded', 'true');
+      setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
+    }
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
+</body>
+</html>
