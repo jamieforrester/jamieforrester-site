@@ -420,6 +420,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media (max-width: 720px) {
   .orientation-grid { grid-template-columns: 1fr !important; }
 }
+@media (max-width: 860px) {
+  [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+}
 @media (max-width: 600px) {
   .hero-btn-row { grid-template-columns: 1fr !important; }
   .hero-stat-grid { gap: 6px !important; }
@@ -439,10 +442,13 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     </a>
     <div class="site-nav-links">
       <a href="./services.html">Services</a>
-      <a href="./examples.html">Examples</a>
       <a href="./method.html">Method</a>
+      <a href="./examples.html">Examples</a>
+      <a href="./taxonomy.html">Taxonomy</a>
       <a href="./research.html">Research</a>
-      <a data-mailto="1" class="nav-cta">Email</a>
+      <a href="./books.html">Books</a>
+      <a href="./products.html">Products</a>
+      <a href="./diagnostic-scan.html" class="nav-cta">Run Scan</a>
     </div>
   </div>
 </nav>
@@ -540,6 +546,55 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
             <div class="qv"><strong>Email five lines</strong> plus any relevant materials you already have.</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <div class="section-divider"><span class="section-divider-label">the method behind the practice</span></div>
+
+    <section aria-label="Method architecture" style="margin-bottom:32px;">
+      <div style="display:grid; grid-template-columns:1fr auto; align-items:start; gap:20px; margin-bottom:18px; flex-wrap:wrap;">
+        <div>
+          <p class="eyebrow">Diagnostic architecture</p>
+          <h2 style="margin:0 0 10px; font-size:clamp(1.25rem,1.1rem+0.5vw,1.6rem); font-weight:700; letter-spacing:-0.03em; color:#fff; line-height:1.2;">The practice runs on a governed diagnostic system.</h2>
+          <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:68ch;">Every artifact is produced through the same sequence. Not personal judgment — a method with four stages, a classification taxonomy, and a formal proof standard.</p>
+        </div>
+        <a href="./method.html" class="btn" style="align-self:center; white-space:nowrap;">READ THE METHOD →</a>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px;">
+        <a href="./diagnostic-scan.html" style="border:none; padding:0; display:block;">
+          <div style="padding:18px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:14px; background:rgba(90,176,255,0.03); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 01</div>
+            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:-0.02em; line-height:1.25;">60-Second Scan</div>
+            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Four questions that surface the structural reality of a system before analysis begins. Purpose → Primitive → Rules → Failure.</div>
+          </div>
+        </a>
+        <a href="./taxonomy.html" style="border:none; padding:0; display:block;">
+          <div style="padding:18px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.65); border-radius:14px; background:rgba(90,176,255,0.035); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 02</div>
+            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:-0.02em; line-height:1.25;">Diagnostic Taxonomy</div>
+            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Nine failure classes · 54 sub-types · formal inclusion, exclusion, and refusal criteria. The classification standard for recurring structural failure.</div>
+          </div>
+        </a>
+        <a href="./services.html" style="border:none; padding:0; display:block;">
+          <div style="padding:18px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.8); border-radius:14px; background:rgba(90,176,255,0.04); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 03</div>
+            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:-0.02em; line-height:1.25;">Artifact Pipeline</div>
+            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Failure signal through to builder-ready artifact. Governed production sequence — not subjective consulting. Every artifact follows the same governed process.</div>
+          </div>
+        </a>
+        <a href="./examples.html" style="border:none; padding:0; display:block;">
+          <div style="padding:18px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid var(--cta-blue); border-radius:14px; background:rgba(90,176,255,0.05); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 04</div>
+            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:6px; letter-spacing:-0.02em; line-height:1.25;">Proof Sets</div>
+            <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Three systems, nine public proof documents, four restricted specifications. Same method applied to Outlier AI, NHS Primary Care, and Patreon / Apple IAP.</div>
+          </div>
+        </a>
+      </div>
+
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end;">
+        <a href="./diagnostic-scan.html" class="btn btn-primary">RUN THE 60-SECOND SCAN →</a>
+        <a href="./taxonomy.html" class="btn">VIEW DIAGNOSTIC TAXONOMY →</a>
       </div>
     </section>
 
@@ -797,9 +852,9 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     <section class="card" aria-label="Selected research">
       <div class="label-row">
         <span class="label">// Research spine</span>
-        <span class="label-note">Diagnostic Lens Trilogy · selected from the 10-paper Diagnostic and Replacement Series</span>
+        <span class="label-note">Diagnostic Lens Trilogy · from the 11-paper Diagnostic and Replacement Series</span>
       </div>
-      <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68; max-width:80ch;">The Diagnostic Lens Trilogy is the entry point into a ten-paper public research sequence. Papers 1&#x2013;3 diagnose recurring structural failure. Papers 4&#x2013;6 define replacement, substitute construction, and admissibility. Papers 7&#x2013;8 name the correction sequence and host constraint. Papers 9&#x2013;10 reduce the series to coordination kernels and turn that reduction into a generative method. The papers define the public laws behind the artifacts; the client work applies those laws to a bounded failure pattern.</p>
+      <p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.68; max-width:80ch;">The Diagnostic Lens Trilogy is the entry point into an eleven-paper public research sequence. Papers 1&#x2013;3 diagnose recurring structural failure. Papers 4&#x2013;6 define replacement, substitute construction, and admissibility. Papers 7&#x2013;8 name the correction sequence and host constraint. Papers 9&#x2013;10 reduce the series to coordination kernels and turn that reduction into a generative method. Paper 11 establishes the complete diagnostic taxonomy: nine failure classes, fifty-four sub-types. The papers define the public laws behind the artifacts; the client work applies those laws to a bounded failure pattern.</p>
       <div class="trilogy-card-grid">
         <article class="trilogy-index-card trilogy-index-card-1" aria-label="Paper 01">
           <div class="trilogy-index-head">
@@ -855,12 +910,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
       <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06);">
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <div class="body-stat"><span class="body-stat-num">10</span><span class="body-stat-label">Public papers</span></div>
+          <div class="body-stat"><span class="body-stat-num">11</span><span class="body-stat-label">Papers written</span></div>
           <div class="body-stat"><span class="body-stat-num">5</span><span class="body-stat-label">Books in progress</span></div>
           <div class="body-stat"><span class="body-stat-num">2</span><span class="body-stat-label">Proving grounds</span></div>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn btn-primary" href="./research.html">View all 10 papers →</a>
+          <a class="btn btn-primary" href="./research.html">View all 11 papers →</a>
           <a class="btn" href="./trilogy.html">READ THE TRILOGY</a>
         </div>
       </div>
@@ -1002,9 +1057,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./examples.html">Examples</a></li>
             <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
