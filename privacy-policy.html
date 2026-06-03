@@ -43,13 +43,13 @@
     .site-nav-brand:hover { background: transparent; }
     .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
-    .site-nav-links { display: flex; align-items: center; gap: 4px; }
-    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
-    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; transition: color 160ms ease; }
+    .site-nav-links a:hover { color: #fff; }
     .nav-short { display: none; }
     .nav-full { display: inline; }
-    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
-    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    /* nav-cta removed */
+    
     .nav-how-short { display: none; }
 
     /* Header */
@@ -65,7 +65,7 @@
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
     .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
     .top-cta-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
     .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
     .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
@@ -153,7 +153,8 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   
-</style>
+    @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -166,10 +167,12 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./examples.html">Examples</a>
         <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html">Taxonomy</a>
         <a href="./research.html">Research</a>
-        <a data-mailto="1" class="nav-cta">Email</a>
+        <a href="./books.html">Books</a>
+        <a href="./products.html">Products</a>
       </div>
     </div>
   </nav>
@@ -184,18 +187,18 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Privacy, transparency, and responsible handling of personal data</div>
+          <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./examples.html">EXAMPLES</a>
         <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn btn-primary" data-mailto="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          EMAIL
-        </a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
     </header>
 
@@ -227,7 +230,7 @@
         <p class="lead">For the purposes of UK data protection law, the data controller for this website and related business communications is:</p>
         <div class="mini-grid">
           <div class="mini"><h3>Name</h3><p>Jamie Forrester</p></div>
-          <div class="mini"><h3>Contact email</h3><p><a data-mailto="1"><span class="__cf_email__" data-cfemail="234b464f4f4c6349424e4a46454c515146505746510d404c4e">[email&#160;protected]</span></a></p></div>
+          <div class="mini"><h3>Contact email</h3><p><a data-mailto="1"><span class="__cf_email__" data-cfemail="234b464f4f4c6349424e4a46454c515146505746510d404c4e"><a data-mailto="1" style="cursor:pointer;">&#104;&#101;&#108;&#108;&#111;&#64;&#106;&#97;&#109;&#105;&#101;&#102;&#111;&#114;&#114;&#101;&#115;&#116;&#101;&#114;&#46;&#99;&#111;&#109;</a></span></a></p></div>
           <div class="mini"><h3>Business address</h3><p>Edinburgh, Scotland, UK</p></div>
         </div>
         <div class="section-block">
@@ -284,7 +287,7 @@
           <div class="basis-item"><span class="basis-item-purpose">Consent-based purposes</span><span class="basis-item-basis">Consent</span><span class="basis-item-note">Where consent is the basis, this will be made clear at the point of collection and may be withdrawn at any time.</span></div>
         </div>
         <div class="callout" style="margin-top:16px;">
-          <p><strong>Right to object.</strong> Where processing is based on legitimate interests, you have the right to object at any time. To exercise this right, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="6f070a0303002f050e02060a09001d1d0a1c1b0a1d410c0002">[email&#160;protected]</span></a>. Processing will stop unless there are compelling legitimate grounds that override your interests.</p>
+          <p><strong>Right to object.</strong> Where processing is based on legitimate interests, you have the right to object at any time. To exercise this right, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="6f070a0303002f050e02060a09001d1d0a1c1b0a1d410c0002"><a data-mailto="1" style="cursor:pointer;">&#104;&#101;&#108;&#108;&#111;&#64;&#106;&#97;&#109;&#105;&#101;&#102;&#111;&#114;&#114;&#101;&#115;&#116;&#101;&#114;&#46;&#99;&#111;&#109;</a></span></a>. Processing will stop unless there are compelling legitimate grounds that override your interests.</p>
         </div>
       </section>
 
@@ -323,7 +326,7 @@
           <p>This website uses Google Fonts, which may result in your browser making a request to Google's servers. Google's privacy policy governs any data processed in that context. No engagement-related personal data is transmitted via font loading.</p>
         </div>
         <div class="callout">
-          <p>If you have questions about the safeguards applied to any specific transfer, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="7f171a1313103f151e12161a19100d0d1a0c0b1a0d511c1012">[email&#160;protected]</span></a>.</p>
+          <p>If you have questions about the safeguards applied to any specific transfer, contact <a class="link-blue" data-mailto="1"><span class="__cf_email__" data-cfemail="7f171a1313103f151e12161a19100d0d1a0c0b1a0d511c1012"><a data-mailto="1" style="cursor:pointer;">&#104;&#101;&#108;&#108;&#111;&#64;&#106;&#97;&#109;&#105;&#101;&#102;&#111;&#114;&#114;&#101;&#115;&#116;&#101;&#114;&#46;&#99;&#111;&#109;</a></span></a>.</p>
         </div>
       </section>
 
@@ -379,7 +382,7 @@
         </ul>
         <div class="section-block">
           <h3 class="section-head">How to exercise rights</h3>
-          <p>To exercise any of these rights, email <a data-mailto="1"><span class="__cf_email__" data-cfemail="a3cbc6cfcfcce3c9c2cecac6c5ccd1d1c6d0d7c6d18dc0ccce">[email&#160;protected]</span></a>. Reasonable steps may be taken to verify identity before responding to a request. A response will be provided within one month of receipt.</p>
+          <p>To exercise any of these rights, email <a data-mailto="1"><span class="__cf_email__" data-cfemail="a3cbc6cfcfcce3c9c2cecac6c5ccd1d1c6d0d7c6d18dc0ccce"><a data-mailto="1" style="cursor:pointer;">&#104;&#101;&#108;&#108;&#111;&#64;&#106;&#97;&#109;&#105;&#101;&#102;&#111;&#114;&#114;&#101;&#115;&#116;&#101;&#114;&#46;&#99;&#111;&#109;</a></span></a>. Reasonable steps may be taken to verify identity before responding to a request. A response will be provided within one month of receipt.</p>
         </div>
       </section>
 
@@ -396,7 +399,7 @@
         <div class="label-row"><span class="label">11 // Complaints and updates</span><span class="label-note">final matters</span></div>
         <h2 class="section-title">Questions, complaints, and changes</h2>
         <div class="mini-grid">
-          <div class="mini"><h3>Questions or concerns</h3><p>If you have questions about this Privacy Policy or how personal data is handled, contact <a data-mailto="1"><span class="__cf_email__" data-cfemail="630b060f0f0c2309020e0a06050c111106101706114d000c0e">[email&#160;protected]</span></a> in the first instance.</p></div>
+          <div class="mini"><h3>Questions or concerns</h3><p>If you have questions about this Privacy Policy or how personal data is handled, contact <a data-mailto="1"><span class="__cf_email__" data-cfemail="630b060f0f0c2309020e0a06050c111106101706114d000c0e"><a data-mailto="1" style="cursor:pointer;">&#104;&#101;&#108;&#108;&#111;&#64;&#106;&#97;&#109;&#105;&#101;&#102;&#111;&#114;&#114;&#101;&#115;&#116;&#101;&#114;&#46;&#99;&#111;&#109;</a></span></a> in the first instance.</p></div>
           <div class="mini"><h3>Complaints to the ICO</h3><p>You may also complain to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection. The ICO can be reached at <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a> or by calling 0303 123 1113.</p></div>
           <div class="mini"><h3>Policy updates</h3><p>This policy may be updated from time to time to reflect legal, operational, or website changes. The most current version will always appear on this page with the date it was last revised.</p></div>
         </div>
@@ -418,16 +421,19 @@
       <div class="site-footer__top">
                 <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./examples.html">Examples</a></li>
             <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
@@ -477,7 +483,7 @@
     @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
   </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring

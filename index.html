@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Jamie Forrester — Independent Systems Architect</title>
-<meta name="description" content="Fixed-scope structural diagnosis and redesign artifacts for recurring failure under scale, demonstrated through public proof sets across Outlier AI, NHS Primary Care, and Patreon / Apple IAP." />
+<meta name="description" content="Structural diagnosis for organisations whose correction loops cannot reach the governing break. Fixed-scope artifacts. Demonstrated across Outlier AI, NHS Primary Care, and Patreon / Apple IAP." />
 <link rel="icon" href="/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,14 +52,14 @@ a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; bor
 .site-nav-brand:hover { background: transparent; }
 .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
 .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
-.site-nav-links { display: flex; align-items: center; gap: 4px; }
-.site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
-.site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.site-nav-links { display: flex; align-items: center; gap: 14px; }
+.site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; transition: color 160ms ease; }
+.site-nav-links a:hover { color: #fff; }
 .nav-short { display: none; }
     .nav-full { display: inline; }
-    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    /* nav-cta removed */
 .nav-how-short { display: none; }
-    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    
 
 header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4,20px); padding: 40px 0 var(--space-5,24px); border-bottom: 1px solid var(--border-soft); margin-bottom: var(--space-6,32px); }
 .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
@@ -68,7 +68,7 @@ header { display: flex; align-items: flex-start; justify-content: space-between;
 h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
 .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
 .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
-.top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+.top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
 
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
 .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
@@ -428,7 +428,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .hero-stat-grid { gap: 6px !important; }
   .hero-title { font-size: 1.65rem !important; }
 }
-</style>
+    @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
 </head>
 
 <body>
@@ -448,7 +449,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <a href="./research.html">Research</a>
       <a href="./books.html">Books</a>
       <a href="./products.html">Products</a>
-      <a href="./diagnostic-scan.html" class="nav-cta">Run Scan</a>
     </div>
   </div>
 </nav>
@@ -461,19 +461,19 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div>
         <h1>Jamie Forrester</h1>
         <div class="h-sub">Independent Systems Architect</div>
-        <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+        <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
       </div>
     </div>
     <div class="top-cta" aria-label="Primary links">
-      <a class="btn" href="./services.html">SERVICES</a>
-      <a class="btn" href="./examples.html">EXAMPLES</a>
-      <a class="btn" href="./method.html">METHOD</a>
-      <a class="btn" href="./research.html">RESEARCH</a>
-      <a class="btn btn-primary" data-mailto="1">
-        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        EMAIL
-      </a>
-    </div>
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
+      </div>
   </header>
 
   <main id="main" role="main">
@@ -485,7 +485,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <span style="flex:1; height:1px; background:linear-gradient(90deg,rgba(90,176,255,0.3),transparent); display:block;"></span>
         </div>
         <h2 class="hero-title">When the same failure keeps returning, the problem is no longer <span style="color:var(--cta-blue);">execution.</span> It is structure.</h2>
-        <p class="hero-sub" style="margin-bottom:26px;">I produce fixed-scope <strong>diagnostic and redesign artifacts</strong> that name the <strong>hidden structural break</strong>, locate the <strong>governing mismatch</strong>, and give builders a <strong>governed replacement sequence</strong>.</p>
+        <p class="hero-sub" style="margin-bottom:26px;">Most recurring failure is not a matter of effort, talent, or process. <strong>It is structural.</strong> Something in the system is doing the wrong job, carrying the wrong load, or forcing people to absorb work it should carry itself. I produce fixed-scope <strong>diagnostic and redesign artifacts</strong> that name the structural break, locate the governing mismatch, and give builders a <strong>governed correction sequence</strong>.</p>
 
         <!-- Offer paths — unified card -->
         <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:20px;">
@@ -516,11 +516,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--text-faint); letter-spacing:0.06em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
 
         <div style="display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
-          <a class="btn btn-primary btn-large" data-mailto="1" href="#">SEND FIVE-LINE BRIEF</a>
+          <a class="btn btn-primary btn-large" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn btn-large" href="./services.html">VIEW SERVICES</a>
         </div>
 
-        <p style="margin:0; font-size:11.5px; color:var(--text-faint); line-height:1.6; font-style:italic;"><strong style="font-style:normal; color:var(--text-dim);">The same failure costs more the second time than the first.</strong> At some point, the structure has to be named.</p>
+        <p style="margin:0; font-size:11.5px; color:var(--text-faint); line-height:1.6; font-style:italic;"><strong style="font-style:normal; color:var(--text-dim);">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
       </div>
 
       <div class="hero-right">
@@ -691,8 +691,8 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     <section class="what-changes" aria-label="What the artifact changes">
       <div class="what-changes-head">
         <div>
-          <h2 class="what-changes-title">What changes once the artifact exists.</h2>
-          <p class="what-changes-sub">It does not add another opinion layer. It gives decision owners and builders a shared structural read of the failure, the rule that is breaking, and the order in which change must happen.</p>
+          <h2 class="what-changes-title">What the artifact gives your correction loops that they could not produce themselves.</h2>
+          <p class="what-changes-sub">Internal correction efforts — more process, more communication, more tooling, more management — operate inside the existing structural frame. The artifact operates outside it. It names the governing break your corrections were circling without reaching.</p>
         </div>
       </div>
       <div class="what-changes-grid">
@@ -932,28 +932,28 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="fit-panel fit-panel-good">
         <div class="fit-panel-head">
           <span class="fit-panel-badge fit-panel-badge-good">Good fit</span>
-          <p class="fit-panel-lead">A failure has started repeating and <strong>nobody has a single structural read</strong> of what is actually wrong.</p>
+          <p class="fit-panel-lead">The failure recurs despite correction effort — and the governing break sits <strong>outside the frame your corrections operate inside.</strong></p>
         </div>
         <ul class="fit-check-list">
-          <li><span class="fit-check">✓</span><strong>The same failure keeps returning under different labels</strong></li>
-          <li><span class="fit-check">✓</span><strong>Teams disagree on what the real problem actually is</strong></li>
-          <li><span class="fit-check">✓</span><strong>Builders are inventing design while implementing</strong></li>
-          <li><span class="fit-check">✓</span><strong>Manual workarounds are carrying load the system should absorb</strong></li>
-          <li><span class="fit-check">✓</span><strong>Ownership is blurred across roles, teams, or interfaces</strong></li>
-          <li><span class="fit-check">✓</span><strong>Policy, tooling, and operating reality have drifted apart</strong></li>
-          <li><span class="fit-check">✓</span><strong>The cost is recurring but the cause is structurally unclear</strong></li>
+          <li><span class="fit-check">✓</span><strong>You operate through a platform, regulator, or system you cannot change — and it keeps producing a failure you carry</strong></li>
+          <li><span class="fit-check">✓</span><strong>The system worked at one scale and broke at another — and adding more people or process has not fixed it</strong></li>
+          <li><span class="fit-check">✓</span><strong>Two systems that were designed separately are now expected to interoperate — and the failure lives at the seam neither team owns</strong></li>
+          <li><span class="fit-check">✓</span><strong>The same reform cycle keeps stalling at the same structural boundary</strong></li>
+          <li><span class="fit-check">✓</span><strong>Manual workarounds and shadow systems have become load-bearing</strong></li>
+          <li><span class="fit-check">✓</span><strong>Nobody has authority over the decision class that keeps producing the failure</strong></li>
+          <li><span class="fit-check">✓</span><strong>The cost is real and recurring — but the correction sequence has no agreed starting point</strong></li>
         </ul>
       </div>
       <div class="fit-panel fit-panel-bad">
         <div class="fit-panel-head">
           <span class="fit-panel-badge fit-panel-badge-bad">Not a fit</span>
-          <p class="fit-panel-lead">The issue is narrow, isolated, and already understood at the technical layer.</p>
+          <p class="fit-panel-lead">The failure is narrow, isolated, or already understood — or the organisation already knows about the governing break and has chosen to keep it.</p>
         </div>
         <ul class="fit-check-list fit-check-list-bad">
           <li><span class="fit-check fit-check-bad">✗</span>A one-off bug with a clear technical owner</li>
           <li><span class="fit-check fit-check-bad">✗</span>A known defect requiring engineering execution</li>
           <li><span class="fit-check fit-check-bad">✗</span>A live incident needing operational command</li>
-          <li><span class="fit-check fit-check-bad">✗</span>Code-level root-cause analysis from logs or infrastructure</li>
+          <li><span class="fit-check fit-check-bad">✗</span>A structural mismatch the organisation already understands and has decided to retain</li>
           <li><span class="fit-check fit-check-bad">✗</span>Architecture, security, or infrastructure work</li>
           <li><span class="fit-check fit-check-bad">✗</span>Vague dissatisfaction without a bounded failure pattern</li>
           <li><span class="fit-check fit-check-bad">✗</span>Implementation support where the design is already settled</li>
@@ -986,7 +986,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
       <div class="callout"><p><strong>If neither engagement is the right fit, <strong>I will say so.</strong></strong></p></div>
       <div class="actions" style="margin-top:16px;">
-        <a class="btn btn-primary" data-mailto="1">SEND FIVE-LINE BRIEF</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
       </div>
     </section>
   <div style="display:flex;justify-content:center;padding:32px 0 0;">
@@ -1050,7 +1050,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <div class="site-footer__top">
                 <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
@@ -1137,7 +1137,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring

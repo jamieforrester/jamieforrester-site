@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Examples — Jamie Forrester</title>
-  <meta name="description" content="Public proof sets for structural diagnosis and redesign across Outlier AI, NHS Primary Care Continuity, and Patreon / Apple IAP." />
+  <title>Proof Sets — Jamie Forrester</title>
+  <meta name="description" content="Three public proof sets demonstrating repeatable structural diagnosis and redesign across Outlier AI, NHS Primary Care Continuity, and Patreon / Apple IAP." />
   <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,12 +39,12 @@
     .site-nav-brand:hover { background: transparent; }
     .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
-    .site-nav-links { display: flex; align-items: center; gap: 4px; }
-    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
-    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; transition: color 160ms ease; }
+    .site-nav-links a:hover { color: #fff; }
     .nav-short { display: none; } .nav-full { display: inline; }
-    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
-    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    /* nav-cta removed */
+    
 
     header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 32px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
@@ -54,7 +54,7 @@
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
 
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
     .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
@@ -240,7 +240,7 @@
     @media (max-width: 960px) { .public-cards-grid { grid-template-columns: 1fr 1fr; } .patreon-restricted-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 800px) { .patreon-restricted-grid { grid-template-columns: 1fr !important; } }
     @media (max-width: 720px) { .hero-strip { grid-template-columns: 1fr !important; } .hero-left { border-right: none !important; border-bottom: 1px solid var(--border-soft); } }
-    @media (max-width: 640px) { .public-cards-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .public-cards-grid { grid-template-columns: 1fr; } [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr 1fr !important; } }
 
     /* Replacement direction block */
     .replacement-dir { margin-bottom: 14px; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; background: rgba(255,255,255,0.014); }
@@ -255,7 +255,8 @@
     .best-for strong { color: rgba(90,176,255,0.6); font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
 
   
-</style>
+    @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -267,10 +268,12 @@
     </a>
     <div class="site-nav-links">
       <a href="./services.html">Services</a>
-      <a href="./examples.html">Examples</a>
       <a href="./method.html">Method</a>
+      <a href="./examples.html" class="nav-active">Examples</a>
+      <a href="./taxonomy.html">Taxonomy</a>
       <a href="./research.html">Research</a>
-      <a data-mailto="1" class="nav-cta">Email</a>
+      <a href="./books.html">Books</a>
+      <a href="./products.html">Products</a>
     </div>
   </div>
 </nav>
@@ -283,19 +286,19 @@
       <div>
         <h1>Jamie Forrester</h1>
         <div class="h-sub">Independent Systems Architect</div>
-        <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+        <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
       </div>
     </div>
     <div class="top-cta" aria-label="Primary links">
-      <a class="btn" href="./services.html">SERVICES</a>
-      <span class="btn btn-current" aria-current="page">EXAMPLES</span>
-      <a class="btn" href="./method.html">METHOD</a>
-      <a class="btn" href="./research.html">RESEARCH</a>
-      <a class="btn btn-primary" data-mailto="1">
-        <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        EMAIL
-      </a>
-    </div>
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./method.html">METHOD</a>
+        <span class="btn btn-current" aria-current="page">EXAMPLES</span>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
+      </div>
   </header>
 
   <main id="main" role="main">
@@ -303,8 +306,8 @@
     <!-- HERO -->
     <section class="hero-strip" aria-label="Examples overview">
       <div class="hero-left">
-        <span class="eyebrow">Examples</span>
-        <h2 class="hero-title">Public proof sets for structural diagnosis and redesign.</h2>
+        <span class="eyebrow">Proof Sets</span>
+        <h2 class="hero-title">The same method applied to three different systems. Same template. Same proof standard. Repeatable.</h2>
         <p class="hero-sub">Each case presents a complete artifact family. Most contain four deliverables. The Patreon / Apple IAP proof set contains five because the locked diagnosis produces two mutually exclusive restricted redesign specifications.
         </p>
         <p class="hero-sub">In each case, three artifacts form the public proof layer: Translation Artifact, Diagnostic Artifact, and Redesign Executive Summary. The restricted Redesign Artifact contains the builder-grade specification available only through a Full Structural Engagement.</p>
@@ -380,6 +383,51 @@
     </div>
 
 
+    <!-- PROOF TEMPLATE REFERENCE -->
+    <div style="margin-bottom:20px; border:1px solid rgba(90,176,255,0.14); border-radius:14px; overflow:hidden; background:rgba(90,176,255,0.015);">
+      <div style="padding:10px 20px; background:rgba(90,176,255,0.05); border-bottom:1px solid rgba(90,176,255,0.12); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue);">Standard proof template — applied to each system</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; color:var(--text-faint);">8 fields · same structure · every proof set</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;">
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Domain</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">The sector and system type under analysis</div>
+        </div>
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Primitive</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">The smallest unit of real work the system is organised around</div>
+        </div>
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Failure class</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">The taxonomy class and sub-type that governs the break</div>
+        </div>
+        <div style="padding:14px 16px; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Burden carrier</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">Who absorbs the work the system fails to carry</div>
+        </div>
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Governing diagnosis</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">The structural truth from which the rest of the failure follows</div>
+        </div>
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Artifact set</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">The four-artifact sequence produced from the locked diagnosis</div>
+        </div>
+        <div style="padding:14px 16px; border-right:1px solid rgba(255,255,255,0.05);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Replacement direction</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">What the corrected system must be organised around</div>
+        </div>
+        <div style="padding:14px 16px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Proof standard</div>
+          <div style="font-size:12px; color:var(--text-dim); line-height:1.5;">What the diagnosis must survive to be valid</div>
+        </div>
+      </div>
+      <div style="padding:10px 20px; border-top:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
+        <span style="font-size:12px; color:var(--text-faint); line-height:1.6;">Each system header below shows the completed template. The artifact cards carry the full evidence.</span>
+      </div>
+    </div>
+
     <!-- ═══════════ SYSTEM 01 — OUTLIER ═══════════ -->
     <div class="section-divider"><span class="section-divider-label">system 01</span></div>
 
@@ -400,6 +448,38 @@
         </div>
         <div class="replacement-dir"><span class="replacement-dir-label">Replacement direction</span><p class="replacement-dir-text">Replace the single contributor frame with a dual-stream contributor coordination system: Stream A for constrained reliability execution, Stream B for bounded expert judgment, connected by a portable contributor continuity record.</p></div>
         <p class="independent-note">Produced independently from public evidence. Not commissioned by Outlier or Scale AI.</p>
+
+        <!-- Proof template -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px;">
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Domain</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">AI task marketplace · private platform · contributor-facing</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Primitive</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Stated: expert judgment contribution. Actual: variance-controlled instruction adherence at scale</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Failure class</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;"><a href="./taxonomy.html#class-1" class="link-blue" style="font-size:12.5px;">Class 1.1</a> — Host Platform Constraint · primitive mismatch between recruitment grammar and execution architecture</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Burden carrier</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Contributors — absorb the gap between expertise expectation and compliance execution without structural support</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.12); border-radius:10px; background:rgba(90,176,255,0.025); grid-column:span 2;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Governing diagnosis</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.6;">Outlier recruits through the grammar of an expertise market while operating through the mechanics of a reliability pipeline. The platform recruits experts to do compliance work. That is why surface corrections have not resolved the failure.</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Artifact set</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">4 artifacts: Translation · Diagnostic · Redesign Executive Summary · Full Redesign (restricted)</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Proof standard</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Diagnosis must survive removal test: correcting the primitive mismatch changes the behaviour of scoring, routing, and payment failures</div>
+          </div>
+        </div>
       </div>
 
       <!-- Outlier: three public cards -->
@@ -478,7 +558,7 @@
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: transition sequence, contributor continuity schema, consequence review model, expert signal lifecycle, compensation truthfulness invariant, recapture gates, admissibility conditions, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
           <div style="clear:both;"></div>
           <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Outlier%20Full%20Redesign%20Artifact&body=Organisation%3A%0ARole%2FContext%3A%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
+            <a class="btn btn-large btn-full" data-mailto="1" href="#" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
             <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
           </div>
         </div>
@@ -507,6 +587,38 @@
         </div>
         <div class="replacement-dir"><span class="replacement-dir-label">Replacement direction</span><p class="replacement-dir-text">Replace fragmented institutional memory with a patient-held operational continuity system: portable continuity record, symptom event layer, Consultation Packet, outcome append, emergency access, carer access, and recognition pathway.</p></div>
         <p class="independent-note">Produced independently from public evidence. Not commissioned by the NHS, NHS England, or DHSC.</p>
+
+        <!-- Proof template -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px;">
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Domain</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Public healthcare · NHS primary care · patient-facing continuity</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Primitive</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Stated: joined-up care with relationship continuity. Actual: organisation-held records with patient memory as the default continuity mechanism</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Failure class</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;"><a href="./taxonomy.html#class-1" class="link-blue" style="font-size:12.5px;">Class 1.6</a> — User-Expectation Constraint · architecture provides record continuity; users require relationship continuity</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Burden carrier</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Patient and carers — carry their own care continuity across a system designed to provide it</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.12); border-radius:10px; background:rgba(90,176,255,0.025); grid-column:span 2;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Governing diagnosis</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.6;">NHS primary care is record-rich and continuity-poor. Operational memory is not structurally present at the point of clinical consequence, so the patient becomes the record.</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Artifact set</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">4 artifacts: Translation · Diagnostic · Redesign Executive Summary · Full Redesign (restricted)</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Proof standard</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Diagnosis must survive removal test: closing the record/relationship gap changes the pattern of missed diagnoses and repeated presentations</div>
+          </div>
+        </div>
       </div>
 
       <!-- NHS: three public cards -->
@@ -585,7 +697,7 @@
           <p class="rc-desc">Turns the public replacement logic into a governed build sequence: seven-move transition sequence, truth-kernel schema, custody / hosting / authority separation, invalid continuity states, source-of-truth hierarchy, emergency and carer access, refusal invariants, admissibility conditions, recapture gates, pilot rules, and builder handoff.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Redesign Artifact is the restricted specification delivered in a Full Structural Engagement.</p>
           <div style="clear:both;"></div>
           <div class="rc-cta">
-            <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20NHS%20Full%20Redesign%20Artifact&body=Organisation%3A%0ARole%2FContext%3A%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
+            <a class="btn btn-large btn-full" data-mailto="1" href="#" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
             <p class="rc-note">Access reviewed by context. The full specification is not a public download.</p>
           </div>
         </div>
@@ -624,7 +736,38 @@
           </div>
         </div>
         <p class="independent-note">Produced independently from public evidence. Not commissioned by Patreon or Apple.</p>
-      </div>
+
+        <!-- Proof template -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:16px;">
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Domain</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Creator patronage platform · iOS monetisation boundary · host-platform dependency</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Primitive</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Stated: relationship-coded creator patronage. Actual: transaction-coded subscription grammar imposed by Apple at the iOS payment boundary</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Failure class</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;"><a href="./taxonomy.html#class-1" class="link-blue" style="font-size:12.5px;">Class 1.1</a> — Host Platform Constraint · Primitive Switch occurs at iOS "Join" moment</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Burden carrier</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Creators and fans — absorb fee confusion, refund paradox, multiplier failure, and off-platform instruction load</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.12); border-radius:10px; background:rgba(90,176,255,0.025); grid-column:span 2;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Governing diagnosis</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.6;">Patreon's founding economic primitive — creator-defined patronage linked to the creative act — cannot be faithfully expressed inside Apple's IAP grammar. At the iOS "Join" moment, a Primitive Switch occurs: relationship-coded support becomes an Apple-governed subscription event.</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Artifact set</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">5 artifacts: Translation · Diagnostic · Redesign Executive Summary · Full Redesign Path A (restricted) · Full Redesign Path B (restricted)</div>
+          </div>
+          <div style="padding:12px 14px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Proof standard</div>
+            <div style="font-size:12.5px; color:#e0e4ea; line-height:1.55;">Diagnosis must survive fork test: the two exits (Decoupler / Allocation Shift) are mutually exclusive — attempting both recreates the collapse</div>
+          </div>
+        </div>
 
       <!-- Patreon: three public cards -->
       <div class="public-cards-grid" style="margin-bottom:16px;">
@@ -703,7 +846,7 @@
             <p class="rc-desc">Complete builder specification for The Decoupler &#x2014; the continuity-preserving exit that preserves bilateral creator-fan patronage behind an Apple-compatible payment rail.<br><br>Includes the Credit Event Log, Dual Ledger, Fan Agreement Object, Publication Event Handler, refusal gates, Translation Engine, Reconciliation Reserve, fan-facing credit balance, creator-facing per-creation earnings interface, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple funds the relationship. Patreon defines it.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path A specification is restricted.</p>
             <div style="clear:both;"></div>
             <div class="rc-cta">
-              <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Patreon%20Structural%20Redesign%20Path%20A&body=Organisation%3A%0ARole%2FContext%3A%0APath%20requested%3A%20Path%20A%20%E2%80%94%20The%20Decoupler%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
+              <a class="btn btn-large btn-full" data-mailto="1" href="#" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
               <p class="rc-note">Access reviewed by context. Include organisation and request context. The full specification is not a public download.</p>
             </div>
           </div>
@@ -720,7 +863,7 @@
             <p class="rc-desc">Complete builder specification for The Allocation Shift &#x2014; the category-transforming exit that replaces bilateral creator-fan payment with platform-level patronage allocation.<br><br>Includes the Platform Subscription Object, Fan Patronage Account, Allocation Rule Object, Patronage Allocation Ledger, Allocation Engine, Publication Event Listener, Creator Payout Engine, Reconciliation Reserve, fan allocation UI, creator payout interface, payor-of-record architecture, relational frame invariants, transition sequence, admissibility conditions, recapture gates, drift immune system, and builder handoff.<br><br>Apple sees one platform subscription. Patreon governs allocation internally.<br><br>The public Redesign Executive Summary shows the replacement logic. The full Path B specification is restricted.</p>
             <div style="clear:both;"></div>
             <div class="rc-cta">
-              <a class="btn btn-large btn-full" href="mailto:hello@jamieforrester.com?subject=Access%20Request%20%E2%80%94%20Patreon%20Structural%20Redesign%20Path%20B&body=Organisation%3A%0ARole%2FContext%3A%0APath%20requested%3A%20Path%20B%20%E2%80%94%20The%20Allocation%20Shift%0AReason%20for%20request%3A" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
+              <a class="btn btn-large btn-full" data-mailto="1" href="#" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">Request Access</a>
               <p class="rc-note">Access reviewed by context. Include organisation and request context. The full specification is not a public download.</p>
             </div>
           </div>
@@ -794,16 +937,19 @@
       <div class="site-footer__top">
                 <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./examples.html">Examples</a></li>
             <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">

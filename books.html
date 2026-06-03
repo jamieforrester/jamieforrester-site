@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Books — Jamie Forrester</title>
+  <meta name="description" content="Five books in development from Jamie Forrester — a sequence from structural perception through system founding, output production, and full field theory." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; white-space: nowrap; transition: color 160ms ease; }
+    .site-nav-links a:hover { color: #fff; }
+    .site-nav-links a.nav-active { color: #fff; opacity: 1; }
+    /* nav-cta removed */
+    
+
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
+
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .section-divider { justify-content: center; margin: 48px 0 36px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Book cards */
+    .book-card { border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(160deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); margin-bottom: 16px; transition: border-color 180ms ease; }
+    .book-card:hover { border-color: rgba(90,176,255,0.2); }
+    .book-card-accent { border-color: rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(255,255,255,0.008) 70%); }
+    .book-card-inner { display: grid; grid-template-columns: 180px 1fr; gap: 0; }
+    .book-card-left { padding: 28px 24px; border-right: 1px solid rgba(255,255,255,0.06); background: rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .book-card-accent .book-card-left { border-right-color: rgba(90,176,255,0.12); background: rgba(90,176,255,0.04); }
+    .book-num { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(90,176,255,0.5); }
+    .book-placeholder { width: 110px; height: 154px; border-radius: 10px; border: 1px solid rgba(90,176,255,0.18); background: linear-gradient(160deg, rgba(90,176,255,0.12) 0%, rgba(90,176,255,0.04) 50%, rgba(255,255,255,0.015) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06); position: relative; }
+    
+    .book-placeholder::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: linear-gradient(180deg, rgba(90,176,255,0.25) 0%, rgba(90,176,255,0.08) 100%); border-radius: 10px 0 0 10px; border-right: 1px solid rgba(90,176,255,0.2); }
+    .book-placeholder-label { font-family: "IBM Plex Mono", monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(90,176,255,0.4); text-align: center; line-height: 1.5; }
+    .book-status-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,180,60,0.85); background: rgba(250,180,60,0.08); border: 1px solid rgba(250,180,60,0.22); }
+    .book-card-right { padding: 28px 30px; }
+    .book-role { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 8px; display: block; }
+    .book-title { margin: 0 0 6px; font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.65rem); font-weight: 700; color: #fff; letter-spacing: -0.035em; line-height: 1.15; }
+    .book-subtitle { margin: 0 0 16px; font-size: 14px; color: var(--text-faint); line-height: 1.5; font-style: italic; }
+    .book-promise { margin: 0 0 16px; font-size: 14px; color: var(--text-dim); line-height: 1.72; }
+    .book-promise strong { color: #e4eaf2; font-weight: 600; }
+    .book-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 4px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .book-meta-item { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); padding: 3px 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.018); }
+
+    /* Sequence strip */
+    .sequence-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(90,176,255,0.14); border-top: 2px solid rgba(90,176,255,0.4); border-radius: 14px; overflow: hidden; margin-bottom: 40px; background: rgba(90,176,255,0.02); }
+    .sequence-item { padding: 16px 14px; border-right: 1px solid rgba(90,176,255,0.1); background: transparent; }
+    .sequence-item:last-child { border-right: none; }
+    .sequence-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 5px; }
+    .sequence-title { font-size: 12px; font-weight: 700; color: #fff; line-height: 1.3; letter-spacing: -0.01em; }
+
+    /* Footer */
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+
+    @media (max-width: 920px) {
+      .site-nav-links { gap: 1px; }
+      .site-nav-links a { padding: 5px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; max-width: 100px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .wrap { padding-top: 24px; }
+      .book-card-inner { grid-template-columns: 1fr; }
+      .book-card-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); flex-direction: row; align-items: center; padding: 18px 20px; }
+      .sequence-strip { grid-template-columns: 1fr 1fr; }
+      .sequence-item:nth-child(2) { border-right: none; }
+      @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    }
+    @media (max-width: 640px) {
+      .sequence-strip { grid-template-columns: 1fr; }
+      .sequence-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .sequence-item:last-child { border-bottom: none; }
+      .site-footer__inner{padding:40px 20px 28px;}
+      .site-nav-name { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+      @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation" id="site-nav">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html">Taxonomy</a>
+        <a href="./research.html">Research</a>
+        <a href="./books.html" class="nav-active">Books</a>
+        <a href="./products.html">Products</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <a href="./index.html" style="border-bottom:none; display:inline-flex; border-radius:999px;" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
+        </div>
+      </div>
+      <div class="top-cta">
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <span class="btn btn-current" aria-current="page">BOOKS</span>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Hero -->
+      <div style="border:1px solid rgba(90,176,255,0.22); border-top:3px solid rgba(90,176,255,0.6); border-radius:var(--radius-xl); padding:36px 40px; margin-bottom:36px; background:linear-gradient(135deg,rgba(90,176,255,0.06) 0%,rgba(255,255,255,0.006) 60%);">
+        <span class="eyebrow">Books in development</span>
+        <h2 style="margin:0 0 14px; font-size:clamp(1.6rem,1.2rem+1.2vw,2.4rem); font-weight:700; letter-spacing:-0.04em; line-height:1.1; color:#fff;">Five books. One architecture. None published yet.</h2>
+        <p style="margin:0 0 10px; font-size:15px; color:#c6ccd4; line-height:1.72; max-width:70ch;">The books carry the same structural logic as the research — but in forms readable without prior knowledge of the series. Each book is a different entry point into the same architecture.</p>
+        <p style="margin:0; font-size:14px; color:var(--text-faint); line-height:1.7; max-width:68ch;">None of these books are available yet. The sequence below shows where each sits in the architecture and what it is for. Publication timelines will appear here when confirmed.</p>
+        <div style="margin-top:20px; padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.014); display:inline-flex; align-items:center; gap:10px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,180,60,0.8);">Status</span>
+          <span style="font-size:13px; color:var(--text-dim);">All five books are in development. None are currently available for purchase.</span>
+        </div>
+      </div>
+
+      <!-- Sequence strip -->
+      <div class="section-divider"><span class="section-divider-label">the sequence</span></div>
+
+      <div class="sequence-strip" aria-label="Book sequence overview">
+        <div class="sequence-item">
+          <div class="sequence-num">Book 01</div>
+          <div class="sequence-title">Seeing Systems</div>
+        </div>
+        <div class="sequence-item">
+          <div class="sequence-num">Book 02</div>
+          <div class="sequence-title">The 15-Level Abstraction Ladder</div>
+        </div>
+        <div class="sequence-item">
+          <div class="sequence-num">Book 03</div>
+          <div class="sequence-title">The System Founder Framework</div>
+        </div>
+        <div class="sequence-item">
+          <div class="sequence-num">Book 04</div>
+          <div class="sequence-title">The Universal Build Architecture</div>
+        </div>
+        <div class="sequence-item">
+          <div class="sequence-num">Book 05</div>
+          <div class="sequence-title">The Full Field</div>
+        </div>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-label">books in development</span></div>
+
+      <!-- Book 01 -->
+      <article class="book-card book-card-accent" aria-label="Seeing Systems">
+        <div class="book-card-inner">
+          <div class="book-card-left">
+            <span class="book-num">Book 01</span>
+            <div class="book-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="rgba(90,176,255,0.35)" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="book-placeholder-label">Cover in<br>development</span>
+            </div>
+            <span class="book-status-badge">In development</span>
+          </div>
+          <div class="book-card-right">
+            <span class="book-role">Entry book · practical system perception</span>
+            <h2 class="book-title">Seeing Systems</h2>
+            <p class="book-subtitle">How to perceive what a system is actually doing before trying to fix it.</p>
+            <p class="book-promise">Most attempts to fix systems fail because the wrong system is being addressed. This book teaches the perceptual discipline behind structural diagnosis: how to identify what a system is actually organised around, how to locate where rules break down, and how to distinguish the structural signal from the operational noise. <strong>The entry point into the practice — readable without prior knowledge of the research series.</strong></p>
+            <div class="book-meta">
+              <span class="book-meta-item">Entry level</span>
+              <span class="book-meta-item">Practical</span>
+              <span class="book-meta-item">No prerequisite</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Book 02 -->
+      <article class="book-card" aria-label="The 15-Level Abstraction Ladder">
+        <div class="book-card-inner">
+          <div class="book-card-left">
+            <span class="book-num">Book 02</span>
+            <div class="book-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M4 16h12M4 12h8M4 8h4" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="book-placeholder-label">Cover in<br>development</span>
+            </div>
+            <span class="book-status-badge">In development</span>
+          </div>
+          <div class="book-card-right">
+            <span class="book-role">Thinking at multiple levels of abstraction</span>
+            <h2 class="book-title">The 15-Level Abstraction Ladder</h2>
+            <p class="book-subtitle">How to move between levels of thought and design without losing structural coherence.</p>
+            <p class="book-promise">Structural failures are often produced by thinking at the wrong level of abstraction — operating at the symptom level, designing at the feature level, diagnosing at the system level, and building at the component level without a governed translation between them. <strong>This book is a map of how to move between fifteen levels of abstraction — from individual action through to field-level theory — and when each level is the right one to be working at.</strong></p>
+            <div class="book-meta">
+              <span class="book-meta-item">Thinking framework</span>
+              <span class="book-meta-item">Design + diagnosis</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Book 03 -->
+      <article class="book-card" aria-label="The System Founder Framework">
+        <div class="book-card-inner">
+          <div class="book-card-left">
+            <span class="book-num">Book 03</span>
+            <div class="book-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(90,176,255,0.35)" stroke-width="1.5"/><path d="M12 3v9l5 3" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="book-placeholder-label">Cover in<br>development</span>
+            </div>
+            <span class="book-status-badge">In development</span>
+          </div>
+          <div class="book-card-right">
+            <span class="book-role">How one person with AI builds OS-level companies</span>
+            <h2 class="book-title">The System Founder Framework</h2>
+            <p class="book-subtitle">How one person with the right structural grammar and AI capability can build operating-system level companies.</p>
+            <p class="book-promise">The system founder is not a solo founder in the conventional sense. They are someone who can hold the full structural read of a system — its primitive, its rules, its failure modes — and use AI as a production and amplification layer rather than a replacement for structural thinking. <strong>This book defines the system founder's cognitive architecture, the AI coordination stack, and the founding sequence that makes OS-level companies buildable by a single structured thinker.</strong></p>
+            <div class="book-meta">
+              <span class="book-meta-item">Founding model</span>
+              <span class="book-meta-item">AI + structure</span>
+              <span class="book-meta-item">Practitioner</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Book 04 -->
+      <article class="book-card" aria-label="The Universal Build Architecture">
+        <div class="book-card-inner">
+          <div class="book-card-left">
+            <span class="book-num">Book 04</span>
+            <div class="book-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 10h16M4 14h10M4 18h6" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span class="book-placeholder-label">Cover in<br>development</span>
+            </div>
+            <span class="book-status-badge">In development</span>
+          </div>
+          <div class="book-card-right">
+            <span class="book-role">Grammar Kernel · high-quality output production</span>
+            <h2 class="book-title">The Universal Build Architecture</h2>
+            <p class="book-subtitle">The Grammar Kernel and the structural conditions for high-quality output production.</p>
+            <p class="book-promise">Every high-quality output — a diagnostic artifact, a paper, a product specification, a book — is produced through the same underlying structural sequence. This book names that sequence: the Grammar Kernel, the Universal Formula, and the production conditions that distinguish outputs that hold from outputs that drift. <strong>The production manual for the practice — applicable to any domain where structural output quality matters.</strong></p>
+            <div class="book-meta">
+              <span class="book-meta-item">Production method</span>
+              <span class="book-meta-item">Grammar Kernel</span>
+              <span class="book-meta-item">Universal Formula</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Book 05 -->
+      <article class="book-card" aria-label="The Full Field">
+        <div class="book-card-inner">
+          <div class="book-card-left">
+            <span class="book-num">Book 05</span>
+            <div class="book-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" stroke="rgba(90,176,255,0.35)" stroke-width="1.3" stroke-linecap="round"/></svg>
+              <span class="book-placeholder-label">Cover in<br>development</span>
+            </div>
+            <span class="book-status-badge">In development</span>
+          </div>
+          <div class="book-card-right">
+            <span class="book-role">Triple Stack · emergence, production, intervention</span>
+            <h2 class="book-title">The Full Field</h2>
+            <p class="book-subtitle">How emergence, production, and intervention work together as a unified system architecture.</p>
+            <p class="book-promise">The culminating book in the sequence. Where the earlier books deal with perception, abstraction, founding, and production, this book deals with the field itself: the triple stack of emergence (how systems arise), production (how value is generated), and intervention (how structural failure is diagnosed and corrected). <strong>The theoretical completion of the practice architecture — for readers who have come through the earlier books or the research series.</strong></p>
+            <div class="book-meta">
+              <span class="book-meta-item">Field theory</span>
+              <span class="book-meta-item">Triple Stack</span>
+              <span class="book-meta-item">Advanced</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Research connection -->
+      <div class="section-divider"><span class="section-divider-label">the relationship to the research</span></div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;">
+        <div style="padding:22px 24px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.012);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px;">The papers</div>
+          <p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.7;">The eleven-paper Diagnostic and Replacement Series is the public research form of the structural laws. The papers are technical, evidence-anchored, and written for practitioners and researchers.</p>
+          <a class="link-blue" href="./research.html">View the research →</a>
+        </div>
+        <div style="padding:22px 24px; border:1px solid rgba(90,176,255,0.15); border-radius:14px; background:rgba(90,176,255,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">The books</div>
+          <p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.7;">The books are the teachable form. They carry the same structural logic into forms readable without prior knowledge of the research. Each book is a different entry point into the same architecture.</p>
+          <a class="link-blue" href="./taxonomy.html">View the taxonomy →</a>
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px; padding:20px 24px; border:1px solid rgba(90,176,255,0.14); border-radius:14px; background:rgba(90,176,255,0.025); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">Ready to engage now?</div>
+          <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.65;">While the books are in development, the practice is live. Structural diagnosis available now from £10,000.</p>
+        </div>
+        <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
+      </div>
+      <div style="padding:16px 20px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); font-size:13px; color:var(--text-faint); line-height:1.65; text-align:center;">
+        If you want to be notified when a book becomes available, <a class="link-blue" data-mailto="1">send an email</a> with "Book notification" in the subject line.
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
+            <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
+          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
+          <ul class="site-footer__list">
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./trilogy.html">Trilogy</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('site-nav');
+  var hdr = document.querySelector('header');
+  if (nav && hdr) {
+    window.addEventListener('scroll', function(){ nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0); }, {passive:true});
+  }
+  var e = 'hello'+'@'+'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){ el.setAttribute('href','mailto:'+e); });
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

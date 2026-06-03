@@ -65,14 +65,14 @@
     .site-nav-brand:hover { background: transparent; }
     .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
-    .site-nav-links { display: flex; align-items: center; gap: 4px; }
-    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease, background 140ms ease; }
-    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; transition: color 160ms ease; }
+    .site-nav-links a:hover { color: #fff; }
     .nav-short { display: none; }
     .nav-full { display: inline; }
-    .site-nav-links .nav-cta { color: var(--cta-blue); border: 1px solid rgba(90,176,255,0.28); background: rgba(90,176,255,0.08); margin-left: 6px; }
+    /* nav-cta removed */
     .nav-how-short { display: none; }
-    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    
     header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 32px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
     .avatar-link { display: inline-flex; border-bottom: none; border-radius: 999px; flex: 0 0 auto; }
@@ -85,7 +85,7 @@
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
     .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
     .top-cta-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease, box-shadow 140ms ease; }
     .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
     .btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; background: var(--focus-bg); }
@@ -242,7 +242,8 @@
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   
-</style>
+    @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -255,10 +256,12 @@
       </a>
       <div class="site-nav-links">
         <a href="./services.html">Services</a>
-        <a href="./examples.html">Examples</a>
         <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html">Taxonomy</a>
         <a href="./research.html">Research</a>
-        <a data-mailto="1" class="nav-cta">Email</a>
+        <a href="./books.html">Books</a>
+        <a href="./products.html">Products</a>
       </div>
     </div>
   </nav>
@@ -273,17 +276,18 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+          <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
         <a class="btn" href="./services.html">SERVICES</a>
-        <span class="btn btn-current" aria-current="page">HOW IT WORKS</span>
+        <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn btn-primary" data-mailto="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          EMAIL
-        </a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
     </header>
 
@@ -291,9 +295,9 @@
       <div class="hero-left">
         <div>
           <div class="eyebrow">How it works</div>
-          <h2 class="hero-title">From first email to a usable internal document.</h2>
+          <h2 class="hero-title">How a structural diagnosis engagement works — from brief to artifact.</h2>
           <p class="hero-sub" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--cta-blue); margin-bottom:14px;">From five-line brief to delivered artifact. Fixed scope, fixed fee, fixed timeline.</p>
-          <p class="hero-sub">The engagement is written-first and designed to reduce ambiguity. No slide decks. No meeting chain by default. No open-ended advisory drift.</p>
+          <p class="hero-sub">The engagement is written-first and designed to reduce ambiguity at every stage. No slide decks. No open-ended advisory. No meeting chains by default. The output is a document, not a relationship.</p>
           <hr class="hero-rule" />
           <p class="hero-sub" style="margin-bottom:0;">You send a <strong>Five-Line Brief</strong>. I confirm whether the right path is <strong>Diagnostic only</strong> or the <strong>Full Structural Engagement</strong>. Diagnosis always runs first. If the fit is correct, the engagement produces either one Diagnostic Artifact or two linked artifacts: diagnosis followed by redesign.</p>
         </div>
@@ -696,16 +700,19 @@
       <div class="site-footer__top">
                 <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./examples.html">Examples</a></li>
             <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
@@ -780,7 +787,28 @@
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+(function(){
+  // Footer year
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+
+  // Sticky nav
+  var nav = document.querySelector('.site-nav');
+  var hdr = document.querySelector('header');
+  if (nav && hdr) {
+    window.addEventListener('scroll', function(){
+      nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0);
+    }, {passive: true});
+  }
+
+  // Email obfuscation
+  var e = 'hello' + '@' + 'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){
+    el.setAttribute('href', 'mailto:' + e + '?subject=Structural+Diagnosis+Inquiry');
+  });
+})();
+</script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring

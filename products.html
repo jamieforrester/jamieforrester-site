@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products — Jamie Forrester</title>
+  <meta name="description" content="Products from Jamie Forrester — the 60-Second Scan is available free. A range of diagnostic reference products are in development." />
+  <link rel="icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0c; --panel: #101114;
+      --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
+      --border: #232731; --border-soft: rgba(255,255,255,0.06); --accent: #343a46;
+      --label-blue: #4aa3ff; --cta-blue: #5ab0ff;
+      --focus-ring: rgba(255,255,255,0.95); --focus-bg: rgba(255,255,255,0.08);
+      --radius-md: 14px; --radius-lg: 18px; --radius-xl: 22px;
+      --shadow-card: 0 2px 0 rgba(255,255,255,0.03) inset, 0 10px 30px rgba(0,0,0,0.28);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+    .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+    a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
+    a:hover { border-bottom-color: #fff; background: rgba(255,255,255,0.05); }
+    a:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-bottom-color: transparent; background: var(--focus-bg); border-radius: 6px; }
+    .link-blue { color: var(--cta-blue); border-bottom-color: transparent; }
+    .link-blue:hover { border-bottom-color: rgba(90,176,255,0.85); background: rgba(90,176,255,0.08); }
+
+    .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(11,11,12,0.88); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border-bottom: 1px solid var(--border-soft); padding: 0 24px; transform: translateY(-100%); transition: transform 280ms cubic-bezier(0.4,0,0.2,1), opacity 280ms ease; opacity: 0; }
+    .site-nav.nav-visible { transform: translateY(0); opacity: 1; }
+    .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+    .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; }
+    .site-nav-brand:hover { background: transparent; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
+    .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; white-space: nowrap; transition: color 160ms ease; }
+    .site-nav-links a:hover { color: #fff; }
+    .site-nav-links a.nav-active { color: #fff; opacity: 1; }
+    /* nav-cta removed */
+    
+
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
+    .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
+    .avatar { width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; filter: grayscale(60%); flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); }
+    h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+    .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
+    .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--accent); background: rgba(255,255,255,0.018); color: #fff; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500; text-decoration: none; line-height: 1; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; border-bottom: none; padding-bottom: 9px; transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease; }
+    .btn:hover { background: rgba(255,255,255,0.05); border-bottom: none; transform: translateY(-1px); }
+    .btn-primary { color: var(--cta-blue); border-color: rgba(90,176,255,0.32); background: rgba(90,176,255,0.08); }
+    .btn-primary:hover { background: rgba(90,176,255,0.14); border-color: rgba(90,176,255,0.5); }
+
+    .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
+    .section-divider { justify-content: center; margin: 48px 0 32px; display: flex; align-items: center; gap: 16px; }
+    .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent); min-width: 40px; }
+    .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-faint); white-space: nowrap; }
+
+    /* Status badges */
+    .badge-live { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(80,200,120,0.9); background: rgba(80,200,120,0.1); border: 1px solid rgba(80,200,120,0.25); }
+    .badge-dev { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,180,60,0.9); background: rgba(250,180,60,0.08); border: 1px solid rgba(250,180,60,0.22); }
+    .badge-planned { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+
+    /* Product cards */
+    .product-card { border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 14px; transition: border-color 160ms ease; }
+    .product-card-live { border-color: rgba(80,200,120,0.25); border-top: 2px solid rgba(80,200,120,0.6); background: linear-gradient(160deg, rgba(80,200,120,0.06) 0%, rgba(255,255,255,0.008) 60%); box-shadow: 0 0 0 1px rgba(80,200,120,0.06), 0 12px 32px rgba(0,0,0,0.22); }
+    .product-card-dev { background: rgba(255,255,255,0.012); }
+    .product-card-head { padding: 18px 22px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; gap: 14px; background: rgba(255,255,255,0.01); }
+    .product-card-live .product-card-head { border-bottom-color: rgba(80,200,120,0.12); background: rgba(80,200,120,0.02); }
+    .product-card-title { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin: 0; }
+    .product-card-body { padding: 18px 22px; }
+    .product-card-desc { margin: 0 0 12px; font-size: 13.5px; color: var(--text-dim); line-height: 1.7; }
+    .product-card-desc strong { color: #e4eaf2; }
+
+    /* Dev grid */
+    .dev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .dev-item { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.014); transition: border-color 160ms ease; }
+    .dev-item-title { font-size: 13px; font-weight: 700; color: #e0e4ea; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 6px; }
+    .dev-item-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; margin: 0; }
+
+    /* Footer */
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+
+    @media (max-width: 920px) {
+      .site-nav-links { gap: 1px; }
+      .site-nav-links a { padding: 5px 7px; font-size: 9px; }
+      .site-nav-name { overflow: hidden; text-overflow: ellipsis; max-width: 100px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
+      .top-cta { justify-content: flex-start; padding-top: 0; }
+      .wrap { padding-top: 24px; }
+      .dev-grid { grid-template-columns: repeat(2, 1fr); }
+      @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    }
+    @media (max-width: 640px) {
+      .dev-grid { grid-template-columns: 1fr; }
+      .site-footer__inner{padding:40px 20px 28px;}
+      .site-nav-name { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
+      @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="site-nav" aria-label="Site navigation" id="site-nav">
+    <div class="site-nav-inner">
+      <a href="./index.html" class="site-nav-brand">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <span class="site-nav-name">Jamie Forrester</span>
+      </a>
+      <div class="site-nav-links">
+        <a href="./services.html">Services</a>
+        <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html">Taxonomy</a>
+        <a href="./research.html">Research</a>
+        <a href="./books.html">Books</a>
+        <a href="./products.html" class="nav-active">Products</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <header>
+      <div class="h-left">
+        <a href="./index.html" style="border-bottom:none; display:inline-flex; border-radius:999px;" aria-label="Back to home">
+          <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" />
+        </a>
+        <div>
+          <h1>Jamie Forrester</h1>
+          <div class="h-sub">Independent Systems Architect</div>
+          <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
+        </div>
+      </div>
+      <div class="top-cta">
+        <a class="btn" href="./services.html">SERVICES</a>
+        <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
+        <a class="btn" href="./research.html">RESEARCH</a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <span class="btn btn-current" aria-current="page">PRODUCTS</span>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+
+      <!-- Status clarity note -->
+      <div style="border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:var(--radius-xl); padding:28px 32px; margin-bottom:36px; background:rgba(90,176,255,0.03);">
+        <span class="eyebrow">Product status</span>
+        <h2 style="margin:0 0 12px; font-size:clamp(1.3rem,1.1rem+0.6vw,1.8rem); font-weight:700; letter-spacing:-0.035em; line-height:1.15; color:#fff;">One product is available now. The rest are in development.</h2>
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.72; max-width:70ch;">The 60-Second Scan is available now as a free self-guided tool. A range of diagnostic reference products are being developed alongside the research series and will become available as the body of work matures. None of the in-development products are available for purchase yet.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; align-items:center;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="badge-live">Available now</span>
+            <span style="font-size:13px; color:var(--text-dim);">60-Second Scan</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.15); font-size:12px;">·</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="badge-dev">In development</span>
+            <span style="font-size:13px; color:var(--text-dim);">Reference PDFs, card decks, field kit</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.15); font-size:12px;">·</span>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="badge-planned">Planned</span>
+            <span style="font-size:13px; color:var(--text-dim);">Professional bundles and corporate licence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AVAILABLE NOW -->
+      <div class="section-divider"><span class="section-divider-label">available now</span></div>
+
+      <div class="product-card product-card-live" aria-label="60-Second Scan">
+        <div class="product-card-head">
+          <h2 class="product-card-title">The 60-Second Structural Scan</h2>
+          <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
+            <span class="badge-live">Available now</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(80,200,120,0.9);">Free</span>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-desc">Four questions that surface the structural reality of a system before analysis begins. <strong>Purpose → Primitive → Rules → Failure.</strong> The entry point into the diagnostic method. Answer all four honestly and you will know whether the failure is structural, and where to look first. Difficulty answering any of the four questions is itself a diagnostic signal.</p>
+          <p class="product-card-desc" style="margin-bottom:16px;">Run it before sending the Five-Line Brief. Run it before commissioning a Diagnostic Artifact. Run it whenever a system is producing recurring failure and the cause is unclear.</p>
+          <a class="btn btn-primary" href="./diagnostic-scan.html">RUN THE SCAN NOW →</a>
+        </div>
+      </div>
+
+      <!-- IN DEVELOPMENT -->
+      <div class="section-divider"><span class="section-divider-label">in development — not yet available</span></div>
+
+      <div style="margin-bottom:16px; padding:12px 16px; border:1px solid rgba(250,180,60,0.18); border-radius:10px; background:rgba(250,180,60,0.04); font-size:12.5px; color:var(--text-faint); line-height:1.65;">
+        <strong style="color:rgba(250,180,60,0.8);">Note:</strong> None of the products listed below are currently available for purchase. They are being developed as the research series and client work mature. Descriptions are subject to change.
+      </div>
+
+      <!-- Reference PDFs -->
+      <div class="product-card product-card-dev" aria-label="Reference PDFs">
+        <div class="product-card-head">
+          <h2 class="product-card-title">Diagnostic Reference PDFs</h2>
+          <span class="badge-dev">In development</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-desc">Structured PDF references for practitioners applying the Diagnostic Taxonomy and the 60-Second Scan to real systems. Each is a governed reference document, not a workbook — designed to be used alongside a diagnostic engagement, not instead of one.</p>
+          <div class="dev-grid">
+            <div class="dev-item">
+              <div class="dev-item-title">60-Second Scan — Reference PDF</div>
+              <p class="dev-item-desc">The four-question scan in a portable, printable format with guidance notes for each question and connection to the Five-Line Brief.</p>
+            </div>
+            <div class="dev-item">
+              <div class="dev-item-title">Diagnostic Taxonomy — Reference PDF</div>
+              <p class="dev-item-desc">All nine failure classes and 54 sub-types with inclusion, exclusion, and refusal criteria. A compact version of the full taxonomy page for offline use.</p>
+            </div>
+            <div class="dev-item">
+              <div class="dev-item-title">Proof Standard — Reference PDF</div>
+              <p class="dev-item-desc">The five conditions a diagnostic claim must satisfy and the five things that are not sufficient. For practitioners who need to evaluate diagnostic quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card decks -->
+      <div class="product-card product-card-dev" aria-label="Card decks">
+        <div class="product-card-head">
+          <h2 class="product-card-title">Structural Failure Recognition Decks</h2>
+          <span class="badge-dev">In development</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-desc">Physical card decks for teams working through structural diagnosis. Each card presents one failure class or sub-type: definition, inclusion criteria, canonical example, and corrective direction. Designed for facilitated sessions, not self-study.</p>
+          <div class="dev-grid">
+            <div class="dev-item">
+              <div class="dev-item-title">Diagnostic Taxonomy Deck</div>
+              <p class="dev-item-desc">Nine class cards and 54 sub-type cards. Use to classify a recurring failure before beginning a full diagnostic engagement.</p>
+            </div>
+            <div class="dev-item">
+              <div class="dev-item-title">Seeing Systems Deck</div>
+              <p class="dev-item-desc">Cards for developing structural perception: how to identify primitives, trace failure paths, and locate burden carriers in a real system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Field Kit -->
+      <div class="product-card product-card-dev" aria-label="Professional Field Kit">
+        <div class="product-card-head">
+          <h2 class="product-card-title">Professional Field Kit</h2>
+          <span class="badge-planned">Planned</span>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-desc">A complete practitioner reference set combining the printed taxonomy, the Seeing Systems deck, the Proof Standard card, and the 60-Second Scan in a single boxed package. Designed for practitioners who apply the method to real systems regularly.</p>
+          <div class="dev-grid">
+            <div class="dev-item">
+              <div class="dev-item-title">Digital bundle</div>
+              <p class="dev-item-desc">All reference PDFs and digital card decks in a single download. Planned future professional product.</p>
+            </div>
+            <div class="dev-item">
+              <div class="dev-item-title">Printed boxed set</div>
+              <p class="dev-item-desc">Physical printed version of the complete field kit. Not yet in production.</p>
+            </div>
+            <div class="dev-item">
+              <div class="dev-item-title">Corporate licence</div>
+              <p class="dev-item-desc">Team licence for organisations applying the taxonomy and method at scale. Terms and pricing not yet set.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- What's available now CTA -->
+      <div class="section-divider"><span class="section-divider-label">what you can do now</span></div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:32px;">
+        <div style="padding:20px 22px; border:1px solid rgba(80,200,120,0.18); border-radius:14px; background:rgba(80,200,120,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(80,200,120,0.7); margin-bottom:10px;">Free · now</div>
+          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Run the 60-Second Scan.</strong> Four questions. Surfaces the structural reality of any system before analysis begins.</p>
+          <a class="btn btn-primary" href="./diagnostic-scan.html" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">RUN SCAN →</a>
+        </div>
+        <div style="padding:20px 22px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.012);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px;">Free · now</div>
+          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">View the Diagnostic Taxonomy.</strong> Nine failure classes. 54 sub-types. The full classification system is publicly available online.</p>
+          <a class="btn" href="./taxonomy.html">VIEW TAXONOMY →</a>
+        </div>
+        <div style="padding:20px 22px; border:1px solid rgba(90,176,255,0.15); border-radius:14px; background:rgba(90,176,255,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Commissioned</div>
+          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Commission a Diagnostic Artifact.</strong> The professional service. Structural diagnosis of your system from £10,000.</p>
+          <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px; padding:16px 20px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.012);">
+        <span style="font-size:13px; color:var(--text-dim);">Five books are also in development alongside the practice and research series.</span>
+        <a class="btn" href="./books.html">VIEW BOOKS →</a>
+      </div>
+      <div style="padding:14px 18px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); font-size:12.5px; color:var(--text-faint); line-height:1.65; text-align:center;">
+        If you want to be notified when a product becomes available, <a class="link-blue" data-mailto="1">send an email</a> with "Product notification" in the subject line.
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
+          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
+        </section>
+        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
+          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
+          <ul class="site-footer__list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
+            <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
+          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
+          <ul class="site-footer__list">
+            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+            <li><a href="./trilogy.html">Trilogy</a></li>
+            <li><a href="./how-it-works.html">How It Works</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
+          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
+          <ul class="site-footer__list">
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./terms.html">Terms</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
+          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
+          <ul class="site-footer__list">
+            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('site-nav');
+  var hdr = document.querySelector('header');
+  if (nav && hdr) {
+    window.addEventListener('scroll', function(){ nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0); }, {passive:true});
+  }
+  var e = 'hello'+'@'+'jamieforrester.com';
+  document.querySelectorAll('[data-mailto]').forEach(function(el){ el.setAttribute('href','mailto:'+e); });
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

@@ -107,14 +107,13 @@
       font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
       color: #fff; white-space: nowrap;
     }
-    .site-nav-links { display: flex; align-items: center; gap: 4px; }
+    .site-nav-links { display: flex; align-items: center; gap: 14px; }
     .site-nav-links a {
       font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500;
       letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint);
-      border-bottom: none; padding: 6px 10px; border-radius: 7px;
-      transition: color 140ms ease, background 140ms ease;
+      border-bottom: none; padding: 6px 4px; transition: color 160ms ease;
     }
-    .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .site-nav-links a:hover { color: #fff; }
     .nav-short { display: none; }
     .nav-full { display: inline; }
     .site-nav-links .nav-cta {
@@ -122,7 +121,7 @@
       background: rgba(90,176,255,0.08); margin-left: 6px;
     }
     .nav-how-short { display: none; }
-    .site-nav-links .nav-cta:hover { background: rgba(90,176,255,0.14); color: var(--cta-blue); border-color: rgba(90,176,255,0.45); }
+    
 
     /* ── Header ── */
     header {
@@ -146,7 +145,7 @@
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
     .top-cta-link { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 10px; border-radius: 7px; transition: color 140ms ease; }
     .top-cta-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .top-cta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; }
+    .top-cta { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; padding-top: 40px; row-gap: 6px; }
 
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -381,6 +380,7 @@
       .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
       .hero-right { padding: 24px; }
       .services-grid, .two-grid, .three-grid, .process-strip, .fit-services-grid { grid-template-columns: 1fr; }
+      [style*="grid-template-columns:repeat(5,1fr)"] { grid-template-columns: 1fr !important; border-radius: 12px; }
       .refusal-block-head { flex-direction: column; gap: 8px; }
       .label-row { flex-direction: column; align-items: flex-start; }
       .label-note { white-space: normal; }
@@ -392,7 +392,8 @@
       .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
       .site-nav-name { display: none; } .scan-layout-grid { grid-template-columns: 1fr !important; gap: 16px !important; } .comparison-cards-grid { grid-template-columns: 1fr !important; } }
   
-</style>
+    @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  </style>
 </head>
 
 <body>
@@ -405,11 +406,13 @@
         <span class="site-nav-name">Jamie Forrester</span>
       </a>
       <div class="site-nav-links">
-        <a href="./services.html">Services</a>
-        <a href="./examples.html">Examples</a>
+        <a href="./services.html" class="nav-active">Services</a>
         <a href="./method.html">Method</a>
+        <a href="./examples.html">Examples</a>
+        <a href="./taxonomy.html">Taxonomy</a>
         <a href="./research.html">Research</a>
-        <a data-mailto="1" class="nav-cta">Email</a>
+        <a href="./books.html">Books</a>
+        <a href="./products.html">Products</a>
       </div>
     </div>
   </nav>
@@ -424,27 +427,27 @@
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign for recurring failure under scale</div>
+          <div class="h-pill">Independent Systems Architect · Structural diagnosis and redesign</div>
         </div>
       </div>
       <div class="top-cta" aria-label="Primary links">
         <span class="btn btn-current" aria-current="page">SERVICES</span>
-        <a class="btn" href="./examples.html">EXAMPLES</a>
         <a class="btn" href="./method.html">METHOD</a>
+        <a class="btn" href="./examples.html">EXAMPLES</a>
+        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn btn-primary" data-mailto="1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          EMAIL
-        </a>
+        <a class="btn" href="./books.html">BOOKS</a>
+        <a class="btn" href="./products.html">PRODUCTS</a>
+        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
     </header>
 
     <section class="hero-strip" aria-label="Service overview">
       <div class="hero-left">
         <div class="eyebrow">Service brief</div>
-        <h2 class="hero-title">Two fixed-scope engagement paths for systems that keep failing in the same way.</h2>
-        <p class="hero-sub">When the same failure returns under growth, scale, or organisational pressure — and no team has a single structural read of what is actually producing it — the work starts here. I produce builder-readable artifacts that make the failure pattern visible, name the structural break, and give decision-makers and builders a single basis to act from without further interpretation. In the Full Structural Engagement, this includes a Translation Artifact for shared language across non-specialist audiences and a Redesign Executive Summary for board and leadership circulation &#x2014; so the work travels without requiring the full restricted specification to change hands.</p>
-        <p class="hero-sub">The cost of unresolved structural failure is not abstract: rework, delay, decision churn, manual compensation, and compounding risk as the system continues operating on the wrong rules. These artifacts are designed to end that cycle.</p>
+        <h2 class="hero-title">Two fixed-scope engagement paths for failure your correction loops cannot reach.</h2>
+        <p class="hero-sub">Most recurring failure sits outside the frame internal corrections operate inside. The governing break — the structural condition that makes the failure return — is not accessible to more process, more communication, or more execution effort. The work starts when the organisation recognises that. I produce builder-readable artifacts that name the governing break, classify it, and give decision-makers and builders a single governed correction sequence. In the Full Structural Engagement, this includes a Translation Artifact for shared language across non-specialist audiences and a Redesign Executive Summary for board and leadership circulation.</p>
+        <p class="hero-sub">The cost of an unreached governing break is not abstract: rework, decision churn, reform cycles that stall at the same boundary, human load absorbed by workarounds that should not exist. These artifacts are designed to end that cycle — not by adding effort inside the current frame, but by naming what the frame cannot carry.</p>
         <hr class="hero-rule" />
         <p class="hero-sub" style="margin-bottom:0;"><strong>Diagnosis</strong> exposes what is structurally breaking and why prior fixes have not held. The full engagement carries that diagnosis into a redesign artifact: what must change, where responsibility moves, and in what order implementation can begin without drift.</p>
         <div class="hero-actions">
@@ -467,8 +470,8 @@
             </ul>
           </div>
           
-          <div class="path-block path-block-accent">
-            <span class="path-index">02 // Full Structural Engagement</span>
+          <div class="path-block path-block-accent" style="border-color:rgba(80,200,120,0.3); background:linear-gradient(160deg,rgba(80,200,120,0.07) 0%,rgba(80,200,120,0.02) 60%,transparent 100%);">
+            <span class="path-index" style="color:rgba(80,200,120,0.85);">02 // Full Structural Engagement</span>
             <p class="path-title">Diagnose and define the change sequence</p>
             <p style="font-size:11px; color:var(--text-faint); margin:0 0 8px; font-style:italic;">Everything in the Diagnostic Artifact, plus:</p>
             <ul class="path-list">
@@ -518,26 +521,26 @@
         </div>
 
         <!-- Full Structural Engagement card -->
-        <div style="border:1px solid rgba(90,176,255,0.38); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(90,176,255,0.09) 0%,rgba(90,176,255,0.03) 50%,transparent 100%); position:relative; box-shadow:0 0 0 1px rgba(90,176,255,0.08),0 12px 36px rgba(0,0,0,0.22);">
-          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(90,176,255,0.7) 40%,rgba(90,176,255,0.9) 60%,transparent);"></div>
-          <div style="padding:16px 20px 14px; border-bottom:1px solid rgba(90,176,255,0.18); background:rgba(90,176,255,0.07);">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">02 // Full Structural Engagement</div>
+        <div style="border:1px solid rgba(80,200,120,0.32); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(80,200,120,0.07) 0%,rgba(80,200,120,0.025) 50%,transparent 100%); position:relative; box-shadow:0 0 0 1px rgba(80,200,120,0.06),0 12px 36px rgba(0,0,0,0.22);">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(80,200,120,0.7) 40%,rgba(80,200,120,0.9) 60%,transparent);"></div>
+          <div style="padding:16px 20px 14px; border-bottom:1px solid rgba(80,200,120,0.14); background:rgba(80,200,120,0.04);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:6px;">02 // Full Structural Engagement</div>
             <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">Diagnosis and redesign sequence</div>
           </div>
           <div style="padding:16px 20px;">
             <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px;">
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Primitive definition</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Invariants and enforcement map</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Governing diagnosis</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Build map</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Translation Artifact</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Redesign Executive Summary</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Corrected primitive</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Target boundary redesign</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Transition sequence</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Dependency order</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Drift refusal gates</li>
-              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Builder handoff specification</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Primitive definition</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Invariants and enforcement map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Governing diagnosis</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Build map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Translation Artifact</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Redesign Executive Summary</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Corrected primitive</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Target boundary redesign</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Transition sequence</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Dependency order</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Drift refusal gates</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.85); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px;">&#x2713;</span>Builder handoff specification</li>
             </ul>
           </div>
         </div>
@@ -546,6 +549,62 @@
       <p style="margin:0 0 24px; font-size:12.5px; color:var(--text-faint); line-height:1.65;">Commissioned separately, diagnosis and redesign total &pound;35,000. Commissioned as one governed sequence, the Full Structural Engagement is &pound;25,000. The &pound;10,000 saving reflects the efficiency of a single diagnostic frame producing the full artifact sequence &#x2014; and includes the Translation Artifact and Redesign Executive Summary at no additional charge.</p>
 
       <p style="margin:0 0 24px; font-size:13.5px; color:var(--text-dim); line-height:1.7;">Most systems that need a diagnosis also need a redesign. A structural read without a change sequence leaves builders with a named problem and no sequence to act on. The full engagement removes that gap.</p>
+
+    <div class="section-divider"><span class="section-divider-label">how the artifact is produced</span></div>
+
+    <section aria-label="Artifact Production Pipeline" style="margin-bottom:32px;">
+      <div style="margin-bottom:18px;">
+        <p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">A governed production sequence — not subjective consulting.</p>
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:72ch;">Every artifact follows the same pipeline regardless of the engagement path. The structural conclusions, diagnostic logic, and correction order are governed by the Diagnostic Taxonomy and the seven-step diagnostic sequence. AI assists drafting and production — it does not determine the governing diagnosis, the redesign boundary, or the correction order.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-bottom:16px;">
+        <div style="padding:18px 14px; border:1px solid rgba(255,255,255,0.06); border-right:none; background:rgba(255,255,255,0.012); border-radius:12px 0 0 12px; position:relative;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage A</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px; letter-spacing:-0.01em;">Failure signal received</div>
+          <div style="font-size:11px; color:var(--text-faint); line-height:1.55;">Five-Line Brief reviewed. Fit confirmed. Engagement path selected.</div>
+          <span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+        </div>
+        <div style="padding:18px 14px; border:1px solid rgba(255,255,255,0.06); border-right:none; background:rgba(255,255,255,0.012); position:relative;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage B</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px; letter-spacing:-0.01em;">System defined</div>
+          <div style="font-size:11px; color:var(--text-faint); line-height:1.55;">Real boundary, scope, and primitive identified. Adjacent systems mapped.</div>
+          <span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+        </div>
+        <div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); border-right:none; background:rgba(90,176,255,0.04); position:relative;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage C</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px; letter-spacing:-0.01em;">Failure class assigned</div>
+          <div style="font-size:11px; color:var(--text-faint); line-height:1.55;">Taxonomy applied. Primary class and sub-type confirmed against inclusion, exclusion, and refusal criteria.</div>
+          <span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+        </div>
+        <div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); border-right:none; background:rgba(90,176,255,0.04); position:relative;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage D</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px; letter-spacing:-0.01em;">Governing diagnosis locked</div>
+          <div style="font-size:11px; color:var(--text-faint); line-height:1.55;">The structural truth from which the rest of the failure follows. Accepted before redesign begins.</div>
+          <span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+        </div>
+        <div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); background:rgba(90,176,255,0.05); border-radius:0 12px 12px 0;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage E</div>
+          <div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px; letter-spacing:-0.01em;">Artifact delivered</div>
+          <div style="font-size:11px; color:var(--text-faint); line-height:1.55;">One Diagnostic Artifact or four-artifact governed sequence. Written. Fixed-scope. Builder-ready.</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div style="padding:16px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Diagnostic Artifact — stages A → E</div>
+          <p style="margin:0; font-size:12.5px; color:var(--text-dim); line-height:1.65;">The pipeline runs once. The governing diagnosis is locked at Stage D. The Diagnostic Artifact contains: failure signal, primitive definition, invariants and enforcement map, failure path trace, governing diagnosis, cost of failure, and build map. <strong style="color:#e0e4ea;">One artifact. Fixed fee. Fixed scope.</strong></p>
+        </div>
+        <div style="padding:16px 18px; border:1px solid rgba(80,200,120,0.2); border-radius:12px; background:rgba(80,200,120,0.04);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:8px;">Full Structural Engagement — stages A → E × four artifacts</div>
+          <p style="margin:0; font-size:12.5px; color:var(--text-dim); line-height:1.65;">The same pipeline produces four linked outputs from one locked diagnostic frame: Translation Artifact → Diagnostic Artifact → Redesign Executive Summary → Full Redesign Artifact. The diagnosis is locked once. All four artifacts derive from it. <strong style="color:#e0e4ea;">No diagnosis drift. No redesign without a locked frame.</strong></p>
+        </div>
+      </div>
+
+      <div style="margin-top:12px; padding:13px 16px; border-left:2px solid rgba(90,176,255,0.35); font-size:12.5px; color:var(--text-faint); line-height:1.65;">
+        The work is not subjective consulting. It follows a governed sequence. <a class="link-blue" href="./method.html">Read the full method →</a> &nbsp;·&nbsp; <a class="link-blue" href="./taxonomy.html">View the Diagnostic Taxonomy →</a>
+      </div>
+    </section>
 
     <div class="section-divider"><span class="section-divider-label">detail</span></div>
 
@@ -623,14 +682,14 @@
         </section>
 
         <!-- 02 Redesign -->
-        <section class="service-card" aria-label="Redesign Artifact">
+        <section class="service-card" aria-label="Redesign Artifact" style="border-color:rgba(80,200,120,0.22); background:linear-gradient(160deg,rgba(80,200,120,0.04) 0%,rgba(255,255,255,0.008) 60%);">
           <div class="sc-header">
             <div class="sc-header-top">
               <div class="sc-label-group">
-                <span class="sc-index">02 // Full Structural Engagement</span>
+                <span class="sc-index" style="color:rgba(80,200,120,0.85);">02 // Full Structural Engagement</span>
               </div>
               <div class="price-tag">
-                <span class="price-amount">from &pound;25,000</span>
+                <span class="price-amount" style="color:rgba(80,200,120,0.95);">from &pound;25,000</span>
                 <span class="price-label">Fixed fee</span>
               </div>
             </div>
@@ -648,8 +707,8 @@
           <div class="sc-body">
             <p class="sc-lead">When the failure is serious enough that naming it and defining the change sequence should happen in one governed engagement.</p>
             <p style="margin:0 0 14px; font-size:12px; color:var(--text-faint); line-height:1.65;">For the vast majority of systems the fee is a fixed &pound;25,000. If the system is unusually large &#x2014; multiple institutions, dozens of interfaces, or high-consequence redesign &#x2014; I will scope separately and provide a tailored quote during fit assessment.</p>
-            <div class="sc-insight">
-              <div class="sc-insight-bar"></div>
+            <div class="sc-insight" style="border-color:rgba(80,200,120,0.15); background:rgba(80,200,120,0.03);">
+              <div class="sc-insight-bar" style="background:linear-gradient(180deg,rgba(80,200,120,0.7),rgba(80,200,120,0.2));"></div>
               <p class="sc-insight-text"><strong>Core purpose:</strong> Systems can&rsquo;t self-correct because the correction logic must be designed upstream of execution. This artifact provides that logic &mdash; explicitly sequenced so builders can execute against it instead of inventing design midstream.</p>
             </div>
             <div class="sc-blocks">
@@ -680,7 +739,7 @@
             </div>
           </div>
           <div class="sc-cta">
-            <a class="btn btn-primary btn-large btn-full" data-mailto="1">
+            <a class="btn btn-primary btn-large btn-full" data-mailto="1" style="color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08);">
               <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               REQUEST FULL ENGAGEMENT
             </a>
@@ -707,7 +766,7 @@
         </div>
       </div>
 
-      <div class="method-callout">The artifact path is built through a defined diagnosis sequence designed to produce one builder-readable structural read. <a class="link-blue" href="./method.html">Read the method →</a> &nbsp;<a class="link-blue" href="./how-it-works.html">How it works →</a></div>
+      <div class="method-callout">The artifact path is built through a governed diagnosis sequence designed to produce one builder-readable structural read. <a class="link-blue" href="./method.html">Read the method →</a> &nbsp;<a class="link-blue" href="./taxonomy.html">View the Diagnostic Taxonomy →</a></div>
 
 
       <div class="section-divider"><span class="section-divider-label">what this is not</span></div>
@@ -969,16 +1028,19 @@
       <div class="site-footer__top">
                 <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
           <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Fixed-scope artifacts for systems that fail under scale.</p>
+          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
         </section>
                 <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
           <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
           <ul class="site-footer__list">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./services.html">Services</a></li>
-            <li><a href="./examples.html">Examples</a></li>
             <li><a href="./method.html">Method</a></li>
+            <li><a href="./examples.html">Examples</a></li>
+            <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
+            <li><a href="./books.html">Books</a></li>
+            <li><a href="./products.html">Products</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
@@ -1053,7 +1115,7 @@
 @media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
   </style>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
 // Email link wiring
