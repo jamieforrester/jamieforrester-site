@@ -248,7 +248,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav class="site-nav" aria-label="Site navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
     <div class="site-nav-inner">
       <a href="./index.html" class="site-nav-brand">
         <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
@@ -262,7 +262,9 @@
         <a href="./research.html">Research</a>
         <a href="./books.html">Books</a>
         <a href="./products.html">Products</a>
-      </div>
+      
+      <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
+    </div>
     </div>
   </nav>
 
@@ -270,9 +272,7 @@
 
     <header>
       <div class="h-left">
-        <a class="avatar-link" href="./index.html" aria-label="Back to home">
-          <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" /></a>
-        </a>
+        <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" /></a>
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
@@ -285,8 +285,6 @@
         <a class="btn" href="./examples.html">EXAMPLES</a>
         <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn" href="./books.html">BOOKS</a>
-        <a class="btn" href="./products.html">PRODUCTS</a>
         <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
     </header>
@@ -788,26 +786,6 @@
   </style>
 
 <script>
-(function(){
-  // Footer year
-  var fy = document.getElementById('footer-year');
-  if (fy) fy.textContent = new Date().getFullYear();
-
-  // Sticky nav
-  var nav = document.querySelector('.site-nav');
-  var hdr = document.querySelector('header');
-  if (nav && hdr) {
-    window.addEventListener('scroll', function(){
-      nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0);
-    }, {passive: true});
-  }
-
-  // Email obfuscation
-  var e = 'hello' + '@' + 'jamieforrester.com';
-  document.querySelectorAll('[data-mailto]').forEach(function(el){
-    el.setAttribute('href', 'mailto:' + e + '?subject=Structural+Diagnosis+Inquiry');
-  });
-})();
 </script><script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 

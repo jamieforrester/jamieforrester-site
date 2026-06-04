@@ -149,7 +149,7 @@
     .scan-empty-msg.visible { display: block; }
 
     /* Result panel */
-    .result-panel { position: sticky; top: 80px; }
+    .result-panel { position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
     .result-inner { border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; background: linear-gradient(160deg, rgba(255,255,255,0.018) 0%, rgba(255,255,255,0.006) 100%); overflow: hidden; transition: border-color 300ms ease; }
     .result-inner.has-result { border-color: rgba(90,176,255,0.22); background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.015) 50%, rgba(255,255,255,0.006) 100%); }
     .result-header { padding: 18px 22px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.014); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -229,7 +229,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav class="site-nav" aria-label="Site navigation">
+  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
     <div class="site-nav-inner">
       <a href="./index.html" class="site-nav-brand">
         <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
@@ -243,7 +243,9 @@
         <a href="./research.html">Research</a>
         <a href="./books.html">Books</a>
         <a href="./products.html">Products</a>
-      </div>
+      
+      <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
+    </div>
     </div>
   </nav>
 
@@ -251,9 +253,7 @@
 
     <header>
       <div class="h-left">
-        <a class="avatar-link" href="./index.html" aria-label="Back to home">
-          <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" /></a>
-        </a>
+        <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="avatar" /></a>
         <div>
           <h1>Jamie Forrester</h1>
           <div class="h-sub">Independent Systems Architect</div>
@@ -266,8 +266,6 @@
         <a class="btn" href="./examples.html">EXAMPLES</a>
         <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn" href="./books.html">BOOKS</a>
-        <a class="btn" href="./products.html">PRODUCTS</a>
         <span class="btn btn-current" aria-current="page">SCAN</span>
         <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
@@ -374,7 +372,7 @@
 
           <span class="scan-empty-msg" id="scan-empty">Answer at least one question to generate a read.</span>
           <div class="scan-actions">
-            <button class="btn btn-primary btn-large" onclick="runScan()">GENERATE STRUCTURAL READ</button>
+            <button class="btn btn-primary btn-large" onclick="runScan()">REVIEW MY ANSWERS</button>
             <button class="btn" onclick="clearScan()">CLEAR</button>
           </div>
         </div>
