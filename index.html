@@ -761,20 +761,45 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
       <!-- Compact comparison table -->
       <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.01);">
-        <table style="width:100%; border-collapse:collapse;">
+        <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
+          <colgroup>
+            <col style="width:auto;">
+            <col style="width:100px;">
+            <col style="width:100px;">
+          </colgroup>
           <thead>
             <tr>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); padding:9px 14px; border-bottom:1px solid rgba(255,255,255,0.06); text-align:left;">Deliverable</th>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--label-blue); padding:9px 14px; border-bottom:1px solid rgba(90,176,255,0.15); text-align:center;">&pound;10k</th>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.85); padding:9px 14px; border-bottom:1px solid rgba(80,200,120,0.15); text-align:center;">&pound;25k</th>
+              <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.06); text-align:left;">Deliverable</th>
+              <th style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--label-blue); padding:11px 16px; border-bottom:1px solid rgba(90,176,255,0.2); text-align:center; border-left:1px solid rgba(255,255,255,0.04);">&pound;10k</th>
+              <th style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.9); padding:11px 16px; border-bottom:1px solid rgba(80,200,120,0.2); text-align:center; border-left:1px solid rgba(255,255,255,0.04);">&pound;25k</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td style="font-size:12.5px; color:var(--text-dim); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">Governing diagnosis + build map</td><td style="text-align:center; color:var(--cta-blue); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&#x2713;</td><td style="text-align:center; color:rgba(80,200,120,0.85); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&#x2713;</td></tr>
-            <tr><td style="font-size:12.5px; color:var(--text-dim); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">Translation Artifact</td><td style="text-align:center; color:rgba(255,255,255,0.2); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&mdash;</td><td style="text-align:center; color:rgba(80,200,120,0.85); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&#x2713;</td></tr>
-            <tr><td style="font-size:12.5px; color:var(--text-dim); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">Redesign Executive Summary</td><td style="text-align:center; color:rgba(255,255,255,0.2); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&mdash;</td><td style="text-align:center; color:rgba(80,200,120,0.85); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&#x2713;</td></tr>
-            <tr><td style="font-size:12.5px; color:var(--text-dim); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">Transition sequence + builder handoff</td><td style="text-align:center; color:rgba(255,255,255,0.2); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&mdash;</td><td style="text-align:center; color:rgba(80,200,120,0.85); padding:7px 14px; border-bottom:1px solid rgba(255,255,255,0.04);">&#x2713;</td></tr>
-            <tr><td style="font-size:12.5px; color:var(--text-dim); padding:7px 14px;">Full Redesign Artifact</td><td style="text-align:center; color:rgba(255,255,255,0.2); padding:7px 14px;">&mdash;</td><td style="text-align:center; color:rgba(80,200,120,0.85); padding:7px 14px;">&#x2713;</td></tr>
+            <tr>
+              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Governing diagnosis + build map</td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:var(--cta-blue); line-height:1;">&#x2713;</span></td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Translation Artifact</td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Redesign Executive Summary</td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Transition sequence + builder handoff</td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
+              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px;">Full Redesign Artifact</td>
+              <td style="text-align:center; padding:10px 16px; border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
+              <td style="text-align:center; padding:10px 16px; border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
+            </tr>
           </tbody>
         </table>
         <p style="margin:0; padding:9px 14px; font-size:12px; color:var(--text-faint); border-top:1px solid rgba(255,255,255,0.05);">Commissioned separately, diagnosis and redesign total &pound;35,000. As one governed sequence, &pound;25,000. <a href="./services.html" class="link-blue">Full service details &rarr;</a></p>
