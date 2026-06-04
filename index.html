@@ -87,7 +87,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
 
 
-.hero-strip { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: start; border: 1px solid rgba(90,176,255,0.22); border-top: 3px solid rgba(90,176,255,0.7); border-radius: 22px; overflow: hidden; background: #0e0f12; box-shadow: 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04); gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.75); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 45%, rgba(255,255,255,0.006) 100%); margin-bottom: var(--space-6,32px); overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 24px 64px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06); transition: border-color 200ms ease, box-shadow 200ms ease; }
+.hero-strip { display: block; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.75); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 45%, rgba(255,255,255,0.006) 100%); margin-bottom: var(--space-6,32px); overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 24px 64px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06); transition: border-color 200ms ease, box-shadow 200ms ease; }
 .hero-strip:hover { border-color: rgba(90,176,255,0.2); box-shadow: var(--shadow-hover); }
 .hero-left { padding: 36px 32px 36px 36px; border-right: 1px solid var(--border-soft); }
 .hero-right { padding: 28px 24px; background: rgba(0,0,0,0.25); display: flex; flex-direction: column; justify-content: center; }
@@ -410,7 +410,14 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 }
 @media (max-width: 720px) {
   .offer-grid { grid-template-columns: 1fr !important; }
+  .comparison-cards-grid { grid-template-columns: 1fr !important; }
   [style*="repeat(2, minmax(0,1fr))"] { grid-template-columns: 1fr !important; }
+  [style*="repeat(2,minmax(0,1fr))"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  [style*="grid-template-columns:repeat(5,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+}
+@media (max-width: 480px) {
+  [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
 }
 
 /* Hero mobile fixes */
@@ -430,6 +437,45 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .hero-title { font-size: 1.65rem !important; }
 }
     @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
+  
+    /* Footer styles */
+    .brief-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;}
+.brief-modal{background:#101114;border:1px solid rgba(90,176,255,0.22);border-radius:20px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
+.brief-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
+.brief-modal-eyebrow{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#4aa3ff;margin-bottom:4px;}
+.brief-modal-title{margin:0;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.03em;}
+.brief-modal-close{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#8c94a2;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 140ms,color 140ms;}
+.brief-modal-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.brief-modal-body{padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:14px;}
+.brief-modal-intro{margin:0;font-size:13px;color:#8c94a2;line-height:1.65;}
+.brief-modal-divider{height:1px;background:rgba(255,255,255,0.06);}
+.brief-modal-field{display:flex;flex-direction:column;gap:4px;}
+.brief-modal-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#e8ecf0;}
+.brief-modal-num{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.14em;color:#4aa3ff;background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);border-radius:5px;padding:2px 6px;line-height:1;}
+.brief-modal-hint{margin:0;font-size:12px;color:#8c94a2;line-height:1.5;}
+.brief-modal-input{width:100%;font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:#f1f3f5;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;resize:vertical;line-height:1.6;box-sizing:border-box;transition:border-color 140ms,background 140ms;}
+.brief-modal-input:focus{outline:none;border-color:rgba(90,176,255,0.4);background:rgba(90,176,255,0.03);}
+.brief-modal-input::placeholder{color:#4a5260;font-style:italic;}
+.brief-modal-footer{padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(90,176,255,0.025);border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+.brief-modal-footer-note{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#8c94a2;line-height:1.5;}
+.brief-modal-submit{width:100%;padding:13px 20px;border-radius:12px;border:1px solid rgba(90,176,255,0.32);background:rgba(90,176,255,0.08);color:#5ab0ff;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background 140ms,border-color 140ms;}
+.brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
+@media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
+  
+    /* ── Footer ── */
+    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
+    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+    .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;}
+    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
+    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}}
   </style>
 </head>
 <body>
@@ -476,7 +522,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
   </header>
 
-  <main id="main" role="main">
+    <main id="main" role="main">
 
     <!-- ═══════════════════════════════════════════
          HERO
@@ -488,74 +534,112 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <span style="flex:1; height:1px; background:linear-gradient(90deg,rgba(90,176,255,0.3),transparent); display:block;"></span>
         </div>
         <h2 class="hero-title">When the same failure keeps returning, the problem is no longer <span style="color:var(--cta-blue);">execution.</span> It is structure.</h2>
-        <p class="hero-sub" style="margin-bottom:26px;">I write the structural read your internal fixes cannot reach: fixed-scope diagnostic and redesign artifacts for founders, operators, and leadership teams facing recurring failure.</p>
+        <p class="hero-sub" style="margin-bottom:20px;">I write <strong>structural fixed-scope diagnostic and redesign artifacts</strong>. For <strong>founders, operators, and decision owners</strong> facing <strong>recurring structural failure</strong> — <strong>two fixed-scope paths</strong> from <strong>&pound;10,000</strong>, a <strong>seven-step governed sequence</strong>, starting with the <strong>five-line brief</strong>.</p>
 
-        <!-- Offer cards -->
-        <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:20px;">
-          <div style="padding:14px 18px 14px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:start; gap:12px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.07);">
-            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(90,176,255,0.4);"></div>
+        <!-- Inline offer summary -->
+        <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:18px;">
+          <div style="padding:13px 18px 13px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:center; gap:12px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.07);">
+            <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(90,176,255,0.45);"></div>
             <div style="padding-left:2px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Diagnostic Artifact</div>
-              <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:4px;">&pound;10,000 &middot; fixed fee</div>
-              <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55;">Names the structural failure and produces the correction map.</div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:3px;">Diagnostic Artifact</div>
+              <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.02em;">&pound;10,000 &middot; 14 days</div>
             </div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(90,176,255,0.6); border:1px solid rgba(90,176,255,0.2); padding:3px 8px; border-radius:999px; white-space:nowrap; align-self:start; margin-top:2px;">14 days</div>
+            <div style="font-size:12px; color:var(--text-faint);">Names the <strong style="color:var(--text-dim);">structural break</strong></div>
           </div>
-          <div style="padding:14px 18px 14px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:start; gap:12px; background:rgba(80,200,120,0.04);">
+          <div style="padding:13px 18px 13px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:center; gap:12px; background:rgba(80,200,120,0.03);">
             <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(80,200,120,0.5);"></div>
             <div style="padding-left:2px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:5px;">Full Structural Engagement</div>
-              <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:4px;">&pound;25,000 &middot; fixed fee</div>
-              <div style="font-size:12.5px; color:var(--text-dim); line-height:1.55;">Carries the diagnosis into translation, executive summary, full redesign specification, transition sequence, and builder handoff.</div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:3px;">Full Structural Engagement</div>
+              <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.02em;">&pound;25,000 &middot; Four artifacts</div>
             </div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:rgba(80,200,120,0.7); border:1px solid rgba(80,200,120,0.2); padding:3px 8px; border-radius:999px; white-space:nowrap; align-self:start; margin-top:2px;">4 artifacts</div>
+            <div style="font-size:12px; color:var(--text-faint);"><strong style="color:var(--text-dim);">Diagnosis</strong> + <strong style="color:var(--text-dim);">governed redesign</strong></div>
           </div>
         </div>
 
-        <p style="margin:0 0 18px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--text-faint); letter-spacing:0.06em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
+        <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--text-faint); letter-spacing:0.06em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
 
-        <p style="margin:0 0 16px; font-size:12px; color:var(--text-dim); line-height:1.6; font-style:italic;"><strong style="font-style:normal; color:#e0e4ea;">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
+        <p style="margin:0 0 16px; font-size:12px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e0e4ea;">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
 
-        <div style="display:flex; gap:8px; margin-bottom:0; flex-wrap:wrap;">
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
           <a class="btn btn-primary btn-large" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn btn-large" href="./services.html">VIEW SERVICES</a>
         </div>
       </div>
 
-      <div class="hero-right" style="padding: 24px; border: 1px solid rgba(90,176,255,0.12); border-radius: 16px; background: rgba(90,176,255,0.02);">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:16px;">The operating frame</div>
-        <div style="display:flex; flex-direction:column; gap:0;">
-          <div style="padding:0 0 11px; border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div class="qk" style="margin-bottom:4px;">What this is</div>
-            <div class="qv"><strong>Two fixed-scope paths:</strong> Diagnostic Artifact (&pound;10k) to name the structural failure, or Full Structural Engagement (&pound;25k) to carry diagnosis into the complete four-artifact redesign sequence.</div>
-          </div>
-          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div class="qk" style="margin-bottom:4px;">What it solves</div>
-            <div class="qv"><strong>Recurring failure</strong> caused by hidden structure — in interfaces, incentives, ownership, host constraints, or enforcement.</div>
-          </div>
-          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div class="qk" style="margin-bottom:4px;">Who it is for</div>
-            <div class="qv"><strong>Founders, CTOs, product leads, and decision owners</strong> who need one structural read their builders can execute from.</div>
-          </div>
-          <div style="padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div class="qk" style="margin-bottom:4px;">The method</div>
-            <div class="qv"><strong>Seven-step diagnosis sequence</strong> — system definition through governing diagnosis to builder-ready artifact. <a class="link-blue" href="./method.html">Read the method &rarr;</a></div>
-          </div>
-          <div style="padding:11px 0 0;">
-            <div class="qk" style="margin-bottom:4px;">How to start</div>
-            <div class="qv"><strong>Email five lines</strong> defining the repeated failure pattern plus any existing materials.</div>
-          </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PIPELINE — what happens start to finish
+    ═══════════════════════════════════════════ -->
+    <div class="section-divider"><span class="section-divider-label">the full field pipeline</span></div>
+
+    <section aria-label="Full Field Pipeline" style="margin-bottom:56px;">
+      <div style="margin-bottom:20px;">
+        <h2 style="margin:0 0 6px; font-size:clamp(1.2rem,1.05rem+0.5vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Signal → Diagnose → Redesign → Qualify → Build → Deploy → Govern → Extract</h2>
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:68ch;">The full path from first failure signal to governed implementation.</p>
+      </div>
+
+      <!-- Row 1: stages 1-4 -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:8px;">
+        <div style="padding:16px 14px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:12px; background:rgba(90,176,255,0.03);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(90,176,255,0.35); line-height:1; margin-bottom:8px;">01</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Signal</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">First structural indication</div>
         </div>
+        <div style="padding:16px 14px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.6); border-radius:12px; background:rgba(90,176,255,0.03);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(90,176,255,0.35); line-height:1; margin-bottom:8px;">02</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Diagnose</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Locate the real break</div>
+        </div>
+        <div style="padding:16px 14px; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.75); border-radius:12px; background:rgba(90,176,255,0.04);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(90,176,255,0.35); line-height:1; margin-bottom:8px;">03</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Redesign</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Correct the primitive</div>
+        </div>
+        <div style="padding:16px 14px; border:1px solid rgba(90,176,255,0.22); border-top:2px solid var(--cta-blue); border-radius:12px; background:rgba(90,176,255,0.045);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(90,176,255,0.35); line-height:1; margin-bottom:8px;">04</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Qualify</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Prove before you build</div>
+        </div>
+      </div>
+
+      <!-- Row 2: stages 5-8 -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:16px;">
+        <div style="padding:16px 14px; border:1px solid rgba(80,200,120,0.18); border-top:2px solid rgba(80,200,120,0.5); border-radius:12px; background:rgba(80,200,120,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(80,200,120,0.28); line-height:1; margin-bottom:8px;">05</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Build</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Construct to new grammar</div>
+        </div>
+        <div style="padding:16px 14px; border:1px solid rgba(80,200,120,0.2); border-top:2px solid rgba(80,200,120,0.6); border-radius:12px; background:rgba(80,200,120,0.03);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(80,200,120,0.28); line-height:1; margin-bottom:8px;">06</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Deploy</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Release to real environment</div>
+        </div>
+        <div style="padding:16px 14px; border:1px solid rgba(80,200,120,0.22); border-top:2px solid rgba(80,200,120,0.75); border-radius:12px; background:rgba(80,200,120,0.035);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(80,200,120,0.28); line-height:1; margin-bottom:8px;">07</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Govern</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Adapt without drift</div>
+        </div>
+        <div style="padding:16px 14px; border:1px solid rgba(80,200,120,0.25); border-top:2px solid rgba(80,200,120,0.9); border-radius:12px; background:rgba(80,200,120,0.04);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:rgba(80,200,120,0.28); line-height:1; margin-bottom:8px;">08</div>
+          <div style="font-size:14px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;">Extract</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:5px; line-height:1.4;">Capture durable value</div>
+        </div>
+      </div>
+
+      <!-- Context note -->
+      <div style="padding:14px 18px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <p style="margin:0; font-size:12.5px; color:var(--text-faint); line-height:1.65;">The engagement covers <strong style="color:var(--text-dim);">Signal through Qualify</strong>. Your builders carry Build through Govern against the artifact. Extract is where reusable value, laws, and future systems are derived.</p>
+        <a class="link-blue" href="./method.html" style="white-space:nowrap; font-size:12.5px;">Read the method &rarr;</a>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         WHAT CHANGES — moved up, before/after format
+         WHAT THE ARTIFACT DOES — before/after
     ═══════════════════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">what the artifact does</span></div>
 
     <section aria-label="What the artifact does" style="margin-bottom:56px;">
-      <!-- Header -->
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.5); border-radius:16px 16px 0 0; overflow:hidden;">
         <div style="padding:14px 28px; background:rgba(255,255,255,0.02); border-right:1px solid rgba(255,255,255,0.07);">
           <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint);">Before the artifact</span>
@@ -564,173 +648,118 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
           <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue);">After the artifact</span>
         </div>
       </div>
-      <!-- Rows -->
       <div style="border:1px solid rgba(90,176,255,0.15); border-top:none; border-radius:0 0 16px 16px; overflow:hidden;">
-        <!-- Row 1 -->
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="padding:20px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
-            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:5px;">The failure is a moving target</div>
+          <div style="padding:18px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
+            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:4px;">The failure is a moving target</div>
             <div style="font-size:12.5px; color:var(--text-faint); line-height:1.6;">Teams debate the root cause. Every cycle names it differently.</div>
           </div>
-          <div style="padding:20px 28px; background:rgba(90,176,255,0.02);">
-            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:5px;">The failure is named once</div>
+          <div style="padding:18px 28px; background:rgba(90,176,255,0.02);">
+            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:4px;">The failure is named once</div>
             <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">The structural break is located precisely. Interpretation drift stops.</div>
           </div>
         </div>
-        <!-- Row 2 -->
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="padding:20px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
-            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:5px;">Builders invent structure midstream</div>
+          <div style="padding:18px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
+            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:4px;">Builders invent structure midstream</div>
             <div style="font-size:12.5px; color:var(--text-faint); line-height:1.6;">Design decisions made during implementation. No written source exists.</div>
           </div>
-          <div style="padding:20px 28px; background:rgba(90,176,255,0.02);">
-            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:5px;">Builders execute from a written source</div>
+          <div style="padding:18px 28px; background:rgba(90,176,255,0.02);">
+            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:4px;">Builders execute from a written source</div>
             <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">The artifact becomes the design source. Midstream interpretation is removed.</div>
           </div>
         </div>
-        <!-- Row 3 -->
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:1px solid rgba(255,255,255,0.05);">
-          <div style="padding:20px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
-            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:5px;">Humans carry what the system leaks</div>
+          <div style="padding:18px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
+            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:4px;">Humans carry what the system leaks</div>
             <div style="font-size:12.5px; color:var(--text-faint); line-height:1.6;">Manual workarounds and shadow processes become load-bearing.</div>
           </div>
-          <div style="padding:20px 28px; background:rgba(90,176,255,0.02);">
-            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:5px;">The system carries the function</div>
+          <div style="padding:18px 28px; background:rgba(90,176,255,0.02);">
+            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:4px;">The system carries the function</div>
             <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">The boundary is defined. The system enforces. Human workaround load drops.</div>
           </div>
         </div>
-        <!-- Row 4 -->
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
-          <div style="padding:20px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
-            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:5px;">Nobody owns the failing decision class</div>
+          <div style="padding:18px 28px; border-right:1px solid rgba(255,255,255,0.05); background:rgba(255,255,255,0.008);">
+            <div style="font-size:13px; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:4px;">Nobody owns the failing decision class</div>
             <div style="font-size:12.5px; color:var(--text-faint); line-height:1.6;">The failure crosses teams, systems, or authorities without a single correction owner.</div>
           </div>
-          <div style="padding:20px 28px; background:rgba(90,176,255,0.02);">
-            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:5px;">Ownership becomes explicit</div>
+          <div style="padding:18px 28px; background:rgba(90,176,255,0.02);">
+            <div style="font-size:13px; font-weight:600; color:#e4eaf2; margin-bottom:4px;">Ownership becomes explicit</div>
             <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">The decision class is located. The correction boundary is assigned.</div>
           </div>
         </div>
       </div>
-
     </section>
+
     <!-- ═══════════════════════════════════════════
-         PUBLIC PROOF — compact cards
+         PUBLIC PROOF SETS
     ═══════════════════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">public proof sets</span></div>
 
     <section aria-label="Public proof sets" style="margin-bottom:56px;">
       <div style="display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:16px; margin-bottom:18px;">
         <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong>Three systems. Same method. Public proof it repeats.</strong></p>
-        <a href="./examples.html" class="link-blue" style="font-size:12px; white-space:nowrap;">View all proof sets &rarr;</a>
       </div>
 
-      <div class="trilogy-grid" style="margin-bottom:20px;">
-
-        <!-- Outlier -->
+      <div class="trilogy-grid" style="margin-bottom:16px;">
         <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
           <a href="./examples.html#outlier" style="display:block; border-bottom:none; padding:0;">
             <img src="./outlier1-image.png" alt="Outlier proof set" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;" />
           </a>
-          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:10px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
-            <div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">01 // Outlier AI</div>
-              <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Recruited as an expertise market. Operated as a reliability pipeline.</div>
-            </div>
+          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">01 // Outlier AI</div>
+            <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Recruited as an expertise market. Operated as a reliability pipeline. The worker becomes a node of hidden friction.</div>
             <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation &middot; Diagnostic &middot; Redesign Summary<br><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Full Redesign Artifact</div>
             <a href="./examples.html#outlier" class="link-blue" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set &rarr;</a>
           </div>
         </div>
-
-        <!-- NHS -->
         <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
           <a href="./examples.html#nhs" style="display:block; border-bottom:none; padding:0;">
             <img src="./nhs1-image.png" alt="NHS proof set" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;" />
           </a>
-          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:10px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
-            <div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">02 // NHS Primary Care</div>
-              <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Record-rich system. Continuity-poor reality. The patient becomes the carrier of memory.</div>
-            </div>
+          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">02 // NHS Primary Care</div>
+            <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Record-rich system. Continuity-poor reality. The patient becomes the carrier of memory.</div>
             <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation &middot; Diagnostic &middot; Redesign Summary<br><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Full Redesign Artifact</div>
             <a href="./examples.html#nhs" class="link-blue" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set &rarr;</a>
           </div>
         </div>
-
-        <!-- Patreon -->
         <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
           <a href="./examples.html#patreon" style="display:block; border-bottom:none; padding:0;">
             <img src="./patreon1-image.png" alt="Patreon proof set" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;" />
           </a>
-          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:10px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
-            <div>
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">03 // Patreon / Apple IAP</div>
-              <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Patronage primitive cannot be expressed inside Apple's IAP grammar. Two mutually exclusive exits.</div>
-            </div>
+          <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">03 // Patreon / Apple IAP</div>
+            <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Patronage primitive cannot be expressed inside Apple's IAP grammar. Two mutually exclusive exits.</div>
             <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation &middot; Diagnostic &middot; Redesign Summary<br><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Two Full Redesign Artifacts &mdash; Path A &middot; Path B</div>
             <a href="./examples.html#patreon" class="link-blue" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set &rarr;</a>
           </div>
         </div>
-
       </div>
 
-      <div style="margin-top:16px;">
-        <a class="btn btn-primary" href="./examples.html">VIEW ALL PROOF SETS →</a>
-      </div>
-    </section>
-
-    <section aria-label="Method architecture" style="margin-bottom:56px;">
-      <div style="display:grid; grid-template-columns:1fr auto; align-items:start; gap:20px; margin-bottom:20px;">
-        <div>
-          <h2 style="margin:0 0 8px; font-size:clamp(1.25rem,1.1rem+0.5vw,1.6rem); font-weight:700; letter-spacing:-0.03em; color:#fff; line-height:1.2;">A governed diagnostic system. Not subjective consulting.</h2>
-          <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:62ch;">Four stages. Same sequence every time.</p>
-        </div>
-        <a href="./method.html" class="btn" style="align-self:center; white-space:nowrap;">READ THE METHOD →</a>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:16px;">
-        <a href="./diagnostic-scan.html" style="border:none; padding:0; display:block; text-decoration:none;">
-          <div style="padding:20px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:14px; background:rgba(90,176,255,0.03); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease; display:flex; flex-direction:column; min-height:160px;">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 01</div>
-            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:8px; letter-spacing:-0.02em; line-height:1.25;">60-Second Scan</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); line-height:1.7; flex:1;">Purpose &rarr; Primitive<br>Rules &rarr; Failure</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--label-blue); margin-top:10px; border-bottom:1px solid rgba(90,176,255,0.3); padding-bottom:1px; display:inline-block;">Run the scan &rarr;</div>
-          </div>
-        </a>
-        <a href="./taxonomy.html" style="border:none; padding:0; display:block; text-decoration:none;">
-          <div style="padding:20px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.65); border-radius:14px; background:rgba(90,176,255,0.035); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease; display:flex; flex-direction:column; min-height:160px;">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 02</div>
-            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:8px; letter-spacing:-0.02em; line-height:1.25;">Diagnostic Taxonomy</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); line-height:1.7; flex:1;">9 classes &middot; 54 sub-types<br>Classify before diagnosing</div>
-          </div>
-        </a>
-        <a href="./services.html" style="border:none; padding:0; display:block; text-decoration:none;">
-          <div style="padding:20px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.8); border-radius:14px; background:rgba(90,176,255,0.04); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease; display:flex; flex-direction:column; min-height:160px;">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 03</div>
-            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:8px; letter-spacing:-0.02em; line-height:1.25;">Artifact Pipeline</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); line-height:1.7; flex:1;">Failure signal<br>to builder-ready artifact.<br>Governed sequence, not opinion.</div>
-          </div>
-        </a>
-        <a href="./examples.html" style="border:none; padding:0; display:block; text-decoration:none;">
-          <div style="padding:20px 16px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid var(--cta-blue); border-radius:14px; background:rgba(90,176,255,0.05); height:100%; box-sizing:border-box; transition:border-color 160ms ease, background 160ms ease; display:flex; flex-direction:column; min-height:160px;">
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Stage 04</div>
-            <div style="font-size:14px; font-weight:700; color:#fff; margin-bottom:8px; letter-spacing:-0.02em; line-height:1.25;">Proof Sets</div>
-            <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); line-height:1.7; flex:1;">Three systems.<br>Same method &middot; Public proof.</div>
-          </div>
-        </a>
-      </div>
-
-      <div style="margin-top:14px; padding:12px 18px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; background:rgba(255,255,255,0.01);">
-        <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); letter-spacing:0.06em;">11 public papers &nbsp;&middot;&nbsp; 54-subtype taxonomy &nbsp;&middot;&nbsp; free to read</span>
-        <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a class="link-blue" href="./research.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;">View research &rarr;</a>
-          <a class="link-blue" href="./taxonomy.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.06em;">View taxonomy &rarr;</a>
-        </div>
-      </div>
+      <a class="btn btn-primary" href="./examples.html">VIEW ALL PROOF SETS →</a>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         CORE OFFERINGS — compact, table-led
+         RESEARCH — three paper cards
     ═══════════════════════════════════════════ -->
+    <div class="section-divider"><span class="section-divider-label">diagnostic scan</span></div>
+
+    <div class="scan-layout-grid" style="display:grid; grid-template-columns: 1fr 280px; gap:32px; align-items:center; margin-bottom:56px;">
+      <div>
+        <h3 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Self-screen before sending a brief.</h3>
+        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions. Answer them honestly and you will know whether the failure is structural, and where to look first. Use this as a first-pass fit check before briefing.</p>
+      </div>
+      <div class="scan-entry-card" style="margin-bottom:0;">
+        <div class="scan-entry-badge">
+          <span class="scan-entry-eyebrow">// 60-Second Scan</span>
+          <span class="scan-entry-tag">Free &middot; Self-guided</span>
+        </div>
+        <a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="width:100%; justify-content:center; margin-top:12px; display:flex;">RUN THE SCAN &rarr;</a>
+      </div>
+    </div>
+
     <div class="section-divider"><span class="section-divider-label">core offerings</span></div>
 
     <section class="offer-hero card" aria-label="Core offerings" style="margin-bottom:56px;">
@@ -739,76 +768,109 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
         <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.65;">Use diagnosis when the failure must be named. Use full engagement when the correction sequence must be specified.</p>
       </div>
 
-      <!-- Compact dual cards -->
-      <div style="display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; margin-bottom:18px;">
-        <div style="padding:24px 26px; border:1px solid rgba(90,176,255,0.25); border-top:2px solid rgba(90,176,255,0.6); border-radius:14px; background:rgba(90,176,255,0.03); display:flex; flex-direction:column;">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">01 // Diagnostic Artifact</div>
-          <div style="font-size:26px; font-weight:700; color:#fff; letter-spacing:-0.03em; margin-bottom:2px;">&pound;10,000</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-bottom:16px;">Fixed fee &middot; 14-day delivery</div>
-          <p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.68;">Names the structural failure. Produces the governing diagnosis, build map, and first correction sequence.</p>
-          <div style="font-size:12px; color:var(--text-faint); line-height:1.6; margin-bottom:18px; font-style:italic;">When the failure must be named before any redesign begins.</div>
-          <a class="btn btn-primary btn-full" data-mailto="1" style="display:flex; justify-content:center; font-size:10px; margin-top:auto;">START DIAGNOSTIC BRIEF</a>
+      <div class="comparison-cards-grid" style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-bottom:14px;">
+
+        <div style="border:1px solid rgba(90,176,255,0.22); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(90,176,255,0.055) 0%,rgba(90,176,255,0.015) 50%,transparent 100%); position:relative; display:flex; flex-direction:column;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(90,176,255,0.7) 40%,rgba(90,176,255,0.9) 60%,transparent);opacity:0.7;"></div>
+          <div style="padding:16px 20px 12px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">01 // Diagnostic Artifact</div>
+            <div style="font-size:26px; font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">&pound;10,000</div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:2px;">Fixed fee &middot; 14-day delivery</div>
+          </div>
+          <div style="padding:16px 20px; flex:1;">
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Primitive definition</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Invariants and enforcement map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Governing diagnosis</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:var(--cta-blue); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Build map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Translation Artifact</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Redesign Executive Summary</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Target boundary redesign</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Transition sequence</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:rgba(255,255,255,0.2);"><span style="color:rgba(255,255,255,0.15); font-family:'IBM Plex Mono',monospace; flex:0 0 14px;">&mdash;</span>Builder handoff specification</li>
+            </ul>
+          </div>
+          <div style="padding:14px 20px; border-top:1px solid rgba(90,176,255,0.1);">
+            <a class="btn btn-primary btn-full" data-mailto="1" style="display:flex; justify-content:center; font-size:10px; width:100%; box-sizing:border-box;">START DIAGNOSTIC BRIEF</a>
+          </div>
         </div>
-        <div style="padding:24px 26px; border:1px solid rgba(80,200,120,0.28); border-top:2px solid rgba(80,200,120,0.6); border-radius:14px; background:rgba(80,200,120,0.03); display:flex; flex-direction:column;">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:10px;">02 // Full Structural Engagement</div>
-          <div style="font-size:26px; font-weight:700; color:#fff; letter-spacing:-0.03em; margin-bottom:2px;">&pound;25,000</div>
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-bottom:16px;">Fixed fee &middot; Four artifacts</div>
-          <p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.68;">Carries the diagnosis into translation, executive summary, full redesign specification, transition sequence, and builder handoff.</p>
-          <div style="font-size:12px; color:var(--text-faint); line-height:1.6; margin-bottom:18px; font-style:italic;">When naming the failure without a change sequence would simply restart the cycle.</div>
-          <a class="btn btn-full" data-mailto="1" style="display:flex; justify-content:center; font-size:10px; color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08); margin-top:auto;">START FULL ENGAGEMENT BRIEF</a>
+
+        <div style="border:1px solid rgba(80,200,120,0.3); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(80,200,120,0.07) 0%,rgba(80,200,120,0.025) 50%,transparent 100%); position:relative; box-shadow:0 0 0 1px rgba(80,200,120,0.06); display:flex; flex-direction:column;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(80,200,120,0.7) 40%,rgba(80,200,120,0.9) 60%,transparent);"></div>
+          <div style="padding:16px 20px 12px; border-bottom:1px solid rgba(80,200,120,0.14); background:rgba(80,200,120,0.04);">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:6px;">02 // Full Structural Engagement</div>
+            <div style="font-size:26px; font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">&pound;25,000</div>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint); margin-top:2px;">Fixed fee &middot; Four artifacts</div>
+          </div>
+          <div style="padding:16px 20px; flex:1;">
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px;">
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Primitive definition</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Invariants and enforcement map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Governing diagnosis</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Build map</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Translation Artifact</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Redesign Executive Summary</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Target boundary redesign</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Transition sequence</li>
+              <li style="display:flex; align-items:baseline; gap:10px; font-size:13px; color:var(--text-dim);"><span style="color:rgba(80,200,120,0.9); font-family:'IBM Plex Mono',monospace; font-weight:700; flex:0 0 14px; font-size:14px;">&#x2713;</span>Builder handoff specification</li>
+            </ul>
+          </div>
+          <div style="padding:14px 20px; border-top:1px solid rgba(80,200,120,0.12);">
+            <a class="btn btn-full" data-mailto="1" style="display:flex; justify-content:center; font-size:10px; color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08); width:100%; box-sizing:border-box;">START FULL ENGAGEMENT BRIEF</a>
+          </div>
         </div>
+
+      </div>
+      <p style="margin:0; font-size:12px; color:var(--text-faint); line-height:1.65;">Commissioned separately, diagnosis and redesign total &pound;35,000. As one governed sequence, &pound;25,000. <a href="./services.html" class="link-blue">Full service details &rarr;</a></p>
+    </section>
+
+    <div class="section-divider"><span class="section-divider-label">the research behind the practice</span></div>
+
+    <section aria-label="Research" style="margin-bottom:56px;">
+      <p style="margin:0 0 18px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong>11 papers. A 54-subtype diagnostic taxonomy. All public and free.</strong> The structural laws the method applies.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-bottom:16px;">
+
+        <!-- Card 1: Diagnostic Taxonomy -->
+        <div class="trilogy-index-card" style="border-color:rgba(90,176,255,0.2);">
+          <div class="trilogy-index-head">
+            <span class="trilogy-index-num">Diagnostic Taxonomy · Paper 11</span>
+            <a href="./taxonomy.html" class="link-blue" style="font-size:11px;">View &rarr;</a>
+          </div>
+          <img src="./paper1-image.png" alt="Diagnostic Taxonomy" class="trilogy-index-cover" />
+          <div class="trilogy-index-body">
+            <h3 class="trilogy-index-title">The Complete Diagnostic Taxonomy</h3>
+            <p class="trilogy-index-desc">Nine failure classes. 54 sub-types. Formal inclusion, exclusion, and refusal criteria for each. The classification standard that makes the entire series interoperable.</p>
+            <div class="trilogy-index-links">
+              <a href="./taxonomy.html" class="link-blue" style="font-size:12px;">Full taxonomy &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Paper 02 -->
+        <div class="trilogy-index-card">
+          <div class="trilogy-index-head">
+            <span class="trilogy-index-num">Paper 02 of 59</span>
+            <a href="./research.html" class="link-blue" style="font-size:11px;">Read &rarr;</a>
+          </div>
+          <img src="./paper2-image.png" alt="Paper 02 cover" class="trilogy-index-cover" />
+          <div class="trilogy-index-body">
+            <h3 class="trilogy-index-title">The Four-Function Law</h3>
+            <p class="trilogy-index-desc">Institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same node at the point of consequence.</p>
+            <div class="trilogy-index-links">
+              <a href="./research.html" class="link-blue" style="font-size:12px;">All 11 papers &rarr;</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Compact comparison table -->
-      <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.01);">
-        <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
-          <colgroup>
-            <col style="width:auto;">
-            <col style="width:100px;">
-            <col style="width:100px;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.06); text-align:left;">Deliverable</th>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--label-blue); padding:11px 16px; border-bottom:1px solid rgba(90,176,255,0.2); text-align:center; border-left:1px solid rgba(255,255,255,0.04);">&pound;10k</th>
-              <th style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(80,200,120,0.9); padding:11px 16px; border-bottom:1px solid rgba(80,200,120,0.2); text-align:center; border-left:1px solid rgba(255,255,255,0.04);">&pound;25k</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Governing diagnosis + build map</td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:var(--cta-blue); line-height:1;">&#x2713;</span></td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
-            </tr>
-            <tr>
-              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Translation Artifact</td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
-            </tr>
-            <tr>
-              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Redesign Executive Summary</td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
-            </tr>
-            <tr>
-              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04);">Transition sequence + builder handoff</td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
-              <td style="text-align:center; padding:10px 16px; border-bottom:1px solid rgba(255,255,255,0.04); border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
-            </tr>
-            <tr>
-              <td style="font-size:13px; color:var(--text-dim); padding:10px 16px;">Full Redesign Artifact</td>
-              <td style="text-align:center; padding:10px 16px; border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:16px; color:rgba(255,255,255,0.15); line-height:1;">&mdash;</span></td>
-              <td style="text-align:center; padding:10px 16px; border-left:1px solid rgba(255,255,255,0.04);"><span style="font-size:18px; font-weight:700; color:rgba(80,200,120,0.9); line-height:1;">&#x2713;</span></td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="margin:0; padding:9px 14px; font-size:12px; color:var(--text-faint); border-top:1px solid rgba(255,255,255,0.05);">Commissioned separately, diagnosis and redesign total &pound;35,000. As one governed sequence, &pound;25,000. <a href="./services.html" class="link-blue">Full service details &rarr;</a></p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="./taxonomy.html">VIEW FULL TAXONOMY →</a>
+        <a class="btn" href="./research.html">VIEW ALL RESEARCH →</a>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         FIT AND SCOPE
-    ═══════════════════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">fit and scope</span></div>
 
     <div class="fit-services-grid" style="margin-bottom:56px;">
@@ -841,12 +903,12 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     </div>
 
     <!-- ═══════════════════════════════════════════
-         HOW TO START — singular conversion
+         HOW TO START
     ═══════════════════════════════════════════ -->
     <div class="section-divider"><span class="section-divider-label">how to start</span></div>
 
     <section class="card" aria-label="How to start" style="margin-bottom:32px;">
-      <p class="lead">Send the repeated failure. Not the proposed fix.</p>
+      <p class="lead" style="margin-bottom:6px;">Send the repeated failure. Not the proposed fix.</p>
       <p style="margin:0 0 20px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">The five-line brief. No diagnosis yet. Just the signal.</p>
 
       <div class="process-strip">
@@ -873,11 +935,13 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
     </section>
 
-    <div style="display:flex;justify-content:center;padding:32px 0 0;">
+
+    <div style="display:flex; justify-content:center; padding:32px 0 0;">
       <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
     </div>
 
   </main>
+
 
 </div>
 
@@ -981,48 +1045,6 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     </div>
   </footer>
 
-  <style>
-    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
-    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
-    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
-    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
-    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
-    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
-    .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
-    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
-    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
-    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
-    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
-    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
-    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
-  </style>
-
-  <style>
-    .brief-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;}
-.brief-modal{background:#101114;border:1px solid rgba(90,176,255,0.22);border-radius:20px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
-.brief-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
-.brief-modal-eyebrow{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#4aa3ff;margin-bottom:4px;}
-.brief-modal-title{margin:0;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.03em;}
-.brief-modal-close{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#8c94a2;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 140ms,color 140ms;}
-.brief-modal-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
-.brief-modal-body{padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:14px;}
-.brief-modal-intro{margin:0;font-size:13px;color:#8c94a2;line-height:1.65;}
-.brief-modal-divider{height:1px;background:rgba(255,255,255,0.06);}
-.brief-modal-field{display:flex;flex-direction:column;gap:4px;}
-.brief-modal-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#e8ecf0;}
-.brief-modal-num{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.14em;color:#4aa3ff;background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);border-radius:5px;padding:2px 6px;line-height:1;}
-.brief-modal-hint{margin:0;font-size:12px;color:#8c94a2;line-height:1.5;}
-.brief-modal-input{width:100%;font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:#f1f3f5;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;resize:vertical;line-height:1.6;box-sizing:border-box;transition:border-color 140ms,background 140ms;}
-.brief-modal-input:focus{outline:none;border-color:rgba(90,176,255,0.4);background:rgba(90,176,255,0.03);}
-.brief-modal-input::placeholder{color:#4a5260;font-style:italic;}
-.brief-modal-footer{padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(90,176,255,0.025);border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
-.brief-modal-footer-note{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#8c94a2;line-height:1.5;}
-.brief-modal-submit{width:100%;padding:13px 20px;border-radius:12px;border:1px solid rgba(90,176,255,0.32);background:rgba(90,176,255,0.08);color:#5ab0ff;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background 140ms,border-color 140ms;}
-.brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
-@media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
-  </style>
-
 <script>
 var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
 
@@ -1097,3 +1119,4 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 </body>
+</html>
