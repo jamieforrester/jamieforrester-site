@@ -484,6 +484,10 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     .extension-paper-title { margin: 0 0 4px; font-size: clamp(1.3rem, 1.1rem + 0.5vw, 1.75rem); font-weight: 700; color: #fff; letter-spacing: -0.035em; line-height: 1.15; }
     .extension-paper-sub { margin: 0 0 16px; font-size: 13px; color: var(--text-faint); font-style: italic; letter-spacing: 0.01em; }
     @media (max-width: 560px) { .papers-pair-grid { grid-template-columns: 1fr; } }
+  
+    #research-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    @media (max-width: 600px) { #research-pair { grid-template-columns: 1fr; } }
+    #research-pair .paper-pair-card { padding: 20px; border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; background: rgba(255,255,255,0.018); overflow: auto; }
   </style>
 </head>
 <body>
@@ -841,40 +845,40 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       </div>
       <p class="lead">The structural laws the method applies. The Diagnostic Taxonomy is the classification standard behind every engagement. The papers expose the public logic behind the four-artifact sequence.</p>
 
-      <div class="papers-pair-grid" style="margin-top:20px; display:grid !important; grid-template-columns:1fr 1fr !important; gap:24px !important; align-items:start !important;">
-
+      <div id="research-pair" style="margin-top:20px;">
         <!-- Taxonomy card -->
         <div class="paper-pair-card">
-          <a href="./taxonomy.html" style="float:left; margin:0 18px 4px 0; border-bottom:none; display:block;">
+          <a href="./taxonomy.html" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
             <img src="./paper1-image.png" alt="Diagnostic Taxonomy" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
           </a>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-            <span class="mini-kicker" style="margin:0;">Diagnostic Taxonomy · Paper 11</span>
+          <div class="extension-paper-head" style="margin-bottom:10px;">
+            <span class="mini-kicker">Diagnostic Taxonomy · Paper 11</span>
           </div>
           <h3 class="extension-paper-title">The Complete Diagnostic Taxonomy</h3>
           <p class="extension-paper-sub">Nine failure classes · 54 sub-types · formal inclusion, exclusion, and refusal criteria</p>
           <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">The classification standard that makes the entire research series interoperable. Every engagement is classified against this taxonomy before diagnosis begins.</p>
-          <div style="clear:both; padding-top:4px;">
-            <a href="./taxonomy.html" class="link-blue" style="font-size:13px;">View full taxonomy &rarr;</a>
+          <div class="actions" style="clear:none;">
+            <a href="./taxonomy.html" class="link-blue">View full taxonomy &rarr;</a>
           </div>
+          <div style="clear:both;"></div>
         </div>
 
         <!-- Paper 02 card -->
         <div class="paper-pair-card">
-          <a href="./research.html" style="float:left; margin:0 18px 4px 0; border-bottom:none; display:block;">
+          <a href="./research.html" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
             <img src="./paper2-image.png" alt="Paper 02 cover" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
           </a>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-            <span class="mini-kicker" style="margin:0;">Paper 02 of 59</span>
+          <div class="extension-paper-head" style="margin-bottom:10px;">
+            <span class="mini-kicker">Paper 02 of 59</span>
           </div>
           <h3 class="extension-paper-title">The Four-Function Law</h3>
           <p class="extension-paper-sub">How institutions fail under scale when four functions remain fused</p>
           <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same node at the point of consequence. The law that governs structural collapse at scale.</p>
-          <div style="clear:both; padding-top:4px;">
-            <a href="./research.html" class="link-blue" style="font-size:13px;">All 11 papers &rarr;</a>
+          <div class="actions" style="clear:none;">
+            <a href="./research.html" class="link-blue">All 11 papers &rarr;</a>
           </div>
+          <div style="clear:both;"></div>
         </div>
-
       </div>
 
       <p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The research is public and free to read. The taxonomy and papers define the structural laws the method applies — not the client artifacts themselves.</p>
