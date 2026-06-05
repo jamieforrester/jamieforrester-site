@@ -371,7 +371,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
   .nav-how-short { display: inline; }
   .fork-actions { flex-direction: column; }
   .fork-actions .btn { width: 100%; text-align: center; justify-content: center; }
-  .hero-strip { grid-template-columns: 1fr; }
+  .hero-strip { grid-template-columns: 1fr !important; }
   .hero-left { border-right: none; border-bottom: 1px solid var(--border-soft); padding: 28px 24px; }
   .hero-right { padding: 24px; }
   
@@ -539,17 +539,17 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     <!-- ═══════════════════════════════════════════
          HERO
     ═══════════════════════════════════════════ -->
-    <section class="hero-strip" aria-label="Primary summary">
-      <div class="hero-left">
-        <div class="eyebrow" style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+    <section class="hero-strip" aria-label="Primary summary" style="display:grid; grid-template-columns:1.15fr 0.85fr;">
+      <div class="hero-left" style="padding:44px 36px 44px 44px;">
+        <div class="eyebrow" style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
           Independent Systems Architect
           <span style="flex:1; height:1px; background:linear-gradient(90deg,rgba(90,176,255,0.3),transparent); display:block;"></span>
         </div>
         <h2 class="hero-title">When the same failure keeps returning, the problem is no longer <span style="color:var(--cta-blue);">execution.</span> It is structure.</h2>
-        <p class="hero-sub" style="margin-bottom:20px;">I write <strong>structural fixed-scope diagnostic and redesign artifacts</strong>. For <strong>founders, operators, and decision owners</strong> facing <strong>recurring structural failure</strong> — <strong>two fixed-scope paths</strong> from <strong>&pound;10,000</strong>, a <strong>seven-step governed sequence</strong>, starting with the <strong>five-line brief</strong>.</p>
+        <p class="hero-sub" style="margin-bottom:24px;">I write <strong>structural fixed-scope diagnostic and redesign artifacts</strong>. For <strong>founders, operators, and decision owners</strong> facing <strong>recurring structural failure</strong> — <strong>two fixed-scope paths</strong> from <strong>&pound;10,000</strong>, a <strong>seven-step governed sequence</strong>, starting with the <strong>five-line brief</strong>.</p>
 
         <!-- Inline offer summary -->
-        <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:18px;">
+        <div style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; margin-bottom:20px;">
           <div style="padding:13px 18px 13px 21px; position:relative; display:grid; grid-template-columns:1fr auto; align-items:center; gap:12px; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.07);">
             <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:rgba(90,176,255,0.45);"></div>
             <div style="padding-left:2px;">
@@ -570,12 +570,19 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
         <p style="margin:0 0 14px; font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--text-faint); letter-spacing:0.06em;">Written artifacts &nbsp;&middot;&nbsp; Fixed scope &nbsp;&middot;&nbsp; No hourly rates</p>
 
-        <p style="margin:0 0 16px; font-size:12px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e0e4ea;">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
+        <p style="margin:0 0 20px; font-size:12px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e0e4ea;">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
 
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary btn-large" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
           <a class="btn btn-large" href="./services.html">VIEW SERVICES</a>
         </div>
+      </div>
+
+      <!-- Profile photo -->
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:44px 36px; background:rgba(0,0,0,0.2); border-left:1px solid rgba(255,255,255,0.06);">
+        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" style="width:100%; max-width:280px; border-radius:20px; border:1px solid rgba(90,176,255,0.18); box-shadow:0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(90,176,255,0.08); display:block;" />
+        <p style="margin:16px 0 0; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-faint); text-align:center;">Jamie Forrester</p>
+        <p style="margin:4px 0 0; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--label-blue); text-align:center;">Independent Systems Architect</p>
       </div>
 
     </section>
