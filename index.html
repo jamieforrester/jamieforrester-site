@@ -503,10 +503,11 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
       <a href="./services.html">Services</a>
       <a href="./method.html">Method</a>
       <a href="./examples.html">Examples</a>
-      <a href="./taxonomy.html">Taxonomy</a>
       <a href="./research.html">Research</a>
+      <a href="./taxonomy.html">Taxonomy</a>
+      <a href="./diagnostic-scan.html">Scan</a>
       <a href="./books.html">Books</a>
-      <a href="./products.html">Products</a>
+      <a href="./products.html">Tools</a>
     
       <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
     </div>
@@ -574,6 +575,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
 
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary btn-large" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
+          <a class="btn btn-large" href="./diagnostic-scan.html">RUN THE SCAN →</a>
           <a class="btn btn-large" href="./services.html">VIEW SERVICES</a>
         </div>
       </div>
@@ -591,6 +593,68 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     <!-- ═══════════════════════════════════════════
          PIPELINE — what happens start to finish
     ═══════════════════════════════════════════ -->
+    <div class="section-divider"><span class="section-divider-label">is this for you</span></div>
+
+    <section style="margin-bottom:56px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+
+        <!-- This is for you if -->
+        <div style="padding:24px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.6); border-radius:16px; background:rgba(90,176,255,0.025);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:14px;">This is for you if</div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>The same failure keeps returning under different names</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Internal fixes have not held — the correction loop is missing the real break</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>The team cannot agree on what is actually breaking</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Builders are inventing design decisions during implementation</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Workarounds have become part of the operating model</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>The visible symptom is downstream of a rule, boundary, or primitive mismatch</li>
+          </ul>
+        </div>
+
+        <!-- This is not for you if -->
+        <div style="padding:24px; border:1px solid rgba(255,255,255,0.07); border-top:2px solid rgba(255,255,255,0.15); border-radius:16px; background:rgba(255,255,255,0.01);">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); margin-bottom:14px;">This is not for you if</div>
+          <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>You need code debugging or a technical audit</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>You need live incident response</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>You need implementation ownership or delivery</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>You need generic strategy advice</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>The failure is one-off or already diagnosed</li>
+            <li style="display:flex; gap:10px; font-size:13px; color:var(--text-faint); line-height:1.55;"><span style="color:rgba(255,255,255,0.25); flex-shrink:0; margin-top:1px;">✗</span>The diagnosis is known and you only need delivery</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Translation table -->
+      <div style="border:1px solid rgba(255,255,255,0.07); border-radius:14px; overflow:hidden;">
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.07);">
+          <div style="padding:10px 16px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint);">If you are saying</div>
+          <div style="padding:10px 16px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); border-left:1px solid rgba(255,255,255,0.07);">What is actually happening</div>
+          <div style="padding:10px 16px; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); border-left:1px solid rgba(255,255,255,0.07);">What I would do</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6;">"We keep fixing the same problems across every sprint"</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-faint); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);">Correction loop is misaligned with the structural break</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);"><strong style="color:var(--cta-blue);">Diagnostic Artifact</strong></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6;">"No one owns this decision — it falls between teams"</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-faint); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);">Authority boundary failure — nobody holds the correction class</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);"><strong style="color:var(--cta-blue);">Diagnostic Artifact</strong></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6;">"Our platform keeps breaking our operating model"</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-faint); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);">Host-constraint failure — external primitive is overriding yours</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);"><strong style="color:rgba(80,200,120,0.9);">Full Structural Engagement</strong></div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr;">
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6;">"Builders keep making the wrong decisions during implementation"</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-faint); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);">No governing structure exists — builders are inventing it midstream</div>
+          <div style="padding:13px 16px; font-size:13px; color:var(--text-dim); line-height:1.6; border-left:1px solid rgba(255,255,255,0.05);"><strong style="color:rgba(80,200,120,0.9);">Full Structural Engagement</strong></div>
+        </div>
+      </div>
+    </section>
+
     <div class="section-divider"><span class="section-divider-label">the full field pipeline</span></div>
 
     <section aria-label="Full Field Pipeline" style="margin-bottom:56px;">
@@ -1034,7 +1098,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
             <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
             <li><a href="./books.html">Books</a></li>
-            <li><a href="./products.html">Products</a></li>
+            <li><a href="./products.html">Tools</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">

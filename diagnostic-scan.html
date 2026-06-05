@@ -239,10 +239,12 @@
         <a href="./services.html">Services</a>
         <a href="./method.html">Method</a>
         <a href="./examples.html">Examples</a>
-        <a href="./taxonomy.html">Taxonomy</a>
         <a href="./research.html">Research</a>
+        <a href="./taxonomy.html">Taxonomy</a>
+        <a href="./diagnostic-scan.html" class="nav-active">Scan</a>
+        
         <a href="./books.html">Books</a>
-        <a href="./products.html">Products</a>
+        <a href="./products.html">Tools</a>
       
       <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
     </div>
@@ -528,7 +530,7 @@
             <li><a href="./taxonomy.html">Taxonomy</a></li>
             <li><a href="./research.html">Research</a></li>
             <li><a href="./books.html">Books</a></li>
-            <li><a href="./products.html">Products</a></li>
+            <li><a href="./products.html">Tools</a></li>
           </ul>
         </nav>
         <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
@@ -640,6 +642,25 @@ document.addEventListener('DOMContentLoaded', function(){
   overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
   submitBtn.addEventListener('click', submitBrief);
+  // Wire scan answers into the brief modal when EMAIL button is clicked
+  var emailBtn = document.getElementById('email-btn');
+  if (emailBtn) {
+    emailBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var sq1 = document.getElementById('sq1') ? document.getElementById('sq1').value.trim() : '';
+      var sq2 = document.getElementById('sq2') ? document.getElementById('sq2').value.trim() : '';
+      var sq3 = document.getElementById('sq3') ? document.getElementById('sq3').value.trim() : '';
+      var sq4 = document.getElementById('sq4') ? document.getElementById('sq4').value.trim() : '';
+      // Pre-fill brief modal fields with scan answers
+      if (sq1 && document.getElementById('brief-1')) document.getElementById('brief-1').value = sq1;
+      if (sq2 && document.getElementById('brief-2')) document.getElementById('brief-2').value = sq2;
+      if (sq3 && document.getElementById('brief-3')) document.getElementById('brief-3').value = sq3;
+      if (sq4 && document.getElementById('brief-4')) document.getElementById('brief-4').value = sq4;
+      // Open the modal
+      if (overlay) { overlay.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    });
+  }
+
   document.querySelectorAll('a[data-mailto]').forEach(function(btn){
     var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
     if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
@@ -647,4 +668,3 @@ document.addEventListener('DOMContentLoaded', function(){
       btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
     }
   });
-  var briefBtn = docume
