@@ -98,9 +98,9 @@
     }
     .site-nav-brand:hover { background: transparent; }
     .nav-avatar {
-      width: 30px; height: 30px; border-radius: 999px;
+      width: 30px; height: 30px; border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.12);
-      object-fit: cover;  flex: 0 0 auto;
+      object-fit: cover; flex: 0 0 auto;
     }
     .site-nav-name {
       font-family: "IBM Plex Mono", monospace; font-size: 11px;
@@ -134,10 +134,10 @@
     .avatar-link:hover { background: transparent; transform: translateY(-1px); }
     .avatar-link:focus-visible { background: transparent; outline: 2px solid var(--focus-ring); outline-offset: 4px; border-radius: 999px; }
     .avatar {
-      width: 64px; height: 64px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14);
-      object-fit: cover; filter: grayscale(60%); display: block;
+      width: 64px; height: 64px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14);
+      object-fit: cover; display: block;
       box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3);
-      transition: box-shadow 200ms ease, border-color 200ms ease, filter 200ms ease;
+      transition: box-shadow 200ms ease, border-color 200ms ease;
     }
     .avatar:hover { box-shadow: 0 0 0 4px rgba(90,176,255,0.22), 0 10px 36px rgba(0,0,0,0.36); border-color: rgba(90,176,255,0.35); }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
