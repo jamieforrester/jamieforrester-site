@@ -36,7 +36,7 @@
     .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
     .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; }
     .site-nav-brand:hover { background: transparent; }
-    .nav-avatar { width: 30px; height: 30px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; flex: 0 0 auto; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 6px !important; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .site-nav-links { display: flex; align-items: center; gap: 14px; }
     .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; white-space: nowrap; transition: color 160ms ease; }
@@ -47,7 +47,7 @@
 
     header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 40px 0 24px; border-bottom: 1px solid var(--border-soft); margin-bottom: 48px; }
     .h-left { display: flex; align-items: flex-start; gap: 20px; min-width: 0; }
-    .avatar { width: 64px; height: 64px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; flex: 0 0 auto; box-shadow: 0 0 0 4px rgba(90,176,255,0.1), 0 8px 28px rgba(0,0,0,0.3); }
+    .avatar { width: 64px; height: 64px; border-radius: 8px !important; border: 1px solid rgba(255,255,255,0.14); object-fit: cover; flex: 0 0 auto; transition: border-color 200ms ease; }
     h1 { margin: 0; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
     .h-sub { margin-top: 5px; font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.16em; }
     .h-pill { margin-top: 10px; display: inline-flex; align-items: center; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--text-dim); line-height: 1.4; }
@@ -234,25 +234,25 @@
             <a class="book-cover-wrap" href="#" aria-label="Expand cover: Seeing Systems">
               <img class="book-cover-img" src="./book1-image.png" alt="Cover: Seeing Systems" />
             </a>
-            <span class="book-status-badge" style="background:rgba(80,200,120,0.12); color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.25);">Drafted</span>
+            <span class="book-status-badge" style="background:rgba(90,176,255,0.12); color:rgba(90,176,255,0.9); border-color:rgba(90,176,255,0.3);">At proof stage</span>
           </div>
           <div class="book-card-right">
-            <span class="book-role">Entry book · practical system perception</span>
+            <span class="book-role">A Field Guide to Structural Literacy</span>
             <h2 class="book-title">Seeing Systems</h2>
-            <p class="book-subtitle">Why a 10-year-old can understand what organisations can't.</p>
-            <p class="book-promise">A carrier-based introduction to systemic literacy. Uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without technical language. Teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery. <strong>The entry point into the practice — readable without prior knowledge of the research series.</strong></p>
+            <p class="book-subtitle">Complexity is not the problem. The action is hidden.</p>
+            <p class="book-promise">Before you can think in systems, you have to be able to see them. Most books about systems begin too late — they explain complexity, feedback, leverage, and change. This book starts earlier. It teaches structural literacy: the ability to see what a system is actually doing, how it works, where it fails, and why the same problems keep returning. Using the carrier method and the 60-second scan, it shows you how to read systems through everyday objects — doors, queues, turnstiles, timetables, conveyor belts. <strong>A field guide for seeing systems clearly before you try to change them.</strong></p>
             <div class="book-insight">
               <div class="book-insight-bar"></div>
-              <p class="book-insight-text"><strong>Core argument:</strong> Most organisational failure is not a complexity problem. It is a visibility problem. The structures causing failure were always there — they were simply never named. Naming them is the first act of structural control.</p>
+              <p class="book-insight-text"><strong>By the end, you will know how to:</strong> find what a system is actually for · name the primitive action it repeats · separate real rules from written rules · follow where work disappears · see who is carrying the missing structure · recognise why the same failure keeps returning.</p>
             </div>
             <div class="book-meta">
-              <span class="book-meta-item">30 chapters</span>
-              <span class="book-meta-item">Carrier method</span>
-              <span class="book-meta-item">Sample chapters available</span>
               <span class="book-meta-item">General audience</span>
+              <span class="book-meta-item">Carrier method</span>
+              <span class="book-meta-item">60-Second Scan</span>
+              <span class="book-meta-item">Proof copy submitted</span>
             </div>
             <div class="book-entry-links" style="margin-top:12px;">
-              <a class="link-blue" data-mailto="1">Request sample chapters &amp; full proposal</a>
+              <a class="link-blue" data-mailto="1">Request advance copy information</a>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@
             <a class="book-cover-wrap" href="#" aria-label="Expand cover: The 15-Level Abstraction Ladder">
               <img class="book-cover-img" src="./book2-image.png" alt="Cover: The 15-Level Abstraction Ladder" />
             </a>
-            <span class="book-status-badge" style="background:rgba(80,200,120,0.12); color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.25);">Drafted</span>
+            <span class="book-status-badge" style="background:rgba(90,176,255,0.12); color:rgba(90,176,255,0.9); border-color:rgba(90,176,255,0.3);">At proof stage</span>
           </div>
           <div class="book-card-right">
             <span class="book-role">Thinking at multiple levels of abstraction</span>
