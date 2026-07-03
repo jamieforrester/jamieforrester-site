@@ -65,7 +65,7 @@
     .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
     .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; overflow: hidden; }
     .site-nav-brand:hover { background: transparent; }
-    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover;  flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .site-nav-links { display: flex; align-items: center; gap: 14px; }
     .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; transition: color 160ms ease; }
@@ -152,7 +152,7 @@
     .paper:hover { border-color: rgba(90,176,255,0.2); transform: translateY(-1px); }
     .paper + .paper { margin-top: 12px; }
     .paper-row { display: grid; grid-template-columns: 68px 1fr; gap: 16px; align-items: start; min-width: 0; }
-    .thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: cover; filter: grayscale(100%); display: block; transition: border-color 160ms ease, filter 160ms ease; }
+    .thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: cover;  display: block; transition: border-color 160ms ease, filter 160ms ease; }
     .thumb:hover { filter: grayscale(60%); border-color: rgba(90,176,255,0.3); }
     .infra-thumb { width: 68px; height: 68px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.03); object-fit: contain; object-position: center; display: block; padding: 6px; transition: border-color 160ms ease; }
     .infra-thumb:hover { border-color: rgba(90,176,255,0.3); }
@@ -190,7 +190,7 @@
     .book-num-badge { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; white-space: nowrap; }
     .book-cover-wrap { display: block; border-bottom: none; border-radius: 10px; width: 72px; flex: 0 0 auto; cursor: zoom-in; }
     .book-cover-wrap:hover { background: transparent; }
-    .book-cover-img { width: 72px; height: 100px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); display: block; background: rgba(255,255,255,0.04); box-shadow: 0 6px 20px rgba(0,0,0,0.3), 2px 0 8px rgba(0,0,0,0.2); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
+    .book-cover-img { width: 72px; height: 100px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover;  display: block; background: rgba(255,255,255,0.04); box-shadow: 0 6px 20px rgba(0,0,0,0.3), 2px 0 8px rgba(0,0,0,0.2); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
     .book-entry:hover .book-cover-img { filter: grayscale(40%); border-color: rgba(90,176,255,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.38), 0 0 0 2px rgba(90,176,255,0.12); transform: scale(1.03) translateY(-2px); }
     .book-entry-body { padding: 22px 24px 22px 22px; display: flex; flex-direction: column; min-width: 0; }
     .book-entry-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -243,7 +243,7 @@
 
     .foundation-thumb-wrap { display: block; border-bottom: none; border-radius: 10px; width: 68px; margin: 0 0 14px; cursor: zoom-in; flex: 0 0 auto; }
     .foundation-thumb-wrap:hover { background: transparent; }
-    .foundation-thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); object-fit: cover; filter: grayscale(100%); display: block; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
+    .foundation-thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); object-fit: cover;  display: block; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
     .foundation-thumb-wrap:hover .foundation-thumb { filter: grayscale(40%); border-color: rgba(90,176,255,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.38), 0 0 0 2px rgba(90,176,255,0.12); transform: scale(1.03) translateY(-2px); }
 
     
@@ -433,7 +433,7 @@
   <nav class="site-nav" id="site-nav" aria-label="Site navigation">
     <div class="site-nav-inner">
       <a href="./index.html" class="site-nav-brand">
-        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <img src="./JF LOGO.png" alt="Jamie Forrester" class="nav-avatar" />
         <span class="site-nav-name">Jamie Forrester</span>
       </a>
       <div class="site-nav-links">
@@ -469,6 +469,7 @@
         <a class="btn" href="./examples.html">EXAMPLES</a>
         <a class="btn" href="./taxonomy.html">TAXONOMY</a>
         <span class="btn btn-current" aria-current="page">RESEARCH</span>
+        <a class="btn" href="./books.html">BOOKS</a>
         <a class="btn btn-primary" data-mailto="1">EMAIL</a>
       </div>
     </header>
@@ -965,222 +966,11 @@
         </div>
       </section>
 
-      <div class="section-divider"><span class="section-divider-label">books</span></div>
 
-      <section id="books" class="card card-accent" aria-label="Books">
-        <div class="label-row">
-          <span class="label">08 // Books</span>
-          <span class="label-note">five-book research spine</span>
-        </div>
-        <div class="books-section-header">
-          <div class="books-thesis">
-            <div class="books-thesis-main">
-              <p>This is a five-book sequence, not a collection of standalone titles. It moves from <strong>structural literacy</strong>, to <strong>abstraction control</strong>, to <strong>founder architecture</strong>, to <strong>upstream production law</strong>, and finally to <strong>geometric unification</strong>: the point where emergence, production, and intervention are revealed as one coordinate system.</p>
-            </div>
-            <div class="books-thesis-stat">
-              <span class="books-thesis-stat-num">5</span>
-              <span class="books-thesis-stat-label">Books in sequence</span>
-            </div>
-            <div class="books-thesis-stat">
-              <span class="books-thesis-stat-num">2</span>
-              <span class="books-thesis-stat-label">Fully drafted</span>
-            </div>
-          </div>
-        </div>
-        <div class="books-spine-label">
-          <span class="books-spine-label-text">The five-book sequence &mdash; read in order</span>
-        </div>
-        <div class="books-stack">
-          <article class="book-entry" aria-label="Book 1: Seeing Systems">
-            <div class="book-entry-cover-col">
-              <span class="book-num-badge">Book 01</span>
-              <a class="book-cover-wrap" href="#" aria-label="Expand cover: Seeing Systems" data-lightbox-src="./book1-image.png" data-lightbox-caption="Book 01 &mdash; Seeing Systems">
-                <img class="book-cover-img" src="./book1-image.png" alt="Cover: Seeing Systems" />
-              </a>
-            </div>
-            <div class="book-entry-body">
-              <div class="book-entry-top">
-                <div class="book-entry-title-group">
-                  <h3 class="book-entry-title">Seeing Systems</h3>
-                  <p class="book-entry-tagline">Why a 10-year-old can understand what organisations can&#39;t.</p>
-                </div>
-                <div class="book-entry-status-group"><span class="status status-dev">Drafted</span></div>
-              </div>
-              <p class="book-entry-desc">A carrier-based introduction to systemic literacy. This book uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without relying on technical language. It teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery.</p>
-              <div class="book-insight">
-                <div class="book-insight-bar"></div>
-                <p class="book-insight-text"><strong>Core argument:</strong> Most organisational failure is not a complexity problem. It is a visibility problem. The structures causing failure were always there — they were simply never named. Naming them is the first act of structural control.</p>
-              </div>
-              <div class="book-entry-footer">
-                <div class="book-chips">
-                  <span class="book-chip">30 chapters</span>
-                  <span class="book-chip">carrier method</span>
-                  <span class="book-chip">sample chapters available</span>
-                  <span class="book-chip">general audience</span>
-                </div>
-                <div class="book-entry-links">
-                  <a class="link-blue" data-mailto="1">Request sample chapters &amp; full proposal</a>
-                </div>
-              </div>
-            </div>
-          </article>
-          <div class="books-connector">
-            <div class="books-connector-line"></div>
-            <div class="books-connector-arrow">&#8595; builds to</div>
-            <div class="books-connector-line"></div>
-          </div>
-          <article class="book-entry" aria-label="Book 2: The 15-Level Abstraction Ladder">
-            <div class="book-entry-cover-col">
-              <span class="book-num-badge">Book 02</span>
-              <a class="book-cover-wrap" href="#" aria-label="Expand cover: The 15-Level Abstraction Ladder" data-lightbox-src="./book2-image.png" data-lightbox-caption="Book 02 &mdash; The 15-Level Abstraction Ladder">
-                <img class="book-cover-img" src="./book2-image.png" alt="Cover: The 15-Level Abstraction Ladder" />
-              </a>
-            </div>
-            <div class="book-entry-body">
-              <div class="book-entry-top">
-                <div class="book-entry-title-group">
-                  <h3 class="book-entry-title">The 15-Level Abstraction Ladder</h3>
-                  <p class="book-entry-tagline">How to move up and down the levels of thought, design, and civilisation with confidence.</p>
-                </div>
-                <div class="book-entry-status-group"><span class="status status-dev">Drafted</span></div>
-              </div>
-              <p class="book-entry-desc">A navigation system for altitude. This book explains why people get trapped at one level of reasoning, why disagreement is often an altitude mismatch rather than an intelligence gap, and how to move deliberately between observation, product, system, infrastructure, marketplace, civilisation, primitive, and meta-operating law.</p>
-              <div class="book-insight">
-                <div class="book-insight-bar"></div>
-                <p class="book-insight-text"><strong>Core argument:</strong> Most disagreement is not about facts or values. It is about altitude. Two people operating at different abstraction levels will produce incompatible outputs even when starting from the same intent — and neither will know why.</p>
-              </div>
-              <div class="book-entry-footer">
-                <div class="book-chips">
-                  <span class="book-chip">15 levels</span>
-                  <span class="book-chip">altitude control</span>
-                  <span class="book-chip">practitioners + strategists</span>
-                </div>
-                <div class="book-entry-links">
-                  <a class="link-blue" data-mailto="1">Request full manuscript</a>
-                </div>
-              </div>
-            </div>
-          </article>
-          <div class="books-connector">
-            <div class="books-connector-line"></div>
-            <div class="books-connector-arrow">&#8595; builds to</div>
-            <div class="books-connector-line"></div>
-          </div>
-          <article class="book-entry" aria-label="Book 3: The System Founder Framework">
-            <div class="book-entry-cover-col">
-              <span class="book-num-badge">Book 03</span>
-              <a class="book-cover-wrap" href="#" aria-label="Expand cover: The System Founder Framework" data-lightbox-src="./book3-image.png" data-lightbox-caption="Book 03 &mdash; The System Founder Framework">
-                <img class="book-cover-img" src="./book3-image.png" alt="Cover: The System Founder Framework" />
-              </a>
-            </div>
-            <div class="book-entry-body">
-              <div class="book-entry-top">
-                <div class="book-entry-title-group">
-                  <h3 class="book-entry-title">The System Founder Framework</h3>
-                  <p class="book-entry-tagline">How one person with AI can build operating systems, categories, and institutions.</p>
-                </div>
-                <div class="book-entry-status-group"><span class="status status-dev">In development</span></div>
-              </div>
-              <p class="book-entry-desc">A founder manual for the AI era. This book distinguishes skill founders, product founders, and system founders, then shows how AI changes the economics of execution for people who naturally think in primitives, rules, operating environments, and category formation. It turns structural intelligence into a repeatable build posture.</p>
-              <div class="book-insight">
-                <div class="book-insight-bar"></div>
-                <p class="book-insight-text"><strong>Core argument:</strong> The rarest founder type is not the one with the best product instinct. It is the one who can see the operating environment that doesn&#39;t yet exist and build the rules before the participants arrive. AI collapses the execution cost of doing this alone.</p>
-              </div>
-              <div class="book-entry-footer">
-                <div class="book-chips">
-                  <span class="book-chip">founder doctrine</span>
-                  <span class="book-chip">AI leverage</span>
-                  <span class="book-chip">system company design</span>
-                  <span class="book-chip">category formation</span>
-                </div>
-                <div class="book-entry-links">
-                  <a class="link-blue" data-mailto="1">Request materials</a>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div style="margin-top:20px; display:flex; flex-direction:column; gap:20px;" class="books-45-grid">
-
-          <article class="book-entry" aria-label="Book 4: The Universal Build Architecture" style="border-radius:20px;">
-            <div class="book-entry-cover-col">
-              <span class="book-num-badge">Book 04</span>
-              <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Universal Build Architecture" data-lightbox-src="./book4-image.png" data-lightbox-caption="Book 04 &mdash; The Universal Build Architecture">
-                <img class="book-cover-img" src="./book4-image.png" alt="Cover: The Universal Build Architecture" />
-              </a>
-            </div>
-            <div class="book-entry-body">
-              <div class="book-entry-top">
-                <div class="book-entry-title-group">
-                  <h3 class="book-entry-title">The Universal Build Architecture</h3>
-                  <p class="book-entry-tagline">How high-quality outputs get made when intelligence moves upstream.</p>
-                </div>
-                <div class="book-entry-status-group"><span class="status status-dev">In development</span></div>
-              </div>
-              <p class="book-entry-desc">A general build law across code, prose, artifacts, systems, learning, and governance. The book argues that most poor outputs are not execution failures but upstream architecture failures, and shows where the pattern transfers strongly, partially, or weakly depending on whether the domain is construction, discovery, or emergence.</p>
-              <div class="book-insight">
-                <div class="book-insight-bar"></div>
-                <p class="book-insight-text"><strong>Core argument:</strong> Quality is not a property of execution. It is a property of upstream architecture. Every domain that produces consistently high-quality outputs — regardless of medium — does so by resolving ambiguity, constraints, and intent before execution begins. This is the transferable law.</p>
-              </div>
-              <div class="book-entry-footer">
-                <div class="book-chips">
-                  <span class="book-chip">upstream design</span>
-                  <span class="book-chip">cross-domain transfer</span>
-                  <span class="book-chip">build law</span>
-                  <span class="book-chip">general theory</span>
-                </div>
-                <div class="book-entry-links">
-                  <a class="link-blue" data-mailto="1">Request materials</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="book-entry" aria-label="Book 5: The Full Field" style="border-radius:20px;">
-            <div class="book-entry-cover-col">
-              <span class="book-num-badge">Book 05</span>
-              <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Full Field" data-lightbox-src="./book5-image.png" data-lightbox-caption="Book 05 &mdash; The Full Field">
-                <img class="book-cover-img" src="./book5-image.png" alt="Cover: The Full Field" />
-              </a>
-            </div>
-            <div class="book-entry-body">
-              <div class="book-entry-top">
-                <div class="book-entry-title-group">
-                  <h3 class="book-entry-title">The Full Field</h3>
-                  <p class="book-entry-tagline">How systems become, produce, and get replaced.</p>
-                </div>
-                <div class="book-entry-status-group"><span class="status status-dev">In development</span></div>
-              </div>
-              <p class="book-entry-desc">The geometry above the ladder. Unifies the Universal Formula (emergence), the Grammar Kernel (production), and the intervention sequence developed across the Diagnostic and Replacement Series into the Triple Stack. Proves the Law of Structural Invariance: the primitive is the unique node present simultaneously in all three axes. The culminating volume of the sequence.</p>
-              <div class="book-insight">
-                <div class="book-insight-bar"></div>
-                <p class="book-insight-text"><strong>Core argument:</strong> Emergence, production, and intervention are not three separate fields. They are three axes of a single coordinate system, and the primitive is the unique invariant node where all three intersect. Once that is visible, every prior book in the sequence becomes a special case of the same structure.</p>
-              </div>
-              <div class="book-entry-footer">
-                <div class="book-chips">
-                  <span class="book-chip">Triple Stack</span>
-                  <span class="book-chip">geometric unification</span>
-                  <span class="book-chip">emergence · production · intervention</span>
-                  <span class="book-chip">system founder architecture</span>
-                </div>
-                <div class="book-entry-links">
-                  <a class="link-blue" data-mailto="1">Request materials</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-        <div class="books-cta-row">
-          <p class="books-cta-text"><strong>Publishers and agents welcome.</strong> Sample chapters from Book 1 &amp; full proposal are available on request. Proposal materials for the full sequence can be provided for serious enquiries.</p>
-          <div class="books-cta-links">
-            <a class="link-blue" data-mailto="1">Request book materials</a>
-            <a class="link-blue" data-mailto="1">Publishing enquiry</a>
-            <span class="books-cta-note">Publishers &amp; agents welcome</span>
-          </div>
-        </div>
-      </section>
+      <div style="padding:16px 22px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.01); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:32px;">
+        <p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.6;">The five-book sequence — <em>Seeing Systems</em>, <em>The 15-Level Abstraction Ladder</em>, and three more — is the teachable form of the same structural laws. Books 01 and 02 are drafted.</p>
+        <a class="btn" href="./books.html" style="white-space:nowrap;">VIEW BOOKS →</a>
+      </div>
 
       <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
 

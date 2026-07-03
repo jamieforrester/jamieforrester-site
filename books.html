@@ -36,7 +36,7 @@
     .site-nav-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
     .site-nav-brand { display: flex; align-items: center; gap: 12px; min-width: 0; border-bottom: none; padding-bottom: 0; }
     .site-nav-brand:hover { background: transparent; }
-    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover; filter: grayscale(100%); flex: 0 0 auto; }
+    .nav-avatar { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); object-fit: cover;  flex: 0 0 auto; }
     .site-nav-name { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; white-space: nowrap; }
     .site-nav-links { display: flex; align-items: center; gap: 14px; }
     .site-nav-links a { font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); border-bottom: none; padding: 6px 4px; white-space: nowrap; transition: color 160ms ease; }
@@ -127,7 +127,14 @@
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
       @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
-  </style>
+  
+    .book-cover-wrap { display:block; border-bottom:none; }
+    .book-cover-img { width:80px; height:112px; object-fit:cover; object-position:top; border-radius:8px; border:1px solid rgba(255,255,255,0.1); box-shadow:0 6px 20px rgba(0,0,0,0.4); display:block; }
+    .book-insight { margin:14px 0; padding:12px 14px 12px 16px; border-left:2px solid rgba(90,176,255,0.35); background:rgba(90,176,255,0.03); border-radius:0 8px 8px 0; }
+    .book-insight-bar { display:none; }
+    .book-insight-text { margin:0; font-size:12.5px; color:var(--text-faint); line-height:1.65; }
+    .book-entry-links { display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:10px; }
+      </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -135,7 +142,7 @@
   <nav class="site-nav" aria-label="Site navigation" id="site-nav">
     <div class="site-nav-inner">
       <a href="./index.html" class="site-nav-brand">
-        <img src="./jamie-forrester-profile.png" alt="Jamie Forrester" class="nav-avatar" />
+        <img src="./JF LOGO.png" alt="Jamie Forrester" class="nav-avatar" />
         <span class="site-nav-name">Jamie Forrester</span>
       </a>
       <div class="site-nav-links">
@@ -224,21 +231,28 @@
         <div class="book-card-inner">
           <div class="book-card-left">
             <span class="book-num">Book 01</span>
-            <div class="book-placeholder">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="rgba(90,176,255,0.35)" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="book-placeholder-label">Cover in<br>development</span>
-            </div>
-            <span class="book-status-badge">In development</span>
+            <a class="book-cover-wrap" href="#" aria-label="Expand cover: Seeing Systems">
+              <img class="book-cover-img" src="./book1-image.png" alt="Cover: Seeing Systems" />
+            </a>
+            <span class="book-status-badge" style="background:rgba(80,200,120,0.12); color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.25);">Drafted</span>
           </div>
           <div class="book-card-right">
             <span class="book-role">Entry book · practical system perception</span>
             <h2 class="book-title">Seeing Systems</h2>
-            <p class="book-subtitle">How to perceive what a system is actually doing before trying to fix it.</p>
-            <p class="book-promise">Most attempts to fix systems fail because the wrong system is being addressed. This book teaches the perceptual discipline behind structural diagnosis: how to identify what a system is actually organised around, how to locate where rules break down, and how to distinguish the structural signal from the operational noise. <strong>The entry point into the practice — readable without prior knowledge of the research series.</strong></p>
+            <p class="book-subtitle">Why a 10-year-old can understand what organisations can't.</p>
+            <p class="book-promise">A carrier-based introduction to systemic literacy. Uses ordinary objects — doors, queues, forms, kitchens, traffic lights — to make hidden structure visible without technical language. Teaches the reader to identify purpose, primitive, rules, and failure before complexity gets mistaken for mystery. <strong>The entry point into the practice — readable without prior knowledge of the research series.</strong></p>
+            <div class="book-insight">
+              <div class="book-insight-bar"></div>
+              <p class="book-insight-text"><strong>Core argument:</strong> Most organisational failure is not a complexity problem. It is a visibility problem. The structures causing failure were always there — they were simply never named. Naming them is the first act of structural control.</p>
+            </div>
             <div class="book-meta">
-              <span class="book-meta-item">Entry level</span>
-              <span class="book-meta-item">Practical</span>
-              <span class="book-meta-item">No prerequisite</span>
+              <span class="book-meta-item">30 chapters</span>
+              <span class="book-meta-item">Carrier method</span>
+              <span class="book-meta-item">Sample chapters available</span>
+              <span class="book-meta-item">General audience</span>
+            </div>
+            <div class="book-entry-links" style="margin-top:12px;">
+              <a class="link-blue" data-mailto="1">Request sample chapters &amp; full proposal</a>
             </div>
           </div>
         </div>
@@ -249,20 +263,27 @@
         <div class="book-card-inner">
           <div class="book-card-left">
             <span class="book-num">Book 02</span>
-            <div class="book-placeholder">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 20h16M4 16h12M4 12h8M4 8h4" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="book-placeholder-label">Cover in<br>development</span>
-            </div>
-            <span class="book-status-badge">In development</span>
+            <a class="book-cover-wrap" href="#" aria-label="Expand cover: The 15-Level Abstraction Ladder">
+              <img class="book-cover-img" src="./book2-image.png" alt="Cover: The 15-Level Abstraction Ladder" />
+            </a>
+            <span class="book-status-badge" style="background:rgba(80,200,120,0.12); color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.25);">Drafted</span>
           </div>
           <div class="book-card-right">
             <span class="book-role">Thinking at multiple levels of abstraction</span>
             <h2 class="book-title">The 15-Level Abstraction Ladder</h2>
-            <p class="book-subtitle">How to move between levels of thought and design without losing structural coherence.</p>
-            <p class="book-promise">Structural failures are often produced by thinking at the wrong level of abstraction — operating at the symptom level, designing at the feature level, diagnosing at the system level, and building at the component level without a governed translation between them. <strong>This book is a map of how to move between fifteen levels of abstraction — from individual action through to field-level theory — and when each level is the right one to be working at.</strong></p>
+            <p class="book-subtitle">How to move up and down the levels of thought, design, and civilisation with confidence.</p>
+            <p class="book-promise">A navigation system for altitude. Explains why people get trapped at one level of reasoning, why disagreement is often an altitude mismatch rather than an intelligence gap, and how to move deliberately between observation, product, system, infrastructure, marketplace, civilisation, primitive, and meta-operating law. <strong>This book is a map of how to move between fifteen levels of abstraction and when each level is the right one to be working at.</strong></p>
+            <div class="book-insight">
+              <div class="book-insight-bar"></div>
+              <p class="book-insight-text"><strong>Core argument:</strong> Most disagreement is not about facts or values. It is about altitude. Two people operating at different abstraction levels will produce incompatible outputs even when starting from the same intent — and neither will know why.</p>
+            </div>
             <div class="book-meta">
-              <span class="book-meta-item">Thinking framework</span>
-              <span class="book-meta-item">Design + diagnosis</span>
+              <span class="book-meta-item">15 levels</span>
+              <span class="book-meta-item">Altitude control</span>
+              <span class="book-meta-item">Practitioners + strategists</span>
+            </div>
+            <div class="book-entry-links" style="margin-top:12px;">
+              <a class="link-blue" data-mailto="1">Request full manuscript</a>
             </div>
           </div>
         </div>
@@ -273,10 +294,9 @@
         <div class="book-card-inner">
           <div class="book-card-left">
             <span class="book-num">Book 03</span>
-            <div class="book-placeholder">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="rgba(90,176,255,0.35)" stroke-width="1.5"/><path d="M12 3v9l5 3" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="book-placeholder-label">Cover in<br>development</span>
-            </div>
+            <a class="book-cover-wrap" href="#" aria-label="Expand cover: The System Founder Framework">
+              <img class="book-cover-img" src="./book3-image.png" alt="Cover: The System Founder Framework" />
+            </a>
             <span class="book-status-badge">In development</span>
           </div>
           <div class="book-card-right">
@@ -284,10 +304,18 @@
             <h2 class="book-title">The System Founder Framework</h2>
             <p class="book-subtitle">How one person with the right structural grammar and AI capability can build operating-system level companies.</p>
             <p class="book-promise">The system founder is not a solo founder in the conventional sense. They are someone who can hold the full structural read of a system — its primitive, its rules, its failure modes — and use AI as a production and amplification layer rather than a replacement for structural thinking. <strong>This book defines the system founder's cognitive architecture, the AI coordination stack, and the founding sequence that makes OS-level companies buildable by a single structured thinker.</strong></p>
+            <div class="book-insight">
+              <div class="book-insight-bar"></div>
+              <p class="book-insight-text"><strong>Core argument:</strong> The rarest founder type is not the one with the best product instinct. It is the one who can see the operating environment that doesn't yet exist and build the rules before the participants arrive. AI collapses the execution cost of doing this alone.</p>
+            </div>
             <div class="book-meta">
-              <span class="book-meta-item">Founding model</span>
-              <span class="book-meta-item">AI + structure</span>
-              <span class="book-meta-item">Practitioner</span>
+              <span class="book-meta-item">Founder doctrine</span>
+              <span class="book-meta-item">AI leverage</span>
+              <span class="book-meta-item">System company design</span>
+              <span class="book-meta-item">Category formation</span>
+            </div>
+            <div class="book-entry-links" style="margin-top:12px;">
+              <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
           </div>
         </div>
@@ -298,21 +326,28 @@
         <div class="book-card-inner">
           <div class="book-card-left">
             <span class="book-num">Book 04</span>
-            <div class="book-placeholder">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 10h16M4 14h10M4 18h6" stroke="rgba(90,176,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
-              <span class="book-placeholder-label">Cover in<br>development</span>
-            </div>
+            <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Universal Build Architecture">
+              <img class="book-cover-img" src="./book4-image.png" alt="Cover: The Universal Build Architecture" />
+            </a>
             <span class="book-status-badge">In development</span>
           </div>
           <div class="book-card-right">
             <span class="book-role">Grammar Kernel · high-quality output production</span>
             <h2 class="book-title">The Universal Build Architecture</h2>
-            <p class="book-subtitle">The Grammar Kernel and the structural conditions for high-quality output production.</p>
-            <p class="book-promise">Every high-quality output — a diagnostic artifact, a paper, a product specification, a book — is produced through the same underlying structural sequence. This book names that sequence: the Grammar Kernel, the Universal Formula, and the production conditions that distinguish outputs that hold from outputs that drift. <strong>The production manual for the practice — applicable to any domain where structural output quality matters.</strong></p>
+            <p class="book-subtitle">How high-quality outputs get made when intelligence moves upstream.</p>
+            <p class="book-promise">A general build law across code, prose, artifacts, systems, learning, and governance. Most poor outputs are not execution failures but upstream architecture failures. This book shows where the pattern transfers strongly, partially, or weakly depending on whether the domain is construction, discovery, or emergence. <strong>The production manual for the practice — applicable to any domain where structural output quality matters.</strong></p>
+            <div class="book-insight">
+              <div class="book-insight-bar"></div>
+              <p class="book-insight-text"><strong>Core argument:</strong> Quality is not a property of execution. It is a property of upstream architecture. Every domain that produces consistently high-quality outputs does so by resolving ambiguity, constraints, and intent before execution begins. This is the transferable law.</p>
+            </div>
             <div class="book-meta">
-              <span class="book-meta-item">Production method</span>
-              <span class="book-meta-item">Grammar Kernel</span>
-              <span class="book-meta-item">Universal Formula</span>
+              <span class="book-meta-item">Upstream design</span>
+              <span class="book-meta-item">Cross-domain transfer</span>
+              <span class="book-meta-item">Build law</span>
+              <span class="book-meta-item">General theory</span>
+            </div>
+            <div class="book-entry-links" style="margin-top:12px;">
+              <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
           </div>
         </div>
@@ -323,21 +358,28 @@
         <div class="book-card-inner">
           <div class="book-card-left">
             <span class="book-num">Book 05</span>
-            <div class="book-placeholder">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3v18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" stroke="rgba(90,176,255,0.35)" stroke-width="1.3" stroke-linecap="round"/></svg>
-              <span class="book-placeholder-label">Cover in<br>development</span>
-            </div>
+            <a class="book-cover-wrap" href="#" aria-label="Expand cover: The Full Field">
+              <img class="book-cover-img" src="./book5-image.png" alt="Cover: The Full Field" />
+            </a>
             <span class="book-status-badge">In development</span>
           </div>
           <div class="book-card-right">
             <span class="book-role">Triple Stack · emergence, production, intervention</span>
             <h2 class="book-title">The Full Field</h2>
-            <p class="book-subtitle">How emergence, production, and intervention work together as a unified system architecture.</p>
-            <p class="book-promise">The culminating book in the sequence. Where the earlier books deal with perception, abstraction, founding, and production, this book deals with the field itself: the triple stack of emergence (how systems arise), production (how value is generated), and intervention (how structural failure is diagnosed and corrected). <strong>The theoretical completion of the practice architecture — for readers who have come through the earlier books or the research series.</strong></p>
+            <p class="book-subtitle">How systems become, produce, and get replaced.</p>
+            <p class="book-promise">The geometry above the ladder. Unifies the Universal Formula (emergence), the Grammar Kernel (production), and the intervention sequence from the Diagnostic and Replacement Series into the Triple Stack. Proves the Law of Structural Invariance: the primitive is the unique node present simultaneously in all three axes. <strong>The culminating volume of the sequence — for readers who have come through the earlier books or the research series.</strong></p>
+            <div class="book-insight">
+              <div class="book-insight-bar"></div>
+              <p class="book-insight-text"><strong>Core argument:</strong> Emergence, production, and intervention are not three separate fields. They are three axes of a single coordinate system, and the primitive is the unique invariant node where all three intersect. Once that is visible, every prior book in the sequence becomes a special case of the same structure.</p>
+            </div>
             <div class="book-meta">
-              <span class="book-meta-item">Field theory</span>
               <span class="book-meta-item">Triple Stack</span>
+              <span class="book-meta-item">Geometric unification</span>
+              <span class="book-meta-item">Emergence · production · intervention</span>
               <span class="book-meta-item">Advanced</span>
+            </div>
+            <div class="book-entry-links" style="margin-top:12px;">
+              <a class="link-blue" data-mailto="1">Request materials</a>
             </div>
           </div>
         </div>
@@ -365,6 +407,15 @@
           <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.65;">While the books are in development, the practice is live. Structural diagnosis available now from £10,000.</p>
         </div>
         <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
+      </div>
+
+      <div style="margin-top:24px; padding:22px 26px; border:1px solid rgba(90,176,255,0.14); border-radius:14px; background:rgba(90,176,255,0.025);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Publishers and agents welcome</div>
+        <p style="margin:0 0 14px; font-size:13.5px; color:var(--text-dim); line-height:1.7;">Sample chapters from Book 01 and a full proposal are available on request. Proposal materials for the full sequence can be provided for serious enquiries.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="link-blue" data-mailto="1">Request sample chapters &amp; full proposal</a>
+          <a class="link-blue" data-mailto="1">Publishing enquiry</a>
+        </div>
       </div>
       <div style="padding:16px 20px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); font-size:13px; color:var(--text-faint); line-height:1.65; text-align:center;">
         If you want to be notified when a book becomes available, <a class="link-blue" data-mailto="1">send an email</a> with "Book notification" in the subject line.
