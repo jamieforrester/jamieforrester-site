@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>How It Works — Jamie Forrester</title>
-  <meta name="description" content="From five-line brief to delivered artifact. Fixed scope, fixed fee, fixed timeline. How the engagement works." />
-  <link rel="icon" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>How It Works — Jamie Forrester</title>
+<meta content="How Jamie Forrester engagements work — from Structural Lens request or Five-Line Brief to fixed-scope written delivery. Clear scope, fixed fee, bounded process." name="description"/>
+<link href="/favicon.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #0b0b0c; --panel: #101114; --panel-soft: #0d0e11;
       --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
@@ -243,510 +244,540 @@
     }
   
     @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
-  </style>
+  
+@media (max-width: 820px) { .route-grid { grid-template-columns: 1fr !important; } }
+</style>
+<style id="canonical-footer-style">
+/* Canonical site footer — synchronized to homepage baseline */
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0;background:none;transition:color 140ms,border-color 140ms;}
+.site-footer__list a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);background:none;}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+@media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;}.site-footer__brand{grid-column:auto;}}
+</style>
+<style data-jf-contact-style="1">
+/* Canonical on-site contact system */
+.jf-header-email{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--text-faint);user-select:text;}
+.jf-header-email strong{color:var(--text-dim);font-weight:500;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;overflow-wrap:anywhere;}
+.jf-contact-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;}
+.jf-contact-overlay.is-open{display:flex;}
+.jf-contact-modal{width:min(620px,100%);max-height:92vh;overflow:hidden;background:#101114;border:1px solid rgba(90,176,255,.25);border-radius:20px;box-shadow:0 32px 90px rgba(0,0,0,.68);display:flex;flex-direction:column;}
+.jf-contact-modal--brief{width:min(680px,100%);}
+.jf-contact-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(135deg,rgba(90,176,255,.055),rgba(255,255,255,.008));}
+.jf-contact-kicker{display:block;margin-bottom:5px;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);}
+.jf-contact-title{margin:0;font-size:20px;line-height:1.2;color:#fff;letter-spacing:-.03em;}
+.jf-contact-close{width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text-faint);font-size:20px;line-height:1;cursor:pointer;flex:0 0 auto;}
+.jf-contact-close:hover{background:rgba(255,255,255,.1);color:#fff;}
+.jf-contact-scroll{overflow-y:auto;padding:20px 24px 24px;}
+.jf-contact-intro{margin:0 0 18px;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-contact-fallback{margin:-4px 0 18px;padding:10px 12px;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.55;}
+.jf-contact-fallback strong{color:var(--text-dim);font-weight:500;user-select:text;}
+.jf-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.jf-contact-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.jf-contact-field--full{grid-column:1/-1;}
+.jf-contact-label{font-size:12px;font-weight:600;color:#e9edf2;}
+.jf-contact-label span{font-weight:400;color:var(--text-faint);}
+.jf-contact-input,.jf-contact-textarea{width:100%;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.035);color:#f1f3f5;font:inherit;font-size:13px;line-height:1.55;padding:10px 12px;transition:border-color 140ms,background 140ms;}
+.jf-contact-textarea{resize:vertical;min-height:118px;}
+.jf-contact-input:focus,.jf-contact-textarea:focus{outline:none;border-color:rgba(90,176,255,.48);background:rgba(90,176,255,.035);box-shadow:0 0 0 3px rgba(90,176,255,.08);}
+.jf-contact-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px;}
+.jf-contact-submit{appearance:none;border:1px solid rgba(90,176,255,.35);border-radius:11px;background:rgba(90,176,255,.09);color:var(--cta-blue);font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;cursor:pointer;}
+.jf-contact-submit:hover{background:rgba(90,176,255,.15);border-color:rgba(90,176,255,.52);}
+.jf-contact-submit[disabled]{opacity:.55;cursor:wait;}
+.jf-contact-status{min-height:18px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.5;}
+.jf-contact-status.is-success{color:#8bd8a4;}
+.jf-contact-status.is-error{color:#ff9b9b;}
+.jf-contact-success{display:none;padding:28px 24px 32px;text-align:center;}
+.jf-contact-success.is-visible{display:block;}
+.jf-contact-success h3{margin:0 0 8px;color:#fff;font-size:20px;letter-spacing:-.03em;}
+.jf-contact-success p{margin:0;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-brief-question{padding:14px 0;border-top:1px solid rgba(255,255,255,.06);}
+.jf-brief-question:first-of-type{border-top:none;}
+.jf-brief-num{display:inline-flex;margin-right:7px;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--label-blue);letter-spacing:.12em;}
+@media(max-width:640px){.jf-contact-overlay{padding:10px;align-items:flex-end}.jf-contact-modal{max-height:94vh;border-radius:18px 18px 12px 12px}.jf-contact-head{padding:18px 18px 15px}.jf-contact-scroll{padding:18px}.jf-contact-grid{grid-template-columns:1fr}.jf-contact-field--full{grid-column:auto}.jf-header-email{font-size:9.5px}}
+</style><style>
+/* === Canonical mobile reading mode — 2026-08 responsive audit === */
+@media (max-width: 760px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .wrap { width: 100%; max-width: 100%; padding-left: 16px !important; padding-right: 16px !important; }
+  main, section, article, .card { min-width: 0; max-width: 100%; }
+  img, svg, video, iframe { max-width: 100%; height: auto; }
+  h1, h2, h3, p, li, a, span { overflow-wrap: anywhere; }
+
+  /* Major desktop/tablet grids become a vertical reading sequence on phones. */
+  .jf-mobile-stack { grid-template-columns: minmax(0, 1fr) !important; }
+  .jf-mobile-stack > * { min-width: 0 !important; max-width: 100%; grid-column: auto !important; }
+
+  /* Hero/card spacing: retain hierarchy without desktop-sized gutters. */
+  .hero-left, .hero-right, .card-body, .book-card-right, .paper-block, .rc-body,
+  [class*="hero-left"], [class*="hero-right"] { padding-left: 18px !important; padding-right: 18px !important; }
+  .hero-strip, .method-hero, .trilogy-hero, .scan-page-hero { max-width: 100%; }
+
+  /* Primary header: buttons wrap rather than forcing page width. */
+  header { max-width: 100%; }
+  .top-cta { width: 100%; max-width: 100%; justify-content: flex-start !important; flex-wrap: wrap !important; gap: 6px !important; }
+  .top-cta .btn, .top-cta a { max-width: 100%; }
+
+  /* Sticky navigation stays usable without widening the viewport. */
+  .site-nav { max-width: 100vw; overflow: hidden; padding-left: 12px !important; padding-right: 12px !important; }
+  .site-nav-inner { max-width: 100%; min-width: 0; gap: 8px !important; }
+  .site-nav-brand { flex: 0 0 auto; min-width: 38px; }
+  .site-nav-name { display: none !important; }
+  .site-nav-links { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; justify-content: flex-start !important; }
+  .site-nav-links::-webkit-scrollbar { display: none; }
+  .site-nav-links a { flex: 0 0 auto; white-space: nowrap; }
+
+  /* Long action rows become readable button stacks when space is tight. */
+  .actions, .cta-bar, .book-entry-links { max-width: 100%; }
+  .btn-full { width: 100%; }
+
+  /* Tables/legend-like grids tagged during audit become cards instead of squeezed columns. */
+  .jf-mobile-stack[data-mobile-grid="table"] { gap: 6px !important; }
+  .jf-mobile-stack[data-mobile-grid="table"] > * { border-right: none !important; }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding-left: 14px !important; padding-right: 14px !important; }
+  .btn { white-space: normal !important; text-align: center; line-height: 1.25 !important; }
+  .section-divider-label { white-space: normal !important; text-align: center; }
+  .label-note, .books-spine-label-text { white-space: normal !important; max-width: 100% !important; }
+}
+</style><style data-jf-global-polish="1">
+/* Canonical site chrome — final consistency pass */
+header{margin-bottom:32px!important;}
+header h1{font-size:clamp(1.1rem,1rem + .5vw,1.35rem)!important;font-weight:700!important;letter-spacing:-.03em!important;line-height:1.15!important;}
+.top-cta{display:flex!important;gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;padding-top:40px!important;row-gap:6px!important;}
+.btn{font-weight:500!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.site-nav-links .nav-email{cursor:pointer;}
+.jf-header-email{line-height:1.5;}
+@media(max-width:920px){header{margin-bottom:32px!important}.top-cta{justify-content:flex-start!important;padding-top:0!important;}}
+@media(max-width:600px){.top-cta{width:100%;}.top-cta .btn{min-height:38px;}}
+
+/* Canonical shared chrome — verified final pass */
+.avatar-link{display:inline-flex!important;border-bottom:none!important;border-radius:0!important;flex:0 0 auto!important;padding:0!important;background:transparent!important;}
+.avatar-link:hover{background:transparent!important;}
+.avatar-link:focus-visible{outline:2px solid var(--focus-ring)!important;outline-offset:4px!important;background:transparent!important;}
+.site-nav-links a{letter-spacing:.1em!important;}
+.btn{cursor:pointer!important;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important;}
+</style>
+<style id="jf-canonical-chrome-v2">
+/* Canonical site chrome — shared verbatim across every live page. */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,12,.88);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border-soft);padding:0 24px;transform:translateY(-100%);transition:transform 280ms cubic-bezier(.4,0,.2,1),opacity 280ms ease;opacity:0}
+.site-nav.nav-visible{transform:translateY(0);opacity:1}
+.site-nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.site-nav-brand{display:flex;align-items:center;gap:12px;min-width:0;border-bottom:none;padding-bottom:0;overflow:hidden;flex:0 0 auto}
+.site-nav-brand:hover{background:transparent}
+.nav-avatar{width:38px;height:38px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+.site-nav-name{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-nav-links{display:flex;align-items:center;gap:14px;min-width:0}
+.site-nav-links a{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);border-bottom:none;padding:6px 4px;white-space:nowrap;transition:color 160ms ease}
+.site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:#fff}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:40px 0 24px;border-bottom:1px solid var(--border-soft);margin-bottom:32px}
+.h-left{display:flex;align-items:flex-start;gap:20px;min-width:0}
+.avatar-link{display:inline-flex;border-bottom:none;border-radius:999px;flex:0 0 auto}
+.avatar-link:hover{background:transparent;transform:translateY(-1px)}
+.avatar-link:focus-visible{background:transparent;outline:2px solid var(--focus-ring);outline-offset:4px;border-radius:999px}
+.avatar{width:80px;height:80px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;overflow-wrap:anywhere}
+.h-sub{margin-top:5px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.16em}
+.h-pill{margin-top:10px;display:inline-flex;align-items:center;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--text-dim);line-height:1.4}
+.top-cta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;padding-top:40px;row-gap:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;border:1px solid var(--accent);background:rgba(255,255,255,.018);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;text-decoration:none;line-height:1;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;border-bottom:none;cursor:pointer;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease}
+.btn:not(.btn-large){padding:9px 14px}
+.btn:hover{background:rgba(255,255,255,.05);border-bottom:none;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.btn-primary{color:var(--cta-blue);border-color:rgba(90,176,255,.32);background:rgba(90,176,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.btn-primary:hover{background:rgba(90,176,255,.14);border-color:rgba(90,176,255,.5)}
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:64px}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint)}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms}
+.site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.24)}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:.06em;color:var(--text-faint)}
+@media(max-width:1080px){.top-cta .btn{font-size:9.5px;letter-spacing:.06em}}
+@media(max-width:920px){
+  .site-nav{padding:0 14px}.site-nav-inner{gap:10px}.site-nav-name{display:none!important}.site-nav-brand{min-width:38px}
+  .site-nav-links{flex:1 1 auto;gap:2px;justify-content:flex-start!important;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}.site-nav-links::-webkit-scrollbar{display:none}.site-nav-links a{padding:6px 7px;font-size:9px}
+  header{flex-direction:column;align-items:flex-start;gap:16px;padding-top:24px}.top-cta{justify-content:flex-start;padding-top:0}
+  .site-footer__top{grid-template-columns:1fr 1fr;gap:32px}.site-footer__brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .site-footer__inner{padding:40px 20px 28px}.site-footer__top{grid-template-columns:1fr;gap:28px}.site-footer__brand{grid-column:auto}
+  .site-footer__bottom{align-items:flex-start;flex-direction:column}
+  .top-cta{width:100%}.top-cta .btn{flex:1 1 auto;min-width:max-content}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
-    <div class="site-nav-inner">
-      <a href="./index.html" class="site-nav-brand">
-        <img src="./JF LOGO.png" alt="Jamie Forrester" class="nav-avatar" />
-        <span class="site-nav-name">Jamie Forrester</span>
-      </a>
-      <div class="site-nav-links">
-        <a href="./services.html">Services</a>
-        <a href="./method.html">Method</a>
-        <a href="./examples.html">Examples</a>
-        <a href="./research.html">Research</a>
-        <a href="./taxonomy.html">Taxonomy</a>
-        <a href="./diagnostic-scan.html">Scan</a>
-        
-        <a href="./books.html">Books</a>
-        <a href="./products.html">Tools</a>
-      
-      <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
-    </div>
-    </div>
-  </nav>
-
-  <div class="wrap">
-
-    <header>
-      <div class="h-left">
-        <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./JF LOGO.png" alt="Jamie Forrester" class="avatar" /></a>
-        <div>
-          <h1>Jamie Forrester</h1>
-          <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign</div>
-        </div>
-      </div>
-      <div class="top-cta" aria-label="Primary links">
-        <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./method.html">METHOD</a>
-        <a class="btn" href="./examples.html">EXAMPLES</a>
-        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
-        <a class="btn" href="./research.html">RESEARCH</a>
-        <a class="btn" href="./books.html">BOOKS</a>
-        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
-      </div>
-    </header>
-
-    <section class="hero-strip" aria-label="How it works overview">
-      <div class="hero-left">
-        <div>
-          <div class="eyebrow">How it works</div>
-          <h2 class="hero-title">How a structural diagnosis engagement works — from brief to artifact.</h2>
-          <p class="hero-sub" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--cta-blue); margin-bottom:14px;">From five-line brief to delivered artifact. Fixed scope, fixed fee, fixed timeline.</p>
-          <p class="hero-sub">The engagement is written-first and designed to reduce ambiguity at every stage. No slide decks. No open-ended advisory. No meeting chains by default. The output is a document, not a relationship.</p>
-          <hr class="hero-rule" />
-          <p class="hero-sub" style="margin-bottom:0;">You send a <strong>Five-Line Brief</strong>. I confirm whether the right path is <strong>Diagnostic only</strong> or the <strong>Full Structural Engagement</strong>. Diagnosis always runs first. If the fit is correct, the engagement produces either one Diagnostic Artifact or two linked artifacts: diagnosis followed by redesign.</p>
-        </div>
-        <div class="hero-actions">
-          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="process-summary">
-          <div class="process-summary-head">
-            <span class="process-summary-label">Process Summary</span>
-            <span class="process-summary-sub">The path from entry to delivery</span>
-          </div>
-          <div class="summary-step">
-            <span class="summary-step-num">01</span>
-            <div class="summary-step-body"><strong>Five-Line Brief</strong><span>What keeps going wrong, what it is costing, where it shows up, what has already been tried, and what cannot change — plus any relevant materials.</span></div>
-          </div>
-          <div class="summary-step">
-            <span class="summary-step-num">02</span>
-            <div class="summary-step-body"><strong>Fit Assessment</strong><span>I determine whether this is a fit and whether the entry point is Diagnosis or Redesign.</span></div>
-          </div>
-          <div class="summary-step">
-            <span class="summary-step-num">03</span>
-            <div class="summary-step-body"><strong>Scope Confirmed</strong><span>The engagement boundary is set before work begins. The process does not expand by default.</span></div>
-          </div>
-          <div class="summary-step">
-            <span class="summary-step-num">04</span>
-            <div class="summary-step-body"><strong>Written Delivery</strong><span>One structured document for internal circulation, decision-making, and builder handoff.</span></div>
-          </div>
-          <div class="summary-step">
-            <span class="summary-step-num">05</span>
-            <div class="summary-step-body"><strong>Clarification Pass</strong><span>One minor pass included. New analysis or widened scope becomes a new engagement.</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <main id="main" role="main">
-
-      <div class="method-callout">This page explains the engagement mechanics. The Method defines the diagnostic logic. <a class="link-blue" href="./method.html">Read the method →</a></div>
-
-      <div class="section-divider"><span class="section-divider-label">working protocol</span></div>
-
-      <section class="card card-full" aria-label="Working protocol">
-        <div class="label-row">
-          <span class="label">01 // Working protocol</span>
-          <span class="label-note">how we interact</span>
-        </div>
-        <h2 class="section-title">Written-first, asynchronous, and bounded.</h2>
-        <div class="meta-row">
-          <span class="meta-chip">written-first</span>
-          <span class="meta-chip">async by default</span>
-          <span class="meta-chip">fixed process</span>
-        </div>
-        <p class="lead">Most of the work is conducted through written exchange and artifact review. I do not move into your workflow, join your Slack, or begin with a chain of meetings. The point is to preserve structural objectivity and keep the process efficient.</p>
-        <div class="three-grid">
-          <div class="mini">
-            <h3>Default mode</h3>
-            <p>Email, document review, and written clarification. This keeps the engagement focused on structural signal rather than conversational noise.</p>
-          </div>
-          <div class="mini">
-            <h3>Clarifying questions</h3>
-            <p>If something important is missing, I may ask targeted questions. These are used to tighten scope and locate the real boundary — not to create a meeting cycle.</p>
-          </div>
-          <div class="mini">
-            <h3>What this prevents</h3>
-            <p>Premature implementation, endless alignment calls, and the slow drift that happens when the work stays verbally defined rather than written down.</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">the process</span></div>
-
-      <section class="card card-accent" aria-label="The process">
-        <div class="label-row">
-          <span class="label">02 // The process</span>
-          <span class="label-note">start to finish</span>
-        </div>
-        <h2 class="section-title">A fixed sequence from intake to delivery.</h2>
-        <p class="lead" style="margin-bottom:20px;">Five steps. Each one is defined before the next begins. The process does not expand, loop back, or drift into ongoing advisory. It ends with a written artifact.</p>
-        <div class="phase-list">
-          <div class="phase">
-            <div class="phase-head"><span class="phase-index">01</span><span class="phase-title">Five-Line Brief</span></div>
-            <p>You begin by emailing five lines: <strong>The Pattern</strong>, <strong>The Stake</strong>, <strong>The Interfaces</strong>, <strong>Concentration</strong>, and <strong>Constraints</strong>. Attach any materials that reflect the current state — diagrams, policies, workflows, contracts, post-mortems, screenshots. Accuracy matters more than polish.</p>
-          </div>
-          <div class="phase">
-            <div class="phase-head"><span class="phase-index">02</span><span class="phase-title">Fit Assessment</span></div>
-            <p>I review the brief and materials to determine whether the issue is structurally suited to this approach, whether the boundary can be clearly defined, and whether the correct starting point is Diagnosis or Redesign. If it is not a fit, I say so here.</p>
-          </div>
-          <div class="phase">
-            <div class="phase-head"><span class="phase-index">03</span><span class="phase-title">Scope Confirmation</span></div>
-            <p>If the fit is correct, the engagement is confirmed as a fixed-scope written intervention. The boundary of the work is set explicitly before analysis begins. This is the point at which the process becomes binding.</p>
-          </div>
-          <div class="phase">
-            <div class="phase-head"><span class="phase-index">04</span><span class="phase-title">Upstream Work</span></div>
-            <p>I work through the materials. For Diagnosis: I expose the real structure — the primitive, invariants, enforcement map, mismatch, and build map. For Redesign: I define the target boundary, transition sequence, interface changes, dependency order, and drift refusal gates. In both cases, the goal is to make the next move structurally legible before execution begins.</p>
-          </div>
-          <div class="phase">
-            <div class="phase-head"><span class="phase-index">05</span><span class="phase-title">Delivery and Clarification</span></div>
-            <p>You receive one structured written artifact within 14 days of engagement start. It is designed for internal circulation, decision-making, and builder handoff. One minor clarification pass is included after delivery. If the boundary changes or new analysis is required, that becomes a new engagement.</p>
-          </div>
-        </div>
-        <div class="cta-bar">
-          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">which route applies</span></div>
-
-      <section class="card" aria-label="Which route applies">
-        <div class="label-row">
-          <span class="label">03 // Which route applies</span>
-          <span class="label-note">Visibility vs Resolution</span>
-        </div>
-        <h2 class="section-title">Two paths. One structural objective.</h2>
-        <p class="lead" style="margin-bottom:20px;">Both engagement paths produce written artifacts. The difference is scope. Diagnostic only gives you truth visibility — the structural break, named. The Full Structural Engagement gives you truth plus resolution — the break named and the change sequence defined.</p>
-        <div class="route-grid">
-          <div class="route-card">
-            <span class="mini-kicker">Diagnostic Artifact — Visibility</span>
-            <h3>The structural break, named.</h3>
-            <p>When the failure keeps recurring under different names, the team cannot agree on what is actually breaking, or the real rules have never been made explicit. The Diagnostic Artifact makes the structure visible. That is its only job — and it does it completely.</p>
-          </div>
-          <div class="route-card">
-            <span class="mini-kicker">Full Structural Engagement — Resolution</span>
-            <h3>The break named and the change sequence defined.</h3>
-            <p>The Full Structural Engagement delivers both the diagnostic read and the change sequence. Choose this when naming the failure is not sufficient — builders also need a dependency-ordered transition sequence to execute against.</p>
-          </div>
-        </div>
-        <div class="route-decision">
-          <div class="route-decision-bar"></div>
-          <div class="route-decision-body">
-            <span class="mini-kicker" style="margin-bottom:6px;">If the correct route is unclear</span>
-            <p>The fit assessment resolves this. If you are unsure whether you need Diagnosis or Redesign, send the Five-Line Brief and I will determine the correct entry point. <strong style="color:#e8ecf0;">You do not need to know before you send.</strong></p>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">what you provide</span></div>
-
-      <section class="card" aria-label="What you provide">
-        <div class="label-row">
-          <span class="label">04 // What you provide</span>
-          <span class="label-note">client inputs</span>
-        </div>
-        <h2 class="section-title">Useful signal, not polished presentation.</h2>
-        <p class="lead" style="margin-bottom:20px;">You do not need a perfect brief or a well-organised document pack. Most clients arrive with messy, partial, or contradictory materials — that is normal. What matters is that the materials reflect what is actually happening, not what the official narrative says.</p>
-        <div class="input-panels">
-          <div class="input-panel">
-            <div class="input-panel-header">
-              <div class="input-panel-bar"></div>
-              <span class="mini-kicker" style="margin:0;">What to send</span>
-            </div>
-            <ul class="input-list">
-              <li class="input-item">
-                <span class="input-num">01</span>
-                <span>A completed Five-Line Brief</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num">02</span>
-                <span>Diagrams, policies, workflows, notes, contracts, or screenshots</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num">03</span>
-                <span>Post-mortems, incident reports, or internal documents that show what actually happened</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num">04</span>
-                <span>A clear statement of known constraints: technical, legal, budgetary, or operational</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num">05</span>
-                <span>Timely written responses if clarifying questions are required</span>
-              </li>
-            </ul>
-          </div>
-          <div class="input-panel input-panel-accent">
-            <div class="input-panel-header">
-              <div class="input-panel-bar input-panel-bar-blue"></div>
-              <span class="mini-kicker" style="margin:0;">What matters most</span>
-            </div>
-            <ul class="input-list">
-              <li class="input-item">
-                <span class="input-num input-num-blue">→</span>
-                <span><strong style="color:#e8ecf0;">Accuracy over polish</strong> — rough materials are fine if they reflect reality</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num input-num-blue">→</span>
-                <span><strong style="color:#e8ecf0;">Operating reality over official narrative</strong> — what actually happens, not what the policy says</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num input-num-blue">→</span>
-                <span><strong style="color:#e8ecf0;">Boundary signal over volume</strong> — knowing what cannot change is as useful as knowing what keeps breaking</span>
-              </li>
-              <li class="input-item">
-                <span class="input-num input-num-blue">→</span>
-                <span><strong style="color:#e8ecf0;">Honest constraints</strong> — hidden constraints discovered mid-engagement create scope problems</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="provide-callout">
-          <div class="provide-callout-bar"></div>
-          <p>If you are unsure whether you have enough to send, <strong style="color:#e8ecf0;">send what you have.</strong> The fit assessment will determine whether there is sufficient signal to proceed.</p>
-        </div>
-        <div style="margin-top:16px; padding:14px 18px; border:1px solid rgba(90,176,255,0.16); border-left:3px solid var(--cta-blue); border-radius:0 12px 12px 0; background:rgba(90,176,255,0.04);">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:6px;">Structural Confidentiality</span>
-          <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;">All materials are treated as high-integrity inputs to the artifact and are not retained beyond the engagement lifecycle.</p>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">what you receive</span></div>
-
-      <section class="card" aria-label="What you receive">
-        <div class="label-row">
-          <span class="label">05 // What you receive</span>
-          <span class="label-note">the deliverable</span>
-        </div>
-        <h2 class="section-title">A structured document, not a deck.</h2>
-        <p class="lead" style="margin-bottom:20px;">Every engagement ends with one written artifact. It is designed to be read, circulated internally, and handed directly to the people who need to make decisions or execute against it. It is not a slide deck, a workshop package, or an open-ended memo.</p>
-        <div class="three-grid">
-          <div class="mini">
-            <h3>Who it is for</h3>
-            <p>Decision owners who need a single source of structural truth, and builders who need a clear basis for what must change first. Both can use the same document.</p>
-          </div>
-          <div class="mini">
-            <h3>What it does</h3>
-            <p>Resolves structural uncertainty, reduces debate about what changes first, supports internal alignment, and provides a stable handoff point for execution teams.</p>
-          </div>
-          <div class="mini">
-            <h3>What it is not</h3>
-            <p>Not a slide deck. Not a workshop or facilitation package. Not implementation execution. Not an open-ended advisory retainer. One document. One engagement.</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">when it is not a fit</span></div>
-
-      <section class="card" aria-label="When it is not a fit">
-        <div class="label-row">
-          <span class="label">06 // When it is not a fit</span>
-          <span class="label-note">clear refusal logic</span>
-        </div>
-        <h2 class="section-title">Not every problem belongs in this process.</h2>
-        <p class="lead" style="margin-bottom:20px;">The intake exists to determine whether this approach is appropriate — not to force every problem into the same engagement. If it is not a fit, I say so at the fit assessment stage.</p>
-        <div class="two-grid">
-          <div class="mini">
-            <h3>Not a fit when</h3>
-            <ul class="clean">
-              <li>The issue is too broad or undefined for a bounded written intervention</li>
-              <li>The real need is implementation ownership, delivery leadership, or ongoing facilitation</li>
-              <li>The available inputs do not contain enough signal to define a reliable boundary</li>
-              <li>The failure is primarily operational noise rather than a structural problem</li>
-              <li>Multiple unrelated failure modes are being combined into one request</li>
-            </ul>
-          </div>
-          <div class="mini mini-accent-blue">
-            <span class="mini-kicker" style="margin-bottom:12px;">What happens then</span>
-            <div class="mini-insight">
-              <div class="mini-insight-bar"></div>
-              <p>If it is not a fit, I say so at the fit assessment stage. <strong style="color:#e8ecf0;">There is no charge for this.</strong> The point of the intake is to determine whether this approach is appropriate.</p>
-            </div>
-            <div class="mini-insight" style="margin-top:10px;">
-              <div class="mini-insight-bar"></div>
-              <p>If the problem is structurally interesting but outside the defined scope of these engagements, I may be able to point toward a more appropriate route.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">after delivery</span></div>
-
-      <section class="card card-full" aria-label="After delivery">
-        <div class="label-row">
-          <span class="label">07 // After delivery</span>
-          <span class="label-note">what comes next</span>
-        </div>
-        <h2 class="section-title">The engagement ends. The artifact does not.</h2>
-        <p class="lead" style="margin-bottom:20px;">The artifact is yours to circulate, act against, and use as a stable reference point. The engagement itself is bounded — it does not continue into ongoing advisory, retainer access, or implementation support.</p>
-        <div class="three-grid">
-          <div class="mini">
-            <h3>Clarification pass</h3>
-            <p>One minor clarification pass is included after delivery. This covers clarification of the document as delivered — not new analysis, extended scope, or additional research.</p>
-          </div>
-          <div class="mini">
-            <h3>When new work is required</h3>
-            <p>If the boundary expands, the problem changes shape, or new analysis is required after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
-          </div>
-          <div class="mini">
-            <h3>How to start the next one</h3>
-            <p>The entry route is always the same. Send a Five-Line Brief, attach anything useful, and I will determine whether there is a fit and where the work should begin.</p>
-          </div>
-        </div>
-
-        <div class="intake-note">
-          <div class="intake-note-head">
-            <span class="intake-note-label">Before you send the brief</span>
-          </div>
-          <div class="intake-note-body">
-            <p>The five-line brief is a fit screen, not the diagnosis itself. I use it to determine whether the problem is structurally diagnosable, whether the right path is the Diagnostic Artifact alone or the Full Structural Engagement. Diagnosis always runs first., or whether the issue is outside scope.</p>
-            <p style="margin-bottom:0;">If the failure is one-off, purely technical, or not credibly diagnosable from the available evidence, I will say so.</p>
-          </div>
-        </div>
-
-        <div class="signal-box">
-          <span class="mini-kicker">Submit a five-line brief</span>
-          <ol class="signal-list">
-            <li class="signal-item">
-              <span class="signal-num">01</span>
-              <span><strong>What keeps going wrong?</strong> Describe the failure that keeps returning.</span>
-            </li>
-            <li class="signal-item">
-              <span class="signal-num">02</span>
-              <span><strong>What is it costing?</strong> Describe the cost in money, time, trust, load, delay, or drift.</span>
-            </li>
-            <li class="signal-item">
-              <span class="signal-num">03</span>
-              <span><strong>Where does it show up?</strong> Name the teams, roles, systems, or customer touchpoints involved.</span>
-            </li>
-            <li class="signal-item">
-              <span class="signal-num">04</span>
-              <span><strong>What has already been tried?</strong> List any fixes, workarounds, or decisions already attempted.</span>
-            </li>
-            <li class="signal-item">
-              <span class="signal-num">05</span>
-              <span><strong>What cannot change?</strong> State the non-negotiables, constraints, or conditions that must still hold.</span>
-            </li>
-          </ol>
-        </div>
-
-        <div class="cta-bar">
-          <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-          <a class="btn" href="./services.html">VIEW SERVICES</a>
-        </div>
-        <div class="callout">
-          <p>Not ready to send a brief yet? <a class="link-blue" href="./diagnostic-scan.html">Run a Diagnostic Scan</a> — five questions that surface the structural pattern before you commit to an engagement.</p>
-        </div>
-      </section>
-
-    </main>
-  <div style="display:flex;justify-content:center;padding:32px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
-  </div>
-
-  </div>
-
-<div class="brief-modal-overlay" id="briefModal" role="dialog" aria-modal="true" style="display:none;">
-  <div class="brief-modal">
-    <div class="brief-modal-header">
-      <div>
-        <span class="brief-modal-eyebrow">Five-Line Brief</span>
-        <h2 class="brief-modal-title">Send a brief</h2>
-      </div>
-      <button class="brief-modal-close" id="briefModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="brief-modal-body">
-      <p class="brief-modal-intro">Describe your system and the failure you are experiencing. Your answers will open pre-filled in your email client.</p>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-context">System or situation</label>
-        <p class="brief-modal-hint">Briefly describe the system, product, or organisation this is about.</p>
-        <textarea class="brief-modal-input" id="brief-context" rows="2" placeholder="e.g. A freelance content marketplace with 200 active writers and 50 enterprise clients"></textarea>
-      </div>
-      <div class="brief-modal-divider"></div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> What keeps going wrong?</label>
-        <p class="brief-modal-hint">Describe the failure that keeps returning.</p>
-        <textarea class="brief-modal-input" id="brief-1" rows="2" placeholder="e.g. Writers matched by availability not expertise."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> What is it costing?</label>
-        <p class="brief-modal-hint">Describe the cost in money, time, trust, load, delay, or drift.</p>
-        <textarea class="brief-modal-input" id="brief-2" rows="2" placeholder="e.g. 3 enterprise clients churned. £120k ARR at risk."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> Where does it show up?</label>
-        <p class="brief-modal-hint">Name the teams, roles, systems, or customer touchpoints involved.</p>
-        <textarea class="brief-modal-input" id="brief-3" rows="2" placeholder="e.g. Matching algorithm, account managers, editorial review."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> What has already been tried?</label>
-        <p class="brief-modal-hint">List any fixes, workarounds, or decisions already attempted.</p>
-        <textarea class="brief-modal-input" id="brief-4" rows="2" placeholder="e.g. Highest complaints in technical and legal categories."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> What cannot change?</label>
-        <p class="brief-modal-hint">State the non-negotiables, constraints, or conditions that must still hold.</p>
-        <textarea class="brief-modal-input" id="brief-5" rows="2" placeholder="e.g. Cannot rebuild matching algorithm before Q3."></textarea>
-      </div>
-    </div>
-    <div class="brief-modal-footer">
-      <p class="brief-modal-footer-note">Opens your email client with answers pre-filled. Review and edit before sending.</p>
-      <button class="brief-modal-submit" id="briefModalSubmit">OPEN IN EMAIL &rarr;</button>
-    </div>
-  </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Site navigation" class="site-nav" id="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="./index.html">
+<img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
+<span class="site-nav-name">Jamie Forrester</span>
+</a>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><a href="./examples.html">Proofs</a><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="How It Works enquiry" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__top">
-                <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
-        </section>
-                <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-          <ul class="site-footer__list">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./services.html">Services</a></li>
-            <li><a href="./method.html">Method</a></li>
-            <li><a href="./examples.html">Examples</a></li>
-            <li><a href="./taxonomy.html">Taxonomy</a></li>
-            <li><a href="./research.html">Research</a></li>
-            <li><a href="./books.html">Books</a></li>
-            <li><a href="./products.html">Tools</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
-          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
-          <ul class="site-footer__list">
-            <li><a href="./trilogy.html">Trilogy</a></li>
-            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-          <ul class="site-footer__list">
-            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="./terms.html">Terms</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-          <ul class="site-footer__list">
-            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
-      </div>
-    </div>
-  </footer>
-
-  <style>
+</nav>
+<div class="wrap">
+<header>
+<div class="h-left">
+<a aria-label="Back to home" class="avatar-link" href="./index.html"><img alt="Jamie Forrester" class="avatar" src="./JF LOGO.png"/></a>
+<div>
+<h1>Jamie Forrester</h1>
+<div class="h-sub">Independent Systems Architect</div>
+<div class="h-pill">Structural diagnosis and redesign</div><div class="jf-header-email">Email: <strong>hello@jamieforrester.com</strong></div>
+</div>
+</div>
+<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><a class="btn" href="./examples.html">PROOFS</a><a class="btn" href="./research.html">RESEARCH</a><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="How It Works enquiry" href="#contact">CONTACT</a></div>
+</header>
+<section aria-label="How it works overview" class="hero-strip jf-mobile-stack">
+<div class="hero-left">
+<div>
+<div class="eyebrow">How it works</div>
+<h2 class="hero-title">How the work moves from first contact to a finished structural artifact.</h2>
+<p class="hero-sub" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.06em; color:var(--cta-blue); margin-bottom:14px;">Three fixed-scope engagement routes. Written-first. Clear boundary. Fixed fee and delivery window.</p>
+<p class="hero-sub">The process is designed to reduce ambiguity, not create more of it. No meeting chain by default. No open-ended advisory. You send the relevant signal, I confirm the right scope, the work is completed against that boundary, and you receive a written artifact or governed artifact set.</p>
+<hr class="hero-rule"/>
+<p class="hero-sub" style="margin-bottom:0;">If you need the architecture of a system, method, or problem exposed, start with a <strong>Structural Lens request</strong>. If a failure keeps returning, send the <strong>Five-Line Brief</strong>. I then confirm whether the right scope is the <strong>Diagnostic Artifact</strong> or the <strong>Full Structural Engagement</strong>. Redesign never bypasses diagnosis.</p>
+</div>
+<div class="hero-actions"><a class="btn" data-jf-contact="1" data-jf-subject="Website enquiry — How It Works" href="#contact">CONTACT</a><a class="btn btn-primary" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a><a class="btn" href="./services.html">VIEW SERVICES</a></div>
+</div>
+<div class="hero-right">
+<div class="process-summary">
+<div class="process-summary-head"><span class="process-summary-label">Process Summary</span><span class="process-summary-sub">The path from entry to delivery</span></div>
+<div class="summary-step"><span class="summary-step-num">01</span><div class="summary-step-body"><strong>Choose the entry signal</strong><span>Lens request for architecture extraction. Five-Line Brief for a recurring failure.</span></div></div>
+<div class="summary-step"><span class="summary-step-num">02</span><div class="summary-step-body"><strong>Fit and scope</strong><span>I confirm whether the work belongs in Lens, Diagnostic, Full Engagement, or outside scope.</span></div></div>
+<div class="summary-step"><span class="summary-step-num">03</span><div class="summary-step-body"><strong>Boundary confirmed</strong><span>Fee, delivery window, inputs, and output are fixed before work begins.</span></div></div>
+<div class="summary-step"><span class="summary-step-num">04</span><div class="summary-step-body"><strong>Written work</strong><span>The agreed structural analysis is produced against the locked boundary.</span></div></div>
+<div class="summary-step"><span class="summary-step-num">05</span><div class="summary-step-body"><strong>Delivery and clarification</strong><span>Lens and Diagnostic include one clarification pass. Full includes one on the Diagnostic Artifact and one on the Full Redesign Artifact.</span></div></div>
+</div>
+</div>
+</section>
+<main id="main" role="main">
+<div class="method-callout">This page explains the engagement mechanics. The Method defines the diagnostic logic. <a class="link-blue" href="./method.html">Read the method →</a></div>
+<div class="section-divider"><span class="section-divider-label">working protocol</span></div>
+<section aria-label="Working protocol" class="card card-full">
+<div class="label-row">
+<span class="label">01 // Working protocol</span>
+<span class="label-note">how we interact</span>
+</div>
+<h2 class="section-title">Written-first, asynchronous, and bounded.</h2>
+<div class="meta-row">
+<span class="meta-chip">written-first</span>
+<span class="meta-chip">async by default</span>
+<span class="meta-chip">fixed process</span>
+</div>
+<p class="lead">Most of the work happens through email, document review, and targeted written questions. I do not move into your workflow or begin with a chain of meetings. The aim is simple: keep the problem, scope, and conclusions explicit from start to finish.</p>
+<div class="three-grid jf-mobile-stack">
+<div class="mini">
+<h3>Default mode</h3>
+<p>Email, document review, and written clarification. This keeps the engagement focused on structural signal rather than conversational noise.</p>
+</div>
+<div class="mini">
+<h3>Clarifying questions</h3>
+<p>If something important is missing, I may ask targeted questions. These are used to tighten scope and locate the real boundary — not to create a meeting cycle.</p>
+</div>
+<div class="mini">
+<h3>What this prevents</h3>
+<p>Premature implementation, endless alignment calls, and the slow drift that happens when the work stays verbally defined rather than written down.</p>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">the process</span></div>
+<section aria-label="The process" class="card card-accent">
+<div class="label-row">
+<span class="label">02 // The process</span>
+<span class="label-note">start to finish</span>
+</div>
+<h2 class="section-title">A fixed sequence from entry to delivery.</h2>
+<p class="lead" style="margin-bottom:20px;">Five steps. The entry signal differs by service, but the rule is the same: define the boundary before analysis begins, do the work inside that boundary, then deliver a stable written output.</p>
+<div class="phase-list">
+<div class="phase"><div class="phase-head"><span class="phase-index">01</span><span class="phase-title">Entry Signal</span></div><p><strong>Structural Lens:</strong> send a short description of the system, method, problem, or body of work whose architecture you want exposed. <strong>Recurring failure:</strong> send the Five-Line Brief — what keeps going wrong, what it costs, where it shows up, what has been tried, and what cannot change. Attach useful materials if you have them. Accuracy matters more than polish.</p></div>
+<div class="phase"><div class="phase-head"><span class="phase-index">02</span><span class="phase-title">Fit and Route</span></div><p>I determine whether the work is structurally suited to this approach and which scope fits: <strong>Structural Lens Brief</strong>, <strong>Diagnostic Artifact</strong>, or <strong>Full Structural Engagement</strong>. If the issue is not a fit, I say so here. For recurring failure, redesign is never selected as a shortcut around diagnosis.</p></div>
+<div class="phase"><div class="phase-head"><span class="phase-index">03</span><span class="phase-title">Scope Confirmation</span></div><p>The boundary, fee, delivery window, required inputs, and output are confirmed before work begins. Lens is a 7-day architecture extraction. Diagnostic is a 14-day structural diagnosis. Full is a £25,000 governed diagnosis-to-redesign engagement within a 14-day window, subject to timely diagnostic confirmation.</p></div>
+<div class="phase"><div class="phase-head"><span class="phase-index">04</span><span class="phase-title">Structural Work</span></div><p>For Lens, I expose what the subject is actually built on: its underlying structure, functions, boundaries, dependencies, and tensions. For Diagnostic, I locate and name the governing structural break. For Full, the same work carries that diagnostic frame into the corrected boundary, transition sequence, dependency order, and builder handoff; the Diagnostic Artifact is delivered first and redesign is released after the frame is confirmed in writing.</p></div>
+<div class="phase"><div class="phase-head"><span class="phase-index">05</span><span class="phase-title">Delivery and Clarification</span></div><p>You receive the output defined in scope: a 6–10 page Structural Lens Brief, one Diagnostic Artifact, or the complete four-artifact Full Structural Engagement. Lens and Diagnostic each include one minor clarification pass. Full includes one clarification pass on the Diagnostic Artifact, then — after written confirmation of that frame — release of the redesign artifacts and one clarification pass on the Full Redesign Artifact. New analysis or a widened boundary becomes separate work.</p></div>
+</div>
+<div class="cta-bar"><a class="btn" data-jf-contact="1" data-jf-subject="Website enquiry — How It Works" href="#contact">CONTACT</a><a class="btn btn-primary" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a><a class="btn" href="./services.html">VIEW SERVICES</a></div>
+</section>
+<div class="section-divider"><span class="section-divider-label">which route applies</span></div>
+<section aria-label="Which route applies" class="card">
+<div class="label-row">
+<span class="label">03 // Which route applies</span>
+<span class="label-note">three scopes, three jobs</span>
+</div>
+<h2 class="section-title">Three routes. Choose by the job you need done.</h2>
+<p class="lead" style="margin-bottom:20px;">You do not need to learn the method before choosing. The distinction is practical: expose the architecture, diagnose the recurring failure, or carry a locked diagnosis into redesign.</p>
+<div class="route-grid jf-mobile-stack" style="grid-template-columns:repeat(3,1fr);">
+<div class="route-card"><span class="mini-kicker">Structural Lens Brief — £2,000</span><h3>Expose what it is built on.</h3><p>Use this when you need the architecture beneath one problem, system, method, or body of work made explicit. It extracts the structure. It does not perform the full recurring-failure diagnosis.</p></div>
+<div class="route-card"><span class="mini-kicker">Diagnostic Artifact — £10,000</span><h3>Name why the failure keeps returning.</h3><p>Use this when the same problem keeps coming back, different teams describe it differently, or previous fixes have not held. The output is the governing structural diagnosis and build map.</p></div>
+<div class="route-card" style="border-color:rgba(80,200,120,0.26);background:linear-gradient(160deg,rgba(80,200,120,0.055) 0%,rgba(80,200,120,0.015) 100%);"><span class="mini-kicker" style="color:rgba(80,200,120,0.9);">Full Structural Engagement — £25,000 · 14 days</span><h3>Diagnose it, then specify the replacement.</h3><p>Use this when naming the failure is not enough. The same 14-day governed engagement carries diagnosis into the corrected boundary, transition sequence, dependency order, refusal gates, and builder handoff. The Diagnostic Artifact is delivered first; redesign is released after the diagnostic frame is confirmed.</p></div>
+</div>
+<div class="route-decision">
+<div class="route-decision-bar"></div>
+<div class="route-decision-body">
+<span class="mini-kicker" style="margin-bottom:6px;">If the correct route is unclear</span>
+<p>If you are unsure, <strong style="color:#e8ecf0;">you do not need to diagnose yourself.</strong> Contact me with the situation. For a recurring failure, send the Five-Line Brief. For architecture extraction, request the Structural Lens. I will confirm the correct scope before any paid work begins.</p>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">what you provide</span></div>
+<section aria-label="What you provide" class="card">
+<div class="label-row">
+<span class="label">04 // What you provide</span>
+<span class="label-note">client inputs</span>
+</div>
+<h2 class="section-title">Useful signal, not polished presentation.</h2>
+<p class="lead" style="margin-bottom:20px;">You do not need a polished brief or a perfect document pack. Send the material that best reflects the real system. For a Lens request, that may be the method, product, workflow, document set, or problem you want structurally mapped. For recurring failure, the Five-Line Brief is the starting signal.</p>
+<div class="input-panels jf-mobile-stack">
+<div class="input-panel">
+<div class="input-panel-header">
+<div class="input-panel-bar"></div>
+<span class="mini-kicker" style="margin:0;">What to send</span>
+</div>
+<ul class="input-list">
+<li class="input-item">
+<span class="input-num">01</span>
+<span>A Lens request or completed Five-Line Brief, depending on the work</span>
+</li>
+<li class="input-item">
+<span class="input-num">02</span>
+<span>Diagrams, policies, workflows, notes, contracts, or screenshots</span>
+</li>
+<li class="input-item">
+<span class="input-num">03</span>
+<span>Post-mortems, incident reports, or internal documents that show what actually happened</span>
+</li>
+<li class="input-item">
+<span class="input-num">04</span>
+<span>A clear statement of known constraints: technical, legal, budgetary, or operational</span>
+</li>
+<li class="input-item">
+<span class="input-num">05</span>
+<span>Timely written responses if clarifying questions are required</span>
+</li>
+</ul>
+</div>
+<div class="input-panel input-panel-accent">
+<div class="input-panel-header">
+<div class="input-panel-bar input-panel-bar-blue"></div>
+<span class="mini-kicker" style="margin:0;">What matters most</span>
+</div>
+<ul class="input-list">
+<li class="input-item">
+<span class="input-num input-num-blue">→</span>
+<span><strong style="color:#e8ecf0;">Accuracy over polish</strong> — rough materials are fine if they reflect reality</span>
+</li>
+<li class="input-item">
+<span class="input-num input-num-blue">→</span>
+<span><strong style="color:#e8ecf0;">Operating reality over official narrative</strong> — what actually happens, not what the policy says</span>
+</li>
+<li class="input-item">
+<span class="input-num input-num-blue">→</span>
+<span><strong style="color:#e8ecf0;">Boundary signal over volume</strong> — knowing what cannot change is as useful as knowing what keeps breaking</span>
+</li>
+<li class="input-item">
+<span class="input-num input-num-blue">→</span>
+<span><strong style="color:#e8ecf0;">Honest constraints</strong> — hidden constraints discovered mid-engagement create scope problems</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="provide-callout">
+<div class="provide-callout-bar"></div>
+<p>If you are unsure whether you have enough to send, <strong style="color:#e8ecf0;">send what you have.</strong> The fit assessment will determine whether there is sufficient signal to proceed.</p>
+</div>
+<div style="margin-top:16px; padding:14px 18px; border:1px solid rgba(90,176,255,0.16); border-left:3px solid var(--cta-blue); border-radius:0 12px 12px 0; background:rgba(90,176,255,0.04);">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:6px;">Structural Confidentiality</span>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;">All materials are treated as high-integrity inputs to the artifact and are not retained beyond the engagement lifecycle.</p>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">what you receive</span></div>
+<section aria-label="What you receive" class="card">
+<div class="label-row">
+<span class="label">05 // What you receive</span>
+<span class="label-note">the deliverable</span>
+</div>
+<h2 class="section-title">A written artifact — or governed artifact set — not a deck.</h2>
+<p class="lead" style="margin-bottom:20px;">Every engagement ends with a defined written output. Lens delivers one concise Structural Lens Brief. Diagnostic delivers one Diagnostic Artifact. Full delivers four linked artifacts as one governed sequence. The work is designed to circulate, support decisions, and give builders a stable reference point.</p>
+<div class="three-grid jf-mobile-stack">
+<div class="mini">
+<h3>Who it is for</h3>
+<p>Decision owners, operators, and builders who need a shared structural read without having to reconstruct the logic from meetings or scattered documents.</p>
+</div>
+<div class="mini">
+<h3>What it does</h3>
+<p>Makes the agreed level of structure explicit: architecture for Lens, governing failure for Diagnostic, and diagnosis plus correction sequence for Full.</p>
+</div>
+<div class="mini">
+<h3>What it is not</h3>
+<p>Not a slide deck, workshop package, implementation team, or open-ended advisory retainer. The scope and output are defined before work begins.</p>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">when it is not a fit</span></div>
+<section aria-label="When it is not a fit" class="card">
+<div class="label-row">
+<span class="label">06 // When it is not a fit</span>
+<span class="label-note">clear refusal logic</span>
+</div>
+<h2 class="section-title">Not every problem belongs in this process.</h2>
+<p class="lead" style="margin-bottom:20px;">The intake exists to determine whether this approach is appropriate — not to force every problem into the same engagement. If it is not a fit, I say so at the fit assessment stage.</p>
+<div class="two-grid jf-mobile-stack">
+<div class="mini">
+<h3>Not a fit when</h3>
+<ul class="clean">
+<li>The issue is too broad or undefined for a bounded written intervention</li>
+<li>The real need is implementation ownership, delivery leadership, or ongoing facilitation</li>
+<li>The available inputs do not contain enough signal to define a reliable boundary</li>
+<li>The failure is primarily operational noise rather than a structural problem</li>
+<li>Multiple unrelated failure modes are being combined into one request</li>
+</ul>
+</div>
+<div class="mini mini-accent-blue">
+<span class="mini-kicker" style="margin-bottom:12px;">What happens then</span>
+<div class="mini-insight">
+<div class="mini-insight-bar"></div>
+<p>If it is not a fit, I say so at the fit assessment stage. <strong style="color:#e8ecf0;">There is no charge for this.</strong> The point of the intake is to determine whether this approach is appropriate.</p>
+</div>
+<div class="mini-insight" style="margin-top:10px;">
+<div class="mini-insight-bar"></div>
+<p>If the problem is structurally interesting but outside the defined scope of these engagements, I may be able to point toward a more appropriate route.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">after delivery</span></div>
+<section aria-label="After delivery" class="card card-full">
+<div class="label-row">
+<span class="label">07 // After delivery</span>
+<span class="label-note">what comes next</span>
+</div>
+<h2 class="section-title">The engagement ends. The artifact does not.</h2>
+<p class="lead" style="margin-bottom:20px;">The artifact is yours to circulate, act against, and use as a stable reference point. The engagement itself is bounded — it does not continue into ongoing advisory, retainer access, or implementation support.</p>
+<div class="three-grid jf-mobile-stack">
+<div class="mini">
+<h3>Clarification pass</h3>
+<p>The Structural Lens Brief and Diagnostic Artifact each include one minor clarification pass. In the Full Structural Engagement, one clarification pass applies to the Diagnostic Artifact and one to the Full Redesign Artifact. The Translation Artifact and Redesign Executive Summary do not have separate revision rounds. Clarification does not include new analysis, extended scope, or additional research.</p>
+</div>
+<div class="mini">
+<h3>When new work is required</h3>
+<p>If the boundary expands, the problem changes shape, or new analysis is required after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
+</div>
+<div class="mini">
+<h3>How to start the next one</h3>
+<p>Start with the signal that matches the job: a Lens request for architecture extraction, or a Five-Line Brief for recurring failure. I confirm scope before new paid work begins.</p>
+</div>
+</div>
+<div class="intake-note">
+<div class="intake-note-head">
+<span class="intake-note-label">Before you send the brief</span>
+</div>
+<div class="intake-note-body">
+<p>The Five-Line Brief is a fit screen for recurring failure, not the diagnosis itself. It helps determine whether the case is structurally diagnosable and whether the right scope is Diagnostic or Full. A Structural Lens request uses a simpler architecture-extraction brief because it is not necessarily a failure case.</p>
+<p style="margin-bottom:0;">If the case is one-off, purely technical, outside the available evidence, or otherwise not structurally suited to this work, I will say so.</p>
+</div>
+</div>
+<div class="signal-box">
+<span class="mini-kicker">Submit a five-line brief</span>
+<ol class="signal-list">
+<li class="signal-item">
+<span class="signal-num">01</span>
+<span><strong>What keeps going wrong?</strong> Describe the failure that keeps returning.</span>
+</li>
+<li class="signal-item">
+<span class="signal-num">02</span>
+<span><strong>What is it costing?</strong> Describe the cost in money, time, trust, load, delay, or drift.</span>
+</li>
+<li class="signal-item">
+<span class="signal-num">03</span>
+<span><strong>Where does it show up?</strong> Name the teams, roles, systems, or customer touchpoints involved.</span>
+</li>
+<li class="signal-item">
+<span class="signal-num">04</span>
+<span><strong>What has already been tried?</strong> List any fixes, workarounds, or decisions already attempted.</span>
+</li>
+<li class="signal-item">
+<span class="signal-num">05</span>
+<span><strong>What cannot change?</strong> State the non-negotiables, constraints, or conditions that must still hold.</span>
+</li>
+</ol>
+</div>
+<div class="cta-bar"><a class="btn" data-jf-contact="1" data-jf-subject="Website enquiry — How It Works" href="#contact">CONTACT</a><a class="btn btn-primary" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a><a class="btn" href="./services.html">VIEW SERVICES</a></div>
+<div class="callout">
+<p>Not sure whether the recurring problem is structural? <a class="link-blue" href="./diagnostic-scan.html">Run the 60-Second Structural Scan</a> before you send a brief.</p>
+</div>
+</section>
+</main>
+<div style="display:flex;justify-content:center;padding:32px 0 0;">
+<a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+</div>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div class="site-footer__top">
+<section aria-labelledby="footer-brand-heading" class="site-footer__brand">
+<h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
+</section>
+<nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
+<ul class="site-footer__list">
+<li><a href="./index.html">Home</a></li>
+<li><a href="./services.html">Services</a></li>
+<li><a href="./method.html">Method</a></li>
+<li><a href="./examples.html">Proofs</a></li>
+<li><a href="./research.html">Research</a></li>
+<li><a href="./books.html">Books</a></li>
+<li><a href="./products.html">Tools</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-tools-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-tools-heading">Tools &amp; Research</h2>
+<ul class="site-footer__list">
+<li><a href="./trilogy.html">Trilogy</a></li>
+<li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+<li><a href="./how-it-works.html">How It Works</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-legal-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-legal-heading">Legal</h2>
+<ul class="site-footer__list">
+<li><a href="./privacy-policy.html">Privacy Policy</a></li>
+<li><a href="./terms.html">Terms</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-elsewhere-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-elsewhere-heading">Elsewhere</h2>
+<ul class="site-footer__list">
+<li><a href="https://www.linkedin.com/in/jamie-forrester-systems" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/StructuralTruth" rel="noopener" target="_blank">X</a></li>
+<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">Contact</a></li></ul>
+</nav>
+</div>
+<div class="site-footer__bottom">
+<p>© <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+<p>Independent Systems Architect — Edinburgh, UK</p>
+</div>
+</div>
+</footer>
+<style>
     .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
     .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
     .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
@@ -762,100 +793,165 @@
     @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
     @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
   </style>
+<div aria-hidden="true" class="jf-contact-overlay" id="jfContactOverlay">
+<section aria-labelledby="jfContactTitle" aria-modal="true" class="jf-contact-modal" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Contact</span><h2 class="jf-contact-title" id="jfContactTitle">Send a message</h2></div>
+<button aria-label="Close contact form" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfContactFormWrap">
+<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong></p>
+<form action="https://api.web3forms.com/submit" id="jfContactForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input id="jfContactSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfContactName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Subject</span><input class="jf-contact-input" id="jfContactSubject" name="subject" required="" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Message</span><textarea class="jf-contact-textarea" id="jfContactMessage" name="message" required="" rows="6"></textarea></label>
+</div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send message →</button><span aria-live="polite" class="jf-contact-status" id="jfContactStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfContactSuccess"><h3>Message received.</h3><p>I’ll reply to the email address you provided.</p></div>
+</section>
+</div><div aria-hidden="true" class="jf-contact-overlay" id="jfBriefOverlay">
+<section aria-labelledby="jfBriefTitle" aria-modal="true" class="jf-contact-modal jf-contact-modal--brief" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Five-Line Brief</span><h2 class="jf-contact-title" id="jfBriefTitle">Send the repeated failure</h2></div>
+<button aria-label="Close Five-Line Brief" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfBriefFormWrap">
+<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong> and use the subject “Five-Line Brief”.</p>
+<form action="https://api.web3forms.com/submit" id="jfBriefForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input name="subject" type="hidden" value="Five-Line Brief"/>
+<input id="jfBriefSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfBriefName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation</span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" required="" rows="2" style="min-height:76px"></textarea></label>
+</div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">01</span>What keeps going wrong?</span><textarea class="jf-contact-textarea" id="jfBrief1" name="01 - What keeps going wrong?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">02</span>What is it costing?</span><textarea class="jf-contact-textarea" id="jfBrief2" name="02 - What is it costing?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">03</span>Where does it show up?</span><textarea class="jf-contact-textarea" id="jfBrief3" name="03 - Where does it show up?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">04</span>What has already been tried?</span><textarea class="jf-contact-textarea" id="jfBrief4" name="04 - What has already been tried?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">05</span>What cannot change?</span><textarea class="jf-contact-textarea" id="jfBrief5" name="05 - What cannot change?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send Five-Line Brief →</button><span aria-live="polite" class="jf-contact-status" id="jfBriefStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfBriefSuccess"><h3>Brief received.</h3><p>I’ll review the signal and reply to the email address you provided.</p></div>
+</section>
+</div><script>(function(){
+  const nav=document.getElementById('site-nav');
+  const header=document.querySelector('header');
+  const year=document.getElementById('footer-year');
+  if(year) year.textContent=new Date().getFullYear();
+  if(nav&&header){
+    const updateNav=()=>nav.classList.toggle('nav-visible',header.getBoundingClientRect().bottom<=0);
+    updateNav();
+    window.addEventListener('scroll',updateNav,{passive:true});
+  }
 
-  <style>
-    .brief-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;}
-.brief-modal{background:#101114;border:1px solid rgba(90,176,255,0.22);border-radius:20px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
-.brief-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
-.brief-modal-eyebrow{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#4aa3ff;margin-bottom:4px;}
-.brief-modal-title{margin:0;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.03em;}
-.brief-modal-close{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#8c94a2;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 140ms,color 140ms;}
-.brief-modal-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
-.brief-modal-body{padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:14px;}
-.brief-modal-intro{margin:0;font-size:13px;color:#8c94a2;line-height:1.65;}
-.brief-modal-divider{height:1px;background:rgba(255,255,255,0.06);}
-.brief-modal-field{display:flex;flex-direction:column;gap:4px;}
-.brief-modal-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#e8ecf0;}
-.brief-modal-num{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.14em;color:#4aa3ff;background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);border-radius:5px;padding:2px 6px;line-height:1;}
-.brief-modal-hint{margin:0;font-size:12px;color:#8c94a2;line-height:1.5;}
-.brief-modal-input{width:100%;font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:#f1f3f5;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;resize:vertical;line-height:1.6;box-sizing:border-box;transition:border-color 140ms,background 140ms;}
-.brief-modal-input:focus{outline:none;border-color:rgba(90,176,255,0.4);background:rgba(90,176,255,0.03);}
-.brief-modal-input::placeholder{color:#4a5260;font-style:italic;}
-.brief-modal-footer{padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(90,176,255,0.025);border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
-.brief-modal-footer-note{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#8c94a2;line-height:1.5;}
-.brief-modal-submit{width:100%;padding:13px 20px;border-radius:12px;border:1px solid rgba(90,176,255,0.32);background:rgba(90,176,255,0.08);color:#5ab0ff;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background 140ms,border-color 140ms;}
-.brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
-@media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
-  </style>
+  const contactOverlay=document.getElementById('jfContactOverlay');
+  const briefOverlay=document.getElementById('jfBriefOverlay');
+  const contactForm=document.getElementById('jfContactForm');
+  const briefForm=document.getElementById('jfBriefForm');
+  if(!contactOverlay||!briefOverlay||!contactForm||!briefForm) return;
 
-<script>
-</script><script>
-var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
+  let lastFocus=null;
+  const pageLabel=()=>document.title.replace(/\s*[—|-]\s*Jamie Forrester.*$/i,'').trim()||'Website';
+  function resetView(overlay){
+    if(overlay===contactOverlay){
+      document.getElementById('jfContactFormWrap').style.display='block';
+      document.getElementById('jfContactSuccess').classList.remove('is-visible');
+      document.getElementById('jfContactStatus').textContent='';
+    }else{
+      document.getElementById('jfBriefFormWrap').style.display='block';
+      document.getElementById('jfBriefSuccess').classList.remove('is-visible');
+      document.getElementById('jfBriefStatus').textContent='';
+    }
+  }
+  function openOverlay(overlay){
+    lastFocus=document.activeElement;
+    resetView(overlay);
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setTimeout(()=>{const field=overlay.querySelector('input:not([type=hidden]):not([type=checkbox]),textarea');if(field)field.focus();},30);
+  }
+  function closeOverlay(overlay){
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  function openContact(subject,message){
+    document.getElementById('jfContactSubject').value=subject||('Website enquiry — '+pageLabel());
+    document.getElementById('jfContactMessage').value=message||'';
+    document.getElementById('jfContactSource').value=location.pathname||pageLabel();
+    openOverlay(contactOverlay);
+  }
+  function prefillBriefFromScan(){
+    const map=[['sq1','jfBrief1'],['sq2','jfBrief2'],['sq3','jfBrief3'],['sq4','jfBrief4']];
+    map.forEach(([source,target])=>{
+      const s=document.getElementById(source), t=document.getElementById(target);
+      if(s&&t&&s.value.trim()) t.value=s.value.trim();
+    });
+  }
+  function openBrief(){
+    document.getElementById('jfBriefSource').value=location.pathname||pageLabel();
+    prefillBriefFromScan();
+    openOverlay(briefOverlay);
+  }
+  window.JFContact={open:openContact,openBrief:openBrief};
 
-// Email link wiring
-document.addEventListener('DOMContentLoaded', function(){
-  var e = 'hello' + '@' + 'jamieforrester.com';
-  document.querySelectorAll('[data-mailto]').forEach(function(el){
-    var txt = el.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt !== 'EMAIL FIVE-LINE BRIEF' && txt !== 'REQUEST DIAGNOSTIC' && txt !== 'REQUEST REDESIGN') {
-      el.setAttribute('href', 'mailto:' + e);
+  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#contact');});
+  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#five-line-brief');});
+
+  document.addEventListener('click',function(ev){
+    const close=ev.target.closest('[data-jf-close]');
+    if(close){ev.preventDefault();const overlay=close.closest('.jf-contact-overlay');if(overlay)closeOverlay(overlay);return;}
+    if(ev.target===contactOverlay){closeOverlay(contactOverlay);return;}
+    if(ev.target===briefOverlay){closeOverlay(briefOverlay);return;}
+    const brief=ev.target.closest('[data-jf-brief]');
+    if(brief){ev.preventDefault();openBrief();return;}
+    const contact=ev.target.closest('[data-jf-contact]');
+    if(contact){ev.preventDefault();openContact(contact.getAttribute('data-jf-subject')||'',contact.getAttribute('data-jf-message')||'');return;}
+  });
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'){
+      if(contactOverlay.classList.contains('is-open'))closeOverlay(contactOverlay);
+      if(briefOverlay.classList.contains('is-open'))closeOverlay(briefOverlay);
     }
   });
-});
 
-// Sticky nav
-(function(){
-  var nav = document.querySelector('.site-nav');
-  var hdr = document.querySelector('header');
-  if (!nav || !hdr) return;
-  window.addEventListener('scroll', function(){
-    if (hdr.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
-    else { nav.classList.remove('nav-visible'); }
-  }, {passive:true});
-})();
-
-// Five-line brief modal
-(function(){
-  var overlay = document.getElementById('briefModal');
-  if (!overlay) return;
-  var closeBtn = document.getElementById('briefModalClose');
-  var submitBtn = document.getElementById('briefModalSubmit');
-  function openModal() {
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    setTimeout(function(){ document.getElementById('brief-context').focus(); }, 50);
+  async function submit(form,statusEl,wrap,success){
+    const button=form.querySelector('button[type=submit]');
+    statusEl.className='jf-contact-status';
+    statusEl.textContent='Sending…';
+    button.disabled=true;
+    try{
+      const response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      const json=await response.json();
+      if(!response.ok||!json.success) throw new Error(json.message||'Submission failed');
+      form.reset();
+      wrap.style.display='none';
+      success.classList.add('is-visible');
+      statusEl.textContent='';
+    }catch(err){
+      statusEl.classList.add('is-error');
+      statusEl.textContent='Could not send. Please copy hello@jamieforrester.com and email directly.';
+    }finally{button.disabled=false;}
   }
-  function closeModal() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  function submitBrief() {
-    var ctx = document.getElementById('brief-context').value.trim();
-    var p1 = document.getElementById('brief-1').value.trim();
-    var p2 = document.getElementById('brief-2').value.trim();
-    var p3 = document.getElementById('brief-3').value.trim();
-    var p4 = document.getElementById('brief-4').value.trim();
-    var p5 = document.getElementById('brief-5').value.trim();
-    var b = '';
-    if (ctx) b += 'System / context:\n' + ctx + '\n\n';
-    b += '01 - What keeps going wrong?:\n' + (p1||'-') + '\n\n';
-    b += '02 - What is it costing?:\n' + (p2||'-') + '\n\n';
-    b += '03 - Where does it show up?:\n' + (p3||'-') + '\n\n';
-    b += '04 - What has already been tried?:\n' + (p4||'-') + '\n\n';
-    b += '05 - What cannot change?:\n' + (p5||'-');
-    var e = 'hello' + '@' + 'jamieforrester.com';
-    window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
-    closeModal();
-  }
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-  submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
-    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
-      btn.removeAttribute('href');
-      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
-    }
-  });
-  var briefBtn = docume
+  contactForm.addEventListener('submit',ev=>{ev.preventDefault();submit(contactForm,document.getElementById('jfContactStatus'),document.getElementById('jfContactFormWrap'),document.getElementById('jfContactSuccess'));});
+  briefForm.addEventListener('submit',ev=>{ev.preventDefault();submit(briefForm,document.getElementById('jfBriefStatus'),document.getElementById('jfBriefFormWrap'),document.getElementById('jfBriefSuccess'));});
+})();</script></body></html>

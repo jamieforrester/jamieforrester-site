@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Products — Jamie Forrester</title>
-  <meta name="description" content="Products from Jamie Forrester — the 60-Second Scan is available free. A range of diagnostic reference products are in development." />
-  <link rel="icon" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Tools — Jamie Forrester</title>
+<meta content="Tools from Jamie Forrester for structural orientation and diagnosis — including the free 60-Second Structural Scan and request access to the Diagnostic Taxonomy." name="description"/>
+<link href="/favicon.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #0b0b0c; --panel: #101114;
       --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
@@ -81,6 +82,8 @@
 
     /* Dev grid */
     .dev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .action-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:36px; }
+    .start-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
     .dev-item { padding: 16px 18px; border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; background: rgba(255,255,255,0.014); transition: border-color 160ms ease; }
     .dev-item-title { font-size: 13px; font-weight: 700; color: #e0e4ea; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 6px; }
     .dev-item-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; margin: 0; }
@@ -105,282 +108,515 @@
       header { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; }
       .top-cta { justify-content: flex-start; padding-top: 0; }
       .wrap { padding-top: 24px; }
-      .dev-grid { grid-template-columns: repeat(2, 1fr); }
+      .dev-grid, .action-grid { grid-template-columns: repeat(2, 1fr); }
+      .start-grid { grid-template-columns:1fr 1fr; }
       @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
     }
     @media (max-width: 640px) {
-      .dev-grid { grid-template-columns: 1fr; }
+      .dev-grid, .action-grid, .start-grid { grid-template-columns: 1fr; }
       .site-footer__inner{padding:40px 20px 28px;}
       .site-nav-name { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
       @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
   </style>
+<style id="canonical-footer-style">
+/* Canonical site footer — synchronized to homepage baseline */
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0;background:none;transition:color 140ms,border-color 140ms;}
+.site-footer__list a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);background:none;}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+@media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;}.site-footer__brand{grid-column:auto;}}
+</style>
+<style data-jf-contact-style="1">
+/* Canonical on-site contact system */
+.jf-header-email{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--text-faint);user-select:text;}
+.jf-header-email strong{color:var(--text-dim);font-weight:500;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;overflow-wrap:anywhere;}
+.jf-contact-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;}
+.jf-contact-overlay.is-open{display:flex;}
+.jf-contact-modal{width:min(620px,100%);max-height:92vh;overflow:hidden;background:#101114;border:1px solid rgba(90,176,255,.25);border-radius:20px;box-shadow:0 32px 90px rgba(0,0,0,.68);display:flex;flex-direction:column;}
+.jf-contact-modal--brief{width:min(680px,100%);}
+.jf-contact-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(135deg,rgba(90,176,255,.055),rgba(255,255,255,.008));}
+.jf-contact-kicker{display:block;margin-bottom:5px;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);}
+.jf-contact-title{margin:0;font-size:20px;line-height:1.2;color:#fff;letter-spacing:-.03em;}
+.jf-contact-close{width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text-faint);font-size:20px;line-height:1;cursor:pointer;flex:0 0 auto;}
+.jf-contact-close:hover{background:rgba(255,255,255,.1);color:#fff;}
+.jf-contact-scroll{overflow-y:auto;padding:20px 24px 24px;}
+.jf-contact-intro{margin:0 0 18px;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-contact-fallback{margin:-4px 0 18px;padding:10px 12px;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.55;}
+.jf-contact-fallback strong{color:var(--text-dim);font-weight:500;user-select:text;}
+.jf-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.jf-contact-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.jf-contact-field--full{grid-column:1/-1;}
+.jf-contact-label{font-size:12px;font-weight:600;color:#e9edf2;}
+.jf-contact-label span{font-weight:400;color:var(--text-faint);}
+.jf-contact-input,.jf-contact-textarea{width:100%;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.035);color:#f1f3f5;font:inherit;font-size:13px;line-height:1.55;padding:10px 12px;transition:border-color 140ms,background 140ms;}
+.jf-contact-textarea{resize:vertical;min-height:118px;}
+.jf-contact-input:focus,.jf-contact-textarea:focus{outline:none;border-color:rgba(90,176,255,.48);background:rgba(90,176,255,.035);box-shadow:0 0 0 3px rgba(90,176,255,.08);}
+.jf-contact-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px;}
+.jf-contact-submit{appearance:none;border:1px solid rgba(90,176,255,.35);border-radius:11px;background:rgba(90,176,255,.09);color:var(--cta-blue);font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;cursor:pointer;}
+.jf-contact-submit:hover{background:rgba(90,176,255,.15);border-color:rgba(90,176,255,.52);}
+.jf-contact-submit[disabled]{opacity:.55;cursor:wait;}
+.jf-contact-status{min-height:18px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.5;}
+.jf-contact-status.is-success{color:#8bd8a4;}
+.jf-contact-status.is-error{color:#ff9b9b;}
+.jf-contact-success{display:none;padding:28px 24px 32px;text-align:center;}
+.jf-contact-success.is-visible{display:block;}
+.jf-contact-success h3{margin:0 0 8px;color:#fff;font-size:20px;letter-spacing:-.03em;}
+.jf-contact-success p{margin:0;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-brief-question{padding:14px 0;border-top:1px solid rgba(255,255,255,.06);}
+.jf-brief-question:first-of-type{border-top:none;}
+.jf-brief-num{display:inline-flex;margin-right:7px;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--label-blue);letter-spacing:.12em;}
+@media(max-width:640px){.jf-contact-overlay{padding:10px;align-items:flex-end}.jf-contact-modal{max-height:94vh;border-radius:18px 18px 12px 12px}.jf-contact-head{padding:18px 18px 15px}.jf-contact-scroll{padding:18px}.jf-contact-grid{grid-template-columns:1fr}.jf-contact-field--full{grid-column:auto}.jf-header-email{font-size:9.5px}}
+</style><style>
+/* === Canonical mobile reading mode — 2026-08 responsive audit === */
+@media (max-width: 760px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .wrap { width: 100%; max-width: 100%; padding-left: 16px !important; padding-right: 16px !important; }
+  main, section, article, .card { min-width: 0; max-width: 100%; }
+  img, svg, video, iframe { max-width: 100%; height: auto; }
+  h1, h2, h3, p, li, a, span { overflow-wrap: anywhere; }
+
+  /* Major desktop/tablet grids become a vertical reading sequence on phones. */
+  .jf-mobile-stack { grid-template-columns: minmax(0, 1fr) !important; }
+  .jf-mobile-stack > * { min-width: 0 !important; max-width: 100%; grid-column: auto !important; }
+
+  /* Hero/card spacing: retain hierarchy without desktop-sized gutters. */
+  .hero-left, .hero-right, .card-body, .book-card-right, .paper-block, .rc-body,
+  [class*="hero-left"], [class*="hero-right"] { padding-left: 18px !important; padding-right: 18px !important; }
+  .hero-strip, .method-hero, .trilogy-hero, .scan-page-hero { max-width: 100%; }
+
+  /* Primary header: buttons wrap rather than forcing page width. */
+  header { max-width: 100%; }
+  .top-cta { width: 100%; max-width: 100%; justify-content: flex-start !important; flex-wrap: wrap !important; gap: 6px !important; }
+  .top-cta .btn, .top-cta a { max-width: 100%; }
+
+  /* Sticky navigation stays usable without widening the viewport. */
+  .site-nav { max-width: 100vw; overflow: hidden; padding-left: 12px !important; padding-right: 12px !important; }
+  .site-nav-inner { max-width: 100%; min-width: 0; gap: 8px !important; }
+  .site-nav-brand { flex: 0 0 auto; min-width: 38px; }
+  .site-nav-name { display: none !important; }
+  .site-nav-links { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; justify-content: flex-start !important; }
+  .site-nav-links::-webkit-scrollbar { display: none; }
+  .site-nav-links a { flex: 0 0 auto; white-space: nowrap; }
+
+  /* Long action rows become readable button stacks when space is tight. */
+  .actions, .cta-bar, .book-entry-links { max-width: 100%; }
+  .btn-full { width: 100%; }
+
+  /* Tables/legend-like grids tagged during audit become cards instead of squeezed columns. */
+  .jf-mobile-stack[data-mobile-grid="table"] { gap: 6px !important; }
+  .jf-mobile-stack[data-mobile-grid="table"] > * { border-right: none !important; }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding-left: 14px !important; padding-right: 14px !important; }
+  .btn { white-space: normal !important; text-align: center; line-height: 1.25 !important; }
+  .section-divider-label { white-space: normal !important; text-align: center; }
+  .label-note, .books-spine-label-text { white-space: normal !important; max-width: 100% !important; }
+}
+</style><style data-jf-global-polish="1">
+/* Canonical site chrome — final consistency pass */
+header{margin-bottom:32px!important;}
+header h1{font-size:clamp(1.1rem,1rem + .5vw,1.35rem)!important;font-weight:700!important;letter-spacing:-.03em!important;line-height:1.15!important;}
+.top-cta{display:flex!important;gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;padding-top:40px!important;row-gap:6px!important;}
+.btn{font-weight:500!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.site-nav-links .nav-email{cursor:pointer;}
+.jf-header-email{line-height:1.5;}
+@media(max-width:920px){header{margin-bottom:32px!important}.top-cta{justify-content:flex-start!important;padding-top:0!important;}}
+@media(max-width:600px){.top-cta{width:100%;}.top-cta .btn{min-height:38px;}}
+
+/* Canonical shared chrome — verified final pass */
+.avatar-link{display:inline-flex!important;border-bottom:none!important;border-radius:0!important;flex:0 0 auto!important;padding:0!important;background:transparent!important;}
+.avatar-link:hover{background:transparent!important;}
+.avatar-link:focus-visible{outline:2px solid var(--focus-ring)!important;outline-offset:4px!important;background:transparent!important;}
+.site-nav-links a{letter-spacing:.1em!important;}
+.btn{cursor:pointer!important;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important;}
+</style>
+<style id="jf-canonical-chrome-v2">
+/* Canonical site chrome — shared verbatim across every live page. */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,12,.88);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border-soft);padding:0 24px;transform:translateY(-100%);transition:transform 280ms cubic-bezier(.4,0,.2,1),opacity 280ms ease;opacity:0}
+.site-nav.nav-visible{transform:translateY(0);opacity:1}
+.site-nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.site-nav-brand{display:flex;align-items:center;gap:12px;min-width:0;border-bottom:none;padding-bottom:0;overflow:hidden;flex:0 0 auto}
+.site-nav-brand:hover{background:transparent}
+.nav-avatar{width:38px;height:38px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+.site-nav-name{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-nav-links{display:flex;align-items:center;gap:14px;min-width:0}
+.site-nav-links a{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);border-bottom:none;padding:6px 4px;white-space:nowrap;transition:color 160ms ease}
+.site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:#fff}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:40px 0 24px;border-bottom:1px solid var(--border-soft);margin-bottom:32px}
+.h-left{display:flex;align-items:flex-start;gap:20px;min-width:0}
+.avatar-link{display:inline-flex;border-bottom:none;border-radius:999px;flex:0 0 auto}
+.avatar-link:hover{background:transparent;transform:translateY(-1px)}
+.avatar-link:focus-visible{background:transparent;outline:2px solid var(--focus-ring);outline-offset:4px;border-radius:999px}
+.avatar{width:80px;height:80px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;overflow-wrap:anywhere}
+.h-sub{margin-top:5px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.16em}
+.h-pill{margin-top:10px;display:inline-flex;align-items:center;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--text-dim);line-height:1.4}
+.top-cta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;padding-top:40px;row-gap:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;border:1px solid var(--accent);background:rgba(255,255,255,.018);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;text-decoration:none;line-height:1;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;border-bottom:none;cursor:pointer;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease}
+.btn:not(.btn-large){padding:9px 14px}
+.btn:hover{background:rgba(255,255,255,.05);border-bottom:none;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.btn-primary{color:var(--cta-blue);border-color:rgba(90,176,255,.32);background:rgba(90,176,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.btn-primary:hover{background:rgba(90,176,255,.14);border-color:rgba(90,176,255,.5)}
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:64px}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint)}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms}
+.site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.24)}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:.06em;color:var(--text-faint)}
+@media(max-width:1080px){.top-cta .btn{font-size:9.5px;letter-spacing:.06em}}
+@media(max-width:920px){
+  .site-nav{padding:0 14px}.site-nav-inner{gap:10px}.site-nav-name{display:none!important}.site-nav-brand{min-width:38px}
+  .site-nav-links{flex:1 1 auto;gap:2px;justify-content:flex-start!important;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}.site-nav-links::-webkit-scrollbar{display:none}.site-nav-links a{padding:6px 7px;font-size:9px}
+  header{flex-direction:column;align-items:flex-start;gap:16px;padding-top:24px}.top-cta{justify-content:flex-start;padding-top:0}
+  .site-footer__top{grid-template-columns:1fr 1fr;gap:32px}.site-footer__brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .site-footer__inner{padding:40px 20px 28px}.site-footer__top{grid-template-columns:1fr;gap:28px}.site-footer__brand{grid-column:auto}
+  .site-footer__bottom{align-items:flex-start;flex-direction:column}
+  .top-cta{width:100%}.top-cta .btn{flex:1 1 auto;min-width:max-content}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <nav class="site-nav" aria-label="Site navigation" id="site-nav">
-    <div class="site-nav-inner">
-      <a href="./index.html" class="site-nav-brand">
-        <img src="./JF LOGO.png" alt="Jamie Forrester" class="nav-avatar" />
-        <span class="site-nav-name">Jamie Forrester</span>
-      </a>
-      <div class="site-nav-links">
-        <a href="./services.html">Services</a>
-        <a href="./method.html">Method</a>
-        <a href="./examples.html">Examples</a>
-        <a href="./research.html">Research</a>
-        <a href="./taxonomy.html">Taxonomy</a>
-        <a href="./diagnostic-scan.html">Scan</a>
-        
-        <a href="./books.html">Books</a>
-        <a href="./products.html" class="nav-active">Tools</a>
-      
-      <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
-    </div>
-    </div>
-  </nav>
-
-  <div class="wrap">
-    <header>
-      <div class="h-left">
-        <a href="./index.html" style="border-bottom:none; display:inline-flex; border-radius:999px;" aria-label="Back to home">
-          <img src="./JF LOGO.png" alt="Jamie Forrester" class="avatar" />
-        </a>
-        <div>
-          <h1>Jamie Forrester</h1>
-          <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign</div>
-        </div>
-      </div>
-      <div class="top-cta">
-        <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./method.html">METHOD</a>
-        <a class="btn" href="./examples.html">EXAMPLES</a>
-        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
-        <a class="btn" href="./research.html">RESEARCH</a>
-        <span class="btn btn-current" aria-current="page">TOOLS</span>
-        <a class="btn" href="./books.html">BOOKS</a>
-        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
-      </div>
-    </header>
-
-    <main id="main" role="main">
-
-      <!-- Status clarity note -->
-      <div style="border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:var(--radius-xl); padding:28px 32px; margin-bottom:36px; background:rgba(90,176,255,0.03);">
-        <span class="eyebrow">Product status</span>
-        <h2 style="margin:0 0 12px; font-size:clamp(1.3rem,1.1rem+0.6vw,1.8rem); font-weight:700; letter-spacing:-0.035em; line-height:1.15; color:#fff;">One product is available now. The rest are in development.</h2>
-        <p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.72; max-width:70ch;">The 60-Second Scan is available now as a free self-guided tool. A range of diagnostic reference products are being developed alongside the research series and will become available as the body of work matures. None of the in-development products are available for purchase yet.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; align-items:center;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span class="badge-live">Available now</span>
-            <span style="font-size:13px; color:var(--text-dim);">60-Second Scan</span>
-          </div>
-          <span style="color:rgba(255,255,255,0.15); font-size:12px;">·</span>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span class="badge-dev">In development</span>
-            <span style="font-size:13px; color:var(--text-dim);">Reference PDFs, card decks, field kit</span>
-          </div>
-          <span style="color:rgba(255,255,255,0.15); font-size:12px;">·</span>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span class="badge-planned">Planned</span>
-            <span style="font-size:13px; color:var(--text-dim);">Professional bundles and corporate licence</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- AVAILABLE NOW -->
-      <div class="section-divider"><span class="section-divider-label">available now</span></div>
-
-      <div class="product-card product-card-live" aria-label="60-Second Scan">
-        <div class="product-card-head">
-          <h2 class="product-card-title">The 60-Second Structural Scan</h2>
-          <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
-            <span class="badge-live">Available now</span>
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(80,200,120,0.9);">Free</span>
-          </div>
-        </div>
-        <div class="product-card-body">
-          <p class="product-card-desc">Four questions that surface the structural reality of a system before analysis begins. <strong>Purpose → Primitive → Rules → Failure.</strong> The entry point into the diagnostic method. Answer all four honestly and you will know whether the failure is structural, and where to look first. Difficulty answering any of the four questions is itself a diagnostic signal.</p>
-          <p class="product-card-desc" style="margin-bottom:16px;">Run it before sending the Five-Line Brief. Run it before commissioning a Diagnostic Artifact. Run it whenever a system is producing recurring failure and the cause is unclear.</p>
-          <a class="btn btn-primary" href="./diagnostic-scan.html">RUN THE SCAN NOW →</a>
-        </div>
-      </div>
-
-      <!-- IN DEVELOPMENT -->
-      <div class="section-divider"><span class="section-divider-label">in development — not yet available</span></div>
-
-      <div style="margin-bottom:16px; padding:12px 16px; border:1px solid rgba(250,180,60,0.18); border-radius:10px; background:rgba(250,180,60,0.04); font-size:12.5px; color:var(--text-faint); line-height:1.65;">
-        <strong style="color:rgba(250,180,60,0.8);">Note:</strong> None of the products listed below are currently available for purchase. They are being developed as the research series and client work mature. Descriptions are subject to change.
-      </div>
-
-      <!-- Reference PDFs -->
-      <div class="product-card product-card-dev" aria-label="Reference PDFs">
-        <div class="product-card-head">
-          <h2 class="product-card-title">Diagnostic Reference PDFs</h2>
-          <span class="badge-dev">In development</span>
-        </div>
-        <div class="product-card-body">
-          <p class="product-card-desc">Structured PDF references for practitioners applying the Diagnostic Taxonomy and the 60-Second Scan to real systems. Each is a governed reference document, not a workbook — designed to be used alongside a diagnostic engagement, not instead of one.</p>
-          <div class="dev-grid">
-            <div class="dev-item">
-              <div class="dev-item-title">60-Second Scan — Reference PDF</div>
-              <p class="dev-item-desc">The four-question scan in a portable, printable format with guidance notes for each question and connection to the Five-Line Brief.</p>
-            </div>
-            <div class="dev-item">
-              <div class="dev-item-title">Diagnostic Taxonomy — Reference PDF</div>
-              <p class="dev-item-desc">All nine failure classes and 54 sub-types with inclusion, exclusion, and refusal criteria. A compact version of the full taxonomy page for offline use.</p>
-            </div>
-            <div class="dev-item">
-              <div class="dev-item-title">Proof Standard — Reference PDF</div>
-              <p class="dev-item-desc">The five conditions a diagnostic claim must satisfy and the five things that are not sufficient. For practitioners who need to evaluate diagnostic quality.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card decks -->
-      <div class="product-card product-card-dev" aria-label="Card decks">
-        <div class="product-card-head">
-          <h2 class="product-card-title">Structural Failure Recognition Decks</h2>
-          <span class="badge-dev">In development</span>
-        </div>
-        <div class="product-card-body">
-          <p class="product-card-desc">Physical card decks for teams working through structural diagnosis. Each card presents one failure class or sub-type: definition, inclusion criteria, canonical example, and corrective direction. Designed for facilitated sessions, not self-study.</p>
-          <div class="dev-grid">
-            <div class="dev-item">
-              <div class="dev-item-title">Diagnostic Taxonomy Deck</div>
-              <p class="dev-item-desc">Nine class cards and 54 sub-type cards. Use to classify a recurring failure before beginning a full diagnostic engagement.</p>
-            </div>
-            <div class="dev-item">
-              <div class="dev-item-title">Seeing Systems Deck</div>
-              <p class="dev-item-desc">Cards for developing structural perception: how to identify primitives, trace failure paths, and locate burden carriers in a real system.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Professional Field Kit -->
-      <div class="product-card product-card-dev" aria-label="Professional Field Kit">
-        <div class="product-card-head">
-          <h2 class="product-card-title">Professional Field Kit</h2>
-          <span class="badge-planned">Planned</span>
-        </div>
-        <div class="product-card-body">
-          <p class="product-card-desc">A complete practitioner reference set combining the printed taxonomy, the Seeing Systems deck, the Proof Standard card, and the 60-Second Scan in a single boxed package. Designed for practitioners who apply the method to real systems regularly.</p>
-          <div class="dev-grid">
-            <div class="dev-item">
-              <div class="dev-item-title">Digital bundle</div>
-              <p class="dev-item-desc">All reference PDFs and digital card decks in a single download. Planned future professional product.</p>
-            </div>
-            <div class="dev-item">
-              <div class="dev-item-title">Printed boxed set</div>
-              <p class="dev-item-desc">Physical printed version of the complete field kit. Not yet in production.</p>
-            </div>
-            <div class="dev-item">
-              <div class="dev-item-title">Corporate licence</div>
-              <p class="dev-item-desc">Team licence for organisations applying the taxonomy and method at scale. Terms and pricing not yet set.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- What's available now CTA -->
-      <div class="section-divider"><span class="section-divider-label">what you can do now</span></div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:32px;">
-        <div style="padding:20px 22px; border:1px solid rgba(80,200,120,0.18); border-radius:14px; background:rgba(80,200,120,0.025);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(80,200,120,0.7); margin-bottom:10px;">Free · now</div>
-          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Run the 60-Second Scan.</strong> Four questions. Surfaces the structural reality of any system before analysis begins.</p>
-          <a class="btn btn-primary" href="./diagnostic-scan.html" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">RUN SCAN →</a>
-        </div>
-        <div style="padding:20px 22px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.012);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-faint); margin-bottom:10px;">Free · now</div>
-          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">View the Diagnostic Taxonomy.</strong> Nine failure classes. 54 sub-types. The full classification system is publicly available online.</p>
-          <a class="btn" href="./taxonomy.html">VIEW TAXONOMY →</a>
-        </div>
-        <div style="padding:20px 22px; border:1px solid rgba(90,176,255,0.15); border-radius:14px; background:rgba(90,176,255,0.025);">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">Commissioned</div>
-          <p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Commission a Diagnostic Artifact.</strong> The professional service. Structural diagnosis of your system from £10,000.</p>
-          <a class="btn btn-primary" href="./services.html">VIEW SERVICES →</a>
-        </div>
-      </div>
-
-      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px; padding:16px 20px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.012);">
-        <span style="font-size:13px; color:var(--text-dim);">Five books are also in development alongside the practice and research series.</span>
-        <a class="btn" href="./books.html">VIEW BOOKS →</a>
-      </div>
-      <div style="padding:14px 18px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.01); font-size:12.5px; color:var(--text-faint); line-height:1.65; text-align:center;">
-        If you want to be notified when a product becomes available, <a class="link-blue" data-mailto="1">send an email</a> with "Product notification" in the subject line.
-      </div>
-
-    </main>
-  </div>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__top">
-        <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
-        </section>
-        <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-          <ul class="site-footer__list">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./services.html">Services</a></li>
-            <li><a href="./method.html">Method</a></li>
-            <li><a href="./examples.html">Examples</a></li>
-            <li><a href="./taxonomy.html">Taxonomy</a></li>
-            <li><a href="./research.html">Research</a></li>
-            <li><a href="./books.html">Books</a></li>
-            <li><a href="./products.html">Tools</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
-          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
-          <ul class="site-footer__list">
-            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-            <li><a href="./trilogy.html">Trilogy</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-          <ul class="site-footer__list">
-            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="./terms.html">Terms</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-          <ul class="site-footer__list">
-            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
-      </div>
-    </div>
-  </footer>
-
-<script>
-(function(){
-  var nav = document.getElementById('site-nav');
-  var hdr = document.querySelector('header');
-  if (nav && hdr) {
-    window.addEventListener('scroll', function(){ nav.classList.toggle('nav-visible', hdr.getBoundingClientRect().bottom <= 0); }, {passive:true});
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Site navigation" class="site-nav" id="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="./index.html">
+<img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
+<span class="site-nav-name">Jamie Forrester</span>
+</a>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><a href="./examples.html">Proofs</a><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a aria-current="page" class="nav-active" href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Tools enquiry" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+</div>
+</nav>
+<div class="wrap">
+<header>
+<div class="h-left">
+<a aria-label="Back to home" class="avatar-link" href="./index.html">
+<img alt="Jamie Forrester" class="avatar" src="./JF LOGO.png"/>
+</a>
+<div>
+<h1>Jamie Forrester</h1>
+<div class="h-sub">Independent Systems Architect</div>
+<div class="h-pill">Structural diagnosis and redesign</div><div class="jf-header-email">Email: <strong>hello@jamieforrester.com</strong></div>
+</div>
+</div>
+<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><a class="btn" href="./examples.html">PROOFS</a><a class="btn" href="./research.html">RESEARCH</a><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Tools enquiry" href="#contact">CONTACT</a></div>
+</header>
+<main id="main" role="main">
+<section style="border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.5); border-radius:var(--radius-xl); padding:30px 32px; margin-bottom:36px; background:rgba(90,176,255,0.03);">
+<span class="eyebrow">Tools</span>
+<h2 style="margin:0 0 12px; font-size:clamp(1.5rem,1.2rem+0.9vw,2.1rem); font-weight:700; letter-spacing:-0.04em; line-height:1.12; color:#fff;">Tools for seeing the structure before commissioning the work.</h2>
+<p style="margin:0; font-size:14.5px; color:var(--text-dim); line-height:1.72; max-width:72ch;">The tools on this page help you orient a system, recognise whether a recurring problem may be structural, and understand the classification system behind the practice. They are not substitutes for a bounded diagnostic engagement.</p>
+</section>
+<div class="section-divider"><span class="section-divider-label">available now</span></div>
+<div aria-label="60-Second Structural Scan" class="product-card product-card-live">
+<div class="product-card-head">
+<h2 class="product-card-title">The 60-Second Structural Scan</h2>
+<div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
+<span class="badge-live">Available now</span>
+<span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(80,200,120,0.9);">Free</span>
+</div>
+</div>
+<div class="product-card-body">
+<p class="product-card-desc">Four questions that help expose what a system is for, what it is actually organised around, which rules govern it, and where the failure appears. <strong>Purpose → Primitive → Rules → Failure.</strong></p>
+<p class="product-card-desc" style="margin-bottom:16px;">Use it when the same problem keeps returning and the cause is unclear. The scan does not diagnose the system; it helps you see whether there is enough structural signal to investigate further.</p>
+<a class="btn btn-primary" href="./diagnostic-scan.html">RUN THE SCAN →</a>
+</div>
+</div>
+<div class="section-divider"><span class="section-divider-label">reference access</span></div>
+<div aria-label="Diagnostic Taxonomy" class="product-card">
+<div class="product-card-head">
+<h2 class="product-card-title">Diagnostic Taxonomy</h2>
+<span class="badge-dev" style="color:var(--cta-blue); border-color:rgba(90,176,255,0.24); background:rgba(90,176,255,0.06);">Request access</span>
+</div>
+<div class="product-card-body">
+<p class="product-card-desc">Nine failure classes and 54 subtypes used to classify recurring structural failure. The taxonomy contains the inclusion, exclusion, refusal, and corrective logic behind the diagnostic system.</p>
+<p class="product-card-desc" style="margin-bottom:16px;">The nine top-level classes remain visible across the site. The complete operational taxonomy is available on request rather than as a public browsing page.</p>
+<a class="btn" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact">REQUEST FULL TAXONOMY →</a>
+</div>
+</div>
+<div class="section-divider"><span class="section-divider-label">commissioned work</span></div>
+<div class="action-grid jf-mobile-stack">
+<div style="padding:20px 22px; border:1px solid rgba(90,176,255,0.18); border-radius:14px; background:rgba(90,176,255,0.025);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">£2,000 · 7 days</div>
+<p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.68;"><strong style="color:#fff;">Structural Lens Brief.</strong> When you need the architecture beneath a problem, system, method, or body of work made explicit.</p>
+<a class="link-blue" href="./services.html">View service →</a>
+</div>
+<div style="padding:20px 22px; border:1px solid rgba(90,176,255,0.18); border-radius:14px; background:rgba(90,176,255,0.025);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">£10,000 · 14 days</div>
+<p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.68;"><strong style="color:#fff;">Diagnostic Artifact.</strong> When the same failure keeps returning and you need the governing structural break named.</p>
+<a class="link-blue" href="./services.html">View service →</a>
+</div>
+<div style="padding:20px 22px; border:1px solid rgba(80,200,120,0.20); border-radius:14px; background:rgba(80,200,120,0.025);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(80,200,120,0.82); margin-bottom:8px;">£25,000 · 14 days</div>
+<p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.68;"><strong style="color:#fff;">Full Structural Engagement.</strong> When the break must be diagnosed and carried into a dependency-ordered redesign within one governed 14-day engagement, with the Diagnostic Artifact delivered first and redesign released after confirmation.</p>
+<a class="link-blue" href="./services.html">View service →</a>
+</div>
+</div>
+<div class="section-divider"><span class="section-divider-label">in development</span></div>
+<div aria-label="Future tools" class="product-card product-card-dev">
+<div class="product-card-head">
+<h2 class="product-card-title">Portable reference tools</h2>
+<span class="badge-dev">In development</span>
+</div>
+<div class="product-card-body">
+<p class="product-card-desc">I am developing portable versions of parts of the method for practitioners who need reference material outside a commissioned engagement. None of these are currently for sale, and the live practice does not depend on them.</p>
+<div class="dev-grid jf-mobile-stack">
+<div class="dev-item">
+<div class="dev-item-title">Reference PDFs</div>
+<p class="dev-item-desc">Portable versions of selected tools such as the Structural Scan and Proof Standard, with guidance for use.</p>
+</div>
+<div class="dev-item">
+<div class="dev-item-title">Recognition decks</div>
+<p class="dev-item-desc">Card-based references for recognising structural patterns and developing structural perception in facilitated work.</p>
+</div>
+<div class="dev-item">
+<div class="dev-item-title">Professional field kit</div>
+<p class="dev-item-desc">A possible future practitioner bundle combining selected references into one governed set. Scope and format are not yet locked.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section-divider"><span class="section-divider-label">start here</span></div>
+<div class="start-grid jf-mobile-stack">
+<div style="padding:22px 24px; border:1px solid rgba(80,200,120,0.18); border-radius:14px; background:rgba(80,200,120,0.025);">
+<p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Not sure whether the problem is structural?</strong> Start with the free scan.</p>
+<a class="btn btn-primary" href="./diagnostic-scan.html" style="border-color:rgba(80,200,120,0.3); color:rgba(80,200,120,0.9); background:rgba(80,200,120,0.06);">RUN SCAN →</a>
+</div>
+<div style="padding:22px 24px; border:1px solid rgba(90,176,255,0.18); border-radius:14px; background:rgba(90,176,255,0.025);">
+<p style="margin:0 0 12px; font-size:14px; color:var(--text-dim); line-height:1.7;"><strong style="color:#fff;">Already know what kind of help you need?</strong> Compare the three fixed-scope engagements.</p>
+<a class="btn" href="./services.html">VIEW SERVICES →</a>
+</div>
+</div>
+</main>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div class="site-footer__top">
+<section aria-labelledby="footer-brand-heading" class="site-footer__brand">
+<h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
+</section>
+<nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
+<ul class="site-footer__list">
+<li><a href="./index.html">Home</a></li>
+<li><a href="./services.html">Services</a></li>
+<li><a href="./method.html">Method</a></li>
+<li><a href="./examples.html">Proofs</a></li>
+<li><a href="./research.html">Research</a></li>
+<li><a href="./books.html">Books</a></li>
+<li><a href="./products.html">Tools</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-tools-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-tools-heading">Tools &amp; Research</h2>
+<ul class="site-footer__list">
+<li><a href="./trilogy.html">Trilogy</a></li>
+<li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+<li><a href="./how-it-works.html">How It Works</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-legal-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-legal-heading">Legal</h2>
+<ul class="site-footer__list">
+<li><a href="./privacy-policy.html">Privacy Policy</a></li>
+<li><a href="./terms.html">Terms</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-elsewhere-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-elsewhere-heading">Elsewhere</h2>
+<ul class="site-footer__list">
+<li><a href="https://www.linkedin.com/in/jamie-forrester-systems" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/StructuralTruth" rel="noopener" target="_blank">X</a></li>
+<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">Contact</a></li></ul>
+</nav>
+</div>
+<div class="site-footer__bottom">
+<p>© <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+<p>Independent Systems Architect — Edinburgh, UK</p>
+</div>
+</div>
+</footer>
+<div aria-hidden="true" class="jf-contact-overlay" id="jfContactOverlay">
+<section aria-labelledby="jfContactTitle" aria-modal="true" class="jf-contact-modal" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Contact</span><h2 class="jf-contact-title" id="jfContactTitle">Send a message</h2></div>
+<button aria-label="Close contact form" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfContactFormWrap">
+<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong></p>
+<form action="https://api.web3forms.com/submit" id="jfContactForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input id="jfContactSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfContactName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Subject</span><input class="jf-contact-input" id="jfContactSubject" name="subject" required="" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Message</span><textarea class="jf-contact-textarea" id="jfContactMessage" name="message" required="" rows="6"></textarea></label>
+</div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send message →</button><span aria-live="polite" class="jf-contact-status" id="jfContactStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfContactSuccess"><h3>Message received.</h3><p>I’ll reply to the email address you provided.</p></div>
+</section>
+</div><div aria-hidden="true" class="jf-contact-overlay" id="jfBriefOverlay">
+<section aria-labelledby="jfBriefTitle" aria-modal="true" class="jf-contact-modal jf-contact-modal--brief" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Five-Line Brief</span><h2 class="jf-contact-title" id="jfBriefTitle">Send the repeated failure</h2></div>
+<button aria-label="Close Five-Line Brief" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfBriefFormWrap">
+<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong> and use the subject “Five-Line Brief”.</p>
+<form action="https://api.web3forms.com/submit" id="jfBriefForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input name="subject" type="hidden" value="Five-Line Brief"/>
+<input id="jfBriefSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfBriefName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation</span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" required="" rows="2" style="min-height:76px"></textarea></label>
+</div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">01</span>What keeps going wrong?</span><textarea class="jf-contact-textarea" id="jfBrief1" name="01 - What keeps going wrong?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">02</span>What is it costing?</span><textarea class="jf-contact-textarea" id="jfBrief2" name="02 - What is it costing?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">03</span>Where does it show up?</span><textarea class="jf-contact-textarea" id="jfBrief3" name="03 - Where does it show up?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">04</span>What has already been tried?</span><textarea class="jf-contact-textarea" id="jfBrief4" name="04 - What has already been tried?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">05</span>What cannot change?</span><textarea class="jf-contact-textarea" id="jfBrief5" name="05 - What cannot change?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send Five-Line Brief →</button><span aria-live="polite" class="jf-contact-status" id="jfBriefStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfBriefSuccess"><h3>Brief received.</h3><p>I’ll review the signal and reply to the email address you provided.</p></div>
+</section>
+</div><script>(function(){
+  const nav=document.getElementById('site-nav');
+  const header=document.querySelector('header');
+  const year=document.getElementById('footer-year');
+  if(year) year.textContent=new Date().getFullYear();
+  if(nav&&header){
+    const updateNav=()=>nav.classList.toggle('nav-visible',header.getBoundingClientRect().bottom<=0);
+    updateNav();
+    window.addEventListener('scroll',updateNav,{passive:true});
   }
-  var e = 'hello'+'@'+'jamieforrester.com';
-  document.querySelectorAll('[data-mailto]').forEach(function(el){ el.setAttribute('href','mailto:'+e); });
-  var fy = document.getElementById('footer-year');
-  if (fy) fy.textContent = new Date().getFullYear();
-})();
-</script>
-</body>
+
+  const contactOverlay=document.getElementById('jfContactOverlay');
+  const briefOverlay=document.getElementById('jfBriefOverlay');
+  const contactForm=document.getElementById('jfContactForm');
+  const briefForm=document.getElementById('jfBriefForm');
+  if(!contactOverlay||!briefOverlay||!contactForm||!briefForm) return;
+
+  let lastFocus=null;
+  const pageLabel=()=>document.title.replace(/\s*[—|-]\s*Jamie Forrester.*$/i,'').trim()||'Website';
+  function resetView(overlay){
+    if(overlay===contactOverlay){
+      document.getElementById('jfContactFormWrap').style.display='block';
+      document.getElementById('jfContactSuccess').classList.remove('is-visible');
+      document.getElementById('jfContactStatus').textContent='';
+    }else{
+      document.getElementById('jfBriefFormWrap').style.display='block';
+      document.getElementById('jfBriefSuccess').classList.remove('is-visible');
+      document.getElementById('jfBriefStatus').textContent='';
+    }
+  }
+  function openOverlay(overlay){
+    lastFocus=document.activeElement;
+    resetView(overlay);
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setTimeout(()=>{const field=overlay.querySelector('input:not([type=hidden]):not([type=checkbox]),textarea');if(field)field.focus();},30);
+  }
+  function closeOverlay(overlay){
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  function openContact(subject,message){
+    document.getElementById('jfContactSubject').value=subject||('Website enquiry — '+pageLabel());
+    document.getElementById('jfContactMessage').value=message||'';
+    document.getElementById('jfContactSource').value=location.pathname||pageLabel();
+    openOverlay(contactOverlay);
+  }
+  function prefillBriefFromScan(){
+    const map=[['sq1','jfBrief1'],['sq2','jfBrief2'],['sq3','jfBrief3'],['sq4','jfBrief4']];
+    map.forEach(([source,target])=>{
+      const s=document.getElementById(source), t=document.getElementById(target);
+      if(s&&t&&s.value.trim()) t.value=s.value.trim();
+    });
+  }
+  function openBrief(){
+    document.getElementById('jfBriefSource').value=location.pathname||pageLabel();
+    prefillBriefFromScan();
+    openOverlay(briefOverlay);
+  }
+  window.JFContact={open:openContact,openBrief:openBrief};
+
+  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#contact');});
+  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#five-line-brief');});
+
+  document.addEventListener('click',function(ev){
+    const close=ev.target.closest('[data-jf-close]');
+    if(close){ev.preventDefault();const overlay=close.closest('.jf-contact-overlay');if(overlay)closeOverlay(overlay);return;}
+    if(ev.target===contactOverlay){closeOverlay(contactOverlay);return;}
+    if(ev.target===briefOverlay){closeOverlay(briefOverlay);return;}
+    const brief=ev.target.closest('[data-jf-brief]');
+    if(brief){ev.preventDefault();openBrief();return;}
+    const contact=ev.target.closest('[data-jf-contact]');
+    if(contact){ev.preventDefault();openContact(contact.getAttribute('data-jf-subject')||'',contact.getAttribute('data-jf-message')||'');return;}
+  });
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'){
+      if(contactOverlay.classList.contains('is-open'))closeOverlay(contactOverlay);
+      if(briefOverlay.classList.contains('is-open'))closeOverlay(briefOverlay);
+    }
+  });
+
+  async function submit(form,statusEl,wrap,success){
+    const button=form.querySelector('button[type=submit]');
+    statusEl.className='jf-contact-status';
+    statusEl.textContent='Sending…';
+    button.disabled=true;
+    try{
+      const response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      const json=await response.json();
+      if(!response.ok||!json.success) throw new Error(json.message||'Submission failed');
+      form.reset();
+      wrap.style.display='none';
+      success.classList.add('is-visible');
+      statusEl.textContent='';
+    }catch(err){
+      statusEl.classList.add('is-error');
+      statusEl.textContent='Could not send. Please copy hello@jamieforrester.com and email directly.';
+    }finally{button.disabled=false;}
+  }
+  contactForm.addEventListener('submit',ev=>{ev.preventDefault();submit(contactForm,document.getElementById('jfContactStatus'),document.getElementById('jfContactFormWrap'),document.getElementById('jfContactSuccess'));});
+  briefForm.addEventListener('submit',ev=>{ev.preventDefault();submit(briefForm,document.getElementById('jfBriefStatus'),document.getElementById('jfBriefFormWrap'),document.getElementById('jfBriefSuccess'));});
+})();</script></body>
 </html>

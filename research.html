@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Research — Jamie Forrester</title>
-  <meta name="description" content="Research, papers, books, frameworks, and live builds by Jamie Forrester." />
-  <link rel="icon" href="/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Research — Jamie Forrester</title>
+<meta content="Research, papers, books, frameworks, and live builds by Jamie Forrester." name="description"/>
+<link href="/favicon.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #0b0b0c; --panel: #101114; --panel-soft: #0d0e11;
       --text-main: #f1f3f5; --text-dim: #c6ccd4; --text-faint: #8c94a2;
@@ -426,870 +427,989 @@
   
     @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
   </style>
+<style id="canonical-footer-style">
+/* Canonical site footer — synchronized to homepage baseline */
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0;background:none;transition:color 140ms,border-color 140ms;}
+.site-footer__list a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);background:none;}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
+@media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;}.site-footer__brand{grid-column:auto;}}
+</style>
+<style data-jf-contact-style="1">
+/* Canonical on-site contact system */
+.jf-header-email{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--text-faint);user-select:text;}
+.jf-header-email strong{color:var(--text-dim);font-weight:500;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;overflow-wrap:anywhere;}
+.jf-contact-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;}
+.jf-contact-overlay.is-open{display:flex;}
+.jf-contact-modal{width:min(620px,100%);max-height:92vh;overflow:hidden;background:#101114;border:1px solid rgba(90,176,255,.25);border-radius:20px;box-shadow:0 32px 90px rgba(0,0,0,.68);display:flex;flex-direction:column;}
+.jf-contact-modal--brief{width:min(680px,100%);}
+.jf-contact-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(135deg,rgba(90,176,255,.055),rgba(255,255,255,.008));}
+.jf-contact-kicker{display:block;margin-bottom:5px;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);}
+.jf-contact-title{margin:0;font-size:20px;line-height:1.2;color:#fff;letter-spacing:-.03em;}
+.jf-contact-close{width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--text-faint);font-size:20px;line-height:1;cursor:pointer;flex:0 0 auto;}
+.jf-contact-close:hover{background:rgba(255,255,255,.1);color:#fff;}
+.jf-contact-scroll{overflow-y:auto;padding:20px 24px 24px;}
+.jf-contact-intro{margin:0 0 18px;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-contact-fallback{margin:-4px 0 18px;padding:10px 12px;border:1px solid rgba(255,255,255,.06);border-radius:10px;background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.55;}
+.jf-contact-fallback strong{color:var(--text-dim);font-weight:500;user-select:text;}
+.jf-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.jf-contact-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.jf-contact-field--full{grid-column:1/-1;}
+.jf-contact-label{font-size:12px;font-weight:600;color:#e9edf2;}
+.jf-contact-label span{font-weight:400;color:var(--text-faint);}
+.jf-contact-input,.jf-contact-textarea{width:100%;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.035);color:#f1f3f5;font:inherit;font-size:13px;line-height:1.55;padding:10px 12px;transition:border-color 140ms,background 140ms;}
+.jf-contact-textarea{resize:vertical;min-height:118px;}
+.jf-contact-input:focus,.jf-contact-textarea:focus{outline:none;border-color:rgba(90,176,255,.48);background:rgba(90,176,255,.035);box-shadow:0 0 0 3px rgba(90,176,255,.08);}
+.jf-contact-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px;}
+.jf-contact-submit{appearance:none;border:1px solid rgba(90,176,255,.35);border-radius:11px;background:rgba(90,176,255,.09);color:var(--cta-blue);font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;cursor:pointer;}
+.jf-contact-submit:hover{background:rgba(90,176,255,.15);border-color:rgba(90,176,255,.52);}
+.jf-contact-submit[disabled]{opacity:.55;cursor:wait;}
+.jf-contact-status{min-height:18px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);line-height:1.5;}
+.jf-contact-status.is-success{color:#8bd8a4;}
+.jf-contact-status.is-error{color:#ff9b9b;}
+.jf-contact-success{display:none;padding:28px 24px 32px;text-align:center;}
+.jf-contact-success.is-visible{display:block;}
+.jf-contact-success h3{margin:0 0 8px;color:#fff;font-size:20px;letter-spacing:-.03em;}
+.jf-contact-success p{margin:0;color:var(--text-dim);font-size:13px;line-height:1.7;}
+.jf-brief-question{padding:14px 0;border-top:1px solid rgba(255,255,255,.06);}
+.jf-brief-question:first-of-type{border-top:none;}
+.jf-brief-num{display:inline-flex;margin-right:7px;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--label-blue);letter-spacing:.12em;}
+@media(max-width:640px){.jf-contact-overlay{padding:10px;align-items:flex-end}.jf-contact-modal{max-height:94vh;border-radius:18px 18px 12px 12px}.jf-contact-head{padding:18px 18px 15px}.jf-contact-scroll{padding:18px}.jf-contact-grid{grid-template-columns:1fr}.jf-contact-field--full{grid-column:auto}.jf-header-email{font-size:9.5px}}
+</style><style>
+/* === Canonical mobile reading mode — 2026-08 responsive audit === */
+@media (max-width: 760px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .wrap { width: 100%; max-width: 100%; padding-left: 16px !important; padding-right: 16px !important; }
+  main, section, article, .card { min-width: 0; max-width: 100%; }
+  img, svg, video, iframe { max-width: 100%; height: auto; }
+  h1, h2, h3, p, li, a, span { overflow-wrap: anywhere; }
+
+  /* Major desktop/tablet grids become a vertical reading sequence on phones. */
+  .jf-mobile-stack { grid-template-columns: minmax(0, 1fr) !important; }
+  .jf-mobile-stack > * { min-width: 0 !important; max-width: 100%; grid-column: auto !important; }
+
+  /* Hero/card spacing: retain hierarchy without desktop-sized gutters. */
+  .hero-left, .hero-right, .card-body, .book-card-right, .paper-block, .rc-body,
+  [class*="hero-left"], [class*="hero-right"] { padding-left: 18px !important; padding-right: 18px !important; }
+  .hero-strip, .method-hero, .trilogy-hero, .scan-page-hero { max-width: 100%; }
+
+  /* Primary header: buttons wrap rather than forcing page width. */
+  header { max-width: 100%; }
+  .top-cta { width: 100%; max-width: 100%; justify-content: flex-start !important; flex-wrap: wrap !important; gap: 6px !important; }
+  .top-cta .btn, .top-cta a { max-width: 100%; }
+
+  /* Sticky navigation stays usable without widening the viewport. */
+  .site-nav { max-width: 100vw; overflow: hidden; padding-left: 12px !important; padding-right: 12px !important; }
+  .site-nav-inner { max-width: 100%; min-width: 0; gap: 8px !important; }
+  .site-nav-brand { flex: 0 0 auto; min-width: 38px; }
+  .site-nav-name { display: none !important; }
+  .site-nav-links { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; justify-content: flex-start !important; }
+  .site-nav-links::-webkit-scrollbar { display: none; }
+  .site-nav-links a { flex: 0 0 auto; white-space: nowrap; }
+
+  /* Long action rows become readable button stacks when space is tight. */
+  .actions, .cta-bar, .book-entry-links { max-width: 100%; }
+  .btn-full { width: 100%; }
+
+  /* Tables/legend-like grids tagged during audit become cards instead of squeezed columns. */
+  .jf-mobile-stack[data-mobile-grid="table"] { gap: 6px !important; }
+  .jf-mobile-stack[data-mobile-grid="table"] > * { border-right: none !important; }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding-left: 14px !important; padding-right: 14px !important; }
+  .btn { white-space: normal !important; text-align: center; line-height: 1.25 !important; }
+  .section-divider-label { white-space: normal !important; text-align: center; }
+  .label-note, .books-spine-label-text { white-space: normal !important; max-width: 100% !important; }
+}
+</style><style data-jf-global-polish="1">
+/* Canonical site chrome — final consistency pass */
+header{margin-bottom:32px!important;}
+header h1{font-size:clamp(1.1rem,1rem + .5vw,1.35rem)!important;font-weight:700!important;letter-spacing:-.03em!important;line-height:1.15!important;}
+.top-cta{display:flex!important;gap:6px!important;align-items:center!important;flex-wrap:wrap!important;justify-content:flex-end!important;padding-top:40px!important;row-gap:6px!important;}
+.btn{font-weight:500!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+.site-nav-links .nav-email{cursor:pointer;}
+.jf-header-email{line-height:1.5;}
+@media(max-width:920px){header{margin-bottom:32px!important}.top-cta{justify-content:flex-start!important;padding-top:0!important;}}
+@media(max-width:600px){.top-cta{width:100%;}.top-cta .btn{min-height:38px;}}
+
+/* Canonical shared chrome — verified final pass */
+.avatar-link{display:inline-flex!important;border-bottom:none!important;border-radius:0!important;flex:0 0 auto!important;padding:0!important;background:transparent!important;}
+.avatar-link:hover{background:transparent!important;}
+.avatar-link:focus-visible{outline:2px solid var(--focus-ring)!important;outline-offset:4px!important;background:transparent!important;}
+.site-nav-links a{letter-spacing:.1em!important;}
+.btn{cursor:pointer!important;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease!important;}
+.btn-primary{box-shadow:inset 0 1px 0 rgba(255,255,255,.04)!important;}
+</style>
+<style id="jf-canonical-chrome-v2">
+/* Canonical site chrome — shared verbatim across every live page. */
+html{scroll-behavior:smooth}
+body{line-height:1.65;text-rendering:optimizeLegibility;font-feature-settings:"ss01" 1,"cv05" 1;overflow-x:hidden}
+.eyebrow{display:block;margin-bottom:10px}
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(11,11,12,.88);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border-soft);padding:0 24px;transform:translateY(-100%);transition:transform 280ms cubic-bezier(.4,0,.2,1),opacity 280ms ease;opacity:0}
+.site-nav.nav-visible{transform:translateY(0);opacity:1}
+.site-nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.site-nav-brand{display:flex;align-items:center;gap:12px;min-width:0;border-bottom:none;padding-bottom:0;overflow:hidden;flex:0 0 auto}
+.site-nav-brand:hover{background:transparent}
+.nav-avatar{width:38px;height:38px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+.site-nav-name{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.site-nav-links{display:flex;align-items:center;gap:14px;min-width:0}
+.site-nav-links a{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);border-bottom:none;padding:6px 4px;white-space:nowrap;transition:color 160ms ease}
+.site-nav-links a:hover,.site-nav-links a[aria-current="page"]{color:#fff}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:40px 0 24px;border-bottom:1px solid var(--border-soft);margin-bottom:32px}
+.h-left{display:flex;align-items:flex-start;gap:20px;min-width:0}
+.avatar-link{display:inline-flex;border-bottom:none;border-radius:999px;flex:0 0 auto}
+.avatar-link:hover{background:transparent;transform:translateY(-1px)}
+.avatar-link:focus-visible{background:transparent;outline:2px solid var(--focus-ring);outline-offset:4px;border-radius:999px}
+.avatar{width:80px;height:80px;border-radius:0!important;object-fit:contain;object-position:center;flex:0 0 auto;border:none!important;background:transparent}
+header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;overflow-wrap:anywhere}
+.h-sub{margin-top:5px;font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.16em}
+.h-pill{margin-top:10px;display:inline-flex;align-items:center;padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.015);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.06em;color:var(--text-dim);line-height:1.4}
+.top-cta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;padding-top:40px;row-gap:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;border:1px solid var(--accent);background:rgba(255,255,255,.018);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;text-decoration:none;line-height:1;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;border-bottom:none;cursor:pointer;transition:transform 140ms ease,background-color 140ms ease,border-color 140ms ease,box-shadow 140ms ease}
+.btn:not(.btn-large){padding:9px 14px}
+.btn:hover{background:rgba(255,255,255,.05);border-bottom:none;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.btn-primary{color:var(--cta-blue);border-color:rgba(90,176,255,.32);background:rgba(90,176,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.btn-primary:hover{background:rgba(90,176,255,.14);border-color:rgba(90,176,255,.5)}
+.site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:64px}
+.site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600}
+.site-footer__eyebrow{margin-bottom:10px;font-size:11px}
+.site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint)}
+.site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms}
+.site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.24)}
+.site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px}
+.site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:.06em;color:var(--text-faint)}
+@media(max-width:1080px){.top-cta .btn{font-size:9.5px;letter-spacing:.06em}}
+@media(max-width:920px){
+  .site-nav{padding:0 14px}.site-nav-inner{gap:10px}.site-nav-name{display:none!important}.site-nav-brand{min-width:38px}
+  .site-nav-links{flex:1 1 auto;gap:2px;justify-content:flex-start!important;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}.site-nav-links::-webkit-scrollbar{display:none}.site-nav-links a{padding:6px 7px;font-size:9px}
+  header{flex-direction:column;align-items:flex-start;gap:16px;padding-top:24px}.top-cta{justify-content:flex-start;padding-top:0}
+  .site-footer__top{grid-template-columns:1fr 1fr;gap:32px}.site-footer__brand{grid-column:1/-1}
+}
+@media(max-width:640px){
+  .site-footer__inner{padding:40px 20px 28px}.site-footer__top{grid-template-columns:1fr;gap:28px}.site-footer__brand{grid-column:auto}
+  .site-footer__bottom{align-items:flex-start;flex-direction:column}
+  .top-cta{width:100%}.top-cta .btn{flex:1 1 auto;min-width:max-content}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <nav class="site-nav" id="site-nav" aria-label="Site navigation">
-    <div class="site-nav-inner">
-      <a href="./index.html" class="site-nav-brand">
-        <img src="./JF LOGO.png" alt="Jamie Forrester" class="nav-avatar" />
-        <span class="site-nav-name">Jamie Forrester</span>
-      </a>
-      <div class="site-nav-links">
-        <a href="./services.html">Services</a>
-        <a href="./method.html">Method</a>
-        <a href="./examples.html">Examples</a>
-        <a href="./research.html" class="nav-active">Research</a>
-        <a href="./taxonomy.html">Taxonomy</a>
-        <a href="./diagnostic-scan.html">Scan</a>
-        
-        <a href="./books.html">Books</a>
-        <a href="./products.html">Tools</a>
-      
-      <a data-mailto="1" class="nav-email" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Email</a>
-    </div>
-    </div>
-  </nav>
-
-  <div class="wrap">
-
-    <header>
-      <div class="h-left">
-        <a href="./index.html" style="border-bottom:none; display:inline-flex;" aria-label="Back to home"><img src="./JF LOGO.png" alt="Jamie Forrester" class="avatar" /></a>
-        <div>
-          <h1>Jamie Forrester</h1>
-          <div class="h-sub">Independent Systems Architect</div>
-          <div class="h-pill">Structural diagnosis and redesign</div>
-        </div>
-      </div>
-      <div class="top-cta" aria-label="Primary links">
-        <a class="btn" href="./services.html">SERVICES</a>
-        <a class="btn" href="./method.html">METHOD</a>
-        <a class="btn" href="./examples.html">EXAMPLES</a>
-        <a class="btn" href="./taxonomy.html">TAXONOMY</a>
-        <span class="btn btn-current" aria-current="page">RESEARCH</span>
-        <a class="btn" href="./books.html">BOOKS</a>
-        <a class="btn btn-primary" data-mailto="1">EMAIL</a>
-      </div>
-    </header>
-
-    <section class="hero-strip" aria-label="Research overview">
-      <div class="hero-left">
-        <span class="eyebrow">Research</span>
-        <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
-        <p class="hero-sub">Eleven papers defining the structural laws the practice applies. Each paper names one thing precisely — primitive mismatch, function collapse, the missing redesign layer, institution migration, correction sequence, host-constrained failure, kernel reduction, the complete diagnostic taxonomy. All public. All free. The research is the doctrine. The client work is the application.</p>
-        <p class="hero-sub">The papers form four linked layers. First, a <strong>Diagnostic Lens Trilogy</strong> that names interface-legitimacy mismatch, function collapse, and the missing redesign layer. Second, a three-paper <strong>Replacement Arc</strong> on how institutions lose centrality, how substitutes are built, and what makes them admissible. Third, a <strong>Correction and Constraint Layer</strong> — the governing correction sequence and host-imposed primitive compression. Fourth, a <strong>Kernel Layer</strong> that reduces recurring failure to irreducible coordination primitives and turns that reduction into a generative method for new institutional categories. The papers do not replace the client artifacts. They expose the public logic behind the four-artifact sequence: Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact.</p>
-        <p class="hero-sub"><strong>The eleven papers can be read as a complete sequence — but each stands alone.</strong> Start with the paper closest to the failure pattern, build problem, or institutional constraint you are currently facing.</p>
-        <p class="hero-sub">To see the research applied to real systems, the public proof sets for Outlier AI, NHS Primary Care Continuity, and Patreon / Apple IAP show the laws in use across three structurally different domains. <a class="link-blue" href="./examples.html">View proof sets &#x2192;</a></p>
-        <div style="margin:0 0 22px; padding:16px 20px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03);">
-          <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:12px;">The research spine</span>
-          <div style="display:flex; flex-direction:column; gap:7px;">
-            <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 1–3</strong> &nbsp;Diagnose recurring structural failure.</p>
-            <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 4–6</strong> &nbsp;Define replacement, substitute construction, and admissibility.</p>
-            <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 7–8</strong> &nbsp;Name the correction sequence and host-imposed constraint.</p>
-            <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 9–10</strong> &nbsp;Reduce the series to coordination kernels and turn it into a generative method.</p>
-            <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Paper 11</strong> &nbsp;Establish the complete Diagnostic Taxonomy — nine classes, 54 sub-types. The classification standard that makes all prior papers interoperable.</p>
-          </div>
-        </div>
-        <div class="reading-routes">
-          <span class="reading-routes-label">Start where the failure is</span>
-          <ul class="reading-routes-list">
-            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">01</span><span class="reading-route-text">If the system signals one thing but runs on another</span></a></li>
-            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">02</span><span class="reading-route-text">If failure concentrates in overloaded decision nodes</span></a></li>
-            <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">03</span><span class="reading-route-text">If repeated fixes never resolve the same failure</span></a></li>
-            <li><a href="./institution-migration.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">04</span><span class="reading-route-text">If legacy institutions persist despite visible incoherence</span></a></li>
-            <li><a href="./institutional-replacement-pipeline.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">05</span><span class="reading-route-text">If you need to move from diagnosis to buildable replacement</span></a></li>
-            <li><a href="./admissibility-problem.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">06</span><span class="reading-route-text">If a better system still struggles to become operationally real</span></a></li>
-            <li><a href="./governed-correction-sequence.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">07</span><span class="reading-route-text">If correction frameworks stop at the same structural point</span></a></li>
-            <li><a href="./host-constrained-primitive-mismatch.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">08</span><span class="reading-route-text">If a host platform is rewriting your economic primitive</span></a></li>
-            <li><a href="./kernel-reduction.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">09</span><span class="reading-route-text">If you need to name the coordination substrate beneath recurring failure</span></a></li>
-            <li><a href="./kernel-recomposition.pdf" class="reading-route-link" target="_blank" rel="noopener"><span class="reading-route-num">10</span><span class="reading-route-text">If you need to invent a new institutional category rather than fix an old one</span></a></li>
-            <li><a href="./taxonomy.html" class="reading-route-link"><span class="reading-route-num">11</span><span class="reading-route-text">If you need to classify a recurring failure before beginning diagnosis</span></a></li>
-          </ul>
-        </div>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="./expertise-illusion.pdf" target="_blank" rel="noopener">START WITH PAPER 01</a>
-          <a class="btn" href="./services.html">VIEW PROOF SETS</a>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="content-map-head">
-          <span class="content-map-label">On this page</span>
-          <span class="content-map-sub">Jump to a section</span>
-        </div>
-        <a class="map-item" href="#trilogy">
-          <span class="map-item-num">01</span>
-          <span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span>
-          <span class="map-item-status">3 papers</span>
-        </a>
-        <a class="map-item" href="#replacement">
-          <span class="map-item-num">02</span>
-          <span class="map-item-text"><strong>Replacement Arc</strong>Migration, construction, admissibility</span>
-          <span class="map-item-status">3 papers</span>
-        </a>
-        <a class="map-item" href="#correction">
-          <span class="map-item-num">03</span>
-          <span class="map-item-text"><strong>Correction and Constraint Layer</strong>The governing sequence and host constraint</span>
-          <span class="map-item-status">2 papers</span>
-        </a>
-        <a class="map-item" href="#kernel">
-          <span class="map-item-num">04</span>
-          <span class="map-item-text"><strong>Kernel Layer</strong>Reduction to primitives, generation of new categories</span>
-          <span class="map-item-status">2 papers</span>
-        </a>
-        <a class="map-item" href="#taxonomy-paper">
-          <span class="map-item-num">05</span>
-          <span class="map-item-text"><strong>Diagnostic Taxonomy</strong>Nine classes · 54 sub-types · classification standard</span>
-          <span class="map-item-status">Paper 11</span>
-        </a>
-        <a class="map-item" href="#foundations">
-          <span class="map-item-num">06</span>
-          <span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span>
-          <span class="map-item-status">3 models</span>
-        </a>
-        <a class="map-item" href="#monograph">
-          <span class="map-item-num">07</span>
-          <span class="map-item-text"><strong>Monograph</strong>How Purpose Becomes Form</span>
-          <span class="map-item-status">In development</span>
-        </a>
-        <a class="map-item" href="#books">
-          <span class="map-item-num">08</span>
-          <span class="map-item-text"><strong>Books</strong>Five-book sequence in development</span>
-          <span class="map-item-status">5 books</span>
-        </a>
-        <a class="map-item" href="#builds">
-          <span class="map-item-num">09</span>
-          <span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span>
-          <span class="map-item-status">2 builds</span>
-        </a>
-      </div>
-    </section>
-
-    <main id="main" role="main">
-
-      <div class="section-divider"><span class="section-divider-label">diagnostic lens trilogy</span></div>
-
-      <section id="trilogy" class="card card-accent" aria-label="Diagnostic Lens Trilogy">
-        <div class="label-row">
-          <span class="label">01 // Diagnostic Lens Trilogy</span>
-          <span class="label-note">three papers · one closed diagnostic loop</span>
-        </div>
-        <p class="lead">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch between signalled and consumed capability, to collapse through function fusion under consequence, to the missing redesign layer that internal correction loops cannot reliably produce.</p>
-        <div class="trilogy-grid">
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 01</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./expertise-illusion.pdf" target="_blank" rel="noopener">
-              <img src="./paper1-image.png" alt="Cover: The Expertise Illusion in AI Task Marketplaces" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">The Expertise Illusion in AI Task Marketplaces</h3>
-              <p class="trilogy-paper-desc">How reliability pipelines borrow the language of expertise. Introduces interface-legitimacy mismatch and the Transfer Test: systems that signal one kind of capability while operationally consuming another.</p>
-              <div class="trilogy-paper-links">
-                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
-                <a href="./expertise-illusion.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-                <a href="./examples.html#outlier" class="link-blue" style="font-size:12px;">Outlier proof set &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 02</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./four-function-law.pdf" target="_blank" rel="noopener">
-              <img src="./paper2-image.png" alt="Cover: The Four-Function Law of Scalable Institutions" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">The Four-Function Law of Scalable Institutions</h3>
-              <p class="trilogy-paper-desc">Introduces the Four-Function Law: institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same human node at the point of consequence.</p>
-              <div class="trilogy-paper-links">
-                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
-                <a href="./four-function-law.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-                <a href="./examples.html#nhs" class="link-blue" style="font-size:12px;" target="_blank" rel="noopener">NHS proof set &#x2192;</a>
-              </div>
-            </div>
-          </div>
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 03</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./missing-redesign-layer.pdf" target="_blank" rel="noopener">
-              <img src="./paper3-image.png" alt="Cover: Why Systems Can't Fix Themselves" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
-              <p class="trilogy-paper-desc">Introduces the Redesign Law and correction collapse. Distinguishes execution, diagnosis, and redesign, and shows why the first two cannot reliably produce the third from within the same correction loops.</p>
-              <div class="trilogy-paper-links">
-                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" class="link-blue" target="_blank" rel="noopener">View on SSRN</a>
-                <a href="./missing-redesign-layer.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p style="margin: 16px 0 0; font-size:13px; color:var(--text-faint); line-height:1.7; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The trilogy closes the diagnostic loop. A second public sequence begins where it stops: how legacy institutions lose centrality, how substitutes are built, and what makes them admissible.</p>
-        <p style="margin:8px 0 12px; font-size:13px; color:var(--text-faint); line-height:1.65;">The Outlier AI and NHS Primary Care artifact families are the applied proof of Papers 01&#x2013;03. <a href="./examples.html" class="link-blue">See the public proof sets &#x2192;</a></p>
-        <div class="trilogy-footer">
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">replacement arc</span></div>
-
-      <section id="replacement" class="card" aria-label="Replacement sequence">
-        <div class="label-row">
-          <span class="label">02 // Replacement Arc</span>
-          <span class="label-note">three papers · from migration to admissible substitute form</span>
-        </div>
-        <p class="lead">Papers 4–6 extend the trilogy into migration, replacement method, and admissibility — the conditions under which a better system becomes historically real.</p>
-        <div class="trilogy-grid">
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 04</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./institution-migration.pdf" target="_blank" rel="noopener">
-              <img src="./paper4-image.png" alt="Cover: Institution Migration" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">Institution Migration</h3>
-              <p class="trilogy-paper-desc">Introduces the Migration Law and the burden transfer mechanism. Institutions lose centrality not when exposed, but when the hidden work required to keep them usable can finally be carried elsewhere.</p>
-              <div class="trilogy-paper-links">
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-                <a href="./institution-migration.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-              </div>
-            </div>
-          </div>
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 05</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./institutional-replacement-pipeline.pdf" target="_blank" rel="noopener">
-              <img src="./paper5-image.png" alt="Cover: The Institutional Replacement Pipeline" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">The Institutional Replacement Pipeline</h3>
-              <p class="trilogy-paper-desc">Turns diagnosis into a buildable replacement method. Introduces the five-stage replacement pipeline and the truth kernel as the primitive a substitute must protect. From recurring structural failure to buildable substitute form.</p>
-              <div class="trilogy-paper-links">
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-                <a href="./institutional-replacement-pipeline.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-              </div>
-            </div>
-          </div>
-          <div class="trilogy-paper">
-            <div class="trilogy-paper-badge">
-              <span class="trilogy-num">Paper 06</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <a class="trilogy-paper-cover" href="./admissibility-problem.pdf" target="_blank" rel="noopener">
-              <img src="./paper6-image.png" alt="Cover: The Admissibility Problem" />
-            </a>
-            <div class="trilogy-paper-body">
-              <h3 class="trilogy-paper-title">The Admissibility Problem</h3>
-              <p class="trilogy-paper-desc">Names the missing threshold between buildable substitute and institutional reality. Introduces the Admissibility Law, the recognition gap, and the conditions under which a better substitute can safely carry consequence. Why better substitutes still fail to replace worse institutions.</p>
-              <div class="trilogy-paper-links">
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-                <a href="./admissibility-problem.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="trilogy-footer">
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="./institution-migration.pdf" target="_blank" rel="noopener">START THE REPLACEMENT SEQUENCE</a>
-          </div>
-          <p style="margin:12px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Replacement Arc completes the path from structural diagnosis to admissible substitute form. The Correction and Constraint Layer follows &#x2014; naming the governing sequence above it and the external force that can compress a platform's native primitive into incoherence.</p>
-        <p style="margin:8px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Redesign Executive Summary and Full Redesign Artifact in both proof sets demonstrate the Replacement Arc in practice. <a href="./examples.html" class="link-blue">See the examples &#x2192;</a></p>
-        </div>
-      </section>
-
-
-      <div class="section-divider"><span class="section-divider-label">correction and constraint layer</span></div>
-
-      <section id="correction" class="card" aria-label="Correction and Constraint Layer">
-        <div class="label-row">
-          <span class="label">03 // Correction and Constraint Layer</span>
-          <span class="label-note">two papers · the governing sequence and host-imposed compression</span>
-        </div>
-        <p class="lead">Two papers that operate above and around the replacement arc. Paper 07 names the structural correction sequence that high-consequence frameworks independently evolve — and the frame-level gate every existing instantiation fails to complete. Paper 08 names a new failure class: what happens when a platform's native economic primitive cannot survive its host interface.</p>
-        <div class="papers-pair-grid" style="margin-top:20px;">
-          <!-- Paper 07 -->
-          <div class="paper-pair-card">
-            <a href="./governed-correction-sequence.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper7-image.png" alt="Cover: The Governed Correction Sequence" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-            </a>
-            <div class="extension-paper-head" style="margin-bottom:10px;">
-              <span class="mini-kicker">Paper 07</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <h3 class="extension-paper-title">The Governed Correction Sequence</h3>
-            <p class="extension-paper-sub">Names the structural sequence that correction frameworks in high-consequence domains independently evolve — and identifies the frame-level gate every existing instantiation fails to complete.</p>
-            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Papers 1–6 diagnosed failure and specified the construction path. Paper 7 makes explicit the sequence beneath them — and the structural stopping point every existing instantiation reaches.</p>
-            <div class="actions" style="clear:none;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-              &nbsp;&nbsp;
-              <a href="./governed-correction-sequence.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-            </div>
-            <div style="clear:both;"></div>
-          </div>
-          <!-- Paper 08 -->
-          <div class="paper-pair-card">
-            <a href="./host-constrained-primitive-mismatch.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper8-image.png" alt="Cover: Host-Constrained Primitive Mismatch" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-            </a>
-            <div class="extension-paper-head" style="margin-bottom:10px;">
-              <span class="mini-kicker">Paper 08</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <h3 class="extension-paper-title">Host-Constrained Primitive Mismatch</h3>
-            <p class="extension-paper-sub">The structural decay of relationship-coded systems inside transaction-coded hosts</p>
-            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Hostage Platform Law, Representational Loss, the Trust Tax Corollary, and the Platform Decay Spectrum. Proves the failure class through Patreon/Apple, with lower-resolution checks across Spotify, Kindle, and Epic Games. Provides the Host Constraint Test and a four-exit redesign model.</p>
-            <div class="actions" style="clear:none;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-              &nbsp;&nbsp;
-              <a href="./host-constrained-primitive-mismatch.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-            </div>
-            <div style="clear:both;"></div>
-          </div>
-        </div>
-        <p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The Correction and Constraint Layer names the sequence beneath the first six papers and the external force that rewrites a platform's economic primitive. The Kernel Layer follows — the coordination substrate beneath all of it. <a href="#kernel" class="link-blue">Read the Kernel Layer →</a></p>
-      </section>
-
-
-      <div class="section-divider"><span class="section-divider-label">kernel layer</span></div>
-
-      <section id="kernel" class="card card-accent" aria-label="Kernel Layer">
-        <div class="label-row">
-          <span class="label">04 // Kernel Layer</span>
-          <span class="label-note">two papers · reduction to primitives and generation of new categories</span>
-        </div>
-        <p class="lead">The culminating two papers of the series. Paper 09 reduces the failure classes diagnosed across Papers 1–8 to a finite set of irreducible coordination kernels — proving the series has been approaching the same underlying structure from different failure surfaces. Paper 10 turns that reduction into a generative method: if systems are kernel arrangements, new institutional categories can be designed by deliberate recomposition.</p>
-        <div class="papers-pair-grid" style="margin-top:20px;">
-          <!-- Paper 09 -->
-          <div class="paper-pair-card">
-            <a href="./kernel-reduction.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper9-image.png" alt="Cover: The Kernel Reduction of Institutional Systems" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-            </a>
-            <div class="extension-paper-head" style="margin-bottom:10px;">
-              <span class="mini-kicker">Paper 09</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <h3 class="extension-paper-title">The Kernel Reduction of Institutional Systems</h3>
-            <p class="extension-paper-sub">Introduces the Kernel Reduction Law: scalable human systems reduce to finite coordination kernels</p>
-            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Names seven candidate kernels derived from Papers 1–8. Shows that the failures diagnosed across the prior series — mismatch, collapse, missing redesign, burden transfer, admissibility failure, correction stall, host compression — are all expressions of kernel misplacement. Provides the Kernel Reduction Test as the diagnostic instrument.</p>
-            <div class="actions" style="clear:none;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-              &nbsp;&nbsp;
-              <a href="./kernel-reduction.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-            </div>
-            <div style="clear:both;"></div>
-          </div>
-          <!-- Paper 10 -->
-          <div class="paper-pair-card">
-            <a href="./kernel-recomposition.pdf" target="_blank" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-              <img src="./paper10-image.png" alt="Cover: Kernel Recomposition Patterns" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;" />
-            </a>
-            <div class="extension-paper-head" style="margin-bottom:10px;">
-              <span class="mini-kicker">Paper 10</span>
-              <span class="status status-dev">Pending SSRN</span>
-            </div>
-            <h3 class="extension-paper-title">Kernel Recomposition Patterns</h3>
-            <p class="extension-paper-sub">Turns the kernel reduction into a generative method</p>
-            <p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Recomposition Law: new institutional categories emerge when kernel arrangements are changed in allocation, priority, sequence, or admissibility such that a burden the legacy arrangement exported becomes structurally avoidable. Provides five recomposition patterns, a composition matrix, and the Recomposition Test.</p>
-            <div class="actions" style="clear:none;">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
-              &nbsp;&nbsp;
-              <a href="./kernel-recomposition.pdf" class="link-blue" target="_blank" rel="noopener">Read PDF</a>
-            </div>
-            <div style="clear:both;"></div>
-          </div>
-        </div>
-        <p style="margin:20px 0 0; font-size:13px; color:var(--text-dim); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">Paper 09 is the reduction layer. Paper 10 is the generative layer. Together they are the culmination of the series &#x2014; not more papers, but the substrate beneath all prior papers revealed.</p>
-        <p style="margin:10px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The eleven papers now form a complete public sequence — from the first mismatch at the interface, through collapse, replacement, correction, kernel recomposition, and the complete classification standard. Start at the failure pattern closest to your current problem, or <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" class="link-blue" target="_blank" rel="noopener">start with Paper 01 →</a></p>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">diagnostic taxonomy — paper 11</span></div>
-
-      <section id="taxonomy-paper" class="card card-accent" aria-label="Diagnostic Taxonomy — Paper 11">
-        <div class="label-row">
-          <span class="label">05 // Diagnostic Taxonomy</span>
-          <span class="label-note">Paper 11 · the constitutional pivot of the series</span>
-        </div>
-        <p class="lead">The classification standard that makes the entire series interoperable. Nine failure classes, fifty-four sub-types, with formal inclusion and exclusion criteria, false positive tests, refusal conditions, and corrective directions for each. Paper 11 is the pivot paper — it does not add to the prior ten papers, it gives them a shared grammar.</p>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
-          <div>
-            <div style="border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.6); border-radius:14px; overflow:hidden;">
-              <div style="padding:14px 18px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue);">Paper 11 — May 2026</span>
-              </div>
-              <div style="padding:18px;">
-                <h3 style="margin:0 0 8px; font-size:16px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">The Complete Diagnostic Taxonomy</h3>
-                <p style="margin:0 0 14px; font-size:13px; color:var(--text-dim); line-height:1.7;">A structural classification system for recurring failure in organisations, platforms, and institutions. The taxonomy is the shared classification standard beneath the entire practice: 9 classes, 54 sub-types, with formal criteria for inclusion, exclusion, false positives, refusal, and correction.</p>
-                <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px;">
-                  <div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">9</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Classes</div>
-                  </div>
-                  <div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">54</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Sub-types</div>
-                  </div>
-                  <div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">11</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Paper</div>
-                  </div>
-                </div>
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                  <a href="./taxonomy.html" class="btn btn-primary" style="font-size:10px; padding:8px 12px;">VIEW FULL TAXONOMY →</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;"><strong style="color:#e0e4ea;">The taxonomy does three things the prior papers could not do individually.</strong> It names each failure class precisely. It gives each class formal inclusion and exclusion criteria so the diagnosis can be refused when it doesn't hold. And it makes the classes interoperable — a compound failure can be assigned a primary class and secondary classes, with the primary class governing the correction sequence.</p>
-            <p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">Papers 12–59 are the anchor papers for the sub-types this taxonomy names. Each will go deeper into one class or sub-type. Paper 11 stays as the reference point for the entire classification system.</p>
-            <div style="padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012); margin-top:4px;">
-              <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px;">The nine classes</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
-                <div style="font-size:12px; color:var(--text-dim);">1 — External Constraint Failure</div>
-                <div style="font-size:12px; color:var(--text-dim);">2 — Scaling Failure</div>
-                <div style="font-size:12px; color:var(--text-dim);">3 — Founding Model Failure</div>
-                <div style="font-size:12px; color:var(--text-dim);">4 — Boundary Failure</div>
-                <div style="font-size:12px; color:var(--text-dim);">5 — Governance Failure</div>
-                <div style="font-size:12px; color:var(--text-dim);">6 — Incentive Misalignment</div>
-                <div style="font-size:12px; color:var(--text-dim);">7 — Human-System Interface</div>
-                <div style="font-size:12px; color:var(--text-dim);">8 — Transition &amp; Migration</div>
-                <div style="font-size:12px; color:var(--text-dim); grid-column:span 2;">9 — Governance Compression Failure &nbsp;<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--label-blue);">13 sub-types</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="padding:14px 18px; border:1px solid rgba(90,176,255,0.12); border-left:2px solid rgba(90,176,255,0.4); border-radius:12px; background:rgba(90,176,255,0.02); margin-bottom:0;">
-          <p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;"><strong style="color:#e0e4ea;">Papers 12–59 are planned.</strong> They are the anchor papers for the sub-types the taxonomy names. Each will anchor one class or cross-cutting pattern with full criteria, examples, and corrective direction. Paper 11 is the constitutional reference. The anchor papers deepen it. <a href="./taxonomy.html" class="link-blue">View the full taxonomy →</a></p>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
-
-      <section id="foundations" class="card card-accent" aria-label="Theoretical foundations">
-        <div class="label-row">
-          <span class="label">06 // Theoretical foundations</span>
-          <span class="label-note">the structural grammar beneath the papers</span>
-        </div>
-        <p class="lead">These models are not parallel to the papers. They are the reusable structural instruments beneath them: three foundational models used across every engagement.</p>
-        <div class="foundations-grid">
-          <div class="foundation-block">
-            <span class="mini-kicker">60-Second Scan</span>
-            <h3>First-pass structural orientation protocol</h3>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Rules → Failure</p>
-            <p>Four questions that surface the structural reality of any system before analysis begins: what the system is actually for, what action it repeats, what rules govern that action, and what happens when those rules fail. The scan works because most system confusion comes from not being able to name these four things simultaneously. Once named, the structural problem — if there is one — becomes visible without a full diagnostic engagement. Used as a first-pass fit check before briefing.</p>
-            <div class="actions">
-              <a href="./diagnostic-scan.html" class="link-blue">Run the scan</a>
-            </div>
-          </div>
-          <div class="foundation-block">
-            <span class="mini-kicker">Grammar Kernel</span>
-            <h3>How systems generate valid outputs</h3>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
-            <p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
-            <p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
-            <div class="actions">
-              <a class="link-blue" data-mailto="1">Request materials</a>
-            </div>
-          </div>
-          <div class="foundation-block">
-            <span class="mini-kicker">Universal Formula</span>
-            <h3>How a primitive becomes a civilisation layer</h3>
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</p>
-            <p>Failure is almost always a mismatch between the layer a system is operating at and the layer it believes it is at. A product trying to behave like a marketplace, or an OS trying to behave like a product, will fail structurally regardless of execution quality. Used in diagnosis to locate the true operating layer before redesign begins.</p>
-            <p>An eight-stage model that tracks how any durable system scales from a single repeated action into a civilisation-level layer. Each stage is defined by what the system has to become to survive at that level of coordination demand.</p>
-            <div class="actions">
-              <a class="link-blue" data-mailto="1">Request materials</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">monograph</span></div>
-
-      <section id="monograph" class="card" aria-label="Monograph">
-        <div class="label-row">
-          <span class="label">07 // Monograph</span>
-          <span class="label-note">deep layer</span>
-        </div>
-        <div class="pipeline-monograph" style="margin-top:0;">
-          <div class="monograph-header">
-            <div>
-              <span class="pipeline-monograph-kicker">Monograph · In development</span>
-              <div class="pipeline-monograph-title" style="margin-top:4px;">How Purpose Becomes Form: A General Theory of Emergence</div>
-            </div>
-            <span class="status status-dev">In development</span>
-          </div>
-          <div class="monograph-equation-block">
-            <span class="monograph-equation">E(n, p₀) = pₙ = p₀(ofmr)ⁿ</span>
-            <span class="monograph-equation-label">The Universal Emergence Equation</span>
-          </div>
-          <div class="monograph-mechanics">
-            <div class="monograph-mechanic">
-              <span class="monograph-mechanic-letter">o</span>
-              <span class="monograph-mechanic-name">Oscillation</span>
-              <span class="monograph-mechanic-desc">Cyclic variation generating the conditions for change</span>
-            </div>
-            <div class="monograph-mechanic">
-              <span class="monograph-mechanic-letter">f</span>
-              <span class="monograph-mechanic-name">Force</span>
-              <span class="monograph-mechanic-desc">Directed energy that moves potential toward form</span>
-            </div>
-            <div class="monograph-mechanic">
-              <span class="monograph-mechanic-letter">m</span>
-              <span class="monograph-mechanic-name">Medium</span>
-              <span class="monograph-mechanic-desc">The substrate through which transformation propagates</span>
-            </div>
-            <div class="monograph-mechanic">
-              <span class="monograph-mechanic-letter">r</span>
-              <span class="monograph-mechanic-name">Reflection</span>
-              <span class="monograph-mechanic-desc">The system's capacity to encode and retain what it has become</span>
-            </div>
-          </div>
-          <div class="monograph-body">
-            <p class="pipeline-monograph-sub">The equation generates a universal developmental ladder from primitive emergence through form, system, institution, civilisation, and meta-structure. It works bidirectionally: forward as a generative system, backward as a diagnostic instrument. This is the deepest theoretical layer beneath the papers, the books, and the builds — the framework from which the Grammar Kernel, the Universal Formula, and the Seven Revolutions are all derived.</p>
-          </div>
-        </div>
-      </section>
-
-
-      <div style="padding:16px 22px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.01); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:32px;">
-        <p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.6;">The five-book sequence — <em>Seeing Systems</em>, <em>The 15-Level Abstraction Ladder</em>, and three more — is the teachable form of the same structural laws. Books 01 and 02 are drafted.</p>
-        <a class="btn" href="./books.html" style="white-space:nowrap;">VIEW BOOKS →</a>
-      </div>
-
-      <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
-
-      <section id="builds" class="card" aria-label="Applied builds">
-        <div class="label-row">
-          <span class="label">09 // Applied Build Proofs</span>
-          <span class="label-note">two live proving grounds</span>
-        </div>
-        <div class="builds-lead">
-          <p>The practice is not purely advisory. These are live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
-          <p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
-          <p class="small" style="margin-top:6px;">PromptFactory and the artifact-production method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural artifacts. The production logic is the same.</p>
-        </div>
-        <div class="paper">
-          <div class="paper-row">
-            <a href="#" aria-label="Spectrum Registry"><img class="infra-thumb" src="./SR.png" alt="Spectrum Registry mark" /></a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">Spectrum Registry</p>
-                <span class="status status-dev">In development</span>
-              </div>
-              <p class="build-role-label">law-first registry proving ground</p>
-              <div class="build-status-line">
-                <span class="build-stat">Feature 29/40</span>
-                <span class="build-stat-sep">·</span>
-                <span class="build-stat">Target launch 2026</span>
-              </div>
-              <p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership. The system starts at the primitive: what counts as a valid unit, what may be claimed, what must be refused, and how ownership remains bounded by rule rather than drift or convention.</p>
-              <p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled across the Diagnostic Artifact and Full Redesign Artifact. Spectrum Registry matters here as a bounded proof that invariant-first design can survive translation into a working system under real build constraints, as described in Paper 05.</p>
-            </div>
-          </div>
-        </div>
-        <div class="paper">
-          <div class="paper-row">
-            <a href="#" aria-label="PromptFactory"><img class="infra-thumb" src="./PF.png" alt="PromptFactory mark" /></a>
-            <div>
-              <div class="paper-head">
-                <p class="paper-title">PromptFactory</p>
-                <span class="status status-dev">In development</span>
-              </div>
-              <p class="build-role-label">law-first build system proving ground</p>
-              <div class="build-status-line">
-                <span class="build-stat">Build methodology proven</span>
-                <span class="build-stat-sep">·</span>
-                <span class="build-stat">Commercialisation in progress</span>
-              </div>
-              <p class="paper-desc">A deterministic build architecture that moves software production upstream into law, specification, and verification. Rather than treating code generation as the centre of the system, PromptFactory treats generation as one constrained stage inside a larger build grammar: primitive, law, sequence, gates, output.</p>
-              <p class="small">Its purpose is to reduce build drift by resolving ambiguity before execution and by refusing promotion when outputs fail explicit checks. It matters here not as a product announcement, but as applied proof: a test of whether the same structural preferences visible in the public research — legibility, bounded ownership, explicit rules, and redesign before repetition — can be made operational inside software construction itself.</p>
-              <p class="small" style="margin-top:10px; color:var(--text-faint);">The Grammar Kernel — primitive → law → sequence → gates → output — is the structural spine the build runs on. This build is the live proving ground for the manufacturing layer described in Paper 05. It operationalises the claim that quality is set upstream before execution begins.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="section-divider"><span class="section-divider-label">the offer</span></div>
-
-      <section class="card" style="border-color:rgba(90,176,255,0.28); border-top:3px solid rgba(90,176,255,0.7); background:linear-gradient(135deg,rgba(90,176,255,0.07) 0%,rgba(90,176,255,0.02) 45%,rgba(255,255,255,0.006) 100%); box-shadow:0 0 0 1px rgba(90,176,255,0.06),0 24px 64px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.06);" aria-label="The offer">
-        <div class="offer-grid-inner" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:0; overflow:hidden;">
-
-          <!-- Left: positioning -->
-          <div style="padding:36px 32px 36px 36px; border-right:1px solid rgba(90,176,255,0.12);">
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:14px;">The offer</span>
-            <h2 style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem+1vw,2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">The public offer is the written artifact system.</h2>
-            <p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page — the public papers, the core models, the deeper monograph, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
-            <p style="margin:0 0 22px; font-size:13.5px; color:var(--text-faint); line-height:1.72; font-style:italic;">The research defines the laws. The Method defines the diagnostic sequence. The Examples show the laws applied to bounded systems. The Services page defines how the artifact system is commissioned.</p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              <a class="btn btn-primary" data-mailto="1">EMAIL FIVE-LINE BRIEF</a>
-              <a class="btn" href="./examples.html">VIEW EXAMPLES &#x2192;</a>
-              <a class="btn" href="./services.html">VIEW SERVICES</a>
-            </div>
-          </div>
-
-          <!-- Right: chain -->
-          <div style="padding:32px 28px; background:rgba(0,0,0,0.18); display:flex; flex-direction:column; gap:0;">
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); display:block; margin-bottom:16px;">How this connects</span>
-            <div style="display:flex; flex-direction:column; gap:0;">
-              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Research</div>
-                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the structural laws. Ten public papers across four linked layers.</div>
-              </div>
-              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Method</div>
-                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the seven-step diagnostic sequence and four-artifact output path.</div>
-              </div>
-              <div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Examples</div>
-                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Shows the laws applied. Public proof sets for Outlier AI and NHS Primary Care.</div>
-              </div>
-              <div style="padding:12px 0;">
-                <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Services</div>
-                <div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines how the artifact system is commissioned. Fixed scope, fixed fee.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-  <div style="display:flex;justify-content:center;padding:32px 0 0;">
-    <a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">&#8593; BACK TO TOP</a>
-  </div>
-
-  </div>
-
-<div class="brief-modal-overlay" id="briefModal" role="dialog" aria-modal="true" style="display:none;">
-  <div class="brief-modal">
-    <div class="brief-modal-header">
-      <div>
-        <span class="brief-modal-eyebrow">Five-Line Brief</span>
-        <h2 class="brief-modal-title">Send a brief</h2>
-      </div>
-      <button class="brief-modal-close" id="briefModalClose" aria-label="Close">&times;</button>
-    </div>
-    <div class="brief-modal-body">
-      <p class="brief-modal-intro">Describe your system and the failure you are experiencing. Your answers will open pre-filled in your email client.</p>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-context">System or situation</label>
-        <p class="brief-modal-hint">Briefly describe the system, product, or organisation this is about.</p>
-        <textarea class="brief-modal-input" id="brief-context" rows="2" placeholder="e.g. A freelance content marketplace with 200 active writers and 50 enterprise clients"></textarea>
-      </div>
-      <div class="brief-modal-divider"></div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-1"><span class="brief-modal-num">01</span> What keeps going wrong?</label>
-        <p class="brief-modal-hint">Describe the failure that keeps returning.</p>
-        <textarea class="brief-modal-input" id="brief-1" rows="2" placeholder="e.g. Writers matched by availability not expertise."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-2"><span class="brief-modal-num">02</span> What is it costing?</label>
-        <p class="brief-modal-hint">Describe the cost in money, time, trust, load, delay, or drift.</p>
-        <textarea class="brief-modal-input" id="brief-2" rows="2" placeholder="e.g. 3 enterprise clients churned. £120k ARR at risk."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-3"><span class="brief-modal-num">03</span> Where does it show up?</label>
-        <p class="brief-modal-hint">Name the teams, roles, systems, or customer touchpoints involved.</p>
-        <textarea class="brief-modal-input" id="brief-3" rows="2" placeholder="e.g. Matching algorithm, account managers, editorial review."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-4"><span class="brief-modal-num">04</span> What has already been tried?</label>
-        <p class="brief-modal-hint">List any fixes, workarounds, or decisions already attempted.</p>
-        <textarea class="brief-modal-input" id="brief-4" rows="2" placeholder="e.g. Highest complaints in technical and legal categories."></textarea>
-      </div>
-      <div class="brief-modal-field">
-        <label class="brief-modal-label" for="brief-5"><span class="brief-modal-num">05</span> What cannot change?</label>
-        <p class="brief-modal-hint">State the non-negotiables, constraints, or conditions that must still hold.</p>
-        <textarea class="brief-modal-input" id="brief-5" rows="2" placeholder="e.g. Cannot rebuild matching algorithm before Q3."></textarea>
-      </div>
-    </div>
-    <div class="brief-modal-footer">
-      <p class="brief-modal-footer-note">Opens your email client with answers pre-filled. Review and edit before sending.</p>
-      <button class="brief-modal-submit" id="briefModalSubmit">OPEN IN EMAIL &rarr;</button>
-    </div>
-  </div>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav aria-label="Site navigation" class="site-nav" id="site-nav">
+<div class="site-nav-inner">
+<a class="site-nav-brand" href="./index.html">
+<img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
+<span class="site-nav-name">Jamie Forrester</span>
+</a>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><a href="./examples.html">Proofs</a><a aria-current="page" class="nav-active" href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Research enquiry" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
+</nav>
+<div class="wrap">
+<header>
+<div class="h-left">
+<a aria-label="Back to home" class="avatar-link" href="./index.html"><img alt="Jamie Forrester" class="avatar" src="./JF LOGO.png"/></a>
+<div>
+<h1>Jamie Forrester</h1>
+<div class="h-sub">Independent Systems Architect</div>
+<div class="h-pill">Structural diagnosis and redesign</div><div class="jf-header-email">Email: <strong>hello@jamieforrester.com</strong></div>
+</div>
+</div>
+<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><a class="btn" href="./examples.html">PROOFS</a><span aria-current="page" class="btn btn-current">RESEARCH</span><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Research enquiry" href="#contact">CONTACT</a></div>
+</header>
+<section aria-label="Research overview" class="hero-strip jf-mobile-stack">
+<div class="hero-left">
+<span class="eyebrow">Research</span>
+<h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
+<p class="hero-sub">An eleven-paper research spine defining the structural laws the practice applies. Each paper names one thing precisely — primitive mismatch, function collapse, the missing redesign layer, institution migration, correction sequence, host-constrained failure, kernel reduction, and the complete diagnostic taxonomy. Papers 1–10 are public and free. Paper 11 is the complete classification standard and is available on request. The research is the doctrine. The client work is the application.</p>
+<p class="hero-sub">The papers form four linked layers. First, a <strong>Diagnostic Lens Trilogy</strong> that names interface-legitimacy mismatch, function collapse, and the missing redesign layer. Second, a three-paper <strong>Replacement Arc</strong> on how institutions lose centrality, how substitutes are built, and what makes them admissible. Third, a <strong>Correction and Constraint Layer</strong> — the governing correction sequence and host-imposed primitive compression. Fourth, a <strong>Kernel Layer</strong> that reduces recurring failure to irreducible coordination primitives and turns that reduction into a generative method for new institutional categories. The papers do not replace the client artifacts. They expose the public logic behind the four-artifact sequence: Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact.</p>
+<p class="hero-sub"><strong>The eleven papers can be read as a complete sequence — but each stands alone.</strong> Start with the paper closest to the failure pattern, build problem, or institutional constraint you are currently facing.</p>
+<p class="hero-sub">To see the research applied to real systems, the public proof sets for Outlier AI, NHS Primary Care Continuity, and Patreon / Apple IAP show the laws in use across three structurally different domains. <a class="link-blue" href="./examples.html">View proof sets →</a></p>
+<div style="margin:0 0 22px; padding:16px 20px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03);">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:12px;">The research spine</span>
+<div style="display:flex; flex-direction:column; gap:7px;">
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 1–3</strong>  Diagnose recurring structural failure.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 4–6</strong>  Define replacement, substitute construction, and admissibility.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 7–8</strong>  Name the correction sequence and host-imposed constraint.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 9–10</strong>  Reduce the series to coordination kernels and turn it into a generative method.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Paper 11</strong>  Establish the complete Diagnostic Taxonomy — nine classes, 54 subtypes. The classification standard that makes all prior papers interoperable.</p>
+</div>
+</div>
+<div class="reading-routes">
+<span class="reading-routes-label">Start where the failure is</span>
+<ul class="reading-routes-list">
+<li><a class="reading-route-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank"><span class="reading-route-num">01</span><span class="reading-route-text">If the system signals one thing but runs on another</span></a></li>
+<li><a class="reading-route-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" target="_blank"><span class="reading-route-num">02</span><span class="reading-route-text">If failure concentrates in overloaded decision nodes</span></a></li>
+<li><a class="reading-route-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" target="_blank"><span class="reading-route-num">03</span><span class="reading-route-text">If repeated fixes never resolve the same failure</span></a></li>
+<li><a class="reading-route-link" href="./institution-migration.pdf" rel="noopener" target="_blank"><span class="reading-route-num">04</span><span class="reading-route-text">If legacy institutions persist despite visible incoherence</span></a></li>
+<li><a class="reading-route-link" href="./institutional-replacement-pipeline.pdf" rel="noopener" target="_blank"><span class="reading-route-num">05</span><span class="reading-route-text">If you need to move from diagnosis to buildable replacement</span></a></li>
+<li><a class="reading-route-link" href="./admissibility-problem.pdf" rel="noopener" target="_blank"><span class="reading-route-num">06</span><span class="reading-route-text">If a better system still struggles to become operationally real</span></a></li>
+<li><a class="reading-route-link" href="./governed-correction-sequence.pdf" rel="noopener" target="_blank"><span class="reading-route-num">07</span><span class="reading-route-text">If correction frameworks stop at the same structural point</span></a></li>
+<li><a class="reading-route-link" href="./host-constrained-primitive-mismatch.pdf" rel="noopener" target="_blank"><span class="reading-route-num">08</span><span class="reading-route-text">If a host platform is rewriting your economic primitive</span></a></li>
+<li><a class="reading-route-link" href="./kernel-reduction.pdf" rel="noopener" target="_blank"><span class="reading-route-num">09</span><span class="reading-route-text">If you need to name the coordination substrate beneath recurring failure</span></a></li>
+<li><a class="reading-route-link" href="./kernel-recomposition.pdf" rel="noopener" target="_blank"><span class="reading-route-num">10</span><span class="reading-route-text">If you need to invent a new institutional category rather than fix an old one</span></a></li>
+<li><a class="reading-route-link" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact"><span class="reading-route-num">11</span><span class="reading-route-text">If you need the complete classification standard for recurring structural failure</span></a></li>
+</ul>
+</div>
+<div class="hero-actions">
+<a class="btn btn-primary" href="./expertise-illusion.pdf" rel="noopener" target="_blank">START WITH PAPER 01</a>
+<a class="btn" href="./examples.html">VIEW PROOF SETS</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="content-map-head">
+<span class="content-map-label">On this page</span>
+<span class="content-map-sub">Jump to a section</span>
+</div>
+<a class="map-item" href="#trilogy">
+<span class="map-item-num">01</span>
+<span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span>
+<span class="map-item-status">3 papers</span>
+</a>
+<a class="map-item" href="#replacement">
+<span class="map-item-num">02</span>
+<span class="map-item-text"><strong>Replacement Arc</strong>Migration, construction, admissibility</span>
+<span class="map-item-status">3 papers</span>
+</a>
+<a class="map-item" href="#correction">
+<span class="map-item-num">03</span>
+<span class="map-item-text"><strong>Correction and Constraint Layer</strong>The governing sequence and host constraint</span>
+<span class="map-item-status">2 papers</span>
+</a>
+<a class="map-item" href="#kernel">
+<span class="map-item-num">04</span>
+<span class="map-item-text"><strong>Kernel Layer</strong>Reduction to primitives, generation of new categories</span>
+<span class="map-item-status">2 papers</span>
+</a>
+<a class="map-item" href="#taxonomy-paper">
+<span class="map-item-num">05</span>
+<span class="map-item-text"><strong>Diagnostic Taxonomy</strong>Nine classes · 54 subtypes · classification standard</span>
+<span class="map-item-status">Paper 11</span>
+</a>
+<a class="map-item" href="#foundations">
+<span class="map-item-num">06</span>
+<span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span>
+<span class="map-item-status">3 models</span>
+</a>
+<a class="map-item" href="#monograph">
+<span class="map-item-num">07</span>
+<span class="map-item-text"><strong>Monograph</strong>How Purpose Becomes Form</span>
+<span class="map-item-status">In development</span>
+</a>
+<a class="map-item" href="./books.html">
+<span class="map-item-num">08</span>
+<span class="map-item-text"><strong>Books</strong>Five-book sequence in development</span>
+<span class="map-item-status">5 books</span>
+</a>
+<a class="map-item" href="#builds">
+<span class="map-item-num">09</span>
+<span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span>
+<span class="map-item-status">2 builds</span>
+</a>
+</div>
+</section>
+<main id="main" role="main">
+<div class="section-divider"><span class="section-divider-label">diagnostic lens trilogy</span></div>
+<section aria-label="Diagnostic Lens Trilogy" class="card card-accent" id="trilogy">
+<div class="label-row">
+<span class="label">01 // Diagnostic Lens Trilogy</span>
+<span class="label-note">three papers · one closed diagnostic loop</span>
+</div>
+<p class="lead">Three papers diagnosing recurring failure across platforms, institutions, and self-correcting systems. Together they move from mismatch between signalled and consumed capability, to collapse through function fusion under consequence, to the missing redesign layer that internal correction loops cannot reliably produce.</p>
+<div class="trilogy-grid jf-mobile-stack">
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 01</span>
+<span class="status status-published">Preprint on SSRN</span>
+</div>
+<a aria-label="Cover: The Expertise Illusion in AI Task Marketplaces" class="trilogy-paper-cover" href="./expertise-illusion.pdf" rel="noopener" target="_blank">
+<img alt="Cover: The Expertise Illusion in AI Task Marketplaces" src="./paper1-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">The Expertise Illusion in AI Task Marketplaces</h3>
+<p class="trilogy-paper-desc">How reliability pipelines borrow the language of expertise. Introduces interface-legitimacy mismatch and the Transfer Test: systems that signal one kind of capability while operationally consuming another.</p>
+<div class="trilogy-paper-links">
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank">View on SSRN</a>
+<a class="link-blue" href="./expertise-illusion.pdf" rel="noopener" target="_blank">Read PDF</a>
+<a class="link-blue" href="./examples.html#outlier" style="font-size:12px;">Outlier proof set →</a>
+</div>
+</div>
+</div>
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 02</span>
+<span class="status status-published">Preprint on SSRN</span>
+</div>
+<a aria-label="Cover: The Four-Function Law of Scalable Institutions" class="trilogy-paper-cover" href="./four-function-law.pdf" rel="noopener" target="_blank">
+<img alt="Cover: The Four-Function Law of Scalable Institutions" src="./paper2-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">The Four-Function Law of Scalable Institutions</h3>
+<p class="trilogy-paper-desc">Introduces the Four-Function Law: institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same human node at the point of consequence.</p>
+<div class="trilogy-paper-links">
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" target="_blank">View on SSRN</a>
+<a class="link-blue" href="./four-function-law.pdf" rel="noopener" target="_blank">Read PDF</a>
+<a class="link-blue" href="./examples.html#nhs" style="font-size:12px;">NHS proof set →</a>
+</div>
+</div>
+</div>
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 03</span>
+<span class="status status-published">Preprint on SSRN</span>
+</div>
+<a aria-label="Cover: Why Systems Can't Fix Themselves" class="trilogy-paper-cover" href="./missing-redesign-layer.pdf" rel="noopener" target="_blank">
+<img alt="Cover: Why Systems Can't Fix Themselves" src="./paper3-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+<p class="trilogy-paper-desc">Introduces the Redesign Law and correction collapse. Distinguishes execution, diagnosis, and redesign, and shows why the first two cannot reliably produce the third from within the same correction loops.</p>
+<div class="trilogy-paper-links">
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" target="_blank">View on SSRN</a>
+<a class="link-blue" href="./missing-redesign-layer.pdf" rel="noopener" target="_blank">Read PDF</a>
+<a class="link-blue" href="./examples.html#patreon" style="font-size:12px;">Patreon / Apple IAP proof set →</a>
+</div>
+</div>
+</div>
+</div>
+<p style="margin: 16px 0 0; font-size:13px; color:var(--text-faint); line-height:1.7; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The trilogy closes the diagnostic loop. A second public sequence begins where it stops: how legacy institutions lose centrality, how substitutes are built, and what makes them admissible.</p>
+<p style="margin:8px 0 12px; font-size:13px; color:var(--text-faint); line-height:1.65;">The Outlier AI, NHS Primary Care, and Patreon / Apple IAP artifact families are the applied proof of Papers 01–03. <a class="link-blue" href="./examples.html">See the public proof sets →</a></p>
+<div class="trilogy-footer">
+<div style="display:flex; gap:10px; flex-wrap:wrap;">
+<a class="btn btn-primary" href="./trilogy.html">VIEW TRILOGY OVERVIEW →</a>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">replacement arc</span></div>
+<section aria-label="Replacement sequence" class="card" id="replacement">
+<div class="label-row">
+<span class="label">02 // Replacement Arc</span>
+<span class="label-note">three papers · from migration to admissible substitute form</span>
+</div>
+<p class="lead">Papers 4–6 extend the trilogy into migration, replacement method, and admissibility — the conditions under which a better system becomes historically real.</p>
+<div class="trilogy-grid jf-mobile-stack">
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 04</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<a aria-label="Cover: Institution Migration" class="trilogy-paper-cover" href="./institution-migration.pdf" rel="noopener" target="_blank">
+<img alt="Cover: Institution Migration" src="./paper4-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">Institution Migration</h3>
+<p class="trilogy-paper-desc">Introduces the Migration Law and the burden transfer mechanism. Institutions lose centrality not when exposed, but when the hidden work required to keep them usable can finally be carried elsewhere.</p>
+<div class="trilogy-paper-links">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+<a class="link-blue" href="./institution-migration.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+</div>
+</div>
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 05</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<a aria-label="Cover: The Institutional Replacement Pipeline" class="trilogy-paper-cover" href="./institutional-replacement-pipeline.pdf" rel="noopener" target="_blank">
+<img alt="Cover: The Institutional Replacement Pipeline" src="./paper5-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">The Institutional Replacement Pipeline</h3>
+<p class="trilogy-paper-desc">Turns diagnosis into a buildable replacement method. Introduces the five-stage replacement pipeline and the truth kernel as the primitive a substitute must protect. From recurring structural failure to buildable substitute form.</p>
+<div class="trilogy-paper-links">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+<a class="link-blue" href="./institutional-replacement-pipeline.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+</div>
+</div>
+<div class="trilogy-paper">
+<div class="trilogy-paper-badge">
+<span class="trilogy-num">Paper 06</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<a aria-label="Cover: The Admissibility Problem" class="trilogy-paper-cover" href="./admissibility-problem.pdf" rel="noopener" target="_blank">
+<img alt="Cover: The Admissibility Problem" src="./paper6-image.png"/>
+</a>
+<div class="trilogy-paper-body">
+<h3 class="trilogy-paper-title">The Admissibility Problem</h3>
+<p class="trilogy-paper-desc">Names the missing threshold between buildable substitute and institutional reality. Introduces the Admissibility Law, the recognition gap, and the conditions under which a better substitute can safely carry consequence. Why better substitutes still fail to replace worse institutions.</p>
+<div class="trilogy-paper-links">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+<a class="link-blue" href="./admissibility-problem.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+</div>
+</div>
+</div>
+<div class="trilogy-footer">
+<div style="display:flex; gap:10px; flex-wrap:wrap;">
+<a class="btn btn-primary" href="./institution-migration.pdf" rel="noopener" target="_blank">START THE REPLACEMENT SEQUENCE</a>
+</div>
+<p style="margin:12px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Replacement Arc completes the path from structural diagnosis to admissible substitute form. The Correction and Constraint Layer follows — naming the governing sequence above it and the external force that can compress a platform's native primitive into incoherence.</p>
+<p style="margin:8px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The Redesign Executive Summary and Full Redesign Artifact across all three public proof sets demonstrate the Replacement Arc in practice. <a class="link-blue" href="./examples.html">See the proof sets →</a></p>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">correction and constraint layer</span></div>
+<section aria-label="Correction and Constraint Layer" class="card" id="correction">
+<div class="label-row">
+<span class="label">03 // Correction and Constraint Layer</span>
+<span class="label-note">two papers · the governing sequence and host-imposed compression</span>
+</div>
+<p class="lead">Two papers that operate above and around the replacement arc. Paper 07 names the structural correction sequence that high-consequence frameworks independently evolve — and the frame-level gate every existing instantiation fails to complete. Paper 08 names a new failure class: what happens when a platform's native economic primitive cannot survive its host interface.</p>
+<div class="papers-pair-grid jf-mobile-stack" style="margin-top:20px;">
+<!-- Paper 07 -->
+<div class="paper-pair-card">
+<a aria-label="Cover: The Governed Correction Sequence" href="./governed-correction-sequence.pdf" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;" target="_blank">
+<img alt="Cover: The Governed Correction Sequence" src="./paper7-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+</a>
+<div class="extension-paper-head" style="margin-bottom:10px;">
+<span class="mini-kicker">Paper 07</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<h3 class="extension-paper-title">The Governed Correction Sequence</h3>
+<p class="extension-paper-sub">Names the structural sequence that correction frameworks in high-consequence domains independently evolve — and identifies the frame-level gate every existing instantiation fails to complete.</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Papers 1–6 diagnosed failure and specified the construction path. Paper 7 makes explicit the sequence beneath them — and the structural stopping point every existing instantiation reaches.</p>
+<div class="actions" style="clear:none;">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+                
+              <a class="link-blue" href="./governed-correction-sequence.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<!-- Paper 08 -->
+<div class="paper-pair-card">
+<a aria-label="Cover: Host-Constrained Primitive Mismatch" href="./host-constrained-primitive-mismatch.pdf" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;" target="_blank">
+<img alt="Cover: Host-Constrained Primitive Mismatch" src="./paper8-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+</a>
+<div class="extension-paper-head" style="margin-bottom:10px;">
+<span class="mini-kicker">Paper 08</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<h3 class="extension-paper-title">Host-Constrained Primitive Mismatch</h3>
+<p class="extension-paper-sub">The structural decay of relationship-coded systems inside transaction-coded hosts</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Hostage Platform Law, Representational Loss, the Trust Tax Corollary, and the Platform Decay Spectrum. Proves the failure class through Patreon/Apple, with lower-resolution checks across Spotify, Kindle, and Epic Games. Provides the Host Constraint Test and a four-exit redesign model.</p>
+<div class="actions" style="clear:none;">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+                
+              <a class="link-blue" href="./host-constrained-primitive-mismatch.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">The Correction and Constraint Layer names the sequence beneath the first six papers and the external force that rewrites a platform's economic primitive. The Kernel Layer follows — the coordination substrate beneath all of it. <a class="link-blue" href="#kernel">Read the Kernel Layer →</a></p>
+</section>
+<div class="section-divider"><span class="section-divider-label">kernel layer</span></div>
+<section aria-label="Kernel Layer" class="card card-accent" id="kernel">
+<div class="label-row">
+<span class="label">04 // Kernel Layer</span>
+<span class="label-note">two papers · reduction to primitives and generation of new categories</span>
+</div>
+<p class="lead">The culminating two papers of the series. Paper 09 reduces the failure classes diagnosed across Papers 1–8 to a finite set of irreducible coordination kernels — proving the series has been approaching the same underlying structure from different failure surfaces. Paper 10 turns that reduction into a generative method: if systems are kernel arrangements, new institutional categories can be designed by deliberate recomposition.</p>
+<div class="papers-pair-grid jf-mobile-stack" style="margin-top:20px;">
+<!-- Paper 09 -->
+<div class="paper-pair-card">
+<a aria-label="Cover: The Kernel Reduction of Institutional Systems" href="./kernel-reduction.pdf" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;" target="_blank">
+<img alt="Cover: The Kernel Reduction of Institutional Systems" src="./paper9-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+</a>
+<div class="extension-paper-head" style="margin-bottom:10px;">
+<span class="mini-kicker">Paper 09</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<h3 class="extension-paper-title">The Kernel Reduction of Institutional Systems</h3>
+<p class="extension-paper-sub">Introduces the Kernel Reduction Law: scalable human systems reduce to finite coordination kernels</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Names seven candidate kernels derived from Papers 1–8. Shows that the failures diagnosed across the prior series — mismatch, collapse, missing redesign, burden transfer, admissibility failure, correction stall, host compression — are all expressions of kernel misplacement. Provides the Kernel Reduction Test as the diagnostic instrument.</p>
+<div class="actions" style="clear:none;">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+                
+              <a class="link-blue" href="./kernel-reduction.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+<!-- Paper 10 -->
+<div class="paper-pair-card">
+<a aria-label="Cover: Kernel Recomposition Patterns" href="./kernel-recomposition.pdf" rel="noopener" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;" target="_blank">
+<img alt="Cover: Kernel Recomposition Patterns" src="./paper10-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+</a>
+<div class="extension-paper-head" style="margin-bottom:10px;">
+<span class="mini-kicker">Paper 10</span>
+<span class="status status-dev">Pending SSRN</span>
+</div>
+<h3 class="extension-paper-title">Kernel Recomposition Patterns</h3>
+<p class="extension-paper-sub">Turns the kernel reduction into a generative method</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Recomposition Law: new institutional categories emerge when kernel arrangements are changed in allocation, priority, sequence, or admissibility such that a burden the legacy arrangement exported becomes structurally avoidable. Provides five recomposition patterns, a composition matrix, and the Recomposition Test.</p>
+<div class="actions" style="clear:none;">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Pending SSRN</span>
+                
+              <a class="link-blue" href="./kernel-recomposition.pdf" rel="noopener" target="_blank">Read PDF</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<p style="margin:20px 0 0; font-size:13px; color:var(--text-dim); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">Paper 09 is the reduction layer. Paper 10 is the generative layer. Together they are the culmination of the series — not more papers, but the substrate beneath all prior papers revealed.</p>
+<p style="margin:10px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The eleven papers now form a complete research sequence — from the first mismatch at the interface, through collapse, replacement, correction, kernel recomposition, and the complete classification standard. Start at the failure pattern closest to your current problem, or <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank">start with Paper 01 →</a></p>
+</section>
+<div class="section-divider"><span class="section-divider-label">diagnostic taxonomy — paper 11</span></div>
+<section aria-label="Diagnostic Taxonomy — Paper 11" class="card card-accent" id="taxonomy-paper">
+<div class="label-row">
+<span class="label">05 // Diagnostic Taxonomy</span>
+<span class="label-note">Paper 11 · the constitutional pivot of the series</span>
+</div>
+<p class="lead">The classification standard that makes the entire series interoperable. Nine failure classes, fifty-four subtypes, with formal inclusion and exclusion criteria, false positive tests, refusal conditions, and corrective directions for each. Paper 11 is the pivot paper — it does not add to the prior ten papers, it gives them a shared grammar.</p>
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+<div>
+<div style="border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.6); border-radius:14px; overflow:hidden;">
+<div style="padding:14px 18px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue);">Paper 11 — May 2026</span>
+</div>
+<div style="padding:18px;">
+<h3 style="margin:0 0 8px; font-size:16px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">The Complete Diagnostic Taxonomy</h3>
+<p style="margin:0 0 14px; font-size:13px; color:var(--text-dim); line-height:1.7;">A structural classification system for recurring failure in organisations, platforms, and institutions. The taxonomy is the shared classification standard beneath the entire practice: 9 classes, 54 subtypes, with formal criteria for inclusion, exclusion, false positives, refusal, and correction. The complete reference is available on request rather than published as a standalone public page.</p>
+<div class="jf-mobile-stack" data-mobile-grid="table" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px;">
+<div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">9</div>
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Classes</div>
+</div>
+<div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">54</div>
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Subtypes</div>
+</div>
+<div style="text-align:center; padding:10px 8px; border:1px solid rgba(90,176,255,0.15); border-radius:10px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:16px; font-weight:700; color:var(--cta-blue); line-height:1;">11</div>
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); margin-top:3px;">Paper</div>
+</div>
+</div>
+<div style="display:flex; gap:10px; flex-wrap:wrap;">
+<a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact" style="font-size:10px; padding:8px 12px;">REQUEST FULL TAXONOMY →</a>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;"><strong style="color:#e0e4ea;">The taxonomy does three things the prior papers could not do individually.</strong> It names each failure class precisely. It gives each class formal inclusion and exclusion criteria so the diagnosis can be refused when it doesn't hold. And it makes the classes interoperable — a compound failure can be assigned a primary class and secondary classes, with the primary class governing the correction sequence.</p>
+<p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">Papers 12–59 are the anchor papers for the subtypes this taxonomy names. Each will go deeper into one class or subtype. Paper 11 stays as the reference point for the entire classification system.</p>
+<div style="padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012); margin-top:4px;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px;">The nine classes</div>
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
+<div style="font-size:12px; color:var(--text-dim);">1 — External Constraint Failure</div>
+<div style="font-size:12px; color:var(--text-dim);">2 — Scaling Failure</div>
+<div style="font-size:12px; color:var(--text-dim);">3 — Founding Model Failure</div>
+<div style="font-size:12px; color:var(--text-dim);">4 — Boundary Failure</div>
+<div style="font-size:12px; color:var(--text-dim);">5 — Governance Failure</div>
+<div style="font-size:12px; color:var(--text-dim);">6 — Incentive Misalignment</div>
+<div style="font-size:12px; color:var(--text-dim);">7 — Human-System Interface</div>
+<div style="font-size:12px; color:var(--text-dim);">8 — Transition &amp; Migration</div>
+<div style="font-size:12px; color:var(--text-dim); grid-column:span 2;">9 — Governance Compression Failure  <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--label-blue);">13 subtypes</span></div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding:14px 18px; border:1px solid rgba(90,176,255,0.12); border-left:2px solid rgba(90,176,255,0.4); border-radius:12px; background:rgba(90,176,255,0.02); margin-bottom:0;">
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;"><strong style="color:#e0e4ea;">Papers 12–59 are planned.</strong> They are the anchor papers for the subtypes the taxonomy names. Each will anchor one class or cross-cutting pattern with full criteria, examples, and corrective direction. Paper 11 remains the constitutional reference; the anchor papers deepen it. <a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact">Request the full taxonomy →</a></p>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
+<section aria-label="Theoretical foundations" class="card card-accent" id="foundations">
+<div class="label-row">
+<span class="label">06 // Theoretical foundations</span>
+<span class="label-note">the structural grammar beneath the papers</span>
+</div>
+<p class="lead">These models are not parallel to the papers. They are the reusable structural instruments beneath them: three foundational models used across every engagement.</p>
+<div class="foundations-grid jf-mobile-stack">
+<div class="foundation-block">
+<span class="mini-kicker">60-Second Scan</span>
+<h3>First-pass structural orientation protocol</h3>
+<p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Rules → Failure</p>
+<p>Four questions that surface the structural reality of any system before analysis begins: what the system is actually for, what action it repeats, what rules govern that action, and what happens when those rules fail. The scan works because most system confusion comes from not being able to name these four things simultaneously. Once named, the structural problem — if there is one — becomes visible without a full diagnostic engagement. Used as a first-pass fit check before briefing.</p>
+<div class="actions">
+<a class="link-blue" href="./diagnostic-scan.html">Run the scan</a>
+</div>
+</div>
+<div class="foundation-block">
+<span class="mini-kicker">Grammar Kernel</span>
+<h3>How systems generate valid outputs</h3>
+<p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
+<p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
+<p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
+<div class="actions">
+<a class="link-blue" data-jf-contact="1" data-jf-subject="How systems generate valid outputs — materials request" href="#contact">Request materials</a>
+</div>
+</div>
+<div class="foundation-block">
+<span class="mini-kicker">Universal Formula</span>
+<h3>How a primitive becomes a civilisation layer</h3>
+<p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Medium → OS → Marketplace → Category → Civilization → Meta</p>
+<p>Failure is almost always a mismatch between the layer a system is operating at and the layer it believes it is at. A product trying to behave like a marketplace, or an OS trying to behave like a product, will fail structurally regardless of execution quality. Used in diagnosis to locate the true operating layer before redesign begins.</p>
+<p>An eight-stage model that tracks how any durable system scales from a single repeated action into a civilisation-level layer. Each stage is defined by what the system has to become to survive at that level of coordination demand.</p>
+<div class="actions">
+<a class="link-blue" data-jf-contact="1" data-jf-subject="How a primitive becomes a civilisation layer — materials request" href="#contact">Request materials</a>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">monograph</span></div>
+<section aria-label="Monograph" class="card" id="monograph">
+<div class="label-row">
+<span class="label">07 // Monograph</span>
+<span class="label-note">deep layer</span>
+</div>
+<div class="pipeline-monograph" style="margin-top:0;">
+<div class="monograph-header">
+<div>
+<span class="pipeline-monograph-kicker">Monograph · In development</span>
+<div class="pipeline-monograph-title" style="margin-top:4px;">How Purpose Becomes Form: A General Theory of Emergence</div>
+</div>
+<span class="status status-dev">In development</span>
+</div>
+<div class="monograph-equation-block">
+<span class="monograph-equation">E(n, p₀) = pₙ = p₀(ofmr)ⁿ</span>
+<span class="monograph-equation-label">The Universal Emergence Equation</span>
+</div>
+<div class="monograph-mechanics jf-mobile-stack">
+<div class="monograph-mechanic">
+<span class="monograph-mechanic-letter">o</span>
+<span class="monograph-mechanic-name">Oscillation</span>
+<span class="monograph-mechanic-desc">Cyclic variation generating the conditions for change</span>
+</div>
+<div class="monograph-mechanic">
+<span class="monograph-mechanic-letter">f</span>
+<span class="monograph-mechanic-name">Force</span>
+<span class="monograph-mechanic-desc">Directed energy that moves potential toward form</span>
+</div>
+<div class="monograph-mechanic">
+<span class="monograph-mechanic-letter">m</span>
+<span class="monograph-mechanic-name">Medium</span>
+<span class="monograph-mechanic-desc">The substrate through which transformation propagates</span>
+</div>
+<div class="monograph-mechanic">
+<span class="monograph-mechanic-letter">r</span>
+<span class="monograph-mechanic-name">Reflection</span>
+<span class="monograph-mechanic-desc">The system's capacity to encode and retain what it has become</span>
+</div>
+</div>
+<div class="monograph-body">
+<p class="pipeline-monograph-sub">The equation generates a universal developmental ladder from primitive emergence through form, system, institution, civilisation, and meta-structure. It works bidirectionally: forward as a generative system, backward as a diagnostic instrument. This is the deepest theoretical layer beneath the papers, the books, and the builds — the framework from which the Grammar Kernel, the Universal Formula, and the Seven Revolutions are all derived.</p>
+</div>
+</div>
+</section>
+<div style="padding:16px 22px; border:1px solid rgba(255,255,255,0.07); border-radius:12px; background:rgba(255,255,255,0.01); display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:32px;">
+<p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.6;">The five-book sequence — <em>Seeing Systems</em>, <em>The 15-Level Abstraction Ladder</em>, and three more — is the teachable form of the same structural laws. Books 01 and 02 are drafted.</p>
+<a class="btn" href="./books.html" style="white-space:nowrap;">VIEW BOOKS →</a>
+</div>
+<div class="section-divider"><span class="section-divider-label">applied builds</span></div>
+<section aria-label="Applied builds" class="card" id="builds">
+<div class="label-row">
+<span class="label">09 // Applied Build Proofs</span>
+<span class="label-note">two live proving grounds</span>
+</div>
+<div class="builds-lead">
+<p>The practice is not purely advisory. These are live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
+<p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
+<p class="small" style="margin-top:6px;">PromptFactory and the artifact-production method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural artifacts. The production logic is the same.</p>
+</div>
+<div class="paper">
+<div class="paper-row">
+<img alt="Spectrum Registry mark" class="infra-thumb" src="./SR.png"/>
+<div>
+<div class="paper-head">
+<p class="paper-title">Spectrum Registry</p>
+<span class="status status-dev">In development</span>
+</div>
+<p class="build-role-label">law-first registry proving ground</p>
+<div class="build-status-line">
+<span class="build-stat">Feature 29/40</span>
+<span class="build-stat-sep">·</span>
+<span class="build-stat">Target launch 2026</span>
+</div>
+<p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership. The system starts at the primitive: what counts as a valid unit, what may be claimed, what must be refused, and how ownership remains bounded by rule rather than drift or convention.</p>
+<p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled across the Diagnostic Artifact and Full Redesign Artifact. Spectrum Registry matters here as a bounded proof that invariant-first design can survive translation into a working system under real build constraints, as described in Paper 05.</p>
+</div>
+</div>
+</div>
+<div class="paper">
+<div class="paper-row">
+<img alt="PromptFactory mark" class="infra-thumb" src="./PF.png"/>
+<div>
+<div class="paper-head">
+<p class="paper-title">PromptFactory</p>
+<span class="status status-dev">In development</span>
+</div>
+<p class="build-role-label">law-first build system proving ground</p>
+<div class="build-status-line">
+<span class="build-stat">Build methodology proven</span>
+<span class="build-stat-sep">·</span>
+<span class="build-stat">Commercialisation in progress</span>
+</div>
+<p class="paper-desc">A deterministic build architecture that moves software production upstream into law, specification, and verification. Rather than treating code generation as the centre of the system, PromptFactory treats generation as one constrained stage inside a larger build grammar: primitive, law, sequence, gates, output.</p>
+<p class="small">Its purpose is to reduce build drift by resolving ambiguity before execution and by refusing promotion when outputs fail explicit checks. It matters here not as a product announcement, but as applied proof: a test of whether the same structural preferences visible in the public research — legibility, bounded ownership, explicit rules, and redesign before repetition — can be made operational inside software construction itself.</p>
+<p class="small" style="margin-top:10px; color:var(--text-faint);">The Grammar Kernel — primitive → law → sequence → gates → output — is the structural spine the build runs on. This build is the live proving ground for the manufacturing layer described in Paper 05. It operationalises the claim that quality is set upstream before execution begins.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">the offer</span></div>
+<section aria-label="The offer" class="card" style="border-color:rgba(90,176,255,0.28); border-top:3px solid rgba(90,176,255,0.7); background:linear-gradient(135deg,rgba(90,176,255,0.07) 0%,rgba(90,176,255,0.02) 45%,rgba(255,255,255,0.006) 100%); box-shadow:0 0 0 1px rgba(90,176,255,0.06),0 24px 64px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.06);">
+<div class="offer-grid-inner jf-mobile-stack" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:0; overflow:hidden;">
+<!-- Left: positioning -->
+<div style="padding:36px 32px 36px 36px; border-right:1px solid rgba(90,176,255,0.12);">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:14px;">The offer</span>
+<h2 style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem+1vw,2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">The public offer is the written artifact system.</h2>
+<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page — the public papers, the core models, the deeper monograph, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
+<p style="margin:0 0 22px; font-size:13.5px; color:var(--text-faint); line-height:1.72; font-style:italic;">The research defines the laws. The Method defines the diagnostic sequence. The Proofs show the laws applied to bounded systems. The Services page defines how the artifact system is commissioned.</p>
+<div style="display:flex; gap:8px; flex-wrap:wrap;">
+<a class="btn btn-primary" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a>
+<a class="btn" href="./examples.html">VIEW PROOFS →</a>
+<a class="btn" href="./services.html">VIEW SERVICES</a>
+</div>
+</div>
+<!-- Right: chain -->
+<div style="padding:32px 28px; background:rgba(0,0,0,0.18); display:flex; flex-direction:column; gap:0;">
+<span style="font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-faint); display:block; margin-bottom:16px;">How this connects</span>
+<div style="display:flex; flex-direction:column; gap:0;">
+<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Research</div>
+<div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the structural laws. Ten public papers across four linked layers.</div>
+</div>
+<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Method</div>
+<div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines the seven-step diagnostic sequence and four-artifact output path.</div>
+</div>
+<div style="padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.055);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Proofs</div>
+<div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Shows the laws applied. Public proof sets for Outlier AI, NHS Primary Care, and Patreon / Apple IAP.</div>
+</div>
+<div style="padding:12px 0;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Services</div>
+<div style="font-size:13px; color:var(--text-dim); line-height:1.55;">Defines how the artifact system is commissioned. Fixed scope, fixed fee.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div style="display:flex;justify-content:center;padding:32px 0 0;">
+<a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+</div>
+</div>
+<footer class="site-footer">
+<div class="site-footer__inner">
+<div class="site-footer__top">
+<section aria-labelledby="footer-brand-heading" class="site-footer__brand">
+<h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
+</section>
+<nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
+<ul class="site-footer__list">
+<li><a href="./index.html">Home</a></li>
+<li><a href="./services.html">Services</a></li>
+<li><a href="./method.html">Method</a></li>
+<li><a href="./examples.html">Proofs</a></li>
+<li><a href="./research.html">Research</a></li>
+<li><a href="./books.html">Books</a></li>
+<li><a href="./products.html">Tools</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-tools-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-tools-heading">Tools &amp; Research</h2>
+<ul class="site-footer__list">
+<li><a href="./trilogy.html">Trilogy</a></li>
+<li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
+<li><a href="./how-it-works.html">How It Works</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-legal-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-legal-heading">Legal</h2>
+<ul class="site-footer__list">
+<li><a href="./privacy-policy.html">Privacy Policy</a></li>
+<li><a href="./terms.html">Terms</a></li>
+</ul>
+</nav>
+<nav aria-labelledby="footer-elsewhere-heading" class="site-footer__nav">
+<h2 class="site-footer__heading" id="footer-elsewhere-heading">Elsewhere</h2>
+<ul class="site-footer__list">
+<li><a href="https://www.linkedin.com/in/jamie-forrester-systems" rel="noopener" target="_blank">LinkedIn</a></li>
+<li><a href="https://x.com/StructuralTruth" rel="noopener" target="_blank">X</a></li>
+<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">Contact</a></li></ul>
+</nav>
+</div>
+<div class="site-footer__bottom">
+<p>© <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
+<p>Independent Systems Architect — Edinburgh, UK</p>
+</div>
+</div>
+</footer>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__top">
-                <section class="site-footer__brand" aria-labelledby="footer-brand-heading">
-          <h2 id="footer-brand-heading" class="site-footer__eyebrow">Jamie Forrester</h2>
-          <p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis for failure your correction loops cannot reach.</p>
-        </section>
-                <nav class="site-footer__nav" aria-labelledby="footer-nav-heading">
-          <h2 id="footer-nav-heading" class="site-footer__heading">Navigation</h2>
-          <ul class="site-footer__list">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./services.html">Services</a></li>
-            <li><a href="./method.html">Method</a></li>
-            <li><a href="./examples.html">Examples</a></li>
-            <li><a href="./taxonomy.html">Taxonomy</a></li>
-            <li><a href="./research.html">Research</a></li>
-            <li><a href="./books.html">Books</a></li>
-            <li><a href="./products.html">Tools</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-tools-heading">
-          <h2 id="footer-tools-heading" class="site-footer__heading">Tools &amp; Research</h2>
-          <ul class="site-footer__list">
-            <li><a href="./trilogy.html">Trilogy</a></li>
-            <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-            <li><a href="./how-it-works.html">How It Works</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-legal-heading">
-          <h2 id="footer-legal-heading" class="site-footer__heading">Legal</h2>
-          <ul class="site-footer__list">
-            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="./terms.html">Terms</a></li>
-          </ul>
-        </nav>
-        <nav class="site-footer__nav" aria-labelledby="footer-elsewhere-heading">
-          <h2 id="footer-elsewhere-heading" class="site-footer__heading">Elsewhere</h2>
-          <ul class="site-footer__list">
-            <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://x.com/StructuralTruth" target="_blank" rel="noopener">X</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p>&copy; <span id="footer-year"></span> Jamie Forrester. All rights reserved.</p>
-        <p>Independent Systems Architect &mdash; Edinburgh, UK</p>
-      </div>
-    </div>
-  </footer>
+<div aria-hidden="true" class="jf-contact-overlay" id="jfContactOverlay">
+<section aria-labelledby="jfContactTitle" aria-modal="true" class="jf-contact-modal" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Contact</span><h2 class="jf-contact-title" id="jfContactTitle">Send a message</h2></div>
+<button aria-label="Close contact form" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfContactFormWrap">
+<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong></p>
+<form action="https://api.web3forms.com/submit" id="jfContactForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input id="jfContactSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfContactName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Subject</span><input class="jf-contact-input" id="jfContactSubject" name="subject" required="" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Message</span><textarea class="jf-contact-textarea" id="jfContactMessage" name="message" required="" rows="6"></textarea></label>
+</div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send message →</button><span aria-live="polite" class="jf-contact-status" id="jfContactStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfContactSuccess"><h3>Message received.</h3><p>I’ll reply to the email address you provided.</p></div>
+</section>
+</div><div aria-hidden="true" class="jf-contact-overlay" id="jfBriefOverlay">
+<section aria-labelledby="jfBriefTitle" aria-modal="true" class="jf-contact-modal jf-contact-modal--brief" role="dialog">
+<div class="jf-contact-head">
+<div><span class="jf-contact-kicker">Five-Line Brief</span><h2 class="jf-contact-title" id="jfBriefTitle">Send the repeated failure</h2></div>
+<button aria-label="Close Five-Line Brief" class="jf-contact-close" data-jf-close="" type="button">×</button>
+</div>
+<div class="jf-contact-scroll" id="jfBriefFormWrap">
+<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix.</p>
+<p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong> and use the subject “Five-Line Brief”.</p>
+<form action="https://api.web3forms.com/submit" id="jfBriefForm" method="POST">
+<input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
+<input name="from_name" type="hidden" value="Jamie Forrester Website"/>
+<input name="subject" type="hidden" value="Five-Line Brief"/>
+<input id="jfBriefSource" name="source_page" type="hidden" value=""/>
+<input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
+<div class="jf-contact-grid">
+<label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfBriefName" name="name" required="" type="text"/></label>
+<label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation</span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" required="" rows="2" style="min-height:76px"></textarea></label>
+</div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">01</span>What keeps going wrong?</span><textarea class="jf-contact-textarea" id="jfBrief1" name="01 - What keeps going wrong?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">02</span>What is it costing?</span><textarea class="jf-contact-textarea" id="jfBrief2" name="02 - What is it costing?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">03</span>Where does it show up?</span><textarea class="jf-contact-textarea" id="jfBrief3" name="03 - Where does it show up?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">04</span>What has already been tried?</span><textarea class="jf-contact-textarea" id="jfBrief4" name="04 - What has already been tried?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">05</span>What cannot change?</span><textarea class="jf-contact-textarea" id="jfBrief5" name="05 - What cannot change?" required="" rows="2" style="min-height:74px"></textarea></label></div>
+<div class="jf-contact-actions"><button class="jf-contact-submit" type="submit">Send Five-Line Brief →</button><span aria-live="polite" class="jf-contact-status" id="jfBriefStatus" role="status"></span></div>
+</form>
+</div>
+<div class="jf-contact-success" id="jfBriefSuccess"><h3>Brief received.</h3><p>I’ll review the signal and reply to the email address you provided.</p></div>
+</section>
+</div><script>(function(){
+  const nav=document.getElementById('site-nav');
+  const header=document.querySelector('header');
+  const year=document.getElementById('footer-year');
+  if(year) year.textContent=new Date().getFullYear();
+  if(nav&&header){
+    const updateNav=()=>nav.classList.toggle('nav-visible',header.getBoundingClientRect().bottom<=0);
+    updateNav();
+    window.addEventListener('scroll',updateNav,{passive:true});
+  }
 
-  <style>
-    .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
-    .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
-    .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
-    .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
-    .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
-    .site-footer__email,.site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;transition:color 140ms,border-color 140ms;cursor:pointer;}
-    .site-footer__email{color:var(--label-blue);font-family:"IBM Plex Mono",monospace;letter-spacing:0.02em;}
-    .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
-    .site-footer a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);}
-    .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
-    .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
-    @media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
-    @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}
-  }</style>
+  const contactOverlay=document.getElementById('jfContactOverlay');
+  const briefOverlay=document.getElementById('jfBriefOverlay');
+  const contactForm=document.getElementById('jfContactForm');
+  const briefForm=document.getElementById('jfBriefForm');
+  if(!contactOverlay||!briefOverlay||!contactForm||!briefForm) return;
 
-  <style>
-    .brief-modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;}
-.brief-modal{background:#101114;border:1px solid rgba(90,176,255,0.22);border-radius:20px;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
-.brief-modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:22px 24px 18px;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;}
-.brief-modal-eyebrow{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#4aa3ff;margin-bottom:4px;}
-.brief-modal-title{margin:0;font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.03em;}
-.brief-modal-close{width:32px;height:32px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#8c94a2;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 140ms,color 140ms;}
-.brief-modal-close:hover{background:rgba(255,255,255,0.1);color:#fff;}
-.brief-modal-body{padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:14px;}
-.brief-modal-intro{margin:0;font-size:13px;color:#8c94a2;line-height:1.65;}
-.brief-modal-divider{height:1px;background:rgba(255,255,255,0.06);}
-.brief-modal-field{display:flex;flex-direction:column;gap:4px;}
-.brief-modal-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#e8ecf0;}
-.brief-modal-num{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.14em;color:#4aa3ff;background:rgba(90,176,255,0.1);border:1px solid rgba(90,176,255,0.2);border-radius:5px;padding:2px 6px;line-height:1;}
-.brief-modal-hint{margin:0;font-size:12px;color:#8c94a2;line-height:1.5;}
-.brief-modal-input{width:100%;font-family:"IBM Plex Sans",sans-serif;font-size:13px;color:#f1f3f5;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;resize:vertical;line-height:1.6;box-sizing:border-box;transition:border-color 140ms,background 140ms;}
-.brief-modal-input:focus{outline:none;border-color:rgba(90,176,255,0.4);background:rgba(90,176,255,0.03);}
-.brief-modal-input::placeholder{color:#4a5260;font-style:italic;}
-.brief-modal-footer{padding:16px 24px 20px;border-top:1px solid rgba(255,255,255,0.06);background:rgba(90,176,255,0.025);border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
-.brief-modal-footer-note{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;color:#8c94a2;line-height:1.5;}
-.brief-modal-submit{width:100%;padding:13px 20px;border-radius:12px;border:1px solid rgba(90,176,255,0.32);background:rgba(90,176,255,0.08);color:#5ab0ff;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:background 140ms,border-color 140ms;}
-.brief-modal-submit:hover{background:rgba(90,176,255,0.14);border-color:rgba(90,176,255,0.5);}
-@media(max-width:600px){.brief-modal-overlay{padding:12px;align-items:flex-end;}.brief-modal{border-radius:20px 20px 16px 16px;max-height:92vh;}
-  }</style>
+  let lastFocus=null;
+  const pageLabel=()=>document.title.replace(/\s*[—|-]\s*Jamie Forrester.*$/i,'').trim()||'Website';
+  function resetView(overlay){
+    if(overlay===contactOverlay){
+      document.getElementById('jfContactFormWrap').style.display='block';
+      document.getElementById('jfContactSuccess').classList.remove('is-visible');
+      document.getElementById('jfContactStatus').textContent='';
+    }else{
+      document.getElementById('jfBriefFormWrap').style.display='block';
+      document.getElementById('jfBriefSuccess').classList.remove('is-visible');
+      document.getElementById('jfBriefStatus').textContent='';
+    }
+  }
+  function openOverlay(overlay){
+    lastFocus=document.activeElement;
+    resetView(overlay);
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    setTimeout(()=>{const field=overlay.querySelector('input:not([type=hidden]):not([type=checkbox]),textarea');if(field)field.focus();},30);
+  }
+  function closeOverlay(overlay){
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastFocus&&lastFocus.focus) lastFocus.focus();
+  }
+  function openContact(subject,message){
+    document.getElementById('jfContactSubject').value=subject||('Website enquiry — '+pageLabel());
+    document.getElementById('jfContactMessage').value=message||'';
+    document.getElementById('jfContactSource').value=location.pathname||pageLabel();
+    openOverlay(contactOverlay);
+  }
+  function prefillBriefFromScan(){
+    const map=[['sq1','jfBrief1'],['sq2','jfBrief2'],['sq3','jfBrief3'],['sq4','jfBrief4']];
+    map.forEach(([source,target])=>{
+      const s=document.getElementById(source), t=document.getElementById(target);
+      if(s&&t&&s.value.trim()) t.value=s.value.trim();
+    });
+  }
+  function openBrief(){
+    document.getElementById('jfBriefSource').value=location.pathname||pageLabel();
+    prefillBriefFromScan();
+    openOverlay(briefOverlay);
+  }
+  window.JFContact={open:openContact,openBrief:openBrief};
 
-<script>
-var fy = document.getElementById('footer-year'); if (fy) fy.textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#contact');});
+  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#five-line-brief');});
 
-// Email link wiring
-document.addEventListener('DOMContentLoaded', function(){
-  var e = 'hello' + '@' + 'jamieforrester.com';
-  document.querySelectorAll('[data-mailto]').forEach(function(el){
-    var txt = el.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt !== 'EMAIL FIVE-LINE BRIEF' && txt !== 'REQUEST DIAGNOSTIC' && txt !== 'REQUEST REDESIGN') {
-      el.setAttribute('href', 'mailto:' + e);
+  document.addEventListener('click',function(ev){
+    const close=ev.target.closest('[data-jf-close]');
+    if(close){ev.preventDefault();const overlay=close.closest('.jf-contact-overlay');if(overlay)closeOverlay(overlay);return;}
+    if(ev.target===contactOverlay){closeOverlay(contactOverlay);return;}
+    if(ev.target===briefOverlay){closeOverlay(briefOverlay);return;}
+    const brief=ev.target.closest('[data-jf-brief]');
+    if(brief){ev.preventDefault();openBrief();return;}
+    const contact=ev.target.closest('[data-jf-contact]');
+    if(contact){ev.preventDefault();openContact(contact.getAttribute('data-jf-subject')||'',contact.getAttribute('data-jf-message')||'');return;}
+  });
+  document.addEventListener('keydown',function(ev){
+    if(ev.key==='Escape'){
+      if(contactOverlay.classList.contains('is-open'))closeOverlay(contactOverlay);
+      if(briefOverlay.classList.contains('is-open'))closeOverlay(briefOverlay);
     }
   });
-});
 
-// Sticky nav
-(function(){
-  var nav = document.querySelector('.site-nav');
-  var hdr = document.querySelector('header');
-  if (!nav || !hdr) return;
-  window.addEventListener('scroll', function(){
-    if (hdr.getBoundingClientRect().bottom <= 0) { nav.classList.add('nav-visible'); }
-    else { nav.classList.remove('nav-visible'); }
-  }, {passive:true});
-})();
-
-// Five-line brief modal
-(function(){
-  var overlay = document.getElementById('briefModal');
-  if (!overlay) return;
-  var closeBtn = document.getElementById('briefModalClose');
-  var submitBtn = document.getElementById('briefModalSubmit');
-  function openModal() {
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    setTimeout(function(){ document.getElementById('brief-context').focus(); }, 50);
+  async function submit(form,statusEl,wrap,success){
+    const button=form.querySelector('button[type=submit]');
+    statusEl.className='jf-contact-status';
+    statusEl.textContent='Sending…';
+    button.disabled=true;
+    try{
+      const response=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      const json=await response.json();
+      if(!response.ok||!json.success) throw new Error(json.message||'Submission failed');
+      form.reset();
+      wrap.style.display='none';
+      success.classList.add('is-visible');
+      statusEl.textContent='';
+    }catch(err){
+      statusEl.classList.add('is-error');
+      statusEl.textContent='Could not send. Please copy hello@jamieforrester.com and email directly.';
+    }finally{button.disabled=false;}
   }
-  function closeModal() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  function submitBrief() {
-    var ctx = document.getElementById('brief-context').value.trim();
-    var p1 = document.getElementById('brief-1').value.trim();
-    var p2 = document.getElementById('brief-2').value.trim();
-    var p3 = document.getElementById('brief-3').value.trim();
-    var p4 = document.getElementById('brief-4').value.trim();
-    var p5 = document.getElementById('brief-5').value.trim();
-    var b = '';
-    if (ctx) b += 'System / context:\n' + ctx + '\n\n';
-    b += '01 - What keeps going wrong?:\n' + (p1||'-') + '\n\n';
-    b += '02 - What is it costing?:\n' + (p2||'-') + '\n\n';
-    b += '03 - Where does it show up?:\n' + (p3||'-') + '\n\n';
-    b += '04 - What has already been tried?:\n' + (p4||'-') + '\n\n';
-    b += '05 - What cannot change?:\n' + (p5||'-');
-    var e = 'hello' + '@' + 'jamieforrester.com';
-    window.location.href = 'mailto:' + e + '?subject=Five-Line%20Brief&body=' + encodeURIComponent(b);
-    closeModal();
-  }
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-  submitBtn.addEventListener('click', submitBrief);
-  document.querySelectorAll('a[data-mailto]').forEach(function(btn){
-    var txt = btn.textContent.replace(/\s+/g,' ').trim().toUpperCase();
-    if (txt === 'EMAIL FIVE-LINE BRIEF' || txt.indexOf('REQUEST DIAGNOSTIC') !== -1 || txt.indexOf('REQUEST REDESIGN') !== -1) {
-      btn.removeAttribute('href');
-      btn.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); });
-    }
-  });
-  var briefBtn = document.getElementById('email-brief-cta');
-  if (briefBtn) briefBtn.setAttribute('href', 'mailto:' + ('hello'+'@'+'jamieforrester.com') + '?subject=Structural+Diagnosis+Inquiry');
-})();
-</script>
-</body>
+  contactForm.addEventListener('submit',ev=>{ev.preventDefault();submit(contactForm,document.getElementById('jfContactStatus'),document.getElementById('jfContactFormWrap'),document.getElementById('jfContactSuccess'));});
+  briefForm.addEventListener('submit',ev=>{ev.preventDefault();submit(briefForm,document.getElementById('jfBriefStatus'),document.getElementById('jfBriefFormWrap'),document.getElementById('jfBriefSuccess'));});
+})();</script></body>
 </html>
