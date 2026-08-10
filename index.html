@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Jamie Forrester — Independent Systems Architect</title>
-<meta content="Structural diagnosis for organisations whose correction loops cannot reach the governing break. Fixed-scope artifacts. Demonstrated across Outlier AI, NHS Primary Care, and Patreon / Apple IAP." name="description"/>
+<meta content="Structural diagnosis for organisations whose correction loops cannot reach the governing break. Fixed-scope artifacts. Demonstrated across Outlier AI, NHS Primary Care, and Patreon / Apple IAP." name="description"/><link href="https://www.jamieforrester.com/" rel="canonical"/>
 <link href="/favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -446,7 +446,7 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     /* ── Footer ── */
     .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);}
     .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-    .site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+    .site-footer__top{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr);gap:34px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
     .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
     .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
     .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
@@ -474,26 +474,27 @@ h1 { margin: 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); font-weight: 70
     @media (max-width:640px) { .book-announce-grid { grid-template-columns:1fr; } }
   </style>
 <style id="canonical-footer-style">
-/* Canonical site footer — synchronized to homepage baseline */
+/* Canonical site footer — synchronized across all pages */
 .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
 .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr);gap:34px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);align-items:start;}
 .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
 .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
 .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
 .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
 .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0;background:none;transition:color 140ms,border-color 140ms;}
 .site-footer__list a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);background:none;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;white-space:nowrap;overflow-wrap:normal;word-break:normal;}
 .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
 .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
-@media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+@media(max-width:980px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}.site-footer__email-address{white-space:normal;overflow-wrap:anywhere;}}
 @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;}.site-footer__brand{grid-column:auto;}}
 </style>
 <style data-jf-contact-style="1">
 /* Canonical on-site contact system */
 .jf-header-email{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--text-faint);user-select:text;}
 .jf-header-email strong{color:var(--text-dim);font-weight:500;}
-.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;overflow-wrap:anywhere;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;}
 .jf-contact-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;}
 .jf-contact-overlay.is-open{display:flex;}
 .jf-contact-modal{width:min(620px,100%);max-height:92vh;overflow:hidden;background:#101114;border:1px solid rgba(90,176,255,.25);border-radius:20px;box-shadow:0 32px 90px rgba(0,0,0,.68);display:flex;flex-direction:column;}
@@ -626,7 +627,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 .btn-primary:hover{background:rgba(90,176,255,.14);border-color:rgba(90,176,255,.5)}
 .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:64px}
 .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px}
-.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr);gap:34px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
 .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600}
 .site-footer__eyebrow{margin-bottom:10px;font-size:11px}
 .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint)}
@@ -648,8 +649,54 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
   .top-cta{width:100%}.top-cta .btn{flex:1 1 auto;min-width:max-content}
 }
 </style>
-</head>
-<body>
+<style>
+/* Canonical Proofs dropdown */
+.jf-proof-menu{position:relative;display:inline-flex;align-items:center;}
+.jf-proof-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.jf-proof-menu summary::-webkit-details-marker{display:none;}
+.jf-proof-menu summary::after{content:"⌄";font-size:.82em;opacity:.65;transform:translateY(-1px);}
+.jf-proof-menu__panel{display:none;position:absolute;top:calc(100% + 9px);left:50%;transform:translateX(-50%);min-width:220px;padding:8px;background:#0d1017;border:1px solid rgba(255,255,255,.11);border-radius:12px;box-shadow:0 18px 45px rgba(0,0,0,.45);z-index:1000;}
+.jf-proof-menu:hover .jf-proof-menu__panel,.jf-proof-menu:focus-within .jf-proof-menu__panel,.jf-proof-menu[open] .jf-proof-menu__panel{display:block;}
+.jf-proof-menu__panel a{display:block!important;padding:9px 11px!important;border-radius:7px!important;border:0!important;text-decoration:none!important;font-family:'IBM Plex Mono',monospace!important;font-size:10px!important;letter-spacing:.04em!important;text-transform:none!important;color:var(--text-dim)!important;white-space:nowrap!important;}
+.jf-proof-menu__panel a:hover,.jf-proof-menu__panel a:focus{background:rgba(90,176,255,.09)!important;color:#eef4ff!important;}
+.jf-proof-menu__panel a:first-child{color:var(--cta-blue)!important;border-bottom:1px solid rgba(255,255,255,.06)!important;margin-bottom:4px!important;border-radius:7px 7px 3px 3px!important;}
+.site-nav-links .jf-proof-menu summary{font:inherit;color:inherit;padding:0;}
+.top-cta .jf-proof-menu summary{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);background:rgba(255,255,255,.02);}
+.top-cta .jf-proof-menu.is-current summary{border-color:rgba(90,176,255,.35);color:var(--cta-blue);background:rgba(90,176,255,.08);}
+.site-nav-links .jf-proof-menu.is-current summary{color:var(--cta-blue);}
+@media(max-width:760px){
+  .jf-proof-menu__panel{left:0;transform:none;min-width:210px;top:calc(100% + 6px);}
+  .top-cta .jf-proof-menu__panel{left:auto;right:0;}
+}
+/* Proof hub */
+.proof-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 28px;}
+.proof-hub-card{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.018);}
+.proof-hub-card__index{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);margin-bottom:10px;}
+.proof-hub-card h3{font-size:22px;line-height:1.15;margin:0 0 7px;color:#f1f4f8;}
+.proof-hub-card__class{font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.5;color:var(--text-faint);margin-bottom:15px;}
+.proof-hub-card__diag{font-size:14px;line-height:1.68;color:var(--text-dim);margin:0 0 14px;}
+.proof-hub-card__meta{font-size:12px;line-height:1.55;color:var(--text-faint);margin:0 0 18px;}
+.proof-hub-card .btn{margin-top:auto;align-self:flex-start;}
+.proof-context{margin:0 0 22px;padding:16px 18px;border:1px solid rgba(90,176,255,.12);border-radius:12px;background:rgba(90,176,255,.025);font-size:13px;line-height:1.65;color:var(--text-dim);}
+.proof-breadcrumb{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.proof-breadcrumb a{color:var(--cta-blue);text-decoration:none;}
+.related-proofs{margin:28px 0 10px;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.015);}
+.related-proofs h2{font-size:18px;margin:0 0 14px;}
+.related-proofs__links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.related-proofs__links a{display:block;padding:13px 14px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-decoration:none;color:var(--text-dim);font-size:13px;}
+.related-proofs__links a:hover{border-color:rgba(90,176,255,.25);color:#eef4ff;}
+@media(max-width:800px){.proof-hub-grid{grid-template-columns:1fr}.related-proofs__links{grid-template-columns:1fr}.proof-hub-card .btn{width:100%;justify-content:center;}}
+</style><style>
+/* Proof dropdown trigger refinement */
+.jf-proof-menu__trigger{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;text-decoration:none!important;}
+.jf-proof-menu__trigger::after{content:"⌄";font-size:.82em;opacity:.65;transform:translateY(-1px);}
+.site-nav-links .jf-proof-menu__trigger{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);border-bottom:none;padding:6px 4px;}
+.site-nav-links .jf-proof-menu.is-current .jf-proof-menu__trigger{color:var(--cta-blue);}
+.top-cta .jf-proof-menu__trigger{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);background:rgba(255,255,255,.02);}
+.top-cta .jf-proof-menu.is-current .jf-proof-menu__trigger{border-color:rgba(90,176,255,.35);color:var(--cta-blue);background:rgba(90,176,255,.08);}
+@media(max-width:760px){.jf-proof-menu__panel{display:none!important}.jf-proof-menu__trigger::after{display:none}.site-nav-links .jf-proof-menu__trigger{padding:6px 7px;font-size:9px}.top-cta .jf-proof-menu__trigger{font-size:9px}}
+</style></head>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <nav aria-label="Site navigation" class="site-nav" id="site-nav">
 <div class="site-nav-inner">
@@ -657,7 +704,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
 <span class="site-nav-name">Jamie Forrester</span>
 </a>
-<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><a href="./examples.html">Proofs</a><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples/outlier.html">Outlier AI</a><a href="./examples/nhs.html">NHS Primary Care</a><a href="./examples/patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Website enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
 </nav>
 <div class="wrap">
@@ -670,7 +717,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="h-pill">Structural diagnosis and redesign</div><div class="jf-header-email">Email: <strong>hello@jamieforrester.com</strong></div>
 </div>
 </div>
-<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><a class="btn" href="./examples.html">PROOFS</a><a class="btn" href="./research.html">RESEARCH</a><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">CONTACT</a></div>
+<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">PROOFS</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples/outlier.html">Outlier AI</a><a href="./examples/nhs.html">NHS Primary Care</a><a href="./examples/patreon.html">Patreon / Apple IAP</a></div></div><a class="btn" href="./research.html">RESEARCH</a><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Website enquiry" href="#jfContactOverlay">CONTACT</a></div>
 </header>
 <main id="main" role="main">
 <!-- ═══════════════════════════════════════════
@@ -686,8 +733,8 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p class="hero-sub" style="margin-bottom:24px; font-size:clamp(0.82rem,0.78rem+0.12vw,0.92rem);">I write <strong>fixed-scope structural artifacts</strong> for <strong>founders, operators, and decision owners</strong> who need the architecture exposed or a recurring failure structurally diagnosed. <strong>Three paths from £2,000.</strong> Diagnosis first. Redesign only from a locked diagnostic frame. Start with <strong>contact</strong> or the <strong>five-line brief</strong>.</p>
 <p style="margin:0 0 20px; font-size:clamp(1rem,0.9rem+0.3vw,1.15rem); color:var(--text-dim); line-height:1.65;"><strong style="color:#fff;">The same failure costs more the second time than the first.</strong> At some point the structure has to be named.</p>
 <div style="display:flex; gap:10px; flex-wrap:wrap;">
-<a class="btn btn-primary btn-large" data-jf-contact="1" data-jf-subject="Website enquiry — Index" href="#contact">CONTACT</a>
-<a class="btn btn-large" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-primary btn-large" data-jf-contact="1" data-jf-subject="Website enquiry — Index" href="#jfContactOverlay">CONTACT</a>
+<a class="btn btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
 </div>
 </div>
 <!-- Profile photo -->
@@ -737,11 +784,11 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
 <div>
 <h2 style="margin:0 0 10px; font-size:clamp(1.2rem,1.05rem+0.5vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Nine failure classes. 54 subtypes. Every recurring structural failure fits somewhere.</h2>
-<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.7;">When you send the five-line brief, it is run against the Diagnostic Taxonomy — a classification system built across 11 papers and refined through three public proof sets. The taxonomy identifies which class of failure is producing the recurring break, and which subtype is the specific mechanism. That classification governs the engagement path, the diagnostic frame, and the correction sequence.</p>
+<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.7;">When you send the five-line brief, it is run against the Diagnostic Taxonomy — a classification system developed alongside 10 published papers and refined through three public proof sets. The taxonomy identifies which class of failure is producing the recurring break, and which subtype is the specific mechanism. That classification governs the engagement path, the diagnostic frame, and the correction sequence.</p>
 <p style="margin:0 0 20px; font-size:13.5px; color:var(--text-faint); line-height:1.7;">Systems do not fail randomly. They fail in recognisable structural patterns — across sectors, scales, and domains. The taxonomy makes that pattern visible before any diagnosis begins.</p>
 <div style="display:flex; gap:10px; flex-wrap:wrap;">
-<a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact">REQUEST FULL TAXONOMY →</a>
-<a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em; align-self:center;">9 classes · 54 subtypes →</a>
+<a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay">REQUEST FULL TAXONOMY →</a>
+<a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em; align-self:center;">9 classes · 54 subtypes →</a>
 </div>
 </div>
 <div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
@@ -805,7 +852,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p style="margin:0; font-size:11.5px; color:var(--text-faint); line-height:1.6;">Stops at architecture extraction — not a full failure diagnosis or redesign.</p>
 </div>
 <div style="padding:14px 20px; border-top:1px solid rgba(90,176,255,0.1);">
-<a class="btn btn-full" data-jf-contact="1" data-jf-subject="Structural Lens Brief enquiry" href="#contact" style="display:flex; justify-content:center; font-size:10px; width:100%; box-sizing:border-box; color:var(--cta-blue); border-color:rgba(90,176,255,0.32); background:rgba(90,176,255,0.08);">REQUEST STRUCTURAL LENS</a>
+<a class="btn btn-full" data-jf-contact="1" data-jf-subject="Structural Lens Brief enquiry" href="#jfContactOverlay" style="display:flex; justify-content:center; font-size:10px; width:100%; box-sizing:border-box; color:var(--cta-blue); border-color:rgba(90,176,255,0.32); background:rgba(90,176,255,0.08);">REQUEST STRUCTURAL LENS</a>
 </div>
 </div>
 <div style="border:1px solid rgba(90,176,255,0.22); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(90,176,255,0.055) 0%,rgba(90,176,255,0.015) 50%,transparent 100%); position:relative; display:flex; flex-direction:column;">
@@ -829,7 +876,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </ul>
 </div>
 <div style="padding:14px 20px; border-top:1px solid rgba(90,176,255,0.1);">
-<a class="btn btn-primary btn-full" data-jf-brief="1" href="#five-line-brief" style="display:flex; justify-content:center; font-size:10px; width:100%; box-sizing:border-box;"> SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-primary btn-full" data-jf-brief="1" href="#jfBriefOverlay" style="display:flex; justify-content:center; font-size:10px; width:100%; box-sizing:border-box;"> SEND FIVE-LINE BRIEF</a>
 </div>
 </div>
 <div style="border:1px solid rgba(80,200,120,0.3); border-radius:16px; overflow:hidden; background:linear-gradient(160deg,rgba(80,200,120,0.07) 0%,rgba(80,200,120,0.025) 50%,transparent 100%); position:relative; box-shadow:0 0 0 1px rgba(80,200,120,0.06); display:flex; flex-direction:column;">
@@ -853,7 +900,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </ul>
 </div>
 <div style="padding:14px 20px; border-top:1px solid rgba(80,200,120,0.12);">
-<a class="btn btn-full" data-jf-brief="1" href="#five-line-brief" style="display:flex; justify-content:center; font-size:10px; color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08); width:100%; box-sizing:border-box;"> SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-full" data-jf-brief="1" href="#jfBriefOverlay" style="display:flex; justify-content:center; font-size:10px; color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08); width:100%; box-sizing:border-box;"> SEND FIVE-LINE BRIEF</a>
 </div>
 </div>
 </div>
@@ -922,36 +969,36 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 <div class="trilogy-grid jf-mobile-stack" style="margin-bottom:16px;">
 <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
-<a aria-label="Outlier proof set" href="./examples.html#outlier" style="display:block; border-bottom:none; padding:0;">
+<a aria-label="Outlier proof set" href="./examples/outlier.html" style="display:block; border-bottom:none; padding:0;">
 <img alt="Outlier proof set" src="./outlier1-image.png" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;"/>
 </a>
 <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">01 // Outlier AI</div>
 <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Recruited as an expertise market. Operated as a reliability pipeline. The worker becomes a node of hidden friction.</div>
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation · Diagnostic · Redesign Summary<br/><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Full Redesign Artifact</div>
-<a class="link-blue" href="./examples.html#outlier" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
+<a class="link-blue" href="./examples/outlier.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
 </div>
 </div>
 <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
-<a aria-label="NHS proof set" href="./examples.html#nhs" style="display:block; border-bottom:none; padding:0;">
+<a aria-label="NHS proof set" href="./examples/nhs.html" style="display:block; border-bottom:none; padding:0;">
 <img alt="NHS proof set" src="./nhs1-image.png" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;"/>
 </a>
 <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">02 // NHS Primary Care</div>
 <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Record-rich system. Continuity-poor reality. The patient becomes the carrier of memory.</div>
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation · Diagnostic · Redesign Summary<br/><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Full Redesign Artifact</div>
-<a class="link-blue" href="./examples.html#nhs" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
+<a class="link-blue" href="./examples/nhs.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
 </div>
 </div>
 <div style="border:1px solid rgba(90,176,255,0.2); border-radius:var(--radius-xl); overflow:hidden; display:flex; flex-direction:column;">
-<a aria-label="Patreon proof set" href="./examples.html#patreon" style="display:block; border-bottom:none; padding:0;">
+<a aria-label="Patreon proof set" href="./examples/patreon.html" style="display:block; border-bottom:none; padding:0;">
 <img alt="Patreon proof set" src="./patreon1-image.png" style="display:block; width:100%; height:140px; object-fit:cover; object-position:top;"/>
 </a>
 <div style="padding:16px 18px; flex:1; display:flex; flex-direction:column; gap:8px; border:1px solid rgba(90,176,255,0.2); border-top:none; border-radius:0 0 var(--radius-xl) var(--radius-xl);">
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue);">03 // Patreon / Apple IAP</div>
 <div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.3;">Patronage primitive cannot be expressed inside Apple's IAP grammar. Two mutually exclusive exits.</div>
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--text-faint); line-height:1.7;"><span style="color:rgba(90,176,255,0.5);">Public:</span> Translation · Diagnostic · Redesign Summary<br/><span style="color:rgba(80,200,120,0.55);">Restricted:</span> Two Full Redesign Artifacts — Path A · Path B</div>
-<a class="link-blue" href="./examples.html#patreon" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
+<a class="link-blue" href="./examples/patreon.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-top:auto;">View proof set →</a>
 </div>
 </div>
 </div>
@@ -995,60 +1042,66 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 <div class="callout"><p><strong>If the work is not the right fit, I will say so.</strong></p></div>
 <div class="actions" style="margin-top:20px;">
-<a class="btn btn-primary btn-large" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-primary btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
 </div>
 </section>
 <div class="section-divider"><span class="section-divider-label">the research behind the practice</span></div>
 <section aria-label="Research" class="card" style="margin-bottom:56px;">
 <div class="label-row">
-<span class="label">// Research spine</span>
-<span class="label-note">11-paper research spine · 54-subtype diagnostic taxonomy</span>
+<span class="label">// Diagnostic Lens Trilogy</span>
+<span class="label-note">3 papers · one closed diagnostic loop</span>
 </div>
-<p class="lead">The structural laws the method applies. An eleven-paper research spine — from the Four-Function Law through to the complete Diagnostic Taxonomy.</p>
-<div class="jf-mobile-stack" style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
-<!-- Paper 02 card -->
-<div style="padding:20px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.018); overflow:auto; min-width:0;">
-<a aria-label="Paper 02 cover" href="./research.html" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-<img alt="Paper 02 cover" src="./paper2-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+<p class="lead">The clearest entry into the research: three papers that move from mismatch, to collapse, to the missing redesign layer.</p>
+<div class="jf-mobile-stack" style="margin-top:20px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:stretch;">
+<!-- Paper 01 -->
+<div style="padding:20px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.018); min-width:0; display:flex; flex-direction:column;">
+<a aria-label="Open The Expertise Illusion in AI Task Marketplaces on SSRN" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" style="border-bottom:none; display:block; margin-bottom:16px;" target="_blank">
+<img alt="Cover: The Expertise Illusion in AI Task Marketplaces" src="./paper1-image.png" style="width:100%; max-width:130px; aspect-ratio:0.714; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
 </a>
-<div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-<span class="mini-kicker" style="margin:0;">Paper 02 of 59</span>
+<span class="mini-kicker" style="margin:0 0 10px;">Published paper 01</span>
+<h3 style="margin:0 0 8px; font-size:clamp(1.05rem,0.95rem+0.25vw,1.32rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">The Expertise Illusion in AI Task Marketplaces</h3>
+<p style="margin:0 0 12px; font-size:12.5px; color:var(--text-faint); font-style:italic; line-height:1.6;">Diagnostic instrument: Interface-legitimacy mismatch</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">How reliability pipelines borrow the language of expertise and create a structural mismatch between signalled capability and consumed capability.</p>
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" style="font-size:13px; margin-top:auto;" target="_blank">View paper →</a>
 </div>
-<h3 style="margin:0 0 6px; font-size:clamp(1.1rem,0.95rem+0.4vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">The Four-Function Law</h3>
-<p style="margin:0 0 12px; font-size:13px; color:var(--text-faint); font-style:italic;">How institutions fail under scale when four functions remain fused</p>
-<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Institutions fail under scale when sensing, interpretation, authority, and memory remain fused in the same node at the point of consequence. The law that governs structural collapse at scale.</p>
-<div style="clear:both;"></div>
-<a class="link-blue" href="./research.html" style="font-size:13px;">All 11 papers →</a>
-</div>
-<!-- Paper 09 card -->
-<div style="padding:20px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.018); overflow:auto; min-width:0;">
-<a aria-label="Paper 09 cover" href="./research.html" style="float:left; margin:0 20px 8px 0; border-bottom:none; display:block;">
-<img alt="Paper 09 cover" src="./paper9-image.png" style="width:110px; height:154px; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+<!-- Paper 02 -->
+<div style="padding:20px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.018); min-width:0; display:flex; flex-direction:column;">
+<a aria-label="Open The Four-Function Law of Scalable Institutions on SSRN" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" style="border-bottom:none; display:block; margin-bottom:16px;" target="_blank">
+<img alt="Cover: The Four-Function Law of Scalable Institutions" src="./paper2-image.png" style="width:100%; max-width:130px; aspect-ratio:0.714; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
 </a>
-<div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-<span class="mini-kicker" style="margin:0;">Paper 09 of 59</span>
+<span class="mini-kicker" style="margin:0 0 10px;">Published paper 02</span>
+<h3 style="margin:0 0 8px; font-size:clamp(1.05rem,0.95rem+0.25vw,1.32rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">The Four-Function Law of Scalable Institutions</h3>
+<p style="margin:0 0 12px; font-size:12.5px; color:var(--text-faint); font-style:italic; line-height:1.6;">Diagnostic instrument: Four-Function Law — Sensing · Interpretation · Authority · Memory</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Establishes what happens when sensing, interpretation, authority, and memory remain fused at the same human node under ambiguity and consequence.</p>
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" style="font-size:13px; margin-top:auto;" target="_blank">View paper →</a>
 </div>
-<h3 style="margin:0 0 6px; font-size:clamp(1.1rem,0.95rem+0.4vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">The Kernel Reduction of Institutional Systems</h3>
-<p style="margin:0 0 12px; font-size:13px; color:var(--text-faint); font-style:italic;">Scalable human systems reduce to finite coordination kernels</p>
-<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Names seven candidate kernels derived from Papers 1–8. Shows that the failures diagnosed across the prior series are all expressions of kernel misplacement. Provides the Kernel Reduction Test as the diagnostic instrument.</p>
-<div style="clear:both;"></div>
-<a class="link-blue" href="./research.html" style="font-size:13px;">All 11 papers →</a>
+<!-- Paper 03 -->
+<div style="padding:20px; border:1px solid rgba(255,255,255,0.07); border-radius:14px; background:rgba(255,255,255,0.018); min-width:0; display:flex; flex-direction:column;">
+<a aria-label="Open Why Systems Can't Fix Themselves: The Missing Redesign Layer on SSRN" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" style="border-bottom:none; display:block; margin-bottom:16px;" target="_blank">
+<img alt="Cover: Why Systems Can't Fix Themselves: The Missing Redesign Layer" src="./paper3-image.png" style="width:100%; max-width:130px; aspect-ratio:0.714; object-fit:cover; object-position:top; border-radius:10px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 8px 24px rgba(0,0,0,0.35); display:block;"/>
+</a>
+<span class="mini-kicker" style="margin:0 0 10px;">Published paper 03</span>
+<h3 style="margin:0 0 8px; font-size:clamp(1.05rem,0.95rem+0.25vw,1.32rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Why Systems Can't Fix Themselves: The Missing Redesign Layer</h3>
+<p style="margin:0 0 12px; font-size:12.5px; color:var(--text-faint); font-style:italic; line-height:1.6;">Diagnostic instrument: The redesign layer — the upstream layer absent by default in most self-correcting systems</p>
+<p style="font-size:13px; color:var(--text-dim); line-height:1.72; margin:0 0 16px;">Introduces the Redesign Law and correction collapse, showing why execution and diagnosis cannot reliably produce redesign from inside the same correction loops.</p>
+<a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" style="font-size:13px; margin-top:auto;" target="_blank">View paper →</a>
 </div>
-</div> <p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">Papers 1–10 are public and free to read. Paper 11 is the complete Diagnostic Taxonomy and is available on request. Together they define the structural laws the method applies — not the client artifacts themselves.</p>
-<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
+</div>
+<p style="margin:20px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">Ten papers are published and free to read. The complete Diagnostic Taxonomy is available on request. Together they sit inside a 59-paper research programme that is already mapped.</p>
+<div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:18px;">
+<a class="btn" href="./trilogy.html">VIEW THE TRILOGY →</a>
 <a class="btn" href="./research.html">VIEW ALL RESEARCH →</a>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">books in development</span></div>
-<!-- Book announcement strip — two cards -->
-<div class="book-announce-grid jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:40px;">
+<div class="section-divider"><span class="section-divider-label">the book sequence</span></div>
+<!-- Book sequence preview — three cards -->
+<div class="book-announce-grid jf-mobile-stack" style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-bottom:20px;">
 <!-- Book 1 -->
 <div style="padding:20px 22px; border:1px solid rgba(90,176,255,0.22); border-radius:14px; background:rgba(255,255,255,0.04); display:flex; align-items:flex-start; gap:16px;">
 <img alt="Seeing Systems cover" src="./book1-image.png" style="width:56px; height:78px; object-fit:cover; object-position:top; border-radius:5px; border:1px solid rgba(255,255,255,0.15); box-shadow:0 6px 20px rgba(0,0,0,0.5); flex-shrink:0;"/>
 <div>
-<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(90,176,255,0.9); background:rgba(90,176,255,0.12); border:1px solid rgba(90,176,255,0.28); padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:8px;">New · At proof stage</span>
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(90,176,255,0.9); background:rgba(90,176,255,0.12); border:1px solid rgba(90,176,255,0.28); padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:8px;">At proof stage</span>
 <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:2px;">Seeing Systems</div>
-<div style="font-size:12px; color:var(--text-faint); font-style:italic; margin-bottom:8px;">A Field Guide to Structural Literacy</div>
 <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Before you can think in systems, you have to be able to see them.</div>
 <a class="link-blue" href="./books.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; display:inline-block; margin-top:10px;">View book →</a>
 </div>
@@ -1057,26 +1110,42 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div style="padding:20px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.04); display:flex; align-items:flex-start; gap:16px;">
 <img alt="The 15-Level Abstraction Ladder cover" src="./book2-image.png" style="width:56px; height:78px; object-fit:cover; object-position:top; border-radius:5px; border:1px solid rgba(255,255,255,0.15); box-shadow:0 6px 20px rgba(0,0,0,0.5); flex-shrink:0;"/>
 <div>
-<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:8px;">Drafted</span>
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:8px;">First draft complete</span>
 <div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:2px;">The 15-Level Abstraction Ladder</div>
-<div style="font-size:12px; color:var(--text-faint); font-style:italic; margin-bottom:8px;">How to move up and down levels of thought with confidence</div>
 <div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">Most disagreement is not about facts. It is about altitude.</div>
 <a class="link-blue" href="./books.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; display:inline-block; margin-top:10px;">View book →</a>
 </div>
 </div>
+<!-- Book 3 -->
+<div style="padding:20px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.04); display:flex; align-items:flex-start; gap:16px;">
+<img alt="The System Founder Framework cover" src="./book3-image.png" style="width:56px; height:78px; object-fit:cover; object-position:top; border-radius:5px; border:1px solid rgba(255,255,255,0.15); box-shadow:0 6px 20px rgba(0,0,0,0.5); flex-shrink:0;"/>
+<div>
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:3px 9px; border-radius:4px; display:inline-block; margin-bottom:8px;">In development</span>
+<div style="font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:2px;">The System Founder Framework</div>
+<div style="font-size:12.5px; color:var(--text-dim); line-height:1.6;">How one person with the right structural grammar and AI capability can build operating-system-level companies.</div>
+<a class="link-blue" href="./books.html" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; display:inline-block; margin-top:10px;">View book →</a>
+</div>
+</div>
+</div>
+<div style="display:flex; justify-content:center; margin-top:4px;">
+<a class="btn" href="./books.html">VIEW ALL BOOKS →</a>
+</div>
+<div style="margin:20px auto 40px; max-width:760px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); text-align:center;">
+<p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.7;"><strong style="color:var(--text-main); font-weight:600;">For publishers and literary agents:</strong> proposals, sample chapters, manuscripts and sequence materials are available for serious enquiries.</p>
+<a class="link-blue" data-jf-contact="1" data-jf-subject="Publishing and representation enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; display:inline-block; margin-top:10px;">PUBLISHING ENQUIRY →</a>
 </div>
 <div class="section-divider"><span class="section-divider-label">start with the signal</span></div>
 <section aria-label="Final contact" class="card" style="margin-bottom:32px; text-align:center;">
 <p class="lead" style="margin:0 auto 8px; max-width:60ch;"><strong>Send the repeated failure. Not the proposed fix.</strong></p>
 <p style="margin:0 auto 20px; max-width:68ch; font-size:13px; color:var(--text-faint); line-height:1.7;">If you already know what keeps recurring, send the five-line brief. If you simply want to open a conversation first, contact me directly.</p>
 <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-<a class="btn btn-primary btn-large" data-jf-contact="1" data-jf-subject="Website enquiry — Index" href="#contact">CONTACT</a>
-<a class="btn btn-large" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-primary btn-large" data-jf-contact="1" data-jf-subject="Website enquiry — Index" href="#jfContactOverlay">CONTACT</a>
+<a class="btn btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
 </div>
 <p style="margin:14px 0 0; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--text-faint);">If the case is not structural, I will say so.</p>
 </section>
 <div style="display:flex; justify-content:center; padding:32px 0 0;">
-<a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+<a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
 </div>
 </main>
 </div>
@@ -1119,7 +1188,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <ul class="site-footer__list">
 <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" rel="noopener" target="_blank">LinkedIn</a></li>
 <li><a href="https://x.com/StructuralTruth" rel="noopener" target="_blank">X</a></li>
-<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">Contact</a></li></ul>
+<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#jfContactOverlay">Contact</a></li></ul>
 </nav>
 </div>
 <div class="site-footer__bottom">
@@ -1249,8 +1318,8 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
   }
   window.JFContact={open:openContact,openBrief:openBrief};
 
-  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#contact');});
-  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#five-line-brief');});
+  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfContactOverlay');});
+  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfBriefOverlay');});
 
   document.addEventListener('click',function(ev){
     const close=ev.target.closest('[data-jf-close]');

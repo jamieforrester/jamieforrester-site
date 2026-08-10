@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Research — Jamie Forrester</title>
-<meta content="Research, papers, books, frameworks, and live builds by Jamie Forrester." name="description"/>
+<meta content="Research, papers, books, frameworks, and live builds by Jamie Forrester." name="description"/><link href="https://www.jamieforrester.com/research.html" rel="canonical"/>
 <link href="/favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -247,80 +247,6 @@
     .foundation-thumb { width: 68px; height: 92px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.10); object-fit: cover;  display: block; box-shadow: 0 6px 20px rgba(0,0,0,0.3); transition: filter 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease; }
     .foundation-thumb-wrap:hover .foundation-thumb { filter: grayscale(40%); border-color: rgba(90,176,255,0.35); box-shadow: 0 8px 28px rgba(0,0,0,0.38), 0 0 0 2px rgba(90,176,255,0.12); transform: scale(1.03) translateY(-2px); }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    .pipeline-monograph {
-      display: flex; flex-direction: column; gap: 0;
-      border: 1px solid rgba(90,176,255,0.2); border-radius: 16px;
-      background: linear-gradient(160deg, rgba(90,176,255,0.06) 0%, rgba(90,176,255,0.01) 100%);
-      overflow: hidden;
-    }
-    .monograph-header {
-      padding: 16px 20px; border-bottom: 1px solid rgba(90,176,255,0.12);
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      background: rgba(90,176,255,0.03);
-    }
-    .monograph-equation-block {
-      padding: 28px 20px; text-align: center; border-bottom: 1px solid rgba(90,176,255,0.1);
-      background: rgba(90,176,255,0.025);
-    }
-    .monograph-equation {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-      font-weight: 600; color: #fff; letter-spacing: 0.04em;
-      line-height: 1.4; display: block; margin-bottom: 10px;
-    }
-    .monograph-equation-label {
-      font-family: "IBM Plex Mono", monospace; font-size: 10px;
-      letter-spacing: 0.14em; text-transform: uppercase; color: rgba(90,176,255,0.6);
-    }
-    .monograph-mechanics {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-      border-bottom: 1px solid rgba(90,176,255,0.1);
-    }
-    .monograph-mechanic {
-      padding: 14px 16px; border-right: 1px solid rgba(90,176,255,0.08);
-      display: flex; flex-direction: column; gap: 4px;
-    }
-    .monograph-mechanic:last-child { border-right: none; }
-    .monograph-mechanic-letter {
-      font-family: "IBM Plex Mono", monospace; font-size: 16px;
-      font-weight: 700; color: var(--cta-blue); line-height: 1;
-    }
-    .monograph-mechanic-name {
-      font-size: 11px; font-weight: 600; color: #e0e4ea; text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .monograph-mechanic-desc {
-      font-size: 11px; color: var(--text-faint); line-height: 1.5;
-    }
-    .monograph-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-    .pipeline-monograph-kicker {
-      font-family: "IBM Plex Mono", monospace; font-size: 9px;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(90,176,255,0.6);
-    }
-    .pipeline-monograph-title {
-      font-size: 13px; font-weight: 600; color: #c8ced8; line-height: 1.4;
-      letter-spacing: -0.01em;
-    }
-    .pipeline-monograph-sub {
-      font-size: 12px; color: var(--text-faint); line-height: 1.65;
-    }
-
     /* ── Responsive ── */
 
     /* Trilogy */
@@ -406,14 +332,6 @@
       .site-nav-links a { padding: 5px 6px; font-size: 9px; letter-spacing: 0.06em; }
       .site-nav-name { display: none; }
       .extension-paper-block { grid-template-columns: 1fr; }
-      .monograph-mechanics { grid-template-columns: repeat(2, 1fr); }
-      .monograph-mechanic:nth-child(2) { border-right: none; }
-      .monograph-mechanic:nth-child(3) { border-right: 1px solid rgba(90,176,255,0.08); }
-      .extension-cover-img { width: 120px; height: 168px; }
-      .trilogy-grid { grid-template-columns: 1fr; }
-      .book-entry { grid-template-columns: 1fr; }
-      .book-entry-cover-col { flex-direction: row; align-items: center; gap: 14px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 16px 18px; }
-      .trilogy-footer { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -428,26 +346,27 @@
     @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
   </style>
 <style id="canonical-footer-style">
-/* Canonical site footer — synchronized to homepage baseline */
+/* Canonical site footer — synchronized across all pages */
 .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
 .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px;}
-.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr);gap:34px;padding-bottom:36px;border-bottom:1px solid var(--border-soft);align-items:start;}
 .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:0.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600;}
 .site-footer__eyebrow{margin-bottom:10px;font-size:11px;}
 .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint);}
 .site-footer__list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
 .site-footer__list a{font-size:13px;line-height:1.6;color:var(--text-faint);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:0;background:none;transition:color 140ms,border-color 140ms;}
 .site-footer__list a:hover{color:#fff;border-bottom-color:rgba(255,255,255,0.24);background:none;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;white-space:nowrap;overflow-wrap:normal;word-break:normal;}
 .site-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px;}
 .site-footer__bottom p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.6;letter-spacing:0.06em;color:var(--text-faint);}
-@media(max-width:900px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}}
+@media(max-width:980px){.site-footer__top{grid-template-columns:1fr 1fr;gap:32px;}.site-footer__brand{grid-column:1/-1;}.site-footer__email-address{white-space:normal;overflow-wrap:anywhere;}}
 @media(max-width:640px){.site-footer__inner{padding:40px 20px 28px;}.site-footer__top{grid-template-columns:1fr;gap:28px;}.site-footer__brand{grid-column:auto;}}
 </style>
 <style data-jf-contact-style="1">
 /* Canonical on-site contact system */
 .jf-header-email{margin-top:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.04em;color:var(--text-faint);user-select:text;}
 .jf-header-email strong{color:var(--text-dim);font-weight:500;}
-.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;overflow-wrap:anywhere;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.55;color:var(--text-dim);user-select:text;}
 .jf-contact-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;}
 .jf-contact-overlay.is-open{display:flex;}
 .jf-contact-modal{width:min(620px,100%);max-height:92vh;overflow:hidden;background:#101114;border:1px solid rgba(90,176,255,.25);border-radius:20px;box-shadow:0 32px 90px rgba(0,0,0,.68);display:flex;flex-direction:column;}
@@ -583,7 +502,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 .btn-primary:hover{background:rgba(90,176,255,.14);border-color:rgba(90,176,255,.5)}
 .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:64px}
 .site-footer__inner{max-width:1120px;margin:0 auto;padding:48px 24px 32px}
-.site-footer__top{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(0,1fr));gap:40px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
+.site-footer__top{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr);gap:34px;padding-bottom:36px;border-bottom:1px solid var(--border-soft)}
 .site-footer__eyebrow,.site-footer__heading{margin:0 0 18px;font-family:"IBM Plex Mono",monospace;font-size:10px;line-height:1.5;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);font-weight:600}
 .site-footer__eyebrow{margin-bottom:10px;font-size:11px}
 .site-footer__summary{margin:0 0 20px;max-width:34ch;font-size:13px;line-height:1.75;color:var(--text-faint)}
@@ -605,8 +524,72 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
   .top-cta{width:100%}.top-cta .btn{flex:1 1 auto;min-width:max-content}
 }
 </style>
-</head>
-<body>
+<style>
+/* Canonical Proofs dropdown */
+.jf-proof-menu{position:relative;display:inline-flex;align-items:center;}
+.jf-proof-menu summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.jf-proof-menu summary::-webkit-details-marker{display:none;}
+.jf-proof-menu summary::after{content:"⌄";font-size:.82em;opacity:.65;transform:translateY(-1px);}
+.jf-proof-menu__panel{display:none;position:absolute;top:calc(100% + 9px);left:50%;transform:translateX(-50%);min-width:220px;padding:8px;background:#0d1017;border:1px solid rgba(255,255,255,.11);border-radius:12px;box-shadow:0 18px 45px rgba(0,0,0,.45);z-index:1000;}
+.jf-proof-menu:hover .jf-proof-menu__panel,.jf-proof-menu:focus-within .jf-proof-menu__panel,.jf-proof-menu[open] .jf-proof-menu__panel{display:block;}
+.jf-proof-menu__panel a{display:block!important;padding:9px 11px!important;border-radius:7px!important;border:0!important;text-decoration:none!important;font-family:'IBM Plex Mono',monospace!important;font-size:10px!important;letter-spacing:.04em!important;text-transform:none!important;color:var(--text-dim)!important;white-space:nowrap!important;}
+.jf-proof-menu__panel a:hover,.jf-proof-menu__panel a:focus{background:rgba(90,176,255,.09)!important;color:#eef4ff!important;}
+.jf-proof-menu__panel a:first-child{color:var(--cta-blue)!important;border-bottom:1px solid rgba(255,255,255,.06)!important;margin-bottom:4px!important;border-radius:7px 7px 3px 3px!important;}
+.site-nav-links .jf-proof-menu summary{font:inherit;color:inherit;padding:0;}
+.top-cta .jf-proof-menu summary{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);background:rgba(255,255,255,.02);}
+.top-cta .jf-proof-menu.is-current summary{border-color:rgba(90,176,255,.35);color:var(--cta-blue);background:rgba(90,176,255,.08);}
+.site-nav-links .jf-proof-menu.is-current summary{color:var(--cta-blue);}
+@media(max-width:760px){
+  .jf-proof-menu__panel{left:0;transform:none;min-width:210px;top:calc(100% + 6px);}
+  .top-cta .jf-proof-menu__panel{left:auto;right:0;}
+}
+/* Proof hub */
+.proof-hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 28px;}
+.proof-hub-card{display:flex;flex-direction:column;min-width:0;padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.018);}
+.proof-hub-card__index{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--label-blue);margin-bottom:10px;}
+.proof-hub-card h3{font-size:22px;line-height:1.15;margin:0 0 7px;color:#f1f4f8;}
+.proof-hub-card__class{font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.5;color:var(--text-faint);margin-bottom:15px;}
+.proof-hub-card__diag{font-size:14px;line-height:1.68;color:var(--text-dim);margin:0 0 14px;}
+.proof-hub-card__meta{font-size:12px;line-height:1.55;color:var(--text-faint);margin:0 0 18px;}
+.proof-hub-card .btn{margin-top:auto;align-self:flex-start;}
+.proof-context{margin:0 0 22px;padding:16px 18px;border:1px solid rgba(90,176,255,.12);border-radius:12px;background:rgba(90,176,255,.025);font-size:13px;line-height:1.65;color:var(--text-dim);}
+.proof-breadcrumb{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+.proof-breadcrumb a{color:var(--cta-blue);text-decoration:none;}
+.related-proofs{margin:28px 0 10px;padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.015);}
+.related-proofs h2{font-size:18px;margin:0 0 14px;}
+.related-proofs__links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.related-proofs__links a{display:block;padding:13px 14px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-decoration:none;color:var(--text-dim);font-size:13px;}
+.related-proofs__links a:hover{border-color:rgba(90,176,255,.25);color:#eef4ff;}
+@media(max-width:800px){.proof-hub-grid{grid-template-columns:1fr}.related-proofs__links{grid-template-columns:1fr}.proof-hub-card .btn{width:100%;justify-content:center;}}
+</style><style>
+/* Proof dropdown trigger refinement */
+.jf-proof-menu__trigger{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;text-decoration:none!important;}
+.jf-proof-menu__trigger::after{content:"⌄";font-size:.82em;opacity:.65;transform:translateY(-1px);}
+.site-nav-links .jf-proof-menu__trigger{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);border-bottom:none;padding:6px 4px;}
+.site-nav-links .jf-proof-menu.is-current .jf-proof-menu__trigger{color:var(--cta-blue);}
+.top-cta .jf-proof-menu__trigger{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:8px;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);background:rgba(255,255,255,.02);}
+.top-cta .jf-proof-menu.is-current .jf-proof-menu__trigger{border-color:rgba(90,176,255,.35);color:var(--cta-blue);background:rgba(90,176,255,.08);}
+@media(max-width:760px){.jf-proof-menu__panel{display:none!important}.jf-proof-menu__trigger::after{display:none}.site-nav-links .jf-proof-menu__trigger{padding:6px 7px;font-size:9px}.top-cta .jf-proof-menu__trigger{font-size:9px}}
+
+/* Research access-first layout */
+.research-hero{align-items:stretch;}
+.research-glance{display:flex;flex-direction:column;justify-content:center;}
+.research-glance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.research-glance-item{border:1px solid rgba(90,176,255,.18);background:rgba(90,176,255,.035);border-radius:12px;padding:18px;min-width:0;}
+.research-glance-item strong{display:block;font-family:'IBM Plex Mono',monospace;color:var(--cta-blue);font-size:19px;line-height:1.1;margin-bottom:7px;}
+.research-glance-item span{display:block;color:var(--text-dim);font-size:11px;line-height:1.45;}
+.research-access{margin-top:38px;scroll-margin-top:86px;}
+.research-access .reading-routes{margin-top:22px;}
+.research-map-section{margin-top:28px;scroll-margin-top:86px;}
+.research-map-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px;}
+.research-map-grid .map-item{height:100%;}
+@media(max-width:760px){
+  .research-glance-grid,.research-map-grid{grid-template-columns:1fr;}
+  .research-access{margin-top:22px;}
+  .research-glance-item{padding:14px;}
+}
+</style></head>
+<body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <nav aria-label="Site navigation" class="site-nav" id="site-nav">
 <div class="site-nav-inner">
@@ -614,7 +597,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
 <span class="site-nav-name">Jamie Forrester</span>
 </a>
-<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><a href="./examples.html">Proofs</a><a aria-current="page" class="nav-active" href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Research enquiry" href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples/outlier.html">Outlier AI</a><a href="./examples/nhs.html">NHS Primary Care</a><a href="./examples/patreon.html">Patreon / Apple IAP</a></div></div><a aria-current="page" class="nav-active" href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Research enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
 </nav>
 <div class="wrap">
@@ -627,28 +610,55 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="h-pill">Structural diagnosis and redesign</div><div class="jf-header-email">Email: <strong>hello@jamieforrester.com</strong></div>
 </div>
 </div>
-<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><a class="btn" href="./examples.html">PROOFS</a><span aria-current="page" class="btn btn-current">RESEARCH</span><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Research enquiry" href="#contact">CONTACT</a></div>
+<div aria-label="Primary links" class="top-cta"><a class="btn" href="./services.html">SERVICES</a><a class="btn" href="./method.html">METHOD</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">PROOFS</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples/outlier.html">Outlier AI</a><a href="./examples/nhs.html">NHS Primary Care</a><a href="./examples/patreon.html">Patreon / Apple IAP</a></div></div><span aria-current="page" class="btn btn-current">RESEARCH</span><a class="btn" href="./books.html">BOOKS</a><a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Research enquiry" href="#jfContactOverlay">CONTACT</a></div>
 </header>
-<section aria-label="Research overview" class="hero-strip jf-mobile-stack">
+<section aria-label="Research overview" class="hero-strip research-hero jf-mobile-stack">
 <div class="hero-left">
 <span class="eyebrow">Research</span>
 <h2 class="hero-title">The intellectual infrastructure behind the practice.</h2>
-<p class="hero-sub">An eleven-paper research spine defining the structural laws the practice applies. Each paper names one thing precisely — primitive mismatch, function collapse, the missing redesign layer, institution migration, correction sequence, host-constrained failure, kernel reduction, and the complete diagnostic taxonomy. Papers 1–10 are public and free. Paper 11 is the complete classification standard and is available on request. The research is the doctrine. The client work is the application.</p>
-<p class="hero-sub">The papers form four linked layers. First, a <strong>Diagnostic Lens Trilogy</strong> that names interface-legitimacy mismatch, function collapse, and the missing redesign layer. Second, a three-paper <strong>Replacement Arc</strong> on how institutions lose centrality, how substitutes are built, and what makes them admissible. Third, a <strong>Correction and Constraint Layer</strong> — the governing correction sequence and host-imposed primitive compression. Fourth, a <strong>Kernel Layer</strong> that reduces recurring failure to irreducible coordination primitives and turns that reduction into a generative method for new institutional categories. The papers do not replace the client artifacts. They expose the public logic behind the four-artifact sequence: Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact.</p>
-<p class="hero-sub"><strong>The eleven papers can be read as a complete sequence — but each stands alone.</strong> Start with the paper closest to the failure pattern, build problem, or institutional constraint you are currently facing.</p>
-<p class="hero-sub">To see the research applied to real systems, the public proof sets for Outlier AI, NHS Primary Care Continuity, and Patreon / Apple IAP show the laws in use across three structurally different domains. <a class="link-blue" href="./examples.html">View proof sets →</a></p>
-<div style="margin:0 0 22px; padding:16px 20px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03);">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:12px;">The research spine</span>
-<div style="display:flex; flex-direction:column; gap:7px;">
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 1–3</strong>  Diagnose recurring structural failure.</p>
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 4–6</strong>  Define replacement, substitute construction, and admissibility.</p>
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 7–8</strong>  Name the correction sequence and host-imposed constraint.</p>
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Papers 9–10</strong>  Reduce the series to coordination kernels and turn it into a generative method.</p>
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.6;"><strong style="color:#e4e8ee; font-family:'IBM Plex Mono',monospace; font-size:11px;">Paper 11</strong>  Establish the complete Diagnostic Taxonomy — nine classes, 54 subtypes. The classification standard that makes all prior papers interoperable.</p>
+<p class="hero-sub"><strong>10 published papers · complete Diagnostic Taxonomy · 59-paper research programme mapped.</strong></p>
+<p class="hero-sub">The papers define the structural laws behind the practice. Each stands alone, or can be read as part of the wider programme. The research is the doctrine; the client work is the application.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#paper-selector">BROWSE THE PAPERS ↓</a>
+<a class="btn" href="./examples.html">VIEW PROOFS →</a>
 </div>
 </div>
+<div aria-label="Research at a glance" class="hero-right research-glance">
+<div class="content-map-head">
+<span class="content-map-label">Research at a glance</span>
+<span class="content-map-sub">Current body of work</span>
+</div>
+<div class="research-glance-grid">
+<div class="research-glance-item"><strong>10</strong><span>published papers</span></div>
+<div class="research-glance-item"><strong>9 / 54</strong><span>taxonomy classes / subtypes</span></div>
+<div class="research-glance-item"><strong>59</strong><span>papers mapped overall</span></div>
+<div class="research-glance-item"><strong>3</strong><span>public proof sets</span></div>
+</div>
+</div>
+</section>
+<main id="main" role="main">
+<section aria-label="Research map" class="research-map-section card" id="research-map">
+<div class="content-map-head">
+<span class="content-map-label">How the research fits together</span>
+<span class="content-map-sub">Jump to a layer</span>
+</div>
+<div class="research-map-grid">
+<a class="map-item" href="#trilogy"><span class="map-item-num">01</span><span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span><span class="map-item-status">3 papers</span></a>
+<a class="map-item" href="#replacement"><span class="map-item-num">02</span><span class="map-item-text"><strong>Replacement Arc</strong>Migration, construction, admissibility</span><span class="map-item-status">3 papers</span></a>
+<a class="map-item" href="#correction"><span class="map-item-num">03</span><span class="map-item-text"><strong>Correction and Constraint Layer</strong>The governing sequence and host constraint</span><span class="map-item-status">2 papers</span></a>
+<a class="map-item" href="#kernel"><span class="map-item-num">04</span><span class="map-item-text"><strong>Kernel Layer</strong>Reduction to primitives, generation of new categories</span><span class="map-item-status">2 papers</span></a>
+<a class="map-item" href="#taxonomy-paper"><span class="map-item-num">05</span><span class="map-item-text"><strong>Diagnostic Taxonomy</strong>Nine classes · 54 subtypes · classification standard</span><span class="map-item-status">Taxonomy</span></a>
+<a class="map-item" href="#foundations"><span class="map-item-num">06</span><span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span><span class="map-item-status">3 models</span></a>
+<a class="map-item" href="./books.html"><span class="map-item-num">07</span><span class="map-item-text"><strong>Books</strong>Seeing Systems and the wider book programme</span><span class="map-item-status">Books</span></a>
+<a class="map-item" href="#builds"><span class="map-item-num">08</span><span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span><span class="map-item-status">Builds</span></a>
+</div>
+</section><section aria-label="Browse the papers" class="research-access card card-accent" id="paper-selector">
+<div class="label-row">
+<span class="label">Start with the problem you are facing</span>
+<span class="label-note">10 published papers + complete taxonomy</span>
+</div>
+<p class="lead">You do not need to read the programme in order. Start with the failure pattern, build problem, or institutional constraint closest to the system in front of you.</p>
 <div class="reading-routes">
-<span class="reading-routes-label">Start where the failure is</span>
 <ul class="reading-routes-list">
 <li><a class="reading-route-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank"><span class="reading-route-num">01</span><span class="reading-route-text">If the system signals one thing but runs on another</span></a></li>
 <li><a class="reading-route-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" target="_blank"><span class="reading-route-num">02</span><span class="reading-route-text">If failure concentrates in overloaded decision nodes</span></a></li>
@@ -660,68 +670,10 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <li><a class="reading-route-link" href="./host-constrained-primitive-mismatch.pdf" rel="noopener" target="_blank"><span class="reading-route-num">08</span><span class="reading-route-text">If a host platform is rewriting your economic primitive</span></a></li>
 <li><a class="reading-route-link" href="./kernel-reduction.pdf" rel="noopener" target="_blank"><span class="reading-route-num">09</span><span class="reading-route-text">If you need to name the coordination substrate beneath recurring failure</span></a></li>
 <li><a class="reading-route-link" href="./kernel-recomposition.pdf" rel="noopener" target="_blank"><span class="reading-route-num">10</span><span class="reading-route-text">If you need to invent a new institutional category rather than fix an old one</span></a></li>
-<li><a class="reading-route-link" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact"><span class="reading-route-num">11</span><span class="reading-route-text">If you need the complete classification standard for recurring structural failure</span></a></li>
+<li><a class="reading-route-link" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay"><span class="reading-route-num">T</span><span class="reading-route-text">If you need the complete classification standard for recurring structural failure</span></a></li>
 </ul>
 </div>
-<div class="hero-actions">
-<a class="btn btn-primary" href="./expertise-illusion.pdf" rel="noopener" target="_blank">START WITH PAPER 01</a>
-<a class="btn" href="./examples.html">VIEW PROOF SETS</a>
-</div>
-</div>
-<div class="hero-right">
-<div class="content-map-head">
-<span class="content-map-label">On this page</span>
-<span class="content-map-sub">Jump to a section</span>
-</div>
-<a class="map-item" href="#trilogy">
-<span class="map-item-num">01</span>
-<span class="map-item-text"><strong>Diagnostic Lens Trilogy</strong>Three papers. One closed diagnostic loop.</span>
-<span class="map-item-status">3 papers</span>
-</a>
-<a class="map-item" href="#replacement">
-<span class="map-item-num">02</span>
-<span class="map-item-text"><strong>Replacement Arc</strong>Migration, construction, admissibility</span>
-<span class="map-item-status">3 papers</span>
-</a>
-<a class="map-item" href="#correction">
-<span class="map-item-num">03</span>
-<span class="map-item-text"><strong>Correction and Constraint Layer</strong>The governing sequence and host constraint</span>
-<span class="map-item-status">2 papers</span>
-</a>
-<a class="map-item" href="#kernel">
-<span class="map-item-num">04</span>
-<span class="map-item-text"><strong>Kernel Layer</strong>Reduction to primitives, generation of new categories</span>
-<span class="map-item-status">2 papers</span>
-</a>
-<a class="map-item" href="#taxonomy-paper">
-<span class="map-item-num">05</span>
-<span class="map-item-text"><strong>Diagnostic Taxonomy</strong>Nine classes · 54 subtypes · classification standard</span>
-<span class="map-item-status">Paper 11</span>
-</a>
-<a class="map-item" href="#foundations">
-<span class="map-item-num">06</span>
-<span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span>
-<span class="map-item-status">3 models</span>
-</a>
-<a class="map-item" href="#monograph">
-<span class="map-item-num">07</span>
-<span class="map-item-text"><strong>Monograph</strong>How Purpose Becomes Form</span>
-<span class="map-item-status">In development</span>
-</a>
-<a class="map-item" href="./books.html">
-<span class="map-item-num">08</span>
-<span class="map-item-text"><strong>Books</strong>Five-book sequence in development</span>
-<span class="map-item-status">5 books</span>
-</a>
-<a class="map-item" href="#builds">
-<span class="map-item-num">09</span>
-<span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span>
-<span class="map-item-status">2 builds</span>
-</a>
-</div>
-</section>
-<main id="main" role="main">
-<div class="section-divider"><span class="section-divider-label">diagnostic lens trilogy</span></div>
+</section><div class="section-divider"><span class="section-divider-label">diagnostic lens trilogy</span></div>
 <section aria-label="Diagnostic Lens Trilogy" class="card card-accent" id="trilogy">
 <div class="label-row">
 <span class="label">01 // Diagnostic Lens Trilogy</span>
@@ -743,7 +695,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="trilogy-paper-links">
 <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank">View on SSRN</a>
 <a class="link-blue" href="./expertise-illusion.pdf" rel="noopener" target="_blank">Read PDF</a>
-<a class="link-blue" href="./examples.html#outlier" style="font-size:12px;">Outlier proof set →</a>
+<a class="link-blue" href="./examples/outlier.html" style="font-size:12px;">Outlier proof set →</a>
 </div>
 </div>
 </div>
@@ -761,7 +713,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="trilogy-paper-links">
 <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" target="_blank">View on SSRN</a>
 <a class="link-blue" href="./four-function-law.pdf" rel="noopener" target="_blank">Read PDF</a>
-<a class="link-blue" href="./examples.html#nhs" style="font-size:12px;">NHS proof set →</a>
+<a class="link-blue" href="./examples/nhs.html" style="font-size:12px;">NHS proof set →</a>
 </div>
 </div>
 </div>
@@ -779,7 +731,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="trilogy-paper-links">
 <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" target="_blank">View on SSRN</a>
 <a class="link-blue" href="./missing-redesign-layer.pdf" rel="noopener" target="_blank">Read PDF</a>
-<a class="link-blue" href="./examples.html#patreon" style="font-size:12px;">Patreon / Apple IAP proof set →</a>
+<a class="link-blue" href="./examples/patreon.html" style="font-size:12px;">Patreon / Apple IAP proof set →</a>
 </div>
 </div>
 </div>
@@ -957,20 +909,20 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 <p style="margin:20px 0 0; font-size:13px; color:var(--text-dim); line-height:1.65; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px;">Paper 09 is the reduction layer. Paper 10 is the generative layer. Together they are the culmination of the series — not more papers, but the substrate beneath all prior papers revealed.</p>
-<p style="margin:10px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The eleven papers now form a complete research sequence — from the first mismatch at the interface, through collapse, replacement, correction, kernel recomposition, and the complete classification standard. Start at the failure pattern closest to your current problem, or <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank">start with Paper 01 →</a></p>
+<p style="margin:10px 0 0; font-size:13px; color:var(--text-faint); line-height:1.65;">The ten published papers form the current public research sequence — from the first mismatch at the interface, through collapse, replacement, correction, and kernel recomposition. The complete Diagnostic Taxonomy provides the classification standard alongside them. Start at the failure pattern closest to your current problem, or <a class="link-blue" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank">start with Paper 01 →</a></p>
 </section>
-<div class="section-divider"><span class="section-divider-label">diagnostic taxonomy — paper 11</span></div>
-<section aria-label="Diagnostic Taxonomy — Paper 11" class="card card-accent" id="taxonomy-paper">
+<div class="section-divider"><span class="section-divider-label">diagnostic taxonomy</span></div>
+<section aria-label="Diagnostic Taxonomy" class="card card-accent" id="taxonomy-paper">
 <div class="label-row">
 <span class="label">05 // Diagnostic Taxonomy</span>
-<span class="label-note">Paper 11 · the constitutional pivot of the series</span>
+<span class="label-note">Complete classification standard · available on request</span>
 </div>
-<p class="lead">The classification standard that makes the entire series interoperable. Nine failure classes, fifty-four subtypes, with formal inclusion and exclusion criteria, false positive tests, refusal conditions, and corrective directions for each. Paper 11 is the pivot paper — it does not add to the prior ten papers, it gives them a shared grammar.</p>
+<p class="lead">The classification standard that makes the published research interoperable. Nine failure classes, fifty-four subtypes, with formal inclusion and exclusion criteria, false positive tests, refusal conditions, and corrective directions for each. It sits alongside the ten published papers and gives them a shared grammar.</p>
 <div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
 <div>
 <div style="border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.6); border-radius:14px; overflow:hidden;">
 <div style="padding:14px 18px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04);">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue);">Paper 11 — May 2026</span>
+<span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue);">Diagnostic Taxonomy — May 2026</span>
 </div>
 <div style="padding:18px;">
 <h3 style="margin:0 0 8px; font-size:16px; font-weight:700; color:#fff; letter-spacing:-0.02em; line-height:1.2;">The Complete Diagnostic Taxonomy</h3>
@@ -990,14 +942,14 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 <div style="display:flex; gap:10px; flex-wrap:wrap;">
-<a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact" style="font-size:10px; padding:8px 12px;">REQUEST FULL TAXONOMY →</a>
+<a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay" style="font-size:10px; padding:8px 12px;">REQUEST FULL TAXONOMY →</a>
 </div>
 </div>
 </div>
 </div>
 <div>
 <p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;"><strong style="color:#e0e4ea;">The taxonomy does three things the prior papers could not do individually.</strong> It names each failure class precisely. It gives each class formal inclusion and exclusion criteria so the diagnosis can be refused when it doesn't hold. And it makes the classes interoperable — a compound failure can be assigned a primary class and secondary classes, with the primary class governing the correction sequence.</p>
-<p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">Papers 12–59 are the anchor papers for the subtypes this taxonomy names. Each will go deeper into one class or subtype. Paper 11 stays as the reference point for the entire classification system.</p>
+<p style="margin:0 0 10px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">The full research programme maps 59 papers. Ten are published so far, alongside this complete Diagnostic Taxonomy. The remaining mapped papers will go deeper into the classes, subtypes, and cross-cutting patterns the taxonomy names.</p>
 <div style="padding:12px 16px; border:1px solid rgba(255,255,255,0.06); border-radius:10px; background:rgba(255,255,255,0.012); margin-top:4px;">
 <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px;">The nine classes</div>
 <div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:5px;">
@@ -1015,7 +967,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 <div style="padding:14px 18px; border:1px solid rgba(90,176,255,0.12); border-left:2px solid rgba(90,176,255,0.4); border-radius:12px; background:rgba(90,176,255,0.02); margin-bottom:0;">
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;"><strong style="color:#e0e4ea;">Papers 12–59 are planned.</strong> They are the anchor papers for the subtypes the taxonomy names. Each will anchor one class or cross-cutting pattern with full criteria, examples, and corrective direction. Paper 11 remains the constitutional reference; the anchor papers deepen it. <a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#contact">Request the full taxonomy →</a></p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.68;"><strong style="color:#e0e4ea;">The 59-paper programme is mapped.</strong> Ten papers are published so far. The remaining mapped papers will deepen the classes, subtypes, and cross-cutting patterns named by the Diagnostic Taxonomy with full criteria, examples, and corrective direction. <a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay">Request the full taxonomy →</a></p>
 </div>
 </section>
 <div class="section-divider"><span class="section-divider-label">theoretical foundations</span></div>
@@ -1042,7 +994,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
 <p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
 <div class="actions">
-<a class="link-blue" data-jf-contact="1" data-jf-subject="How systems generate valid outputs — materials request" href="#contact">Request materials</a>
+<a class="link-blue" data-jf-contact="1" data-jf-subject="How systems generate valid outputs — materials request" href="#jfContactOverlay">Request materials</a>
 </div>
 </div>
 <div class="foundation-block">
@@ -1052,53 +1004,8 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p>Failure is almost always a mismatch between the layer a system is operating at and the layer it believes it is at. A product trying to behave like a marketplace, or an OS trying to behave like a product, will fail structurally regardless of execution quality. Used in diagnosis to locate the true operating layer before redesign begins.</p>
 <p>An eight-stage model that tracks how any durable system scales from a single repeated action into a civilisation-level layer. Each stage is defined by what the system has to become to survive at that level of coordination demand.</p>
 <div class="actions">
-<a class="link-blue" data-jf-contact="1" data-jf-subject="How a primitive becomes a civilisation layer — materials request" href="#contact">Request materials</a>
+<a class="link-blue" data-jf-contact="1" data-jf-subject="How a primitive becomes a civilisation layer — materials request" href="#jfContactOverlay">Request materials</a>
 </div>
-</div>
-</div>
-</section>
-<div class="section-divider"><span class="section-divider-label">monograph</span></div>
-<section aria-label="Monograph" class="card" id="monograph">
-<div class="label-row">
-<span class="label">07 // Monograph</span>
-<span class="label-note">deep layer</span>
-</div>
-<div class="pipeline-monograph" style="margin-top:0;">
-<div class="monograph-header">
-<div>
-<span class="pipeline-monograph-kicker">Monograph · In development</span>
-<div class="pipeline-monograph-title" style="margin-top:4px;">How Purpose Becomes Form: A General Theory of Emergence</div>
-</div>
-<span class="status status-dev">In development</span>
-</div>
-<div class="monograph-equation-block">
-<span class="monograph-equation">E(n, p₀) = pₙ = p₀(ofmr)ⁿ</span>
-<span class="monograph-equation-label">The Universal Emergence Equation</span>
-</div>
-<div class="monograph-mechanics jf-mobile-stack">
-<div class="monograph-mechanic">
-<span class="monograph-mechanic-letter">o</span>
-<span class="monograph-mechanic-name">Oscillation</span>
-<span class="monograph-mechanic-desc">Cyclic variation generating the conditions for change</span>
-</div>
-<div class="monograph-mechanic">
-<span class="monograph-mechanic-letter">f</span>
-<span class="monograph-mechanic-name">Force</span>
-<span class="monograph-mechanic-desc">Directed energy that moves potential toward form</span>
-</div>
-<div class="monograph-mechanic">
-<span class="monograph-mechanic-letter">m</span>
-<span class="monograph-mechanic-name">Medium</span>
-<span class="monograph-mechanic-desc">The substrate through which transformation propagates</span>
-</div>
-<div class="monograph-mechanic">
-<span class="monograph-mechanic-letter">r</span>
-<span class="monograph-mechanic-name">Reflection</span>
-<span class="monograph-mechanic-desc">The system's capacity to encode and retain what it has become</span>
-</div>
-</div>
-<div class="monograph-body">
-<p class="pipeline-monograph-sub">The equation generates a universal developmental ladder from primitive emergence through form, system, institution, civilisation, and meta-structure. It works bidirectionally: forward as a generative system, backward as a diagnostic instrument. This is the deepest theoretical layer beneath the papers, the books, and the builds — the framework from which the Grammar Kernel, the Universal Formula, and the Seven Revolutions are all derived.</p>
 </div>
 </div>
 </section>
@@ -1109,7 +1016,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="section-divider"><span class="section-divider-label">applied builds</span></div>
 <section aria-label="Applied builds" class="card" id="builds">
 <div class="label-row">
-<span class="label">09 // Applied Build Proofs</span>
+<span class="label">08 // Applied Build Proofs</span>
 <span class="label-note">two live proving grounds</span>
 </div>
 <div class="builds-lead">
@@ -1164,10 +1071,10 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div style="padding:36px 32px 36px 36px; border-right:1px solid rgba(90,176,255,0.12);">
 <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:14px;">The offer</span>
 <h2 style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem+1vw,2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">The public offer is the written artifact system.</h2>
-<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page — the public papers, the core models, the deeper monograph, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
+<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page — the public papers, the core models, the books, and the builds — is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
 <p style="margin:0 0 22px; font-size:13.5px; color:var(--text-faint); line-height:1.72; font-style:italic;">The research defines the laws. The Method defines the diagnostic sequence. The Proofs show the laws applied to bounded systems. The Services page defines how the artifact system is commissioned.</p>
 <div style="display:flex; gap:8px; flex-wrap:wrap;">
-<a class="btn btn-primary" data-jf-brief="1" href="#five-line-brief">SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
 <a class="btn" href="./examples.html">VIEW PROOFS →</a>
 <a class="btn" href="./services.html">VIEW SERVICES</a>
 </div>
@@ -1198,7 +1105,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </section>
 </main>
 <div style="display:flex;justify-content:center;padding:32px 0 0;">
-<a class="btn" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+<a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
 </div>
 </div>
 <footer class="site-footer">
@@ -1240,7 +1147,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <ul class="site-footer__list">
 <li><a href="https://www.linkedin.com/in/jamie-forrester-systems" rel="noopener" target="_blank">LinkedIn</a></li>
 <li><a href="https://x.com/StructuralTruth" rel="noopener" target="_blank">X</a></li>
-<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#contact">Contact</a></li></ul>
+<li data-jf-footer-email="1"><span class="site-footer__email-address">hello@jamieforrester.com</span></li><li data-jf-footer-email="1"><a data-jf-contact="1" data-jf-subject="Website enquiry" href="#jfContactOverlay">Contact</a></li></ul>
 </nav>
 </div>
 <div class="site-footer__bottom">
@@ -1249,7 +1156,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 </footer>
-
 <div aria-hidden="true" class="jf-contact-overlay" id="jfContactOverlay">
 <section aria-labelledby="jfContactTitle" aria-modal="true" class="jf-contact-modal" role="dialog">
 <div class="jf-contact-head">
@@ -1371,8 +1277,8 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
   }
   window.JFContact={open:openContact,openBrief:openBrief};
 
-  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#contact');});
-  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#five-line-brief');});
+  document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfContactOverlay');});
+  document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfBriefOverlay');});
 
   document.addEventListener('click',function(ev){
     const close=ev.target.closest('[data-jf-close]');
