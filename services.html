@@ -1359,7 +1359,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
     openOverlay(briefOverlay);
   }
   window.JFContact={open:openContact,openBrief:openBrief};
-      if(location.hash==='#brief'){openBrief();}
+      if(location.hash==='#brief'||/[?&]brief(=|&|$)/.test(location.search)){openBrief();}
 
   document.querySelectorAll('[data-jf-contact]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfContactOverlay');});
   document.querySelectorAll('[data-jf-brief]').forEach(el=>{if(el.tagName==='A')el.setAttribute('href','#jfBriefOverlay');});
