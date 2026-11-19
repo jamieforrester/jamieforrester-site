@@ -23,7 +23,7 @@
     *, *::before, *::after { box-sizing: border-box; }
     html { color-scheme: dark; scroll-behavior: smooth; }
     body { margin: 0; background: var(--bg); background-image: radial-gradient(ellipse 60% 40% at 0% 0%, rgba(90,176,255,0.045) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 100% 80%, rgba(90,176,255,0.022) 0%, transparent 50%); color: var(--text-main); font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif; line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 80px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 24px; }
     .skip-link { position: absolute; left: 12px; top: 10px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--accent); background: var(--panel); color: #fff; transform: translateY(-200%); transition: transform 120ms ease; z-index: 9999; text-decoration: none; font-family: "IBM Plex Mono", monospace; font-size: 12px; }
     .skip-link:focus-visible { transform: translateY(0); outline: 2px solid var(--focus-ring); outline-offset: 3px; }
     a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 1px; font-size: 14px; transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease; }
@@ -67,12 +67,12 @@
     /* Type utilities */
     .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 12px; display: block; }
     .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
-    .section-divider { justify-content: center; margin: 48px 0 36px; display: flex; align-items: center; gap: 16px; }
+    .section-divider { justify-content: center; margin: 80px 0 44px; display: flex; align-items: center; gap: 16px; }
     .section-divider::before, .section-divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(90,176,255,0.25), transparent); min-width: 40px; }
     .section-divider-label { font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label-blue); white-space: nowrap; }
 
     /* Method hero */
-    .method-hero { display: grid; grid-template-columns: 1.28fr 0.72fr; gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.7); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 40%, rgba(255,255,255,0.008) 100%); margin-bottom: 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.08), 0 20px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
+    .method-hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0; border: 1px solid rgba(90,176,255,0.28); border-top: 3px solid rgba(90,176,255,0.7); border-radius: var(--radius-xl); background: linear-gradient(135deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 40%, rgba(255,255,255,0.008) 100%); margin-bottom: 18px; overflow: hidden; box-shadow: 0 0 0 1px rgba(90,176,255,0.08), 0 20px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06); }
     .method-hero-left { padding: 42px 38px 40px 44px; border-right: 1px solid rgba(90,176,255,0.12); }
     .method-hero-right { padding: 32px 28px; background: rgba(0,0,0,0.18); display: flex; flex-direction: column; justify-content: center; }
     .method-hero-title { margin: 0 0 20px; max-width: 18ch; font-size: clamp(2rem, 1.45rem + 1.35vw, 2.8rem); line-height: 1.06; letter-spacing: -0.05em; font-weight: 700; color: #fff; }
@@ -186,9 +186,9 @@
 
     /* ── Redesign sequence ── */
     .redesign-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 20px; align-items: stretch; }
-    .redesign-node { padding: 18px 16px; border: 1px solid rgba(255,255,255,0.06); border-right: none; display: flex; flex-direction: column; gap: 8px; }
+    .redesign-node { padding: 18px 16px; border: 1px solid rgba(90,176,255,0.24); border-right: none; display: flex; flex-direction: column; gap: 8px; background: linear-gradient(160deg, rgba(90,176,255,0.05) 0%, rgba(255,255,255,0.01) 100%); }
     .redesign-node:first-child { border-radius: 12px 0 0 12px; }
-    .redesign-node:last-child { border-right: 1px solid rgba(255,255,255,0.06); border-radius: 0 12px 12px 0; background: rgba(90,176,255,0.04); border-color: rgba(90,176,255,0.18); }
+    .redesign-node:last-child { border-right: 1px solid rgba(90,176,255,0.24); border-radius: 0 12px 12px 0; background: linear-gradient(135deg, rgba(90,176,255,0.1) 0%, rgba(90,176,255,0.03) 70%); border-color: rgba(90,176,255,0.45); }
     .redesign-node-num { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
     .redesign-node-title { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.3; }
     .redesign-node-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; flex: 1; }
@@ -241,7 +241,7 @@
       .method-stat { min-height: 0; }
       .taxonomy-classes { grid-template-columns: 1fr; }
       .redesign-flow { grid-template-columns: 1fr; }
-      .redesign-node { border-right: 1px solid rgba(255,255,255,0.06); border-bottom: none; }
+      .redesign-node { border-right: 1px solid rgba(90,176,255,0.24); border-bottom: none; }
       .redesign-node:first-child { border-radius: 12px 12px 0 0; }
       .redesign-node:last-child { border-radius: 0 0 12px 12px; border-right: 1px solid rgba(90,176,255,0.18); }
       .site-footer__inner{padding:40px 20px 28px;}
@@ -249,7 +249,68 @@
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; } }
       @media (max-width: 1080px) { .top-cta .btn { font-size: 9.5px; padding: 7px 10px; letter-spacing: 0.06em; padding-bottom: 7px; } }
-  </style>
+  
+    /* ── Method redesign 2026-11-19 ── */
+    .label-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px; margin-bottom: 18px; }
+    .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; max-width: 76ch; }
+    .scan-entry-card { border: 1px solid rgba(90,176,255,0.28); border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, rgba(90,176,255,0.07) 0%, rgba(90,176,255,0.02) 50%, rgba(255,255,255,0.008) 100%); box-shadow: 0 0 0 1px rgba(90,176,255,0.06), 0 12px 32px rgba(0,0,0,0.24); }
+    .scan-entry-badge { display: flex; align-items: center; justify-content: space-between; padding: 10px 22px; border-bottom: 1px solid rgba(90,176,255,0.14); background: rgba(90,176,255,0.04); }
+    .scan-entry-eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); }
+    .scan-entry-tag { font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 3px 8px; }
+    .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
+    .process-card { padding: 22px 20px; border: 1px solid rgba(90,176,255,0.12); border-radius: 14px; background: rgba(90,176,255,0.025); min-width: 0; position: relative; overflow: hidden; }
+    .process-card:nth-child(1) { border-left: 2px solid rgba(90,176,255,0.2); }
+    .process-card:nth-child(2) { border-left: 2px solid rgba(90,176,255,0.45); }
+    .process-card:nth-child(3) { border-left: 2px solid rgba(90,176,255,0.85); }
+    .process-card-num { position: absolute; top: -4px; right: 10px; font-family: "IBM Plex Mono", monospace; font-size: 42px; font-weight: 700; color: rgba(90,176,255,0.045); line-height: 1; letter-spacing: -0.04em; pointer-events: none; }
+    .process-step { display: inline-flex; align-items: center; margin-bottom: 12px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; }
+    .process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
+    .process-card strong { color: #fff; font-size: 14px; font-weight: 700; display: block; margin-bottom: 5px; }
+    .signal-box { padding: 20px 22px; border: 1px solid rgba(90,176,255,0.15); border-radius: 14px; background: rgba(90,176,255,0.025); }
+    .signal-list { margin: 0; padding: 0; list-style: none; display: grid; }
+    .signal-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .signal-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .signal-item:first-child { padding-top: 0; }
+    .signal-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.45); letter-spacing: 0.08em; line-height: 1.8; }
+    .signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; }
+    .signal-item span { color: var(--text-faint); font-size: 13px; }
+    .callout { margin-top: 24px; padding: 0 0 0 16px; border-left: 2px solid rgba(90,176,255,0.4); }
+    .callout p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+    .callout p strong { color: #e8ecf0; font-weight: 600; }
+    /* seven steps as cards */
+    section[aria-label="How the diagnosis works"] .steps { grid-template-columns: 1fr 1fr; gap: 12px; }
+    section[aria-label="How the diagnosis works"] .step { grid-template-columns: 1fr; padding: 18px 20px; border: 1px solid rgba(90,176,255,0.2); border-radius: 14px; background: linear-gradient(160deg, rgba(90,176,255,0.045) 0%, rgba(255,255,255,0.01) 100%); }
+    section[aria-label="How the diagnosis works"] .step:first-child, section[aria-label="How the diagnosis works"] .step:last-child { padding: 18px 20px; }
+    section[aria-label="How the diagnosis works"] .step:last-child { grid-column: 1 / -1; border-color: rgba(90,176,255,0.45); border-top: 2px solid rgba(90,176,255,0.7); background: linear-gradient(135deg, rgba(90,176,255,0.09) 0%, rgba(90,176,255,0.02) 60%); }
+    section[aria-label="How the diagnosis works"] .step-num { display: block; font-size: 22px; opacity: 1; margin-bottom: 8px; letter-spacing: -0.02em; }
+    section[aria-label="How the diagnosis works"] .step-highlight { border-color: rgba(90,176,255,0.45); }
+    section[aria-label="How the diagnosis works"] .step { align-content: start; }
+    section[aria-label="How the diagnosis works"] .step:last-child ul.clean li { display: block; padding-left: 20px; position: relative; }
+    section[aria-label="How the diagnosis works"] .step:last-child ul.clean li::before { position: absolute; left: 0; }
+    .art-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .art-list li { font-size: 12.5px; line-height: 1.55; }
+    @media (max-width: 900px) {
+      .art-grid { grid-template-columns: 1fr 1fr; }
+      section[aria-label="How the diagnosis works"] .steps { grid-template-columns: 1fr; }
+      .process-strip { grid-template-columns: 1fr; }
+      .label-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) { .art-grid { grid-template-columns: 1fr; } }
+
+    .method-hero-left { display: flex; flex-direction: column; justify-content: center; }
+    .mmap-text { overflow-wrap: anywhere; }
+    .mmap { display: flex; flex-direction: column; gap: 8px; }
+    .mmap-row { display: grid; grid-template-columns: 30px 1fr 14px; gap: 10px; align-items: center; padding: 11px 14px; border: 1px solid rgba(90,176,255,0.2); border-radius: 12px; background: rgba(90,176,255,0.03); text-decoration: none; transition: border-color 160ms ease, background 160ms ease; }
+    .mmap-row:hover { border-color: rgba(90,176,255,0.5); background: rgba(90,176,255,0.07); }
+    .mmap-num { font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 700; color: var(--cta-blue); }
+    .mmap-text { font-size: 12.5px; color: var(--text-dim); line-height: 1.45; }
+    .mmap-text strong { display: block; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-bottom: 1px; }
+    .mmap-arrow { color: var(--label-blue); opacity: 0; transition: opacity 160ms ease, transform 160ms ease; }
+    .mmap-row:hover .mmap-arrow { opacity: 1; transform: translateX(2px); }
+    .mmap-final { border-color: rgba(90,176,255,0.45); background: linear-gradient(135deg, rgba(90,176,255,0.1) 0%, rgba(90,176,255,0.03) 70%); }
+    html { scroll-behavior: smooth; }
+    [id^="m-"] { scroll-margin-top: 90px; }
+</style>
 <style id="canonical-footer-style">
 /* Canonical site footer - synchronized across all pages */
 .site-footer{background:#0e0f12;border-top:1px solid var(--border-soft);margin-top:0;}
@@ -358,6 +419,7 @@
   .wrap { padding-left: 14px !important; padding-right: 14px !important; }
   .btn { white-space: normal !important; text-align: center; line-height: 1.25 !important; }
   .section-divider-label { white-space: normal !important; text-align: center; }
+  .section-divider { margin: 56px 0 30px !important; }
   .label-note, .books-spine-label-text { white-space: normal !important; max-width: 100% !important; }
 }
 </style><style data-jf-global-polish="1">
@@ -523,189 +585,197 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <span class="eyebrow">Method</span>
 <h2 class="method-hero-title">Diagnosis before redesign.</h2>
 <p class="method-hero-sub">Recurring failure is rarely caused by one bad decision or a lack of effort. When the same outcome keeps returning despite correction, the problem usually sits in the structure producing it. This method is designed to locate that break, explain why previous fixes have not held, and determine what must change.</p>
-<p class="method-hero-note"><strong style="color:#e8ecf0; font-weight:600;">It begins where symptom-level explanation stops being sufficient.</strong></p>
 </div>
 <div class="method-hero-right">
-<span class="method-at-glance-label">Method at a glance</span>
-<div class="method-stats-grid">
-<div class="method-stat"><span class="method-stat-num">4 stages</span><span class="method-stat-label">Diagnostic architecture</span></div>
-<div class="method-stat"><span class="method-stat-num">9 classes</span><span class="method-stat-label">54 structural failure subtypes</span></div>
-<div class="method-stat"><span class="method-stat-num">7 steps</span><span class="method-stat-label">Internal diagnostic sequence</span></div>
-<div class="method-stat"><span class="method-stat-num">14 days</span><span class="method-stat-label">Diagnostic / full engagement window</span></div>
-</div>
+<span class="method-at-glance-label">The method, step by step</span>
+<nav aria-label="Method steps" class="mmap">
+<a class="mmap-row" href="#m-scan"><span class="mmap-num">01</span><span class="mmap-text"><strong>Scan</strong>Is it structural? Four questions, free.</span><span class="mmap-arrow" aria-hidden="true">→</span></a>
+<a class="mmap-row" href="#m-classify"><span class="mmap-num">02</span><span class="mmap-text"><strong>Classify</strong>What kind of failure? 9 classes, 54 subtypes.</span><span class="mmap-arrow" aria-hidden="true">→</span></a>
+<a class="mmap-row" href="#m-diagnose"><span class="mmap-num">03</span><span class="mmap-text"><strong>Diagnose</strong>Seven steps to the governing cause, in 14 days.</span><span class="mmap-arrow" aria-hidden="true">→</span></a>
+<a class="mmap-row" href="#m-prove"><span class="mmap-num">04</span><span class="mmap-text"><strong>Prove</strong>Every claim must hold up.</span><span class="mmap-arrow" aria-hidden="true">→</span></a>
+<a class="mmap-row mmap-final" href="#m-redesign"><span class="mmap-num">→</span><span class="mmap-text"><strong>Then redesign</strong>A further 14 days, once you confirm the diagnosis.</span><span class="mmap-arrow" aria-hidden="true">→</span></a>
+</nav>
 </div>
 </section>
-<section aria-labelledby="method-applies-heading" class="method-applicability">
-<span class="eyebrow">When this method applies</span>
-<h3 id="method-applies-heading">When correction keeps failing.</h3>
-<ul class="method-signal-grid">
-<li>The same failure returns despite repeated correction.</li>
-<li>Reform programmes stall at the same structural boundary.</li>
-<li>A platform, regulator, or inherited architecture cannot be changed directly.</li>
-<li>Workarounds have become load-bearing.</li>
-<li>Builders are making design decisions while implementing.</li>
+<div class="section-divider" style="margin-top:56px;"><span class="section-divider-label">when this method applies</span></div>
+<section aria-labelledby="method-applies-heading" class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin:0 0 56px;">
+<div>
+<p style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem + 1.1vw,2.2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.15;">Not more commentary. <span style="color:var(--cta-blue);">One structural explanation</span> that leadership, operators and builders can all act on.</p>
+<p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7;">The work begins where symptom-level explanation stops being enough, and ends with a written diagnosis that holds up as it travels through the organisation.</p>
+</div>
+<div style="padding:24px; border:1px solid rgba(90,176,255,0.18); border-top:2px solid rgba(90,176,255,0.6); border-radius:16px; background:rgba(90,176,255,0.025);">
+<h3 id="method-applies-heading" style="margin:0 0 14px; font-size:17px; font-weight:700; color:#fff; letter-spacing:-0.025em;">When correction keeps failing.</h3>
+<ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+<li style="display:flex; gap:10px; font-size:13.5px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>The same failure returns despite repeated correction.</li>
+<li style="display:flex; gap:10px; font-size:13.5px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Reform programmes stall at the same structural boundary.</li>
+<li style="display:flex; gap:10px; font-size:13.5px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>A platform, regulator, or inherited architecture cannot be changed directly.</li>
+<li style="display:flex; gap:10px; font-size:13.5px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Workarounds have become load-bearing.</li>
+<li style="display:flex; gap:10px; font-size:13.5px; color:var(--text-dim); line-height:1.55;"><span style="color:var(--cta-blue); flex-shrink:0; margin-top:1px;">✓</span>Builders are making design decisions while implementing.</li>
 </ul>
-<p class="method-purpose">The purpose is not more commentary. It is one structural read that can survive the journey from leadership to operators to builders.</p>
+</div>
 </section>
-<div style="margin:18px 0 8px; padding:16px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.025); font-size:13px; color:var(--text-dim); line-height:1.7;">
-<strong style="color:#fff;">Where the Structural Lens Brief fits.</strong> The £2,000 Lens is architecture extraction, not failure diagnosis. Use it when you need the underlying structure of a problem, system, method, or body of work exposed. The four-stage diagnostic architecture below applies when the question is different: <em>why does this failure keep returning?</em> Diagnostic and Full Structural Engagement work both use that governed diagnostic path.
-      </div>
 <!-- ── Stage 1: 60-Second Scan ── -->
 <div class="section-divider"><span class="section-divider-label">stage 01: entry</span></div>
-<section aria-label="60-Second Scan" class="card card-accent">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>The 60-Second Scan</h2>
+<section id="m-scan" aria-label="60-Second Scan" style="margin-bottom:56px;">
+<div class="scan-layout-grid jf-mobile-stack" style="display:grid; grid-template-columns:1fr 280px; gap:32px; align-items:center;">
+<div>
+<h2 style="margin:0 0 10px; font-size:clamp(1.2rem,1rem + 0.6vw,1.6rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">The 60-Second Scan: the entry point.</h2>
+<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.7;">Four questions to help recognise a possible structural problem before you send a brief. A first-pass screen, not a diagnosis. If the answers are hard to state, that is useful signal in itself.</p>
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+<div style="padding:14px 16px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">01 · Purpose</div>
+<div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.35; margin-bottom:4px;">What is this system actually for?</div>
+<div style="font-size:12px; color:var(--text-faint); line-height:1.55;">The real job it does, not the stated mission.</div>
 </div>
-<div class="card-body">
-<p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">Four questions that surface the structural reality of a system before analysis begins.</p>
-<p style="margin:0 0 18px; font-size:13.5px; color:var(--text-dim); line-height:1.7;">The scan is not the diagnosis. It is the orientation layer: the minimum structural read needed to know whether a system is a candidate for structural diagnosis at all. Purpose → Primitive → Rules → Failure. Answer all four clearly and the likely structural pattern begins to emerge. If the answers are hard to state, that is useful signal in itself.</p>
-<div class="scan-q-grid jf-mobile-stack">
-<div class="scan-q-item">
-<div class="scan-q-num">Question 01</div>
-<div class="scan-q-text">What is this system actually for?</div>
-<p class="scan-q-sub">Not the stated mission. The real action the system exists to make happen. The job it would stop doing if it broke.</p>
+<div style="padding:14px 16px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">02 · Primitive</div>
+<div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.35; margin-bottom:4px;">What action does it repeat?</div>
+<div style="font-size:12px; color:var(--text-faint); line-height:1.55;">The basic unit of work it is organised around.</div>
 </div>
-<div class="scan-q-item">
-<div class="scan-q-num">Question 02</div>
-<div class="scan-q-text">What action does it repeat?</div>
-<p class="scan-q-sub">The primitive: the basic unit of real work the system is organised around. In plain terms: what does this system repeatedly do?</p>
+<div style="padding:14px 16px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">03 · Rules</div>
+<div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.35; margin-bottom:4px;">What rules govern that action?</div>
+<div style="font-size:12px; color:var(--text-faint); line-height:1.55;">What must actually hold, not just the written policy.</div>
 </div>
-<div class="scan-q-item">
-<div class="scan-q-num">Question 03</div>
-<div class="scan-q-text">What rules govern that action?</div>
-<p class="scan-q-sub">The invariants: the conditions that must actually stay true for the system to work. Not just the written policy: the rules reality depends on.</p>
-</div>
-<div class="scan-q-item">
-<div class="scan-q-num">Question 04</div>
-<div class="scan-q-text">What happens when those rules fail?</div>
-<p class="scan-q-sub">The failure signal: what the system does instead, who absorbs the burden, and how the failure recurs. This is where the structural break first becomes visible.</p>
+<div style="padding:14px 16px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">04 · Failure</div>
+<div style="font-size:13.5px; font-weight:700; color:#fff; line-height:1.35; margin-bottom:4px;">What happens when they fail?</div>
+<div style="font-size:12px; color:var(--text-faint); line-height:1.55;">What it does instead, and who absorbs the burden.</div>
 </div>
 </div>
-<div class="method-insight" style="margin-top:20px;">
-<div class="method-insight-bar"></div>
-<p class="method-insight-text">The scan connects directly to the Five-Line Brief. Once the four questions have a clear answer, the failure pattern is ready to brief. <strong>Run the scan first. Send the brief second.</strong> The scan sharpens the signal before it enters the diagnostic process.</p>
 </div>
-<div class="cta-bar">
-<a class="btn btn-primary" href="./diagnostic-scan.html">RUN THE 60-SECOND SCAN →</a>
-<a class="btn" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
+<div class="scan-entry-card" style="margin-bottom:0;">
+<div class="scan-entry-badge">
+<span class="scan-entry-eyebrow">// 60-Second Scan</span>
+<span class="scan-entry-tag">Free · Self-guided</span>
+</div>
+<div style="padding:16px 22px 20px;"><p style="margin:0 0 4px; font-size:12.5px; color:var(--text-faint); line-height:1.6;">Run the scan first. Send the brief second.</p>
+<a class="btn btn-primary btn-large" href="./diagnostic-scan.html" style="width:100%; justify-content:center; margin-top:12px; display:flex;">RUN THE SCAN →</a></div>
 </div>
 </div>
 </section>
+
 <!-- ── Stage 2: Diagnostic Taxonomy ── -->
 <div class="section-divider"><span class="section-divider-label">stage 02: classification</span></div>
-<section aria-label="Diagnostic Taxonomy" class="card">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>Diagnostic Taxonomy</h2>
-</div>
-<div class="card-body">
-<p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">Nine failure classes. Fifty-four subtypes. Formal inclusion, exclusion, and refusal criteria.</p>
-<p style="margin:0 0 18px; font-size:13.5px; color:var(--text-dim); line-height:1.7; max-width:72ch;">The taxonomy gives recurring failures a consistent classification instead of treating each case as unique. Nine top-level classes locate the kind of structural break; 54 subtypes identify the more specific mechanism. That classification constrains the diagnosis and helps determine what kind of correction could actually hold.</p>
-<div class="taxonomy-classes jf-mobile-stack">
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 1</div>
-<div class="taxonomy-class-name">External Constraint Failure</div>
-<div class="taxonomy-class-count">7 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 2</div>
-<div class="taxonomy-class-name">Scaling Failure</div>
-<div class="taxonomy-class-count">5 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 3</div>
-<div class="taxonomy-class-name">Founding Model Failure</div>
-<div class="taxonomy-class-count">4 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 4</div>
-<div class="taxonomy-class-name">Boundary Failure</div>
-<div class="taxonomy-class-count">6 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 5</div>
-<div class="taxonomy-class-name">Governance Failure</div>
-<div class="taxonomy-class-count">5 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 6</div>
-<div class="taxonomy-class-name">Incentive Misalignment Failure</div>
-<div class="taxonomy-class-count">4 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 7</div>
-<div class="taxonomy-class-name">Human-System Interface Failure</div>
-<div class="taxonomy-class-count">6 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 8</div>
-<div class="taxonomy-class-name">Transition &amp; Migration Failure</div>
-<div class="taxonomy-class-count">4 subtypes</div>
-</div>
-<div class="taxonomy-class">
-<div class="taxonomy-class-code">Class 9</div>
-<div class="taxonomy-class-name">Governance Compression Failure</div>
-<div class="taxonomy-class-count">13 subtypes</div>
-</div>
-</div>
-<div style="margin-top:16px; padding:14px 18px; border:1px solid rgba(255,255,255,0.06); border-radius:12px; background:rgba(255,255,255,0.012); font-size:12.5px; color:var(--text-faint); line-height:1.65;">
-<strong style="color:var(--text-dim);">On compound failures:</strong> Most real failures are compounds. A compound failure contains a primary governing break, secondary consequences, and tertiary adaptations. The diagnostic question is always: which break, if corrected, would change the behaviour of the others? That is the primary class.
-          </div>
-<div class="cta-bar">
+<section id="m-classify" aria-label="Diagnostic Taxonomy" style="margin-bottom:56px;">
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start;">
+<div>
+<h2 style="margin:0 0 10px; font-size:clamp(1.2rem,1.05rem+0.5vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.2;">Nine failure classes. 54 subtypes. No classification without evidence.</h2>
+<p style="margin:0 0 14px; font-size:14px; color:var(--text-dim); line-height:1.7;">The taxonomy gives recurring failures a consistent classification instead of treating each case as unique. Nine classes locate the kind of structural break; 54 subtypes identify the specific mechanism. Each has formal inclusion, exclusion and refusal criteria, and a class is assigned only where the evidence supports it.</p>
+<div style="margin:0 0 18px; padding:14px 16px; border:1px solid rgba(90,176,255,0.16); border-left:2px solid rgba(90,176,255,0.55); border-radius:10px; background:rgba(90,176,255,0.025); font-size:12.5px; color:var(--text-faint); line-height:1.65;"><strong style="color:var(--text-dim);">On compound failures:</strong> most real failures are compounds, with a primary governing break, secondary consequences and tertiary adaptations. The question is always: which break, if corrected, would change the behaviour of the others? That is the primary class.</div>
 <a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay">REQUEST FULL TAXONOMY →</a>
+</div>
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 1 · 7 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">External Constraint</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 2 · 5 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Scaling Failure</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 3 · 4 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Founding Model</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 4 · 6 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Boundary Failure</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 5 · 5 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Governance Failure</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 6 · 4 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Incentive Misalignment</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 7 · 6 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Human-System Interface</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 8 · 4 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Transition &amp; Migration</div>
+</div>
+<div style="padding:12px 14px; border:1px solid rgba(90,176,255,0.14); border-radius:10px; background:rgba(255,255,255,0.018);">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Class 9 · 13 subtypes</div>
+<div style="font-size:12px; font-weight:600; color:#e4eaf2; line-height:1.3;">Governance Compression</div>
+</div>
 </div>
 </div>
 </section>
-<!-- ── Stage 3: Artifact Production Pipeline ── -->
-<div class="section-divider"><span class="section-divider-label">stage 03: production</span></div>
-<section aria-label="Artifact Production Pipeline" class="card card-accent">
+
+<!-- ── Diagnostic sequence ── -->
+<div class="section-divider"><span class="section-divider-label">stage 03: diagnosis</span></div>
+<section id="m-diagnose" aria-label="How the diagnosis works" class="card">
 <div class="card-head">
 <div class="card-head-bar"></div>
-<h2>Artifact Production Pipeline</h2>
+<h2>How recurring-failure diagnosis works: the seven-step sequence</h2>
 </div>
 <div class="card-body">
-<p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">Failure signal through to builder-ready artifact. A governed production sequence, not subjective consulting.</p>
-<p style="margin:0 0 20px; font-size:13.5px; color:var(--text-dim); line-height:1.7; max-width:72ch;">Every artifact follows the same pipeline. The work is not produced by opinion or instinct. The structural conclusions, diagnostic logic, and correction order are governed by the taxonomy and the diagnostic sequence below. AI assists drafting and production. It does not determine the governing diagnosis, the redesign boundary, or the correction order.</p>
-<div class="pipeline-row jf-mobile-stack">
-<div class="pipeline-stage">
-<div class="pipeline-stage-num">Stage A</div>
-<div class="pipeline-stage-title">Failure signal received</div>
-<div class="pipeline-stage-desc">Five-Line Brief reviewed. Fit confirmed. Engagement path selected.</div>
-<span class="pipeline-stage-arrow">→</span>
-</div>
-<div class="pipeline-stage">
-<div class="pipeline-stage-num">Stage B</div>
-<div class="pipeline-stage-title">System defined</div>
-<div class="pipeline-stage-desc">Real boundary, scope, and primitive identified. Adjacent systems mapped.</div>
-<span class="pipeline-stage-arrow">→</span>
-</div>
-<div class="pipeline-stage pipeline-stage-active">
-<div class="pipeline-stage-num">Stage C</div>
-<div class="pipeline-stage-title">Failure class assigned</div>
-<div class="pipeline-stage-desc">Taxonomy applied. Primary class and subtype confirmed against inclusion, exclusion, and refusal criteria.</div>
-<span class="pipeline-stage-arrow">→</span>
-</div>
-<div class="pipeline-stage pipeline-stage-active">
-<div class="pipeline-stage-num">Stage D</div>
-<div class="pipeline-stage-title">Governing diagnosis locked</div>
-<div class="pipeline-stage-desc">The structural truth from which the rest of the failure follows. Confirmed before redesign is released.</div>
-<span class="pipeline-stage-arrow">→</span>
-</div>
-<div class="pipeline-stage pipeline-stage-active" style="border-right:1px solid rgba(90,176,255,0.2);">
-<div class="pipeline-stage-num">Stage E</div>
-<div class="pipeline-stage-title">Artifact delivered</div>
-<div class="pipeline-stage-desc">One Diagnostic Artifact or four-artifact governed sequence. Written. Fixed-scope. Builder-ready.</div>
+<div class="steps">
+<div class="step">
+<span class="step-num">01</span>
+<div class="step-body">
+<h3>Define the system properly</h3>
+<p>Identify the system actually under analysis: its real boundary and scope, the systems around it, and where the work really happens. Team and department names often describe the surface, not the structure. <strong>This comes first: a diagnosis of the wrong system isn’t a partial diagnosis. It’s a different one.</strong></p>
 </div>
 </div>
-<div class="cta-bar">
-<a class="btn btn-primary" href="./services.html">VIEW SERVICES AND ENGAGEMENT PATHS →</a>
+<div class="step">
+<span class="step-num">02</span>
+<div class="step-body">
+<h3>Identify the primitive and governing rules</h3>
+<p>Name the primitive, the basic unit of work the system is organised around, and the rules that must actually hold for it to work, not just what the policy says. <strong>A broken rule can only be found once the governing rule is named.</strong></p>
+</div>
+</div>
+<div class="step">
+<span class="step-num">03</span>
+<div class="step-body">
+<h3>Trace the failure path</h3>
+<p>Follow where the rules become real and where they fail: interfaces, handoffs, decision points, and the places the burden moves to, including people quietly holding the system together. <strong>The break is rarely where it first appears.</strong></p>
+</div>
+</div>
+<div class="step">
+<span class="step-num">04</span>
+<div class="step-body">
+<h3>Form the governing diagnosis</h3>
+<p>The central step. The governing diagnosis is the explanation the evidence supports: the one claim that, if correct, explains why previous fixes haven’t held and what must change first. It separates what seems to be failing from what’s actually producing the failure. <strong>Everything else in the artifact leads to it or follows from it.</strong></p>
+</div>
+</div>
+<div class="step">
+<span class="step-num">05</span>
+<div class="step-body">
+<h3>Make the stakes legible</h3>
+<p>Make the cost of the failure visible: operational, human, financial, coordination, and the risk that compounds over time. <strong>Cost that stays vague keeps being absorbed, and never drives a structural decision.</strong></p>
+</div>
+</div>
+<div class="step step-highlight">
+<span class="step-num">06</span>
+<div class="step-body">
+<h3>Confirm the diagnosis</h3>
+<p>You review the Diagnostic Artifact, then confirm it in writing, ask questions or challenge a finding. On a Full engagement, the redesign starts only after your confirmation and takes a further 14 days. <strong>A redesign built on an unconfirmed diagnosis would be speculation.</strong></p>
+</div>
+</div>
+<div class="step">
+<span class="step-num">07</span>
+<div class="step-body">
+<h3>Produce the artifact</h3>
+<p>The agreed written work: a Diagnostic Artifact on its own, or, in a Full engagement, four linked documents built from the confirmed diagnosis:</p>
+<ul class="clean" style="margin-top:12px;">
+<li><strong>Translation Artifact</strong>: shared language layer for leadership, operations, and non-specialist audiences</li>
+<li><strong>Diagnostic Artifact</strong>: governing diagnosis, evidence base, and build map</li>
+<li><strong>Redesign Executive Summary</strong>: a board-level summary of the specification that can circulate more widely than the full blueprint</li>
+<li><strong>Full Redesign Artifact</strong>: the restricted written blueprint for the replacement structure: the corrected primitive, target boundary, transition sequence, dependency order, interface and handoff changes, refusal rules, recapture gates, and builder handoff</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </section>
 <!-- ── Stage 4: Proof Standard ── -->
 <div class="section-divider"><span class="section-divider-label">stage 04: proof</span></div>
-<section aria-label="Proof Standard" class="card">
+<section id="m-prove" aria-label="Proof Standard" class="card card-accent" style="border-color:rgba(90,176,255,0.28); border-top:2px solid rgba(90,176,255,0.6);">
 <div class="card-head">
 <div class="card-head-bar"></div>
 <h2>Proof Standard</h2>
@@ -730,7 +800,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <li>A pattern that matches without locating a structural cause</li>
 <li>An inference unsupported by the material in scope</li>
 <li>A claim that renames the symptom without naming the break</li>
-<li>A redesign released before the diagnostic frame is confirmed</li>
+<li>A redesign produced before the diagnosis is confirmed</li>
 <li>A conclusion the system's owner already held before the work began</li>
 </ul>
 </div>
@@ -741,87 +811,20 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 </section>
-<!-- ── Diagnostic sequence ── -->
-<div class="section-divider"><span class="section-divider-label">the seven-step diagnostic sequence</span></div>
-<section aria-label="How the diagnosis works" class="card">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>How recurring-failure diagnosis works: the seven-step sequence</h2>
-</div>
-<div class="card-body">
-<div class="steps">
-<div class="step">
-<span class="step-num">01</span>
-<div class="step-body">
-<h3>Define the system properly</h3>
-<p>The first task is to identify what system is actually under analysis: the real boundary, real scope, adjacent systems, and where work actually lives. Domain and team names often describe the surface, not the operational structure. <strong>This step must come first because every subsequent diagnostic claim depends on having the right system in scope.</strong> A diagnosis of the wrong system is not a partial diagnosis. It is a different artifact entirely.</p>
-</div>
-</div>
-<div class="step">
-<span class="step-num">02</span>
-<div class="step-body">
-<h3>Identify the primitive and governing rules</h3>
-<p>Once the system is defined, I identify its primitive (the smallest unit of real work the system is organised around) and the rules, constraints, and invariants that govern that action. The question is not what the policy says. It is what must actually hold for the system to function without drift. <strong>This step must come before failure tracing because a broken rule can only be identified once the governing rule has been named.</strong></p>
-</div>
-</div>
-<div class="step">
-<span class="step-num">03</span>
-<div class="step-body">
-<h3>Trace the failure path</h3>
-<p>With the system and its governing rules established, I trace where rules become real, where they fail, and what happens when they do: interfaces, handoffs, decision points, enforcement points, and places where burden moves elsewhere. I look for where humans have become the hidden reliability layer. <strong>This step must precede diagnosis because the failure path shows where the break actually lives, which is rarely where it first appears.</strong></p>
-</div>
-</div>
-<div class="step">
-<span class="step-num">04</span>
-<div class="step-body">
-<h3>Form the governing diagnosis</h3>
-<p>This is the central moment of the method. The governing diagnosis is the structural truth from which the rest of the failure follows: the one claim that, if correct, explains why prior fixes have not held and what must change before any intervention will. It separates what the client thinks is failing from what is actually producing the failure. <strong>Everything in the artifact either leads toward this paragraph or flows from it.</strong> It is the paragraph decision-makers will circulate internally.</p>
-</div>
-</div>
-<div class="step">
-<span class="step-num">05</span>
-<div class="step-body">
-<h3>Make the stakes legible</h3>
-<p>A diagnosis is incomplete if it does not make consequence visible. I make the current cost of the failure legible: operational cost, human cost, financial cost, coordination cost, and future compounding risk. <strong>Structural cost that remains vague continues to be absorbed invisibly, and invisible cost does not produce structural decisions.</strong></p>
-</div>
-</div>
-<div class="step step-highlight">
-<span class="step-num">06</span>
-<div class="step-body">
-<h3>Lock the diagnostic frame</h3>
-<p>The Diagnostic Artifact is delivered first. Its governing diagnosis is clarified and confirmed before redesign is released as the governing replacement. This prevents an unconfirmed frame from directing the change sequence while keeping the Full Structural Engagement inside one 14-day production window. <strong>A redesign released before the diagnostic frame is confirmed would be speculative. A speculative redesign is not what this practice delivers.</strong></p>
-</div>
-</div>
-<div class="step">
-<span class="step-num">07</span>
-<div class="step-body">
-<h3>Produce the artifact</h3>
-<p>The final task in recurring-failure work is to produce the agreed artifact path: either a Diagnostic Artifact alone, or the complete four-artifact governed sequence in the Full Structural Engagement. The Structural Lens Brief sits outside this seven-step diagnostic sequence because it extracts architecture rather than diagnosing a recurring failure. In the full engagement, the same locked diagnosis produces four linked outputs:</p>
-<ul class="clean" style="margin-top:12px;">
-<li><strong>Translation Artifact</strong>: shared language layer for leadership, operations, and non-specialist audiences</li>
-<li><strong>Diagnostic Artifact</strong>: governing diagnosis, evidence base, and build map</li>
-<li><strong>Redesign Executive Summary</strong>: board-level public summary of the restricted specification</li>
-<li><strong>Full Redesign Artifact</strong>: the restricted written blueprint for the replacement structure, covering the corrected primitive, transition sequence, dependency order, refusal invariants, recapture gates, and builder handoff</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
 <!-- ── Redesign sequence ── -->
 <div class="section-divider"><span class="section-divider-label">how diagnosis becomes redesign</span></div>
-<section aria-label="Redesign sequence" class="card card-accent">
+<section id="m-redesign" aria-label="Redesign sequence" class="card card-accent" style="border-color:rgba(90,176,255,0.28); border-top:2px solid rgba(90,176,255,0.6);">
 <div class="card-head">
 <div class="card-head-bar"></div>
 <h2>Redesign sequence</h2>
 </div>
 <div class="card-body">
-<p style="margin:0 0 20px; font-size:13.5px; color:var(--text-dim); line-height:1.7; max-width:72ch;">Redesign is not produced by brainstorming solutions against a problem statement. It follows from the locked diagnosis. The sequence is non-negotiable. Each stage depends on the one before it.</p>
+<p style="margin:0 0 20px; font-size:13.5px; color:var(--text-dim); line-height:1.7; max-width:72ch;">Redesign is not produced by brainstorming solutions against a problem statement. It follows from the confirmed diagnosis. The sequence is non-negotiable. Each stage depends on the one before it.</p>
 <div class="redesign-flow jf-mobile-stack">
 <div class="redesign-node">
 <div class="redesign-node-num">Phase 01</div>
 <div class="redesign-node-title">Governing diagnosis accepted</div>
-<div class="redesign-node-desc">The structural break is named. The failure class is confirmed. The client accepts the governing diagnosis before the redesign phase opens.</div>
+<div class="redesign-node-desc">The structural break is named, and classified where the evidence supports it. The client accepts the governing diagnosis before the redesign phase opens.</div>
 </div>
 <div class="redesign-node">
 <div class="redesign-node-num">Phase 02</div>
@@ -831,39 +834,30 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="redesign-node">
 <div class="redesign-node-num">Phase 03</div>
 <div class="redesign-node-title">Transition sequence specified</div>
-<div class="redesign-node-desc">Dependency-ordered change path. Interface changes. Drift refusal gates. Conditions that prevent regression.</div>
+<div class="redesign-node-desc">Dependency-ordered change path. Interface and handoff changes. Refusal rules and recapture gates that stop the old pattern returning.</div>
 </div>
 <div class="redesign-node">
 <div class="redesign-node-num">Phase 04</div>
 <div class="redesign-node-title">Builder handoff</div>
-<div class="redesign-node-desc">Execution-ready specification. The Full Redesign Artifact: corrected primitive, transition sequence, refusal invariants, recapture gates, and handoff.</div>
+<div class="redesign-node-desc">Execution-ready specification: the Full Redesign Artifact your team or partner builds from.</div>
 </div>
 </div>
 <div style="margin-top:16px; padding:14px 18px; border:1px solid rgba(90,176,255,0.14); border-radius:12px; background:rgba(90,176,255,0.03); font-size:12.5px; color:var(--text-faint); line-height:1.65; font-style:italic;">
-            Translation without diagnosis becomes simplification. Diagnosis without redesign leaves builders without a change path. Executive summary without full specification becomes rhetoric. Full specification without locked diagnosis becomes speculation.
+            Translation without diagnosis becomes simplification. Diagnosis without redesign leaves builders without a change path. Executive summary without full specification becomes rhetoric. Full specification without a confirmed diagnosis becomes speculation.
           </div>
 </div>
 </section>
 <!-- ── What the artifacts contain ── -->
 <div class="section-divider"><span class="section-divider-label">what the artifacts contain</span></div>
-<section aria-label="What the artifacts contain" class="card">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>What the artifacts contain</h2>
-</div>
-<div class="card-body">
-<p style="margin:0 0 18px; font-size:13.5px; color:var(--text-dim); line-height:1.72;">The three engagements produce different levels of structural work. The Lens exposes architecture. The Diagnostic names the recurring structural break. The Full Engagement carries a locked diagnosis into shared language, executive decision-making, and an implementation-ready redesign sequence.</p>
-<div class="list-panel">
-<span class="list-panel-label">A Structural Lens Brief typically includes</span>
-<ul class="clean">
-<li>The underlying structure of the problem, system, method, or body of work</li>
-<li>The principal functions the structure must perform</li>
-<li>Key boundaries and dependencies</li>
-<li>Structural tensions or mismatches worth making explicit</li>
-<li>A concise architecture map in a 6–10 page written brief</li>
-</ul>
-<span class="list-panel-label" style="margin-top:20px; display:block;">A Translation Artifact typically includes</span>
-<ul class="clean">
+<section aria-label="What the artifacts contain" style="margin-bottom:32px;">
+<h2 style="margin:0 0 8px; font-size:clamp(1.2rem,1.05rem+0.5vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em;">What the artifacts contain</h2>
+<p style="margin:0 0 18px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:76ch;">A Diagnostic Artifact names the recurring structural break. A Full Structural Engagement carries the confirmed diagnosis into four linked documents, each written for a different reader.</p>
+<div class="art-grid jf-mobile-stack">
+<div style="padding:18px 18px 20px; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.35); border-radius:14px; background:linear-gradient(160deg,rgba(90,176,255,0.045) 0%,rgba(255,255,255,0.01) 100%); min-width:0;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">01</div>
+<h3 style="margin:0 0 4px; font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em;">Translation Artifact</h3>
+<p style="margin:0 0 12px; font-size:11.5px; color:var(--text-faint); line-height:1.5;">For leadership, operations and non-specialists</p>
+<ul class="clean art-list">
 <li>Plain-language explanation of the structural failure</li>
 <li>Shared vocabulary across leadership, operations, and non-specialist roles</li>
 <li>Accessible explanation of the governing diagnosis</li>
@@ -871,8 +865,12 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <li>Plain-language summary of the replacement direction</li>
 <li>Audience routing guidance: who reads what and where to go next</li>
 </ul>
-<span class="list-panel-label" style="margin-top:20px; display:block;">A Diagnostic Artifact typically includes</span>
-<ul class="clean">
+</div>
+<div style="padding:18px 18px 20px; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.50); border-radius:14px; background:linear-gradient(160deg,rgba(90,176,255,0.045) 0%,rgba(255,255,255,0.01) 100%); min-width:0;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">02</div>
+<h3 style="margin:0 0 4px; font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em;">Diagnostic Artifact</h3>
+<p style="margin:0 0 12px; font-size:11.5px; color:var(--text-faint); line-height:1.5;">The governing diagnosis and build map</p>
+<ul class="clean art-list">
 <li>A clear definition of the system under analysis</li>
 <li>A structural view of how work actually flows</li>
 <li>The primitive and governing rules</li>
@@ -882,8 +880,12 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <li>The present and future cost of the failure</li>
 <li>What must change first, and what depends on what</li>
 </ul>
-<span class="list-panel-label" style="margin-top:20px; display:block;">A Redesign Executive Summary typically includes</span>
-<ul class="clean">
+</div>
+<div style="padding:18px 18px 20px; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.65); border-radius:14px; background:linear-gradient(160deg,rgba(90,176,255,0.045) 0%,rgba(255,255,255,0.01) 100%); min-width:0;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">03</div>
+<h3 style="margin:0 0 4px; font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em;">Redesign Executive Summary</h3>
+<p style="margin:0 0 12px; font-size:11.5px; color:var(--text-faint); line-height:1.5;">For the board and decision owners</p>
+<ul class="clean art-list">
 <li>Board-level replacement logic</li>
 <li>Corrected primitive</li>
 <li>Minimum valid replacement conditions</li>
@@ -891,17 +893,24 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <li>Proof standard and consequence of deferral</li>
 <li>Dependency order in plain terms</li>
 </ul>
-<span class="list-panel-label" style="margin-top:20px; display:block;">A Full Redesign Artifact (restricted) typically includes</span>
-<ul class="clean">
-<li>The corrected primitive: what the system must actually be organised to do</li>
-<li>Target boundary: what changes and what does not</li>
-<li>Transition sequence: the dependency-ordered change path</li>
-<li>Interface changes: what must be tightened, removed, or clarified</li>
-<li>Drift refusal gates: constraints that prevent regression</li>
-<li>Builder handoff: the execution-ready sequence</li>
+</div>
+<div style="padding:18px 18px 20px; border:1px solid rgba(90,176,255,0.2); border-top:2px solid rgba(90,176,255,0.80); border-radius:14px; background:linear-gradient(160deg,rgba(90,176,255,0.045) 0%,rgba(255,255,255,0.01) 100%); min-width:0;">
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:6px;">04</div>
+<h3 style="margin:0 0 4px; font-size:15px; font-weight:700; color:#fff; letter-spacing:-0.02em;">Full Redesign Artifact</h3>
+<p style="margin:0 0 12px; font-size:11.5px; color:var(--text-faint); line-height:1.5;">Restricted · the builder’s blueprint</p>
+<ul class="clean art-list">
+<li>The corrected primitive: what the new structure is organised to do</li>
+<li>Target boundary: what the new structure covers, and what stays outside it</li>
+<li>Transition sequence: the order the changes must happen in</li>
+<li>Dependency order: which changes rely on others being done first</li>
+<li>Interface and handoff changes across teams, systems and contracts</li>
+<li>Refusal rules: what the new structure must never allow</li>
+<li>Recapture gates: checks that stop the old pattern coming back</li>
+<li>Builder handoff: the requirements your team or partner builds from</li>
 </ul>
 </div>
 </div>
+<p style="margin:14px 0 0; font-size:12.5px; color:var(--text-faint);">Need an architecture mapped rather than a failure diagnosed? That’s the <a class="link-blue" href="./services.html">Structural Lens Brief</a>, a separate 6–10 page brief.</p>
 </section>
 <!-- ── How I produce the work ── -->
 <div class="section-divider"><span class="section-divider-label">how i produce the work</span></div>
@@ -939,55 +948,64 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <!-- ── Research behind the method ── -->
 <div class="section-divider"><span class="section-divider-label">the research behind the method</span></div>
 <section aria-label="The research behind the method" class="card">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>The research behind the method</h2>
-</div>
-<div class="card-body prose">
-<p>The method is grounded in 10 published research papers and the complete Diagnostic Taxonomy, all within a 59-paper research programme that is already mapped. The published papers define the structural laws the method applies: primitive mismatch, function collapse, burden transfer, the missing redesign layer, institution migration, replacement pipeline construction, admissibility conditions, governed correction sequences, host-constrained primitive compression, and kernel reduction. The taxonomy provides the shared classification standard: nine failure classes, fifty-four subtypes, with formal inclusion, exclusion, and refusal criteria.</p>
+<div class="card-body">
+<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:32px; align-items:start;">
+<div class="prose">
+<h2 style="margin:0 0 12px; font-size:clamp(1.2rem,1.05rem+0.5vw,1.5rem); font-weight:700; color:#fff; letter-spacing:-0.03em;">The research behind the method</h2>
+<p>The method is grounded in 10 published research papers and the complete Diagnostic Taxonomy. The published papers define the structural laws the method applies: primitive mismatch, function collapse, burden transfer, the missing redesign layer, institution migration, replacement pipeline construction, admissibility conditions, governed correction sequences, host-constrained primitive compression, and kernel reduction. The taxonomy provides the shared classification standard: nine failure classes, fifty-four subtypes, with formal inclusion, exclusion, and refusal criteria.</p>
 <p>The papers are not the method. They are the public form of the structural laws the method is built on. The artifacts are the applied form of those laws within a bounded system.</p>
-<p><a class="link-blue" href="./research.html">Read the research →</a>  ·  <a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay">Request the full taxonomy →</a></p>
+<div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;"><a class="btn" href="./research.html">VIEW ALL RESEARCH →</a><a class="btn" href="./trilogy.html">VIEW THE TRILOGY →</a></div>
 </div>
-</section>
-<!-- ── Start here ── -->
-<div class="section-divider"><span class="section-divider-label">start here</span></div>
-<section aria-label="When to start" class="card">
-<div class="card-head">
-<div class="card-head-bar"></div>
-<h2>When to start</h2>
-</div>
-<div class="card-body prose">
-<p><strong>If you need architecture exposed:</strong> request a Structural Lens Brief. That route does not require a recurring failure or the Five-Line Brief.</p>
-<p><strong>If the same failure keeps returning:</strong> run the 60-Second Scan if useful, then send the Five-Line Brief. I will confirm whether the right recurring-failure path is the Diagnostic Artifact alone or the Full Structural Engagement. Both use the same locked diagnostic frame; Full then carries that diagnosis into the four linked redesign artifacts.</p>
-<div style="margin-top:16px; padding:14px 18px; border-left:2px solid rgba(90,176,255,0.4); font-size:13px; color:var(--text-dim); line-height:1.65;">The Five-Line Brief is a fit screen for recurring failure, not a requirement for every kind of work. If you simply want to open a conversation, contact me directly.</div>
-</div>
-</section>
-<div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-<a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
-<a class="btn" data-jf-contact="1" data-jf-subject="Structural Lens Brief enquiry" href="#jfContactOverlay">REQUEST STRUCTURAL LENS</a>
-<a class="btn" href="./diagnostic-scan.html">RUN THE 60-SECOND SCAN →</a>
-<a class="btn" data-jf-contact="1" data-jf-subject="Website enquiry: Method" href="#jfContactOverlay">CONTACT</a>
-</div>
-<!-- Persistent brief CTA -->
-<div class="jf-mobile-flex-stack" style="margin:48px 0 0; padding:20px 28px; border:1px solid rgba(90,176,255,0.2); border-radius:14px; background:rgba(90,176,255,0.03); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
 <div>
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Ready to apply this?</div>
-<p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.6;">Send the repeated failure. Five lines and any relevant material.</p>
-</div>
-<div class="jf-mobile-flex-actions" style="display:flex; gap:10px; flex-wrap:wrap; flex-shrink:0;">
-<a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
-<a class="btn" href="./diagnostic-scan.html">RUN THE SCAN →</a>
-<a class="btn" data-jf-contact="1" data-jf-subject="Website enquiry: Method" href="#jfContactOverlay">CONTACT</a>
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:10px;">// Diagnostic Lens Trilogy · free to read</div>
+<div style="display:flex; flex-direction:column; gap:10px;">
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468800" rel="noopener" target="_blank" style="display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center; padding:10px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03); text-decoration:none;"><img alt="Cover: The Expertise Illusion in AI Task Marketplaces" src="./paper1-image.png" style="display:block; width:64px; height:84px; object-fit:cover; object-position:top; border-radius:6px; border:1px solid rgba(255,255,255,0.1);"/><span><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Paper 01 · Structural mismatch</span><span style="display:block; font-size:13px; font-weight:600; color:#fff; line-height:1.35; margin-bottom:4px;">The Expertise Illusion in AI Task Marketplaces</span><span style="font-size:12px; color:var(--cta-blue);">View paper →</span></span></a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6468904" rel="noopener" target="_blank" style="display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center; padding:10px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03); text-decoration:none;"><img alt="Cover: The Four-Function Law of Scalable Institutions" src="./paper2-image.png" style="display:block; width:64px; height:84px; object-fit:cover; object-position:top; border-radius:6px; border:1px solid rgba(255,255,255,0.1);"/><span><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Paper 02 · Concentrated burden</span><span style="display:block; font-size:13px; font-weight:600; color:#fff; line-height:1.35; margin-bottom:4px;">The Four-Function Law of Scalable Institutions</span><span style="font-size:12px; color:var(--cta-blue);">View paper →</span></span></a>
+<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6469058" rel="noopener" target="_blank" style="display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:center; padding:10px; border:1px solid rgba(90,176,255,0.18); border-radius:12px; background:rgba(90,176,255,0.03); text-decoration:none;"><img alt="Cover: Why Systems Can’t Fix Themselves: The Missing Redesign Layer" src="./paper3-image.png" style="display:block; width:64px; height:84px; object-fit:cover; object-position:top; border-radius:6px; border:1px solid rgba(255,255,255,0.1);"/><span><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:4px;">Paper 03 · The redesign layer</span><span style="display:block; font-size:13px; font-weight:600; color:#fff; line-height:1.35; margin-bottom:4px;">Why Systems Can’t Fix Themselves: The Missing Redesign Layer</span><span style="font-size:12px; color:var(--cta-blue);">View paper →</span></span></a>
 </div>
 </div>
+</div>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">how to start</span></div>
+<section aria-label="How to start" class="card" style="margin-bottom:32px;">
+<div class="card-body">
+<p class="lead" style="margin-bottom:6px;">Send the repeated failure. Not the proposed fix.</p>
+<p style="margin:0 0 20px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">The five-line brief. No diagnosis yet. Just the signal.</p>
+<div class="process-strip jf-mobile-stack">
+<div class="process-card"><span aria-hidden="true" class="process-card-num">01</span><span class="process-step">Step 01</span><p><strong>Describe the problem.</strong> Send the Five-Line Brief for a recurring failure, or contact me about a Structural Lens.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">02</span><span class="process-step">Step 02</span><p><strong>Establish fit.</strong> I review the initial problem and scope. Qualification is free; it is not a diagnosis.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">03</span><span class="process-step">Step 03</span><p><strong>Agree the work.</strong> If suitable, we agree the fixed fee, evidence requirements and written deliverable before paid work begins.</p></div>
+</div>
+<div class="signal-box" style="margin-top:20px;">
+<span class="mini-kicker">Send these five lines</span>
+<ol class="signal-list">
+<li class="signal-item"><span class="signal-num">01</span><span><strong>What keeps going wrong?</strong></span></li>
+<li class="signal-item"><span class="signal-num">02</span><span><strong>What is it costing?</strong> Money, time, trust, load, or drift.</span></li>
+<li class="signal-item"><span class="signal-num">03</span><span><strong>Where does it show up?</strong> Teams, roles, systems, or touchpoints.</span></li>
+<li class="signal-item"><span class="signal-num">04</span><span><strong>What has already been tried?</strong></span></li>
+<li class="signal-item"><span class="signal-num">05</span><span><strong>What cannot change?</strong> Non-negotiables and constraints.</span></li>
+</ol>
+</div>
+<div class="callout"><p><strong>If the work is not the right fit, I will say so.</strong></p></div>
+<div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+<a class="btn btn-primary btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
+<a class="btn btn-large" data-jf-contact="1" data-jf-subject="Website enquiry: Method" href="#jfContactOverlay">CONTACT</a>
+</div>
+<p style="margin:16px 0 0; font-size:12.5px; color:var(--text-faint);">Need an architecture mapped rather than a failure diagnosed? <a class="link-blue" data-jf-contact="1" data-jf-subject="Structural Lens Brief enquiry" href="#jfContactOverlay">Ask about a Structural Lens Brief</a>.</p>
+</div>
+</section>
 </main>
+<div style="display:flex;justify-content:center;padding:32px 0 0;">
+<a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
+</div>
 </div>
 <footer class="site-footer">
 <div class="site-footer__inner">
 <div class="site-footer__top">
 <section aria-labelledby="footer-brand-heading" class="site-footer__brand">
 <h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
-<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis &amp; redesign for recurring failure under scale.</p>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Independent structural diagnosis and replacement architecture for recurring organisational failure.</p>
 </section>
 <nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
 <h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
