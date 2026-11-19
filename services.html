@@ -387,6 +387,16 @@
     .fit-check-list-bad li { color: var(--text-faint); }
     .fit-check { font-family: "IBM Plex Mono", monospace; font-size: 11px; flex-shrink: 0; color: var(--cta-blue); }
     .fit-check-bad { color: rgba(255,130,130,0.55); }
+    .method-steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+    .method-step { padding: 18px 20px; border: 1px solid rgba(90,176,255,0.2); border-radius: 14px; background: linear-gradient(160deg, rgba(90,176,255,0.045) 0%, rgba(255,255,255,0.01) 100%); }
+    .method-step-num { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); margin-bottom: 8px; }
+    .method-step h3 { margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: #fff; line-height: 1.3; }
+    .method-step p { margin: 0; font-size: 12.5px; color: var(--text-faint); line-height: 1.6; }
+    .method-step-final { display: grid; grid-template-columns: 0.8fr 2fr; gap: 24px; align-items: center; border-color: rgba(90,176,255,0.45); border-top: 2px solid rgba(90,176,255,0.7); background: linear-gradient(135deg, rgba(90,176,255,0.09) 0%, rgba(90,176,255,0.02) 60%); }
+    .method-step-outputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .method-step-outputs > div { padding: 12px 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(0,0,0,0.2); font-size: 12px; color: var(--text-faint); line-height: 1.5; }
+    .method-step-outputs span { display: block; font-size: 12.5px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    @media (max-width: 900px) { .method-steps-grid, .method-step-final, .method-step-outputs { grid-template-columns: 1fr; } }
     .notinc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .notinc-grid .fit-panel { border-color: rgba(90,176,255,0.24); background: linear-gradient(160deg, rgba(90,176,255,0.04) 0%, rgba(255,255,255,0.01) 100%); }
     .notinc-grid .fit-panel-head { border-bottom-color: rgba(90,176,255,0.12); }
@@ -731,7 +741,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p style="margin:0; font-size:12.5px; color:var(--text-faint); line-height:1.65;">A written diagnosis of one recurring failure: what is breaking, why earlier fixes haven’t held, where the burden is carried and what must change first. Conclusions are stated with their limits.</p>
 </div>
 <div style="border:1px solid rgba(80,200,120,0.3); border-radius:16px; padding:20px; background:linear-gradient(160deg,rgba(80,200,120,0.07) 0%,rgba(80,200,120,0.025) 50%,transparent 100%);">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:8px;">03 // £25,000 · standard 14-day window</div>
+<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(80,200,120,0.85); margin-bottom:8px;">03 // £25,000 · 14 + 14 days</div>
 <h3 style="margin:0 0 8px; font-size:16px; color:#fff;">Full Structural Engagement</h3>
 <p style="margin:0 0 12px; font-size:13px; color:var(--text-dim); line-height:1.65;"><strong style="color:#fff;">I need the failure diagnosed and the replacement specified.</strong></p>
 <p style="margin:0; font-size:12.5px; color:var(--text-faint); line-height:1.65;">Diagnosis first. Once it’s confirmed, a written blueprint for the replacement structure, transition sequence and builder handoff.</p>
@@ -818,7 +828,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="sc-meta-row">
 <span class="meta-chip">diagnosis + redesign</span>
 <span class="meta-chip">fixed-scope</span>
-<span class="meta-chip">standard 14-day window*</span>
+<span class="meta-chip">14 + 14 days*</span>
 <span class="meta-chip">builder handoff</span>
 </div>
 </div>
@@ -870,7 +880,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 <div class="sc-cta">
 <a class="btn btn-primary btn-large btn-full" data-jf-brief="1" href="#jfBriefOverlay" style="color:rgba(80,200,120,0.9); border-color:rgba(80,200,120,0.35); background:rgba(80,200,120,0.08);"><span aria-hidden="true" class="ico"><svg fill="none" height="14" viewbox="0 0 24 24" width="14"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" stroke-width="1.6"></path><path d="M4.5 7l7.5 6 7.5-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path></svg></span> SEND FIVE-LINE BRIEF</a>
-<span class="sc-cta-note">50% upfront, 50% on delivery · Standard 14-day window* · Diagnostic delivered first · Redesign released after diagnostic confirmation</span>
+<span class="sc-cta-note">50% upfront, 50% on completion · Diagnosis in 14 days* · Redesign in a further 14 days after you confirm it</span>
 </div>
 </section>
 <!-- 01 Structural Lens Brief -->
@@ -915,45 +925,63 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </details>
 </section>
 </div>
-<p style="margin:-10px 0 24px; font-size:13px; color:var(--text-faint); line-height:1.65;">*14-day timings depend on timely access to evidence and, for Full, written confirmation of the diagnosis. See <a class="link-blue" href="#delivery-terms">Delivery terms</a> below. <a class="link-blue" href="./how-it-works.html">How it works →</a></p>
-<div class="section-divider"><span class="section-divider-label">how the work is produced</span></div>
+<p style="margin:-10px 0 24px; font-size:12.5px; color:var(--text-faint); line-height:1.65;">*Timings start once the agreed evidence and first payment arrive, and pause if more evidence is needed. For Full, the redesign takes a further 14 days from your written confirmation of the diagnosis.</p>
+<p style="margin:-14px 0 24px; font-size:12.5px; color:var(--text-faint); line-height:1.65;">If the evidence can’t support a diagnosis, you’ll be told as soon as that’s clear, normally within 7 days, and pay £2,000 in total. Starting with a Diagnostic? The redesign can be added within 90 days for £25,000 (£35,000 in total). <a class="link-blue" href="#delivery-terms">Key terms</a> · <a class="link-blue" href="./how-it-works.html">How it works →</a></p>
+<div class="section-divider"><span class="section-divider-label">how the work is done</span></div>
 <section aria-label="Artifact Production Pipeline" style="margin-bottom:32px;">
-<div style="margin-bottom:18px;">
-<p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">A governed production sequence, not subjective consulting.</p>
-<p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:72ch;">The amount of diagnostic machinery depends on the service. A Lens Brief extracts architecture. A Diagnostic Artifact tests the failure against defined conditions and establishes the governing diagnosis where the evidence supports it. Full Structural Engagement carries that confirmed diagnosis into redesign. AI can assist drafting and production; it does not determine the governing diagnosis or correction order.</p>
+<div style="margin-bottom:20px;">
+<h2 style="margin:0 0 10px; font-size:clamp(1.6rem,1.3rem + 1vw,2.2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">How the diagnosis is built.</h2>
+<p style="margin:0 0 8px; font-size:15px; color:var(--text-dim); line-height:1.72; max-width:72ch;">Seven steps, in a fixed order. <strong style="color:#fff;">Each step depends on the one before</strong>, so nothing is concluded until the groundwork holds. <strong style="color:#fff;">AI can help with drafting; it doesn’t decide the diagnosis.</strong></p>
+<p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.65;">Before any of this, your brief is reviewed and the scope agreed. That part is free.</p>
 </div>
-<div class="jf-mobile-stack" data-mobile-grid="table" style="display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-bottom:16px;">
-<div style="padding:18px 14px; border:1px solid rgba(255,255,255,0.06); border-right:none; background:rgba(255,255,255,0.012); border-radius:12px 0 0 12px; position:relative;">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage A</div>
-<div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Request received</div>
-<div style="font-size:11px; color:var(--text-faint); line-height:1.55;">Lens request or Five-Line Brief reviewed. Scope and fit confirmed.</div>
-<span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+<div class="method-steps-grid jf-mobile-stack">
+<div class="method-step">
+<div class="method-step-num">Step 01</div>
+<h3>Define the system</h3>
+<p>The real boundary and scope, and where the work actually happens. Team and department names often describe the surface, not the structure.</p>
 </div>
-<div style="padding:18px 14px; border:1px solid rgba(255,255,255,0.06); border-right:none; background:rgba(255,255,255,0.012); position:relative;">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage B</div>
-<div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">System defined</div>
-<div style="font-size:11px; color:var(--text-faint); line-height:1.55;">The real boundary, scope, organising logic, and adjacent dependencies are made explicit.</div>
-<span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+<div class="method-step">
+<div class="method-step-num">Step 02</div>
+<h3>Name what it does and its rules</h3>
+<p>What the system is really organised to do, and what must actually hold for it to work, not just what the policy says.</p>
 </div>
-<div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); border-right:none; background:rgba(90,176,255,0.04); position:relative;">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage C</div>
-<div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Failure classified when required</div>
-<div style="font-size:11px; color:var(--text-faint); line-height:1.55;">For diagnosis, the nine-class / 54-subtype taxonomy tests the failure against inclusion, exclusion, and refusal criteria.</div>
-<span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+<div class="method-step">
+<div class="method-step-num">Step 03</div>
+<h3>Trace the failure path</h3>
+<p>Where those rules break, what happens when they do, and where the burden moves: interfaces, handoffs, decision points and the people quietly holding it together.</p>
 </div>
-<div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); border-right:none; background:rgba(90,176,255,0.04); position:relative;">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage D</div>
-<div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Diagnostic frame confirmed before redesign release</div>
-<div style="font-size:11px; color:var(--text-faint); line-height:1.55;">The redesign is not released as the governing replacement until the diagnostic frame has been confirmed in writing.</div>
-<span style="position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(90,176,255,0.4); z-index:2;">→</span>
+<div class="method-step">
+<div class="method-step-num">Step 04</div>
+<h3>Form the governing diagnosis</h3>
+<p>The cause the evidence supports, and why previous fixes haven’t held. Tested against the nine failure classes, and classified only where the evidence supports it.</p>
 </div>
-<div style="padding:18px 14px; border:1px solid rgba(90,176,255,0.2); background:rgba(90,176,255,0.05); border-radius:0 12px 12px 0;">
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--label-blue); margin-bottom:8px;">Stage E</div>
-<div style="font-size:12px; font-weight:700; color:#fff; line-height:1.3; margin-bottom:6px;">Written artifact delivered</div>
-<div style="font-size:11px; color:var(--text-faint); line-height:1.55;">Lens Brief, Diagnostic Artifact, or the four-artifact governed sequence.</div>
+<div class="method-step">
+<div class="method-step-num">Step 05</div>
+<h3>Make the stakes visible</h3>
+<p>What the failure is costing: money, time, people, coordination and future risk. Cost that stays vague keeps being absorbed quietly.</p>
+</div>
+<div class="method-step">
+<div class="method-step-num">Step 06</div>
+<h3>Confirm the diagnosis</h3>
+<p>The Diagnostic Artifact is delivered first and confirmed in writing. No redesign is produced from an unconfirmed diagnosis.</p>
 </div>
 </div>
-<div style="margin-top:12px; padding:13px 16px; border-left:2px solid rgba(90,176,255,0.35); font-size:12.5px; color:var(--text-faint); line-height:1.65;">The method is deeper than this summary. <a class="link-blue" href="./method.html">Read the full method →</a>  ·  <a class="link-blue" data-jf-contact="1" data-jf-subject="Full Taxonomy request" href="#jfContactOverlay">Request the full taxonomy →</a></div>
+<div class="method-step method-step-final">
+<div>
+<div class="method-step-num">Step 07</div>
+<h3>Produce the artifact</h3>
+<p>The written work you agreed, delivered within its fixed scope.</p>
+</div>
+<div class="method-step-outputs">
+<div><span>Diagnostic Artifact</span>Steps 01–05, delivered as one written diagnosis, with a clarification pass.</div>
+<div><span>Full Structural Engagement</span>All six steps, then the confirmed diagnosis carried into the four-artifact set, including the replacement blueprint.</div>
+<div><span>Structural Lens Brief</span>Stops once the architecture is mapped. No failure diagnosis.</div>
+</div>
+</div>
+<div style="margin-top:16px; padding:16px 20px; border:1px solid rgba(90,176,255,0.2); border-left:2px solid rgba(90,176,255,0.6); border-radius:12px; background:rgba(90,176,255,0.03);">
+<p style="margin:0 0 4px; font-size:14px; font-weight:600; color:#fff;">Every claim must hold up.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.65;">It must name a structural condition, not a symptom; locate the break precisely; and explain why previous fixes haven’t held. If the evidence can’t support a conclusion, I’ll say so. <a class="link-blue" href="./method.html">Read the full method →</a></p>
+</div>
 </section>
 <div class="section-divider"><span class="section-divider-label">what’s not included</span></div>
 <section aria-label="What this is not" class="card card-full" style="margin-bottom:20px;">
@@ -1002,7 +1030,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 <div style="margin-top:16px; padding:16px 20px; border:1px solid rgba(90,176,255,0.2); border-left:2px solid rgba(90,176,255,0.6); border-radius:12px; background:rgba(90,176,255,0.03);">
 <p style="margin:0 0 4px; font-size:14px; font-weight:600; color:#fff;">If it isn’t structural, I’ll say so.</p>
-<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.65;">If the problem is mainly technical, already understood, or can’t be credibly diagnosed from the available evidence, I’ll tell you at the fit stage rather than deliver work that wouldn’t hold. The Full engagement is delivered as one complete set, not as individual parts.</p>
+<p style="margin:0; font-size:13px; color:var(--text-dim); line-height:1.65;">If the problem is mainly technical, already understood, or can’t be credibly diagnosed from the available evidence, I’ll tell you at the fit stage rather than deliver work that wouldn’t hold.</p>
 </div>
 </section>
 <div class="section-divider"><span class="section-divider-label">fit and scope</span></div>
@@ -1097,28 +1125,49 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="section-divider"><span class="section-divider-label">delivery terms</span></div>
 <section aria-label="Delivery terms" class="card" id="delivery-terms">
 <div class="label-row">
-<span class="label">06 // Delivery terms</span>
-<span class="label-note">after the artifact is delivered</span>
+<span class="label">06 // Key terms in plain English</span>
+<span class="label-note">the short version of the engagement terms</span>
 </div>
 <div class="three-grid jf-mobile-stack">
 <div class="mini">
-<h3>Clarification pass</h3>
-<p>One minor clarification pass is included for each applicable delivery stage. This covers clarification of the document as delivered, not new analysis, extended scope, or additional research.</p>
-<p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">For the Full Structural Engagement, one clarification pass applies to the Diagnostic Artifact and one to the Full Redesign Artifact. The Translation Artifact and Redesign Executive Summary are derived from those locked frames and do not require separate clarification passes.</p>
+<h3>Starting</h3>
+<p>You pay 50% and send the evidence we agreed. Day 1 begins when both have arrived.</p>
 </div>
 <div class="mini">
-<h3>When new work is required</h3>
-<p>If the boundary expands, the analysis deepens, or the problem changes shape after delivery, that becomes a separate engagement. Scope creep is not absorbed silently.</p>
-<p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">In the Full Structural Engagement, the Diagnostic Artifact is delivered first. Redesign is released only after the diagnostic frame is confirmed in writing.</p>
-<p style="margin-top:10px; font-size:13px; color:var(--text-faint); line-height:1.65;">The Full Structural Engagement runs in a standard 14-day window, subject to timely client inputs and diagnostic confirmation. If client-side delay prevents timely confirmation of the diagnostic frame, final redesign release may extend beyond day 14. If the diagnosis shows that redesign is not valid within the engagement boundary, I will say so rather than release a speculative artifact.</p>
+<h3>More evidence</h3>
+<p>If I need more, I’ll ask in writing. The clock pauses for up to 7 days, and your delivery date moves by the length of the pause.</p>
+</div>
+<div class="mini">
+<h3>If it can’t proceed</h3>
+<p>I’ll tell you as soon as that’s clear, normally within the first 7 days. You pay £2,000 in total and the rest is refunded.</p>
+</div>
+<div class="mini">
+<h3>If the evidence can’t settle it</h3>
+<p>You get a written finding of what was established and what remains open, and pay £5,000 in total.</p>
+</div>
+<div class="mini">
+<h3>If you cancel</h3>
+<p>Cancelling during the diagnosis costs £5,000 in total. Before work starts, everything is refunded.</p>
+</div>
+<div class="mini">
+<h3>Delivery and questions</h3>
+<p>The diagnosis is delivered within 14 days. You can send one round of questions within 14 days, and I reply within 7.</p>
+</div>
+<div class="mini">
+<h3>Full: confirming</h3>
+<p>You have 14 days to confirm the diagnosis, ask questions or challenge it. The redesign takes a further 14 days from your confirmation. If you don’t go ahead, the diagnosis costs £10,000 and £2,500 is refunded.</p>
+</div>
+<div class="mini">
+<h3>Using the work</h3>
+<p>Once paid, you have a permanent licence to use, adapt and implement the work in your business, and to share it with your advisers and implementation partners.</p>
 </div>
 <div class="mini">
 <h3>Confidentiality</h3>
-<p>All materials you share are treated as confidential. AI tools are used only on business plans that do not train on your data, with names and personal details removed wherever possible. The artifact is yours. It is not shared, referenced, or used as a case study without your explicit permission.</p>
+<p>Your materials stay confidential, are never used as a case study without permission, and are deleted within 30 days of the engagement closing.</p>
 </div>
 </div>
 <div style="margin-top:18px; padding-top:16px; border-top:1px solid var(--border-soft);">
-<p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.65;">This is architecture-led work. The diagnostic logic, structural interpretation, and final recommendations are mine. <a class="link-blue" href="./method.html">See the Method page</a> for how AI is used in production.</p>
+<p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.65;">The full, binding version is the <a class="link-blue" href="./terms.html">Terms of Engagement</a>. The diagnostic logic, structural interpretation and final recommendations are mine; AI assists drafting only. <a class="link-blue" href="./method.html">See the Method page</a>.</p>
 </div>
 </section>
 </main>

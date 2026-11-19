@@ -106,6 +106,17 @@
 
     /* Prose */
     .prose { max-width: 72ch; }
+    .terms-table-wrap { overflow-x: auto; margin: 4px 0 16px; border: 1px solid rgba(90,176,255,0.2); border-radius: 12px; }
+    .terms-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+    .terms-table th { text-align: left; padding: 10px 12px; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.05); border-bottom: 1px solid rgba(90,176,255,0.18); }
+    .terms-table td { padding: 9px 12px; color: var(--text-dim); border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; line-height: 1.55; }
+    .terms-table tr:last-child td { border-bottom: none; }
+    .terms-table td:first-child { color: #fff; }
+    .terms-table { table-layout: fixed; }
+    .terms-table th:nth-child(1), .terms-table td:nth-child(1) { width: 42%; }
+    .terms-table th:nth-child(2), .terms-table td:nth-child(2) { width: 18%; color: #fff; font-weight: 600; }
+    .terms-table th:nth-child(3), .terms-table td:nth-child(3) { width: 40%; }
+    .prose .terms-table-wrap { max-width: none; }
     .prose p { margin: 0 0 14px; color: var(--text-dim); font-size: 14px; line-height: 1.72; }
     .prose p:last-child { margin-bottom: 0; }
     .prose p strong { color: #e8ecf0; font-weight: 600; }
@@ -422,207 +433,177 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <main id="main" role="main">
 <div class="page-intro">
 <h2>Terms of Engagement</h2>
-<p class="page-intro-sub">Clear terms for a fixed-scope, written-first practice. These terms govern all engagements conducted through this website and related business communications.</p>
-<p class="page-intro-sub" style="margin-bottom:0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Last updated: October 2026 · Jamie Forrester, Edinburgh, UK</p>
+<p class="page-intro-sub">These terms cover fixed-scope written work for business clients. The written scope identifies what you are commissioning, who can make decisions and the fee. Section 5 sets out what you pay if the work ends early. “Jamie” means the supplier identified in the scope. “You” means the client identified there.</p>
+<p class="page-intro-sub" style="margin-bottom:0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">Last updated: 19 November 2026 · Jamie Forrester, Edinburgh, UK · Contact: hello@jamieforrester.com</p>
 </div>
 <div class="summary-strip jf-mobile-stack">
 <div class="summary-item">
 <span class="summary-item-key">Scope</span>
-<span class="summary-item-val"><strong>Three fixed-scope business-to-business written engagements</strong>: Structural Lens Brief, Diagnostic Artifact, or Full Structural Engagement. No ongoing retainer, no implementation.</span>
+<span class="summary-item-val"><strong>Three fixed-scope written engagements for business clients</strong>: Structural Lens Brief, Diagnostic Artifact, or Full Structural Engagement. Diagnosis comes first; a Full redesign starts only after you confirm it. No implementation or retainers.</span>
 </div>
 <div class="summary-item">
-<span class="summary-item-key">Ownership</span>
-<span class="summary-item-val"><strong>The delivered artifact or artifact set is yours on full payment.</strong> 50% before work begins, 50% on delivery. IP in the underlying frameworks remains with Jamie Forrester.</span>
+<span class="summary-item-key">Fees</span>
+<span class="summary-item-val"><strong>50% upfront, the rest on delivery.</strong> If the work ends early, you pay only the fixed amount for the outcome reached. Section 5 sets out every case.</span>
 </div>
 <div class="summary-item">
-<span class="summary-item-key">Confidentiality</span>
-<span class="summary-item-val"><strong>All client materials are confidential.</strong> Not shared, referenced, or used as a case study without explicit permission. Processed only in business-tier AI tools that do not train on client data.</span>
+<span class="summary-item-key">Use and confidentiality</span>
+<span class="summary-item-val"><strong>Once paid, you have a permanent licence to use and implement the work.</strong> Your materials stay confidential, are never used as a case study without permission, and are deleted within 30 days of closure.</span>
 </div>
 </div>
-<div class="section-divider"><span class="section-divider-label">engagement terms</span></div>
-<section aria-label="Scope of services" class="card">
+<div class="section-divider"><span class="section-divider-label">terms of engagement</span></div>
+<section aria-label="What you can commission" class="card">
 <div class="label-row">
-<span class="label">01 // Scope of services</span>
-<span class="label-note">what is and is not included</span>
-</div>
-<div class="two-col jf-mobile-stack">
-<div class="prose">
-<h3>What these engagements are</h3>
-<p>Jamie Forrester provides three fixed-scope written engagements: a <strong>Structural Lens Brief</strong>, a <strong>Diagnostic Artifact</strong>, and a <strong>Full Structural Engagement</strong>. The Structural Lens Brief produces one concise architecture-extraction artifact. The Diagnostic Artifact produces one structural diagnosis. The Full Structural Engagement produces four linked artifacts as one governed sequence: Translation Artifact, Diagnostic Artifact, Redesign Executive Summary, and Full Redesign Artifact. The Full Redesign Artifact is the written blueprint for the replacement structure. Turning it into detailed designs, working systems and operational change is the client's responsibility, or that of an implementation partner the client appoints. A Full Structural Engagement includes one redesign direction within the agreed scope. Alternatives may be compared during diagnosis; developing a further full redesign requires separate written agreement.</p>
-<p><strong>Business-to-business basis.</strong> These services are intended for organisations and for individuals acting wholly or mainly for business or professional purposes. If you are seeking to engage as a consumer, contact Jamie Forrester before entering into an engagement because different statutory rights may apply. Nothing in these terms excludes or restricts any right or remedy that cannot lawfully be excluded or restricted.</p>
-<p>The Structural Lens Brief is normally delivered within 7 days of engagement commencement. The Diagnostic Artifact is normally delivered within 14 days. The Full Structural Engagement operates within a standard 14-day engagement window: the Diagnostic Artifact is delivered first, followed by its clarification pass and written confirmation of the diagnostic frame; the remaining Full Structural Engagement artifacts are then released. Client-side delay in providing materials or confirming the diagnostic frame may extend final release beyond day 14. Any separately agreed scope may also specify a different timetable.</p>
-<p>Engagements are confirmed only after a fit assessment. The scope of each engagement is agreed in writing before work begins. This agreement constitutes the full scope of the service.</p>
-</div>
-<div>
-<div class="mini">
-<h3>Not included in any engagement</h3>
-<ul>
-<li>Implementation, build execution, or delivery ownership</li>
-<li>Programme management or transformation leadership</li>
-<li>Ongoing advisory, coaching, or retainer access</li>
-<li>Stakeholder facilitation or alignment workshops</li>
-<li>Legal, financial, regulatory, or compliance advice</li>
-<li>Any work beyond the agreed written artifact</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section aria-label="Engagement process" class="card">
-<div class="label-row">
-<span class="label">02 // Engagement process</span>
-<span class="label-note">from brief to delivery</span>
+<span class="label">01 // What you can commission</span>
+<span class="label-note">what you can commission</span>
 </div>
 <div class="prose">
-<h3>Intake and fit assessment</h3>
-<p>Recurring-failure enquiries normally begin with a five-line brief submitted by email. Structural Lens enquiries may begin with a simple request describing the system, problem, method, or body of work to be examined. Receipt of an enquiry does not constitute acceptance of an engagement. Jamie Forrester will assess fit and confirm or decline within a reasonable timeframe. There is no charge for the fit assessment stage.</p>
-<h3>Scope confirmation</h3>
-<p>If the engagement is accepted, the scope is confirmed in writing before work begins. The scope confirmation sets the boundary of the work. Any material change to the scope after confirmation requires a separate written agreement and may result in a new engagement.</p>
-<h3>Delivery</h3>
-<p>The Structural Lens Brief will normally be delivered within 7 days of engagement commencement. The Diagnostic Artifact will normally be delivered within 14 days. The Full Structural Engagement has a standard 14-day engagement window: the Diagnostic Artifact is delivered first; one clarification pass follows; the client then confirms in writing that the diagnostic frame is accepted as the basis for the redesign release; and the remaining Full Structural Engagement artifacts are released within the same standard window. If client-side confirmation or required materials are delayed, final release may extend beyond day 14. A separately agreed scope may specify a different timetable. All periods in these terms are calendar days.</p>
-<p>Confirming the diagnostic frame means accepting the Diagnostic Artifact as a sound basis for the redesign; it does not require agreement with every word. If no written confirmation or reasoned challenge is received within 30 days of delivery of the Diagnostic Artifact, the engagement closes as a Diagnostic Artifact engagement: the first payment is retained, no second invoice is issued, and the redesign artifacts are not released. Where Jamie Forrester has concluded that a redesign is not justified, the refund set out below still applies.</p>
-<h3>Clarification passes</h3>
-<p>The Structural Lens Brief includes one minor clarification pass. A standalone Diagnostic Artifact includes one minor clarification pass. A Full Structural Engagement includes one minor clarification pass on the Diagnostic Artifact before confirmation of the diagnostic frame and one minor clarification pass on the Full Redesign Artifact after its release. Clarification means explaining or correcting the delivered work within the agreed scope; it does not include new analysis, revised scope, extended research, implementation work, or additional deliverables. Any request outside this boundary may require a separate engagement.</p>
-<p>One consolidated clarification request must be made in writing within 14 days of delivery of the relevant artifact. Corrections within the agreed scope are completed within 7 days of the request. The engagement is complete once the final clarification pass has been delivered, or once the 14-day window has passed without a request. An open clarification request does not change the due date of an invoice.</p>
-<h3>If the evidence does not support a redesign</h3>
-<p>In a Full Structural Engagement, the redesign is only produced from a confirmed diagnostic frame. If the diagnosis shows that a redesign is not justified, or that the available evidence cannot support a reliable one, Jamie Forrester will say so in writing at the confirmation stage. Jamie Forrester and the client will then agree in writing whether to close the engagement or revise its scope. If agreement is not reached within 14 days, the engagement closes. If it closes, it is treated as a Diagnostic Artifact engagement: the total fee becomes £10,000, no second invoice is issued, and the £2,500 balance of the first payment is refunded.</p>
+<p><strong>Structural Lens Brief · £2,000.</strong> A written brief of normally 6–10 pages describing the architecture, functions, boundaries, dependencies and tensions in one system, problem, method or body of work. No failure diagnosis or redesign is included.</p>
+<p><strong>Diagnostic Artifact · £10,000.</strong> A written examination of one recurring failure. It identifies the governing cause where the evidence supports one, the relevant rules and constraints, and what the findings mean for the order of change. Section 5 also provides for an early stop or an inconclusive finding.</p>
+<p><strong>Full Structural Engagement · £25,000.</strong> Diagnosis followed, with your written go-ahead, by one redesign direction. You receive the Diagnostic Artifact first. The final set comprises the Translation Artifact, Redesign Executive Summary and Full Redesign Artifact. The Full Redesign Artifact specifies the replacement structure and the sequence and conditions for change. You or your appointed team own detailed implementation decisions and delivery.</p>
+<p>Two later redesign commissions are described in section 6. All services are written, remote and fixed in scope. Implementation, programme management, workshops, retainers, ongoing advice and specialist legal, financial, regulatory, security or compliance advice are outside the service. These terms are offered for business or professional purchases. Anyone seeking a service for personal purposes should enquire separately before placing an order. Mandatory legal rights are preserved.</p>
 </div>
 </section>
-<section aria-label="Fees and payment" class="card">
+<section aria-label="Agreement and start" class="card">
 <div class="label-row">
-<span class="label">03 // Fees and payment</span>
-<span class="label-note">fixed fees, no surprises</span>
-</div>
-<div class="two-col jf-mobile-stack">
-<div class="prose">
-<h3>Fee structure</h3>
-<p>The <strong>Structural Lens Brief</strong> is priced at a fixed fee of £2,000. The <strong>Diagnostic Artifact</strong> is priced at a fixed fee of £10,000. The <strong>Full Structural Engagement</strong> is priced at a standard fixed fee of £25,000 for most systems and includes the complete four-artifact governed sequence. Unusually large, multi-institutional, or high-consequence systems may be scoped separately; any different fee will be agreed in writing before work begins.</p>
-<p>Fees are stated exclusive of VAT where applicable. Invoices will specify applicable VAT.</p>
-<h3>Payment terms</h3>
-<p><strong>50% of the agreed fee is invoiced on scope confirmation and is due before work commences.</strong> The remaining 50% is invoiced on delivery of the agreed artifact or artifact set and is due within 14 days of delivery. Work will not begin until the first invoice is settled. The first payment is non-refundable once work has commenced, except where a Full Structural Engagement closes at the diagnostic stage, as set out under Engagement process.</p>
-<p>Ownership of the delivered artifact or artifact set does not transfer until the second invoice is paid in full. Late payment of the second invoice may result in withholding of the delivered work until settlement.</p>
-</div>
-<div class="mini">
-<h3>Expenses</h3>
-<p>No expenses are incurred in the normal course of these engagements. All work is conducted remotely. If any out-of-pocket expenses are necessary, they will be agreed in writing in advance and invoiced at cost.</p>
-<h3>Currency</h3>
-<p>All fees are quoted and invoiced in British Pounds Sterling (GBP) unless otherwise agreed in writing.</p>
-<h3>Disputes</h3>
-<p>If you believe an invoice is incorrect, notify Jamie Forrester in writing within 7 days of receipt. Undisputed portions of an invoice remain due on the standard payment terms.</p>
-</div>
-</div>
-</section>
-<section aria-label="Intellectual property" class="card">
-<div class="label-row">
-<span class="label">04 // Intellectual property</span>
-<span class="label-note">ownership of the artifact and underlying frameworks</span>
+<span class="label">02 // Agreement and start</span>
+<span class="label-note">agreement and start</span>
 </div>
 <div class="prose">
-<h3>Ownership of the delivered work</h3>
-<p>Upon receipt of full payment, the client owns the delivered artifact or artifact set and may use it for any lawful purpose within its organisation, including circulation to decision owners, builders, and advisers, and to any implementation partner or contractor the client appoints, provided they are bound by confidentiality, and as a basis for implementation decisions, subject to any access or circulation restrictions expressly stated within a restricted artifact.</p>
-<h3>Underlying frameworks and methods</h3>
-<p>The intellectual property in the analytical frameworks, diagnostic methods, structural models, and proprietary concepts used to produce the artifact (including but not limited to the Four-Function Law, the Universal Formula, and any associated taxonomies or models) remains the property of Jamie Forrester. Ownership of the delivered work does not transfer ownership of the underlying methods.</p>
-<h3>No publication without permission</h3>
-<p>The artifact may not be published externally, reproduced in whole or in part for public distribution, used in marketing materials, or attributed publicly to Jamie Forrester without prior written permission. This restriction does not limit internal use.</p>
-<h3>No use as case study</h3>
-<p>No client materials, engagement details, or artifact content will be used as a case study, reference, or public example without the client's explicit prior written consent.</p>
+<p>The fit assessment is free. A five-line brief or Lens enquiry starts a conversation. Please send only the information needed for screening. Internal evidence is requested after fit and scope have been discussed.</p>
+<p>Jamie sends a written offer identifying both parties and their addresses, the agreed service, fee, deliverables, initial evidence, designated email addresses and the people authorised to accept the offer, confirm the diagnosis and choose a direction. Before you accept, the scope email summarises the upfront payment, delivery stages, cancellation charges and rights to use the work. For a standard Diagnostic or Full engagement it states the £5,000 charge if you voluntarily cancel during diagnosis. The agreement forms when Jamie receives written acceptance of the identified scope and dated terms from your authorised representative. You may replace a representative by written notice from an authorised person.</p>
+<p>These terms and the accepted scope form the agreement. A variation must be expressly agreed in writing by both parties. A scope provision prevails where it identifies and replaces a specific provision here. A purchase order may provide a billing reference. Any additional purchasing or portal terms require express written agreement. A data-processing agreement takes priority on the processing matters it expressly governs. Earlier engagements retain their agreed terms.</p>
+<p>You supply the agreed minimum evidence pack or Lens source material. Jamie checks that the listed items are present and then invoices the first 50%. This initial check does not assess whether the evidence will establish a diagnosis. Day 1 is the day both the minimum pack and cleared payment have been received. Jamie confirms day 1 and the target delivery date by email. If the pack is incomplete, Jamie identifies what is missing. Unless you agree an extension, the engagement closes if it remains incomplete 14 calendar days after that notice. Any advance received before work starts is returned in full.</p>
 </div>
 </section>
-<section aria-label="Confidentiality" class="card">
+<section aria-label="Delivery and evidence" class="card">
 <div class="label-row">
-<span class="label">05 // Confidentiality</span>
-<span class="label-note">mutual obligations</span>
+<span class="label">03 // Delivery and evidence</span>
+<span class="label-note">timing, evidence and early outcomes</span>
 </div>
 <div class="prose">
-<h3>Treatment of client materials</h3>
-<p>All materials provided by the client (including documents, diagrams, contracts, workflows, internal records, and any other operational information) are treated as confidential. They are handled only to the extent necessary to assess, scope, and deliver the engagement.</p>
-<p>Client materials are not shared with third parties, referenced externally, or used as a case study without explicit written permission, except as set out under AI-assisted production below. See also the <a class="link-blue" href="./privacy-policy.html">Privacy Policy</a> for data handling details.</p>
-<h3>Mutual expectation</h3>
-<p>Where Jamie Forrester shares working notes, draft materials, or interim documents during the engagement, these are also to be treated as confidential by the client and not shared externally without agreement.</p>
-<h3>Exceptions</h3>
-<p>Confidentiality obligations do not apply to information that is already in the public domain, was known to Jamie Forrester before the engagement, or is required to be disclosed by law or regulatory order.</p>
-</div>
-<div class="callout">
-<div class="callout-bar"></div>
-<p><strong>AI-assisted production.</strong> Jamie Forrester may process client materials using business-tier AI tools (currently Claude Team, provided by Anthropic, and ChatGPT Business, provided by OpenAI) under commercial terms that exclude the use of client data for model training. Before material is entered, names, personal details, and other identifying information are removed wherever possible. Special category data, such as health records, is never entered. AI assists drafting and production; it does not determine the diagnosis, the redesign, or the correction order. If the client's own policies restrict the use of AI tools, the client must say so before accepting a proposal, and any different arrangement must be agreed in writing. Client materials are handled only for the purpose of the relevant engagement.</p>
-<p><strong>Deletion.</strong> Client-supplied materials, including any copies held in AI tools, are deleted within 30 days of the engagement closing. Delivered artifacts and the business records required by law are retained as set out in the Privacy Policy.</p>
+<p>All periods are calendar days unless marked as working days. Working days are Monday to Friday excluding Scottish bank holidays. Day 1 counts towards a production period. A response period starts the day after receipt and ends at 23:59 UK time on its final day.</p>
+<p>The normal production period is seven days for a Lens Brief and 14 days for a diagnosis, subject to agreed variations and the evidence pauses below. For Full, allow a further 14 days for redesign from written confirmation of the diagnosis and, if required, selection of a direction. Client review time falls between the two stages. Jamie confirms the start of redesign in writing when substantive redesign work begins. Its delivery clock runs from the required client approval and choice, regardless of when that start notice is sent.</p>
+<p>During diagnosis or redesign, Jamie may request specific additional evidence essential to the agreed work. The written request explains why it is needed, what work is affected and the revised timing. The affected production clock pauses from the request until sufficient material is received or seven days elapse, whichever occurs first, unless an extension is agreed in writing. Jamie then resumes on available evidence, explains any limits and confirms the revised date. Overlapping pauses count once. Jamie’s rework and capacity do not pause the clock. Material new facts or requests that change the agreed task require written agreement on any change to price or timing.</p>
+<p>If Jamie establishes that the diagnosis cannot responsibly proceed, Jamie tells you as soon as that is established, normally within the first seven days of diagnostic work, and delivers a short closure note explaining what was examined, why further work cannot responsibly proceed and what would need to change. The same early-stop fee applies if that limitation first becomes apparent later and the full examination has not been completed. An inconclusive finding requires a completed examination and a written account of what can be established, what remains unresolved and what evidence could decide the question. Missing records and competing explanations can both lead to that result.</p>
+<p>For a Lens Brief, Jamie checks the material during the first two working days. If it clearly cannot support the brief, Jamie tells you and returns the advance. If a material deficiency emerges later, you may agree to supplement the material and revise the date. If a usable brief cannot be delivered, the engagement closes with a full refund. Diagnostic evidence pauses and diagnostic outcome fees do not apply to the Lens.</p>
+<p>Jamie may send a preliminary notice if the work identifies a time-sensitive decision or continuing serious harm. It will identify what has been established and its limits. This service provides no continuous monitoring or emergency response.</p>
 </div>
 </section>
-<section aria-label="Client obligations" class="card">
+<section aria-label="Review and the decision to proceed" class="card">
 <div class="label-row">
-<span class="label">06 // Client obligations</span>
-<span class="label-note">what the engagement requires from you</span>
-</div>
-<div class="two-col jf-mobile-stack">
-<div class="mini">
-<h3>Materials and information</h3>
-<ul>
-<li>Provide accurate and complete materials relevant to the agreed scope</li>
-<li>Respond to clarifying questions in a timely manner</li>
-<li>Disclose known constraints, legal restrictions, or material limitations before work begins</li>
-<li>Notify Jamie Forrester promptly if the scope or underlying facts change materially during the engagement</li>
-<li>Obtain any specialist legal, regulatory, security, or compliance advice and approvals needed before implementing the work, including for any such dependencies the artifacts identify</li>
-</ul>
-</div>
-<div class="mini">
-<h3>Accuracy of inputs</h3>
-<p>The quality of the artifact depends on the accuracy and completeness of the materials provided. Jamie Forrester is not liable for errors in the artifact that result from inaccurate, incomplete, or misleading information supplied by the client.</p>
-<p>Hidden constraints or material facts discovered after delivery may affect the validity of the analysis. If this occurs, it will be treated as the basis for a new engagement, not a revision of the delivered artifact.</p>
-</div>
-</div>
-</section>
-<section aria-label="Liability and warranties" class="card">
-<div class="label-row">
-<span class="label">07 // Liability and warranties</span>
-<span class="label-note">what is and is not warranted</span>
+<span class="label">04 // Review and the decision to proceed</span>
+<span class="label-note">review and confirmation</span>
 </div>
 <div class="prose">
-<h3>Nature of the service</h3>
-<p>The work produced may include structural architecture extraction, structural diagnosis, and redesign frameworks depending on the engagement selected. It represents professional judgment applied to the materials provided. It is not legal advice, financial advice, regulatory guidance, or a guarantee of outcome. Implementation decisions made on the basis of the delivered work remain the responsibility of the client.</p>
-<h3>Limitation of liability</h3>
-<p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that cannot lawfully be limited or excluded. Subject to those exceptions and to the extent permitted by law, Jamie Forrester's total aggregate liability arising out of or in connection with an engagement, whether in contract, delict (including negligence), breach of statutory duty, misrepresentation, or otherwise, is limited to the total fees paid or payable for that engagement. Subject to the same exceptions, Jamie Forrester is not liable for indirect or consequential loss, or for loss of profit, revenue, business, opportunity, anticipated savings, goodwill, or implementation costs, except to the extent that such exclusion would be unlawful or unreasonable.</p>
-<h3>No warranty of outcome</h3>
-<p>No warranty is given that following the analysis or recommendations in the delivered work will produce a specific business outcome. Where an engagement includes redesign, the work defines a structural read and a path to change; it does not guarantee that the change will be executed successfully or that the failure will not recur.</p>
-<h3>Professional standard</h3>
-<p>Jamie Forrester warrants that the services will be performed with reasonable skill and care, consistent with the standard expected of an experienced independent systems architect.</p>
+<p>Jamie delivers by email to the designated recipient, with an attachment or accessible download. Delivery occurs when the message reaches the designated mailbox with the agreed work accessible. A bounced message or inaccessible link starts no payment or response deadline. Report access problems promptly. Jamie will restore access and confirm the applicable date.</p>
+<p>Each Lens Brief and Diagnostic Artifact includes one consolidated written clarification request within 14 days of delivery. The Full Redesign Artifact includes one further round after release, covering any consequential corrections to the Translation Artifact and Redesign Executive Summary. Jamie answers within seven days, explaining or correcting the work within scope. A clarification does not delay an otherwise valid invoice. New investigations or changed requirements are priced only by written agreement.</p>
+<p><strong>Confirming Full redesign.</strong> The named decision-maker has 14 days from receipt of the diagnosis to confirm its version in writing, request clarification or raise a reasoned challenge. Confirmation accepts the diagnosis as a sound basis to proceed. If two materially different directions are supported, Jamie explains both and what choosing each entails. You have 14 days from receiving both choices to select one. Neither silence nor approval of the diagnosis alone authorises a choice on your behalf.</p>
+<p>A reasoned challenge identifies the disputed finding and the evidence or reason for questioning it. One consolidated challenge is included on either diagnostic route. Jamie responds within seven days. If a material correction takes longer, Jamie explains why within that period and proposes a written completion date. On Full, the client has at least seven days after receiving the substantive answer or revised diagnosis to decide, or the remainder of the original period if longer. The client must identify the version being confirmed. No deadline for silence expires while a timely point awaits Jamie’s answer.</p>
+<p>If confirmation or a required choice is still outstanding at the applicable deadline, Jamie sends one written reminder giving seven final days from receipt. It states the fee, refund and later commissioning price. If the final period expires without the required decision, the engagement closes at the diagnosis-only outcome in section 5. You may decline earlier. If Jamie concludes redesign is unjustified or unsupported, Jamie explains why. The parties may agree a revised scope within 14 days of that notice. Otherwise the diagnosis-only outcome applies.</p>
+<p><strong>Errors.</strong> Jamie corrects a material error in the agreed work at no charge, including an error introduced by a correction or carried into a related artifact. The routine clarification limit does not prevent a genuine error being raised later. Where a diagnostic error cannot be corrected to a sound diagnosis, the inconclusive fee applies only if Jamie delivers a usable completed inconclusive finding. If Jamie’s error leaves neither usable result, all diagnostic or Full fees paid are refunded. If final redesign has already been released when an error is discovered, Jamie also identifies affected outputs, advises the client which version to stop relying on, and corrects them. Contractual refunds and other available remedies are preserved.</p>
 </div>
 </section>
-<section aria-label="Termination" class="card">
+<section aria-label="Fees and closure" class="card">
 <div class="label-row">
-<span class="label">08 // Termination</span>
-<span class="label-note">ending an engagement</span>
+<span class="label">05 // Fees and closure</span>
+<span class="label-note">what you pay in each outcome</span>
 </div>
-<div class="two-col jf-mobile-stack">
 <div class="prose">
-<h3>Termination by the client</h3>
-<p>The client may terminate an engagement at any time by written notice. The first payment (50% of the agreed fee) is non-refundable where work has commenced. If termination occurs after delivery of the complete artifact or artifact set, the full fee remains due.</p>
-<h3>Termination by Jamie Forrester</h3>
-<p>Jamie Forrester may terminate an engagement immediately by written notice if the client materially breaches these terms, fails to pay invoices on time, provides materially inaccurate or misleading information, or if the engagement becomes impractical due to factors outside reasonable control.</p>
-</div>
-<div class="mini">
-<h3>Effect of termination</h3>
-<p>On termination, any work product completed to date may be delivered at Jamie Forrester's discretion. Confidentiality obligations and IP provisions survive termination. Outstanding invoices for work completed remain due and payable.</p>
-<h3>Force majeure</h3>
-<p>Neither party is liable for failure to perform obligations where that failure results from circumstances beyond reasonable control, provided the affected party notifies the other promptly and takes reasonable steps to mitigate the impact.</p>
-</div>
+<p>The following table sets the standard total professional fee, excluding any applicable VAT. Credit every payment already received against that amount. There is no interim redesign milestone or invoice. A separately priced or unusually large engagement must have its own agreed outcome amounts before acceptance.</p>
+<div class="terms-table-wrap"><table class="terms-table">
+<thead><tr><th>Service and outcome</th><th>Total fee</th><th>What you receive or keep</th></tr></thead>
+<tbody>
+<tr><td>Any route closes before work starts</td><td>£0 for that commission</td><td>Full refund of its advance</td></tr>
+<tr><td>Jamie establishes during examination that the diagnosis cannot responsibly proceed</td><td>£2,000</td><td>Written closure note. Refund from the standard advance: £3,000 on Diagnostic or £10,500 on Full</td><td></td></tr>
+<tr><td>You voluntarily cancel Diagnostic or Full after diagnostic work starts and before diagnostic delivery</td><td>£5,000</td><td>Written account of work completed up to cancellation. On Diagnostic, the £5,000 advance settles the fee. On Full, £7,500 of the £12,500 advance is refunded</td></tr>
+<tr><td>Diagnostic or Full yields a completed, usable inconclusive finding</td><td>£5,000</td><td>Written finding and evidence limits</td></tr>
+<tr><td>Jamie’s diagnostic error leaves neither a sound diagnosis nor a usable inconclusive finding</td><td>£0</td><td>Full refund</td></tr>
+<tr><td>Standalone Diagnostic completed, or Full ends with a sound diagnosis before redesign actually starts</td><td>£10,000</td><td>Diagnostic Artifact. On standard Full, £2,500 returned from the £12,500 advance</td></tr>
+<tr><td>You cancel Full after written authorisation and actual start of redesign, before final delivery</td><td>£12,500</td><td>Delivered diagnosis. No further invoice or obligation to complete the redesign</td></tr>
+<tr><td>Jamie cannot finish Full and you decline a revised date</td><td>£0 before usable diagnostic delivery, or £10,000 after a sound diagnosis</td><td>Refund of £12,500 or £2,500 respectively. A completed inconclusive finding already delivered has its own £5,000 outcome</td></tr>
+<tr><td>Full completed</td><td>£25,000</td><td>All four artifacts. Final invoice £12,500</td></tr>
+<tr><td>Lens completed</td><td>£2,000</td><td>Lens Brief. Final invoice £1,000</td></tr>
+<tr><td>You cancel Lens after work starts and before delivery</td><td>£1,000</td><td>Written note of work undertaken</td></tr>
+<tr><td>Jamie cannot supply a usable Lens or finish a standalone Diagnostic because Jamie cannot continue</td><td>£0 unless a contracted usable output has already been delivered</td><td>Refund of unearned payments. A delivered output takes its applicable fee above</td></tr>
+<tr><td>Later redesign commission under section 6</td><td>£25,000 or £15,000 on completion</td><td>The agreed redesign set. Early closure follows section 6 and the accepted later scope</td></tr>
+</tbody></table></div>
+<p>You may terminate by email. During diagnosis, you may instead ask Jamie to finish on standalone diagnostic terms. Voluntary cancellation takes effect when Jamie receives your email. The £5,000 fee covers the time reserved and the work begun. If Jamie has already established that the diagnosis cannot responsibly proceed, the £2,000 professional early-stop fee applies even if your cancellation arrives before Jamie sends the closure note. Raising a concern about Jamie’s work does not itself constitute voluntary cancellation. Section 4 governs corrections and challenges. The £12,500 Full cancellation outcome requires both your express go-ahead and substantive redesign work already started. If Jamie cannot continue, Jamie offers a revised date. You may choose closure instead. If final delivery has already occurred, the completed fee remains due, subject to correction and refund rights.</p>
+<p>An established deficiency, an evidence-limited outcome or Jamie’s inability to finish takes priority over a general cancellation clause. A timely outstanding challenge is resolved before its financial outcome is finalised. You do not pay twice for the same work. If Jamie has delivered a usable diagnosis and redesign is unwarranted, the fee is £10,000 however the engagement closes before redesign.</p>
+<p>On normal completion Jamie sends the final work and invoices the remaining half together. The final invoice is due within 14 days of delivery. On early closure Jamie sends a written statement identifying the outcome, work delivered, usage rights, fee, credits and balance. Refunds are made within 14 days of closure, with any corresponding VAT adjustment. An outstanding properly due balance is payable within 14 days of the statement. Fees are in GBP unless otherwise agreed. Expenses require advance written approval and are billed at cost.</p>
+<p>Raise an invoice query promptly, preferably within seven days, identifying the amount and reason. The undisputed part remains due. Jamie may suspend outstanding work for overdue undisputed sums after written notice and a reasonable opportunity to pay. Review and implementation rights are governed by section 7.</p>
+<p>For completed work, Jamie confirms closure in writing after the final clarification is answered or its 14-day window expires without a request. For early closure, the closing statement records the date the relevant closure event occurred. An unresolved timely challenge keeps the matter open until answered. An overdue payment alone does not postpone closure or the evidence-deletion timetable.</p>
 </div>
 </section>
-<section aria-label="Governing law and disputes" class="card card-accent">
+<section aria-label="Later redesign work" class="card">
 <div class="label-row">
-<span class="label">09 // Governing law</span>
-<span class="label-note">jurisdiction and disputes</span>
+<span class="label">06 // Later redesign work</span>
+<span class="label-note">later redesign commissions</span>
 </div>
 <div class="prose">
-<h3>Governing law</h3>
-<p>These terms and any non-contractual obligations arising out of or in connection with them are governed by the law of Scotland. Subject to any rights that cannot lawfully be excluded, the courts of Scotland have exclusive jurisdiction to determine any dispute arising out of or in connection with an engagement.</p>
-<h3>Dispute resolution</h3>
-<p>In the event of a dispute, both parties agree to attempt resolution in good faith through direct communication before initiating formal proceedings. Where direct resolution is not possible within 30 days of written notice of a dispute, either party may pursue formal resolution through the courts.</p>
-<h3>Entire agreement</h3>
-<p>These terms, together with the written scope confirmation for any specific engagement, constitute the entire agreement between the parties. They supersede all prior discussions, representations, or agreements relating to the subject matter.</p>
-<h3>Severability</h3>
-<p>If any provision of these terms is found to be unenforceable, it will be modified to the minimum extent necessary to make it enforceable. The remaining provisions continue in full force.</p>
-<h3>Updates to these terms</h3>
-<p>These terms may be updated from time to time. The version in force at the time of scope confirmation governs that engagement. The most current version will always appear on this page.</p>
+<p>Where a completed, sound diagnosis supports redesign, you may commission a separate redesign within 90 days of closure, including where Full closed without redesign. The new fee is £25,000, taking the overall fee with the £10,000 diagnosis to £35,000. It includes rechecking the diagnosis and producing the Translation Artifact, Redesign Executive Summary and Full Redesign Artifact for one direction. The option is exercised by written acceptance of the later scope within the 90 days. Tell Jamie promptly if you intend to return so there is time for the recheck and scope.</p>
+<p>Before acceptance, Jamie asks what has changed. Routine rechecking is included in the price. If a known change clearly undermines the diagnosis, Jamie explains why and does not invoice for redesign. Fresh investigation requires a separate quote and acceptance. If a material change emerges after acceptance, work pauses for a written decision. If the routine recheck shows the diagnosis cannot support the commissioned redesign, Jamie explains why, closes the later commission and refunds its advance in full unless a revised scope is agreed. You may need to resupply evidence deleted since closure.</p>
+<p>If a completed redesign involved a choice between two evidenced directions, you may commission the unchosen direction for £15,000 within 90 days after closure of that engagement. Jamie reuses the confirmed diagnosis and relevant work. The second direction is commissioned separately after the first. After either 90-day period expires, a new Full engagement with a fresh diagnosis may be scoped.</p>
+<p>Each later scope identifies the outputs, confirmed source version and selected direction. The standard period is 14 days from cleared advance and receipt of the required materials, confirmation and choice. One clarification round applies. Half is invoiced upfront and half on delivery. If the client voluntarily cancels after substantive redesign begins and before final delivery, Jamie retains only the advance (£12,500 on the £25,000 route or £7,500 on the £15,000 route). Before work starts the advance is returned in full. If Jamie cannot deliver a usable redesign set, Jamie returns the later commission’s advance in full. These outcomes affect only the later commission. Jamie repeats the early-closure amounts in its written scope before purchase. The fees for a new diagnostic examination in section 5 do not automatically apply to a redesign-only commission.</p>
+</div>
+</section>
+<section aria-label="Copyright and your right to use the work" class="card">
+<div class="label-row">
+<span class="label">07 // Copyright and your right to use the work</span>
+<span class="label-note">copyright and use</span>
+</div>
+<div class="prose">
+<p>You retain your rights in materials you supply. You authorise Jamie to use them to assess and deliver the agreed work using the arrangements in section 8. Jamie retains copyright in the artifacts and all existing rights in the practice’s frameworks, writing, templates, diagnostic methods and taxonomies. Third-party rights remain with their owners.</p>
+<p>From delivery, you may circulate work confidentially to the people reasonably needed to review it, seek advice, raise a challenge or approve payment. Once the fee due for the outcome reached is paid in full, you have a perpetual, royalty-free, non-exclusive licence to use, copy, adapt and implement the delivered work for your own business. This includes using embedded framework material as needed for those purposes and sharing with advisers, implementation partners and contractors acting for you under confidentiality obligations. You are responsible for their permitted use. Any exceptional circulation restriction must be identified in the scope before purchase.</p>
+<p>External publication, resale, public attribution to Jamie or use of the artifacts in marketing requires Jamie’s prior written consent. Jamie accepts professional responsibility to the contracting client alone. A permitted recipient seeking independent reliance must obtain Jamie’s written agreement. Jamie may use general skills and knowledge while respecting confidentiality. Jamie needs your explicit prior written permission to name you, publicise the engagement or use your material or findings as a case study.</p>
+</div>
+</section>
+<section aria-label="Confidentiality and handling evidence" class="card">
+<div class="label-row">
+<span class="label">08 // Confidentiality and handling evidence</span>
+<span class="label-note">confidentiality and data</span>
+</div>
+<div class="prose">
+<p>Each party protects confidential information received from the other and uses it only for the engagement, its administration or the exercise of rights under the agreement. Access is limited to people and providers who need it and owe appropriate confidentiality duties. Permitted recipients include agreed technical providers, confidential professional advisers, accountants and insurers as reasonably necessary. Neither party may use confidential information for unrelated purposes. These obligations continue while the information remains confidential.</p>
+<p>The duties exclude information already lawfully known to the recipient, independently developed, lawfully obtained without confidentiality restrictions, or publicly available through no breach. A party required by law to disclose information will limit disclosure to what is required and, where lawful and practicable, notify the other party first.</p>
+<p>You confirm you are authorised to share and permit the agreed use of supplied material. Supply the minimum necessary and identify disclosure restrictions in advance. Avoid identifiable patient information, special-category data and criminal-offence data. Any exceptional need for sensitive data requires separate written safeguards in advance. If such information arrives unexpectedly, Jamie will restrict access, notify you and agree secure return or deletion. Special-category data will not be entered into AI tools.</p>
+<p>Jamie may use the business workspaces identified in the accepted scope for drafting and production under commercial terms excluding training on client data. The scope identifies any proposed use of Claude Team or ChatGPT Business and any alternative agreed with you. Jamie removes identifying details wherever possible and is responsible for the professional judgments, diagnosis, redesign and correction order. Tell Jamie before acceptance if your policies restrict AI, providers or processing locations. A material change of provider or processing arrangement requires advance written agreement.</p>
+<p>Where Jamie processes personal data on your behalf, the parties must agree a processing schedule before transfer. It must address the instructions, data, purpose and duration, confidentiality, security, authorised subprocessors and transfers, incident notification, assistance, audits and return or deletion at your choice, subject to applicable law. Jamie will notify you without undue delay of a personal data breach affecting data processed on your behalf. The <a class="link-blue" href="./privacy-policy.html">Privacy Policy</a> explains processing for Jamie’s own business purposes.</p>
+<p>Within 30 days of closure Jamie removes client-supplied evidence and working copies containing it from active systems under Jamie’s control and initiates deletion from agreed providers, including relevant AI chats, project files and separately saved uploads. Protected residual backups are restricted from ordinary use and expire under the applicable backup cycle. If restored, the deletion is reapplied. On a declined enquiry, any unsolicited source evidence is handled on the same timetable from the decline. An agreed processing schedule or legal preservation duty governs where applicable.</p>
+<p>Jamie retains only the engagement record reasonably required to document instructions, acceptance, delivery, decisions and payment, including final artifacts where justified. Accounting records are kept for the applicable statutory period. Other retained records are access-restricted, reviewed and deleted when their documented purpose ends. Evidence required for an actual legal hold is isolated and deleted when the duty ends. A subsequent commission or correction may require you to supply source evidence again.</p>
+</div>
+</section>
+<section aria-label="Professional responsibility and liability" class="card">
+<div class="label-row">
+<span class="label">09 // Professional responsibility and liability</span>
+<span class="label-note">responsibility and liability</span>
+</div>
+<div class="prose">
+<p>Jamie will perform the agreed services with the reasonable skill and care of an experienced independent systems architect. Findings reflect the evidence and constraints within scope. You are responsible for providing accurate information, identifying restrictions, notifying material changes and obtaining specialist approvals before implementation. Jamie will raise apparent material inconsistencies a reasonably careful practitioner would identify. Responsibility for a failure caused by defective client inputs is limited to the extent those inputs caused it.</p>
+<p>You decide whether and how to implement. Jamie does not guarantee savings, successful implementation or any particular business outcome. Ordinary implementation expenditure, the costs of departing from the specification and the consequences of later changes are your responsibility to the extent they arise independently of Jamie’s breach.</p>
+<p>Nothing limits liability for fraud or fraudulent misrepresentation, death or personal injury caused by negligence, or liability that cannot lawfully be limited. Subject to those exceptions, Jamie’s total aggregate liability arising from one engagement, in contract, delict including negligence, misrepresentation, breach of statutory duty or otherwise, is capped at the full professional fee originally agreed for that engagement, before any early-closure adjustment and excluding VAT and expenses. Refunds expressly due under section 5 are payable independently of that cap. There is no double recovery for the same loss.</p>
+<p>Subject to those exceptions and to the extent legally effective, Jamie excludes indirect or consequential loss and loss of profit, revenue, business opportunity, anticipated savings or goodwill. Reasonable direct costs of identifying and remedying a defect caused by Jamie’s breach remain subject to the aggregate cap. Each party takes reasonable steps to limit avoidable loss.</p>
+</div>
+</section>
+<section aria-label="Interruption and termination" class="card">
+<div class="label-row">
+<span class="label">10 // Interruption and termination</span>
+<span class="label-note">interruption and termination</span>
+</div>
+<div class="prose">
+<p>Either party may terminate for material breach by written notice specifying the breach. Where the breach can be remedied, the party in breach has 14 days from receipt to remedy it. An irremediable material breach permits immediate termination. If continuing would be unlawful or would expose confidential material to unauthorised use, the affected work may be suspended immediately while the parties address the issue.</p>
+<p>Where events beyond reasonable control prevent performance, the affected party promptly explains the effect, takes reasonable steps to minimise delay and proposes a revised date. Either party may close if an interruption continues for 30 days without an agreed restart. Jamie’s inability to continue and a client’s voluntary cancellation have the different financial consequences set out in section 5. Where neither party is at fault, only usable contracted outputs already delivered are charged at their applicable outcome fee. Refund unearned advances within 14 days. Remedies for breach remain available.</p>
+<p>On closure Jamie hands over paid-for deliverables and accounts for payments. Closure does not require delivery of uncommissioned directions or unfinished drafts. Payment, refunds, accrued rights, confidentiality, data handling, intellectual property, liability and dispute provisions continue as needed to give them effect.</p>
+</div>
+</section>
+<section aria-label="Notices and disputes" class="card card-accent">
+<div class="label-row">
+<span class="label">11 // Notices and disputes</span>
+<span class="label-note">notices, law and disputes</span>
+</div>
+<div class="prose">
+<p>Send notices to the engagement email addresses in the scope, or a replacement address notified in writing. Keep copies of the accepted scope, terms, confirmations, delivery messages and closing statement. If a message bounces, resend using a working address and confirm receipt before relying on a deadline.</p>
+<p>Scottish law governs this agreement and related non-contractual obligations. Subject to mandatory rights, the courts of Scotland have exclusive jurisdiction. Either party can give written notice of a dispute. The parties will seek resolution directly for up to 30 days before bringing proceedings. Either may seek urgent protective relief or take steps necessary to preserve a legal time limit sooner.</p>
+<p>If a provision is unenforceable, the remainder continues to apply to the extent it can operate independently. The website may display later versions. The version accepted for an engagement continues throughout that engagement unless both parties expressly agree a written change.</p>
 </div>
 <div class="cta-bar">
 <a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Terms enquiry" href="#jfContactOverlay">CONTACT</a>
