@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>60-Second Structural Scan | Jamie Forrester</title>
-    <meta property="og:type" content="website">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Jamie Forrester">
 <meta property="og:title" content="60-Second Structural Scan | Jamie Forrester">
 <meta property="og:description" content="A free four-question self-check: what the system is really for, what it repeats, which rules govern it, and what happens when they fail. See whether a recurring problem is structural before you brief anyone.">
@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="60-Second Structural Scan | Jamie Forrester">
 <meta name="twitter:description" content="A free four-question self-check: what the system is really for, what it repeats, which rules govern it, and what happens when they fail. See whether a recurring problem is structural before you brief anyone.">
 <meta name="twitter:image" content="https://www.jamieforrester.com/og-scan.png">
-<meta content="Four questions that surface the structural reality of a recurring failure, so you can see where diagnosis should begin. Purpose → Primitive → Rules → Failure." name="description"/><link href="https://www.jamieforrester.com/diagnostic-scan.html" rel="canonical"/>
+<meta content="Four free questions to help recognise a possible structural problem behind a recurring failure, and see where the uncertainty sits. A first-pass screen, not a diagnosis." name="description"/><link href="https://www.jamieforrester.com/diagnostic-scan.html" rel="canonical"/>
 <link href="/favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -476,6 +476,47 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
     height:12px;
   }
 }
+
+    /* how-to-start (matches homepage) */
+    section[aria-label="How to start"].card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid rgba(90,176,255,0.22); border-top: 2px solid rgba(90,176,255,0.55); border-radius: 20px; padding: 28px; }
+    @media (max-width: 700px) { section[aria-label="How to start"].card { padding: 20px; } }
+    section[aria-label="How to start"] .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; }
+    .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
+    .process-card { padding: 22px 20px; border: 1px solid rgba(90,176,255,0.12); border-radius: 14px; background: rgba(90,176,255,0.025); min-width: 0; position: relative; overflow: hidden; }
+    .process-card:nth-child(1) { border-left: 2px solid rgba(90,176,255,0.2); } .process-card:nth-child(2) { border-left: 2px solid rgba(90,176,255,0.45); } .process-card:nth-child(3) { border-left: 2px solid rgba(90,176,255,0.85); }
+    .process-card-num { position: absolute; top: -4px; right: 10px; font-family: "IBM Plex Mono", monospace; font-size: 42px; font-weight: 700; color: rgba(90,176,255,0.045); line-height: 1; pointer-events: none; }
+    .process-step { display: inline-flex; align-items: center; margin-bottom: 12px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; }
+    .process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
+    .process-card strong { color: #fff; font-size: 14px; font-weight: 700; display: block; margin-bottom: 5px; }
+    section[aria-label="How to start"] .signal-box { margin-top: 20px; padding: 20px 22px; border: 1px solid rgba(90,176,255,0.15); border-radius: 14px; background: rgba(90,176,255,0.025); }
+    section[aria-label="How to start"] .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .signal-list { margin: 0; padding: 0; list-style: none; display: grid; }
+    .signal-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .signal-item:last-child { border-bottom: none; padding-bottom: 0; } .signal-item:first-child { padding-top: 0; }
+    .signal-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.45); letter-spacing: 0.08em; }
+    .signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; } .signal-item span { color: var(--text-faint); font-size: 13px; }
+    section[aria-label="How to start"] .callout { margin-top: 24px; padding: 0 0 0 16px; border-left: 2px solid rgba(90,176,255,0.4); }
+    section[aria-label="How to start"] .callout p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+    section[aria-label="How to start"] .callout p strong { color: #e8ecf0; font-weight: 600; }
+    @media (max-width: 900px) { .process-strip { grid-template-columns: 1fr; } }
+</style>
+<style id="jf-footer-final">
+/* Canonical footer - final, identical on every page (overrides earlier footer rules) */
+.site-footer{background:#0e0f12!important;border-top:1px solid var(--border-soft)!important;line-height:1.65!important;}
+.site-footer__inner{max-width:1120px!important;margin:0 auto!important;padding:48px 24px 32px!important;}
+.site-footer__top{display:grid!important;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr)!important;gap:34px!important;padding-bottom:36px!important;border-bottom:1px solid var(--border-soft)!important;align-items:start!important;}
+.site-footer__brand{grid-column:auto!important;}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.5!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--label-blue)!important;font-weight:600!important;}
+.site-footer__eyebrow{margin-bottom:10px!important;font-size:11px!important;}
+.site-footer__summary{margin:0 0 20px!important;max-width:34ch!important;font-size:13px!important;line-height:1.75!important;color:var(--text-faint)!important;}
+.site-footer__list{list-style:none!important;margin:0!important;padding:0!important;display:grid!important;gap:12px!important;}
+.site-footer__list a{font-size:13px!important;line-height:1.6!important;color:var(--text-faint)!important;text-decoration:none!important;border-bottom:1px solid transparent!important;padding-bottom:0!important;background:none!important;}
+.site-footer__list a:hover{color:#fff!important;border-bottom-color:rgba(255,255,255,.24)!important;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace!important;font-size:11px!important;line-height:1.55!important;color:var(--text-dim)!important;white-space:nowrap!important;}
+.site-footer__bottom{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important;padding-top:24px!important;}
+.site-footer__bottom p{margin:0!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.6!important;letter-spacing:.06em!important;color:var(--text-faint)!important;}
+@media(max-width:980px){.site-footer__top{grid-template-columns:1fr 1fr!important;gap:32px!important;}.site-footer__brand{grid-column:1/-1!important;}.site-footer__email-address{white-space:normal!important;overflow-wrap:anywhere!important;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px!important;}.site-footer__top{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;}.site-footer__bottom{flex-direction:column!important;align-items:flex-start!important;}}
 </style>
 </head>
 <body id="top">
@@ -486,7 +527,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
 <span class="site-nav-name">Jamie Forrester</span>
 </a>
-<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a aria-current="page" class="nav-active" href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Diagnostic Scan enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./how-it-works.html">How it works</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a aria-current="page" class="nav-active" href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Diagnostic Scan enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
 </nav>
 <div class="wrap">
@@ -506,9 +547,9 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="scan-page-hero jf-mobile-stack">
 <div class="scan-hero-left">
 <span class="eyebrow">The 60-Second Structural Scan</span>
-<h2 class="scan-hero-title">Four questions that surface the structural reality of a recurring failure, so you can see where diagnosis should begin.</h2>
+<h2 class="scan-hero-title">Four questions to help you see whether a recurring failure may be structural.</h2>
 <p class="scan-hero-sub">The scan is not the diagnosis. It is the orientation layer: a quick way to make the system, its rules, and the repeated failure more legible before deeper analysis begins. The scan tests whether the problem appears to sit beyond ordinary execution correction and warrants a structural read.</p>
-<p class="scan-hero-sub">Answer all four honestly and you will see whether the pattern warrants structural diagnosis, and where the uncertainty is concentrated. If you struggle to answer them, that itself is a useful signal. <strong style="color:#e8ecf0;">Run the scan. Then send the brief.</strong></p>
+<p class="scan-hero-sub">Answer all four as honestly as you can. The scan helps you see whether the pattern may warrant structural diagnosis, and where the uncertainty is concentrated. If you struggle to answer them, that itself is a useful signal. <strong style="color:#e8ecf0;">Run the scan. Then send the brief.</strong></p>
 <div style="margin-top:18px; padding:14px 16px; border-left:2px solid rgba(90,176,255,0.4); font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); line-height:1.65;">
             Purpose  →  Primitive  →  Rules  →  Failure
           </div>
@@ -516,45 +557,21 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="scan-hero-right">
 <div class="scan-method-card">
 <div class="scan-method-card-head">
-<span>The four questions. One structural read.</span>
+<span>How to use it · about 60 seconds</span>
 </div>
 <div class="scan-method-card-body">
 <div class="scan-method-list">
-<div class="scan-method-item">
-<span class="scan-method-num">01</span>
-<div>
-<strong>What is this system really for?</strong>
-<span>Not what it claims. What it actually exists to do.</span>
+<div class="scan-method-item"><span class="scan-method-num">01</span><div><strong>Answer the four questions</strong><span>Below. Rough answers are fine. Aim for what really happens, not the official version.</span></div></div>
+<div class="scan-method-item"><span class="scan-method-num">02</span><div><strong>Review the read</strong><span>The panel reflects your answers back and highlights possible structural signals.</span></div></div>
+<div class="scan-method-item"><span class="scan-method-num">03</span><div><strong>Send the brief if it fits</strong><span>Copy your answers into the Five-Line Brief. The fit check is free.</span></div></div>
 </div>
-</div>
-<div class="scan-method-item">
-<span class="scan-method-num">02</span>
-<div>
-<strong>What action does it repeat?</strong>
-<span>The primitive: the smallest unit of real work.</span>
-</div>
-</div>
-<div class="scan-method-item">
-<span class="scan-method-num">03</span>
-<div>
-<strong>What rules govern that action?</strong>
-<span>As they exist in practice, not in policy.</span>
-</div>
-</div>
-<div class="scan-method-item">
-<span class="scan-method-num">04</span>
-<div>
-<strong>What happens when those rules fail?</strong>
-<span>What breaks first, who notices, and who absorbs the cost.</span>
-</div>
-</div>
-</div>
-<p class="scan-method-note">This is the entry point into the diagnostic method. Difficulty answering any of the four questions is itself a diagnostic signal: it means something in the system's purpose or structure is not yet legible.</p>
+<p class="scan-method-note">Difficulty answering any question is itself a signal: it often means something in the system’s purpose or structure isn’t yet clear.</p>
+<div style="padding:4px 22px 22px;"><a class="btn btn-primary" href="#scan-tool" style="display:inline-flex;">START THE SCAN ↓</a></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section-divider"><span class="section-divider-label">run the scan</span></div>
+<div class="section-divider" id="scan-tool" style="scroll-margin-top:90px;"><span class="section-divider-label">run the scan</span></div>
 <!-- Scan tool -->
 <div class="scan-layout jf-mobile-stack">
 <!-- Questions -->
@@ -624,96 +641,35 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </div>
 <!-- What happens next -->
-<div class="section-divider" style="margin-top:56px;"><span class="section-divider-label">what happens next</span></div>
-<div style="margin-bottom:24px;">
-<p style="margin:0 0 6px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">Scan → identify confusion → send brief → fit assessment</p>
-<p style="margin:0; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:68ch;">The scan is a self-screen, not the diagnosis itself. Once you have your answers, the path is simple.</p>
+<div class="section-divider"><span class="section-divider-label">how to start</span></div>
+<section aria-label="How to start" class="card" style="margin-bottom:32px;">
+<p class="lead" style="margin-bottom:6px;">Send the repeated failure. Not the proposed fix.</p>
+<p style="margin:0 0 20px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">The five-line brief. No diagnosis yet. Just the signal.</p>
+<div class="process-strip jf-mobile-stack">
+<div class="process-card"><span aria-hidden="true" class="process-card-num">01</span><span class="process-step">Step 01</span><p><strong>Describe the problem.</strong> Send the Five-Line Brief for a recurring failure, or contact me about a Structural Lens.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">02</span><span class="process-step">Step 02</span><p><strong>Establish fit.</strong> I review the initial problem and scope. Qualification is free; it is not a diagnosis.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">03</span><span class="process-step">Step 03</span><p><strong>Agree the work.</strong> If suitable, we agree the fixed fee, evidence requirements and written deliverable before paid work begins.</p></div>
 </div>
-<div aria-label="What happens after the scan" class="next-strip jf-mobile-stack">
-<div class="next-card">
-<span class="next-card-kicker">Step 01: after the scan</span>
-<h3>Send the Five-Line Brief</h3>
-<p>Your scan answers are enough for an initial fit review. Add context on cost, location, what has been tried, and what cannot change. Email those five lines and I will review fit.</p>
-<div style="margin-top:12px;">
-<a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
+<p style="margin:14px 0 0; font-size:13px;"><a class="link-blue" href="./how-it-works.html">See exactly how an engagement runs, step by step →</a></p>
+<div class="signal-box" style="margin-top:20px;">
+<span class="mini-kicker">Send these five lines</span>
+<ol class="signal-list">
+<li class="signal-item"><span class="signal-num">01</span><span><strong>What keeps going wrong?</strong></span></li>
+<li class="signal-item"><span class="signal-num">02</span><span><strong>What is it costing?</strong> Money, time, trust, load, or drift.</span></li>
+<li class="signal-item"><span class="signal-num">03</span><span><strong>Where does it show up?</strong> Teams, roles, systems, or touchpoints.</span></li>
+<li class="signal-item"><span class="signal-num">04</span><span><strong>What has already been tried?</strong></span></li>
+<li class="signal-item"><span class="signal-num">05</span><span><strong>What cannot change?</strong> Non-negotiables and constraints.</span></li>
+</ol>
 </div>
+<div class="callout"><p><strong>If the work is not the right fit, I will say so.</strong></p></div>
+<div class="actions" style="margin-top:20px;">
+<a class="btn btn-primary btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
 </div>
-<div class="next-card">
-<span class="next-card-kicker">Step 02: after fit review</span>
-<h3>Diagnostic Artifact or Full Engagement</h3>
-<p>I confirm whether the right path is the Diagnostic Artifact (£10,000 · 14 days) for structural diagnosis alone, or the Full Structural Engagement (£25,000) for diagnosis carried into the complete four-artifact redesign sequence.</p>
-<div style="margin-top:12px;"><a class="link-blue" href="./services.html">View services →</a></div>
-</div>
-<div class="next-card">
-<span class="next-card-kicker">Understand the method</span>
-<h3>The 60-Second Scan in context</h3>
-<p>The scan is Stage 01 of the recurring-failure diagnostic architecture. It feeds into the Diagnostic Taxonomy (Stage 02), the Artifact Production Pipeline (Stage 03), and the Proof Standard (Stage 04). The taxonomy is the internal classification layer used during diagnosis; the complete reference is available on request rather than as a public navigation page.</p>
-<div style="margin-top:12px;"><a class="link-blue" href="./method.html">Read the method →</a></div>
-</div>
-</div>
+</section>
+<p style="margin:16px 0 0; text-align:center; font-size:12.5px; color:var(--text-faint);">Want to see where the scan sits in the diagnosis? <a class="link-blue" href="./method.html">Read the method →</a></p>
 </main>
 <div style="display:flex;justify-content:center;padding:32px 0 0;">
 <a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
-</div>
-<!-- Five-Line Brief -->
-<div class="section-divider" style="margin-top:48px;"><span class="section-divider-label">the five-line brief</span></div>
-<div class="jf-mobile-stack" style="display:grid; grid-template-columns:1fr 0.85fr; gap:40px; align-items:start; margin-bottom:8px;">
-<div>
-<p style="margin:0 0 8px; font-size:15px; font-weight:600; color:#fff; letter-spacing:-0.02em;">The scan surfaces the pattern. The brief starts the process.</p>
-<p style="margin:0 0 20px; font-size:14px; color:var(--text-dim); line-height:1.7; max-width:60ch;">Once the scan has produced an initial structural read, email these five lines. This is the fit screen, not the diagnosis. Send the repeated failure rather than a proposed fix.</p>
-<div style="border:1px solid rgba(90,176,255,0.15); border-radius:14px; overflow:hidden; background:rgba(90,176,255,0.025);">
-<div style="padding:12px 20px; border-bottom:1px solid rgba(90,176,255,0.12); background:rgba(90,176,255,0.04); font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--label-blue);">Five-Line Brief · fit screen</div>
-<ol style="margin:0; padding:0; list-style:none; display:grid; gap:0;">
-<li style="display:grid; grid-template-columns:28px 1fr; gap:0 12px; padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:baseline;">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(90,176,255,0.5); letter-spacing:0.08em;">01</span>
-<span style="font-size:13px; color:#e0e4ea;"><strong style="color:#fff;">What keeps going wrong?</strong></span>
-</li>
-<li style="display:grid; grid-template-columns:28px 1fr; gap:0 12px; padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:baseline;">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(90,176,255,0.5); letter-spacing:0.08em;">02</span>
-<span style="font-size:13px; color:#e0e4ea;"><strong style="color:#fff;">What is it costing?</strong> Money, time, trust, load, delay, or drift.</span>
-</li>
-<li style="display:grid; grid-template-columns:28px 1fr; gap:0 12px; padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:baseline;">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(90,176,255,0.5); letter-spacing:0.08em;">03</span>
-<span style="font-size:13px; color:#e0e4ea;"><strong style="color:#fff;">Where does it show up?</strong> Teams, roles, systems, or touchpoints.</span>
-</li>
-<li style="display:grid; grid-template-columns:28px 1fr; gap:0 12px; padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:baseline;">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(90,176,255,0.5); letter-spacing:0.08em;">04</span>
-<span style="font-size:13px; color:#e0e4ea;"><strong style="color:#fff;">What has already been tried?</strong> Fixes, workarounds, decisions attempted.</span>
-</li>
-<li style="display:grid; grid-template-columns:28px 1fr; gap:0 12px; padding:12px 20px; align-items:baseline;">
-<span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:rgba(90,176,255,0.5); letter-spacing:0.08em;">05</span>
-<span style="font-size:13px; color:#e0e4ea;"><strong style="color:#fff;">What cannot change?</strong> Non-negotiables, constraints, conditions that must hold.</span>
-</li>
-</ol>
-</div>
-<div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-<a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
-<a class="btn" href="./services.html">VIEW SERVICES</a>
-</div>
-</div>
-<div style="padding-top:4px;">
-<div style="border:1px solid rgba(255,255,255,0.07); border-radius:14px; overflow:hidden; background:rgba(255,255,255,0.012);">
-<div style="padding:14px 18px; border-bottom:1px solid rgba(255,255,255,0.06); font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-faint);">After the brief</div>
-<div style="padding:18px;">
-<div style="display:grid; gap:14px;">
-<div>
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Fit review</div>
-<div style="font-size:13px; color:var(--text-dim); line-height:1.6;">I review the brief and confirm whether it is a diagnostic fit. If the work is not the right fit, I will say so.</div>
-</div>
-<div style="height:1px; background:rgba(255,255,255,0.05);"></div>
-<div>
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Path confirmed</div>
-<div style="font-size:13px; color:var(--text-dim); line-height:1.6;">Diagnostic Artifact (£10,000 · 14 days) or Full Structural Engagement (£25,000 · four artifacts). Fixed fee, fixed scope.</div>
-</div>
-<div style="height:1px; background:rgba(255,255,255,0.05);"></div>
-<div>
-<div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--label-blue); margin-bottom:5px;">Artifact delivered</div>
-<div style="font-size:13px; color:var(--text-dim); line-height:1.6;">Written. Builder-readable. One structural truth your team can act against without further interpretation.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <footer class="site-footer">
@@ -721,13 +677,14 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="site-footer__top">
 <section aria-labelledby="footer-brand-heading" class="site-footer__brand">
 <h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
-<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis &amp; redesign for recurring failure under scale.</p>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong><span style="display:block;color:var(--text-dim);margin-bottom:4px;">Structural diagnosis and redesign.</span>I find why the same problems keep coming back and what has to change before the <span style="white-space:nowrap;">next fix.</span></p>
 </section>
 <nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
 <h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
 <ul class="site-footer__list">
 <li><a href="./index.html">Home</a></li>
 <li><a href="./services.html">Services</a></li>
+<li><a href="./how-it-works.html">How it works</a></li>
 <li><a href="./method.html">Method</a></li>
 <li><a href="./examples.html">Proofs</a></li>
 <li><a href="./research.html">Research</a></li>
@@ -740,7 +697,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <ul class="site-footer__list">
 <li><a href="./trilogy.html">Trilogy</a></li>
 <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-<li><a href="./how-it-works.html">How It Works</a></li>
 </ul>
 </nav>
 <nav aria-labelledby="footer-legal-heading" class="site-footer__nav">
@@ -925,4 +881,50 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
   }
   contactForm.addEventListener('submit',ev=>{ev.preventDefault();submit(contactForm,document.getElementById('jfContactStatus'),document.getElementById('jfContactFormWrap'),document.getElementById('jfContactSuccess'));});
   briefForm.addEventListener('submit',ev=>{ev.preventDefault();submit(briefForm,document.getElementById('jfBriefStatus'),document.getElementById('jfBriefFormWrap'),document.getElementById('jfBriefSuccess'));});
-})();</script></body></html>
+})();</script>
+<script>
+(function(){
+  var Q=[{id:'sq1',k:'Purpose',noun:'what the system is really for'},{id:'sq2',k:'Primitive',noun:'the action it repeats'},{id:'sq3',k:'Rules',noun:'the rules that govern it'},{id:'sq4',k:'Failure',noun:'what happens when those rules fail'}];
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function has(t,words){return new RegExp('\\b('+words+')','i').test(t);}
+  function signal(kicker,text){return '<div class="result-signal"><div class="result-signal-bar"></div><div class="result-signal-body"><span class="result-signal-kicker">'+kicker+'</span><p class="result-signal-text">'+text+'</p></div></div>';}
+  window.runScan=function(){
+    var v=Q.map(function(q){var el=document.getElementById(q.id);return el?el.value.trim():'';});
+    var empty=document.getElementById('scan-empty');
+    if(!v.some(function(x){return x;})){empty.classList.add('visible');return;}
+    empty.classList.remove('visible');
+    var rows='<div class="result-rows">'+Q.map(function(q,i){var a=v[i];return '<div class="result-row"><span class="result-k">'+q.k+'</span><span class="result-v">'+(a?esc(a.length>180?a.slice(0,180)+'…':a):'<em style="color:var(--text-faint);">Not answered yet</em>')+'</span></div>';}).join('')+'</div>';
+    var sig=[];
+    Q.forEach(function(q,i){
+      if(!v[i]) sig.push(signal('Hard to state: '+q.k,'You haven’t stated '+q.noun+' yet. If it’s genuinely hard to put into words, that is useful signal: unclear '+q.k.toLowerCase()+' is often where structural uncertainty sits.'));
+      else if(v[i].length<25) sig.push(signal('Worth sharpening: '+q.k,'Your answer on '+q.noun+' is brief. Try making it specific enough that someone outside the organisation would recognise it.'));
+    });
+    if(v[2]&&has(v[2],'should|supposed|meant to|policy|officially|in theory|on paper|not enforced|in principle')) sig.push(signal('Possible rule gap','Your rules answer suggests a difference between the rules as written and the rules as practised. That gap is one of the clearest structural signals.'));
+    if(v[3]&&has(v[3],'manual|workaround|absorb|chas|complain|escalat|spreadsheet|by hand|cover|pick up|picks up|step in|steps in')) sig.push(signal('Load being carried','Your failure answer points to people or workarounds carrying the load. That is a common sign that the structure isn’t carrying the function itself.'));
+    if(v.join(' ')&&has(v.join(' '),'again|keeps|every time|repeated|recurring|same problem|comes back|returns')) sig.push(signal('Recurrence','You describe the failure as coming back. Recurrence after correction is the main reason to look at structure rather than execution.'));
+    if(!sig.length) sig.push(signal('No clear pattern yet','Nothing stands out as clearly structural from these answers alone. That doesn’t rule it out: the Five-Line Brief and a free fit check will tell you more.'));
+    var foot='<p style="margin:0 0 14px; font-size:12px; color:var(--text-faint); line-height:1.6;">This read reflects only what you wrote. It’s a first-pass screen, not a diagnosis.</p>'+
+      '<button class="btn" type="button" id="scan-copy" style="margin-bottom:18px;">COPY MY ANSWERS</button>';
+    var c=document.getElementById('result-content');
+    c.innerHTML=rows+sig.join('')+foot; c.style.display='block';
+    document.getElementById('result-placeholder').style.display='none';
+    document.getElementById('result-status').textContent='Read ready';
+    document.getElementById('result-cta-block').style.display='block';
+    document.getElementById('scan-copy').addEventListener('click',function(){
+      var txt=Q.map(function(q,i){return q.k+': '+(v[i]||'(not answered)');}).join('\n');
+      var b=this; var done=function(){b.textContent='COPIED';setTimeout(function(){b.textContent='COPY MY ANSWERS';},1600);};
+      if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done,function(){});} 
+    });
+    if(window.innerWidth<900){document.getElementById('result-inner').scrollIntoView({behavior:'smooth',block:'start'});}
+  };
+  window.clearScan=function(){
+    Q.forEach(function(q){var el=document.getElementById(q.id);if(el)el.value='';});
+    document.getElementById('scan-empty').classList.remove('visible');
+    var c=document.getElementById('result-content'); c.innerHTML=''; c.style.display='none';
+    document.getElementById('result-placeholder').style.display='';
+    document.getElementById('result-status').textContent='Waiting for input';
+    document.getElementById('result-cta-block').style.display='none';
+  };
+})();
+</script>
+</body></html>

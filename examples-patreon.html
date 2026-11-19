@@ -505,6 +505,47 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
     height:12px;
   }
 }
+
+    /* how-to-start (matches homepage) */
+    section[aria-label="How to start"].card { background: linear-gradient(160deg, rgba(255,255,255,0.022) 0%, rgba(255,255,255,0.008) 100%); border: 1px solid rgba(90,176,255,0.22); border-top: 2px solid rgba(90,176,255,0.55); border-radius: 20px; padding: 28px; }
+    @media (max-width: 700px) { section[aria-label="How to start"].card { padding: 20px; } }
+    section[aria-label="How to start"] .lead { margin: 0 0 16px; color: #cdd2da; font-size: 15px; line-height: 1.72; }
+    .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: stretch; }
+    .process-card { padding: 22px 20px; border: 1px solid rgba(90,176,255,0.12); border-radius: 14px; background: rgba(90,176,255,0.025); min-width: 0; position: relative; overflow: hidden; }
+    .process-card:nth-child(1) { border-left: 2px solid rgba(90,176,255,0.2); } .process-card:nth-child(2) { border-left: 2px solid rgba(90,176,255,0.45); } .process-card:nth-child(3) { border-left: 2px solid rgba(90,176,255,0.85); }
+    .process-card-num { position: absolute; top: -4px; right: 10px; font-family: "IBM Plex Mono", monospace; font-size: 42px; font-weight: 700; color: rgba(90,176,255,0.045); line-height: 1; pointer-events: none; }
+    .process-step { display: inline-flex; align-items: center; margin-bottom: 12px; font-family: "IBM Plex Mono", monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.1); border: 1px solid rgba(90,176,255,0.2); border-radius: 6px; padding: 3px 7px; line-height: 1; }
+    .process-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.65; }
+    .process-card strong { color: #fff; font-size: 14px; font-weight: 700; display: block; margin-bottom: 5px; }
+    section[aria-label="How to start"] .signal-box { margin-top: 20px; padding: 20px 22px; border: 1px solid rgba(90,176,255,0.15); border-radius: 14px; background: rgba(90,176,255,0.025); }
+    section[aria-label="How to start"] .mini-kicker { display: block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label-blue); margin: 0 0 10px; }
+    .signal-list { margin: 0; padding: 0; list-style: none; display: grid; }
+    .signal-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: baseline; }
+    .signal-item:last-child { border-bottom: none; padding-bottom: 0; } .signal-item:first-child { padding-top: 0; }
+    .signal-num { font-family: "IBM Plex Mono", monospace; font-size: 10px; color: rgba(90,176,255,0.45); letter-spacing: 0.08em; }
+    .signal-item strong { color: #e4eaf2; font-weight: 600; font-size: 13px; } .signal-item span { color: var(--text-faint); font-size: 13px; }
+    section[aria-label="How to start"] .callout { margin-top: 24px; padding: 0 0 0 16px; border-left: 2px solid rgba(90,176,255,0.4); }
+    section[aria-label="How to start"] .callout p { margin: 0; color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+    section[aria-label="How to start"] .callout p strong { color: #e8ecf0; font-weight: 600; }
+    @media (max-width: 900px) { .process-strip { grid-template-columns: 1fr; } }
+</style>
+<style id="jf-footer-final">
+/* Canonical footer - final, identical on every page (overrides earlier footer rules) */
+.site-footer{background:#0e0f12!important;border-top:1px solid var(--border-soft)!important;line-height:1.65!important;}
+.site-footer__inner{max-width:1120px!important;margin:0 auto!important;padding:48px 24px 32px!important;}
+.site-footer__top{display:grid!important;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr)!important;gap:34px!important;padding-bottom:36px!important;border-bottom:1px solid var(--border-soft)!important;align-items:start!important;}
+.site-footer__brand{grid-column:auto!important;}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.5!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--label-blue)!important;font-weight:600!important;}
+.site-footer__eyebrow{margin-bottom:10px!important;font-size:11px!important;}
+.site-footer__summary{margin:0 0 20px!important;max-width:34ch!important;font-size:13px!important;line-height:1.75!important;color:var(--text-faint)!important;}
+.site-footer__list{list-style:none!important;margin:0!important;padding:0!important;display:grid!important;gap:12px!important;}
+.site-footer__list a{font-size:13px!important;line-height:1.6!important;color:var(--text-faint)!important;text-decoration:none!important;border-bottom:1px solid transparent!important;padding-bottom:0!important;background:none!important;}
+.site-footer__list a:hover{color:#fff!important;border-bottom-color:rgba(255,255,255,.24)!important;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace!important;font-size:11px!important;line-height:1.55!important;color:var(--text-dim)!important;white-space:nowrap!important;}
+.site-footer__bottom{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important;padding-top:24px!important;}
+.site-footer__bottom p{margin:0!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.6!important;letter-spacing:.06em!important;color:var(--text-faint)!important;}
+@media(max-width:980px){.site-footer__top{grid-template-columns:1fr 1fr!important;gap:32px!important;}.site-footer__brand{grid-column:1/-1!important;}.site-footer__email-address{white-space:normal!important;overflow-wrap:anywhere!important;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px!important;}.site-footer__top{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;}.site-footer__bottom{flex-direction:column!important;align-items:flex-start!important;}}
 </style>
 </head>
 <body id="top">
@@ -515,7 +556,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
 <span class="site-nav-name">Jamie Forrester</span>
 </a>
-<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><div class="jf-proof-menu is-current"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a aria-current="page" href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Proofs enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./how-it-works.html">How it works</a><a href="./method.html">Method</a><div class="jf-proof-menu is-current"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a aria-current="page" href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Proofs enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
 </nav>
 <div class="wrap">
@@ -640,7 +681,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div style="clear:both;"></div>
 <div class="sc-cta">
 <a class="btn btn-primary btn-large btn-full" href="./patreon_diagnostic_artifact.pdf" rel="noopener" target="_blank"><span class="ico"><svg fill="none" height="12" viewbox="0 0 16 16" width="12"><rect height="14" rx="1.5" stroke="currentColor" stroke-width="1.4" width="12" x="2" y="1"></rect><path d="M5 5h6M5 8h6M5 11h4" stroke="currentColor" stroke-linecap="round" stroke-width="1.3"></path></svg></span> READ DIAGNOSTIC</a>
-<span class="sc-cta-note">Public proof document · evidence-tiered diagnosis</span>
+<span class="sc-cta-note">Public proof document · evidence-based diagnosis</span>
 </div>
 </section>
 <section aria-label="Patreon Redesign Executive Summary" class="service-card">
@@ -707,7 +748,33 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p style="font-size:12.5px; color:var(--text-faint); line-height:1.65; margin:0; font-style:italic;">A serious Full Redesign Artifact does not just say what to build. It also names which futures cannot be pursued together.</p>
 </div>
 </div>
-</div><section aria-label="Related proofs" class="related-proofs"><h2>Related proofs</h2><div class="related-proofs__links"><a href="./examples-outlier.html">Outlier AI →</a><a href="./examples-nhs.html">NHS Primary Care Continuity →</a></div></section></main>
+</div><section aria-label="Related proofs" class="related-proofs"><h2>Related proofs</h2><div class="related-proofs__links"><a href="./examples-outlier.html">Outlier AI →</a><a href="./examples-nhs.html">NHS Primary Care Continuity →</a></div></section>
+<div class="section-divider"><span class="section-divider-label">how to start</span></div>
+<section aria-label="How to start" class="card" style="margin-bottom:32px;">
+<p class="lead" style="margin-bottom:6px;">Send the repeated failure. Not the proposed fix.</p>
+<p style="margin:0 0 20px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-faint); letter-spacing:0.04em;">The five-line brief. No diagnosis yet. Just the signal.</p>
+<div class="process-strip jf-mobile-stack">
+<div class="process-card"><span aria-hidden="true" class="process-card-num">01</span><span class="process-step">Step 01</span><p><strong>Describe the problem.</strong> Send the Five-Line Brief for a recurring failure, or contact me about a Structural Lens.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">02</span><span class="process-step">Step 02</span><p><strong>Establish fit.</strong> I review the initial problem and scope. Qualification is free; it is not a diagnosis.</p></div>
+<div class="process-card"><span aria-hidden="true" class="process-card-num">03</span><span class="process-step">Step 03</span><p><strong>Agree the work.</strong> If suitable, we agree the fixed fee, evidence requirements and written deliverable before paid work begins.</p></div>
+</div>
+<p style="margin:14px 0 0; font-size:13px;"><a class="link-blue" href="./how-it-works.html">See exactly how an engagement runs, step by step →</a></p>
+<div class="signal-box" style="margin-top:20px;">
+<span class="mini-kicker">Send these five lines</span>
+<ol class="signal-list">
+<li class="signal-item"><span class="signal-num">01</span><span><strong>What keeps going wrong?</strong></span></li>
+<li class="signal-item"><span class="signal-num">02</span><span><strong>What is it costing?</strong> Money, time, trust, load, or drift.</span></li>
+<li class="signal-item"><span class="signal-num">03</span><span><strong>Where does it show up?</strong> Teams, roles, systems, or touchpoints.</span></li>
+<li class="signal-item"><span class="signal-num">04</span><span><strong>What has already been tried?</strong></span></li>
+<li class="signal-item"><span class="signal-num">05</span><span><strong>What cannot change?</strong> Non-negotiables and constraints.</span></li>
+</ol>
+</div>
+<div class="callout"><p><strong>If the work is not the right fit, I will say so.</strong></p></div>
+<div class="actions" style="margin-top:20px;">
+<a class="btn btn-primary btn-large" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
+</div>
+</section>
+</main>
 <div style="display:flex;justify-content:center;padding:32px 0 0;">
 <a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑ BACK TO TOP</a>
 </div>
@@ -717,13 +784,14 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="site-footer__top">
 <section aria-labelledby="footer-brand-heading" class="site-footer__brand">
 <h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
-<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis &amp; redesign for recurring failure under scale.</p>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong><span style="display:block;color:var(--text-dim);margin-bottom:4px;">Structural diagnosis and redesign.</span>I find why the same problems keep coming back and what has to change before the <span style="white-space:nowrap;">next fix.</span></p>
 </section>
 <nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
 <h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
 <ul class="site-footer__list">
 <li><a href="./index.html">Home</a></li>
 <li><a href="./services.html">Services</a></li>
+<li><a href="./how-it-works.html">How it works</a></li>
 <li><a href="./method.html">Method</a></li>
 <li><a href="./examples.html">Proofs</a></li>
 <li><a href="./research.html">Research</a></li>
@@ -736,7 +804,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <ul class="site-footer__list">
 <li><a href="./trilogy.html">Trilogy</a></li>
 <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-<li><a href="./how-it-works.html">How It Works</a></li>
 </ul>
 </nav>
 <nav aria-labelledby="footer-legal-heading" class="site-footer__nav">

@@ -390,6 +390,38 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
     height:12px;
   }
 }
+
+    .pp-prose { max-width: 76ch; }
+    .pp-prose p { margin: 0 0 14px; color: var(--text-dim); font-size: 14px; line-height: 1.75; }
+    .pp-prose p:last-child { margin-bottom: 0; }
+    .pp-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+    .pp-list li { position: relative; padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+    .pp-list li::before { content: "→"; position: absolute; left: 0; color: var(--label-blue); font-size: 12px; }
+    .pp-list li strong, .pp-prose strong { color: #fff; }
+    .terms-table-wrap { overflow-x: auto; margin: 4px 0 16px; border: 1px solid rgba(90,176,255,0.2); border-radius: 12px; max-width: none; }
+    .terms-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 520px; }
+    .terms-table th { text-align: left; padding: 10px 12px; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--label-blue); background: rgba(90,176,255,0.05); border-bottom: 1px solid rgba(90,176,255,0.18); }
+    .terms-table td { padding: 10px 12px; color: var(--text-dim); border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; line-height: 1.6; }
+    .terms-table tr:last-child td { border-bottom: none; }
+    .terms-table td:first-child { color: #fff; width: 34%; }
+</style>
+<style id="jf-footer-final">
+/* Canonical footer - final, identical on every page (overrides earlier footer rules) */
+.site-footer{background:#0e0f12!important;border-top:1px solid var(--border-soft)!important;line-height:1.65!important;}
+.site-footer__inner{max-width:1120px!important;margin:0 auto!important;padding:48px 24px 32px!important;}
+.site-footer__top{display:grid!important;grid-template-columns:minmax(0,1.75fr) minmax(100px,.85fr) minmax(130px,1.05fr) minmax(90px,.75fr) minmax(190px,1.3fr)!important;gap:34px!important;padding-bottom:36px!important;border-bottom:1px solid var(--border-soft)!important;align-items:start!important;}
+.site-footer__brand{grid-column:auto!important;}
+.site-footer__eyebrow,.site-footer__heading{margin:0 0 18px!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.5!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:var(--label-blue)!important;font-weight:600!important;}
+.site-footer__eyebrow{margin-bottom:10px!important;font-size:11px!important;}
+.site-footer__summary{margin:0 0 20px!important;max-width:34ch!important;font-size:13px!important;line-height:1.75!important;color:var(--text-faint)!important;}
+.site-footer__list{list-style:none!important;margin:0!important;padding:0!important;display:grid!important;gap:12px!important;}
+.site-footer__list a{font-size:13px!important;line-height:1.6!important;color:var(--text-faint)!important;text-decoration:none!important;border-bottom:1px solid transparent!important;padding-bottom:0!important;background:none!important;}
+.site-footer__list a:hover{color:#fff!important;border-bottom-color:rgba(255,255,255,.24)!important;}
+.site-footer__email-address{font-family:"IBM Plex Mono",monospace!important;font-size:11px!important;line-height:1.55!important;color:var(--text-dim)!important;white-space:nowrap!important;}
+.site-footer__bottom{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important;padding-top:24px!important;}
+.site-footer__bottom p{margin:0!important;font-family:"IBM Plex Mono",monospace!important;font-size:10px!important;line-height:1.6!important;letter-spacing:.06em!important;color:var(--text-faint)!important;}
+@media(max-width:980px){.site-footer__top{grid-template-columns:1fr 1fr!important;gap:32px!important;}.site-footer__brand{grid-column:1/-1!important;}.site-footer__email-address{white-space:normal!important;overflow-wrap:anywhere!important;}}
+@media(max-width:640px){.site-footer__inner{padding:40px 20px 28px!important;}.site-footer__top{grid-template-columns:1fr 1fr!important;gap:28px 20px!important;}.site-footer__bottom{flex-direction:column!important;align-items:flex-start!important;}}
 </style>
 </head>
 <body id="top">
@@ -400,7 +432,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <img alt="Jamie Forrester" class="nav-avatar" src="./JF LOGO.png"/>
 <span class="site-nav-name">Jamie Forrester</span>
 </a>
-<div class="site-nav-links"><a href="./services.html">Services</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Privacy enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
+<div class="site-nav-links"><a href="./services.html">Services</a><a href="./how-it-works.html">How it works</a><a href="./method.html">Method</a><div class="jf-proof-menu"><a class="jf-proof-menu__trigger" href="./examples.html">Proofs</a><div class="jf-proof-menu__panel"><a href="./examples.html">All Proofs</a><a href="./examples-outlier.html">Outlier AI</a><a href="./examples-nhs.html">NHS Primary Care</a><a href="./examples-patreon.html">Patreon / Apple IAP</a></div></div><a href="./research.html">Research</a><a href="./diagnostic-scan.html">Scan</a><a href="./books.html">Books</a><a href="./products.html">Tools</a><a class="nav-email" data-jf-contact="1" data-jf-subject="Privacy enquiry" href="#jfContactOverlay" style="font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--cta-blue); border:1px solid rgba(90,176,255,0.28); background:rgba(90,176,255,0.08); padding:5px 10px; border-radius:7px; white-space:nowrap; border-bottom:none; transition:background 140ms ease, border-color 140ms ease;">Contact</a></div>
 </div>
 </nav>
 <div class="wrap">
@@ -422,11 +454,11 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <h2 class="hero-title">Clear privacy terms for a written-first practice.</h2>
 <p class="hero-desc">I collect only what is reasonably needed to assess, administer, and deliver professional work. Personal data is not used for unrelated purposes, sold, or shared beyond what is necessary to operate the practice. This practice is subject to UK data protection law, including the UK GDPR and the Data Protection Act 2018 as amended.</p>
 </div>
-<span class="hero-meta">Last updated: October 2026</span>
+<span class="hero-meta">Last revised: 19 November 2026</span>
 </div>
 <div aria-label="Privacy at a glance" class="glance-grid jf-mobile-stack">
 <div class="glance-item"><span class="glance-item-label">Data controller</span><span class="glance-item-value">Jamie Forrester, Edinburgh, UK</span></div>
-<div class="glance-item"><span class="glance-item-label">Main uses</span><span class="glance-item-value">Replying to enquiries, assessing fit, managing and delivering engagements</span></div>
+<div class="glance-item"><span class="glance-item-label">Main uses</span><span class="glance-item-value">Replying to enquiries, assessing fit, professional relationships, delivering engagements</span></div>
 <div class="glance-item"><span class="glance-item-label">Lawful bases</span><span class="glance-item-value">Legitimate interests, steps before contract, contract performance, legal obligation</span></div>
 <div class="glance-item"><span class="glance-item-label">Marketing</span><span class="glance-item-value"><strong>No</strong> marketing list. No unsolicited marketing emails.</span></div>
 <div class="glance-item"><span class="glance-item-label">Cookies</span><span class="glance-item-value"><strong>No</strong> non-essential cookies set</span></div>
@@ -434,181 +466,111 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 </div>
 </section>
 <main id="main" role="main">
-<div class="section-divider"><span class="section-divider-label">data controller</span></div>
-<section aria-label="Who I am" class="card">
-<div class="label-row"><span class="label">01 // Who I am</span><span class="label-note">data controller</span></div>
-<h2 class="section-title">Controller details</h2>
-<p class="lead">For the purposes of UK data protection law, the data controller for this website and related business communications is:</p>
-<div class="mini-grid jf-mobile-stack">
-<div class="mini"><h3>Name</h3><p>Jamie Forrester</p></div>
-<div class="mini"><h3>Contact email</h3><p><a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay"><span class="__cf_email__" data-cfemail="234b464f4f4c6349424e4a46454c515146505746510d404c4e"><a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay" style="cursor:pointer;">hello@jamieforrester.com</a></span></a></p></div>
-<div class="mini"><h3>Business address</h3><p>Edinburgh, Scotland, UK</p></div>
-</div>
-<div class="section-block">
-<h3 class="section-head">Scope of this policy</h3>
-<p>This policy applies to information collected through this website, including the Contact and Five-Line Brief forms, direct email contact, enquiry handling, pre-engagement discussions, and the administration and delivery of professional services.</p>
+<div class="section-divider"><span class="section-divider-label">who is responsible</span></div>
+<section aria-label="Who is responsible" class="card">
+<div class="label-row"><span class="label">01 // Who is responsible</span><span class="label-note">who is responsible</span></div>
+<div class="pp-prose">
+<p>I’m Jamie Forrester, an independent systems architect trading in my own name. I’m responsible for the personal information I use to run my website, manage professional relationships, deal with enquiries and administer my practice. For privacy questions, rights requests or complaints, email <a class="link-blue" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a>.</p>
+<p>When I handle personal information solely on a client’s documented instructions, the client is responsible as the controller for that use. I agree the processing arrangements with the client before receiving that information.</p>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">what data is collected</span></div>
-<section aria-label="What data is collected" class="card">
-<div class="label-row"><span class="label">02 // What data I collect</span><span class="label-note">identity and materials</span></div>
-<h2 class="section-title">Identity data and engagement materials</h2>
-<ul class="clean">
-<li>Name and contact details: name, email address, phone number, and company details</li>
-<li>Information included in website Contact or Five-Line Brief forms, enquiry emails, briefs, attachments, or documents you choose to send</li>
-<li>Operational information relevant to a potential or active engagement, including project context, constraints, and communications history</li>
-<li>Technical website information that may be generated through standard server operation, such as basic logs, if processed by infrastructure providers</li>
+<div class="section-divider"><span class="section-divider-label">information i collect and why</span></div>
+<section aria-label="Information I collect and why" class="card">
+<div class="label-row"><span class="label">02 // Information I collect and why</span><span class="label-note">what and why</span></div>
+<div class="pp-prose">
+<ul class="pp-list">
+<li><strong>Website and email enquiries.</strong> I receive your name, email address, organisation if supplied, and the details you choose to send. I use them to reply, assess fit and discuss a possible engagement. Provide enough information for me to understand the enquiry and get back to you. You can also contact me directly by email.</li>
+<li><strong>Professional relationships.</strong> I keep a working record of relevant professional contacts and interactions. It can include names, roles, organisations, LinkedIn profile links and short notes on our professional exchanges or why a contact is relevant to my practice. The information comes from LinkedIn profiles and posts and from professional interactions. I use it to remember previous exchanges and manage professional relationships.</li>
+<li><strong>Engagements and payments.</strong> I use contact and billing details, the agreed scope, correspondence, evidence and delivery records as needed to provide the agreed work and administer the engagement. Evidence provided by a client may include information about other people. I ask for the minimum needed. Please keep patient-identifiable information, other sensitive personal information and criminal-offence information out of website forms. Any exceptional need for such information during an engagement must be agreed in advance, with a lawful basis, any additional legal condition and appropriate safeguards.</li>
+<li><strong>Technical information.</strong> Hosting, security and form-delivery providers may process IP addresses, browser information and other technical logs to serve the website, deliver enquiries and prevent abuse.</li>
 </ul>
-<div class="section-block">
-<h3 class="section-head">Client materials</h3>
-<p>In the course of this work, you may send structural materials such as workflows, contracts, notes, screenshots, internal documents, or other operational records. While these materials are often corporate in nature, they may contain personal data. They are handled only to the extent necessary to assess, scope, administer, or deliver the work. Client materials are not uploaded to public or third-party tools that store or reuse content beyond the relevant engagement.</p>
 </div>
-<div class="section-block">
-<h3 class="section-head">Special category data</h3>
-<p><strong>Do not submit patient-identifiable information, special category personal data, or criminal-offence data through the website forms.</strong> The normal enquiry process does not require it. If an engagement exceptionally requires sensitive personal data, this must be agreed in advance so that the relevant Article 6 lawful basis, any required Article 9 condition or Data Protection Act 2018 condition, and appropriate safeguards can be identified before that data is processed.</p>
-</div>
-</section>
-<div class="section-divider"><span class="section-divider-label">how data is used</span></div>
-<section aria-label="How data is used" class="card">
-<div class="label-row"><span class="label">03 // How I use data</span><span class="label-note">purposes</span></div>
-<h2 class="section-title">Why personal data is used</h2>
-<ul class="clean">
-<li>To respond to enquiries and communicate with prospective clients</li>
-<li>To assess whether a matter is a fit for the services offered</li>
-<li>To scope, administer, and deliver professional engagements</li>
-<li>To maintain records relating to enquiries, proposals, agreements, invoices, and delivery</li>
-<li>To comply with legal, regulatory, accounting, or tax obligations</li>
-<li>To protect the security and integrity of the website and business communications</li>
-</ul>
 </section>
 <div class="section-divider"><span class="section-divider-label">lawful bases</span></div>
 <section aria-label="Lawful bases" class="card">
-<div class="label-row"><span class="label">04 // Lawful bases</span><span class="label-note">uk gdpr basis per purpose</span></div>
-<h2 class="section-title">Legal basis for processing, by purpose</h2>
-<p class="lead">Each processing purpose is linked to a specific lawful basis. The mapping is as follows:</p>
-<div class="basis-grid jf-mobile-stack">
-<div class="basis-item"><span class="basis-item-purpose">Responding to enquiries</span><span class="basis-item-basis">Legitimate interests</span><span class="basis-item-note">The legitimate interest is operating a professional practice and responding to people who contact it directly.</span></div>
-<div class="basis-item"><span class="basis-item-purpose">Assessing fit and scoping work</span><span class="basis-item-basis">Legitimate interests / Steps before contract</span><span class="basis-item-note">Processing is necessary to evaluate a potential engagement before any formal agreement is made.</span></div>
-<div class="basis-item"><span class="basis-item-purpose">Delivering active engagements</span><span class="basis-item-basis">Contract performance</span><span class="basis-item-note">Processing is necessary to perform the agreed services once an engagement is confirmed.</span></div>
-<div class="basis-item"><span class="basis-item-purpose">Invoicing and accounting records</span><span class="basis-item-basis">Legal obligation</span><span class="basis-item-note">Processing is required to meet tax, accounting, and related legal obligations.</span></div>
-<div class="basis-item"><span class="basis-item-purpose">Security and integrity of communications</span><span class="basis-item-basis">Legitimate interests</span><span class="basis-item-note">The legitimate interest is protecting the website and business communications from unauthorised access or misuse.</span></div>
-<div class="basis-item"><span class="basis-item-purpose">Consent-based purposes</span><span class="basis-item-basis">Consent</span><span class="basis-item-note">Where consent is the basis, this will be made clear at the point of collection and may be withdrawn at any time.</span></div>
-</div>
-<div class="callout" style="margin-top:16px;">
-<p><strong>Right to object.</strong> Where processing is based on legitimate interests, you have the right to object at any time. To exercise this right, contact <a class="link-blue" data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay"><span class="__cf_email__" data-cfemail="6f070a0303002f050e02060a09001d1d0a1c1b0a1d410c0002"><a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay" style="cursor:pointer;">hello@jamieforrester.com</a></span></a>. Processing will stop unless there are compelling legitimate grounds that override your interests.</p>
+<div class="label-row"><span class="label">03 // Lawful bases</span><span class="label-note">basis per purpose</span></div>
+<div class="pp-prose">
+<div class="terms-table-wrap"><table class="terms-table">
+<thead><tr><th>Purpose</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td>Answering enquiries, assessing fit and managing professional relationships</td><td>My legitimate interests in replying to people, assessing possible work and keeping proportionate professional records. Where an individual asks me to take steps towards a contract with them, I use the pre-contract basis to the extent necessary.</td></tr>
+<tr><td>Delivering and administering work</td><td>Contract performance where the agreement is with the individual concerned. For representatives of an organisation that hires me, my legitimate interests in delivering and administering that organisation’s engagement, where necessary.</td></tr>
+<tr><td>Keeping business records and dealing with disputes</td><td>My legitimate interests in documenting agreements and protecting legal rights. Legal obligation where particular records must be kept or disclosed by law.</td></tr>
+<tr><td>Accounting and tax</td><td>Legal obligation where applicable.</td></tr>
+<tr><td>Website and communications security</td><td>My legitimate interests in preventing abuse and protecting the website, communications and records.</td></tr>
+</tbody></table></div>
+<p>For other personal information in engagement evidence, I establish the basis that applies before processing it, or follow the client’s documented instructions where I act on the client’s behalf. I consider the necessity and impact of uses based on legitimate interests.</p>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">sharing and processors</span></div>
-<section aria-label="Sharing and processors" class="card">
-<div class="label-row"><span class="label">05 // Sharing and processors</span><span class="label-note">who receives data</span></div>
-<h2 class="section-title">Who personal data may be shared with</h2>
-<p class="lead">Personal data is not sold. It is shared only where reasonably necessary to run the website and business, or where legally required.</p>
-<ul class="clean">
-<li><strong>Website form delivery (Web3Forms)</strong>: Contact and Five-Line Brief submissions are transmitted to Web3Forms for processing and routing to the business inbox. Web3Forms states that its servers are located in the United States (US-East), that it does not store form submissions as a normal part of delivery, and that server logs containing personal information may be retained periodically for up to around two months.</li>
-<li><strong>Encrypted cloud email infrastructure</strong>: used for business correspondence and receipt of website form submissions</li>
-<li><strong>Encrypted cloud storage</strong>: used for secure document handling and delivery</li>
-<li><strong>Professional invoicing and accounting tools</strong>: used to issue invoices and maintain financial records</li>
-<li><strong>AI service providers (Anthropic and OpenAI)</strong>: business-tier AI tools used to assist drafting and production, under commercial terms that exclude training on client data</li>
-<li><strong>Web hosting and DNS infrastructure</strong>: used to operate the website</li>
-<li><strong>Professional advisers</strong>: accountants, lawyers, or insurers where necessary</li>
-<li><strong>Authorities or regulators</strong>: where disclosure is legally required</li>
-</ul>
-<div class="section-block">
-<h3 class="section-head">Processors</h3>
-<p>Third-party providers used to support the website or business may process data on my behalf. Where such providers are used, they are selected on the basis that they are appropriate for professional business use and provide reasonable security standards. They are not authorised to use personal data for their own purposes beyond what is necessary to provide the relevant service.</p>
+<div class="section-divider"><span class="section-divider-label">website forms and email</span></div>
+<section aria-label="Website forms and email" class="card">
+<div class="label-row"><span class="label">04 // Website forms and email</span><span class="label-note">web3forms and your inbox</span></div>
+<div class="pp-prose">
+<p>When you submit the Contact or Five-Line Brief form, Web3Forms, operated by Web3Creative, processes your message and forwards it to my business inbox. The submission also includes the page you used to open the form. I use Namecheap Private Email for that inbox. Web3Forms’ published terms state that its submission copies may be kept for up to three years from submission, with dashboard visibility varying by plan. A copy held by the provider is separate from the copy in my mailbox.</p>
+<p>Please use the forms for a short initial outline and leave out names of people involved, patient details and confidential records. If we agree an engagement, we’ll agree separately how to send evidence. You can email me directly at <a class="link-blue" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a> if you prefer to bypass Web3Forms.</p>
+</div>
+</section>
+<div class="section-divider"><span class="section-divider-label">where information is held and who receives it</span></div>
+<section aria-label="Where information is held and who receives it" class="card">
+<div class="label-row"><span class="label">05 // Where information is held and who receives it</span><span class="label-note">storage and recipients</span></div>
+<div class="pp-prose">
+<p>I keep professional relationship records on my computer. I also use project workspaces provided by OpenAI and Anthropic to organise those records and assist with drafting. I make the decisions about professional contacts and follow-up.</p>
+<p>I store original client evidence locally on my Mac, protected by FileVault disk encryption, in a folder outside cloud sync and backup. I agree the transfer and storage arrangements with each client before receiving evidence. If the work uses AI-assisted drafting, I’ll identify the proposed business workspaces in the written scope, such as ChatGPT Business or Claude Team. I’ll put the relevant business accounts and data settings in place before entering client material, with model training on client data disabled. I remove identifying details wherever possible and keep special-category information out of AI tools. I make the professional judgments, diagnosis and redesign.</p>
+<p>Other recipients may include website hosting and security providers, accounting or invoicing services, and professional advisers such as accountants, solicitors or insurers where needed. Information may also be disclosed to authorities where required by law.</p>
 </div>
 </section>
 <div class="section-divider"><span class="section-divider-label">international transfers</span></div>
 <section aria-label="International transfers" class="card">
-<div class="label-row"><span class="label">06 // International transfers</span><span class="label-note">cross-border processing</span></div>
-<h2 class="section-title">Transfer of data outside the UK</h2>
-<p class="lead">Some of the third-party providers used to operate this website and business are based outside the UK, or may process data on infrastructure located outside the UK. This includes providers of website form delivery, cloud email, storage, AI services, font delivery, and hosting services.</p>
-<p>Where a restricted transfer of personal data outside the UK takes place, the applicable transfer rules are considered for the relevant provider and processing activity. Depending on the circumstances, this may involve a UK adequacy regulation, an approved transfer safeguard such as the UK International Data Transfer Agreement (IDTA) or UK Addendum, or a specific statutory exception where one lawfully applies.</p>
-<div class="section-block">
-<h3 class="section-head">Website forms and the United States</h3>
-<p>Website Contact and Five-Line Brief submissions are processed by Web3Forms on infrastructure it states is located in the United States (US-East). Web3Forms' public documentation does not identify a UK IDTA or UK Addendum applying to this website account. For that reason, website forms should be used only for ordinary initial enquiries and should not be used to send confidential client materials, patient-identifiable information, special category personal data, or criminal-offence data. Sensitive or engagement-specific transfer arrangements will be addressed separately where required.</p>
-</div>
-<div class="section-block">
-<h3 class="section-head">Fonts and website infrastructure</h3>
-<p>This website uses Google Fonts, which may result in your browser making a request to Google's servers. Google's privacy policy governs any data processed in that context. No engagement-related personal data is transmitted via font loading.</p>
-</div>
-<div class="callout">
-<p>If you have questions about the safeguards applied to any specific transfer, contact <a class="link-blue" data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay"><span class="__cf_email__" data-cfemail="7f171a1313103f151e12161a19100d0d1a0c0b1a0d511c1012"><a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay" style="cursor:pointer;">hello@jamieforrester.com</a></span></a>.</p>
+<div class="label-row"><span class="label">06 // International transfers</span><span class="label-note">outside the UK</span></div>
+<div class="pp-prose">
+<p>Some providers operate or process information outside the UK. Web3Creative operates from India and uses infrastructure in several regions. Its <a class="link-blue" href="https://web3forms.com/dpa" rel="noopener" target="_blank">Data Processing Agreement</a> incorporates Standard Contractual Clauses and the UK Addendum where applicable. Where a restricted transfer requires a safeguard, I use the mechanism applicable to that transfer. Contact me to ask about the arrangements for a particular provider and how to obtain a copy of the relevant safeguard.</p>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">retention</span></div>
-<section aria-label="Retention" class="card">
-<div class="label-row"><span class="label">07 // Retention</span><span class="label-note">how long data is kept</span></div>
-<h2 class="section-title">How long personal data is kept</h2>
-<p class="lead">Personal data is retained only for as long as reasonably necessary for the purpose it was collected, including record-keeping, legal, tax, and dispute-management needs. Records are not kept indefinitely. Where there is no ongoing business or legal need, they are periodically reviewed and deleted.</p>
-<div class="mini-grid jf-mobile-stack">
-<div class="mini"><h3>Unsuccessful enquiries</h3><p>Retained for up to 12 months after the last communication, then deleted unless there is an active follow-up reason.</p></div>
-<div class="mini"><h3>Pre-client and scoping discussions</h3><p>Retained for up to 24 months after the last communication, or until the matter is clearly concluded.</p></div>
-<div class="mini"><h3>Active client records</h3><p>Retained for up to 6 years after completion of the engagement, to cover potential legal, tax, or dispute needs.</p></div>
-<div class="mini"><h3>Client-supplied materials</h3><p>Deleted within 30 days of the engagement closing, including copies held in AI tools. Delivered artifacts and business records are retained as above.</p></div>
-</div>
-<div class="section-block">
-<h3 class="section-head">Financial records</h3>
-<p>Retained for at least 6 years as required under applicable UK accounting and tax rules.</p>
+<div class="section-divider"><span class="section-divider-label">how long i keep information</span></div>
+<section aria-label="How long I keep information" class="card">
+<div class="label-row"><span class="label">07 // How long I keep information</span><span class="label-note">retention</span></div>
+<div class="pp-prose">
+<ul class="pp-list">
+<li><strong>Ordinary enquiries.</strong> I keep enquiry correspondence for up to 12 months after the last exchange. Where discussions progress to a written scope or proposal, I may keep the scoping record for up to 24 months after the last exchange, or delete it sooner when it is clear the record is no longer needed. Web3Forms has its own submission retention period described above.</li>
+<li><strong>Professional relationship records.</strong> I keep them while they serve a current professional purpose. I review their relevance and delete entries that no longer serve that purpose. Where necessary, I keep a minimal record of an objection so I can honour it.</li>
+<li><strong>Engagement records.</strong> I may keep a limited record of the scope, approvals, correspondence, delivery and final artifacts for up to six years after closure where justified for business records or potential claims. I keep accounting and tax records for the applicable statutory period. If I must preserve particular material by law, I restrict access and retain it for as long as required.</li>
+<li><strong>Source evidence.</strong> Within 30 days after closure I remove client-supplied evidence and working copies from active systems under my control and initiate deletion with agreed providers, including relevant AI chats, project files and separately saved uploads. For unsolicited evidence I decline, the period starts when I decline the enquiry. Where agreed providers hold residual backup copies, those copies are kept out of ordinary use and expire under the applicable backup cycle. If a backup is restored, I reapply the deletion. An agreed client processing schedule or legal preservation duty governs where applicable.</li>
+</ul>
 </div>
 </section>
 <div class="section-divider"><span class="section-divider-label">security</span></div>
 <section aria-label="Security" class="card">
-<div class="label-row"><span class="label">08 // Security</span><span class="label-note">protection measures</span></div>
-<h2 class="section-title">How personal data is protected</h2>
-<ul class="clean">
-<li>Use of encrypted, professional-grade email and cloud storage infrastructure</li>
-<li>Access controls and password protection for all business accounts</li>
-<li>Two-factor authentication where available</li>
-<li>Data minimisation wherever possible</li>
-</ul>
-<div class="mini-grid-2 jf-mobile-stack" style="margin-top:18px;">
-<div class="mini"><h3>Client materials and confidentiality</h3><p>The analysis is not outsourced. Client materials are handled only as necessary to assess, scope, administer, or deliver the work, using secured infrastructure appropriate to a sole professional practice.</p></div>
-<div class="mini"><h3>AI tools and client data</h3><p>Client materials may be processed in business-tier AI tools (Claude Team from Anthropic and ChatGPT Business from OpenAI) under commercial terms that exclude training on client data. Names, personal details, and identifying information are removed wherever possible before anything is entered, and special category data is never entered. Client-supplied materials, including copies in those tools, are deleted within 30 days of the engagement closing. They are used only for the purpose of the relevant enquiry or engagement.</p></div>
-</div>
-<div class="section-block">
-<h3 class="section-head">No guarantee</h3>
-<p>No online system can guarantee absolute security. However, reasonable steps are taken to protect personal data against unauthorised access, misuse, loss, or disclosure.</p>
+<div class="label-row"><span class="label">08 // Security</span><span class="label-note">protection</span></div>
+<div class="pp-prose">
+<p>I limit access to information to people and services that need it for the stated purpose. I take steps appropriate to the sensitivity of the information and agree any additional safeguards with the client before evidence is transferred. If a personal data breach affects information I process on a client’s behalf, I tell the client without undue delay.</p>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">your rights</span></div>
-<section aria-label="Your rights" class="card">
-<div class="label-row"><span class="label">09 // Your rights</span><span class="label-note">individual rights</span></div>
-<h2 class="section-title">Your data protection rights</h2>
-<p class="lead">Depending on the circumstances and the lawful basis relied on, you may have the right to:</p>
-<ul class="clean">
-<li>Request access to your personal data</li>
-<li>Request correction of inaccurate or incomplete data</li>
-<li>Request erasure of data in certain circumstances</li>
-<li>Request restriction of processing in certain circumstances</li>
-<li><strong>Object to processing where legitimate interests are relied on</strong>: this right applies to all legitimate-interests processing on this site and will be given full weight</li>
-<li>Request data portability where the processing is automated and based on consent or contract performance</li>
-<li>Withdraw consent where consent is the lawful basis</li>
-</ul>
-<div class="section-block">
-<h3 class="section-head">How to exercise rights</h3>
-<p>To exercise any of these rights, use the Contact form or contact <a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay"><span class="__cf_email__" data-cfemail="a3cbc6cfcfcce3c9c2cecac6c5ccd1d1c6d0d7c6d18dc0ccce"><a data-jf-contact="1" data-jf-subject="Website enquiry: Privacy Policy" href="#jfContactOverlay" style="cursor:pointer;">hello@jamieforrester.com</a></span></a>. Reasonable steps may be taken to verify identity before responding. Rights requests will be handled without undue delay and normally within one calendar month. Where the law permits an extension for a complex request or multiple requests, the period may be extended by up to a further two months; if this applies, you will be told within the first month and given the reason.</p>
+<div class="section-divider"><span class="section-divider-label">website technologies</span></div>
+<section aria-label="Website technologies" class="card">
+<div class="label-row"><span class="label">09 // Website technologies</span><span class="label-note">hosting, fonts and cookies</span></div>
+<div class="pp-prose">
+<p>I host this site on <a class="link-blue" href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages" rel="noopener" target="_blank">GitHub Pages</a>. GitHub records visitors’ IP addresses for security. Your browser requests the site’s fonts from <a class="link-blue" href="https://fonts.googleblog.com/2022/11/your-privacy-and-google-fonts.html" rel="noopener" target="_blank">Google Fonts</a>, which receives the IP address needed to deliver them.</p>
+<p>I do not use cookies for analytics or advertising on this site. Opening an enquiry form displays it on the existing page. Web3Forms receives the form data when you submit it, as explained in section 4. If I introduce a technology that requires consent, I’ll explain what it does and ask for consent before using it. External links, including LinkedIn, X and SSRN, take you to sites with their own privacy practices.</p>
 </div>
 </section>
-<div class="section-divider"><span class="section-divider-label">cookies</span></div>
-<section aria-label="Cookies" class="card">
-<div class="label-row"><span class="label">10 // Cookies</span><span class="label-note">website technologies</span></div>
-<h2 class="section-title">Cookies and similar technologies</h2>
-<p class="lead">This website does not set non-essential cookies.</p>
-<p>If any strictly necessary cookies are used for basic site function, they may be used without additional consent where legally permitted. If analytics, advertising, or other non-essential cookies are introduced in future, this policy will be updated and appropriate consent mechanisms will be in place before those cookies are set.</p>
+<div class="section-divider"><span class="section-divider-label">your rights and complaints</span></div>
+<section aria-label="Your rights and complaints" class="card">
+<div class="label-row"><span class="label">10 // Your rights and complaints</span><span class="label-note">access, correction, objection</span></div>
+<div class="pp-prose">
+<p>Depending on how I use your information, you may have the right to access it, correct it, ask me to delete or restrict it, object to processing or receive a portable copy. Where processing relies on consent, you can withdraw it. You have the right to object to direct marketing at any time.</p>
+<p>Email <a class="link-blue" href="mailto:hello@jamieforrester.com">hello@jamieforrester.com</a> to exercise your rights. I may take reasonable steps to verify your identity. I respond without undue delay and normally within one calendar month. If the law allows a longer response period and I need it, I’ll explain why within the first month.</p>
+<p>You can also make a data protection complaint by email. I’ll acknowledge it within 30 days, investigate it and tell you the outcome without undue delay. You have the right to complain to the <a class="link-blue" href="https://ico.org.uk/make-a-complaint/" rel="noopener" target="_blank">Information Commissioner’s Office</a>.</p>
+</div>
 </section>
-<div class="section-divider"><span class="section-divider-label">complaints and updates</span></div>
-<section aria-label="Complaints and updates" class="card">
-<div class="label-row"><span class="label">11 // Complaints and updates</span><span class="label-note">final matters</span></div>
-<h2 class="section-title">Questions, complaints, and changes</h2>
-<div class="mini-grid jf-mobile-stack">
-<div class="mini"><h3>Data protection complaints</h3><p>You can make a data protection complaint through the Contact form or by contacting <a data-jf-contact="1" data-jf-subject="Data protection complaint" href="#jfContactOverlay"><span class="__cf_email__" data-cfemail="630b060f0f0c2309020e0a06050c111106101706114d000c0e"><a data-jf-contact="1" data-jf-subject="Data protection complaint" href="#jfContactOverlay" style="cursor:pointer;">hello@jamieforrester.com</a></span></a>. Receipt will be acknowledged within 30 days. Appropriate steps will then be taken without undue delay to investigate the complaint, keep you informed where appropriate, and tell you the outcome without undue delay.</p></div>
-<div class="mini"><h3>Complaints to the ICO</h3><p>You also have the right to complain to the Information Commissioner's Office (ICO), the UK supervisory authority for data protection. The ICO can be reached at <a href="https://ico.org.uk/make-a-complaint/" rel="noopener" target="_blank">ico.org.uk/make-a-complaint</a> or by calling 0303 123 1113.</p></div>
-<div class="mini"><h3>Policy updates</h3><p>This policy may be updated from time to time to reflect legal, operational, or website changes. The most current version will always appear on this page with the date it was last revised.</p></div>
+<div class="section-divider"><span class="section-divider-label">changes to this policy</span></div>
+<section aria-label="Changes to this policy" class="card">
+<div class="label-row"><span class="label">11 // Changes to this policy</span><span class="label-note">updates</span></div>
+<div class="pp-prose">
+<p>I’ll update this page when my practices, providers or legal obligations change. The published page shows the date of the latest revision.</p>
 </div>
 <div class="cta-bar">
 <a class="btn btn-primary" data-jf-contact="1" data-jf-subject="Privacy enquiry" href="#jfContactOverlay">CONTACT</a>
-<a class="btn" href="./services.html">VIEW SERVICES</a>
+<a class="btn" href="./terms.html">TERMS OF ENGAGEMENT</a>
 </div>
 </section>
 </main>
@@ -621,13 +583,14 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div class="site-footer__top">
 <section aria-labelledby="footer-brand-heading" class="site-footer__brand">
 <h2 class="site-footer__eyebrow" id="footer-brand-heading">Jamie Forrester</h2>
-<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong>Structural diagnosis &amp; redesign for recurring failure under scale.</p>
+<p class="site-footer__summary"><strong style="display:block;color:#fff;font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-0.01em;">Independent Systems Architect</strong><span style="display:block;color:var(--text-dim);margin-bottom:4px;">Structural diagnosis and redesign.</span>I find why the same problems keep coming back and what has to change before the <span style="white-space:nowrap;">next fix.</span></p>
 </section>
 <nav aria-labelledby="footer-nav-heading" class="site-footer__nav">
 <h2 class="site-footer__heading" id="footer-nav-heading">Navigation</h2>
 <ul class="site-footer__list">
 <li><a href="./index.html">Home</a></li>
 <li><a href="./services.html">Services</a></li>
+<li><a href="./how-it-works.html">How it works</a></li>
 <li><a href="./method.html">Method</a></li>
 <li><a href="./examples.html">Proofs</a></li>
 <li><a href="./research.html">Research</a></li>
@@ -640,7 +603,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <ul class="site-footer__list">
 <li><a href="./trilogy.html">Trilogy</a></li>
 <li><a href="./diagnostic-scan.html">Diagnostic Scan</a></li>
-<li><a href="./how-it-works.html">How It Works</a></li>
 </ul>
 </nav>
 <nav aria-labelledby="footer-legal-heading" class="site-footer__nav">
