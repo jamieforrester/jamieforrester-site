@@ -727,7 +727,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <button aria-label="Close contact form" class="jf-contact-close" data-jf-close="" type="button">×</button>
 </div>
 <div class="jf-contact-scroll" id="jfContactFormWrap">
-<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it.</p>
+<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it. Keep it short, and leave out names, patient details and confidential records.</p>
 <p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong></p>
 <form action="https://api.web3forms.com/submit" id="jfContactForm" method="POST">
 <input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
@@ -753,19 +753,20 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <button aria-label="Close Five-Line Brief" class="jf-contact-close" data-jf-close="" type="button">×</button>
 </div>
 <div class="jf-contact-scroll" id="jfBriefFormWrap">
-<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix.</p>
+<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix. Keep it short, and leave out names, patient details and confidential records.</p>
 <p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong> and use the subject “Five-Line Brief”.</p>
 <form action="https://api.web3forms.com/submit" id="jfBriefForm" method="POST">
 <input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
 <input name="from_name" type="hidden" value="Jamie Forrester Website"/>
 <input name="subject" type="hidden" value="Five-Line Brief"/>
 <input id="jfBriefSource" name="source_page" type="hidden" value=""/>
+<input id="jfBriefScan" name="Scan answers" type="hidden" value=""/>
 <input autocomplete="off" name="botcheck" style="display:none" tabindex="-1" type="checkbox"/>
 <div class="jf-contact-grid">
 <label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfBriefName" name="name" required="" type="text"/></label>
 <label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
 <label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
-<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation</span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" required="" rows="2" style="min-height:76px"></textarea></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation <span>(optional)</span></span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" rows="2" style="min-height:76px"></textarea></label>
 </div>
 <div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">01</span>What keeps going wrong?</span><textarea class="jf-contact-textarea" id="jfBrief1" name="01 - What keeps going wrong?" required="" rows="2" style="min-height:74px"></textarea></label></div>
 <div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">02</span>What is it costing?</span><textarea class="jf-contact-textarea" id="jfBrief2" name="02 - What is it costing?" required="" rows="2" style="min-height:74px"></textarea></label></div>
@@ -828,11 +829,16 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
     openOverlay(contactOverlay);
   }
   function prefillBriefFromScan(){
-    const map=[['sq1','jfBrief1'],['sq2','jfBrief2'],['sq3','jfBrief3'],['sq4','jfBrief4']];
-    map.forEach(([source,target])=>{
-      const s=document.getElementById(source), t=document.getElementById(target);
-      if(s&&t&&s.value.trim()) t.value=s.value.trim();
+    const val=id=>{const el=document.getElementById(id);return el?el.value.trim():'';};
+    // Only matching questions are prefilled, and only when the visitor hasn't typed there yet.
+    [['sq1','jfBriefContext'],['sq4','jfBrief1']].forEach(([source,target])=>{
+      const t=document.getElementById(target), v=val(source);
+      if(t&&v&&!t.value.trim()) t.value=v;
     });
+    // All four Scan answers travel with the brief, labelled, as one block.
+    const labels=[['sq1','Purpose'],['sq2','Repeated action'],['sq3','Rules'],['sq4','Failure']];
+    const block=labels.filter(([id])=>val(id)).map(([id,l])=>l+': '+val(id)).join('\n');
+    const h=document.getElementById('jfBriefScan'); if(h) h.value=block;
   }
   function openBrief(){
     document.getElementById('jfBriefSource').value=location.pathname||pageLabel();

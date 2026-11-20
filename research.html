@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Research | Jamie Forrester</title>
-<meta content="Research, papers, books, frameworks, and live builds by Jamie Forrester." name="description"/><link href="https://www.jamieforrester.com/research.html" rel="canonical"/>
+<meta content="Research, papers, books and frameworks by Jamie Forrester." name="description"/><link href="https://www.jamieforrester.com/research.html" rel="canonical"/>
 <link href="/favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -704,7 +704,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <a class="map-item" href="#taxonomy-paper"><span class="map-item-num">05</span><span class="map-item-text"><strong>Diagnostic Taxonomy</strong>Nine classes · 54 subtypes · classification standard</span><span class="map-item-status">Taxonomy</span></a>
 <a class="map-item" href="#foundations"><span class="map-item-num">06</span><span class="map-item-text"><strong>Theoretical Foundations</strong>60-Second Scan + Grammar Kernel + Universal Formula</span><span class="map-item-status">3 models</span></a>
 <a class="map-item" href="./books.html"><span class="map-item-num">07</span><span class="map-item-text"><strong>Books</strong>Seeing Systems and the wider book programme</span><span class="map-item-status">Books</span></a>
-<a class="map-item" href="#builds"><span class="map-item-num">08</span><span class="map-item-text"><strong>Applied Build Proofs</strong>Live proving grounds</span><span class="map-item-status">Builds</span></a>
 </div>
 </section><section aria-label="Browse the papers" class="research-access card card-accent" id="paper-selector">
 <div class="label-row">
@@ -1036,7 +1035,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <span class="mini-kicker">60-Second Scan</span>
 <h3>First-pass structural orientation protocol</h3>
 <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Purpose → Primitive → Rules → Failure</p>
-<p>Four questions to help recognise a possible structural problem before analysis begins: what the system is actually for, what action it repeats, what rules govern that action, and what happens when those rules fail. The scan works because most system confusion comes from not being able to name these four things simultaneously. Once named, the structural problem, if there is one, becomes visible without a full diagnostic engagement. Used as a first-pass fit check before briefing.</p>
+<p>Four questions to help recognise a possible structural problem before analysis begins: what the system is actually for, what action it repeats, what rules govern that action, and what happens when those rules fail. The scan works because most system confusion comes from not being able to name these four things simultaneously. Naming them often shows whether a recurring problem may be structural and worth examining further. Used as a first-pass fit check before briefing.</p>
 <div class="actions">
 <a class="link-blue" href="./diagnostic-scan.html">Run the scan</a>
 </div>
@@ -1046,7 +1045,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <h3>How systems generate valid outputs</h3>
 <p style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:700; color:rgba(90,176,255,0.7); letter-spacing:0.04em; line-height:1.9; margin-bottom:14px;">Primitive → Law → Sequence → Gates → Output</p>
 <p>A five-stage structural grammar for inspecting how a system produces outputs. The primitive names the smallest repeatable unit of real work. The law names what must hold for that work to be valid. The sequence defines the order of production steps. Gates are the explicit checks that refuse promotion when output fails. The output is what the system delivers once all gates pass.</p>
-<p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the structural spine PromptFactory runs on, and the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
+<p>It works forward as a production model and backward as a diagnostic: bad output is traced through gates, sequence, law, and primitive to locate the real break. The Grammar Kernel is the production architecture behind the Diagnostic Artifact and the four-artifact Full Structural Engagement. The ten papers are now being compiled into a machine-usable canon to power governed production of Translation, Diagnostic, Redesign Executive Summary, and Full Redesign artifacts.</p>
 <div class="actions">
 <a class="link-blue" data-jf-contact="1" data-jf-subject="How systems generate valid outputs: materials request" href="#jfContactOverlay">Request materials</a>
 </div>
@@ -1067,57 +1066,6 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <p style="margin:0; font-size:13px; color:var(--text-faint); line-height:1.6;">The five-book sequence (<em>Seeing Systems</em>, <em>The 15-Level Abstraction Ladder</em>, and three more) is the teachable form of the same structural laws. Books 01 and 02 are drafted.</p>
 <a class="btn" href="./books.html" style="white-space:nowrap;">VIEW BOOKS →</a>
 </div>
-<div class="section-divider"><span class="section-divider-label">applied builds</span></div>
-<section aria-label="Applied builds" class="card" id="builds">
-<div class="label-row">
-<span class="label">08 // Applied Build Proofs</span>
-<span class="label-note">two live proving grounds</span>
-</div>
-<div class="builds-lead">
-<p>These are my own ventures, separate from client work: live proving grounds built under the same structural logic: law-first design, explicit rules, constrained ownership, and failure-resistant build paths. They are included here because real structural diagnosis must survive contact with actual construction. A diagnostic lens that is never tested in live systems eventually becomes literary. <strong>You cannot correctly diagnose what you have never had to build.</strong></p>
-<p class="small" style="margin-top:10px;">The two builds operate at different levels of the same structural logic. Spectrum Registry proves law-first construction in a constrained ownership domain. PromptFactory proves that build logic itself can be moved upstream into specification, verification, and governed execution.</p>
-<p class="small" style="margin-top:6px;">PromptFactory and the artifact-production method are different instantiations of the same underlying production architecture: both run on the Grammar Kernel, both treat upstream specification as the primary quality gate, and both refuse to promote output that has not passed explicit structural checks. One produces software. The other produces structural artifacts. The production logic is the same.</p>
-</div>
-<div class="paper">
-<div class="paper-row">
-<img alt="Spectrum Registry mark" class="infra-thumb" src="./SR.png"/>
-<div>
-<div class="paper-head">
-<p class="paper-title">Spectrum Registry</p>
-<span class="status status-dev">In development</span>
-</div>
-<p class="build-role-label">law-first registry proving ground</p>
-<div class="build-status-line">
-<span class="build-stat">Feature 29/40</span>
-<span class="build-stat-sep">·</span>
-<span class="build-stat">Target launch 2026</span>
-</div>
-<p class="paper-desc">A law-first symbolic registry built for durable truth and constrained ownership. The system starts at the primitive: what counts as a valid unit, what may be claimed, what must be refused, and how ownership remains bounded by rule rather than drift or convention.</p>
-<p class="small">It is a live test of how truth, authority, custody, and enforcement behave when the system is designed from law outward rather than from interface inward. The structural decisions made during this build directly inform how boundaries, admissibility, and enforcement are handled across the Diagnostic Artifact and Full Redesign Artifact. Spectrum Registry matters here as a bounded proof that invariant-first design can survive translation into a working system under real build constraints, as described in Paper 05.</p>
-</div>
-</div>
-</div>
-<div class="paper">
-<div class="paper-row">
-<img alt="PromptFactory mark" class="infra-thumb" src="./PF.png"/>
-<div>
-<div class="paper-head">
-<p class="paper-title">PromptFactory</p>
-<span class="status status-dev">In development</span>
-</div>
-<p class="build-role-label">law-first build system proving ground</p>
-<div class="build-status-line">
-<span class="build-stat">Build methodology proven</span>
-<span class="build-stat-sep">·</span>
-<span class="build-stat">Commercialisation in progress</span>
-</div>
-<p class="paper-desc">A deterministic build architecture that moves software production upstream into law, specification, and verification. Rather than treating code generation as the centre of the system, PromptFactory treats generation as one constrained stage inside a larger build grammar: primitive, law, sequence, gates, output.</p>
-<p class="small">Its purpose is to reduce build drift by resolving ambiguity before execution and by refusing promotion when outputs fail explicit checks. It matters here not as a product announcement, but as applied proof: a test of whether the same structural preferences visible in the public research (legibility, bounded ownership, explicit rules, and redesign before repetition) can be made operational inside software construction itself.</p>
-<p class="small" style="margin-top:10px; color:var(--text-faint);">The Grammar Kernel (primitive → law → sequence → gates → output) is the structural spine the build runs on. This build is the live proving ground for the manufacturing layer described in Paper 05. It operationalises the claim that quality is set upstream before execution begins.</p>
-</div>
-</div>
-</div>
-</section>
 <div class="section-divider"><span class="section-divider-label">the offer</span></div>
 <section aria-label="The offer" class="card" style="border-color:rgba(90,176,255,0.28); border-top:3px solid rgba(90,176,255,0.7); background:linear-gradient(135deg,rgba(90,176,255,0.07) 0%,rgba(90,176,255,0.02) 45%,rgba(255,255,255,0.006) 100%); box-shadow:0 0 0 1px rgba(90,176,255,0.06),0 24px 64px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.06);">
 <div class="offer-grid-inner jf-mobile-stack" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:0; overflow:hidden;">
@@ -1125,7 +1073,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <div style="padding:36px 32px 36px 36px; border-right:1px solid rgba(90,176,255,0.12);">
 <span style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--label-blue); display:block; margin-bottom:14px;">The offer</span>
 <h2 style="margin:0 0 14px; font-size:clamp(1.5rem,1.2rem+1vw,2rem); font-weight:700; color:#fff; letter-spacing:-0.04em; line-height:1.1;">The public offer is the written artifact system.</h2>
-<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page (the public papers, the core models, the books, and the builds) is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
+<p style="margin:0 0 16px; font-size:14px; color:var(--text-dim); line-height:1.72;">The material on this page (the public papers, the core models and the books) is the intellectual infrastructure behind that offer. It exists to make the public logic behind the artifact system legible.</p>
 <p style="margin:0 0 22px; font-size:13.5px; color:var(--text-faint); line-height:1.72; font-style:italic;">The research defines the laws. The Method defines the diagnostic sequence. The Proofs show the laws applied to bounded systems. The Services page defines how the artifact system is commissioned.</p>
 <div style="display:flex; gap:8px; flex-wrap:wrap;">
 <a class="btn btn-primary" data-jf-brief="1" href="#jfBriefOverlay">SEND FIVE-LINE BRIEF</a>
@@ -1243,7 +1191,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <button aria-label="Close contact form" class="jf-contact-close" data-jf-close="" type="button">×</button>
 </div>
 <div class="jf-contact-scroll" id="jfContactFormWrap">
-<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it.</p>
+<p class="jf-contact-intro">Send the message here without opening a mail app. The subject is pre-filled from the link you clicked, but you can edit it. Keep it short, and leave out names, patient details and confidential records.</p>
 <p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong></p>
 <form action="https://api.web3forms.com/submit" id="jfContactForm" method="POST">
 <input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
@@ -1269,7 +1217,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <button aria-label="Close Five-Line Brief" class="jf-contact-close" data-jf-close="" type="button">×</button>
 </div>
 <div class="jf-contact-scroll" id="jfBriefFormWrap">
-<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix.</p>
+<p class="jf-contact-intro">This is the fit screen for recurring failure. Send the structural signal, not the proposed fix. Keep it short, and leave out names, patient details and confidential records.</p>
 <p class="jf-contact-fallback">Prefer your own inbox? Copy <strong>hello@jamieforrester.com</strong> and use the subject “Five-Line Brief”.</p>
 <form action="https://api.web3forms.com/submit" id="jfBriefForm" method="POST">
 <input name="access_key" type="hidden" value="3425d8b4-226c-4d09-82ae-5a37a4e126a2"/>
@@ -1281,7 +1229,7 @@ header h1{margin:0;font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);font-weight:600
 <label class="jf-contact-field"><span class="jf-contact-label">Name</span><input autocomplete="name" class="jf-contact-input" id="jfBriefName" name="name" required="" type="text"/></label>
 <label class="jf-contact-field"><span class="jf-contact-label">Email</span><input autocomplete="email" class="jf-contact-input" name="email" required="" type="email"/></label>
 <label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">Organisation <span>(optional)</span></span><input autocomplete="organization" class="jf-contact-input" name="organisation" type="text"/></label>
-<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation</span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" required="" rows="2" style="min-height:76px"></textarea></label>
+<label class="jf-contact-field jf-contact-field--full"><span class="jf-contact-label">System or situation <span>(optional)</span></span><textarea class="jf-contact-textarea" id="jfBriefContext" name="System or situation" rows="2" style="min-height:76px"></textarea></label>
 </div>
 <div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">01</span>What keeps going wrong?</span><textarea class="jf-contact-textarea" id="jfBrief1" name="01 - What keeps going wrong?" required="" rows="2" style="min-height:74px"></textarea></label></div>
 <div class="jf-brief-question"><label class="jf-contact-field"><span class="jf-contact-label"><span class="jf-brief-num">02</span>What is it costing?</span><textarea class="jf-contact-textarea" id="jfBrief2" name="02 - What is it costing?" required="" rows="2" style="min-height:74px"></textarea></label></div>
